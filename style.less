@@ -1,0 +1,796 @@
+/*
+Theme Name: SiteOrigin Starter
+Author: SiteOrigin
+Author URI: http://siteorigin.com/
+Description: Starter theme
+Version: trunk
+License: GNU General Public License 2.0
+License URI: license.txt
+Tags: flexible-width, custom-background, custom-menu, featured-images, theme-options, threaded-comments, translation-ready
+
+spritemapper.sprite_dirs = images/sprites
+spritemapper.output_css = style.sprites.css
+*/
+
+@import "less/mixins";
+@import "less/reset";
+
+/* =Global
+----------------------------------------------- */
+
+/* Consistent fonts across all elements */
+
+body,
+button,
+input,
+select,
+textarea {
+	color: #333;
+	font-family: "Helvetica Neue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	line-height: 1.5;
+	font-size: 15px;
+	word-wrap: break-word;
+}
+
+/* Links */
+
+a {
+	color: royalblue;
+
+	&:visited {
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+	}
+}
+
+/* Headings */
+
+h1,h2,h3,h4,h5,h6 {
+	clear: both;
+}
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+/* Text elements */
+
+p {
+	margin-bottom: 1.5em;
+}
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+ul {
+	list-style: disc;
+}
+ol {
+	list-style: decimal;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin: 0 1.5em 1.5em;
+}
+b,
+strong {
+	font-weight: bold;
+}
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+blockquote {
+	margin: 0 1.5em;
+}
+address {
+	margin: 0 0 1.5em;
+}
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	padding: 1.6em;
+	overflow: auto;
+	max-width: 100%;
+}
+code,
+kbd,
+tt,
+var {
+	font-family: "Courier New", Courier, mono;
+}
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+sup,
+sub {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	bottom: 1ex;
+}
+sub {
+	top: .5ex;
+}
+small {
+	font-size: 75%;
+}
+big {
+	font-size: 125%;
+}
+figure {
+	margin: 0;
+}
+table {
+	margin: 0 0 1.5em 0;
+	width: 100%;
+}
+th {
+	font-weight: bold;
+}
+button,
+input,
+select,
+textarea {
+/* Corrects font size not being inherited in all browsers */
+	font-size: 100%;
+
+/* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+	margin: 0;
+
+/* Improves appearance and consistency in all browsers */
+	vertical-align: baseline;
+	*vertical-align: middle;
+	.box-sizing(border-box);
+
+}
+button,
+input {
+/* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
+	line-height: normal;
+/* Corrects inner spacing displayed oddly in IE6/7 */
+	*overflow: visible;
+
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	.bordered(#ccc, #ccc, #bbb, #ccc);
+	.rounded(3px);
+
+	background: #e6e6e6;
+	.box-shadow(~'inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05)');
+	color: rgba(0, 0, 0, 0.8);
+
+/* Improves usability and consistency of cursor style between image-type 'input' and others */
+	cursor: pointer;
+
+/* Corrects inability to style clickable 'input' types in iOS */
+	-webkit-appearance: button;
+
+	font-size: 0.75em;
+	line-height: 1;
+	padding: 0.75em 1.5em;
+
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+button:hover,
+html input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	.bordered(#ccc, #bbb, #aaa, #bbb);
+	.box-shadow(~'inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02)');
+}
+button:focus,
+html input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+html input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+	.bordered(#aaa, #bbb, #bbb, #bbb);
+	.box-shadow(~'inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15)');
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	.box-sizing(border-box);
+	padding: 0;
+	/* Addresses excess padding in IE8/9 */
+}
+
+input[type="search"] {
+	/* Addresses appearance set to searchfield in S5, Chrome */
+	-webkit-appearance: textfield;
+
+	/* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
+	.box-sizing(border-box);
+}
+
+input[type="search"]::-webkit-search-decoration {
+	/* Corrects inner padding displayed oddly in S5, Chrome on OSX */
+	-webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	/* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+	border: 0;
+	padding: 0;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+textarea {
+	.box-sizing(border-box);
+	color: #666;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+textarea:focus {
+	color: #111;
+}
+
+input[type=text],
+input[type=email],
+input[type=password] {
+	padding: 3px;
+}
+
+textarea {
+	/* Removes default vertical scrollbar in IE6/7/8/9 */
+	overflow: auto;
+	/* Improves readability and alignment in all browsers */
+	vertical-align: top;
+}
+
+/* Alignment */
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+/* Text meant only for screen readers */
+
+.assistive-text {
+	clip: rect(1px 1px 1px 1px);
+/* IE6, IE7 */
+
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+
+.page-links{
+	clear:both;
+}
+
+.site-title a{
+	color: inherit;
+}
+
+/* =General Layout
+----------------------------------------------- */
+
+/* Positioning, flow and layout of the theme */
+
+
+
+/* =Responsive Layout
+----------------------------------------------- */
+
+/* We consider 680px to be mobile resolution */
+@media (max-width:680px) {
+	body.responsive {
+		#footer-widgets .widget {
+			display: block;
+			margin-bottom: 25px;
+			float:none;
+		}
+
+		#footer-widgets .widget:last-child{
+			margin-bottom:0;
+		}
+	}
+}
+
+/* =Menu
+----------------------------------------------- */
+
+.main-navigation {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+	}
+
+	li {
+		display:inline-block;
+		position: relative;
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+	}
+
+	ul {
+	/* Second level menu items */
+
+		ul {
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			z-index: 99999;
+		}
+
+		ul ul {
+			left: 100%;
+			top: 0;
+		}
+
+		ul a {
+			width: 160px;
+		}
+
+		li:hover > ul {
+			display: block;
+		}
+	}
+}
+
+/* =Archives
+----------------------------------------------- */
+
+article.sticky{
+/* Style a sticky post */
+}
+
+/* =Entry Content
+----------------------------------------------- */
+
+/* Styles for actual content */
+
+.entry-header {
+	.clearfix();
+}
+
+.entry-content{
+	.clearfix();
+
+	line-height: 1.6em;
+
+	a{
+
+	}
+
+	p,
+	& > ul,
+	& > li,
+	& > dl{
+		margin: 25px 0;
+		margin: 1em 0;
+	}
+
+	& > *:last-child{
+		margin-bottom: 0;
+	}
+
+	& > *:first-child{
+		margin-top: 0;
+	}
+
+	blockquote{
+		font-family: Georgia, "Times New Roman", Times, serif;
+		font-style: italic;
+		margin-left: 1.5em;
+
+		cite{
+			font-family: "Droid Sans", sans-serif;
+			font-weight: bold;
+		}
+
+		cite a{
+		}
+	}
+
+	pre{
+		background: white;
+		font-family: "Courier New", Courier, mono;
+		border: 1px solid #E0E0E0;
+		padding: 10px;
+
+		box-shadow: 0 1px 2px rgba(0,0,0,0.09);
+
+		overflow-x: auto;
+	}
+
+	code{
+		font-family: "Courier New", Courier, mono;
+	}
+
+	sup,
+	sub{
+		height: 0;
+		line-height: 1;
+		vertical-align: baseline;
+		position: relative;
+	}
+
+	sup {
+		bottom: 1ex;
+	}
+
+	sub {
+		top: .5ex;
+	}
+
+	.gallery-caption{
+
+	}
+
+	.gallery{
+		margin: 25px 0 !important;
+
+		.gallery-item{
+			margin-bottom: 0 !important;
+			margin-top: 0 !important;
+		}
+
+		.gallery-icon{
+			line-height: 0;
+			margin-bottom: 0 !important;
+		}
+
+		img{
+			border: none !important;
+		}
+
+		.gallery-caption{
+			margin: 10px !important;
+			padding-left: 0 !important;
+		}
+	}
+
+	table{
+		width: 100%;
+	}
+
+	img{
+		max-width: 100%;
+		height: auto;
+	}
+
+/* WordPress Images */
+
+	.wp-caption{
+		max-width: 100%;
+		margin: 5px 0 30px 0;
+		border: 1px solid #E0E0E0;
+		padding: 8px;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.09);
+
+		.box-sizing(border-box);
+
+		text-align: center;
+	}
+
+	.wp-caption:first-child{
+		margin-top: 25px;
+	}
+
+	.wp-caption p.wp-caption-text{
+		margin: 0;
+		font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	}
+
+	.alignleft {
+	/* This is also styled on a global level */
+		margin: 0 0 1.5em 1.5em;
+	}
+
+	.alignright {
+	/* This is also styled on a global level */
+		margin: 0 1.5em 1.5em 0;
+	}
+
+	img.wp-smiley {
+		border: none;
+		margin-bottom: 0;
+		margin-top: 0;
+		padding: 0;
+	}
+
+	ul{
+		list-style-type: square;
+	}
+
+	ol{
+		list-style-type: decimal;
+	}
+
+	ol ol{
+		list-style-type: upper-alpha;
+	}
+
+	ol ol ol{
+		list-style-type: lower-roman;
+	}
+
+	ul li,
+	ol li{
+		margin-left: 1.5em;
+	}
+
+	dl dt{
+		margin-bottom: 5px;
+		font-weight: bold;
+	}
+
+	dl dd{
+		margin-bottom: 10px;
+		padding-left: 20px;
+	}
+
+	h1,h2,h3,h4,h5,h6{
+		margin: 1em 0;
+	}
+
+	h1 {
+		font-size: 1.8em;
+	}
+
+	h2 {
+		font-size: 1.65em;
+	}
+
+	h3 {
+		font-size: 1.5em;
+	}
+
+	h4 {
+		font-size: 1.35em;
+	}
+
+	h5 {
+		font-size: 1.2em;
+	}
+
+	h6 {
+		font-size: 0.9em;
+	}
+
+	embed,
+	iframe,
+	object {
+		max-width: 100%;
+	}
+}
+
+/* =Navigation
+----------------------------------------------- */
+
+.site-content {
+
+	.site-navigation {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	.nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+
+}
+
+/* =Comments
+----------------------------------------------- */
+
+#comments-title, #reply-title {
+	font-size: 20px;
+	margin-bottom: 20px;
+	font-weight: 500;
+	line-height: 1em;
+}
+
+#comments {
+
+	.commentlist {
+		margin: 0 0 40px 0;
+		list-style: none;
+
+		.children {
+			list-style: none;
+			margin-left: 95px;
+		}
+
+		article {
+			padding: 20px;
+			margin-bottom: 30px;
+			background: #F9F9F9;
+
+			.avatar {
+				float: left;
+			}
+
+			.comment-author, .awaiting-moderation, .comment-meta, .comment-content {
+				margin-left: 75px;
+			}
+
+			.comment-author{
+				color: #666;
+				font-size: 14px;
+				font-weight: bold;
+				line-height: 1em;
+				margin-bottom: 5px;
+
+				a{
+					color: inherit;
+					text-decoration: none;
+				}
+
+				cite {
+					font-style: normal;
+				}
+			}
+
+			.comment-meta {
+				font-size: 13px;
+				color: #999;
+				line-height: 1em;
+				margin-bottom: 10px;
+
+				a{
+					color: inherit;
+					text-decoration: none;
+				}
+
+				.support {
+					display: inline-block;
+					margin-left: 15px;
+				}
+			}
+
+			.awaiting-moderation {
+				display: block;
+				margin-bottom: 10px;
+			}
+		}
+
+		.bypostauthor{
+			/* Change the comment by the post author */
+		}
+	}
+}
+
+#commentform{
+	margin-bottom: 30px;
+
+	label {
+		margin-top: 2px;
+		display:block;
+		float: left;
+		width: 25%;
+	}
+
+	input, textarea {
+		float: left;
+		width: 75%;
+		padding: 10px;
+		font-size: 13px;
+	}
+
+	textarea {
+		padding: 10px;
+	}
+
+	input {
+		padding: 7px 10px;
+	}
+
+
+	p {
+		.clearfix();
+		margin-bottom: 20px
+	}
+
+	p.form-submit {
+		margin-bottom: 0;
+	}
+
+	#submit {
+		padding: 10px 30px;
+		width: auto;
+	}
+
+	.form-allowed-tags, .form-allowed-tags code, .comment-notes {
+		font-size: 0.8em;
+		color: #999;
+	}
+
+	.logged-in-as{
+		font-size: 0.8em;
+		color: #999;
+		margin-bottom: 10px;
+		text-align: right;
+	}
+
+	.required {
+		color: #A40802;
+	}
+}
+
+/* =Sidebars and Asides
+----------------------------------------------- */
+
+#footer-widgets {
+	.clearfix();
+
+	margin: 0 -15px;
+	max-width: 100%;
+
+	aside.widget {
+		.box-sizing(border-box);
+		float: right;
+		padding: 0 15px;
+		margin-bottom:0;
+	}
+}
+
+@import "less/slider";
+@import "less/widgets";

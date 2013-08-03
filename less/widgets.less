@@ -1,0 +1,172 @@
+/* =Widgets
+----------------------------------------------- */
+
+.widget {
+	margin: 0 0 1.5em;
+}
+/* Make sure select elements fit in widgets */
+.widget select {
+	max-width: 100%;
+}
+/* Search widget */
+#searchsubmit {
+	display: none;
+}
+
+.textwidget p:first-child{
+	margin-top:0;
+}
+
+.textwidget p:last-child{
+	margin-bottom:0;
+}
+
+/* =General Widget Styling
+----------------------------------------------- */
+
+.widget {
+	
+	img,
+	embed,
+	iframe,
+	object {
+		max-width: 100%;
+	}
+
+	img {
+		height: auto;
+	}
+	
+	a.button {
+		display:inline-block;
+		padding: 9px 26px;
+
+		.rounded(4px);
+
+		font-size: 0.875em;
+		text-decoration:none;
+		color: white;
+		text-shadow: 0 1px 0 rgba(0,0,0,05);
+
+		.box-shadow(~"inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1)");
+		.button-style(#107fc9);
+	}
+
+	.button-container.align-center{
+		text-align: center;
+	}
+
+	.button-container.align-left{
+		text-align: left;
+	}
+
+	.button-container.align-right{
+		text-align: right;
+	}
+
+	.button-container.align-full .button{
+		display: block;
+		text-align: center;
+	}
+}
+
+.widget_call-to-action {
+	position: relative;
+	padding: 25px 30px 23px 30px;
+
+	h2.cta-headline{
+		margin:0 0 0.35em 0;
+		color: #333;
+	}
+
+	p.cta-sub-text{
+		margin:0;
+		color: #666;
+	}
+
+	a.button {
+		position: absolute;
+		top: 50%;
+		right: 30px;
+		margin-top: -20px; /* This should be half the height of the button */
+	}
+}
+
+/* Responsive styles for the call to action widget */
+@media (max-width:680px) {
+	body.responsive .widget_call-to-action {
+		a.button {
+			position: static;
+			margin-top: 25px;
+			display:block;
+			text-align:center;
+		}
+	}
+}
+
+.widget_siteorigin-list {
+	ul {
+
+		li {
+			margin-bottom: 0.4em;
+		}
+
+		li:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.widget_headline {
+
+	.widget-title{
+		margin-bottom: 0;
+		padding: 30px 0;
+		border: solid #E6E6E6;
+		border-width: 1px 0;
+
+		span {
+			display: block;
+			line-height: 1.3em;
+		}
+
+		.size-medium {
+			font-size: 130%;
+		}
+
+		.size-large {
+			font-size: 160%;
+		}
+
+		.size-extra-large {
+			font-size: 190%;
+		}
+		
+		.align-left{
+			text-align: left;
+		}
+
+		.align-center{
+			text-align: center;
+		}
+
+		.align-right{
+			text-align: right;
+		}
+	}
+	
+}
+
+.widget_icon-text {
+	font-size: 0.95em;
+	text-align:center;
+
+	.feature-icon {
+		display: inline-block;
+		line-height: 0;
+	}
+
+	.widget-title {
+		margin: 15px 0;
+	}
+}
