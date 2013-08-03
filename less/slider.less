@@ -1,0 +1,134 @@
+/* =Sliders
+----------------------------------------------- */
+
+/* Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {
+	outline: none;
+}
+
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* Necessary Styles */
+
+.flexslider {
+	margin: 0;
+	padding: 0;
+	zoom: 1;
+	position: relative;
+
+	.slides {
+		list-style:none;
+		zoom: 1;
+		.clearfix();
+
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+			.box-shadow(0 2px 2px rgba(0,0,0,0.15));
+		}
+
+		.flex-caption {
+			.box-sizing(border-box);
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			padding: 20px;
+			text-decoration: none;
+			background: rgba(0,0,0,0.5);
+			color: #FFF;
+			text-align: center;
+
+			h3 {
+				margin: 0;
+				line-height: 1.25em;
+			}
+		}
+	}
+
+	.slides > li {
+		margin-left: 0;
+		display: none;
+		-webkit-backface-visibility: hidden;
+	}
+
+	.flex-control-nav {
+		list-style:none;
+		position: absolute;
+		bottom: 15px;
+		left: 0;
+		width: 100%;
+		text-align: center;
+
+		li {
+			margin:0;
+			padding:0;
+			display: inline-block;
+			text-indent: -99999px;
+			width: 10px;
+			height: 10px;
+			margin-right: 2px;
+		}
+
+		li a{
+			display: block;
+			width: 10px;
+			height: 10px;
+			cursor:pointer;
+			background: url(images/sprites/slide-indicator-inactive.png);
+
+			&.flex-active {
+				background: url(images/sprites/slide-indicator-active.png);
+			}
+		}
+	}
+
+	.flex-direction-nav {
+		list-style:none;
+
+		li {
+			margin:0;
+			padding:0;
+
+			a {
+				display: block;
+				position: absolute;
+				top: 50%;
+				text-indent: -99999px;
+				width: 45px;
+				height: 45px;
+				margin-top: -22px;
+
+				opacity: 0;
+
+				.transition(0.2s, opacity, ease);
+			}
+
+			a.flex-prev{
+				left: 0;
+				background: url(images/sprites/gallery-prev.png);
+			}
+
+			a.flex-next{
+				right: 0;
+				background: url(images/sprites/gallery-next.png);
+			}
+		}
+	}
+
+	&:hover {
+		.flex-direction-nav li a {
+			opacity: 1;
+		}
+	}
+}
