@@ -4,8 +4,8 @@
  *
  * Contains the closing of the id=main div and all content after
  *
- * @package sostarter
- * @since sostarter 1.0
+ * @package vantage
+ * @since vantage 1.0
  * @license GPL 2.0
  */
 ?>
@@ -17,11 +17,16 @@
 			<?php dynamic_sidebar( 'sidebar-footer' ) ?>
 		</div><!-- #footer-widgets -->
 		<div class="site-info">
-			<?php do_action( 'sostarter_credits' ); ?>
-			<?php echo apply_filters( 'sostarter_credits_siteorigin', sprintf( __( 'Designed by %1$s.', 'sostarter' ), '<a href="http://siteorigin.com/" rel="designer">SiteOrigin</a>' ) ); ?>
+			<?php do_action( 'vantage_credits' ); ?>
+			<?php echo apply_filters( 'vantage_credits_siteorigin', sprintf( __( 'Designed by %1$s.', 'vantage' ), '<a href="http://siteorigin.com/" rel="designer">SiteOrigin</a>' ) ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon .site-footer -->
-</div><!-- #page .hfeed .site -->
+
+	<div id="theme-attribution">
+		A <a href="http://siteorigin.com">SiteOrigin</a> Theme
+	</div>
+</div><!-- .content-wrap -->
+</div><!-- .page-wrap -->
 
 <?php wp_footer(); ?>
 

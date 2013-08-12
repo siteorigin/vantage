@@ -2,6 +2,6 @@
 /**
  * Setup customizer controls.
  *
- * @package sostarter
+ * @package vantage
  * @since 1.0 
  */

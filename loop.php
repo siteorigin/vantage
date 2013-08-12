@@ -2,8 +2,8 @@
 /**
  * Just displays a post loop. Intended to be included in child themes using get_template_part('loop'). Also works with SiteOrigin page builder loop widget.
  * 
- * @package sostarter
- * @since sostarter 1.0
+ * @package vantage
+ * @since vantage 1.0
  * @license GPL 2.0
  */
 ?>
@@ -17,7 +17,7 @@
 
 	<?php endwhile; ?>
 
-	<?php sostarter_content_nav( 'nav-below' ); ?>
+	<?php vantage_content_nav( 'nav-below' ); ?>
 
 <?php else : ?>
 
