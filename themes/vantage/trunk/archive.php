@@ -4,8 +4,8 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package sostarter
- * @since sostarter 1.0
+ * @package vantage
+ * @since vantage 1.0
  * @license GPL 2.0
  */
 
@@ -17,20 +17,20 @@ get_header(); ?>
 	<?php if ( have_posts() ) : ?>
 
 		<header class="page-header">
-			<h1 class="page-title"><?php echo sostarter_get_archive_title() ?></h1>
+			<h1 class="page-title"><?php echo vantage_get_archive_title() ?></h1>
 			<?php
 				if ( is_category() ) {
 					// show an optional category description
 					$category_description = category_description();
 					if ( ! empty( $category_description ) )
-						echo apply_filters( 'sostarter_category_archive_meta', '<div class="taxonomy-description">' . $category_description . '</div>' );
+						echo apply_filters( 'vantage_category_archive_meta', '<div class="taxonomy-description">' . $category_description . '</div>' );
 
 				}
 				elseif ( is_tag() ) {
 					// show an optional tag description
 					$tag_description = tag_description();
 					if ( ! empty( $tag_description ) )
-						echo apply_filters( 'sostarter_tag_archive_meta', '<div class="taxonomy-description">' . $tag_description . '</div>' );
+						echo apply_filters( 'vantage_tag_archive_meta', '<div class="taxonomy-description">' . $tag_description . '</div>' );
 				}
 			?>
 		</header><!-- .page-header -->
@@ -42,7 +42,7 @@ get_header(); ?>
 				
 		<?php endwhile; ?>
 
-		<?php sostarter_content_nav( 'nav-below' ); ?>
+		<?php vantage_content_nav( 'nav-below' ); ?>
 
 	<?php else : ?>
 

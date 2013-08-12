@@ -2,8 +2,8 @@
 /**
  * The Sidebar containing the main widget areas.
  *
- * @package sostarter
- * @since sostarter 1.0
+ * @package vantage
+ * @since vantage 1.0
  * @license GPL 2.0
  */
 ?>
@@ -17,14 +17,14 @@
 		</aside>
 
 		<aside id="archives" class="widget">
-			<h1 class="widget-title"><?php _e( 'Archives', 'sostarter' ); ?></h1>
+			<h1 class="widget-title"><?php _e( 'Archives', 'vantage' ); ?></h1>
 			<ul>
 				<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 			</ul>
 		</aside>
 
 		<aside id="meta" class="widget">
-			<h1 class="widget-title"><?php _e( 'Meta', 'sostarter' ); ?></h1>
+			<h1 class="widget-title"><?php _e( 'Meta', 'vantage' ); ?></h1>
 			<ul>
 				<?php wp_register(); ?>
 				<li><?php wp_loginout(); ?></li>

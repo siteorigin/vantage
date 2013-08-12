@@ -4,8 +4,8 @@
  *
  * Displays all of the <head> section and everything up till <div id="main">
  *
- * @package sostarter
- * @since sostarter 1.0
+ * @package vantage
+ * @since vantage 1.0
  * @license GPL 2.0
  */
 ?><!DOCTYPE html>
@@ -21,26 +21,71 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="hfeed site">
+
+<div class="page-wrap">
+<div class="content-wrap site">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
 		<hgroup>
 			<h1 class="site-title">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-					<?php sostarter_display_logo(); ?>
+					<?php vantage_display_logo(); ?>
 				</a>
 			</h1>
-			<?php if(siteorigin_setting('general_site_description')) : ?>
-				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-			<?php endif ?>
+
+			<div class="support-text">
+				<?php do_action('vantage_support_text'); ?>
+			</div>
 		</hgroup>
 
 		<nav role="navigation" class="site-navigation main-navigation primary">
-			<h1 class="assistive-text"><?php _e( 'Menu', 'sostarter' ); ?></h1>
-			<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'sostarter' ); ?>"><?php _e( 'Skip to content', 'sostarter' ); ?></a></div>
+			<h1 class="assistive-text"><?php _e( 'Menu', 'vantage' ); ?></h1>
+			<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'vantage' ); ?>"><?php _e( 'Skip to content', 'vantage' ); ?></a></div>
+
+			<div id="search-icon">
+				<form method="get" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+					<input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" />
+				</form>
+			</div>
 
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- .site-navigation .main-navigation -->
 	</header><!-- #masthead .site-header -->
 
+	<div id="slider">
+		<?php get_template_part('slider/demo') ?>
+	</div>
+
 	<div id="main" class="site-main">
+
+		<div id="home-page-features">
+			<?php
+			the_widget(
+				'Vantage_CircleIcon_Widget',
+				array(
+					'title' => 'This is Foo',
+					'text' => 'This is some text that describes a feature. You can do what ever you want with it. Go ahead and be awesome.',
+					'image' => get_template_directory_uri().'/images/demo/flight.jpg',
+					'more_url' => '#',
+				)
+			);
+			the_widget(
+				'Vantage_CircleIcon_Widget',
+				array(
+					'title' => 'A Focus On Green',
+					'text' => 'This is some text that describes a feature. You can do what ever you want with it. Go ahead and be awesome.',
+					'image' => get_template_directory_uri().'/images/demo/leaves.jpg',
+					'more_url' => '#',
+				)
+			);
+			the_widget(
+				'Vantage_CircleIcon_Widget',
+				array(
+					'title' => 'This is Foo',
+					'text' => 'This is some text that describes a feature. You can do what ever you want with it. Go ahead and be awesome.',
+					'image' => get_template_directory_uri().'/images/demo/water.jpg',
+					'more_url' => '#',
+				)
+			);
+			?>
+		</div>

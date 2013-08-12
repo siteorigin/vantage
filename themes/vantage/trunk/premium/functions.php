@@ -12,16 +12,16 @@ include get_template_directory() . '/premium/extras/customizer/customizer.php';
 include get_template_directory() . '/premium/inc/settings.php';
 include get_template_directory() . '/premium/inc/customizer.php';
 
-function sostarter_premium_setup(){
+function vantage_premium_setup(){
 	if(siteorigin_setting('general_ajax_comments')) siteorigin_ajax_comments_activate();
 	if(siteorigin_setting('layout_responsive_menu')) add_theme_support('siteorigin-mobilenav');
 }
-add_action('after_setup_theme', 'sostarter_premium_setup', 15);
+add_action('after_setup_theme', 'vantage_premium_setup', 15);
 
-function sostarter_premium_remove_credits(){
+function vantage_premium_remove_credits(){
 	return '';
 }
-add_filter('sostarter_credits_siteorigin', 'sostarter_premium_remove_credits');
+add_filter('vantage_credits_siteorigin', 'vantage_premium_remove_credits');
 
 /**
  * This overwrites the show on front setting when we're displaying the blog archive page.
@@ -29,24 +29,24 @@ add_filter('sostarter_credits_siteorigin', 'sostarter_premium_remove_credits');
  * @param $r
  * @return bool
  */
-function sostarter_filter_show_on_front($r){
+function vantage_filter_show_on_front($r){
 	/**
 	 * @var WP_Query
 	 */
-	global $sostarter_is_blog_archive;
-	if(!empty($sostarter_is_blog_archive)) {
+	global $vantage_is_blog_archive;
+	if(!empty($vantage_is_blog_archive)) {
 		return false;
 	}
 	else return $r;
 }
-add_filter('option_show_on_front', 'sostarter_filter_show_on_front');
+add_filter('option_show_on_front', 'vantage_filter_show_on_front');
 
 /**
  * Sets when we're displaying the blog archive page.
  *
  * @param $new
  */
-function sostarter_set_is_blog_archive($new) {
-	global $sostarter_is_blog_archive;
-	$sostarter_is_blog_archive = $new;
+function vantage_set_is_blog_archive($new) {
+	global $vantage_is_blog_archive;
+	$vantage_is_blog_archive = $new;
 }
