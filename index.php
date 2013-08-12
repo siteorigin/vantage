@@ -8,8 +8,8 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package sostarter
- * @since sostarter 1.0
+ * @package vantage
+ * @since vantage 1.0
  * @license GPL 2.0
  */
 
@@ -27,7 +27,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php sostarter_content_nav( 'nav-below' ); ?>
+			<?php vantage_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
 

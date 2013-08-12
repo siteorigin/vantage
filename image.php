@@ -2,8 +2,8 @@
 /**
  * The template for displaying image attachments.
  *
- * @package sostarter
- * @since sostarter 1.0
+ * @package vantage
+ * @since vantage 1.0
  * @license GPL 2.0
  */
 
@@ -20,13 +20,13 @@ get_header();
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 
 				<div class="entry-meta">
-					<?php echo sostarter_get_post_meta() ?>
-					<?php edit_post_link( __( 'Edit', 'sostarter' ), '<span class="sep"> | </span> <span class="edit-link">', '</span>' ); ?>
+					<?php echo vantage_get_post_meta() ?>
+					<?php edit_post_link( __( 'Edit', 'vantage' ), '<span class="sep"> | </span> <span class="edit-link">', '</span>' ); ?>
 				</div><!-- .entry-meta -->
 
 				<nav id="image-navigation" class="site-navigation">
-					<span class="previous-image"><?php previous_image_link( false, __( '&larr; Previous', 'sostarter' ) ); ?></span>
-					<span class="next-image"><?php next_image_link( false, __( 'Next &rarr;', 'sostarter' ) ); ?></span>
+					<span class="previous-image"><?php previous_image_link( false, __( '&larr; Previous', 'vantage' ) ); ?></span>
+					<span class="next-image"><?php next_image_link( false, __( 'Next &rarr;', 'vantage' ) ); ?></span>
 				</nav><!-- #image-navigation -->
 			</header><!-- .entry-header -->
 
@@ -34,11 +34,11 @@ get_header();
 
 				<div class="entry-attachment">
 					<div class="attachment">
-						<?php $next_attachment_url = sostarter_next_attachment_url(); ?>
+						<?php $next_attachment_url = vantage_next_attachment_url(); ?>
 
 						<a href="<?php echo $next_attachment_url; ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment">
 							<?php
-							$attachment_size = apply_filters( 'sostarter_attachment_size', array( 1200, 1200 ) ); // Filterable image size.
+							$attachment_size = apply_filters( 'vantage_attachment_size', array( 1200, 1200 ) ); // Filterable image size.
 							echo wp_get_attachment_image( $post->ID, $attachment_size );
 							?>
 						</a>
@@ -52,12 +52,12 @@ get_header();
 				</div><!-- .entry-attachment -->
 
 				<?php the_content(); ?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'sostarter' ), 'after' => '</div>' ) ); ?>
+				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 
 			</div><!-- .entry-content -->
 
 			<footer class="entry-meta">
-				<?php edit_post_link( __( 'Edit', 'sostarter' ), ' <span class="edit-link">', '</span>' ); ?>
+				<?php edit_post_link( __( 'Edit', 'vantage' ), ' <span class="edit-link">', '</span>' ); ?>
 			</footer><!-- .entry-meta -->
 		</article><!-- #post-<?php the_ID(); ?> -->
 

@@ -2,8 +2,8 @@
 /**
  * This template displays full width pages.
  *
- * @package sostarter
- * @since sostarter 1.0
+ * @package vantage
+ * @since vantage 1.0
  * @license GPL 2.0
  * 
  * Template Name: Full Width Page

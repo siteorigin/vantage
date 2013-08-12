@@ -2,8 +2,8 @@
 /**
  * The template for displaying Search Results pages.
  *
- * @package sostarter
- * @since sostarter 1.0
+ * @package vantage
+ * @since vantage 1.0
  * @license GPL 2.0
  */
 
@@ -15,7 +15,7 @@ get_header(); ?>
 	<?php if ( have_posts() ) : ?>
 
 		<header class="page-header">
-			<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'sostarter' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'vantage' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 		</header><!-- .page-header -->
 
 		<?php /* Start the Loop */ ?>
@@ -25,7 +25,7 @@ get_header(); ?>
 
 		<?php endwhile; ?>
 
-		<?php sostarter_content_nav( 'nav-below' ); ?>
+		<?php vantage_content_nav( 'nav-below' ); ?>
 
 	<?php else : ?>
 
