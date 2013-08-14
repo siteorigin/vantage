@@ -211,41 +211,225 @@
 }
 
 .widget_circleicon-widget {
-	text-align: center;
 
-	.circle-icon {
-		display: inline-block;
-		width: 150px;
-		height: 150px;
-		.rounded(150px);
-		background-size: cover;
-		.box-shadow(~"0 1px 2px rgba(0,0,0,0.175)");
-	}
-
-	.circle-icon-wrapper {
-		margin-bottom: 15px;
-	}
-
-	h4 {
-		color: #3b3b3b;
-		font-weight: bold;
-		font-size: 16px;
-		margin-bottom: 10px;
-	}
-
-	p.text {
-		margin: 0;
-		color: #5e5e5e;
-		font-size: 13px;
-		margin-bottom: 10px;
-	}
-
-	a.more-button {
-		display: block;
+	.circle-icon-box {
 		text-align: center;
-		text-decoration: none;
-		color: #3b3b3b;
-		font-weight: bold;
-		font-size: 13px;
+		border: 1px solid #D0D0D0;
+		background: #F3F3F3;
+		padding: 55px 15px 15px 15px;
+		position: relative;
+		margin-top: 38px;
+		.box-shadow(~"0 2px 2px rgba(0,0,0,0.05)");
+
+		.circle-icon {
+			top: -38px;
+			left: 50%;
+			margin-left: -38px;
+			position: absolute;
+			background-color: #2f3033;
+			display: inline-block;
+			width: 70px;
+			height: 70px;
+			.rounded(100px);
+			background-position: center center;
+			background-repeat: no-repeat;
+			.transition(0.5s);
+			border: 6px solid white;
+		}
+
+		h4 {
+			color: #3b3b3b;
+			font-weight: bold;
+			font-size: 18px;
+			margin-bottom: 10px;
+			margin-top: 0;
+		}
+
+		p.text {
+			margin: 0;
+			color: #5e5e5e;
+			font-size: 13px;
+			margin-bottom: 10px;
+		}
+
+		a.more-button {
+			display: block;
+			text-decoration: none;
+			color: #3b3b3b;
+			font-weight: bold;
+			font-size: 13px;
+
+			i {
+				display: inline-block;
+				width: 5px;
+				height: 8px;
+				background: url(images/sprites/more-icon.png) no-repeat;
+				margin-left: 3px;
+			}
+		}
+
+		/* The different icon positions */
+		&.icon-position-top {
+			/* Everything is the same */
+		}
+
+		&.icon-position-bottom {
+			margin-top: 0;
+			margin-bottom: 38px;
+			padding: 20px 20px 50px 20px;
+
+			.circle-icon {
+				top: auto;
+				bottom: -38px;
+			}
+		}
+
+		&.icon-position-left {
+			text-align: left;
+			margin-top: 0;
+			margin-left: 38px;
+			padding: 20px 20px 20px 55px;
+
+			.circle-icon {
+				margin-left: 0;
+				top: auto;
+				left: -38px;
+				top: 50%;
+				margin-top: -38px;
+			}
+		}
+
+		&.icon-position-right {
+			text-align: left;
+			margin-top: 0;
+			margin-right: 38px;
+			padding: 20px 55px 20px 20px;
+
+			.circle-icon {
+				margin-left: 0;
+				top: auto;
+				left: auto;
+				right: -38px;
+				top: 50%;
+				margin-top: -38px;
+			}
+		}
+	}
+}
+
+.vantage-carousel-title {
+	font-size: 14px;
+	font-weight: bold;
+	color: #3b3b3b;
+	text-transform: uppercase;
+	line-height: 1em;
+
+	.vantage-carousel-title-text {
+		background: white;
+		display: inline-block;
+		padding-right: 15px;
+	}
+
+	a.next, a.previous {
+		display: block;
+		float: right;
+		height: 14px;
+		width: 14px;
+		overflow: hidden;
+		text-indent: -9999px;
+		background-position: center center;
+		background: #d4d4d4;
+		margin-left: 1px;
+	}
+
+	a.next {
+		background-image: url(images/sprites/carousel-right.png);
+	}
+
+	a.previous {
+		background-image: url(images/sprites/carousel-left.png);
+	}
+}
+
+.vantage-carousel-wrapper {
+	overflow-x: hidden;
+	overflow-y: hidden;
+
+	.vantage-carousel {
+		height: 200px;
+		margin: 0;
+		padding: 0;
+		.clearfix();
+		width: 6000px;
+
+		.transition(0.45s);
+
+		li.carousel-entry {
+			list-style: none;
+			margin-left: 0;
+			padding: 0;
+			display: block;
+			float: left;
+			margin-right: 15px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			.thumbnail {
+				line-height: 0;
+
+				a {
+					display: block;
+					width: 242px;
+					height: 162px;
+					background-size: 242px 162px;
+					background-position: center center;
+
+					&, span {
+						.transition(0.35s);
+					}
+
+					span {
+						display: block;
+						width: 100%;
+						height: 100%;
+						background: #3279BB;
+						opacity: 0;
+					}
+
+					&:hover {
+						background-size: 272px 182px;
+
+						span {
+							opacity: 0.5;
+						}
+					}
+				}
+
+			}
+
+			h3 {
+				font-size: 15px;
+				text-align: center;
+				font-weight: 500;
+				color: #474747;
+				margin: 10px 0 0 0;
+
+				a {
+					text-decoration: none;
+					color: inherit;
+				}
+			}
+		}
+
+		li.loading {
+			display: block;
+			width: 242px;
+			height: 162px;
+			float: left;
+			background: url(images/carousel-loader.gif) #F6F6F6 center center no-repeat;
+			margin: 0;
+		}
 	}
 }

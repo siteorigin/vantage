@@ -57,35 +57,3 @@
 	</div>
 
 	<div id="main" class="site-main">
-
-		<div id="home-page-features">
-			<?php
-			the_widget(
-				'Vantage_CircleIcon_Widget',
-				array(
-					'title' => 'This is Foo',
-					'text' => 'This is some text that describes a feature. You can do what ever you want with it. Go ahead and be awesome.',
-					'image' => get_template_directory_uri().'/images/demo/flight.jpg',
-					'more_url' => '#',
-				)
-			);
-			the_widget(
-				'Vantage_CircleIcon_Widget',
-				array(
-					'title' => 'A Focus On Green',
-					'text' => 'This is some text that describes a feature. You can do what ever you want with it. Go ahead and be awesome.',
-					'image' => get_template_directory_uri().'/images/demo/leaves.jpg',
-					'more_url' => '#',
-				)
-			);
-			the_widget(
-				'Vantage_CircleIcon_Widget',
-				array(
-					'title' => 'This is Foo',
-					'text' => 'This is some text that describes a feature. You can do what ever you want with it. Go ahead and be awesome.',
-					'image' => get_template_directory_uri().'/images/demo/water.jpg',
-					'more_url' => '#',
-				)
-			);
-			?>
-		</div>
