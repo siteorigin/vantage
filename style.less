@@ -377,6 +377,12 @@ header#masthead {
 	width: 720px;
 }
 
+/* Full Width Primary blocks */
+.siteorigin-panels-home #primary {
+	width: auto;
+	float: none;
+}
+
 #secondary {
 	float: right;
 	width: 250px;
@@ -1071,7 +1077,7 @@ article.post {
 #footer-widgets {
 	.clearfix();
 
-	margin: 0 -15px;
+	margin: 0 -5px;
 	max-width: 100%;
 
 	aside.widget {
@@ -1133,6 +1139,30 @@ article.post {
 		text-decoration: none;
 		font-weight: 500;
 	}
+}
+
+#scroll-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 48px;
+	height: 48px;
+	background: url(./images/sprites/to-top.png);
+
+	-ms-transform: scale(0, 0);
+	-webkit-transform: scale(0, 0);
+	transform: scale(0, 0);
+	opacity: 0;
+
+	.transition(0.2s);
+
+	&.displayed {
+		-ms-transform: scale(1, 1);
+		-webkit-transform: scale(1, 1);
+		transform: scale(1, 1);
+		opacity: 1 !important;
+	}
+
 }
 
 @import "less/slider";
