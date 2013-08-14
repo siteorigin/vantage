@@ -76,6 +76,7 @@ function vantage_setup() {
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 	
 	add_image_size('vantage-slide', 960, 480, true);
+	add_image_size('vantage-carousel', 272, 182, true);
 
 	if( !defined('SITEORIGIN_PANELS_VERSION') ){
 		// Only include panels lite if the panels plugin doesn't exist
@@ -207,7 +208,32 @@ function vantage_pagination($pages = '', $range = 2) {
 	}
 }
 
+/**
+ * Display some text in the text area.
+ */
 function vantage_top_text_area(){
 	echo 'This is some text';
 }
 add_action('vantage_support_text', 'vantage_top_text_area');
+
+/**
+ * Display the scroll to top link.
+ */
+function vantage_back_to_top() {
+	?><a href="#" id="scroll-to-top"><?php __('Back To Top', 'vantage') ?></a><?php
+}
+add_action('wp_footer', 'vantage_back_to_top');
+
+function vantage_get_query_variables(){
+	global $wp_query;
+	$vars = $wp_query->query_vars;
+	foreach($vars as $k => $v) {
+		if(empty($vars[$k])) unset ($vars[$k]);
+	}
+	unset($vars['update_post_term_cache']);
+	unset($vars['update_post_meta_cache']);
+	unset($vars['cache_results']);
+	unset($vars['comments_per_page']);
+
+	return $vars;
+}
