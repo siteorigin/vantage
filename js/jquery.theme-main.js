@@ -2,6 +2,8 @@
  * Main theme Javascript - (c) Greg Priday, freely distributable under the terms of the GPL 2.0 license.
  */
 jQuery(function($){
+    $('body.no-js').removeClass('no-js');
+
     // Initialize the flex slider
     $('.flexslider').flexslider({});
     
@@ -78,4 +80,13 @@ jQuery(function($){
             return false;
         } );
     });
+
+    // The search bar
+    $('#search-icon').mouseenter( function(){
+        var $$ = $(this);
+        setTimeout(function(){
+            $$.find('input[name=s]').focus();
+        }, 350);
+
+    } );
 });

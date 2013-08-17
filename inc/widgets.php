@@ -78,11 +78,53 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 	}
 }
 
+class Vantage_Headline_Widget extends WP_Widget {
+	public function __construct() {
+		// widget actual processes
+		parent::__construct(
+			'headline-widget', // Base ID
+			__('Vantage Headline', 'vantage'), // Name
+			array( 'description' => __( 'A lovely big headline.', 'vantage' ), ) // Args
+		);
+	}
+
+	public function widget( $args, $instance ) {
+		echo $args['before_widget'];
+
+		?>
+		<h1><?php echo esc_html($instance['headline']) ?></h1>
+		<div class="decoration"><div class="decoration-inside"></div></div>
+		<h3><?php echo wp_kses_post($instance['sub_headline']) ?></h3>
+		<?php
+
+		echo $args['after_widget'];
+	}
+
+	public function form( $instance ) {
+		$instance = wp_parse_args( $instance, array(
+			'headline' => '',
+			'sub_headline' => '',
+		) );
+
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id('headline') ?>"><?php _e('Headline', 'vantage') ?></label>
+			<input type="text" class="widefat" id="<?php echo $this->get_field_id('headline') ?>" name="<?php echo $this->get_field_name('headline') ?>" value="<?php echo esc_attr($instance['headline']) ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('sub_headline') ?>"><?php _e('Sub Headline', 'vantage') ?></label>
+			<input type="text" class="widefat" id="<?php echo $this->get_field_id('sub_headline') ?>" name="<?php echo $this->get_field_name('sub_headline') ?>" value="<?php echo esc_attr($instance['sub_headline']) ?>" />
+		</p>
+		<?php
+	}
+}
+
 /**
  * Register the Vantage specific widgets.
  */
 function vantage_register_widgets(){
 	register_widget('Vantage_CircleIcon_Widget');
+	register_widget('Vantage_Headline_Widget');
 }
 add_action( 'widgets_init', 'vantage_register_widgets');
 

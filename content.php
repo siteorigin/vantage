@@ -10,16 +10,6 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<footer class="entry-footer">
-
-		<div class="post-type-icon">
-
-		</div>
-
-		<?php the_tags('<div class="tags">','','</div>') ?>
-
-	</footer>
-
 	<div class="entry-main">
 		<header class="entry-header">
 			<?php if( has_post_thumbnail() ): ?>

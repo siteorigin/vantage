@@ -1,0 +1,12 @@
+#htmlOverlay {
+}
+
+#htmlOverlay h2 {
+    font-size: 28px;
+    text-shadow: 0 2px 2px #000000;
+    font-weight: 200;
+}
+
+#htmlOverlay h2 strong {
+    font-weight: 500;
+}
