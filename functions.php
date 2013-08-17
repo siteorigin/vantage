@@ -30,6 +30,7 @@ include get_template_directory() . '/inc/template-tags.php';
 include get_template_directory() . '/inc/gallery.php';
 include get_template_directory() . '/inc/metaslider.php';
 include get_template_directory() . '/inc/widgets.php';
+include get_template_directory() . '/inc/menu-icon.php';
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -145,6 +146,7 @@ add_action( 'wp_enqueue_scripts', 'vantage_register_scripts' , 5);
 function vantage_scripts() {
 	wp_enqueue_style( 'vantage-style', get_stylesheet_uri() );
 	wp_enqueue_script( 'vantage-main' , get_template_directory_uri().'/js/jquery.theme-main.js' , array('jquery', 'vantage-flexslider', 'vantage-fitvids'), SITEORIGIN_THEME_VERSION );
+	wp_enqueue_style( 'vantage-fontawesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '3.2.1' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

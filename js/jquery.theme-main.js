@@ -96,7 +96,7 @@ jQuery(function($){
         var $$ = $('nav.site-navigation.primary');
 
         // Work out the current position
-        if($$.position().top <= $(window).scrollTop()) {
+        if( $$.position().top <= $(window).scrollTop() + ( $('body').hasClass('admin-bar') ? 28 : 0 ) ) {
 
             if($mc == null){
                 $mc = $$;
@@ -105,7 +105,7 @@ jQuery(function($){
                 $mc.css({
                     'position' : 'fixed',
                     'width' : $$.outerWidth(),
-                    'top' : 0,
+                    'top' : $('body').hasClass('admin-bar') ? 28 : 0,
                     'left' : $$.position().left,
                     'z-index' : 1001
                 }).addClass('sticky').insertAfter($$);
