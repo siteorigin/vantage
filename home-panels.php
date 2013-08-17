@@ -13,7 +13,10 @@ get_header(); ?>
 <div id="primary" class="content-area">
 	<div id="content" class="site-content" role="main">
 		<div class="entry-content">
-			<?php if( function_exists('siteorigin_panels_render') ) echo siteorigin_panels_render('home'); ?>
+			<?php
+			if( function_exists('siteorigin_panels_render') ) echo siteorigin_panels_render('home');
+			else siteorigin_panels_lite_home_render();
+			?>
 		</div>
 	</div><!-- #content .site-content -->
 </div><!-- #primary .content-area -->

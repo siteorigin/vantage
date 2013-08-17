@@ -20,6 +20,7 @@ include get_template_directory() . '/extras/settings/settings.php';
 include get_template_directory() . '/extras/updater/updater.php';
 include get_template_directory() . '/extras/adminbar/adminbar.php';
 include get_template_directory() . '/extras/plugin-activation/plugin-activation.php';
+include get_template_directory() . '/extras/metaslider/metaslider.php';
 
 // Load the theme specific files
 include get_template_directory() . '/inc/panels.php';
@@ -74,7 +75,8 @@ function vantage_setup() {
 
 	// Enable support for Post Formats
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
-	
+
+	set_post_thumbnail_size(720, 380, true);
 	add_image_size('vantage-slide', 960, 480, true);
 	add_image_size('vantage-carousel', 272, 182, true);
 
@@ -163,6 +165,7 @@ add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
  */
 function vantage_body_class($classes){
 	if(siteorigin_setting('layout_responsive')) $classes[] = 'responsive';
+	$classes[] = 'no-js';
 	return $classes;
 }
 add_filter('body_class', 'vantage_body_class');

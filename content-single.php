@@ -10,16 +10,6 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<footer class="entry-footer">
-
-		<div class="post-type-icon">
-
-		</div>
-
-		<?php the_tags('<div class="tags">','','</div>') ?>
-
-	</footer>
-
 	<div class="entry-main">
 		<header class="entry-header">
 			<?php if( has_post_thumbnail() ): ?>
@@ -35,16 +25,13 @@
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
-			<div class="entry-summary">
-				<?php the_excerpt(); ?>
-			</div><!-- .entry-summary -->
-		<?php else : ?>
-			<div class="entry-content">
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'vantage' ) ); ?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
-			</div><!-- .entry-content -->
-		<?php endif; ?>
+		<div class="entry-content">
+			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'vantage' ) ); ?>
+			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
+			<p>
+				<?php the_tags('<p class="tags"><strong>'.__('Tags: ', 'vantage').'</strong>', ', ', '</p>') ?>
+			</p>
+		</div><!-- .entry-content -->
 
 	</div>
 
