@@ -16,7 +16,10 @@ spritemapper.output_css = style.sprites.css
 @import "less/reset";
 
 /* =Global
------------------------------------------------ */
+----------------------------------------------- */color: #646464;
+		width: auto;
+		font-size: 12px;
+		font-weight: normal;
 
 /* Consistent fonts across all elements */
 
@@ -161,13 +164,13 @@ button,
 input,
 select,
 textarea {
-/* Corrects font size not being inherited in all browsers */
+	/* Corrects font size not being inherited in all browsers */
 	font-size: 100%;
 
-/* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+	/* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
 	margin: 0;
 
-/* Improves appearance and consistency in all browsers */
+	/* Improves appearance and consistency in all browsers */
 	vertical-align: baseline;
 	*vertical-align: middle;
 	.box-sizing(border-box);
@@ -175,42 +178,44 @@ textarea {
 }
 button,
 input {
-/* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
+	/* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
 	line-height: normal;
-/* Corrects inner spacing displayed oddly in IE6/7 */
+	/* Corrects inner spacing displayed oddly in IE6/7 */
 	*overflow: visible;
 
 }
+
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	.bordered(#ccc, #ccc, #bbb, #ccc);
+	padding: 12px 20px;
+	.bordered(#d2d2d2, #c3c3c3, #9f9f9f, #c3c3c3);
+	.gradient(#FFFFFF, #dfdfdf, #FFFFFF);
 	.rounded(3px);
+	font-size: 12px;
+	font-weight: bold;
+	color: #646464;
 
-	background: #e6e6e6;
-	.box-shadow(~'inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05)');
-	color: rgba(0, 0, 0, 0.8);
+	.box-shadow(~"0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5)");
+	width: auto;
 
-/* Improves usability and consistency of cursor style between image-type 'input' and others */
+	/* Improves usability and consistency of cursor style between image-type 'input' and others */
 	cursor: pointer;
 
-/* Corrects inability to style clickable 'input' types in iOS */
+	/* Corrects inability to style clickable 'input' types in iOS */
 	-webkit-appearance: button;
-
-	font-size: 0.75em;
 	line-height: 1;
-	padding: 0.75em 1.5em;
-
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
+
 button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	.bordered(#ccc, #bbb, #aaa, #bbb);
-	.box-shadow(~'inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02)');
+	/* Button hover style */
 }
+
 button:focus,
 html input[type="button"]:focus,
 input[type="reset"]:focus,
@@ -219,6 +224,7 @@ button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
+	/* Button click style */
 	.bordered(#aaa, #bbb, #bbb, #bbb);
 	.box-shadow(~'inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15)');
 }
@@ -339,6 +345,7 @@ body {
 header#masthead {
 	background: #fcfcfc;
 	padding: 25px 35px;
+	.box-sizing(border-box);
 
 	hgroup {
 		margin-bottom: 40px;
@@ -514,6 +521,10 @@ header#masthead {
 			opacity: 1;
 			pointer-events: auto;
 		}
+	}
+
+	&.sticky {
+		.box-shadow(~"0 2px 1px rgba(0,0,0,0.15)");
 	}
 }
 
@@ -1113,16 +1124,9 @@ article.post {
 	}
 
 	#submit {
-		padding: 12px 20px;
-		.bordered(#d2d2d2, #c3c3c3, #9f9f9f, #c3c3c3);
-		.gradient(#FFFFFF, #dfdfdf, #FFFFFF);
-		.rounded(3px);
-		font-size: 11px;
-		font-weight: bold;
-		color: #646464;
-
-		.box-shadow(~"0 1px 1px rgba(0,0,0,0.125)");
 		width: auto;
+		font-size: 12px;
+		padding: 10px 20px;
 	}
 
 	.form-allowed-tags, .form-allowed-tags code, .comment-notes {

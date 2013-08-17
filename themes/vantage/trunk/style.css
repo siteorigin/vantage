@@ -1,4 +1,7 @@
-/*
+color: #646464;
+width: auto;
+font-size: 12px;
+font-weight: normal;/*
 Theme Name: Vantage
 Author: SiteOrigin
 Author URI: http://siteorigin.com/
@@ -148,8 +151,7 @@ a img {
   border: 0;
 }
 /* =Global
------------------------------------------------ */
-/* Consistent fonts across all elements */
+----------------------------------------------- *//* Consistent fonts across all elements */
 body,
 button,
 input,
@@ -310,40 +312,42 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  border-top: solid 1px #cccccc;
-  border-left: solid 1px #cccccc;
-  border-right: solid 1px #cccccc;
-  border-bottom: solid 1px #bbbbbb;
+  padding: 12px 20px;
+  border-top: solid 1px #d2d2d2;
+  border-left: solid 1px #c3c3c3;
+  border-right: solid 1px #c3c3c3;
+  border-bottom: solid 1px #9f9f9f;
+  background: #ffffff;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dfdfdf), color-stop(1, #ffffff));
+  background: -ms-linear-gradient(bottom, #dfdfdf, #ffffff);
+  background: -moz-linear-gradient(center bottom, #dfdfdf 0%, #ffffff 100%);
+  background: -o-linear-gradient(#ffffff, #dfdfdf);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dfdfdf', GradientType=0);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  background: #e6e6e6;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.8);
+  font-size: 12px;
+  font-weight: bold;
+  color: #646464;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  width: auto;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
 
   cursor: pointer;
   /* Corrects inability to style clickable 'input' types in iOS */
 
   -webkit-appearance: button;
-  font-size: 0.75em;
   line-height: 1;
-  padding: 0.75em 1.5em;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-  border-top: solid 1px #cccccc;
-  border-left: solid 1px #bbbbbb;
-  border-right: solid 1px #bbbbbb;
-  border-bottom: solid 1px #aaaaaa;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
+  /* Button hover style */
+
 }
 button:focus,
 html input[type="button"]:focus,
@@ -353,6 +357,8 @@ button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
+  /* Button click style */
+
   border-top: solid 1px #aaaaaa;
   border-left: solid 1px #bbbbbb;
   border-right: solid 1px #bbbbbb;
@@ -475,6 +481,10 @@ body {
 header#masthead {
   background: #fcfcfc;
   padding: 25px 35px;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 header#masthead hgroup {
   margin-bottom: 40px;
@@ -647,6 +657,11 @@ header#masthead hgroup .support-text {
 .main-navigation ul li:hover > ul {
   opacity: 1;
   pointer-events: auto;
+}
+.main-navigation.sticky {
+  -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 1px rgba(0,0,0,0.15);
 }
 #search-icon {
   float: right;
@@ -1214,27 +1229,9 @@ article.post .more-link .meta-nav {
   margin-bottom: 0;
 }
 #commentform #submit {
-  padding: 12px 20px;
-  border-top: solid 1px #d2d2d2;
-  border-left: solid 1px #c3c3c3;
-  border-right: solid 1px #c3c3c3;
-  border-bottom: solid 1px #9f9f9f;
-  background: #ffffff;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dfdfdf), color-stop(1, #ffffff));
-  background: -ms-linear-gradient(bottom, #dfdfdf, #ffffff);
-  background: -moz-linear-gradient(center bottom, #dfdfdf 0%, #ffffff 100%);
-  background: -o-linear-gradient(#ffffff, #dfdfdf);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dfdfdf', GradientType=0);
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  font-size: 11px;
-  font-weight: bold;
-  color: #646464;
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.125);
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.125);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.125);
   width: auto;
+  font-size: 12px;
+  padding: 10px 20px;
 }
 #commentform .form-allowed-tags,
 #commentform .form-allowed-tags code,
