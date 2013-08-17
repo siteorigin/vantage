@@ -134,9 +134,15 @@ if(!function_exists('vantage_display_logo')):
 function vantage_display_logo(){
 	$logo = siteorigin_setting('general_logo');
 
+	?><img src="<?php echo get_template_directory_uri() ?>/images/logo.png" /> <?php
+
+	return;
+
 	if(empty($logo)) {
 		// Just display the site title
+		echo '<h1 class="site-title">';
 		bloginfo( 'name' );
+		echo '</h1>';
 		return;
 	}
 	
