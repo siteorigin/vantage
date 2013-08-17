@@ -663,6 +663,12 @@ header#masthead hgroup .support-text {
   -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
   box-shadow: 0 2px 1px rgba(0,0,0,0.15);
 }
+.main-navigation [class^="icon-"] {
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 16px;
+  line-height: 0.5em;
+}
 #search-icon {
   float: right;
   height: 59px;
