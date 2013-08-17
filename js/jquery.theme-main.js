@@ -89,4 +89,35 @@ jQuery(function($){
         }, 350);
 
     } );
+
+    // The sticky menu
+    var $mc = null;
+    var resetStickyMenu = function(){
+        var $$ = $('nav.site-navigation.primary');
+
+        // Work out the current position
+        if($$.position().top <= $(window).scrollTop()) {
+
+            if($mc == null){
+                $mc = $$;
+                $$ = $$.clone().insertBefore($$);
+
+                $mc.css({
+                    'position' : 'fixed',
+                    'width' : $$.outerWidth(),
+                    'top' : 0,
+                    'left' : $$.position().left,
+                    'z-index' : 1001
+                }).addClass('sticky').insertAfter($$);
+            }
+        }
+        else {
+            if($mc !== null){
+                $mc.remove();
+                $mc = null;
+            }
+        }
+    }
+    $(window).scroll( resetStickyMenu ).resize( resetStickyMenu );
+    resetStickyMenu();
 });
