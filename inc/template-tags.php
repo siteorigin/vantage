@@ -134,7 +134,7 @@ if(!function_exists('vantage_display_logo')):
 function vantage_display_logo(){
 	$logo = siteorigin_setting('general_logo');
 
-	?><img src="<?php echo get_template_directory_uri() ?>/images/logo.png" /> <?php
+	?><img src="<?php echo get_template_directory_uri() ?>/images/logo.png" width="174" height="53"/> <?php
 
 	return;
 
