@@ -34,29 +34,42 @@ function vantage_theme_settings(){
 		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage')
 	));
 
+	siteorigin_settings_add_field('general', 'use_sticky_menu', 'checkbox', __('Sticky Menu', 'vantage'), array(
+		'description' => __('Sticks the menu to the top of the screen when a user scrolls down.', 'vantage')
+	));
+
+	siteorigin_settings_add_field('general', 'menu_search', 'checkbox', __('Search in Menu', 'vantage'), array(
+		'description' => __('Display a search in the main menu.', 'vantage')
+	));
+
+	siteorigin_settings_add_field('general', 'display_scroll_to_top', 'checkbox', __('Display Scroll To Top', 'vantage'), array(
+		'description' => __('Display a scroll-to-top button when a user scrolls down.', 'vantage')
+	));
+
 	/**
 	 * Home Page
 	 */
 
-	$slider_options = array('' => __('None', 'vantage'));
-	if(function_exists('siteorigin_slider_get_sliders')){
-		$sliders = siteorigin_slider_get_sliders();
-		foreach($sliders as $slider){
-			$slider_options[$slider->ID] = $slider->post_title;
+	$options = array('' => __('None', 'vantage'));
+
+	if(class_exists('MetaSliderPlugin')){
+		$sliders = get_posts(array(
+			'post_type' => 'ml-slider',
+		));
+
+		foreach($sliders as $slider) {
+			$options['meta:'.$slider->ID] = __('Slider: ', 'estate').$slider->post_title;
 		}
-		$description = null;
-	}
-	else{
-		$description = sprintf(
-			__('Display a slider on your home page. Requires <a href="%s">SiteOrigin Slider</a> plugin', 'vantage'),
-			siteorigin_plugin_activation_install_url('siteorigin-slider', __('SiteOrigin Slider', 'vantage'), 'http://gpriday.s3.amazonaws.com/plugins/siteorigin-slider.zip')
-		);
 	}
 
-
-	siteorigin_settings_add_field('home', 'slider', 'select', __('Home Page Slider', 'vantage'), array(
-		'description' =>$description,
-		'options' => $slider_options
+	siteorigin_settings_add_field('home', 'slider', 'select', __('Home Page Banner', 'estate'), array(
+		'options' => $options,
+		'description' => sprintf(
+			__('This theme supports <a href="%s" target="_blank">Meta Slider</a>. <a href="%s">Install it</a> for free to create responsive, animated sliders - <a href="%s" target="_blank">More Info</a>', 'estate'),
+			'http://sorig.in/metaslider',
+			siteorigin_plugin_activation_install_url('ml-slider', __('Meta Slider', 'estate'), 'http://sorig.in/ml-slider'),
+			'http://siteorigin.com/estate-documentation/sliders/'
+		)
 	));
 
 	/**
@@ -66,7 +79,15 @@ function vantage_theme_settings(){
 	siteorigin_settings_add_field('layout', 'responsive', 'checkbox', __('Responsive Layout', 'vantage'), array(
 		'description' => __('Scale your layout for small screen devices.', 'vantage')
 	));
-	
+
+	siteorigin_settings_add_field('layout', 'bound', 'select', __('Layout Bound', 'vantage'), array(
+		'options' => array(
+			'boxed' => __('Boxed', 'vantage'),
+			'full' => __('Full Width', 'vantage'),
+		),
+		'description' => __('Use a special responsive menu for small screen devices.', 'vantage')
+	));
+
 	siteorigin_settings_add_teaser('layout', 'responsive_menu', __('Responsive Menu', 'vantage'), array(
 		'description' => __('Use a special responsive menu for small screen devices.', 'vantage')
 	));
@@ -84,10 +105,14 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['general_logo'] = '';
 	$defaults['general_ajax_comments'] = false;
 	$defaults['general_site_description'] = true;
-	
+	$defaults['general_use_sticky_menu'] = true;
+	$defaults['general_menu_search'] = true;
+	$defaults['general_display_scroll_to_top'] = true;
+
 	$defaults['home_slider'] = '';
 
 	$defaults['layout_responsive'] = true;
+	$defaults['layout_bound'] = 'boxed';
 	$defaults['layout_responsive_menu'] = true;
 
 	return $defaults;
