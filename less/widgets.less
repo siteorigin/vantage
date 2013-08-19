@@ -24,7 +24,7 @@
 /* =Sidebar widget styling
 ----------------------------------------------- */
 
-#secondary {
+#secondary, #footer-widgets {
 
 	.widget {
 		margin-bottom: 40px;
@@ -59,18 +59,42 @@
 			}
 		}
 	}
-
 }
+
+#footer-widgets {
+	.clearfix();
+
+	margin: 0 -5px;
+	max-width: 100%;
+
+	.widget {
+		.box-sizing(border-box);
+		float: right;
+		padding: 0 15px;
+		margin-bottom:0;
+		color: #b9b9b9;
+
+		a {
+			color: #cccccc;
+		}
+
+		h1.widget-title {
+			color: #e2e2e2;
+			font-size: 14px;
+			font-weight: bold;
+			font-family: "Lato";
+			margin-bottom: 20px;
+		}
+	}
+}
+
 
 /* =General Widget Styling
 ----------------------------------------------- */
 
 .widget {
 	
-	img,
-	embed,
-	iframe,
-	object {
+	img, iframe, object, select, input {
 		max-width: 100%;
 	}
 

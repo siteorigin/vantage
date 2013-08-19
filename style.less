@@ -185,7 +185,7 @@ input {
 button,
 html input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"]{
 	padding: 12px 20px;
 	.bordered(#d2d2d2, #c3c3c3, #9f9f9f, #c3c3c3);
 	.gradient(#FFFFFF, #dfdfdf, #FFFFFF);
@@ -196,6 +196,7 @@ input[type="submit"] {
 
 	.box-shadow(~"0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5)");
 	width: auto;
+	text-decoration: none;
 
 	/* Improves usability and consistency of cursor style between image-type 'input' and others */
 	cursor: pointer;
@@ -209,8 +210,10 @@ input[type="submit"] {
 button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
-input[type="submit"]:hover {
+input[type="submit"]:hover{
 	/* Button hover style */
+	.bordered(#dadada, #cfcfcf, #a8a8a8, #cfcfcf);
+	.gradient(#FFFFFF, #ebebeb, #FFFFFF);
 }
 
 button:focus,
@@ -391,7 +394,7 @@ header#masthead {
 
 /* Full Width Primary blocks */
 .siteorigin-panels-home #primary,
-.page-template-template-full-php #primary{
+.page-template-templatestemplate-full-php #primary{
 	width: auto;
 	float: none;
 }
@@ -606,7 +609,8 @@ article.sticky{
 	/* Style a sticky post */
 }
 
-article.post {
+article.post ,
+article.page{
 	.clearfix();
 
 	footer {
@@ -649,6 +653,11 @@ article.post {
 				width: 100%;
 				height: auto;
 			}
+
+			a {
+				display: block;
+			}
+
 			margin-bottom: 20px;
 		}
 
@@ -728,6 +737,11 @@ article.post {
 		}
 
 		.box-shadow(~"0 1px 1px rgba(0,0,0,0.125)");
+
+		&:hover {
+			.bordered(#dadada, #cfcfcf, #a8a8a8, #cfcfcf);
+			.gradient(#FFFFFF, #ebebeb, #FFFFFF);
+		}
 	}
 
 	.nav-previous {
@@ -1215,60 +1229,6 @@ article.post {
 	}
 }
 
-#footer-widgets {
-	.clearfix();
-
-	margin: 0 -5px;
-	max-width: 100%;
-
-	aside.widget {
-		.box-sizing(border-box);
-		float: right;
-		padding: 0 15px;
-		margin-bottom:0;
-		color: #b9b9b9;
-
-		a {
-			color: #cccccc;
-		}
-
-		h1.widget-title {
-			color: #e2e2e2;
-			font-size: 14px;
-			font-weight: bold;
-			font-family: "Lato";
-			margin-bottom: 20px;
-		}
-	}
-}
-
-#home-page-features {
-	.clearfix();
-
-	margin-bottom: 30px;
-
-	/*
-	margin-top: -35px;
-	margin-left: -35px;
-	margin-right: -35px;
-	padding-top: 35px;
-	padding-bottom: 35px;
-	padding-left: 20px;
-	padding-right: 20px;
-	background: #F6F6F6;
-	border-bottom: 1px solid #E0E0E0;
-	*/
-
-
-	.widget {
-		float: left;
-		width: 33.333%;
-		.box-sizing(border-box);
-		padding: 0 15px;
-		margin-bottom: 0;
-	}
-}
-
 #scroll-to-top {
 	position: fixed;
 	bottom: 20px;
@@ -1295,3 +1255,4 @@ article.post {
 
 @import "less/slider";
 @import "less/widgets";
+@import "less/woocommerce";
