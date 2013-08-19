@@ -31,6 +31,7 @@ include get_template_directory() . '/inc/gallery.php';
 include get_template_directory() . '/inc/metaslider.php';
 include get_template_directory() . '/inc/widgets.php';
 include get_template_directory() . '/inc/menu-icon.php';
+include get_template_directory() . '/inc/woocommerce.php';
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -76,6 +77,10 @@ function vantage_setup() {
 
 	// Enable support for Post Formats
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+
+	// We support WooCommerce
+	add_theme_support('woocommerce');
+	// define('WOOCOMMERCE_USE_CSS', false);
 
 	set_post_thumbnail_size(720, 380, true);
 	add_image_size('vantage-slide', 960, 480, true);

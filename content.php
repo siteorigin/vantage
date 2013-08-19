@@ -13,7 +13,9 @@
 	<div class="entry-main">
 		<header class="entry-header">
 			<?php if( has_post_thumbnail() ): ?>
-				<div class="entry-thumbnail"><?php the_post_thumbnail() ?></div>
+				<div class="entry-thumbnail">
+					<a href="<?php the_permalink() ?>"><?php the_post_thumbnail() ?></a>
+				</div>
 			<?php endif; ?>
 
 			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'vantage' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
