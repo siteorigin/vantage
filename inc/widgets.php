@@ -15,9 +15,11 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		echo $args['before_widget'];
 
 		?>
-		<div class="circle-icon-box icon-position-<?php echo esc_attr($instance['icon_position']) ?>">
+		<div class="circle-icon-box icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo !empty($instance['hide_box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?>">
 			<div class="circle-icon-wrapper">
-				<div class="circle-icon" <?php if(!empty($instance['image'])) : ?>style="background-image: url(<?php echo esc_url($instance['image']) ?>)"<?php endif; ?>></div>
+				<div class="circle-icon" <?php if(!empty($instance['image'])) : ?>style="background-image: url(<?php echo esc_url($instance['image']) ?>)"<?php endif; ?>>
+					<?php if(!empty($instance['icon'])) : ?><div class="<?php echo esc_attr($instance['icon']) ?>"></div><?php endif; ?>
+				</div>
 			</div>
 			<?php if(!empty($instance['title'])) : ?><h4><?php echo esc_html($instance['title']) ?></h4><?php endif; ?>
 			<?php if(!empty($instance['text'])) : ?><p class="text"><?php echo wp_kses_post($instance['text']) ?></p><?php endif; ?>
@@ -30,15 +32,27 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		echo $args['after_widget'];
 	}
 
- 	public function form( $instance ) {
+	/**
+	 * Display the circle icon widget form.
+	 *
+	 * @param array $instance
+	 * @return string|void
+	 */
+	public function form( $instance ) {
+
 		$instance = wp_parse_args( $instance, array(
 			'title' => '',
 			'text' => '',
+			'icon' => '',
 			'image' => '',
 			'icon_position' => 'top',
 			'more' => '',
 			'more_url' => '',
+			'hide_box' => false,
 		) );
+
+		$icons = include ( get_template_directory() . '/fontawesome/icons.php' );
+		$sections = include (get_template_directory().'/fontawesome/icon-sections.php');
 
 		?>
 		<p>
@@ -50,7 +64,20 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id('text') ?>" name="<?php echo $this->get_field_name('text') ?>" value="<?php echo esc_attr($instance['text']) ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('image') ?>"><?php _e('Image URL', 'vantage') ?></label>
+			<label for="<?php echo $this->get_field_id('icon') ?>"><?php _e('Icon', 'vantage') ?></label>
+			<select id="<?php echo $this->get_field_id('icon') ?>" name="<?php echo $this->get_field_name('icon') ?>">
+				<option value="" <?php selected(!empty($instance['icon'])) ?>><?php esc_html_e('None', 'vantage') ?></option>
+				<?php foreach($icons as $section => $s_icons) : ?>
+					<?php if(isset($sections[$section])) : ?><optgroup label="<?php echo esc_attr($sections[$section]) ?>"><?php endif; ?>
+						<?php foreach($s_icons as $icon) : ?>
+							<option value="<?php echo esc_attr($icon) ?>" <?php selected($instance['icon'], $icon) ?>><?php echo esc_html(vantage_icon_get_name($icon)) ?></option>
+						<?php endforeach; ?>
+					</optgroup>
+				<?php endforeach; ?>
+			</select>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('image') ?>"><?php _e('Circle Background Image URL', 'vantage') ?></label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id('image') ?>" name="<?php echo $this->get_field_name('image') ?>" value="<?php echo esc_attr($instance['image']) ?>" />
 		</p>
 		<p>
@@ -70,10 +97,17 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id('more_url') ?>"><?php _e('More URL', 'vantage') ?></label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id('more_url') ?>" name="<?php echo $this->get_field_name('more_url') ?>" value="<?php echo esc_attr($instance['more_url']) ?>" />
 		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('hide_box') ?>">
+				<input type="checkbox" id="<?php echo $this->get_field_id('hide_box') ?>" name="<?php echo $this->get_field_name('hide_box') ?>" <?php checked($instance['hide_box']) ?> />
+				<?php _e('Hide Box Container', 'vantage') ?>
+			</label>
+		</p>
 		<?php
 	}
 
 	public function update( $new_instance, $old_instance ) {
+		$new_instance['hide_box'] = !empty($new_instance['hide_box']);
 		return $new_instance;
 	}
 }

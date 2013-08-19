@@ -91,33 +91,35 @@ jQuery(function($){
     } );
 
     // The sticky menu
-    var $mc = null;
-    var resetStickyMenu = function(){
-        var $$ = $('nav.site-navigation.primary');
+    if($('nav.site-navigation.primary').hasClass('use-sticky-menu')) {
+        var $mc = null;
+        var resetStickyMenu = function(){
+            var $$ = $('nav.site-navigation.primary');
 
-        // Work out the current position
-        if( $$.position().top <= $(window).scrollTop() + ( $('body').hasClass('admin-bar') ? 28 : 0 ) ) {
+            // Work out the current position
+            if( $$.position().top <= $(window).scrollTop() + ( $('body').hasClass('admin-bar') ? 28 : 0 ) ) {
 
-            if($mc == null){
-                $mc = $$;
-                $$ = $$.clone().insertBefore($$);
+                if($mc == null){
+                    $mc = $$;
+                    $$ = $$.clone().insertBefore($$);
 
-                $mc.css({
-                    'position' : 'fixed',
-                    'width' : $$.outerWidth(),
-                    'top' : $('body').hasClass('admin-bar') ? 28 : 0,
-                    'left' : $$.position().left,
-                    'z-index' : 1001
-                }).addClass('sticky').insertAfter($$);
+                    $mc.css({
+                        'position' : 'fixed',
+                        'width' : $$.outerWidth(),
+                        'top' : $('body').hasClass('admin-bar') ? 28 : 0,
+                        'left' : $$.position().left,
+                        'z-index' : 1001
+                    }).addClass('sticky').insertAfter($$);
+                }
+            }
+            else {
+                if($mc !== null){
+                    $mc.remove();
+                    $mc = null;
+                }
             }
         }
-        else {
-            if($mc !== null){
-                $mc.remove();
-                $mc = null;
-            }
-        }
+        $(window).scroll( resetStickyMenu ).resize( resetStickyMenu );
+        resetStickyMenu();
     }
-    $(window).scroll( resetStickyMenu ).resize( resetStickyMenu );
-    resetStickyMenu();
 });

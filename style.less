@@ -16,10 +16,7 @@ spritemapper.output_css = style.sprites.css
 @import "less/reset";
 
 /* =Global
------------------------------------------------ */color: #646464;
-		width: auto;
-		font-size: 12px;
-		font-weight: normal;
+----------------------------------------------- */
 
 /* Consistent fonts across all elements */
 
@@ -330,16 +327,24 @@ body {
 /* =General Layout
 ----------------------------------------------- */
 
-.page-wrap {
-	width: 100%;
+#page-wrapper {
 	padding-top: 20px;
-}
-
-.content-wrap {
 	.box-sizing(border-box);
 	width: 1080px;
 	margin: 0 auto;
+}
 
+.layout-full #page-wrapper{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+
+	.full-container {
+		max-width: 1080px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 header#masthead {
@@ -385,7 +390,8 @@ header#masthead {
 }
 
 /* Full Width Primary blocks */
-.siteorigin-panels-home #primary {
+.siteorigin-panels-home #primary,
+.page-template-template-full-php #primary{
 	width: auto;
 	float: none;
 }
@@ -461,26 +467,23 @@ header#masthead {
 			&:hover > a {
 				background: #00bcff;
 				color: #FFFFFF;
+
+				[class^="icon-"] {
+					color: #FFFFFF;
+				}
 			}
 
 			a {
-				.transition(0.4s);
 				padding: 20px 35px;
 				.box-sizing(border-box);
+
+				&, & > * {
+					.transition(0.4s);
+				}
 			}
 		}
-	}
 
-	a {
-		display: block;
-		text-decoration: none;
-		color: #e2e2e2;
-		font-weight: bold;
-	}
-
-	ul {
 		/* Second level menu items */
-
 		ul {
 			.transition(0.35s);
 			.box-shadow(~"0 1px 2px rgba(0,0,0,0.15)");
@@ -493,7 +496,12 @@ header#masthead {
 			top: 100%;
 			left: 50%;
 			z-index: 99999;
-			margin-left: -90px;
+			margin-left: -100px;
+
+			a {
+				width: 200px;
+				padding: 15px 20px;
+			}
 
 			li {
 				position: relative;
@@ -504,17 +512,14 @@ header#masthead {
 					color: #FFFFFF;
 				}
 			}
-		}
 
-		ul ul {
-			left: 100%;
-			top: 0;
-			margin-left: 0;
-		}
+			/* Third Level Items */
 
-		ul a {
-			width: 180px;
-			padding: 15px;
+			ul {
+				left: 100%;
+				top: 0;
+				margin-left: 0;
+			}
 		}
 
 		li:hover > ul {
@@ -523,15 +528,26 @@ header#masthead {
 		}
 	}
 
+	/* General menu link styling */
+	a {
+		display: block;
+		text-decoration: none;
+		color: #e2e2e2;
+		font-weight: bold;
+	}
+
+	/* For when the menu becomes a sticky menu */
 	&.sticky {
 		.box-shadow(~"0 2px 1px rgba(0,0,0,0.15)");
 	}
 
+	/* Font awesome icons */
 	[class^="icon-"] {
 		display: inline-block;
 		margin-right: 15px;
 		font-size: 16px;
 		line-height: 0.5em;
+		color: #CCCCCC;
 	}
 }
 
@@ -1019,10 +1035,21 @@ article.post {
 ----------------------------------------------- */
 
 #comments-title, #reply-title {
-	font-size: 20px;
+	display: inline-block;
+	font-size: 14px;
 	margin-bottom: 20px;
 	font-weight: 500;
 	line-height: 1em;
+	color: #444444;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #555555;
+
+	[class^="icon-"] {
+		font-size: 16px;
+		display: inline-block;
+		margin-right: 4px;
+		line-height: 0.75em;
+	}
 }
 
 #comments {
@@ -1033,16 +1060,16 @@ article.post {
 
 		.children {
 			list-style: none;
-			margin-left: 95px;
+			margin-left: 75px;
 		}
 
 		article {
-			padding: 20px;
-			margin-bottom: 30px;
-			background: #F9F9F9;
+			margin-bottom: 35px;
 
 			.avatar {
 				float: left;
+				.rounded(3px);
+				.box-shadow(~"0 1px 2px rgba(0,0,0,0.1)");
 			}
 
 			.comment-author, .awaiting-moderation, .comment-meta, .comment-content {
@@ -1050,11 +1077,11 @@ article.post {
 			}
 
 			.comment-author{
-				color: #666;
-				font-size: 14px;
-				font-weight: bold;
+				color: #474747;
+				font-size: 13px;
+				font-weight: 500;
 				line-height: 1em;
-				margin-bottom: 5px;
+				margin-bottom: 0.35em;
 
 				a{
 					color: inherit;
@@ -1067,10 +1094,10 @@ article.post {
 			}
 
 			.comment-meta {
-				font-size: 13px;
-				color: #999;
+				font-size: 11.5px;
+				color: #747474;
 				line-height: 1em;
-				margin-bottom: 10px;
+				margin-bottom: 15px;
 
 				a{
 					color: inherit;
@@ -1087,6 +1114,10 @@ article.post {
 				display: block;
 				margin-bottom: 10px;
 			}
+
+			.entry-content {
+				font-size: 12px;
+			}
 		}
 
 		.bypostauthor{
@@ -1096,7 +1127,6 @@ article.post {
 }
 
 #commentform{
-	margin-bottom: 30px;
 
 	label {
 		margin-top: 2px;
@@ -1157,11 +1187,32 @@ article.post {
 ----------------------------------------------- */
 
 #colophon {
-	margin-top: 20px;
 	margin-bottom: 20px;
 	min-height: 260px;
 	background: #2f3033;
 	padding: 25px;
+
+	#theme-attribution {
+		text-align: center;
+		margin-top: 25px;
+		color: #AAAAAA;
+		font-size: 11.5px;
+
+		a {
+			color: #DDDDDD;
+			text-decoration: none;
+			font-weight: 500;
+		}
+	}
+}
+
+.layout-full {
+	#colophon {
+		margin-bottom: 0;
+		margin-top: 0;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
 }
 
 #footer-widgets {
@@ -1215,19 +1266,6 @@ article.post {
 		.box-sizing(border-box);
 		padding: 0 15px;
 		margin-bottom: 0;
-	}
-}
-
-#theme-attribution {
-	text-align: center;
-	margin-bottom: 20px;
-	color: #666666;
-	font-size: 11.5px;
-
-	a {
-		color: #444444;
-		text-decoration: none;
-		font-weight: 500;
 	}
 }
 

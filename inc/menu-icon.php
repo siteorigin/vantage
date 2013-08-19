@@ -38,15 +38,7 @@ add_action('add_meta_boxes', 'vantage_menu_icon_metabox');
 
 function vantage_menu_icon_metabox_render($post){
 	$icons = include (get_template_directory().'/fontawesome/icons.php');
-	$sections = array(
-		'web_application_icons' => __('Web Application Icons', 'vanage'),
-		'currency_icons' => __('Currency Icons', 'vanage'),
-		'text_editor_icons' => __('Text Editor Icons', 'vanage'),
-		'directional_icons' => __('Directional Icons', 'vanage'),
-		'video_player_icons' => __('Video Player Icons', 'vanage'),
-		'brand_icons' => __('Brand Icons', 'vanage'),
-		'medical_icons' => __('Medical Icons', 'vanage'),
-	);
+	$sections = include (get_template_directory().'/fontawesome/icon-sections.php');
 	$current = get_post_meta($post->ID, 'vantage_menu_icon', true);
 
 	?>

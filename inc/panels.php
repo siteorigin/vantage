@@ -156,3 +156,9 @@ function vantage_panels_settings($settings){
 	return $settings;
 }
 add_filter('siteorigin_panels_settings', 'vantage_panels_settings');
+
+function vantage_panels_row_styles($styles) {
+	$styles['wide-grey'] = __('Wide Grey', 'vantage');
+	return $styles;
+}
+add_filter('siteorigin_panels_row_styles', 'vantage_panels_row_styles');

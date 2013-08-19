@@ -22,11 +22,10 @@
 
 <body <?php body_class(); ?>>
 
-<div class="page-wrap">
-<div class="content-wrap site">
+<div id="page-wrapper">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
-		<hgroup>
+		<hgroup class="full-container">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php vantage_display_logo(); ?></a>
 
 			<div class="support-text">
@@ -34,22 +33,29 @@
 			</div>
 		</hgroup>
 
-		<nav role="navigation" class="site-navigation main-navigation primary">
-			<h1 class="assistive-text"><?php _e( 'Menu', 'vantage' ); ?></h1>
-			<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'vantage' ); ?>"><?php _e( 'Skip to content', 'vantage' ); ?></a></div>
+		<nav role="navigation" class="site-navigation main-navigation primary <?php if(siteorigin_setting('general_use_sticky_menu')) echo 'use-sticky-menu' ?>">
+			<div class="full-container">
+				<h1 class="assistive-text"><?php _e( 'Menu', 'vantage' ); ?></h1>
+				<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'vantage' ); ?>"><?php _e( 'Skip to content', 'vantage' ); ?></a></div>
 
-			<div id="search-icon">
-				<form method="get" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
-					<input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" />
-				</form>
+				<?php if(siteorigin_setting('general_menu_search')) : ?>
+					<div id="search-icon">
+						<form method="get" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+							<input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" />
+						</form>
+					</div>
+				<?php endif; ?>
+
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'link_before' => '<span class="icon"></span>' ) ); ?>
 			</div>
-
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'link_before' => '<span class="icon"></span>' ) ); ?>
 		</nav><!-- .site-navigation .main-navigation -->
 	</header><!-- #masthead .site-header -->
 
 	<div id="slider">
-		<?php if( is_front_page() ) get_template_part('slider/demo') ?>
+		<div class="full-container">
+			<?php if( is_front_page() ) get_template_part('slider/demo') ?>
+		</div>
 	</div>
 
 	<div id="main" class="site-main">
+		<div class="full-container">
