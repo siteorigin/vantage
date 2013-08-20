@@ -164,7 +164,15 @@ textarea {
 }
 /* Links */
 a {
-  color: #3279BB;
+  color: #248cc8;
+}
+a:visited {
+  color: #248cc8;
+}
+a:hover,
+a:focus,
+a:active {
+  color: #f47e3c;
 }
 /* Headings */
 h1,
@@ -542,7 +550,7 @@ header#masthead hgroup .support-text {
 }
 #primary {
   float: left;
-  width: 720px;
+  width: 66.6666%;
 }
 /* Full Width Primary blocks */
 .siteorigin-panels-home #primary,
@@ -552,7 +560,7 @@ header#masthead hgroup .support-text {
 }
 #secondary {
   float: right;
-  width: 250px;
+  width: 23.14814%;
 }
 #main {
   background: #FCFCFC;
@@ -578,6 +586,14 @@ header#masthead hgroup .support-text {
 ----------------------------------------------- */
 /* We consider 680px to be mobile resolution */
 @media (max-width: 680px) {
+  body.responsive #primary,
+  body.responsive #secondary {
+    width: auto;
+    float: none;
+  }
+  body.responsive #secondary {
+    margin-top: 35px;
+  }
   body.responsive #footer-widgets .widget {
     display: block;
     margin-bottom: 25px;
@@ -586,6 +602,15 @@ header#masthead hgroup .support-text {
   body.responsive #footer-widgets .widget:last-child {
     margin-bottom: 0;
   }
+}
+body.responsive #page-wrapper {
+  max-width: 1080px;
+  width: auto;
+}
+body.responsive.layout-full #page-wrapper .full-container {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* =Menu
 ----------------------------------------------- */
@@ -1010,11 +1035,23 @@ article.page .more-link .meta-nav {
   display: table;
   clear: both;
 }
+.entry-content a {
+  color: #248cc8;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.entry-content a:hover {
+  color: #f47e3c;
+}
 .entry-content p,
 .entry-content > ul,
 .entry-content > li,
-.entry-content > dl {
-  margin: 25px 0;
+.entry-content > dl,
+.entry-content pre,
+.entry-content code,
+.entry-content blockquote {
   margin: 1em 0;
 }
 .entry-content > *:last-child {
@@ -1024,21 +1061,27 @@ article.page .more-link .meta-nav {
   margin-top: 0;
 }
 .entry-content blockquote {
-  font-family: Georgia, "Times New Roman", Times, serif;
   font-style: italic;
-  margin-left: 1.5em;
+  margin-left: 1em;
+  padding-left: 1em;
+  border-left: 1px solid #AAAAAA;
 }
 .entry-content blockquote cite {
-  font-family: "Droid Sans", sans-serif;
   font-weight: bold;
 }
-.entry-content pre {
+.entry-content pre,
+.entry-content code {
+  display: block;
   background: white;
   font-family: "Courier New", Courier, mono;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #D9D9D9;
   padding: 10px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.09);
   overflow-x: auto;
+}
+.entry-content pre p:fist-child,
+.entry-content code p:fist-child {
+  margin-top: 0;
 }
 .entry-content code {
   font-family: "Courier New", Courier, mono;
@@ -1080,6 +1123,12 @@ article.page .more-link .meta-nav {
 .entry-content img {
   max-width: 100%;
   height: auto;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.175);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.175);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.175);
 }
 .entry-content .wp-caption {
   max-width: 100%;

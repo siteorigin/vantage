@@ -7,12 +7,12 @@
 		</div>
 	</hgroup>
 
-	<nav role="navigation" class="site-navigation main-navigation primary <?php if(siteorigin_setting('general_use_sticky_menu')) echo 'use-sticky-menu' ?>">
+	<nav role="navigation" class="site-navigation main-navigation primary <?php if( siteorigin_setting('navigation_use_sticky_menu') ) echo 'use-sticky-menu' ?>">
 		<div class="full-container">
 			<h1 class="assistive-text"><?php _e( 'Menu', 'vantage' ); ?></h1>
 			<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'vantage' ); ?>"><?php _e( 'Skip to content', 'vantage' ); ?></a></div>
 
-			<?php if(siteorigin_setting('general_menu_search')) : ?>
+			<?php if( siteorigin_setting('navigation_menu_search') ) : ?>
 				<div id="search-icon">
 					<form method="get" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
 						<input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" />
