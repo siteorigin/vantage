@@ -13,36 +13,65 @@
  * @since vantage 1.0
  */
 function vantage_theme_settings(){
-	siteorigin_settings_add_section('general', __('General', 'vantage'));
-	siteorigin_settings_add_section('home', __('Home Page', 'vantage'));
-	siteorigin_settings_add_section('layout', __('Layout', 'vantage'));
+	siteorigin_settings_add_section( 'logo', __('Logo', 'vantage' ) );
+	siteorigin_settings_add_section( 'layout', __('Layout', 'vantage' ) );
+	siteorigin_settings_add_section( 'home', __('Home', 'vantage' ) );
+	siteorigin_settings_add_section( 'navigation', __('Navigation', 'vantage' ) );
+	siteorigin_settings_add_section( 'blog', __('Blog', 'vantage' ) );
+	siteorigin_settings_add_section( 'social', __('Social', 'vantage' ) );
 
 	/**
-	 * General Settings
+	 * Logo Settings
 	 */
-	
-	siteorigin_settings_add_field('general', 'logo', 'media', __('Logo', 'vantage'), array(
+
+	siteorigin_settings_add_field('logo', 'image', 'media', __('Logo Image', 'vantage'), array(
 		'choose' => __('Choose Image', 'vantage'),
 		'update' => __('Set Logo', 'vantage'),
+		'description' => __('Your own custom logo.', 'vantage')
+	) );
+
+	siteorigin_settings_add_field('logo', 'header_text', 'text', __('Header Text', 'vantage'), array(
+		'description' => __('Text that appears to the right of your logo.', 'vantage')
+	) );
+
+	/**
+	 * Layout Settings
+	 */
+
+	siteorigin_settings_add_field('layout', 'responsive', 'checkbox', __('Responsive Layout', 'vantage'), array(
+		'description' => __('Scale your layout for small screen devices.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('general', 'site_description', 'checkbox', __('Site Description', 'vantage'), array(
-		'description' => __('Display your site description under your logo.', 'vantage')
-	));
-	
-	siteorigin_settings_add_teaser('general', 'ajax_comments', __('Ajax Comments', 'vantage'), array(
-		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage')
+	siteorigin_settings_add_field('layout', 'bound', 'select', __('Layout Bound', 'vantage'), array(
+		'options' => array(
+			'boxed' => __('Boxed', 'vantage'),
+			'full' => __('Full Width', 'vantage'),
+		),
+		'description' => __('Use a special responsive menu for small screen devices.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('general', 'use_sticky_menu', 'checkbox', __('Sticky Menu', 'vantage'), array(
+	/**
+	 * Navigation settings
+	 */
+
+	siteorigin_settings_add_teaser('navigation', 'responsive_menu', __('Responsive Menu', 'vantage'), array(
+		'description' => __('Use a special responsive menu for small screen devices.', 'vantage')
+	));
+
+	siteorigin_settings_add_field('navigation', 'display_scroll_to_top', 'checkbox', __('Scroll To Top', 'vantage'), array(
+		'description' => __('Display a scroll-to-top button when a user scrolls down.', 'vantage')
+	));
+
+
+	siteorigin_settings_add_field('navigation', 'use_sticky_menu', 'checkbox', __('Sticky Menu', 'vantage'), array(
 		'description' => __('Sticks the menu to the top of the screen when a user scrolls down.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('general', 'menu_search', 'checkbox', __('Search in Menu', 'vantage'), array(
+	siteorigin_settings_add_field('navigation', 'menu_search', 'checkbox', __('Search in Menu', 'vantage'), array(
 		'description' => __('Display a search in the main menu.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('general', 'display_scroll_to_top', 'checkbox', __('Display Scroll To Top', 'vantage'), array(
+	siteorigin_settings_add_field('navigation', 'display_scroll_to_top', 'checkbox', __('Display Scroll To Top', 'vantage'), array(
 		'description' => __('Display a scroll-to-top button when a user scrolls down.', 'vantage')
 	));
 
@@ -65,32 +94,45 @@ function vantage_theme_settings(){
 	siteorigin_settings_add_field('home', 'slider', 'select', __('Home Page Banner', 'estate'), array(
 		'options' => $options,
 		'description' => sprintf(
-			__('This theme supports <a href="%s" target="_blank">Meta Slider</a>. <a href="%s">Install it</a> for free to create responsive, animated sliders - <a href="%s" target="_blank">More Info</a>', 'estate'),
+			__('This theme supports <a href="%s" target="_blank">Meta Slider</a>. <a href="%s">Install it</a> for free to create responsive, animated sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
 			'http://sorig.in/metaslider',
-			siteorigin_plugin_activation_install_url('ml-slider', __('Meta Slider', 'estate'), 'http://sorig.in/ml-slider'),
-			'http://siteorigin.com/estate-documentation/sliders/'
+			siteorigin_plugin_activation_install_url('ml-slider', __('Meta Slider', 'vantage'), 'http://sorig.in/ml-slider'),
+			'http://siteorigin.com/vantage-documentation/sliders/'
 		)
 	));
 
 	/**
-	 * Layout Settings
+	 * Blog Settings
 	 */
 
-	siteorigin_settings_add_field('layout', 'responsive', 'checkbox', __('Responsive Layout', 'vantage'), array(
-		'description' => __('Scale your layout for small screen devices.', 'vantage')
+	siteorigin_settings_add_field('blog', 'post_author', 'checkbox', __('Post Author', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the post author in blog archive pages.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('layout', 'bound', 'select', __('Layout Bound', 'vantage'), array(
-		'options' => array(
-			'boxed' => __('Boxed', 'vantage'),
-			'full' => __('Full Width', 'vantage'),
-		),
-		'description' => __('Use a special responsive menu for small screen devices.', 'vantage')
+	siteorigin_settings_add_field('blog', 'post_date', 'checkbox', __('Post Date', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the post date.', 'vantage')
 	));
 
-	siteorigin_settings_add_teaser('layout', 'responsive_menu', __('Responsive Menu', 'vantage'), array(
-		'description' => __('Use a special responsive menu for small screen devices.', 'vantage')
+	siteorigin_settings_add_teaser('blog', 'author_bio', __('Author Bio', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the post date.', 'vantage')
 	));
+
+	/**
+	 * Social Settings
+	 */
+
+	siteorigin_settings_add_teaser('social', 'ajax_comments', __('Ajax Comments', 'vantage'), array(
+		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage')
+	));
+
+	siteorigin_settings_add_teaser('social', 'share_post', __('Post Sharing', 'vantage'), array(
+		'description' => __('Show icons to share your posts on Facebook, Twitter and Google+.', 'vantage')
+	));
+
+
 }
 add_action('admin_init', 'vantage_theme_settings');
 
@@ -102,7 +144,10 @@ add_action('admin_init', 'vantage_theme_settings');
  * @since vantage 1.0
  */
 function vantage_theme_setting_defaults($defaults){
-	$defaults['general_logo'] = '';
+	$defaults['logo_image'] = array(
+		get_template_directory_uri().'/images/logo.png', 40, 181
+	);
+
 	$defaults['general_ajax_comments'] = false;
 	$defaults['general_site_description'] = true;
 	$defaults['general_use_sticky_menu'] = true;
@@ -113,7 +158,6 @@ function vantage_theme_setting_defaults($defaults){
 
 	$defaults['layout_responsive'] = true;
 	$defaults['layout_bound'] = 'boxed';
-	$defaults['layout_responsive_menu'] = true;
 
 	return $defaults;
 }

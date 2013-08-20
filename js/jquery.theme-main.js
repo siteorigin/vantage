@@ -51,6 +51,8 @@ jQuery(function($){
                         function (data, status){
                             var $items = $(data.html);
                             var count = $items.find('.carousel-entry').appendTo($$).hide().fadeIn().length;
+                            console.log(data.html);
+                            console.log($items.find('.carousel-entry').html());
                             if(count == 0) {
                                 complete = true;
                                 $$.find('.loading').fadeOut(function(){$(this).remove()});
@@ -110,6 +112,11 @@ jQuery(function($){
                         'left' : $$.position().left,
                         'z-index' : 1001
                     }).addClass('sticky').insertAfter($$);
+                }
+                else {
+                    $mc.css({
+                        'left' : $$.position().left
+                    });
                 }
             }
             else {
