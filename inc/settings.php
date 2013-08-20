@@ -58,11 +58,6 @@ function vantage_theme_settings(){
 		'description' => __('Use a special responsive menu for small screen devices.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('navigation', 'display_scroll_to_top', 'checkbox', __('Scroll To Top', 'vantage'), array(
-		'description' => __('Display a scroll-to-top button when a user scrolls down.', 'vantage')
-	));
-
-
 	siteorigin_settings_add_field('navigation', 'use_sticky_menu', 'checkbox', __('Sticky Menu', 'vantage'), array(
 		'description' => __('Sticks the menu to the top of the screen when a user scrolls down.', 'vantage')
 	));
@@ -132,6 +127,10 @@ function vantage_theme_settings(){
 		'description' => __('Show icons to share your posts on Facebook, Twitter and Google+.', 'vantage')
 	));
 
+	siteorigin_settings_add_teaser('social', 'twitter', __('Twitter Handle', 'vantage'), array(
+		'description' => __('This handle will be recommended after a user shares one of your posts.', 'vantage')
+	));
+
 
 }
 add_action('admin_init', 'vantage_theme_settings');
@@ -148,16 +147,26 @@ function vantage_theme_setting_defaults($defaults){
 		get_template_directory_uri().'/images/logo.png', 40, 181
 	);
 
-	$defaults['general_ajax_comments'] = false;
-	$defaults['general_site_description'] = true;
-	$defaults['general_use_sticky_menu'] = true;
-	$defaults['general_menu_search'] = true;
-	$defaults['general_display_scroll_to_top'] = true;
+	$defaults['logo_header_text'] = __('Call me!', 'vantage');
 
-	$defaults['home_slider'] = '';
 
 	$defaults['layout_responsive'] = true;
 	$defaults['layout_bound'] = 'boxed';
+
+	$defaults['navigation_responsive_menu'] = true;
+	$defaults['navigation_use_sticky_menu'] = true;
+	$defaults['navigation_menu_search'] = true;
+	$defaults['navigation_display_scroll_to_top'] = true;
+
+	$defaults['home_slider'] = '';
+
+	$defaults['blog_post_author'] = true;
+	$defaults['blog_post_date'] = true;
+	$defaults['blog_author_bio'] = false;
+
+	$defaults['social_ajax_comments'] = true;
+	$defaults['social_share_post'] = true;
+	$defaults['social_twitter'] = '';
 
 	return $defaults;
 }

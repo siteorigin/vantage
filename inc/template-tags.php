@@ -140,7 +140,7 @@ function vantage_display_logo(){
 		bloginfo( 'name' );
 		echo '</h1>';
 	}
-	elseif (!empty($image)){
+	else {
 		// load the logo image
 		if(is_array($logo)) {
 			list ($src, $height, $width) = $logo;
