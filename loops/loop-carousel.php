@@ -1,3 +1,8 @@
+<?php
+/**
+ * Loop Name: Carousel Slider
+ */
+?>
 <div class="vantage-carousel-wrapper">
 
 	<?php $vars = vantage_get_query_variables(); ?>

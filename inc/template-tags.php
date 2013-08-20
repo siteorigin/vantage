@@ -132,27 +132,28 @@ if(!function_exists('vantage_display_logo')):
  * Display the logo 
  */
 function vantage_display_logo(){
-	$logo = siteorigin_setting('general_logo');
+	$logo = siteorigin_setting( 'logo_image' );
 
-	?><img src="<?php echo get_template_directory_uri() ?>/images/logo.png" width="181" height="40"/> <?php
-
-	return;
-
-	if(empty($logo)) {
+	if( empty($logo) ) {
 		// Just display the site title
 		echo '<h1 class="site-title">';
 		bloginfo( 'name' );
 		echo '</h1>';
-		return;
 	}
-	
-	// load the logo image
-	$image = wp_get_attachment_image_src($logo, 'full');
-	$height = $image[2];
-	$width = $image[1];
-
-	// echo $image;
-	?><img src="<?php echo $image[0] ?>" width="<?php echo round($width) ?>" height="<?php echo round($height) ?>" /><?php
+	elseif (!empty($image)){
+		// load the logo image
+		if(is_array($logo)) {
+			list ($src, $height, $width) = $logo;
+		}
+		else {
+			$image = wp_get_attachment_image_src($logo, 'full');
+			$src = $image[0];
+			$height = $image[2];
+			$width = $image[1];
+		}
+		// echo $image;
+		?><img src="<?php echo $src ?>" width="<?php echo round($width) ?>" height="<?php echo round($height) ?>" /><?php
+	}
 }
 endif;
 

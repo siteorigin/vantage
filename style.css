@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:100);
 /*
 Theme Name: Vantage
 Author: SiteOrigin
@@ -513,9 +514,10 @@ header#masthead hgroup a {
   text-decoration: none;
 }
 header#masthead hgroup h1 {
-  color: #4b4b4b;
-  font-family: "Marck Script", cursive;
-  font-size: 46px;
+  color: #666666;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 42px;
 }
 header#masthead hgroup .support-text {
   line-height: 1.2em;
@@ -1443,8 +1445,10 @@ article.page .more-link .meta-nav {
   text-align: center;
 }
 .flexslider .slides .flex-caption h3 {
+  color: inherit;
   margin: 0;
   line-height: 1.25em;
+  font-size: 15px;
 }
 .flexslider .slides > li {
   margin-left: 0;

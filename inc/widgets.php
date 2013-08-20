@@ -1,4 +1,11 @@
 <?php
+/**
+ * Give this theme some additional widgets.
+ *
+ * @package vantage
+ * @since 1.0
+ * @license GPL 2.0
+ */
 
 class Vantage_CircleIcon_Widget extends WP_Widget {
 
@@ -166,7 +173,7 @@ add_action( 'widgets_init', 'vantage_register_widgets');
  * Filter the carousel loop title to add navigation controls.
  */
 function vantage_filter_carousel_loop($title, $instance, $id){
-	if($id == 'siteorigin-panels-postloop' && isset($instance['template']) && $instance['template'] == 'loop-carousel.php') {
+	if($id == 'siteorigin-panels-postloop' && isset($instance['template']) && $instance['template'] == 'loops/loop-carousel.php') {
 		$title = '<div class="vantage-carousel-title"><span class="vantage-carousel-title-text">'.$title.'</span><a href="#" class="next">next</a><a href="#" class="previous">previous</a></div>';
 	}
 	return $title;
@@ -181,7 +188,7 @@ function vantage_carousel_ajax_handler(){
 
 	query_posts($query);
 	ob_start();
-	get_template_part('loop', 'carousel');
+	get_template_part('loops/loop', 'carousel');
 
 	global $wp_query;
 	$count = $wp_query->post_count;

@@ -1,4 +1,11 @@
 <?php
+/**
+ * Integrates this theme with WooCommerce.
+ *
+ * @package vantage
+ * @since 1.0
+ * @license GPL 2.0
+ */
 
 function vantage_woocommerce_before_single_product(){
 	?><div id="primary"><?php

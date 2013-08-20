@@ -1,6 +1,6 @@
 <?php
 /**
- * Integrates this theme with SiteOrigin panels page builder.
+ * Integrates this theme with SiteOrigin Page Builder.
  * 
  * @package vantage
  * @since 1.0
@@ -129,12 +129,12 @@ function vantage_prebuilt_page_layouts($layouts){
 			),
 			3 =>
 			array(
-				'weight' => '0.3330965909090909',
+				'weight' => 0.33333,
 				'grid' => '1',
 			),
 			4 =>
 			array(
-				'weight' => '0.6669034090909091',
+				'weight' => 0.66666,
 				'grid' => '1',
 			),
 		),
@@ -152,6 +152,7 @@ add_filter('siteorigin_panels_prebuilt_layouts', 'vantage_prebuilt_page_layouts'
  */
 function vantage_panels_settings($settings){
 	$settings['home-page'] = true;
+	$settings['margin-bottom'] = 35;
 	$settings['home-page-default'] = 'default-home';
 	return $settings;
 }
