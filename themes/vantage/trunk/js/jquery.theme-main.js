@@ -115,6 +115,7 @@ jQuery(function($){
                 }
                 else {
                     $mc.css({
+                        'width' : $$.outerWidth(),
                         'left' : $$.position().left
                     });
                 }

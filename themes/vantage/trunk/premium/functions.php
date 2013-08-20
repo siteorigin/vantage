@@ -13,8 +13,8 @@ include get_template_directory() . '/premium/inc/settings.php';
 include get_template_directory() . '/premium/inc/customizer.php';
 
 function vantage_premium_setup(){
-	if(siteorigin_setting('general_ajax_comments')) siteorigin_ajax_comments_activate();
-	if(siteorigin_setting('layout_responsive_menu')) add_theme_support('siteorigin-mobilenav');
+	if(siteorigin_setting('social_ajax_comments')) siteorigin_ajax_comments_activate();
+	if(siteorigin_setting('navigation_responsive_menu')) add_theme_support('siteorigin-mobilenav');
 }
 add_action('after_setup_theme', 'vantage_premium_setup', 15);
 

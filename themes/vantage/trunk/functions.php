@@ -136,6 +136,23 @@ function vantage_widgets_init() {
 }
 add_action( 'widgets_init', 'vantage_widgets_init' );
 
+function vantage_print_styles(){
+	// Create the footer widget CSS
+	$sidebars_widgets = wp_get_sidebars_widgets();
+	$count = isset($sidebars_widgets['site-footer']) ? count($sidebars_widgets['site-footer']) : 1;
+	$count = max($count,1);
+
+	?>
+	<style type="text/css" media="screen">
+		#footer-widgets .widget { width: <?php echo round(100/$count,3) . '%' ?>; }
+		@media screen and (max-width: 640px) {
+			#footer-widgets .widget { width: auto; float: none; }
+		}
+	</style>
+	<?php
+}
+add_action('wp_head', 'origami_print_styles', 11);
+
 /**
  * Register all the bundled scripts
  */
@@ -223,7 +240,7 @@ function vantage_pagination($pages = '', $range = 2) {
  * Display some text in the text area.
  */
 function vantage_top_text_area(){
-	echo 'This is some text';
+	echo siteorigin_setting('logo_header_text');
 }
 add_action('vantage_support_text', 'vantage_top_text_area');
 
@@ -231,7 +248,7 @@ add_action('vantage_support_text', 'vantage_top_text_area');
  * Display the scroll to top link.
  */
 function vantage_back_to_top() {
-	if( !siteorigin_setting('general_display_scroll_to_top') ) return;
+	if( !siteorigin_setting('navigation_display_scroll_to_top') ) return;
 	?><a href="#" id="scroll-to-top"><?php __('Back To Top', 'vantage') ?></a><?php
 }
 add_action('wp_footer', 'vantage_back_to_top');
