@@ -130,4 +130,20 @@ jQuery(function($){
         $(window).scroll( resetStickyMenu ).resize( resetStickyMenu );
         resetStickyMenu();
     }
+
+    // Lets make the slider look stunning.
+    $('body.layout-full #main-slider').each(function(){
+        var $$ = $(this);
+        $$.find('.slides li').each(function(){
+            var $s = $(this);
+
+            // Move the image into the background
+            var $img = $s.find('img').eq(0);
+            $s.css('background-image', 'url(' + $img.attr('src') + ')');
+            $img.css('visibility', 'hidden');
+
+            // Add a wrapper
+            $s.wrapInner('<div class="full-container"></div>');
+        });
+    });
 });
