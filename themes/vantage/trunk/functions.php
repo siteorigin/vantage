@@ -137,9 +137,11 @@ function vantage_widgets_init() {
 add_action( 'widgets_init', 'vantage_widgets_init' );
 
 function vantage_print_styles(){
+	if( !siteorigin_setting('layout_responsive') ) return;
+
 	// Create the footer widget CSS
 	$sidebars_widgets = wp_get_sidebars_widgets();
-	$count = isset($sidebars_widgets['site-footer']) ? count($sidebars_widgets['site-footer']) : 1;
+	$count = isset($sidebars_widgets['sidebar-footer']) ? count($sidebars_widgets['sidebar-footer']) : 1;
 	$count = max($count,1);
 
 	?>
@@ -151,7 +153,7 @@ function vantage_print_styles(){
 	</style>
 	<?php
 }
-add_action('wp_head', 'origami_print_styles', 11);
+add_action('wp_head', 'vantage_print_styles', 11);
 
 /**
  * Register all the bundled scripts
@@ -265,4 +267,10 @@ function vantage_get_query_variables(){
 	unset($vars['comments_per_page']);
 
 	return $vars;
+}
+
+function vantage_render_slider(){
+	?><div id="main-slider"><?php
+	get_template_part('slider/demo');
+	?></div><?php
 }

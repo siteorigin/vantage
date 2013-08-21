@@ -1,6 +1,8 @@
 		</div><!-- .full-container -->
 	</div><!-- #main .site-main -->
 
+	<?php do_action( 'vantage_after_main_container' ); ?>
+
 	<?php do_action( 'vantage_before_footer' ); ?>
 
 	<?php get_template_part( 'parts/footer', apply_filters( 'vantage_footer_type', '' ) ); ?>

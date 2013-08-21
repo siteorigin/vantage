@@ -7,14 +7,16 @@ include get_template_directory() . '/premium/extras/ajax-comments/ajax-comments.
 include get_template_directory() . '/premium/extras/mobilenav/mobilenav.php';
 include get_template_directory() . '/premium/extras/css/css.php';
 include get_template_directory() . '/premium/extras/customizer/customizer.php';
+include get_template_directory() . '/premium/extras/share/share.php';
 
 // Theme specific files
 include get_template_directory() . '/premium/inc/settings.php';
 include get_template_directory() . '/premium/inc/customizer.php';
 
 function vantage_premium_setup(){
-	if(siteorigin_setting('social_ajax_comments')) siteorigin_ajax_comments_activate();
-	if(siteorigin_setting('navigation_responsive_menu')) add_theme_support('siteorigin-mobilenav');
+	if( siteorigin_setting('social_ajax_comments') ) siteorigin_ajax_comments_activate();
+	if( siteorigin_setting('social_share_post') ) siteorigin_share_activate();
+	if( siteorigin_setting('navigation_responsive_menu') ) add_theme_support('siteorigin-mobilenav');
 }
 add_action('after_setup_theme', 'vantage_premium_setup', 15);
 
@@ -24,29 +26,11 @@ function vantage_premium_remove_credits(){
 add_filter('vantage_credits_siteorigin', 'vantage_premium_remove_credits');
 
 /**
- * This overwrites the show on front setting when we're displaying the blog archive page.
- *
- * @param $r
- * @return bool
+ * Show the social share icons
  */
-function vantage_filter_show_on_front($r){
-	/**
-	 * @var WP_Query
-	 */
-	global $vantage_is_blog_archive;
-	if(!empty($vantage_is_blog_archive)) {
-		return false;
-	}
-	else return $r;
+function vantage_show_social_share(){
+	if( siteorigin_setting('social_share_post') ) siteorigin_share_render( array(
+		'twitter' => siteorigin_setting('social_twitter'),
+	) );
 }
-add_filter('option_show_on_front', 'vantage_filter_show_on_front');
-
-/**
- * Sets when we're displaying the blog archive page.
- *
- * @param $new
- */
-function vantage_set_is_blog_archive($new) {
-	global $vantage_is_blog_archive;
-	$vantage_is_blog_archive = $new;
-}
+add_action('vantage_after_single_entry', 'vantage_show_social_share');
