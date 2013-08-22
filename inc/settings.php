@@ -75,24 +75,12 @@ function vantage_theme_settings(){
 	 * Home Page
 	 */
 
-	$options = array('' => __('None', 'vantage'));
-
-	if(class_exists('MetaSliderPlugin')){
-		$sliders = get_posts(array(
-			'post_type' => 'ml-slider',
-		));
-
-		foreach($sliders as $slider) {
-			$options['meta:'.$slider->ID] = __('Slider: ', 'estate').$slider->post_title;
-		}
-	}
-
 	siteorigin_settings_add_field('home', 'slider', 'select', __('Home Page Slider', 'vantage'), array(
-		'options' => $options,
+		'options' => siteorigin_metaslider_get_options(true),
 		'description' => sprintf(
 			__('This theme supports <a href="%s" target="_blank">Meta Slider</a>. <a href="%s">Install it</a> for free to create responsive, animated sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
 			'http://sorig.in/metaslider',
-			siteorigin_plugin_activation_install_url('ml-slider', __('Meta Slider', 'vantage'), 'http://sorig.in/ml-slider'),
+			siteorigin_metaslider_install_link(),
 			'http://siteorigin.com/vantage-documentation/sliders/'
 		)
 	));

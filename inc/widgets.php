@@ -22,7 +22,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		echo $args['before_widget'];
 
 		?>
-		<div class="circle-icon-box icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo !empty($instance['hide_box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?>">
+		<div class="circle-icon-box icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo empty($instance['box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?>">
 			<div class="circle-icon-wrapper">
 				<div class="circle-icon" <?php if(!empty($instance['image'])) : ?>style="background-image: url(<?php echo esc_url($instance['image']) ?>)"<?php endif; ?>>
 					<?php if(!empty($instance['icon'])) : ?><div class="<?php echo esc_attr($instance['icon']) ?>"></div><?php endif; ?>
@@ -55,7 +55,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			'icon_position' => 'top',
 			'more' => '',
 			'more_url' => '',
-			'hide_box' => false,
+			'box' => false,
 		) );
 
 		$icons = include ( get_template_directory() . '/fontawesome/icons.php' );
@@ -105,16 +105,16 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id('more_url') ?>" name="<?php echo $this->get_field_name('more_url') ?>" value="<?php echo esc_attr($instance['more_url']) ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('hide_box') ?>">
-				<input type="checkbox" id="<?php echo $this->get_field_id('hide_box') ?>" name="<?php echo $this->get_field_name('hide_box') ?>" <?php checked($instance['hide_box']) ?> />
-				<?php _e('Hide Box Container', 'vantage') ?>
+			<label for="<?php echo $this->get_field_id('box') ?>">
+				<input type="checkbox" id="<?php echo $this->get_field_id('box') ?>" name="<?php echo $this->get_field_name('box') ?>" <?php checked($instance['box']) ?> />
+				<?php _e('Show Box Container', 'vantage') ?>
 			</label>
 		</p>
 		<?php
 	}
 
 	public function update( $new_instance, $old_instance ) {
-		$new_instance['hide_box'] = !empty($new_instance['hide_box']);
+		$new_instance['box'] = !empty($new_instance['box']);
 		return $new_instance;
 	}
 }
