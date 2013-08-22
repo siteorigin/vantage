@@ -64,12 +64,6 @@ function vantage_setup() {
 	// Enable support for Post Thumbnails
 	add_theme_support( 'post-thumbnails' );
 
-	// Add support for custom backgrounds.
-	add_theme_support( 'custom-background' , array(
-		'default-color' => '#FFFFFF',
-		'default-image' => get_template_directory_uri().'/images/bg.png'
-	));
-	
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'vantage' ),
@@ -100,13 +94,17 @@ add_action( 'after_setup_theme', 'vantage_setup' );
  * @since vantage 1.0
  */
 function vantage_register_custom_background() {
-	$args = array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	);
 
-	$args = apply_filters( 'vantage_custom_background_args', $args );
-	add_theme_support( 'custom-background', $args );
+	if(siteorigin_setting('layout_bound') == 'boxed') {
+		$args = array(
+			'default-color' => 'e8e8e8',
+			'default-image' => '',
+		);
+
+		$args = apply_filters( 'vantage_custom_background_args', $args );
+		add_theme_support( 'custom-background', $args );
+	}
+
 }
 add_action( 'after_setup_theme', 'vantage_register_custom_background' );
 
