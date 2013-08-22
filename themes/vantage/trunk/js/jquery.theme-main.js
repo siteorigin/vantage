@@ -22,7 +22,7 @@ jQuery(function($){
         return false;
     } );
 
-    // The carousel element
+    // The carousel widget
     $('.vantage-carousel').each(function(){
         var $$ = $(this);
         var wrap = $$.closest('.widget');
@@ -63,19 +63,20 @@ jQuery(function($){
                     )
                 }
             }
-            $$.css('margin-left', (-257*position) + 'px' );
+            var entry = $$.find('.carousel-entry').eq(0);
+            $$.css('margin-left', -(( entry.width() + parseInt(entry.css('margin-right'))) * position) + 'px' );
 
             // Load the next batch
         };
 
         title.find('a.previous').click( function(){
-            position -= 2;
+            position -= 1;
             updatePosition();
             return false;
         } );
 
         title.find('a.next').click( function(){
-            position += 2;
+            position += 1;
             updatePosition();
             return false;
         } );
