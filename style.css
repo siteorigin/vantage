@@ -1568,19 +1568,27 @@ article.page .share-buttons li {
   -webkit-backface-visibility: hidden;
   background-size: cover;
   background-position: center center;
+  /* Stuff specific to metaslider */
+
+}
+.flexslider .slides > li .content img {
+  max-width: 100%;
+  height: auto !important;
 }
 .flexslider .flex-control-nav {
   list-style: none;
   position: absolute;
   bottom: 15px;
-  right: 25px;
-  text-align: center;
+  right: 0px;
+  text-align: right;
+  padding: 0 30px;
 }
 .flexslider .flex-control-nav li {
   margin: 0;
   padding: 0;
   display: inline-block;
   text-indent: -99999px;
+  text-align: left;
   width: 14px;
   height: 14px;
   margin-right: 2px;
@@ -1924,34 +1932,6 @@ article.page .share-buttons li {
 .widget_siteorigin-list ul li:last-child {
   margin-bottom: 0;
 }
-.widget_headline .widget-title {
-  margin-bottom: 0;
-  padding: 30px 0;
-  border: solid #E6E6E6;
-  border-width: 1px 0;
-}
-.widget_headline .widget-title span {
-  display: block;
-  line-height: 1.3em;
-}
-.widget_headline .widget-title .size-medium {
-  font-size: 130%;
-}
-.widget_headline .widget-title .size-large {
-  font-size: 160%;
-}
-.widget_headline .widget-title .size-extra-large {
-  font-size: 190%;
-}
-.widget_headline .widget-title .align-left {
-  text-align: left;
-}
-.widget_headline .widget-title .align-center {
-  text-align: center;
-}
-.widget_headline .widget-title .align-right {
-  text-align: right;
-}
 .widget_icon-text {
   font-size: 0.95em;
   text-align: center;
@@ -2094,13 +2074,12 @@ article.page .share-buttons li {
 .vantage-carousel-title a.previous {
   display: block;
   float: right;
-  height: 14px;
-  width: 14px;
+  height: 17px;
+  width: 17px;
   overflow: hidden;
   text-indent: -9999px;
   background-position: center center;
-  background: #d4d4d4;
-  margin-left: 1px;
+  margin-left: 2px;
 }
 .vantage-carousel-title a.next {
   background-image: url(images/sprites/carousel-right.png);
@@ -2154,13 +2133,13 @@ article.page .share-buttons li {
   background-position: center center;
 }
 .vantage-carousel-wrapper .vantage-carousel li.carousel-entry .thumbnail a,
-.vantage-carousel-wrapper .vantage-carousel li.carousel-entry .thumbnail a span {
+.vantage-carousel-wrapper .vantage-carousel li.carousel-entry .thumbnail a span.overlay {
   -webkit-transition: all 0.35s ease;
   -moz-transition: all 0.35s ease;
   -o-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
-.vantage-carousel-wrapper .vantage-carousel li.carousel-entry .thumbnail a span {
+.vantage-carousel-wrapper .vantage-carousel li.carousel-entry .thumbnail a span.overlay {
   display: block;
   width: 100%;
   height: 100%;
@@ -2172,6 +2151,17 @@ article.page .share-buttons li {
 }
 .vantage-carousel-wrapper .vantage-carousel li.carousel-entry .thumbnail a:hover span {
   opacity: 0.5;
+}
+.vantage-carousel-wrapper .vantage-carousel li.carousel-entry .default-thumbnail {
+  display: block;
+  width: 242px;
+  height: 162px;
+  background: #e8e8e8;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #e0e0e0), color-stop(1, #e8e8e8));
+  background: -ms-linear-gradient(bottom, #e0e0e0, #e8e8e8);
+  background: -moz-linear-gradient(center bottom, #e0e0e0 0%, #e8e8e8 100%);
+  background: -o-linear-gradient(#e8e8e8, #e0e0e0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e8e8', endColorstr='#e0e0e0', GradientType=0);
 }
 .vantage-carousel-wrapper .vantage-carousel li.carousel-entry h3 {
   font-size: 15px;
@@ -2196,7 +2186,7 @@ article.page .share-buttons li {
   text-align: center;
 }
 .widget_headline-widget h1 {
-  padding-top: 25px;
+  padding-top: 20px;
   margin: 0;
   font-size: 26px;
   text-transform: uppercase;
@@ -2204,7 +2194,7 @@ article.page .share-buttons li {
   letter-spacing: 1px;
 }
 .widget_headline-widget h3 {
-  padding-bottom: 25px;
+  padding-bottom: 20px;
   margin: 0;
   font-size: 14px;
   color: #666666;
@@ -2214,17 +2204,7 @@ article.page .share-buttons li {
   border-top: 1px solid #EEE;
   position: relative;
   height: 1px;
-  margin: 35px 60px 25px 60px;
-}
-.widget_headline-widget .decoration .decoration-inside {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  left: 50%;
-  margin-left: -6px;
-  top: -6px;
-  border: 2px solid #EEE;
-  background: #ffffff;
+  margin: 30px 60px 20px 60px;
 }
 /* =Some row styling for page builder
 ----------------------------------------------- */

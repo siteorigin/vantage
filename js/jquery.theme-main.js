@@ -51,8 +51,6 @@ jQuery(function($){
                         function (data, status){
                             var $items = $(data.html);
                             var count = $items.find('.carousel-entry').appendTo($$).hide().fadeIn().length;
-                            console.log(data.html);
-                            console.log($items.find('.carousel-entry').html());
                             if(count == 0) {
                                 complete = true;
                                 $$.find('.loading').fadeOut(function(){$(this).remove()});
@@ -132,13 +130,20 @@ jQuery(function($){
     }
 
     // Lets make the slider look stunning.
-    $('body.layout-full #main-slider').each(function(){
+    $('body.layout-full #main-slider[data-stretch="true"]').each(function(){
         var $$ = $(this);
+        console.log('here');
+
+        $$.find('>div').css('max-width', '100%');
         $$.find('.slides li').each(function(){
             var $s = $(this);
 
             // Move the image into the background
-            var $img = $s.find('img').eq(0);
+            var $img = $s.find('img.msDefaultImage').eq(0);
+            if(!$img.length) {
+                $img = $s.find('img').eq(0);
+            }
+
             $s.css('background-image', 'url(' + $img.attr('src') + ')');
             $img.css('visibility', 'hidden');
 
