@@ -71,20 +71,31 @@
 
 		background-size: cover;
 		background-position: center center;
+
+		/* Stuff specific to metaslider */
+
+		.content {
+			img {
+				max-width: 100%;
+				height: auto !important;
+			}
+		}
 	}
 
 	.flex-control-nav {
 		list-style:none;
 		position: absolute;
 		bottom: 15px;
-		right: 25px;
-		text-align: center;
+		right: 0px;
+		text-align: right;
+		padding: 0 30px;
 
 		li {
 			margin:0;
 			padding:0;
 			display: inline-block;
 			text-indent: -99999px;
+			text-align: left;
 			width: 14px;
 			height: 14px;
 			margin-right: 2px;

@@ -19,6 +19,7 @@ function vantage_theme_settings(){
 	siteorigin_settings_add_section( 'navigation', __('Navigation', 'vantage' ) );
 	siteorigin_settings_add_section( 'blog', __('Blog', 'vantage' ) );
 	siteorigin_settings_add_section( 'social', __('Social', 'vantage' ) );
+	siteorigin_settings_add_section( 'general', __('General', 'vantage' ) );
 
 	/**
 	 * Logo Settings
@@ -86,7 +87,7 @@ function vantage_theme_settings(){
 		}
 	}
 
-	siteorigin_settings_add_field('home', 'slider', 'select', __('Home Page Banner', 'estate'), array(
+	siteorigin_settings_add_field('home', 'slider', 'select', __('Home Page Slider', 'vantage'), array(
 		'options' => $options,
 		'description' => sprintf(
 			__('This theme supports <a href="%s" target="_blank">Meta Slider</a>. <a href="%s">Install it</a> for free to create responsive, animated sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
@@ -95,6 +96,11 @@ function vantage_theme_settings(){
 			'http://siteorigin.com/vantage-documentation/sliders/'
 		)
 	));
+
+	siteorigin_settings_add_field('home', 'slider_stretch', 'checkbox', __('Stretch Home Slider', 'vantage'), array(
+		'label' => __('Stretch', 'vantage'),
+		'description' => __('Stretch the home page slider to the width of the screen if using the full width layout.', 'vantage'),
+	) );
 
 	/**
 	 * Blog Settings
@@ -147,11 +153,11 @@ function vantage_theme_setting_defaults($defaults){
 		get_template_directory_uri().'/images/logo.png', 40, 181
 	);
 
-	$defaults['logo_header_text'] = __('Call me!', 'vantage');
+	$defaults['logo_header_text'] = __('Call me! Maybe?', 'vantage');
 
 
 	$defaults['layout_responsive'] = true;
-	$defaults['layout_bound'] = 'boxed';
+	$defaults['layout_bound'] = 'full';
 
 	$defaults['navigation_responsive_menu'] = true;
 	$defaults['navigation_use_sticky_menu'] = true;
@@ -159,6 +165,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['navigation_display_scroll_to_top'] = true;
 
 	$defaults['home_slider'] = '';
+	$defaults['home_slider_stretch'] = true;
 
 	$defaults['blog_post_author'] = true;
 	$defaults['blog_post_date'] = true;
