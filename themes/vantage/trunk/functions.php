@@ -209,35 +209,6 @@ function vantage_wp_head(){
 }
 add_action('wp_head', 'vantage_wp_head');
 
-function vantage_pagination($pages = '', $range = 2) {
-	$showitems = ($range * 2)+1;
-
-	global $paged;
-	if(empty($paged)) $paged = 1;
-
-	if($pages == '') {
-		global $wp_query;
-		$pages = $wp_query->max_num_pages;
-		if(!$pages) $pages = 1;
-	}
-
-	if(1 != $pages) {
-		echo "<div class='pagination'>";
-		if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo;</a>";
-		if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo;</a>";
-
-		for ($i=1; $i <= $pages; $i++) {
-			if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems )) {
-				echo ($paged == $i)? "<span class='current'>".$i."</span>":"<a href='".get_pagenum_link($i)."' class='inactive' >".$i."</a>";
-			}
-		}
-
-		if ($paged < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($paged + 1)."'>&rsaquo;</a>";
-		if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>&raquo;</a>";
-		echo "</div>\n";
-	}
-}
-
 /**
  * Display some text in the text area.
  */
@@ -255,6 +226,9 @@ function vantage_back_to_top() {
 }
 add_action('wp_footer', 'vantage_back_to_top');
 
+/**
+ * @return mixed
+ */
 function vantage_get_query_variables(){
 	global $wp_query;
 	$vars = $wp_query->query_vars;
@@ -269,8 +243,23 @@ function vantage_get_query_variables(){
 	return $vars;
 }
 
+/**
+ * Render the slider.
+ */
 function vantage_render_slider(){
-	?><div id="main-slider"><?php
-	get_template_part('slider/demo');
+	$slider = siteorigin_setting('home_slider');
+	if($slider == 'none') return;
+
+	?><div id="main-slider" <?php if( siteorigin_setting('home_slider_stretch') ) echo 'data-stretch="true"' ?>><?php
+
+
+	if($slider == 'default') get_template_part('slider/demo');
+	elseif( substr($slider, 0, 5) == 'meta:' ) {
+		list($null, $slider_id) = explode(':', $slider);
+		$slider_id = intval($slider_id);
+
+		echo do_shortcode("[metaslider id=" . $slider_id . "]");
+	}
+
 	?></div><?php
 }
