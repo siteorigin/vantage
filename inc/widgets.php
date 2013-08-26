@@ -172,7 +172,7 @@ add_action( 'widgets_init', 'vantage_register_widgets');
 /**
  * Filter the carousel loop title to add navigation controls.
  */
-function vantage_filter_carousel_loop($title, $instance, $id){
+function vantage_filter_carousel_loop($title, $instance = array(), $id = false){
 	if($id == 'siteorigin-panels-postloop' && isset($instance['template']) && $instance['template'] == 'loops/loop-carousel.php') {
 		$title = '<div class="vantage-carousel-title"><span class="vantage-carousel-title-text">'.$title.'</span><a href="#" class="next">next</a><a href="#" class="previous">previous</a></div>';
 	}
@@ -180,6 +180,9 @@ function vantage_filter_carousel_loop($title, $instance, $id){
 }
 add_filter('widget_title', 'vantage_filter_carousel_loop', 10, 3);
 
+/**
+ * Handle ajax requests for the carousel.
+ */
 function vantage_carousel_ajax_handler(){
 	if(empty($_GET['query'])) return;
 
