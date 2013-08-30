@@ -104,12 +104,14 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id('more_url') ?>"><?php _e('More URL', 'vantage') ?></label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id('more_url') ?>" name="<?php echo $this->get_field_name('more_url') ?>" value="<?php echo esc_attr($instance['more_url']) ?>" />
 		</p>
+		<!--
 		<p>
 			<label for="<?php echo $this->get_field_id('box') ?>">
 				<input type="checkbox" id="<?php echo $this->get_field_id('box') ?>" name="<?php echo $this->get_field_name('box') ?>" <?php checked($instance['box']) ?> />
 				<?php _e('Show Box Container', 'vantage') ?>
 			</label>
 		</p>
+		-->
 		<?php
 	}
 
