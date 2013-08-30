@@ -528,6 +528,10 @@ header#masthead hgroup h1 {
   font-weight: 100;
   font-size: 42px;
 }
+header#masthead hgroup img {
+  max-width: 100%;
+  height: auto;
+}
 header#masthead hgroup .support-text {
   line-height: 1.2em;
   position: absolute;
@@ -587,10 +591,21 @@ header#masthead hgroup .support-text {
 ----------------------------------------------- */
 /* We consider 680px to be mobile resolution */
 @media (max-width: 680px) {
+  body.responsive header#masthead hgroup {
+    text-align: center;
+  }
+  body.responsive header#masthead hgroup .support-text {
+    position: static;
+    display: block;
+    margin-top: 30px;
+  }
   body.responsive #primary,
   body.responsive #secondary {
     width: auto;
     float: none;
+  }
+  body.responsive #search-icon {
+    display: none;
   }
   body.responsive #secondary {
     margin-top: 35px;
@@ -730,6 +745,9 @@ body.responsive.layout-full #page-wrapper .full-container {
   font-size: 16px;
   line-height: 0.5em;
   color: #CCCCCC;
+}
+.mobile-nav-frame [class^="icon-"] {
+  margin-right: 10px;
 }
 #search-icon {
   float: right;
@@ -1574,7 +1592,7 @@ article.page .share-buttons li {
   max-width: 100%;
   height: auto !important;
 }
-.flexslider .flex-control-nav {
+.flexslider .flex-control-paging {
   list-style: none;
   position: absolute;
   bottom: 15px;
@@ -1582,7 +1600,7 @@ article.page .share-buttons li {
   text-align: right;
   padding: 0 30px;
 }
-.flexslider .flex-control-nav li {
+.flexslider .flex-control-paging li {
   margin: 0;
   padding: 0;
   display: inline-block;
@@ -1592,15 +1610,18 @@ article.page .share-buttons li {
   height: 14px;
   margin-right: 2px;
 }
-.flexslider .flex-control-nav li a {
+.flexslider .flex-control-paging li a {
   display: block;
   width: 14px;
   height: 14px;
   cursor: pointer;
   background: url(images/sprites/slide-indicator-inactive.png);
 }
-.flexslider .flex-control-nav li a.flex-active {
+.flexslider .flex-control-paging li a.flex-active {
   background: url(images/sprites/slide-indicator-active.png);
+}
+.flexslider .flex-control-paging li a:hover {
+  background: url(images/sprites/slide-indicator-inactive.png);
 }
 .flexslider .flex-direction-nav {
   list-style: none;
@@ -1942,6 +1963,9 @@ article.page .share-buttons li {
 .widget_icon-text .widget-title {
   margin: 15px 0;
 }
+.widget_circleicon-widget {
+  clear: both;
+}
 .widget_circleicon-widget .circle-icon-box {
   text-align: center;
   position: relative;
@@ -2021,40 +2045,36 @@ article.page .share-buttons li {
   margin-left: 3px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-top {
-  margin-top: 38.5px;
-  padding-top: 48.5px;
+  padding-top: 87px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-top .circle-icon {
-  top: -38.5px;
+  top: 0;
   left: 50%;
   margin-left: -38.5px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-bottom {
-  margin-bottom: 38.5px;
-  padding-bottom: 48.5px;
+  padding-bottom: 87px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-bottom .circle-icon {
-  bottom: -38.5px;
+  bottom: 0;
   left: 50%;
   margin-left: -38.5px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-left {
   text-align: left;
-  margin-left: 38.5px;
-  padding-left: 48.5px;
+  padding-left: 87px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-left .circle-icon {
-  left: -38.5px;
+  left: 0;
   top: 50%;
   margin-top: -38.5px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-right {
   text-align: left;
-  margin-right: 38.5px;
-  padding-right: 48.5px;
+  padding-right: 87px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-right .circle-icon {
-  right: -38.5px;
+  right: 0;
   top: 50%;
   margin-top: -38.5px;
 }
@@ -2188,6 +2208,7 @@ article.page .share-buttons li {
   padding-top: 20px;
   margin: 0;
   font-size: 26px;
+  line-height: 36px;
   text-transform: uppercase;
   color: #444444;
   letter-spacing: 1px;
@@ -2203,7 +2224,7 @@ article.page .share-buttons li {
   border-top: 1px solid #EEE;
   position: relative;
   height: 1px;
-  margin: 30px 60px 20px 60px;
+  margin: 20px 60px 20px 60px;
 }
 /* =Some row styling for page builder
 ----------------------------------------------- */
@@ -2229,6 +2250,12 @@ article.page .share-buttons li {
 .layout-full .panel-row-style-wide-grey {
   margin: 0 -1000px;
   padding: 25px 1000px 25px 1000px;
+}
+@media (max-width: 680px) {
+  body.responsive.layout-boxed .panel-row-style-wide-grey {
+    margin: 0 -35px;
+    padding: 25px 35px;
+  }
 }
 /* This will override anything from WooCommerce core CSS */
 .woocommerce #page-wrapper .button {
