@@ -8,16 +8,19 @@
  */
 
 define('SITEORIGIN_THEME_VERSION', 'trunk');
-define('SITEORIGIN_THEME_UPDATE_ID', false);
 define('SITEORIGIN_THEME_ENDPOINT', 'http://siteorigin.dynalias.com');
 
-if( file_exists( get_template_directory() . '/premium/functions.php' ) ){
+if( file_exists( get_template_directory() . '/premium/functions.php' ) && false ){
 	include get_template_directory() . '/premium/functions.php';
+}
+else {
+	include get_template_directory() . '/upgrade/upgrade.php';
 }
 
 // Include all the SiteOrigin extras
 include get_template_directory() . '/extras/settings/settings.php';
-include get_template_directory() . '/extras/updater/updater.php';
+include get_template_directory() . '/extras/premium/premium.php';
+include get_template_directory() . '/extras/update/update.php';
 include get_template_directory() . '/extras/adminbar/adminbar.php';
 include get_template_directory() . '/extras/plugin-activation/plugin-activation.php';
 include get_template_directory() . '/extras/metaslider/metaslider.php';
@@ -32,6 +35,8 @@ include get_template_directory() . '/inc/metaslider.php';
 include get_template_directory() . '/inc/widgets.php';
 include get_template_directory() . '/inc/menu-icon.php';
 include get_template_directory() . '/inc/woocommerce.php';
+
+
 
 /**
  * Set the content width based on the theme's design and stylesheet.
