@@ -87,8 +87,9 @@ jQuery(function($){
     $(document).click(function(){
         if(!isSearchHover) $('#search-icon form').fadeOut(250);
     });
-    $('#search-icon-icon')
-        .click( function(){
+
+    $(document)
+        .on('click','#search-icon-icon', function(){
             var $$ = $(this).parent();
             $$.find('form').fadeToggle(250);
             setTimeout(function(){
@@ -96,13 +97,13 @@ jQuery(function($){
             }, 300);
         } );
 
-    $('#search-icon')
-        .mouseenter(function(){
+    $(document)
+        .on('mouseenter', '#search-icon', function(){
             isSearchHover = true;
-        })
-        .mouseleave(function(){
+        } )
+        .on('mouseleave', '#search-icon', function(){
             isSearchHover = false;
-        });
+        } );
 
     // The sticky menu
     if($('nav.site-navigation.primary').hasClass('use-sticky-menu')) {
