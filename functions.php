@@ -43,8 +43,7 @@ include get_template_directory() . '/inc/woocommerce.php';
  *
  * @since vantage 1.0
  */
-if ( ! isset( $content_width ) )
-	$content_width = 789; /* pixels */
+if ( ! isset( $content_width ) ) $content_width = 789; /* pixels */
 
 if ( ! function_exists( 'vantage_setup' ) ) :
 /**

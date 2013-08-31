@@ -83,13 +83,26 @@ jQuery(function($){
     });
 
     // The search bar
-    $('#search-icon').mouseenter( function(){
-        var $$ = $(this);
-        setTimeout(function(){
-            $$.find('input[name=s]').focus();
-        }, 350);
+    var isSearchHover = false;
+    $(document).click(function(){
+        if(!isSearchHover) $('#search-icon form').fadeOut(250);
+    });
+    $('#search-icon-icon')
+        .click( function(){
+            var $$ = $(this).parent();
+            $$.find('form').fadeToggle(250);
+            setTimeout(function(){
+                $$.find('input[name=s]').focus();
+            }, 300);
+        } );
 
-    } );
+    $('#search-icon')
+        .mouseenter(function(){
+            isSearchHover = true;
+        })
+        .mouseleave(function(){
+            isSearchHover = false;
+        });
 
     // The sticky menu
     if($('nav.site-navigation.primary').hasClass('use-sticky-menu')) {

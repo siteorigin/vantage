@@ -390,6 +390,7 @@ header#masthead {
 			margin-top: -0.6em;
 			color: #4b4b4b;
 			font-style: italic;
+			max-width: 50%;
 		}
 	}
 }
@@ -456,6 +457,7 @@ header#masthead {
 					position: static;
 					display: block;
 					margin-top: 30px;
+					max-width: 100%;
 				}
 			}
 		}
@@ -466,7 +468,7 @@ header#masthead {
 		}
 
 		#search-icon {
-			display: none;
+
 		}
 
 		#secondary {
@@ -489,6 +491,7 @@ body.responsive {
 	#page-wrapper {
 		max-width: 1080px;
 		width: auto;
+		overflow-x: hidden;
 	}
 
 	&.layout-full {
@@ -620,13 +623,23 @@ body.responsive {
 
 #search-icon {
 	float: right;
-	height: 59px;
-	width: 59px;
-	background: #303134 url(./images/sprites/search.png) no-repeat;
-	border-left: 1px solid #2e2f31;
 	position: relative;
 
+	#search-icon-icon {
+		cursor: pointer;
+		height: 59px;
+		width: 59px;
+		background: #303134 url(./images/sprites/search.png) no-repeat;
+		border-left: 1px solid #2e2f31;
+		.transition(0.25s);
+
+		&:hover {
+			background: #00bcff url(./images/sprites/search-white.png) no-repeat;
+		}
+	}
+
 	.searchform {
+		display: none;
 		position: absolute;
 		top: 100%;
 		right: 0;
@@ -642,26 +655,12 @@ body.responsive {
 			.box-sizing(border-box);
 			display: block;
 			width: 100%;
-			height: 0px;
+			height: 42px;
 			border: none;
 			.rounded(0px);
 			background: transparent;
 			outline: none;
 			padding: 0 15px;
-		}
-	}
-
-
-
-	&, input[name=s]{
-		.transition(0.35s);
-	}
-
-	&:hover {
-		background: #00bcff url(./images/sprites/search-white.png) no-repeat;
-
-		.searchform input[name=s]{
-			height: 48px;
 		}
 	}
 }
@@ -729,12 +728,12 @@ article.page{
 			font-family: "Lato";
 			color: #3b3b3b;
 			margin-bottom: 20px;
+			font-size: 20px;
 
 			a {
 				color: inherit;
 				text-decoration: none;
 				font-weight: bold;
-				font-size: 20px;
 			}
 		}
 

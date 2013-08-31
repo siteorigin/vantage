@@ -12,7 +12,7 @@
 
 	<div class="entry-main">
 
-		<?php do_action('vantage_before_single_entry') ?>
+		<?php do_action('vantage_entry_main_top') ?>
 
 		<header class="entry-header">
 
@@ -38,7 +38,7 @@
 			</p>
 		</div><!-- .entry-content -->
 
-		<?php do_action('vantage_after_single_entry') ?>
+		<?php do_action('vantage_entry_main_bottom') ?>
 
 	</div>
 
