@@ -672,6 +672,21 @@ article.sticky{
 	/* Style a sticky post */
 }
 
+.page-header {
+	.page-title {
+		color: #3b3b3b;
+		margin-bottom: 20px;
+		font-size: 20px;
+		font-weight: 500;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+			font-weight: bold;
+		}
+	}
+}
+
 article.post ,
 article.page{
 	.clearfix();
@@ -725,10 +740,10 @@ article.page{
 		}
 
 		h1.entry-title {
-			font-family: "Lato";
 			color: #3b3b3b;
 			margin-bottom: 20px;
 			font-size: 20px;
+			font-weight: 500;
 
 			a {
 				color: inherit;
@@ -791,6 +806,12 @@ article.page{
 			height: 20px;
 			display: block;
 			float: left;
+		}
+	}
+
+	.entry-summary {
+		p:last-child{
+			margin-bottom: 0;
 		}
 	}
 }

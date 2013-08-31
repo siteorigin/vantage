@@ -802,6 +802,17 @@ article.sticky {
   /* Style a sticky post */
 
 }
+.page-header .page-title {
+  color: #3b3b3b;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.page-header .page-title a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+}
 article.post,
 article.page {
   zoom: 1;
@@ -875,10 +886,10 @@ article.page .entry-header .entry-thumbnail a {
 }
 article.post .entry-header h1.entry-title,
 article.page .entry-header h1.entry-title {
-  font-family: "Lato";
   color: #3b3b3b;
   margin-bottom: 20px;
   font-size: 20px;
+  font-weight: 500;
 }
 article.post .entry-header h1.entry-title a,
 article.page .entry-header h1.entry-title a {
@@ -959,6 +970,10 @@ article.page .share-buttons li {
   height: 20px;
   display: block;
   float: left;
+}
+article.post .entry-summary p:last-child,
+article.page .entry-summary p:last-child {
+  margin-bottom: 0;
 }
 .post-navigation {
   margin-top: -20px;
