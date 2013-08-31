@@ -265,3 +265,10 @@ function vantage_render_slider(){
 
 	?></div><?php
 }
+
+function vantage_post_class_filter($classes){
+	$classes[] = 'post';
+	$classes = array_unique($classes);
+	return $classes;
+}
+add_filter('post_class', 'vantage_post_class_filter');
