@@ -11,6 +11,9 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="entry-main">
+
+		<?php do_action('vantage_entry_main_top') ?>
+
 		<header class="entry-header">
 			<?php if( has_post_thumbnail() ): ?>
 				<div class="entry-thumbnail">
@@ -37,6 +40,8 @@
 				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
 		<?php endif; ?>
+
+		<?php do_action('vantage_entry_main_bottom') ?>
 
 	</div>
 

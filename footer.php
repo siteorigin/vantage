@@ -1,3 +1,4 @@
+			<?php do_action( 'vantage_main_bottom' ); ?>
 		</div><!-- .full-container -->
 	</div><!-- #main .site-main -->
 
