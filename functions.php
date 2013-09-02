@@ -83,6 +83,7 @@ function vantage_setup() {
 	set_post_thumbnail_size(720, 380, true);
 	add_image_size('vantage-slide', 960, 480, true);
 	add_image_size('vantage-carousel', 272, 182, true);
+	add_image_size('vantage-grid-loop', 218, 123, true);
 
 	if( !defined('SITEORIGIN_PANELS_VERSION') ){
 		// Only include panels lite if the panels plugin doesn't exist
@@ -183,6 +184,17 @@ function vantage_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
+
+/**
+ * Enqueue any webfonts we need
+ */
+function vantage_web_fonts(){
+	if( !siteorigin_setting('logo_image') ) {
+		wp_enqueue_style('vantage-google-webfont-roboto', 'http://fonts.googleapis.com/css?family=Roboto:300');
+	}
+}
+add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
+
 
 /**
  * Add custom body classes.
