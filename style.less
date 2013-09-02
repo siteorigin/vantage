@@ -12,8 +12,6 @@ spritemapper.sprite_dirs = images/sprites
 spritemapper.output_css = style.sprites.css
 */
 
-@import url(http://fonts.googleapis.com/css?family=Roboto:100);
-
 @import "less/mixins";
 @import "less/reset";
 
@@ -373,7 +371,7 @@ header#masthead {
 		h1 {
 			color: #666666;
 			font-family: "Roboto", sans-serif;
-			font-weight: 100;
+			font-weight: 300;
 			font-size: 42px;
 		}
 
@@ -406,7 +404,8 @@ header#masthead {
 
 /* Full Width Primary blocks */
 .siteorigin-panels-home #primary,
-.page-template-templatestemplate-full-php #primary{
+.page-template-templatestemplate-full-php #primary,
+.page-template-templatestemplate-full-notitle-php #primary{
 	width: auto;
 	float: none;
 }
@@ -646,7 +645,7 @@ body.responsive {
 		width: 1080px;
 		background: #2d2e31;
 		z-index: 10;
-		overflow-x: hidde;
+		overflow-x: hidden;
 
 		input[name=s]{
 			color: #d1d1d1;
@@ -853,51 +852,6 @@ article.page{
 		.meta-nav {
 			margin-left: 7px;
 		}
-	}
-}
-
-.pagination {
-	position:relative;
-	font-size:11px;
-	line-height:13px;
-	text-align: right;
-
-	span, a {
-		.rounded(2px);
-		display:inline-block;
-		margin: 2px 2px 2px 0;
-		padding:6px 9px 5px 9px;
-		text-decoration:none;
-		width:auto;
-		color:#fff;
-		background: #4f5355;
-
-		.bordered(#d2d2d2, #c3c3c3, #9f9f9f, #c3c3c3);
-		.gradient(#FFFFFF, #dfdfdf, #FFFFFF);
-		.rounded(3px);
-		font-weight: bold;
-		color: #646464;
-
-		.box-shadow(~"0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5)");
-		width: auto;
-		text-decoration: none;
-
-		&:last-child {
-			margin-right: 0;
-		}
-
-
-	}
-
-	a:hover {
-		.gradient(#F0F0F0, #D0D0D0, #F0F0F0);
-	}
-
-	.current {
-		.bordered(#222222, #222222, #222222, #222222);
-		.gradient(#333333, #505050, #333333);
-		.box-shadow(~"0 1px 1px rgba(0,0,0,0.125), inset 0 0 5px rgba(0,0,0, 0.5)");
-		color: #EFEFEF;
 	}
 }
 
@@ -1155,6 +1109,51 @@ article.page{
 /* =Navigation
 ----------------------------------------------- */
 
+.pagination {
+	position:relative;
+	font-size:11px;
+	line-height:13px;
+	text-align: right;
+
+	span, a {
+		.rounded(2px);
+		display:inline-block;
+		margin: 2px 2px 2px 0;
+		padding:6px 9px 5px 9px;
+		text-decoration:none;
+		width:auto;
+		background: #4f5355;
+
+		.bordered(#d2d2d2, #c3c3c3, #9f9f9f, #c3c3c3);
+		.gradient(#FFFFFF, #dfdfdf, #FFFFFF);
+		.rounded(3px);
+		font-weight: bold;
+		color: #646464;
+
+		.box-shadow(~"0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5)");
+		width: auto;
+		text-decoration: none;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+
+	}
+
+	a:hover {
+		.gradient(#F0F0F0, #D0D0D0, #F0F0F0);
+		color: #606060;
+	}
+
+	.current {
+		.bordered(#222222, #222222, #222222, #222222);
+		.gradient(#333333, #505050, #333333);
+		.box-shadow(~"0 1px 1px rgba(0,0,0,0.125), inset 0 0 5px rgba(0,0,0, 0.5)");
+		color: #EFEFEF;
+	}
+}
+
 .site-content {
 
 	.nav-previous {
@@ -1379,4 +1378,5 @@ article.page{
 
 @import "less/slider";
 @import "less/widgets";
+@import "less/loops";
 @import "less/woocommerce";
