@@ -975,21 +975,25 @@ article.post .entry-summary p:last-child,
 article.page .entry-summary p:last-child {
   margin-bottom: 0;
 }
-.post-navigation {
+.post-navigation,
+#image-navigation {
   margin-top: -20px;
   margin-bottom: 40px;
   zoom: 1;
 }
-.post-navigation:before {
+.post-navigation:before,
+#image-navigation:before {
   content: '';
   display: block;
 }
-.post-navigation:after {
+.post-navigation:after,
+#image-navigation:after {
   content: '';
   display: table;
   clear: both;
 }
-.post-navigation a {
+.post-navigation a,
+#image-navigation a {
   text-decoration: none;
   padding: 6px 10px;
   border-top: solid 1px #d2d2d2;
@@ -1012,10 +1016,12 @@ article.page .entry-summary p:last-child {
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.125);
   box-shadow: 0 1px 1px rgba(0,0,0,0.125);
 }
-.post-navigation a .meta-nav {
+.post-navigation a .meta-nav,
+#image-navigation a .meta-nav {
   display: inline-block;
 }
-.post-navigation a:hover {
+.post-navigation a:hover,
+#image-navigation a:hover {
   border-top: solid 1px #dadada;
   border-left: solid 1px #cfcfcf;
   border-right: solid 1px #cfcfcf;
@@ -1027,11 +1033,18 @@ article.page .entry-summary p:last-child {
   background: -o-linear-gradient(#ffffff, #ebebeb);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ebebeb', GradientType=0);
 }
-.post-navigation .nav-previous .meta-nav {
+.post-navigation .nav-previous .meta-nav,
+#image-navigation .nav-previous .meta-nav {
   margin-right: 7px;
 }
-.post-navigation .nav-next .meta-nav {
+.post-navigation .nav-next .meta-nav,
+#image-navigation .nav-next .meta-nav {
   margin-left: 7px;
+}
+/* Reset the navigation */
+#image-navigation {
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 /* =Entry Content
 ----------------------------------------------- */
@@ -2175,6 +2188,7 @@ article.page .entry-summary p:last-child {
   float: left;
   width: 25%;
   padding: 0 15px;
+  margin-bottom: 30px;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2189,6 +2203,7 @@ article.page .entry-summary p:last-child {
   -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   background: #FFFFFF;
+  margin-bottom: 10px;
 }
 .vantage-grid-loop article .thumbnail:hover {
   border-color: #00bafa;
@@ -2208,7 +2223,8 @@ article.page .entry-summary p:last-child {
 .vantage-grid-loop article h3 {
   font-size: 15px;
   font-weight: bold;
-  margin-bottom: 0.25em;
+  margin-bottom: 8px;
+  margin-top: 0;
 }
 .vantage-grid-loop article h3 a {
   color: inherit;
