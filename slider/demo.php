@@ -9,19 +9,19 @@ wp_enqueue_style('vantage-demo-slider-animate', get_template_directory_uri().'/s
 
 		<li>
 			<div class="content">
-				<img src="<?php echo get_template_directory_uri() ?>/slider/backgrounds/city.jpg" width="1080" height="420" />
+				<img src="<?php echo get_template_directory_uri() ?>/slider/backgrounds/slide-1.jpg" width="1080" height="420" />
 			</div>
 		</li>
 
 		<li>
 			<div class="content">
-				<img src="<?php echo get_template_directory_uri() ?>/slider/backgrounds/space.jpg" width="1080" height="420" />
+				<img src="<?php echo get_template_directory_uri() ?>/slider/backgrounds/slide-2.jpg" width="1080" height="420" />
 			</div>
 		</li>
 
 		<li>
 			<div class="content">
-				<img src="<?php echo get_template_directory_uri() ?>/slider/backgrounds/leaves.jpg" width="1080" height="420" />
+				<img src="<?php echo get_template_directory_uri() ?>/slider/backgrounds/slide-3.jpg" width="1080" height="420" />
 			</div>
 		</li>
 
