@@ -267,7 +267,7 @@ function vantage_render_slider(){
 	?><div id="main-slider" <?php if( siteorigin_setting('home_slider_stretch') ) echo 'data-stretch="true"' ?>><?php
 
 
-	if($slider == 'default') get_template_part('slider/demo');
+	if($slider == 'demo') get_template_part('slider/demo');
 	elseif( substr($slider, 0, 5) == 'meta:' ) {
 		list($null, $slider_id) = explode(':', $slider);
 		$slider_id = intval($slider_id);

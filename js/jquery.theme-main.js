@@ -5,7 +5,7 @@ jQuery(function($){
     $('body.no-js').removeClass('no-js');
 
     // Initialize the flex slider
-    $('.entry-content .flexslider').flexslider( {  } );
+    $('.entry-content .flexslider, #metaslider-demo.flexslider').flexslider( {  } );
     
     /* Setup fitvids for entry content and panels */
     $('.entry-content, .entry-content .panel' ).fitVids();
@@ -144,7 +144,7 @@ jQuery(function($){
         resetStickyMenu();
     }
 
-    // Lets make the slider look stunning.
+    // Lets make the slider stretch.
     $('body.layout-full #main-slider[data-stretch="true"]').each(function(){
         var $$ = $(this);
         console.log('here');
