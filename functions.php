@@ -83,7 +83,7 @@ function vantage_setup() {
 	set_post_thumbnail_size(720, 380, true);
 	add_image_size('vantage-slide', 960, 480, true);
 	add_image_size('vantage-carousel', 272, 182, true);
-	add_image_size('vantage-grid-loop', 218, 123, true);
+	add_image_size('vantage-grid-loop', 218, 136, true);
 
 	if( !defined('SITEORIGIN_PANELS_VERSION') ){
 		// Only include panels lite if the panels plugin doesn't exist

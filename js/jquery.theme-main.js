@@ -5,7 +5,7 @@ jQuery(function($){
     $('body.no-js').removeClass('no-js');
 
     // Initialize the flex slider
-    $('.flexslider').flexslider({});
+    $('.entry-content .flexslider').flexslider( {  } );
     
     /* Setup fitvids for entry content and panels */
     $('.entry-content, .entry-content .panel' ).fitVids();

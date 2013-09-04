@@ -334,7 +334,8 @@ function vantage_next_attachment_url($post = null){
 function vantage_pagination($pages = '', $range = 2) {
 	$showitems = ($range * 2)+1;
 
-	global $paged;
+	global $wp_query;
+	$paged = $wp_query->get('paged');
 	if(empty($paged)) $paged = 1;
 
 	if($pages == '') {
