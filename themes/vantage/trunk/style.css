@@ -523,9 +523,9 @@ header#masthead hgroup a {
 }
 header#masthead hgroup h1 {
   color: #666666;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-size: 42px;
+  font-weight: 200;
+  font-size: 34px;
+  line-height: 1em;
 }
 header#masthead hgroup img {
   max-width: 100%;
