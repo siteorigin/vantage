@@ -13,19 +13,20 @@
  * @param $layouts
  */
 function vantage_prebuilt_page_layouts($layouts){
-
-	$layouts['default-home'] = array(
-		'name' => __('Standard Home Page', 'vantage'),
+	$layouts['default-home'] = array (
+		'title' => __('Default Home', 'vantage'),
 		'widgets' =>
 		array(
 			0 =>
 			array(
-				'title' => 'Some Headline',
-				'text' => 'Maecenas sed dignissim turpis, sed feugiat elit. Duis ullamcorper posuere purus non mattis. Maecenas semper odio odio, et interdum eros consectetur nec. Sed molestie pharetra ipsum.',
-				'image' => 'http://dev.localhost/wp-content/themes/vantage/images/demo/rocket.png',
+				'title' => __('Editable Home Page','vantage'),
+				'text' => __('You can edit this home page using our free, drag and drop Page Builder, or simply disable it to fall back to a standard blog. It\'s a powerful page building experience.','vantage'),
+				'icon' => 'icon-edit',
+				'image' => '',
 				'icon_position' => 'top',
-				'more' => '',
+				'more' => __('Start Editing','vantage'),
 				'more_url' => '#',
+				'box' => false,
 				'info' =>
 				array(
 					'class' => 'Vantage_CircleIcon_Widget',
@@ -36,12 +37,14 @@ function vantage_prebuilt_page_layouts($layouts){
 			),
 			1 =>
 			array(
-				'title' => 'This is a test',
-				'text' => 'Maecenas sed dignissim turpis, sed feugiat elit. Duis ullamcorper posuere purus non mattis. Maecenas semper odio odio, et interdum eros consectetur nec. Sed molestie pharetra ipsum.',
-				'image' => 'http://dev.localhost/wp-content/themes/vantage/images/demo/dollar.png',
+				'title' => __('Loads of Icons', 'vantage'),
+				'text' => __('This widget uses FontAwesome - giving you hundreds of icons. Or you could disable the icon and use your own image image. Great for testimonials.','vantage'),
+				'icon' => 'icon-ok-circle',
+				'image' => '',
 				'icon_position' => 'top',
-				'more' => 'Contact Us',
+				'more' => __('Example Button','vantage'),
 				'more_url' => '#',
+				'box' => false,
 				'info' =>
 				array(
 					'class' => 'Vantage_CircleIcon_Widget',
@@ -52,12 +55,14 @@ function vantage_prebuilt_page_layouts($layouts){
 			),
 			2 =>
 			array(
-				'title' => 'Final Test Line',
-				'text' => 'Maecenas sed dignissim turpis, sed feugiat elit. Duis ullamcorper posuere purus non mattis. Maecenas semper odio odio, et interdum eros consectetur nec. Sed molestie pharetra ipsum.',
-				'image' => 'http://dev.localhost/wp-content/themes/vantage/images/demo/star.png',
+				'title' => __('Saves You Time','vantage'),
+				'text' => __("Building your pages using a drag and drop page builder is a great experience that will save you time. Time is valuable. Don't waste it.",'vantage'),
+				'icon' => 'icon-time',
+				'image' => '',
 				'icon_position' => 'top',
-				'more' => 'Final',
+				'more' => __('Test Button','vantage'),
 				'more_url' => '#',
+				'box' => false,
 				'info' =>
 				array(
 					'class' => 'Vantage_CircleIcon_Widget',
@@ -68,10 +73,22 @@ function vantage_prebuilt_page_layouts($layouts){
 			),
 			3 =>
 			array(
-				'title' => 'Latest News',
-				'template' => 'loop-carousel.php',
+				'headline' => __('This Is A Headline Widget','vantage'),
+				'sub_headline' => __('You can customize it and put it where ever you want','vantage'),
+				'info' =>
+				array(
+					'class' => 'Vantage_Headline_Widget',
+					'id' => '4',
+					'grid' => '1',
+					'cell' => '0',
+				),
+			),
+			4 =>
+			array(
+				'title' => __('Latest Posts', 'vantage'),
+				'template' => 'loops/loop-carousel.php',
 				'post_type' => 'post',
-				'posts_per_page' => '2',
+				'posts_per_page' => '4',
 				'orderby' => 'date',
 				'order' => 'DESC',
 				'sticky' => '',
@@ -80,21 +97,31 @@ function vantage_prebuilt_page_layouts($layouts){
 				array(
 					'class' => 'SiteOrigin_Panels_Widgets_PostLoop',
 					'id' => '5',
-					'grid' => '1',
+					'grid' => '2',
+					'cell' => '0',
+				),
+			),
+			5 =>
+			array(
+				'video' => 'http://wordpress.tv/2013/08/01/oscar/',
+				'info' =>
+				array(
+					'class' => 'SiteOrigin_Panels_Widgets_EmbeddedVideo',
+					'id' => '6',
+					'grid' => '2',
 					'cell' => '1',
 				),
 			),
-			4 =>
+			6 =>
 			array(
-				'type' => 'visual',
-				'title' => 'This is a title',
-				'text' => '<p>Nullam purus dui, sollicitudin faucibus libero et, rhoncus vulputate tortor. In risus nulla, eleifend vel purus sed, mollis laoreet nisi. Suspendisse quis massa dolor. Sed sed sodales sem. Duis sit amet varius lectus. Mauris commodo vehicula cursus. Pellentesque id sollicitudin nibh, a lobortis sapien. Curabitur non nisl ultrices, fringilla nunc vel, imperdiet ante.</p>
-<p>Suspendisse non libero vel urna tincidunt dapibus. Praesent commodo dolor vitae eleifend molestie. Morbi pretium, sapien a condimentum placerat, odio eros sollicitudin sapien, sed consequat est justo nec mi. Quisque ornare urna ut nisi tincidunt facilisis. Aliquam eget feugiat lectus. Duis tempor metus malesuada risus laoreet pharetra. Nam consequat purus dapibus felis vehicula, et lacinia orci elementum. In hac habitasse platea dictumst. Etiam libero purus, malesuada id venenatis ac, accumsan sodales nisl. Sed nec egestas magna. In feugiat augue et interdum pellentesque. Nullam laoreet, mi eget interdum auctor, ipsum diam ultricies lorem, aliquam pulvinar neque sapien sed turpis. Donec ac facilisis nulla. Pellentesque dignissim consectetur enim, consequat malesuada ipsum accumsan vitae. Proin egestas ante in velit fringilla, vel iaculis nunc viverra. Nunc ut volutpat ipsum, vitae blandit metus.</p>',
+				'title' => '',
+				'text' => __('There are a lot of widgets bundled with Page Builder. The Embedded video widget is a great example of a widget that\'ll bring life to your pages.','vantage'),
+				'filter' => true,
 				'info' =>
 				array(
-					'class' => 'WP_Widget_Black_Studio_TinyMCE',
-					'id' => '6',
-					'grid' => '1',
+					'class' => 'WP_Widget_Text',
+					'id' => '7',
+					'grid' => '2',
 					'cell' => '1',
 				),
 			),
@@ -104,10 +131,17 @@ function vantage_prebuilt_page_layouts($layouts){
 			0 =>
 			array(
 				'cells' => '3',
+				'style' => '',
 			),
 			1 =>
 			array(
+				'cells' => '1',
+				'style' => 'wide-grey',
+			),
+			2 =>
+			array(
 				'cells' => '2',
+				'style' => '',
 			),
 		),
 		'grid_cells' =>
@@ -129,13 +163,18 @@ function vantage_prebuilt_page_layouts($layouts){
 			),
 			3 =>
 			array(
-				'weight' => 0.33333,
+				'weight' => '1',
 				'grid' => '1',
 			),
 			4 =>
 			array(
-				'weight' => 0.66666,
-				'grid' => '1',
+				'weight' => '0.6658461538461539',
+				'grid' => '2',
+			),
+			5 =>
+			array(
+				'weight' => '0.33415384615384613',
+				'grid' => '2',
 			),
 		),
 	);
@@ -158,6 +197,12 @@ function vantage_panels_settings($settings){
 }
 add_filter('siteorigin_panels_settings', 'vantage_panels_settings');
 
+/**
+ * Add row styles.
+ *
+ * @param $styles
+ * @return mixed
+ */
 function vantage_panels_row_styles($styles) {
 	$styles['wide-grey'] = __('Wide Grey', 'vantage');
 	return $styles;
