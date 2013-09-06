@@ -15,7 +15,7 @@ get_header(); ?>
 		<div class="entry-content">
 			<?php
 			if( function_exists('siteorigin_panels_render') ) echo siteorigin_panels_render('home');
-			else siteorigin_panels_lite_home_render();
+			else echo siteorigin_panels_lite_home_render();
 			?>
 		</div>
 	</div><!-- #content .site-content -->
