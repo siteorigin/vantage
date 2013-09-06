@@ -152,7 +152,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['navigation_menu_search'] = true;
 	$defaults['navigation_display_scroll_to_top'] = true;
 
-	$defaults['home_slider'] = '';
+	$defaults['home_slider'] = 'demo';
 	$defaults['home_slider_stretch'] = true;
 
 	$defaults['blog_post_author'] = true;
