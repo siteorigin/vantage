@@ -193,6 +193,7 @@ function vantage_panels_settings($settings){
 	$settings['home-page'] = true;
 	$settings['margin-bottom'] = 35;
 	$settings['home-page-default'] = 'default-home';
+	$settings['responsive'] = siteorigin_setting( 'layout_responsive' );
 	return $settings;
 }
 add_filter('siteorigin_panels_settings', 'vantage_panels_settings');
