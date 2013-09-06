@@ -4,10 +4,10 @@ function vantage_premium_upgrade_content($content){
 	$content['premium_title'] = __('Upgrade To Vantage Premium', 'vantage');
 	$content['premium_summary'] = __("If you've enjoyed using vantage, you're going to love vantage Premium. It's a robust upgrade to vantage that gives you loads of cool features. You choose the price, so you can decide what it's worth to give your site a professional edge.", 'vantage');
 
-	$content['buy_url'] = 'http://siteorigin.fetchapp.com/sell/aqueifoo';
+	$content['buy_url'] = 'http://siteorigin.fetchapp.com/sell/nctheigh';
 	$content['premium_video_poster'] = get_template_directory_uri().'/upgrade/poster.jpg';
-	$content['premium_video_id'] = '52853957';
-	$content['roadmap'] = 'http://siteorigin.com/vantage-documentation/vantage-roadmap/';
+	// $content['premium_video_id'] = '52853957';
+	// $content['roadmap'] = 'http://siteorigin.com/vantage-documentation/vantage-roadmap/';
 
 	$content['features'] = array();
 
@@ -23,19 +23,9 @@ function vantage_premium_upgrade_content($content){
 
 	$content['features'][] = array(
 		'heading' => __("Responsive Features", 'vantage'),
-		'content' => __("The final puzzle pieces in making vantage fully responsive. vantage Premium has footer widgets that collapse below each other on small screen devices. Its menu collapses into a single navigate button which activates an intuitive nested menu system and site search.", 'vantage'),
+		'content' => __("The final puzzle pieces in making vantage fully responsive. Vantage Premium has footer widgets that collapse below each other on small screen devices. Its menu collapses into a single navigate button which activates an intuitive nested menu system and site search.", 'vantage'),
 	);
 
-	$content['features'][] = array(
-		'heading' => __("Customizer Integration", 'vantage'),
-		'content' => __("vantage Premium includes integration with WordPress customizer. This gives you a way to edit colors, fonts and other styles in real time. ", 'vantage'),
-	);
-	
-	$content['features'][] = array(
-		'heading' => __('Additional Widgets for Your Panel Pages', 'vantage'),
-		'content' => __('vantage Premium has additional widgets that you can use to populate your Panels pages.', 'vantage'),
-	);
-	
 	$content['features'][] = array(
 		'heading' => __('Remove Attribution Links', 'vantage'),
 		'content' => __('vantage premium gives you the option to easily remove the "Powered by WordPress, Theme by SiteOrigin" text from your footer. ', 'vantage'),
@@ -44,11 +34,6 @@ function vantage_premium_upgrade_content($content){
 	$content['features'][] = array(
 		'heading' => __("Ajax Comments", 'vantage'),
 		'content' => __("Want to keep the conversation flowing? Ajax comments means your visitors can comment without reloading your page. So commenting wont interrupt a video or lose their position in one of your galleries.", 'vantage'),
-	);
-
-	$content['features'][] = array(
-		'heading' => __("Social Sharing", 'vantage'),
-		'content' => __("vantage Premium includes social sharing for Facebook, Twitter and Google Plus. They fit right into the clean design of vantage.", 'vantage'),
 	);
 
 	$content['features'][] = array(
