@@ -1695,6 +1695,20 @@ article.page .entry-summary p:last-child {
   color: #FFFFFF;
   text-decoration: none;
 }
+#metaslider-demo .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#metaslider-demo .content img {
+  max-width: 100%;
+  height: auto;
+}
+#metaslider-demo .msDefaultImage {
+  max-width: 100%;
+  height: auto;
+}
 /* =Widgets
 ----------------------------------------------- */
 .widget {
