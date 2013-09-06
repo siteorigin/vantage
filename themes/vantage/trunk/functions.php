@@ -162,8 +162,8 @@ add_action('wp_head', 'vantage_print_styles', 11);
  * Register all the bundled scripts
  */
 function vantage_register_scripts(){
-	wp_register_script( 'vantage-flexslider' , get_template_directory_uri().'/js/jquery.flexslider.js' , array('jquery'), '2.1' );
-	wp_register_script( 'vantage-fitvids' , get_template_directory_uri().'/js/jquery.fitvids.js' , array('jquery'), '1.0' );
+	wp_register_script( 'flexslider' , get_template_directory_uri().'/js/jquery.flexslider.js' , array('jquery'), '2.1' );
+	wp_register_script( 'fitvids' , get_template_directory_uri().'/js/jquery.fitvids.js' , array('jquery'), '1.0' );
 }
 add_action( 'wp_enqueue_scripts', 'vantage_register_scripts' , 5);
 
