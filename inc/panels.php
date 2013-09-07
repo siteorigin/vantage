@@ -103,19 +103,8 @@ function vantage_prebuilt_page_layouts($layouts){
 			),
 			5 =>
 			array(
-				'video' => 'http://wordpress.tv/2013/08/01/oscar/',
-				'info' =>
-				array(
-					'class' => 'SiteOrigin_Panels_Widgets_EmbeddedVideo',
-					'id' => '6',
-					'grid' => '2',
-					'cell' => '1',
-				),
-			),
-			6 =>
-			array(
 				'title' => '',
-				'text' => __('There are a lot of widgets bundled with Page Builder. The Embedded video widget is a great example of a widget that\'ll bring life to your pages.','vantage'),
+				'text' => __('There are a lot of widgets bundled with Page Builder. You can use them to bring your pages to life.','vantage'),
 				'filter' => true,
 				'info' =>
 				array(
