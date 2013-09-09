@@ -14,7 +14,7 @@
  */
 function vantage_prebuilt_page_layouts($layouts){
 	$layouts['default-home'] = array (
-		'title' => __('Default Home', 'vantage'),
+		'name' => __('Default Home', 'vantage'),
 		'widgets' =>
 		array(
 			0 =>

@@ -6,7 +6,7 @@ function vantage_premium_upgrade_content($content){
 
 	$content['buy_url'] = 'http://siteorigin.fetchapp.com/sell/nctheigh';
 	$content['premium_video_poster'] = get_template_directory_uri().'/upgrade/poster.jpg';
-	// $content['premium_video_id'] = '52853957';
+	$content['premium_video_id'] = '74123479';
 	// $content['roadmap'] = 'http://siteorigin.com/vantage-documentation/vantage-roadmap/';
 
 	$content['features'] = array();
