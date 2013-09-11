@@ -37,7 +37,6 @@ include get_template_directory() . '/inc/menu-icon.php';
 include get_template_directory() . '/inc/woocommerce.php';
 
 
-
 /**
  * Set the content width based on the theme's design and stylesheet.
  *
