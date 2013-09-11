@@ -226,7 +226,7 @@ add_action('wp_head', 'vantage_wp_head');
  * Display some text in the text area.
  */
 function vantage_top_text_area(){
-	echo siteorigin_setting('logo_header_text');
+	echo wp_kses_post( siteorigin_setting('logo_header_text') );
 }
 add_action('vantage_support_text', 'vantage_top_text_area');
 
