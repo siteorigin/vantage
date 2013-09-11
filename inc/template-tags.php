@@ -68,7 +68,7 @@ function vantage_comment( $comment, $args, $depth ) {
 		case 'trackback' :
 			?>
 			<li class="post pingback">
-				<p><?php _e( 'Pingback:', 'clearly' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'clearly' ), ' ' ); ?></p>
+				<p><?php _e( 'Pingback:', 'vantage' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'vantage' ), ' ' ); ?></p>
 			<?php
 			break;
 		default :
@@ -85,17 +85,17 @@ function vantage_comment( $comment, $args, $depth ) {
 						<div class="comment-meta commentmetadata">
 							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time datetime="<?php comment_time( 'c' ); ?>"><?php
 								/* translators: 1: date, 2: time */
-								printf( __( '%1$s at %2$s', 'clearly' ), get_comment_date(), get_comment_time() );
+								printf( __( '%1$s at %2$s', 'vantage' ), get_comment_date(), get_comment_time() );
 								?></time></a>
 
 							<span class="support">
 								<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-								<?php edit_comment_link( __( 'Edit', 'clearly' ), ' ' ); ?>
+								<?php edit_comment_link( __( 'Edit', 'vantage' ), ' ' ); ?>
 							</span>
 						</div><!-- .comment-meta .commentmetadata -->
 
 						<?php if ( $comment->comment_approved == '0' ) : ?>
-							<em class="awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'clearly' ); ?></em>
+							<em class="awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'vantage' ); ?></em>
 						<?php endif; ?>
 					</footer>
 
