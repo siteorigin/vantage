@@ -2,7 +2,7 @@
 Theme Name: Vantage
 Author: SiteOrigin
 Author URI: http://siteorigin.com/
-Description: Starter theme
+Description: Vantage is a flexible multipurpose theme. It's strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, MetaSlider for big beautiful sliders and WooCommerce to help you sell online. Use it to start a business site, portfolio or online store.
 Version: trunk
 License: GNU General Public License 2.0
 License URI: license.txt
@@ -173,7 +173,13 @@ a:focus,
 a:active {
   color: #f47e3c;
 }
-/* Headings */
+/* Headings and Rulers */
+hr {
+  background-color: #ccc;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em;
+}
 h1,
 h2,
 h3,
@@ -181,12 +187,6 @@ h4,
 h5,
 h6 {
   clear: both;
-}
-hr {
-  background-color: #ccc;
-  border: 0;
-  height: 1px;
-  margin-bottom: 1.5em;
 }
 /* Text elements */
 p {
@@ -976,6 +976,16 @@ article.page .share-buttons li {
 article.post .entry-summary p:last-child,
 article.page .entry-summary p:last-child {
   margin-bottom: 0;
+}
+article.post .entry-categories,
+article.page .entry-categories {
+  margin-top: 1.5em;
+  color: #999999;
+  font-size: 0.85em;
+}
+article.post .entry-categories a,
+article.page .entry-categories a {
+  color: #777777;
 }
 .post-navigation,
 #image-navigation {

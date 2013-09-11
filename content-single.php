@@ -33,10 +33,13 @@
 		<div class="entry-content">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'vantage' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
-			<p>
-				<?php the_tags('<p class="tags"><strong>'.__('Tags: ', 'vantage').'</strong>', ', ', '</p>') ?>
-			</p>
 		</div><!-- .entry-content -->
+
+		<?php if(vantage_get_post_categories()) : ?>
+			<div class="entry-categories">
+				<?php echo vantage_get_post_categories() ?>
+			</div>
+		<?php endif; ?>
 
 		<?php do_action('vantage_entry_main_bottom') ?>
 
