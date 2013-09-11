@@ -1,4 +1,4 @@
-SiteOrigin Starter Theme
+Vantage Theme
 ---------------
 This is a starter theme, based on _s with integration into SiteOrigin's extras framework.
 
