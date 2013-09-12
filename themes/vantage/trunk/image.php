@@ -20,8 +20,7 @@ get_header();
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 
 				<div class="entry-meta">
-					<?php echo vantage_get_post_meta() ?>
-					<?php edit_post_link( __( 'Edit', 'vantage' ), '<span class="sep"> | </span> <span class="edit-link">', '</span>' ); ?>
+					<?php echo vantage_posted_on() ?>
 				</div><!-- .entry-meta -->
 
 				<nav id="image-navigation" class="site-navigation">
@@ -56,9 +55,6 @@ get_header();
 
 			</div><!-- .entry-content -->
 
-			<footer class="entry-meta">
-				<?php edit_post_link( __( 'Edit', 'vantage' ), ' <span class="edit-link">', '</span>' ); ?>
-			</footer><!-- .entry-meta -->
 		</article><!-- #post-<?php the_ID(); ?> -->
 
 		<?php comments_template(); ?>
