@@ -1,6 +1,6 @@
 Vantage Theme
 ---------------
-This is a starter theme, based on _s with integration into SiteOrigin's extras framework.
+Vantage is a multipurpose WordPress theme, based on _s with integration into SiteOrigin's extras framework.
 
 
 License
@@ -13,12 +13,22 @@ All photographs have been sourced from Pixabay and are licensed under the public
 
 This theme is originally based on Underscores (_s) starter theme http://underscores.me/
 
+
+SiteOrigin Extras
+---------------
+This theme is built around the SiteOrigin extras framework contained in the folder extras/. All code is licensed under GPL 2.0 and copyright Greg Priday unless otherwise stated in the theme header.
+
+
 Bundled Resources
 ---------------
 * FontAwesome by Dave Gandy licensed under SIL OFL 1.1 <http://scripts.sil.org/OFL>
+
 
 Change Log
 ---------------
 
 **1.0**
 Initial release.
+
+**1.0.1**
+A few minor bug fixes and updates.
