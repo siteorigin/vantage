@@ -1,0 +1,13 @@
+#htmlOverlay .siteorigin-slider-action-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 46px 8px 0;
+	font-weight: bold;
+    background: url(../slider/action.png) right center no-repeat;
+}
+
+#htmlOverlay .siteorigin-slider-action-button a {
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
