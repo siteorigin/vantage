@@ -44,14 +44,11 @@ get_header();
 					</div><!-- .attachment -->
 
 					<?php if ( ! empty( $post->post_excerpt ) ) : ?>
-					<div class="entry-caption">
-						<?php the_excerpt(); ?>
-					</div><!-- .entry-caption -->
+						<div class="entry-caption">
+							<?php the_excerpt(); ?>
+						</div><!-- .entry-caption -->
 					<?php endif; ?>
 				</div><!-- .entry-attachment -->
-
-				<?php the_content(); ?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 
 			</div><!-- .entry-content -->
 
