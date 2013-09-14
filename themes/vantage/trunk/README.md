@@ -32,3 +32,7 @@ Initial release.
 
 **1.0.1**
 A few minor bug fixes and updates.
+
+**1.0.2**
+Fixed issue with Meta Slider integration.
+Added feature suggestion link.
