@@ -29,11 +29,13 @@ add_filter('vantage_footer_attribution', 'vantage_premium_remove_credits');
  * Show the social share icons
  */
 function vantage_premium_show_social_share(){
-	if( siteorigin_setting('social_share_post') ) siteorigin_share_render( array(
-		'twitter' => siteorigin_setting('social_twitter'),
-	) );
+	if( siteorigin_setting('social_share_post') && is_single() ) {
+		siteorigin_share_render( array(
+			'twitter' => siteorigin_setting('social_twitter'),
+		) );
+	}
 }
-add_action('vantage_after_single_entry', 'vantage_premium_show_social_share');
+add_action('vantage_entry_main_bottom', 'vantage_premium_show_social_share');
 
 function vantage_premium_logo_retina($attr){
 	$logo = siteorigin_setting( 'logo_image_retina' );
