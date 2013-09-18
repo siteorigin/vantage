@@ -46,6 +46,19 @@ function vantage_premium_upgrade_content($content){
 		'content' => __("You'll help support the continued development of vantage - ensuring it works with future versions of WordPress for years to come.", 'vantage'),
 	);
 
+	$content['testimonials'] = array(
+		array(
+			'gravatar' => '10169e5514e607d8cb97f0f6bddbd728',
+			'name' => 'Ian',
+			'content' => __("Vantage is simple and clean. The user interface is easy to use. Combined with the developers Page Builder plugin makes it a powerful theme with great support.", 'origami'),
+		),
+		array(
+			'gravatar' => '3e5f90609c33ea3ceb01d0be7b3a4e39',
+			'name' => 'Bart',
+			'content' => __('Clean, simple and powerful. Like other themes from SiteOrigin.', 'origami'),
+		),
+	);
+
 	return $content;
 }
 add_filter('siteorigin_premium_content', 'vantage_premium_upgrade_content');
