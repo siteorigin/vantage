@@ -23,14 +23,30 @@ add_action('after_setup_theme', 'vantage_premium_setup', 15);
 function vantage_premium_remove_credits(){
 	return '';
 }
-add_filter('vantage_credits_siteorigin', 'vantage_premium_remove_credits');
+add_filter('vantage_footer_attribution', 'vantage_premium_remove_credits');
 
 /**
  * Show the social share icons
  */
-function vantage_show_social_share(){
+function vantage_premium_show_social_share(){
 	if( siteorigin_setting('social_share_post') ) siteorigin_share_render( array(
 		'twitter' => siteorigin_setting('social_twitter'),
 	) );
 }
-add_action('vantage_after_single_entry', 'vantage_show_social_share');
+add_action('vantage_after_single_entry', 'vantage_premium_show_social_share');
+
+function vantage_premium_logo_retina($attr){
+	$logo = siteorigin_setting( 'logo_image_retina' );
+	if( $logo ) {
+		$image = wp_get_attachment_image_src($logo, 'full');
+
+		// Ignore empty images
+		if(empty($image)) return $attr;
+		list ($src, $height, $width) = $image;
+
+		$attr['data-retina-image'] = $src;
+	}
+
+	return $attr;
+}
+add_filter('vantage_logo_image_attributes', 'vantage_premium_logo_retina');
