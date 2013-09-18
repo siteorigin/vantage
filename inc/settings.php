@@ -31,6 +31,12 @@ function vantage_theme_settings(){
 		'description' => __('Your own custom logo.', 'vantage')
 	) );
 
+	siteorigin_settings_add_teaser('logo', 'image_retina', __('Retina Logo'), array(
+		'choose' => __('Choose Image', 'vantage'),
+		'update' => __('Set Logo', 'vantage'),
+		'description' => __('A double sized version of your logo for retina displays. Must be used in addition to standard logo.', 'vantage')
+	) );
+
 	siteorigin_settings_add_field('logo', 'header_text', 'text', __('Header Text', 'vantage'), array(
 		'description' => __('Text that appears to the right of your logo.', 'vantage')
 	) );
