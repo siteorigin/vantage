@@ -19,9 +19,7 @@ get_header(); ?>
 		<?php vantage_content_nav( 'nav-below' ); ?>
 
 		<?php if ( comments_open() || '0' != get_comments_number() ) : ?>
-			<div id="single-comments-wrapper">
-				<?php comments_template( '', true ); ?>
-			</div><!-- #single-comments-wrapper -->
+			<?php comments_template( '', true ); ?>
 		<?php endif; ?>
 
 	<?php endwhile; // end of the loop. ?>
