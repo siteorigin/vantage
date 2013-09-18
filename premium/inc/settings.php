@@ -9,6 +9,8 @@
 function vantage_premium_theme_settings(){
 	// Implement all the teaser settings
 
+	siteorigin_settings_add_field('logo', 'image_retina', 'media');
+
 	siteorigin_settings_add_field('navigation', 'responsive_menu', 'checkbox');
 
 	siteorigin_settings_add_field('blog', 'author_bio', 'checkbox');

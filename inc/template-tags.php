@@ -141,12 +141,12 @@ if(!function_exists('vantage_display_logo')):
  */
 function vantage_display_logo(){
 	$logo = siteorigin_setting( 'logo_image' );
+	$logo = apply_filters('vantage_logo_image_id', $logo);
 
 	if( empty($logo) ) {
 		// Just display the site title
-		echo '<h1 class="site-title">';
-		bloginfo( 'name' );
-		echo '</h1>';
+		$logo_html = '<h1 class="site-title">'.get_bloginfo( 'name' ).'</h1>';
+		$logo_html = apply_filters('vantage_logo_text', $logo_html);
 	}
 	else {
 		// load the logo image
@@ -159,9 +159,24 @@ function vantage_display_logo(){
 			$height = $image[2];
 			$width = $image[1];
 		}
-		// echo $image;
-		?><img src="<?php echo $src ?>" width="<?php echo round($width) ?>" height="<?php echo round($height) ?>" /><?php
+
+		// Add all the logo attributes
+		$logo_attributes = apply_filters('vantage_logo_image_attributes', array(
+			'src' => $src,
+			'width' => round($width),
+			'height' => round($height),
+		) );
+		$logo_attributes_str = array();
+		if( !empty( $logo_attributes ) ) {
+			foreach($logo_attributes as $name => $val) {
+				$logo_attributes_str[] = $name.'="'.esc_attr($val).'"';
+			}
+		}
+		$logo_html = apply_filters('vantage_logo_image', '<img '.implode($logo_attributes_str).' />');
 	}
+
+	// Echo the image
+	echo apply_filters('vantage_logo_html', $logo_html);
 }
 endif;
 
