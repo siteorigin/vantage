@@ -9,14 +9,14 @@ This theme, like WordPress, is licensed under the GPL 2.0. Use it to make someth
 
 All Javascript is located in /js/ with license headers where appropriate.
 
-All photographs have been sourced from Pixabay and are licensed under the public domain.
+All demo photographs have been sourced from Pixabay and are licensed under the public domain.
 
 This theme is originally based on Underscores (_s) starter theme http://underscores.me/
 
 
 SiteOrigin Extras
 ---------------
-This theme is built around the SiteOrigin extras framework contained in the folder extras/. All code is licensed under GPL 2.0 and copyright Greg Priday unless otherwise stated in the theme header.
+This theme is built around the SiteOrigin extras framework contained in the folder extras/. All code is licensed under GPL 2.0 and copyright Greg Priday unless otherwise stated in the file header.
 
 
 Bundled Resources
@@ -35,4 +35,6 @@ A few minor bug fixes and updates.
 
 **1.0.2**
 Fixed issue with Meta Slider integration.
-Added feature suggestion link.
+Added more hooks and filters to logo.
+HTML code clean up.
+Framework updates.

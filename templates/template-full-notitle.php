@@ -34,9 +34,7 @@ get_header(); ?>
 			</article><!-- #post-<?php the_ID(); ?> -->
 
 			<?php if ( comments_open() || '0' != get_comments_number() ) : ?>
-				<div id="single-comments-wrapper">
-					<?php comments_template( '', true ); ?>
-				</div><!-- #single-comments-wrapper -->
+				<?php comments_template( '', true ); ?>
 			<?php endif; ?>
 
 		<?php endwhile; // end of the loop. ?>
