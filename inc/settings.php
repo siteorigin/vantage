@@ -110,11 +110,6 @@ function vantage_theme_settings(){
 		'description' => __('Show the post date.', 'vantage')
 	));
 
-	siteorigin_settings_add_teaser('blog', 'author_bio', __('Author Bio', 'vantage'), array(
-		'label' => __('Display', 'vantage'),
-		'description' => __('Show the post date.', 'vantage')
-	));
-
 	/**
 	 * Social Settings
 	 */
