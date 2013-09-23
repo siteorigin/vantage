@@ -1521,6 +1521,11 @@ article.page .entry-categories a {
   text-decoration: none;
   font-weight: 500;
 }
+body.layout-full {
+  /* Use the same color as the footer */
+
+  background-color: #2f3033;
+}
 .layout-full #colophon {
   margin-bottom: 0;
   margin-top: 0;
@@ -1841,15 +1846,15 @@ article.page .entry-categories a {
   -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
   background: #107fc9;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0076bf), color-stop(1, #2788d3));
-  background: -ms-linear-gradient(bottom, #0076bf, #2788d3);
-  background: -moz-linear-gradient(center bottom, #0076bf 0%, #2788d3 100%);
-  background: -o-linear-gradient(#2788d3, #0076bf);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2788d3', endColorstr='#0076bf', GradientType=0);
-  border-top: solid 1px #1b5ca3;
-  border-left: solid 1px #005398;
-  border-right: solid 1px #005398;
-  border-bottom: solid 1px #004a8d;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, lumdarken(#107fc9, 3.5)), color-stop(1, lumlighten(#107fc9, 3.5)));
+  background: -ms-linear-gradient(bottom, lumdarken(#107fc9, 3.5), lumlighten(#107fc9, 3.5));
+  background: -moz-linear-gradient(center bottom, lumdarken(#107fc9, 3.5) 0%, lumlighten(#107fc9, 3.5) 100%);
+  background: -o-linear-gradient(lumlighten(#107fc9, 3.5), lumdarken(#107fc9, 3.5));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='lumlighten(#107fc9, 3.5)', endColorstr='lumdarken(#107fc9, 3.5)', GradientType=0);
+  border-top: solid 1px lumlighten(lumdarken(#107fc9, 18), 4);
+  border-left: solid 1px lumdarken(#107fc9, 18);
+  border-right: solid 1px lumdarken(#107fc9, 18);
+  border-bottom: solid 1px lumdarken(lumdarken(#107fc9, 18), 4);
 }
 .widget .button-container.align-center {
   text-align: center;
@@ -1929,6 +1934,11 @@ article.page .entry-categories a {
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-hide-box {
   padding: 5px;
+}
+.widget_circleicon-widget .circle-icon-box .link-icon,
+.widget_circleicon-widget .circle-icon-box .link-title {
+  text-decoration: none;
+  display: block;
 }
 .widget_circleicon-widget .circle-icon-box .circle-icon {
   position: absolute;
@@ -2275,6 +2285,28 @@ article.page .entry-categories a {
 }
 .vantage-grid-loop .clear {
   clear: both;
+}
+.vantage-circleicon-loop {
+  zoom: 1;
+  margin: 0 -20px;
+}
+.vantage-circleicon-loop:before {
+  content: '';
+  display: block;
+}
+.vantage-circleicon-loop:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.vantage-circleicon-loop .widget_circleicon-widget {
+  width: 33.333%;
+  float: left;
+  clear: none;
+}
+.vantage-circleicon-loop .widget_circleicon-widget .circle-icon-box {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 /* This will override anything from WooCommerce core CSS */
 .woocommerce #page-wrapper .button {
