@@ -38,3 +38,8 @@ Fixed issue with Meta Slider integration.
 Added more hooks and filters to logo.
 HTML code clean up.
 Framework updates.
+
+**1.0.3**
+Set background color for CSS footer.
+Added circle icon post loop.
+Added options to circle icon widget.
