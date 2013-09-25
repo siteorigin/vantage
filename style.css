@@ -2341,9 +2341,6 @@ body.layout-full {
   line-height: 1;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
-.woocommerce #page-wrapper .woocommerce-breadcrumb {
-  display: none;
-}
 .woocommerce #page-wrapper .product h1.entry-title {
   font-size: 22px;
   color: #3b3b3b;
