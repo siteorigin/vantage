@@ -1510,13 +1510,15 @@ article.page .entry-categories a {
   background: #2f3033;
   padding: 30px;
 }
-#colophon #theme-attribution {
+#colophon #theme-attribution,
+#colophon #site-info {
   text-align: center;
   margin-top: 25px;
   color: #AAAAAA;
   font-size: 11.5px;
 }
-#colophon #theme-attribution a {
+#colophon #theme-attribution a,
+#colophon #site-info a {
   color: #DDDDDD;
   text-decoration: none;
   font-weight: 500;
