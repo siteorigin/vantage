@@ -4,7 +4,6 @@ define('SITEORIGIN_IS_PREMIUM', true);
 
 // Include all the premium extras
 include get_template_directory() . '/premium/extras/ajax-comments/ajax-comments.php';
-include get_template_directory() . '/premium/extras/mobilenav/mobilenav.php';
 include get_template_directory() . '/premium/extras/css/css.php';
 include get_template_directory() . '/premium/extras/customizer/customizer.php';
 include get_template_directory() . '/premium/extras/share/share.php';
@@ -16,7 +15,10 @@ include get_template_directory() . '/premium/inc/customizer.php';
 function vantage_premium_setup(){
 	if( siteorigin_setting('social_ajax_comments') ) siteorigin_ajax_comments_activate();
 	if( siteorigin_setting('social_share_post') ) siteorigin_share_activate();
-	if( siteorigin_setting('navigation_responsive_menu') ) add_theme_support('siteorigin-mobilenav');
+
+	if( siteorigin_setting('navigation_responsive_menu') ) {
+		include get_template_directory() . '/premium/extras/mobilenav/mobilenav.php';
+	}
 }
 add_action('after_setup_theme', 'vantage_premium_setup', 15);
 
@@ -52,3 +54,12 @@ function vantage_premium_logo_retina($attr){
 	return $attr;
 }
 add_filter('vantage_logo_image_attributes', 'vantage_premium_logo_retina');
+
+function vantage_premium_filter_mobilenav($text){
+	if( siteorigin_setting('navigation_responsive_menu_text') ) {
+		$text['navigate'] = siteorigin_setting('navigation_responsive_menu_text');
+	}
+
+	return $text;
+}
+add_filter('siteorigin_mobilenav_text', 'vantage_premium_filter_mobilenav');
