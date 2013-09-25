@@ -41,6 +41,28 @@
 		button.single_add_to_cart_button {
 			.button;
 		}
+	}
+}
 
+.woocommerce-page {
+	#container {
+		float: left;
+		width: 71.287%;
+	}
+}
+
+@media (max-width:680px) {
+	body.responsive.woocommerce-page #container {
+		float: none;
+		width: auto;
+	}
+}
+
+@media (max-width:480px) {
+	body.responsive.woocommerce-page #container ul.products li.product {
+		width: 240px;
+		float:none;
+		margin-right: auto;
+		margin-left: auto;
 	}
 }
