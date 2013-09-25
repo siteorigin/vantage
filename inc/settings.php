@@ -169,7 +169,6 @@ function vantage_theme_setting_defaults($defaults){
 
 	$defaults['blog_post_author'] = true;
 	$defaults['blog_post_date'] = true;
-	$defaults['blog_author_bio'] = false;
 
 	$defaults['social_ajax_comments'] = true;
 	$defaults['social_share_post'] = true;
