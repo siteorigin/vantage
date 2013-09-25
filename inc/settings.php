@@ -65,6 +65,10 @@ function vantage_theme_settings(){
 		'description' => __('Use a special responsive menu for small screen devices.', 'vantage')
 	));
 
+	siteorigin_settings_add_teaser('navigation', 'responsive_menu_text', __('Responsive Menu Text', 'vantage'), array(
+		'description' => __('The button used for the responsive menu.', 'vantage')
+	));
+
 	siteorigin_settings_add_field('navigation', 'use_sticky_menu', 'checkbox', __('Sticky Menu', 'vantage'), array(
 		'description' => __('Sticks the menu to the top of the screen when a user scrolls down.', 'vantage')
 	));
@@ -144,11 +148,11 @@ function vantage_theme_setting_defaults($defaults){
 
 	$defaults['logo_header_text'] = __('Call me! Maybe?', 'vantage');
 
-
 	$defaults['layout_responsive'] = true;
 	$defaults['layout_bound'] = 'full';
 
 	$defaults['navigation_responsive_menu'] = true;
+	$defaults['navigation_responsive_menu_text'] = '';
 	$defaults['navigation_use_sticky_menu'] = true;
 	$defaults['navigation_menu_search'] = true;
 	$defaults['navigation_display_scroll_to_top'] = true;
