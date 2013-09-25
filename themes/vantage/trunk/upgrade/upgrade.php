@@ -50,12 +50,12 @@ function vantage_premium_upgrade_content($content){
 		array(
 			'gravatar' => '10169e5514e607d8cb97f0f6bddbd728',
 			'name' => 'Ian',
-			'content' => __("Vantage is simple and clean. The user interface is easy to use. Combined with the developers Page Builder plugin makes it a powerful theme with great support.", 'origami'),
+			'content' => __("Vantage is simple and clean. The user interface is easy to use. Combined with the developers Page Builder plugin makes it a powerful theme with great support.", 'vantage'),
 		),
 		array(
 			'gravatar' => '3e5f90609c33ea3ceb01d0be7b3a4e39',
 			'name' => 'Bart',
-			'content' => __('Clean, simple and powerful. Like other themes from SiteOrigin.', 'origami'),
+			'content' => __('Clean, simple and powerful. Like other themes from SiteOrigin.', 'vantage'),
 		),
 	);
 
