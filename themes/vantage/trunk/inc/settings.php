@@ -130,6 +130,13 @@ function vantage_theme_settings(){
 		'description' => __('This handle will be recommended after a user shares one of your posts.', 'vantage')
 	));
 
+	/**
+	 * General Settings
+	 */
+
+	siteorigin_settings_add_field( 'general', 'site_info_text', 'text', __( 'Site Information Text', 'vantage' ), array(
+		'description' => __( 'Text displayed in your footer. Useful for copyright information.', 'vantage' )
+	) );
 
 }
 add_action('admin_init', 'vantage_theme_settings');
@@ -167,6 +174,8 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['social_ajax_comments'] = true;
 	$defaults['social_share_post'] = true;
 	$defaults['social_twitter'] = '';
+
+	$defaults['general_site_info_text'] = '';
 
 	return $defaults;
 }
