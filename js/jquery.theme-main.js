@@ -170,7 +170,6 @@ jQuery(function($){
     // Substitute any retina images
     var pixelRatio = !!window.devicePixelRatio ? window.devicePixelRatio : 1;
     if(pixelRatio > 1 || true) {
-        console.log($('img[data-retina-image]').length);
         $('img[data-retina-image]').each(function(){
             $(this).attr('src', $(this).data('retina-image'));
         })
