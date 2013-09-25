@@ -873,6 +873,10 @@ article.page footer .tags a {
   box-shadow: 0 1px 1px rgba(0,0,0,0.2);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
 }
+article.post .entry-header,
+article.page .entry-header {
+  margin-bottom: 20px;
+}
 article.post .entry-header .entry-thumbnail,
 article.page .entry-header .entry-thumbnail {
   margin-bottom: 20px;
@@ -890,7 +894,6 @@ article.page .entry-header .entry-thumbnail a {
 article.post .entry-header h1.entry-title,
 article.page .entry-header h1.entry-title {
   color: #3b3b3b;
-  margin-bottom: 20px;
   font-size: 20px;
   font-weight: 500;
 }
@@ -904,8 +907,6 @@ article.post .entry-header .entry-meta,
 article.page .entry-header .entry-meta {
   color: #8f8f8f;
   font-size: 12px;
-  margin-bottom: 20px;
-  margin-top: -20px;
 }
 article.post .entry-header .entry-meta a,
 article.page .entry-header .entry-meta a {
