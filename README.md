@@ -43,4 +43,6 @@ Framework updates.
 Set background color for CSS footer.
 Added circle icon post loop.
 Added options to circle icon widget.
-Added some more WooCommerce styles
+Added some more WooCommerce styles.
+Various bug fixes.
+Additional theme settings.
