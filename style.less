@@ -632,22 +632,28 @@ body.responsive {
 		cursor: pointer;
 		height: 59px;
 		width: 59px;
-		background: #303134 url(./images/sprites/search.png) no-repeat;
+		background: url(./images/sprites/search.png) no-repeat;
+		background-color: #303134;
+
 		border-left: 1px solid #2e2f31;
 		.transition(0.25s);
 
 		&:hover {
-			background: #00bcff url(./images/sprites/search-white.png) no-repeat;
+			background: url(./images/sprites/search-white.png) no-repeat;
+			background-color: #00bcff;
 		}
 	}
 
 	@media screen and (-webkit-min-device-pixel-ratio: 2) {
 		#search-icon-icon {
-			background-image: url(./images/retina/search.png);
+			background: url(./images/retina/search.png) no-repeat;
+			background-color: #303134;
 			background-size: 59px 59px;
 
 			&:hover {
-				background: #00bcff url(./images/retina/search-white.png) no-repeat;
+				background: url(./images/retina/search-white.png) no-repeat;
+				background-color: #00bcff;
+				background-size: 59px 59px;
 			}
 		}
 	}
