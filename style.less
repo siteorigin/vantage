@@ -9,7 +9,7 @@ License: GNU General Public License 2.0
 License URI: license.txt
 Tags: flexible-width, custom-background, custom-menu, featured-images, theme-options, threaded-comments, translation-ready
 
-spritemapper.sprite_dirs = images/sprites , images/retina
+spritemapper.sprite_dirs = images/sprites
 spritemapper.output_css = style.sprites.css
 */
 
@@ -641,10 +641,10 @@ body.responsive {
 		}
 	}
 
-	@media (-webkit-min-device-pixel-ratio: 2) {
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
 		#search-icon-icon {
 			background-image: url(./images/retina/search.png);
-			background-size: 50% 50%;
+			background-size: 59px 59px;
 		}
 	}
 
@@ -947,7 +947,7 @@ article.page{
 
 		overflow-x: auto;
 
-		p:fist-child {
+		p:first-child {
 			margin-top: 0;
 		}
 	}
@@ -1390,7 +1390,7 @@ body.layout-full{
 	height: 48px;
 	background: url(./images/sprites/to-top.png);
 
-	@media (-webkit-min-device-pixel-ratio: 2) {
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
 		& {
 			background-image: url(./images/retina/to-top.png);
 			background-size: 48px 48px;

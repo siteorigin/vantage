@@ -172,14 +172,14 @@
 	}
 }
 
-.button-style(@base_color, @bg_var: 3.5, @border_darken: 18, @border_var: 4) {
-	@gradient_start: lumdarken(@base_color, @bg_var);
-	@gradient_end: lumlighten(@base_color, @bg_var);
+.button-style(@base_color, @bg_var: 3.5%, @border_darken: 18%, @border_var: 4%) {
+	@gradient_start: darken(@base_color, @bg_var);
+	@gradient_end: lighten(@base_color, @bg_var);
 
-	@border_color: lumdarken(@base_color, @border_darken);
+	@border_color: darken(@base_color, @border_darken);
 
-	@border_top: lumlighten(@border_color, @border_var );
-	@border_bottom: lumdarken(@border_color, @border_var );
+	@border_top: lighten(@border_color, @border_var );
+	@border_bottom: darken(@border_color, @border_var );
 
 	.gradient(@base_color, @gradient_start, @gradient_end);
 	.bordered(@border_top, @border_color, @border_bottom, @border_color);
