@@ -655,12 +655,20 @@ body.responsive {
 			.transition(0.4s);
 		}
 
-		padding: 20px;
+		padding: 21px;
 
 		.icon-search {
 			color: #d1d1d1;
 			font-size: 18px;
 			line-height: 1em;
+
+			/* Face the icon the other way */
+			-moz-transform: scaleX(-1);
+			-webkit-transform: scaleX(-1);
+			-o-transform: scaleX(-1);
+			transform: scaleX(-1);
+
+			margin-right: 0;
 		}
 
 		&:hover {

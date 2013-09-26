@@ -776,7 +776,7 @@ body.responsive.layout-full #page-wrapper .full-container {
   width: 59px;
   height: 59px;
   border-left: 1px solid #2e2f31;
-  padding: 20px;
+  padding: 21px;
 }
 #search-icon #search-icon-icon,
 #search-icon #search-icon-icon .icon-search {
@@ -789,6 +789,13 @@ body.responsive.layout-full #page-wrapper .full-container {
   color: #d1d1d1;
   font-size: 18px;
   line-height: 1em;
+  /* Face the icon the other way */
+
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+  margin-right: 0;
 }
 #search-icon #search-icon-icon:hover {
   background-color: #00bcff;
