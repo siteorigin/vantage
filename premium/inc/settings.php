@@ -13,6 +13,10 @@ function vantage_premium_theme_settings(){
 	siteorigin_settings_add_field('navigation', 'responsive_menu', 'checkbox');
 	siteorigin_settings_add_field('navigation', 'responsive_menu_text', 'text');
 
+	siteorigin_settings_add_field('navigation', 'responsive_menu_collapse', 'number', __('Mobile Menu Collapse', 'vantage'), array(
+
+	) );
+
 	siteorigin_settings_add_field('social', 'ajax_comments', 'checkbox');
 	siteorigin_settings_add_field('social', 'share_post', 'checkbox');
 	siteorigin_settings_add_field('social', 'twitter', 'text', null, array(
@@ -20,3 +24,11 @@ function vantage_premium_theme_settings(){
 	));
 }
 add_action('admin_init', 'vantage_premium_theme_settings', 15);
+
+
+function vantage_premium_theme_setting_defaults($defaults){
+	$defaults['navigation_responsive_menu_collapse'] = 480;
+
+	return $defaults;
+}
+add_filter('siteorigin_theme_default_settings', 'vantage_premium_theme_setting_defaults');
