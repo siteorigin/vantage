@@ -9,7 +9,7 @@ License: GNU General Public License 2.0
 License URI: license.txt
 Tags: flexible-width, custom-background, custom-menu, featured-images, theme-options, threaded-comments, translation-ready
 
-spritemapper.sprite_dirs = images/sprites , images/retina
+spritemapper.sprite_dirs = images/sprites
 spritemapper.output_css = style.sprites.css
 */
 /* =Reset
@@ -770,10 +770,10 @@ body.responsive.layout-full #page-wrapper .full-container {
 #search-icon #search-icon-icon:hover {
   background: #00bcff url(./images/sprites/search-white.png) no-repeat;
 }
-@media (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
   #search-icon #search-icon-icon {
     background-image: url(./images/retina/search.png);
-    background-size: 50% 50%;
+    background-size: 59px 59px;
   }
 }
 #search-icon .searchform {
@@ -1141,8 +1141,8 @@ article.page .entry-categories a {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.09);
   overflow-x: auto;
 }
-.entry-content pre p:fist-child,
-.entry-content code p:fist-child {
+.entry-content pre p:first-child,
+.entry-content code p:first-child {
   margin-top: 0;
 }
 .entry-content code {
@@ -1557,7 +1557,7 @@ body.layout-full {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-@media (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
   #scroll-to-top {
     background-image: url(./images/retina/to-top.png);
     background-size: 48px 48px;
@@ -1861,15 +1861,15 @@ body.layout-full {
   -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
   background: #107fc9;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, lumdarken(#107fc9, 3.5)), color-stop(1, lumlighten(#107fc9, 3.5)));
-  background: -ms-linear-gradient(bottom, lumdarken(#107fc9, 3.5), lumlighten(#107fc9, 3.5));
-  background: -moz-linear-gradient(center bottom, lumdarken(#107fc9, 3.5) 0%, lumlighten(#107fc9, 3.5) 100%);
-  background: -o-linear-gradient(lumlighten(#107fc9, 3.5), lumdarken(#107fc9, 3.5));
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='lumlighten(#107fc9, 3.5)', endColorstr='lumdarken(#107fc9, 3.5)', GradientType=0);
-  border-top: solid 1px lumlighten(lumdarken(#107fc9, 18), 4);
-  border-left: solid 1px lumdarken(#107fc9, 18);
-  border-right: solid 1px lumdarken(#107fc9, 18);
-  border-bottom: solid 1px lumdarken(lumdarken(#107fc9, 18), 4);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0f75b8), color-stop(1, #1189da));
+  background: -ms-linear-gradient(bottom, #0f75b8, #1189da);
+  background: -moz-linear-gradient(center bottom, #0f75b8 0%, #1189da 100%);
+  background: -o-linear-gradient(#1189da, #0f75b8);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1189da', endColorstr='#0f75b8', GradientType=0);
+  border-top: solid 1px #0b5587;
+  border-left: solid 1px #094974;
+  border-right: solid 1px #094974;
+  border-bottom: solid 1px #083d61;
 }
 .widget .button-container.align-center {
   text-align: center;
@@ -2016,7 +2016,7 @@ body.layout-full {
   margin-left: 3px;
   background: url(images/sprites/more-icon.png) no-repeat;
 }
-@media (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
   .widget_circleicon-widget .circle-icon-box a.more-button i {
     background-image: url(./images/retina/more-icon.png);
     background-size: 5px 8px;
@@ -2369,35 +2369,6 @@ body.layout-full {
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
-}
-.woocommerce #page-wrapper .product button.single_add_to_cart_button {
-  border-top: solid 1px #d2d2d2;
-  border-left: solid 1px #c3c3c3;
-  border-right: solid 1px #c3c3c3;
-  border-bottom: solid 1px #9f9f9f;
-  background: #ffffff;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dfdfdf), color-stop(1, #ffffff));
-  background: -ms-linear-gradient(bottom, #dfdfdf, #ffffff);
-  background: -moz-linear-gradient(center bottom, #dfdfdf 0%, #ffffff 100%);
-  background: -o-linear-gradient(#ffffff, #dfdfdf);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dfdfdf', GradientType=0);
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  color: #646464;
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  width: auto;
-  text-decoration: none;
-  /* Improves usability and consistency of cursor style between image-type 'input' and others */
-
-  cursor: pointer;
-  /* Corrects inability to style clickable 'input' types in iOS */
-
-  -webkit-appearance: button;
-  line-height: 1;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 .woocommerce-page #container {
   float: left;
