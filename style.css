@@ -770,6 +770,12 @@ body.responsive.layout-full #page-wrapper .full-container {
 #search-icon #search-icon-icon:hover {
   background: #00bcff url(./images/sprites/search-white.png) no-repeat;
 }
+@media (-webkit-min-device-pixel-ratio: 2) {
+  #search-icon #search-icon-icon {
+    background-image: url(./images/retina/search.png);
+    background-size: 59px 59px;
+  }
+}
 #search-icon .searchform {
   display: none;
   position: absolute;
