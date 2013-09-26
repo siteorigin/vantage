@@ -107,6 +107,13 @@ jQuery(function($){
             isSearchHover = false;
         } );
 
+    $(window).resize(function() {
+        $('#search-icon .searchform').each(function(){
+            console.log($(this).closest('nav').width());
+            $(this).width($(this).closest('nav').width());
+        });
+    }).resize();
+
     // The sticky menu
     if($('nav.site-navigation.primary').hasClass('use-sticky-menu')) {
         var $mc = null;
