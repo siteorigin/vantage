@@ -48,4 +48,6 @@ Various bug fixes.
 Additional theme settings.
 
 **1.0.4**
-Added retina images where necessary.
+Added retina icons.
+Created spritemaps.
+Various fixes and improvements.
