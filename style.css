@@ -9,7 +9,7 @@ License: GNU General Public License 2.0
 License URI: license.txt
 Tags: flexible-width, custom-background, custom-menu, featured-images, theme-options, threaded-comments, translation-ready
 
-spritemapper.sprite_dirs = images/sprites
+spritemapper.sprite_dirs = images/sprites , images/retina
 spritemapper.output_css = style.sprites.css
 */
 /* =Reset
