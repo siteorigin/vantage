@@ -125,7 +125,7 @@ jQuery(function($){
                         'width' : $$.outerWidth(),
                         'top' : $('body').hasClass('admin-bar') ? 28 : 0,
                         'left' : $$.position().left,
-                        'z-index' : 1001
+                        'z-index' : 998
                     }).addClass('sticky').insertAfter($$);
                 }
                 else {
