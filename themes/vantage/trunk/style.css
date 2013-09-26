@@ -775,6 +775,9 @@ body.responsive.layout-full #page-wrapper .full-container {
     background-image: url(./images/retina/search.png);
     background-size: 59px 59px;
   }
+  #search-icon #search-icon-icon:hover {
+    background: #00bcff url(./images/retina/search-white.png) no-repeat;
+  }
 }
 #search-icon .searchform {
   display: none;
@@ -2135,10 +2138,10 @@ body.layout-full {
   margin-left: 2px;
 }
 .vantage-carousel-title a.next {
-  background-image: url(images/sprites/carousel-right.png);
+  background: url(images/sprites/carousel-right.png);
 }
 .vantage-carousel-title a.previous {
-  background-image: url(images/sprites/carousel-left.png);
+  background: url(images/sprites/carousel-left.png);
 }
 .vantage-carousel-wrapper {
   overflow-x: hidden;
