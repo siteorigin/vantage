@@ -2045,7 +2045,7 @@ body.layout-full {
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2) {
   .widget_circleicon-widget .circle-icon-box a.more-button i {
-    background-image: url(./images/retina/more-icon.png);
+    background: url(./images/retina/more-icon.png);
     background-size: 5px 8px;
   }
 }
