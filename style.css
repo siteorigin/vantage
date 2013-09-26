@@ -1557,6 +1557,12 @@ body.layout-full {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
+@media (-webkit-min-device-pixel-ratio: 2) {
+  #scroll-to-top {
+    background-image: url(./images/retina/to-top.png);
+    background-size: 48px 48px;
+  }
+}
 #scroll-to-top.displayed {
   -ms-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
