@@ -14,7 +14,7 @@ function vantage_premium_theme_settings(){
 	siteorigin_settings_add_field('navigation', 'responsive_menu_text', 'text');
 
 	siteorigin_settings_add_field('navigation', 'responsive_menu_collapse', 'number', __('Mobile Menu Collapse', 'vantage'), array(
-
+		'description' => __('The resolution when the menu collapses into a mobile navigation menu.', 'vantage')
 	) );
 
 	siteorigin_settings_add_field('social', 'ajax_comments', 'checkbox');
