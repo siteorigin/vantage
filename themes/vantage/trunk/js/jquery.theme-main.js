@@ -109,8 +109,8 @@ jQuery(function($){
 
     $(window).resize(function() {
         $('#search-icon .searchform').each(function(){
-            console.log($(this).closest('nav').width());
-            $(this).width($(this).closest('nav').width());
+            console.log($(this).closest('.full-container').width());
+            $(this).width($(this).closest('.full-container').width());
         });
     }).resize();
 
