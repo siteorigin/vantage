@@ -627,6 +627,9 @@ body.responsive #page-wrapper {
 body.responsive.layout-full #page-wrapper {
   max-width: 100%;
 }
+body.responsive.layout-boxed #page-wrapper {
+  overflow-x: visible;
+}
 body.responsive.layout-full #page-wrapper .full-container {
   max-width: 1080px;
   margin-left: auto;
