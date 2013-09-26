@@ -52,3 +52,4 @@ Added retina icons.
 Created spritemaps.
 Various fixes and improvements.
 Fixes some CSS issues that resulted from broken build process.
+Added minified Javascript
