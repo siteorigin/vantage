@@ -63,3 +63,8 @@ function vantage_premium_filter_mobilenav($text){
 	return $text;
 }
 add_filter('siteorigin_mobilenav_text', 'vantage_premium_filter_mobilenav');
+
+function vantage_premium_filter_mobilenav_collapse($collpase){
+	return siteorigin_setting('navigation_responsive_menu_collapse');
+}
+add_filter('siteorigin_mobilenav_resolution', 'vantage_premium_filter_mobilenav_collapse');
