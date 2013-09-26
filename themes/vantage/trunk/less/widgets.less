@@ -281,8 +281,16 @@
 				display: inline-block;
 				width: 5px;
 				height: 8px;
-				background: url(images/sprites/more-icon.png) no-repeat;
 				margin-left: 3px;
+
+				background: url(images/sprites/more-icon.png) no-repeat;
+
+				@media (-webkit-min-device-pixel-ratio: 2) {
+					& {
+						background-image: url(./images/retina/more-icon.png);
+						background-size: 5px 8px;
+					}
+				}
 			}
 		}
 
