@@ -46,3 +46,6 @@ Added options to circle icon widget.
 Added some more WooCommerce styles.
 Various bug fixes.
 Additional theme settings.
+
+**1.0.4**
+Added retina images where necessary.
