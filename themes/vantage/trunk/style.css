@@ -785,24 +785,27 @@ body.responsive.layout-full #page-wrapper .full-container {
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
-#search-icon #search-icon-icon .icon-search {
-  color: #d1d1d1;
-  font-size: 16px;
-  line-height: 1em;
-  /* Face the icon the other way */
-
-  -moz-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  transform: scaleX(-1);
-  margin-right: 0;
-  font-weight: 100;
+#search-icon #search-icon-icon .icon {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  background: url(./images/sprites/search-icon.png) no-repeat;
 }
 #search-icon #search-icon-icon:hover {
   background-color: #00bcff;
 }
-#search-icon #search-icon-icon:hover .icon-search {
-  color: #FFFFFF;
+#search-icon #search-icon-icon:hover .icon {
+  background: url(./images/sprites/search-icon-white.png) no-repeat;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  #search-icon #search-icon-icon .icon {
+    background: url(./images/retina/search-icon.png) no-repeat;
+    background-size: 17px 17px;
+  }
+  #search-icon #search-icon-icon:hover .icon {
+    background: url(./images/retina/search-icon-white.png) no-repeat;
+    background-size: 17px 17px;
+  }
 }
 #search-icon .searchform {
   display: none;

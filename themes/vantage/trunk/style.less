@@ -657,27 +657,34 @@ body.responsive {
 
 		padding: 22px;
 
-		.icon-search {
-			color: #d1d1d1;
-			font-size: 16px;
-			line-height: 1em;
+		.icon {
+			display: inline-block;
+			width: 17px;
+			height: 17px;
 
-			/* Face the icon the other way */
-			-moz-transform: scaleX(-1);
-			-webkit-transform: scaleX(-1);
-			-o-transform: scaleX(-1);
-			transform: scaleX(-1);
-
-			margin-right: 0;
-			font-weight: 100;
+			background: url(./images/sprites/search-icon.png) no-repeat;
 		}
 
 		&:hover {
-			.icon-search {
-				color: #FFFFFF;
+			.icon {
+				background: url(./images/sprites/search-icon-white.png) no-repeat;
 			}
 			background-color: #00bcff;
 		}
+
+		@media screen and (-webkit-min-device-pixel-ratio: 2) {
+			.icon {
+				background: url(./images/retina/search-icon.png) no-repeat;
+				background-size: 17px 17px;
+			}
+
+			&:hover .icon{
+				background: url(./images/retina/search-icon-white.png) no-repeat;
+				background-size: 17px 17px;
+			}
+
+		}
+
 	}
 
 	.searchform {
