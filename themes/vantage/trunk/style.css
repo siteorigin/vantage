@@ -2149,9 +2149,11 @@ body.layout-full {
 @media screen and (-webkit-min-device-pixel-ratio: 2) {
   .vantage-carousel-title a.next {
     background: url(images/retina/carousel-right.png);
+    background-size: 17px 17px;
   }
   .vantage-carousel-title a.previous {
     background: url(images/retina/carousel-left.png);
+    background-size: 17px 17px;
   }
 }
 .vantage-carousel-wrapper {
