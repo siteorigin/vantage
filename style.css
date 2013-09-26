@@ -2146,6 +2146,14 @@ body.layout-full {
 .vantage-carousel-title a.previous {
   background: url(images/sprites/carousel-left.png);
 }
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .vantage-carousel-title a.next {
+    background: url(images/retina/carousel-right.png);
+  }
+  .vantage-carousel-title a.previous {
+    background: url(images/retina/carousel-left.png);
+  }
+}
 .vantage-carousel-wrapper {
   overflow-x: hidden;
   overflow-y: hidden;
