@@ -775,7 +775,7 @@ body.responsive.layout-full #page-wrapper .full-container {
   width: 59px;
   height: 59px;
   border-left: 1px solid #2e2f31;
-  padding: 22px;
+  padding: 22px 21px;
 }
 #search-icon #search-icon-icon,
 #search-icon #search-icon-icon .icon-search {
@@ -1851,7 +1851,7 @@ body.layout-full {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  float: right;
+  float: left;
   padding: 0 15px;
   margin-bottom: 0;
   color: #b9b9b9;
