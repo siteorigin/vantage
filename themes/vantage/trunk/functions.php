@@ -80,6 +80,7 @@ function vantage_setup() {
 	// define('WOOCOMMERCE_USE_CSS', false);
 
 	set_post_thumbnail_size(720, 380, true);
+	add_image_size('vantage-thumbnail-no-sidebar', 1080, 380, true);
 	add_image_size('vantage-slide', 960, 480, true);
 	add_image_size('vantage-carousel', 272, 182, true);
 	add_image_size('vantage-grid-loop', 218, 136, true);
@@ -206,6 +207,11 @@ function vantage_body_class($classes){
 	if( siteorigin_setting('layout_responsive') ) $classes[] = 'responsive';
 	$classes[] = 'layout-'.siteorigin_setting('layout_bound');
 	$classes[] = 'no-js';
+
+	if( !is_active_sidebar('sidebar-1') ) {
+		$classes[] = 'no-sidebar';
+	}
+
 	return $classes;
 }
 add_filter('body_class', 'vantage_body_class');
