@@ -564,6 +564,10 @@ header#masthead hgroup .support-text {
   float: left;
   width: 71.287%;
 }
+body.no-sidebar #primary {
+  float: none;
+  width: auto;
+}
 /* Full Width Primary blocks */
 .siteorigin-panels-home #primary,
 .page-template-templatestemplate-full-php #primary,
