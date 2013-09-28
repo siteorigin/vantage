@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Add in the Vantage theme.
+ *
+ * @param $themes
+ * @param $current
+ * @return string
+ */
 function vantage_metaslider_themes($themes, $current){
 	$themes .= "<option value='vantage' class='option flex' ".selected('vantage', $current).">".__('Vantage (Flex)', 'vantage')."</option>";
 	return $themes;
@@ -12,10 +19,11 @@ add_filter('metaslider_get_available_themes', 'vantage_metaslider_themes', 5, 2)
  * @param $html
  * @param $slide
  * @param $settings
+ *
+ * @return string The new HTML
  */
 function vantage_metaslider_filter_flex_slide($html, $slide, $settings){
-	global $vantage_is_main_slider;
-	if( is_admin() && !empty($vantage_is_main_slider) ) return $html;
+	if( is_admin() && !empty($GLOBALS['vantage_is_main_slider']) ) return $html;
 
 	if(!empty($slide['caption']) && function_exists('filter_var') && filter_var($slide['caption'], FILTER_VALIDATE_URL) !== false) {
 
@@ -46,6 +54,8 @@ function vantage_metaslider_filter_flex_slide($html, $slide, $settings){
 add_filter('metaslider_image_flex_slider_markup', 'vantage_metaslider_filter_flex_slide', 10, 3);
 
 /**
+ * Filter metaslider settings when Vantage setting is selected.
+ *
  * @param $settings
  */
 function vantage_metaslider_ensure_height($settings){

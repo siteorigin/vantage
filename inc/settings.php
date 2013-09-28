@@ -90,10 +90,10 @@ function vantage_theme_settings(){
 	siteorigin_settings_add_field('home', 'slider', 'select', __('Home Page Slider', 'vantage'), array(
 		'options' => siteorigin_metaslider_get_options(true),
 		'description' => sprintf(
-			__('This theme supports <a href="%s" target="_blank">Meta Slider</a>. <a href="%s">Install it</a> for free to create responsive, animated sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
+			__('This theme supports <a href="%s" target="_blank">Meta Slider</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
 			'http://sorig.in/metaslider',
 			siteorigin_metaslider_install_link(),
-			'http://siteorigin.com/vantage-documentation/sliders/'
+			'http://siteorigin.com/vantage-documentation/slider/'
 		)
 	));
 
