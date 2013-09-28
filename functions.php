@@ -264,8 +264,15 @@ function vantage_get_query_variables(){
  * Render the slider.
  */
 function vantage_render_slider(){
-	$slider = siteorigin_setting('home_slider');
-	if($slider == 'none') return;
+
+	if( is_home() ) {
+		$slider = siteorigin_setting('home_slider');
+		if( $slider == 'none' ) return;
+	}
+	if( is_page() && get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true) != 'none' ) {
+		$slider = get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true);
+	}
+	else return;
 
 	global $vantage_is_main_slider;
 	$vantage_is_main_slider = true;

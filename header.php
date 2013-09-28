@@ -32,7 +32,7 @@
 
 	<?php do_action( 'vantage_after_masthead' ); ?>
 
-	<?php if ( is_front_page() ) vantage_render_slider() ?>
+	<?php vantage_render_slider() ?>
 
 	<?php do_action( 'vantage_before_main_container' ); ?>
 
