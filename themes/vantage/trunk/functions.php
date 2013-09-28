@@ -269,6 +269,9 @@ function vantage_render_slider(){
 	$slider = siteorigin_setting('home_slider');
 	if($slider == 'none') return;
 
+	global $vantage_is_main_slider;
+	$vantage_is_main_slider = true;
+
 	?><div id="main-slider" <?php if( siteorigin_setting('home_slider_stretch') ) echo 'data-stretch="true"' ?>><?php
 
 
@@ -281,6 +284,7 @@ function vantage_render_slider(){
 	}
 
 	?></div><?php
+	$vantage_is_main_slider = false;
 }
 
 function vantage_post_class_filter($classes){
