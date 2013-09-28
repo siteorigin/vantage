@@ -10,6 +10,6 @@
 		</div><!-- .site-info -->
 	<?php endif; ?>
 
-	<?php echo apply_filters( 'vantage_footer_attribution', '<div id="theme-attribution">' . sprintf( __('A <a href="%s">SiteOrigin</a> Theme'), 'http://siteorigin.com') . '</div>' ) ?>
+	<?php echo apply_filters( 'vantage_footer_attribution', '<div id="theme-attribution">' . sprintf( __('A <a href="%s">SiteOrigin</a> Theme', 'vantage'), 'http://siteorigin.com') . '</div>' ) ?>
 
 </footer><!-- #colophon .site-footer -->
