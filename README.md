@@ -60,3 +60,6 @@ Minor CSS fixes and changes.
 Added IE compatibility header to prevent compatibility mode from breaking design.
 Handles no sidebar properly.
 Added a way to include an overlay image in Meta Slider free.
+
+**1.0.6**
+Added option to have Meta Slider as page header.
