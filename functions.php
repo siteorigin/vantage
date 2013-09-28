@@ -299,3 +299,7 @@ function vantage_filter_vantage_post_on_parts($parts){
 	return $parts;
 }
 add_filter('vantage_post_on_parts', 'vantage_filter_vantage_post_on_parts');
+
+function vantage_get_site_width(){
+	return apply_filters('vantage_site_width', !empty($GLOBALS['vantage_site_width']) ? $GLOBALS['vantage_site_width'] : 1080);
+}
