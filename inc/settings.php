@@ -34,7 +34,8 @@ function vantage_theme_settings(){
 	siteorigin_settings_add_teaser('logo', 'image_retina', __('Retina Logo', 'vantage'), array(
 		'choose' => __('Choose Image', 'vantage'),
 		'update' => __('Set Logo', 'vantage'),
-		'description' => __('A double sized version of your logo for retina displays. Must be used in addition to standard logo.', 'vantage')
+		'description' => __('A double sized version of your logo for retina displays. Must be used in addition to standard logo.', 'vantage'),
+		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/retina-logo.png',
 	) );
 
 	siteorigin_settings_add_field('logo', 'header_text', 'text', __('Header Text', 'vantage'), array(
@@ -62,7 +63,8 @@ function vantage_theme_settings(){
 	 */
 
 	siteorigin_settings_add_teaser('navigation', 'responsive_menu', __('Responsive Menu', 'vantage'), array(
-		'description' => __('Use a special responsive menu for small screen devices.', 'vantage')
+		'description' => __('Use a special responsive menu for small screen devices.', 'vantage'),
+		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/mobile-nav.png',
 	));
 
 	siteorigin_settings_add_teaser('navigation', 'responsive_menu_text', __('Responsive Menu Text', 'vantage'), array(
@@ -123,11 +125,13 @@ function vantage_theme_settings(){
 	));
 
 	siteorigin_settings_add_teaser('social', 'share_post', __('Post Sharing', 'vantage'), array(
-		'description' => __('Show icons to share your posts on Facebook, Twitter and Google+.', 'vantage')
+		'description' => __('Show icons to share your posts on Facebook, Twitter and Google+.', 'vantage'),
+		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/share.png',
 	));
 
 	siteorigin_settings_add_teaser('social', 'twitter', __('Twitter Handle', 'vantage'), array(
-		'description' => __('This handle will be recommended after a user shares one of your posts.', 'vantage')
+		'description' => __('This handle will be recommended after a user shares one of your posts.', 'vantage'),
+		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/share-rec.png',
 	));
 
 	/**
