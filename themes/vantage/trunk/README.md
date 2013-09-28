@@ -59,3 +59,4 @@ Fixed ordering of footer widgets.
 Minor CSS fixes and changes.
 Added IE compatibility header to prevent compatibility mode from breaking design.
 Handles no sidebar properly.
+Added a way to include an overlay image in Meta Slider free.
