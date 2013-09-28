@@ -25,7 +25,9 @@ function vantage_metaslider_filter_flex_slide($html, $slide, $settings){
 		}
 
 		$caption = '<div class="content">';
+		if (strlen($slide['url'])) $caption .= '<a href="' . $slide['url'] . '" target="' . $slide['target'] . '">';
 		$caption .= sprintf('<img src="%s" width="%d" height="%d" />', esc_url($slide['caption']), intval($settings['width']), intval($settings['height']));
+		if (strlen($slide['url'])) $caption .= '</a>';
 		$caption .= '</div>';
 
 		$html = $caption . $html;
