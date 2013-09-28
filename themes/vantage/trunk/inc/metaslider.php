@@ -33,7 +33,7 @@ function vantage_metaslider_filter_flex_slide($html, $slide, $settings){
 		$html = sprintf("<img src='%s' class='msDefaultImage' width='%d' height='%d' />", $slide['thumb'], intval($settings['width']), intval($settings['height']));
 
 		if (strlen($slide['url'])) {
-			$html = '<a href="' . $slide['url'] . '" target="' . $slide['target'] . '">' . $html . '</a>';
+			$html = '<a href="' . esc_url( $slide['url'] ) . '" target="' . esc_attr( $slide['target'] ) . '">' . $html . '</a>';
 		}
 
 		$caption = '<div class="content">';
@@ -66,3 +66,32 @@ function vantage_metaslider_ensure_height($settings){
 	return $settings;
 }
 add_filter('sanitize_post_meta_ml-slider_settings', 'vantage_metaslider_ensure_height');
+
+function vantage_metaslider_page_setting_metabox(){
+	add_meta_box('vantage-metaslider-page-slider', __('Page Meta Slider', 'vantage'), 'vantage_metaslider_page_setting_metabox_render', 'page', 'side');
+}
+add_action('add_meta_boxes', 'vantage_metaslider_page_setting_metabox');
+
+function vantage_metaslider_page_setting_metabox_render($post){
+	$metaslider = get_post_meta($post->ID, 'vantage_metaslider_slider', true);
+	$options = siteorigin_metaslider_get_options(false);
+
+	?>
+	<label><?php _e('Display Page Metaslider', 'vantage') ?></label>
+	<select name="vantage_page_metaslider">
+		<?php foreach($options as $id => $name) : ?>
+			<option value="<?php echo esc_attr($id) ?>" <?php selected($metaslider, $id) ?>><?php echo esc_html($name) ?></option>
+		<?php endforeach; ?>
+	</select>
+	<?php
+	wp_nonce_field('save', '_vantage_metaslider_nonce');
+}
+
+function vantage_metaslider_page_setting_save($post_id){
+	if( empty($_POST['_vantage_metaslider_nonce']) || !wp_verify_nonce($_POST['_vantage_metaslider_nonce'], 'save')) return;
+	if( !current_user_can('edit_post', $post_id) ) return;
+	if( is_ajax() ) return;
+
+	update_post_meta($post_id, 'vantage_metaslider_slider', $_POST['vantage_page_metaslider']);
+}
+add_action('save_post', 'vantage_metaslider_page_setting_save');
