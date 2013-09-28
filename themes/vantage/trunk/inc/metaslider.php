@@ -50,8 +50,7 @@ add_filter('metaslider_image_flex_slider_markup', 'vantage_metaslider_filter_fle
  */
 function vantage_metaslider_ensure_height($settings){
 	if(!empty($settings['theme']) && $settings['theme'] == 'vantage') {
-		global $vantage_site_width;
-		$settings['width'] = $vantage_site_width;
+		$settings['width'] = vantage_get_site_width();
 	}
 
 	return $settings;
