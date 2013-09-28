@@ -40,6 +40,12 @@ function vantage_premium_upgrade_content($content){
 	);
 
 	$content['features'][] = array(
+		'heading' => __('Customizer Integration', 'vantage'),
+		'content' => __("Make Vantage your own with customizer integration. Change fonts, colors and more all using the live-updating WordPress customizer.", 'vantage'),
+		'image' => get_template_directory_uri().'/upgrade/teasers/customizer.png',
+	);
+
+	$content['features'][] = array(
 		'heading' => __("Ajax Comments", 'vantage'),
 		'content' => __("Want to keep the conversation flowing? Ajax comments means your visitors can comment without reloading your page. So commenting wont interrupt a video or lose their position in one of your galleries.", 'vantage'),
 	);

@@ -476,7 +476,7 @@ textarea {
 .page-links {
   clear: both;
 }
-.site-title a {
+#site-title a {
   color: inherit;
 }
 body {
@@ -778,7 +778,6 @@ body.responsive.layout-full #page-wrapper .full-container {
   background-color: #303134;
   width: 59px;
   height: 59px;
-  border-left: 1px solid #2e2f31;
   padding: 22px 21px;
 }
 #search-icon #search-icon-icon,
@@ -1243,7 +1242,6 @@ article.page .entry-categories a {
 }
 .entry-content .wp-caption p.wp-caption-text {
   margin: 0;
-  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
 .entry-content .alignleft {
   /* This is also styled on a global level */
