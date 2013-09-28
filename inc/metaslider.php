@@ -14,11 +14,15 @@ add_filter('metaslider_get_available_themes', 'vantage_metaslider_themes', 5, 2)
  * @param $settings
  */
 function vantage_metaslider_filter_flex_slide($html, $slide, $settings){
-	if( is_admin() ) return $html;
+	global $vantage_is_main_slider;
+	if( is_admin() && !empty($vantage_is_main_slider) ) return $html;
 
 	if(!empty($slide['caption']) && function_exists('filter_var') && filter_var($slide['caption'], FILTER_VALIDATE_URL) !== false) {
 
-		$html = sprintf("<img src='%s' class='msDefaultImage' width='%d' width='%d' />", $slide['thumb'], intval($settings['width']), intval($settings['height']));
+		$settings['height'] = round( $settings['height'] / 1080 * $settings['width'] );
+		$settings['width'] = 1080;
+
+		$html = sprintf("<img src='%s' class='msDefaultImage' width='%d' height='%d' />", $slide['thumb'], intval($settings['width']), intval($settings['height']));
 
 		if (strlen($slide['url'])) {
 			$html = '<a href="' . $slide['url'] . '" target="' . $slide['target'] . '">' . $html . '</a>';
@@ -37,8 +41,18 @@ function vantage_metaslider_filter_flex_slide($html, $slide, $settings){
 		$html = '<li style="display: none;"' . $thumb . ' class="vantage-slide-with-image">' . $html . '</li>';
 	}
 
-	error_log($html);
-
 	return $html;
 }
 add_filter('metaslider_image_flex_slider_markup', 'vantage_metaslider_filter_flex_slide', 10, 3);
+
+/**
+ * @param $settings
+ */
+function vantage_metaslider_ensure_height($settings){
+	if(!empty($settings['theme']) && $settings['theme'] == 'vantage') {
+		$settings['width'] = 1080;
+	}
+
+	return $settings;
+}
+add_filter('sanitize_post_meta_ml-slider_settings', 'vantage_metaslider_ensure_height');
