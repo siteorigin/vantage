@@ -109,7 +109,6 @@ jQuery(function($){
 
     $(window).resize(function() {
         $('#search-icon .searchform').each(function(){
-            console.log($(this).closest('.full-container').width());
             $(this).width($(this).closest('.full-container').width());
         });
     }).resize();
