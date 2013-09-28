@@ -37,13 +37,6 @@ include get_template_directory() . '/inc/menu-icon.php';
 include get_template_directory() . '/inc/woocommerce.php';
 
 
-/**
- * Set the content width based on the theme's design and stylesheet.
- *
- * @since vantage 1.0
- */
-if ( ! isset( $content_width ) ) $content_width = 789; /* pixels */
-
 if ( ! function_exists( 'vantage_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -89,6 +82,11 @@ function vantage_setup() {
 		// Only include panels lite if the panels plugin doesn't exist
 		include get_template_directory() . '/extras/panels-lite/panels-lite.php';
 	}
+
+	global $content_width, $vantage_site_width;
+
+	if ( ! isset( $content_width ) ) $content_width = 789; /* pixels */
+	if ( ! isset( $vantage_site_width ) ) $vantage_site_width = 1080; /* pixels */
 }
 endif; // vantage_setup
 add_action( 'after_setup_theme', 'vantage_setup' );
