@@ -83,8 +83,12 @@ function vantage_setup() {
 		include get_template_directory() . '/extras/panels-lite/panels-lite.php';
 	}
 
-	global $content_width, $vantage_site_width;
+	add_theme_support('siteorigin-premium-teaser', array(
+		'customizer' => true,
+		'settings' => true,
+	));
 
+	global $content_width, $vantage_site_width;
 	if ( ! isset( $content_width ) ) $content_width = 789; /* pixels */
 	if ( ! isset( $vantage_site_width ) ) $vantage_site_width = 1080; /* pixels */
 }
