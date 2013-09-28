@@ -13,7 +13,7 @@ function vantage_premium_upgrade_content($content){
 
 	$content['features'][] = array(
 		'heading' => __('Premium Email Support', 'vantage'),
-		'content' => __("Need help setting up vantage? Upgrading to vantage Premium gives you email support.", 'vantage'),
+		'content' => __("Need help setting up vantage? Upgrading to vantage Premium gives you email support. We have a growing support team ready to help you with your questions.", 'vantage'),
 	);
 
 	$content['features'][] = array(
@@ -24,16 +24,30 @@ function vantage_premium_upgrade_content($content){
 	$content['features'][] = array(
 		'heading' => __("Responsive Features", 'vantage'),
 		'content' => __("The final puzzle pieces in making vantage fully responsive. Vantage Premium has footer widgets that collapse below each other on small screen devices. Its menu collapses into a single navigate button which activates an intuitive nested menu system and site search.", 'vantage'),
+		'image' => get_template_directory_uri().'/upgrade/teasers/mobile-nav.png',
 	);
 
 	$content['features'][] = array(
 		'heading' => __('Remove Attribution Links', 'vantage'),
 		'content' => __('vantage premium gives you the option to easily remove the "Powered by WordPress, Theme by SiteOrigin" text from your footer. ', 'vantage'),
+		'image' => get_template_directory_uri().'/upgrade/teasers/attribution.png',
+	);
+
+	$content['features'][] = array(
+		'heading' => __("Retina Logo", 'vantage'),
+		'content' => __("No one wants a fuzzy logo. Vantage Premium lets you upload a second, double-size logo that's only displayed to users with retina screens.", 'vantage'),
+		'image' => get_template_directory_uri().'/upgrade/teasers/retina-logo.png',
 	);
 
 	$content['features'][] = array(
 		'heading' => __("Ajax Comments", 'vantage'),
 		'content' => __("Want to keep the conversation flowing? Ajax comments means your visitors can comment without reloading your page. So commenting wont interrupt a video or lose their position in one of your galleries.", 'vantage'),
+	);
+
+	$content['features'][] = array(
+		'heading' => __("Post Sharing", 'vantage'),
+		'content' => __("Add post sharing icons to the bottom of every post on your blog. It's about time to go viral.", 'vantage'),
+		'image' => get_template_directory_uri().'/upgrade/teasers/share.png',
 	);
 
 	$content['features'][] = array(
@@ -56,6 +70,11 @@ function vantage_premium_upgrade_content($content){
 			'gravatar' => '3e5f90609c33ea3ceb01d0be7b3a4e39',
 			'name' => 'Bart',
 			'content' => __('Clean, simple and powerful. Like other themes from SiteOrigin.', 'vantage'),
+		),
+		array(
+			'gravatar' => 'c99edc83049dddbd926f86214c662a8f',
+			'name' => 'Dave Vic',
+			'content' => __('Combined Vantage and Page builder are now one of the best combinations to have a premium WordPress theme.', 'vantage'),
 		),
 	);
 
