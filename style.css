@@ -7,7 +7,7 @@ Description: Vantage is a flexible multipurpose theme. It's strength lies in its
 Version: trunk
 License: GNU General Public License 2.0
 License URI: license.txt
-Tags: flexible-width, custom-background, custom-menu, featured-images, theme-options, threaded-comments, translation-ready
+Tags: flexible-width, custom-background, custom-menu, featured-images, theme-options, threaded-comments, translation-ready, black, white, light, one-column, two-columns, full-width-template
 
 spritemapper.sprite_dirs = images/sprites
 spritemapper.output_css = style.sprites.css
@@ -1760,17 +1760,20 @@ body.layout-full {
   color: #FFFFFF;
   text-decoration: none;
 }
-#metaslider-demo .content {
+#metaslider-demo .content,
+.vantage-slide-with-image .content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
 }
-#metaslider-demo .content img {
+#metaslider-demo .content img,
+.vantage-slide-with-image .content img {
   max-width: 100%;
   height: auto;
 }
-#metaslider-demo .msDefaultImage {
+#metaslider-demo .msDefaultImage,
+.vantage-slide-with-image .msDefaultImage {
   max-width: 100%;
   height: auto;
 }
