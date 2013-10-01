@@ -63,3 +63,6 @@ Added a way to include an overlay image in Meta Slider free.
 
 **1.0.6**
 Added option to have Meta Slider as page header.
+Fixed non responsive layout.
+Removed sticky menu and scroll to top from mobile devices.
+Premium: Customizer integration.
