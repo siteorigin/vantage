@@ -12,17 +12,20 @@ jQuery(function($){
     /* Setup fitvids for entry content and panels */
     $('.entry-content, .entry-content .panel' ).fitVids();
 
-    // Everything we need for scrolling up and down.
+    if(!vantageSettings.isMobile) {
 
-    $(window).scroll( function(){
-        if($(window).scrollTop() > 150) $('#scroll-to-top').addClass('displayed');
-        else $('#scroll-to-top').removeClass('displayed');
-    } );
+        // Everything we need for scrolling up and down.
 
-    $('#scroll-to-top').click( function(){
-        $("html, body").animate( { scrollTop: "0px" } );
-        return false;
-    } );
+        $(window).scroll( function(){
+            if($(window).scrollTop() > 150) $('#scroll-to-top').addClass('displayed');
+            else $('#scroll-to-top').removeClass('displayed');
+        } );
+
+        $('#scroll-to-top').click( function(){
+            $("html, body").animate( { scrollTop: "0px" } );
+            return false;
+        } );
+    }
 
     // The carousel widget
     $('.vantage-carousel').each(function(){
@@ -114,7 +117,7 @@ jQuery(function($){
     }).resize();
 
     // The sticky menu
-    if($('nav.site-navigation.primary').hasClass('use-sticky-menu')) {
+    if( $('nav.site-navigation.primary').hasClass('use-sticky-menu') && !vantageSettings.isMobile) {
         var $mc = null;
         var resetStickyMenu = function(){
             var $$ = $('nav.site-navigation.primary');
