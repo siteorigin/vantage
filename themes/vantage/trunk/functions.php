@@ -177,6 +177,10 @@ function vantage_scripts() {
 	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main.js', array('jquery', 'flexslider', 'fitvids'), SITEORIGIN_THEME_VERSION );
 	wp_enqueue_style( 'vantage-fontawesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '3.2.1' );
 
+	wp_localize_script('vantage-main', 'vantageSettings', array(
+		'isMobile' => wp_is_mobile(),
+	));
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -314,3 +318,10 @@ add_filter('vantage_post_on_parts', 'vantage_filter_vantage_post_on_parts');
 function vantage_get_site_width(){
 	return apply_filters('vantage_site_width', !empty($GLOBALS['vantage_site_width']) ? $GLOBALS['vantage_site_width'] : 1080);
 }
+
+function vantage_responsive_header(){
+	if( siteorigin_setting('layout_responsive') ) {
+		?><meta name="viewport" content="width=device-width" /><?php
+	}
+}
+add_action('wp_head', 'vantage_responsive_header');
