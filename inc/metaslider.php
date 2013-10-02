@@ -88,7 +88,7 @@ function vantage_metaslider_page_setting_metabox_render($post){
 }
 
 function vantage_metaslider_page_setting_save($post_id){
-	if( empty($_POST['_vantage_metaslider_nonce']) || !wp_verify_nonce($_POST['_vantage_metaslider_nonce'], 'save')) return;
+	if( empty($_POST['_vantage_metaslider_nonce']) || !wp_verify_nonce($_POST['_vantage_metaslider_nonce'], 'save') ) return;
 	if( !current_user_can('edit_post', $post_id) ) return;
 	if( defined('DOING_AJAX') ) return;
 
