@@ -11,6 +11,7 @@ include get_template_directory() . '/premium/extras/share/share.php';
 // Theme specific files
 include get_template_directory() . '/premium/inc/settings.php';
 include get_template_directory() . '/premium/inc/customizer.php';
+include get_template_directory() . '/premium/inc/panels.php';
 
 function vantage_premium_setup(){
 	if( siteorigin_setting('social_ajax_comments') ) siteorigin_ajax_comments_activate();
