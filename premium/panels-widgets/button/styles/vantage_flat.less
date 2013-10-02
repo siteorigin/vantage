@@ -27,7 +27,7 @@ Author URI: http://siteorigin.com/
 
 	a {
 		display:inline-block;
-		padding: @padding_top @padding_sides;
+		padding: (@padding_top+1) @padding_sides @padding_top @padding_sides;
 
 		.rounded(@rounded);
 
@@ -40,6 +40,7 @@ Author URI: http://siteorigin.com/
 
 		text-shadow: 0 1px 0 lumdarken(@background_color, @text_shadow);
 		text-align: center;
+		border-bottom: 2px solid lumdarken(@background_color, 8%);
 
 		.gradient(@background_color, lumdarken(@background_color, 0.5%), lumlighten(@background_color, 0.5%));
 
@@ -50,7 +51,7 @@ Author URI: http://siteorigin.com/
 		&:active {
 			.gradient(lumdarken(@background_color, 3%), lumdarken(@background_color, 3%), @background_color);
 			.box-shadow(none);
-			padding-top: @padding_top + 1;
+			padding-top: @padding_top + 2;
 			padding-bottom: @padding_top - 1;
 		}
 	}
