@@ -66,3 +66,7 @@ Added option to have Meta Slider as page header.
 Fixed non responsive layout.
 Removed sticky menu and scroll to top from mobile devices.
 Premium: Customizer integration.
+
+**1.0.7**
+Removed call to function that isn't part of WordPress core.
+Bug fixes with Meta Slider integration.
