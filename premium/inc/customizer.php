@@ -8,6 +8,11 @@ function vantage_customizer_init(){
 			'priority' => 30,
 		),
 
+		'vantage_general' => array(
+			'title' => __('General', 'vantage'),
+			'priority' => 40,
+		),
+
 		'vantage_menu' => array(
 			'title' => __('Menu', 'vantage'),
 			'priority' => 50,
@@ -51,6 +56,26 @@ function vantage_customizer_init(){
 				'selector' => 'h1,h2,h3,h4,h5,h6',
 			),
 
+		),
+
+		'vantage_general' => array(
+			'link_color' => array(
+				'type' => 'color',
+				'title' => __('Link Color', 'vantage'),
+				'default' => '#248cc8',
+				'selector' => '.entry-content a',
+				'property' => 'color',
+				'no_live' => true,
+			),
+
+			'link_hover_color' => array(
+				'type' => 'color',
+				'title' => __('Link Hover Color', 'vantage'),
+				'default' => '#f47e3c',
+				'selector' => '.entry-content a:hover, .entry-content a:focus,.entry-content a:active',
+				'property' => 'color',
+				'no_live' => true,
+			),
 		),
 
 		// The main menu

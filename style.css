@@ -166,9 +166,6 @@ textarea {
 a {
   color: #248cc8;
 }
-a:visited {
-  color: #248cc8;
-}
 a:hover,
 a:focus,
 a:active {
@@ -1328,14 +1325,17 @@ article.page .entry-categories a {
 }
 /* =Navigation
 ----------------------------------------------- */
-.pagination {
+.pagination,
+.entry-content .pagination {
   position: relative;
   font-size: 11px;
   line-height: 13px;
   text-align: right;
 }
 .pagination span,
-.pagination a {
+.entry-content .pagination span,
+.pagination a,
+.entry-content .pagination a {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -1365,10 +1365,13 @@ article.page .entry-categories a {
   text-decoration: none;
 }
 .pagination span:last-child,
-.pagination a:last-child {
+.entry-content .pagination span:last-child,
+.pagination a:last-child,
+.entry-content .pagination a:last-child {
   margin-right: 0;
 }
-.pagination a:hover {
+.pagination a:hover,
+.entry-content .pagination a:hover {
   background: #f0f0f0;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #d0d0d0), color-stop(1, #f0f0f0));
   background: -ms-linear-gradient(bottom, #d0d0d0, #f0f0f0);
@@ -1377,7 +1380,8 @@ article.page .entry-categories a {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#d0d0d0', GradientType=0);
   color: #606060;
 }
-.pagination .current {
+.pagination .current,
+.entry-content .pagination .current {
   border-top: solid 1px #222222;
   border-left: solid 1px #222222;
   border-right: solid 1px #222222;

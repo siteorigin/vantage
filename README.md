@@ -70,3 +70,8 @@ Premium: Customizer integration.
 **1.0.7**
 Removed call to function that isn't part of WordPress core.
 Bug fixes with Meta Slider integration.
+
+**1.0.8**
+
+Premium: Added more customizations
+Premium: Added Page Builder element styles
