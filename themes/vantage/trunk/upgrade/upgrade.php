@@ -29,7 +29,7 @@ function vantage_premium_upgrade_content($content){
 
 	$content['features'][] = array(
 		'heading' => __('Remove Attribution Links', 'vantage'),
-		'content' => __('vantage premium gives you the option to easily remove the "Powered by WordPress, Theme by SiteOrigin" text from your footer. ', 'vantage'),
+		'content' => __('Vantage premium gives you the option to easily remove the "Powered by WordPress, Theme by SiteOrigin" text from your footer. ', 'vantage'),
 		'image' => get_template_directory_uri().'/upgrade/teasers/attribution.png',
 	);
 
