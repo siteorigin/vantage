@@ -25,9 +25,6 @@ return array(
 	'light_blue' => array(
 		'background_color' => '#00c5ea',
 	),
-	'blue' => array(
-		'background_color' => '#2a6ce5',
-	),
 	'dark_blue' => array(
 		'background_color' => '#0677c0',
 	),
