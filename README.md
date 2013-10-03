@@ -72,6 +72,6 @@ Removed call to function that isn't part of WordPress core.
 Bug fixes with Meta Slider integration.
 
 **1.0.8**
-
+Fixed issue with home slider being shown on blog archives.
 Premium: Added more customizations
 Premium: Added Page Builder element styles
