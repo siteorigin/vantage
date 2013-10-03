@@ -18,6 +18,11 @@ function vantage_customizer_init(){
 			'priority' => 50,
 		),
 
+		'vantage_widgets' => array(
+			'title' => __('Widgets', 'vantage'),
+			'priority' => 52,
+		),
+
 		'vantage_page' => array(
 			'title' => __('Page', 'vantage'),
 			'priority' => 55,
@@ -63,7 +68,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Link Color', 'vantage'),
 				'default' => '#248cc8',
-				'selector' => '.entry-content a',
+				'selector' => '.entry-content p a, .entry-content p a:visited',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -72,7 +77,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Link Hover Color', 'vantage'),
 				'default' => '#f47e3c',
-				'selector' => '.entry-content a:hover, .entry-content a:focus,.entry-content a:active',
+				'selector' => '.entry-content p a:hover, .entry-content p a:focus, .entry-content p a:active',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -156,6 +161,24 @@ function vantage_customizer_init(){
 				'property' => 'color',
 			),
 
+		),
+
+		'vantage_widgets' => array(
+			'circle_icon_bg' => array(
+				'type' => 'color',
+				'title' => __('Circle Icon Widget Background', 'vantage'),
+				'default' => '#3a3b3e',
+				'selector' => '.widget_circleicon-widget .circle-icon-box .circle-icon',
+				'property' => 'background-color',
+			),
+
+			'circle_icon_icon' => array(
+				'type' => 'color',
+				'title' => __('Circle Icon Widget Icon', 'vantage'),
+				'default' => '#FFFFFF',
+				'selector' => '.widget_circleicon-widget .circle-icon-box .circle-icon [class^="icon-"]',
+				'property' => 'color',
+			),
 		),
 
 		'vantage_page' => array(

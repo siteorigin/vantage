@@ -2007,7 +2007,7 @@ body.layout-full {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  border: 6px solid #ffffff;
+  border: 0px solid #ffffff;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -2062,38 +2062,38 @@ body.layout-full {
   }
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-top {
-  padding-top: 87px;
+  padding-top: 75px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-top .circle-icon {
   top: 0;
   left: 50%;
-  margin-left: -38.5px;
+  margin-left: -32.5px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-bottom {
-  padding-bottom: 87px;
+  padding-bottom: 75px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-bottom .circle-icon {
   bottom: 0;
   left: 50%;
-  margin-left: -38.5px;
+  margin-left: -32.5px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-left {
   text-align: left;
-  padding-left: 87px;
+  padding-left: 75px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-left .circle-icon {
   left: 0;
   top: 50%;
-  margin-top: -38.5px;
+  margin-top: -32.5px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-right {
   text-align: left;
-  padding-right: 87px;
+  padding-right: 75px;
 }
 .widget_circleicon-widget .circle-icon-box.icon-position-right .circle-icon {
   right: 0;
   top: 50%;
-  margin-top: -38.5px;
+  margin-top: -32.5px;
 }
 .widget_headline-widget {
   text-align: center;
