@@ -4,7 +4,7 @@ return array(
 	'red' => array(
 		'background_color' => '#db0019',
 	),
-	'berry' => array(
+	'crayola_red' => array(
 		'background_color' => '#ea004a',
 	),
 	'orange' => array(
@@ -35,10 +35,11 @@ return array(
 		'background_color' => '#7113b1',
 	),
 	'black' => array(
-		'background_color' => '#393b3b',
+		'background_color' => '#2f3033',
 	),
 	'white' => array(
 		'background_color' => '#efefef',
+		'text_lighten' => '-55%',
 	),
 	'grey' => array(
 		'background_color' => '#9b9c9d',

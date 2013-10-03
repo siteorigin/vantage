@@ -273,7 +273,7 @@ function vantage_get_query_variables(){
  */
 function vantage_render_slider(){
 
-	if( is_home() && siteorigin_setting('home_slider') != 'none' ) {
+	if( is_front_page() && siteorigin_setting('home_slider') != 'none' ) {
 		$slider = siteorigin_setting('home_slider');
 	}
 	else if( is_page() && get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true) != 'none' ) {
@@ -307,6 +307,12 @@ function vantage_post_class_filter($classes){
 }
 add_filter('post_class', 'vantage_post_class_filter');
 
+/**
+ * Filter the posted on parts to remove the ones disabled in settings.
+ *
+ * @param $parts
+ * @return mixed
+ */
 function vantage_filter_vantage_post_on_parts($parts){
 	if(!siteorigin_setting('blog_post_author')) $parts['by'] = '';
 	if(!siteorigin_setting('blog_post_date')) $parts['on'] = '';
@@ -315,10 +321,18 @@ function vantage_filter_vantage_post_on_parts($parts){
 }
 add_filter('vantage_post_on_parts', 'vantage_filter_vantage_post_on_parts');
 
+/**
+ * Get the site width.
+ *
+ * @return int The side width in pixels.
+ */
 function vantage_get_site_width(){
 	return apply_filters('vantage_site_width', !empty($GLOBALS['vantage_site_width']) ? $GLOBALS['vantage_site_width'] : 1080);
 }
 
+/**
+ * Add the responsive header
+ */
 function vantage_responsive_header(){
 	if( siteorigin_setting('layout_responsive') ) {
 		?><meta name="viewport" content="width=device-width" /><?php
