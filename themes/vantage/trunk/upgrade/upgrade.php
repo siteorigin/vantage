@@ -46,6 +46,12 @@ function vantage_premium_upgrade_content($content){
 	);
 
 	$content['features'][] = array(
+		'heading' => __('Page Builder Element Styles', 'vantage'),
+		'content' => __("Vantage Premium has additional styles for the Page Builder elements button and call to action. Give your site a unique look and feel with loads of colour variations.", 'vantage'),
+		'image' => get_template_directory_uri().'/upgrade/teasers/pb-elements.png',
+	);
+
+	$content['features'][] = array(
 		'heading' => __("Ajax Comments", 'vantage'),
 		'content' => __("Want to keep the conversation flowing? Ajax comments means your visitors can comment without reloading your page. So commenting wont interrupt a video or lose their position in one of your galleries.", 'vantage'),
 	);
@@ -87,3 +93,11 @@ function vantage_premium_upgrade_content($content){
 	return $content;
 }
 add_filter('siteorigin_premium_content', 'vantage_premium_upgrade_content');
+
+/**
+ * Add a feature notice
+ */
+function vantage_upgrade_panels_upgrade_note(){
+	?><p><?php printf( __('Additional styles are available in <a href="%s" target="_blank">Vantage Premium</a>.', 'vantage'), admin_url('themes.php?page=premium_upgrade') ) ?></p><?php
+}
+add_action('siteorigin_panels_widget_after_styles', 'vantage_upgrade_panels_upgrade_note');
