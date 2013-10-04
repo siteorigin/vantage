@@ -193,4 +193,9 @@ jQuery(function($){
             }
         })
     }
+
+    // A fix for the menu on iPads and similar devices.
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        $('.main-navigation').addClass('mobile-device');
+    }
 });
