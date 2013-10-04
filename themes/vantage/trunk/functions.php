@@ -177,10 +177,6 @@ function vantage_scripts() {
 	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main.js', array('jquery', 'flexslider', 'fitvids'), SITEORIGIN_THEME_VERSION );
 	wp_enqueue_style( 'vantage-fontawesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '3.2.1' );
 
-	wp_localize_script('vantage-main', 'vantageSettings', array(
-		'isMobile' => wp_is_mobile(),
-	));
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -216,6 +212,10 @@ function vantage_body_class($classes){
 
 	if( !is_active_sidebar('sidebar-1') ) {
 		$classes[] = 'no-sidebar';
+	}
+
+	if( wp_is_mobile() || true) {
+		$classes[] = 'mobile-device';
 	}
 
 	return $classes;

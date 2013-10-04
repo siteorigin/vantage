@@ -758,10 +758,11 @@ body.responsive.layout-full #page-wrapper .full-container {
   line-height: 0.5em;
   color: #CCCCCC;
 }
-.main-navigation.mobile-device ul ul {
+/* Handle the navigation slightly differently on mobile devices */
+body.mobile-device .main-navigation ul ul {
   display: none;
 }
-.main-navigation.mobile-device li:hover ul {
+body.mobile-device .main-navigation li:hover ul {
   display: block;
 }
 .mobile-nav-frame [class^="icon-"] {
