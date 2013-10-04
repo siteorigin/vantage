@@ -601,10 +601,12 @@ body.responsive {
 			}
 		}
 
-		li:hover > ul {
-			visibility: visible;
-            opacity:1;
-			pointer-events: auto;
+		li:hover {
+			> ul {
+				visibility: visible !important;
+				opacity:1 !important;
+				pointer-events: auto !important;
+			}
 		}
 	}
 
@@ -628,6 +630,18 @@ body.responsive {
 		font-size: 16px;
 		line-height: 0.5em;
 		color: #CCCCCC;
+	}
+
+	&.mobile-device {
+		ul {
+			ul {
+				display: none;
+			}
+		}
+
+		li:hover ul {
+			display: block;
+		}
 	}
 }
 
