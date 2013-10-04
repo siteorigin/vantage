@@ -15,7 +15,6 @@ jQuery(function($){
     if(!vantageSettings.isMobile) {
 
         // Everything we need for scrolling up and down.
-
         $(window).scroll( function(){
             if($(window).scrollTop() > 150) $('#scroll-to-top').addClass('displayed');
             else $('#scroll-to-top').removeClass('displayed');
@@ -195,7 +194,7 @@ jQuery(function($){
     }
 
     // A fix for the menu on iPads and similar devices.
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    if( vantageSettings.isMobile ) {
         $('.main-navigation').addClass('mobile-device');
     }
 });
