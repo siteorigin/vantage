@@ -73,5 +73,6 @@ Bug fixes with Meta Slider integration.
 
 **1.0.8**
 Fixed issue with home slider being shown on blog archives.
+Fixed logo issues with Jetpack Photon.
 Premium: Added more customizations
 Premium: Added Page Builder element styles
