@@ -736,9 +736,9 @@ body.responsive.layout-full #page-wrapper .full-container {
   margin-left: 0;
 }
 .main-navigation ul li:hover > ul {
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 .main-navigation a {
   display: block;
@@ -757,6 +757,12 @@ body.responsive.layout-full #page-wrapper .full-container {
   font-size: 16px;
   line-height: 0.5em;
   color: #CCCCCC;
+}
+.main-navigation.mobile-device ul ul {
+  display: none;
+}
+.main-navigation.mobile-device li:hover ul {
+  display: block;
 }
 .mobile-nav-frame [class^="icon-"] {
   margin-right: 10px;

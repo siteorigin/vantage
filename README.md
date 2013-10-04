@@ -77,3 +77,7 @@ Fixed logo issues with Jetpack Photon.
 Minor bug fixes.
 Premium: Added more customizations
 Premium: Added Page Builder element styles
+
+**1.0.9**
+Fixed responsive header for iPad.
+Fixed dropdown menu for iPad.
