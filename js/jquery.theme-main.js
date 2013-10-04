@@ -12,7 +12,7 @@ jQuery(function($){
     /* Setup fitvids for entry content and panels */
     $('.entry-content, .entry-content .panel' ).fitVids();
 
-    if(!vantageSettings.isMobile) {
+    if( !$('body').hasClass('mobile-device') ) {
 
         // Everything we need for scrolling up and down.
         $(window).scroll( function(){
@@ -116,7 +116,7 @@ jQuery(function($){
     }).resize();
 
     // The sticky menu
-    if( $('nav.site-navigation.primary').hasClass('use-sticky-menu') && !vantageSettings.isMobile) {
+    if( $('nav.site-navigation.primary').hasClass('use-sticky-menu') && !$('body').hasClass('mobile-device')) {
         var $mc = null;
         var resetStickyMenu = function(){
             var $$ = $('nav.site-navigation.primary');
@@ -193,8 +193,4 @@ jQuery(function($){
         })
     }
 
-    // A fix for the menu on iPads and similar devices.
-    if( vantageSettings.isMobile ) {
-        $('.main-navigation').addClass('mobile-device');
-    }
 });
