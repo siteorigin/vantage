@@ -166,12 +166,11 @@ function vantage_display_logo(){
 			'width' => round($width),
 			'height' => round($height),
 		) );
-		if( empty( $logo_attributes['width'] ) ) unset( $logo_attributes['width'] );
-		if( empty( $logo_attributes['height'] ) ) unset( $logo_attributes['height'] );
 
 		$logo_attributes_str = array();
 		if( !empty( $logo_attributes ) ) {
 			foreach($logo_attributes as $name => $val) {
+				if( empty($val) ) continue;
 				$logo_attributes_str[] = $name.'="'.esc_attr($val).'"';
 			}
 		}
