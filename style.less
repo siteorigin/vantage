@@ -356,6 +356,10 @@ body {
 		margin: 0;
 		padding: 0;
 	}
+
+	.responsive.layout-boxed #colophon {
+		margin-bottom: 0;
+	}
 }
 
 header#masthead {
@@ -1405,6 +1409,23 @@ article.page{
 		color: #A40802;
 	}
 }
+
+@media (max-width:480px) {
+	body.responsive  #commentform{
+		label{
+			float: none;
+			width: 100%;
+			margin-bottom: 3px;
+		}
+
+		input, textarea {
+			float:none;
+			width: 100%;
+		}
+	}
+}
+
+
 
 /* =Sidebars and Asides
 ----------------------------------------------- */
