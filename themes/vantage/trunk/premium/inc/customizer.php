@@ -191,12 +191,28 @@ function vantage_customizer_init(){
 				'property' => 'background-color',
 			),
 
+			'masthead_background_image' => array(
+				'type' => 'image',
+				'title' => __('Masthead Background Image', 'vantage'),
+				'default' => false,
+				'selector' => 'header#masthead',
+				'property' => 'background-image',
+			),
+
 			'page_background' => array(
 				'type' => 'color',
 				'title' => __('Page Background', 'vantage'),
 				'default' => '#fcfcfc',
 				'selector' => '#main',
 				'property' => 'background-color',
+			),
+
+			'page_background_image' => array(
+				'type' => 'image',
+				'title' => __('Page Background Image', 'vantage'),
+				'default' => false,
+				'selector' => '#main',
+				'property' => 'background-image',
 			),
 
 		),
@@ -215,7 +231,7 @@ function vantage_customizer_init(){
 				'type' => 'image',
 				'title' => __('Footer Background Image', 'vantage'),
 				'default' => false,
-				'selector' => '#colophon, body.layout-full',
+				'selector' => '#colophon',
 				'property' => 'background-image',
 			),
 
