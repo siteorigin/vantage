@@ -211,6 +211,14 @@ function vantage_customizer_init(){
 				'property' => 'background-color',
 			),
 
+			'background_image' => array(
+				'type' => 'image',
+				'title' => __('Footer Background Image', 'vantage'),
+				'default' => false,
+				'selector' => '#colophon, body.layout-full',
+				'property' => 'background-image',
+			),
+
 			'headings' => array(
 				'type' => 'color',
 				'title' => __('Headings', 'vantage'),
