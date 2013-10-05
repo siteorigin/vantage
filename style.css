@@ -1716,6 +1716,7 @@ body.layout-full {
   right: 0px;
   text-align: right;
   padding: 0 30px;
+  z-index: 20;
 }
 .flexslider .flex-control-paging li {
   margin: 0;
@@ -1739,6 +1740,20 @@ body.layout-full {
 }
 .flexslider .flex-control-paging li a:hover {
   background: url(images/sprites/slide-indicator-inactive.png);
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .flexslider .flex-control-paging li a {
+    background-size: 14px 14px;
+    background-image: url(images/retina/slide-indicator-inactive.png);
+  }
+  .flexslider .flex-control-paging li a.flex-active {
+    background-size: 14px 14px;
+    background-image: url(images/retina/slide-indicator-active.png);
+  }
+  .flexslider .flex-control-paging li a:hover {
+    background-size: 14px 14px;
+    background: url(images/sprites/slide-indicator-inactive.png);
+  }
 }
 .flexslider .flex-direction-nav {
   list-style: none;
@@ -1768,6 +1783,17 @@ body.layout-full {
 .flexslider .flex-direction-nav li a.flex-next {
   right: 0;
   background: url(images/sprites/gallery-next.png);
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .flexslider .flex-direction-nav li a {
+    background-size: 32px 85px;
+  }
+  .flexslider .flex-direction-nav li a.flex-prev {
+    background-image: url(images/retina/gallery-prev.png);
+  }
+  .flexslider .flex-direction-nav li a.flex-next {
+    background-image: url(images/retina/gallery-next.png);
+  }
 }
 .flexslider:hover .flex-direction-nav li a {
   opacity: 0.9;
