@@ -214,7 +214,7 @@ function vantage_body_class($classes){
 		$classes[] = 'no-sidebar';
 	}
 
-	if( wp_is_mobile() || true) {
+	if( wp_is_mobile() ) {
 		$classes[] = 'mobile-device';
 	}
 
