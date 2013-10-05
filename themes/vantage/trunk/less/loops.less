@@ -158,6 +158,8 @@
 			}
 
 			img {
+				width: 100%;
+				height: auto;
 				display: block;
 				.rounded(0);
 				.box-shadow(~"none");
@@ -193,6 +195,19 @@
 
 	.clear {
 		clear:both;
+	}
+}
+
+@media (max-width:640px) {
+	body.responsive .vantage-grid-loop article {
+		width: 50%;
+	}
+}
+
+@media (max-width:480px) {
+	body.responsive .vantage-grid-loop article {
+		float: none;
+		width: 100%;
 	}
 }
 
