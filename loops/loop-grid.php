@@ -8,8 +8,9 @@
 	<div class="vantage-grid-loop">
 		<?php while( have_posts() ): the_post(); $i++ ?>
 			<article <?php post_class(array('grid-post')) ?>>
+
 				<?php if( has_post_thumbnail() ) : ?>
-					<a class="thumbnail" href="<?php the_permalink() ?>">
+					<a class="grid-thumbnail" href="<?php the_permalink() ?>">
 						<?php the_post_thumbnail('vantage-grid-loop') ?>
 					</a>
 				<?php endif; ?>

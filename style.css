@@ -2332,7 +2332,7 @@ body.layout-full {
   box-sizing: border-box;
   border-bottom: none;
 }
-.vantage-grid-loop article .thumbnail {
+.vantage-grid-loop article .grid-thumbnail {
   display: block;
   padding: 5px;
   border: 1px solid #c2c5ca;
@@ -2342,13 +2342,13 @@ body.layout-full {
   background: #FFFFFF;
   margin-bottom: 10px;
 }
-.vantage-grid-loop article .thumbnail:hover {
+.vantage-grid-loop article .grid-thumbnail:hover {
   border-color: #00bafa;
   -webkit-box-shadow: 0 0 5px rgba(0,187,251,0.75);
   -moz-box-shadow: 0 0 5px rgba(0,187,251,0.75);
   box-shadow: 0 0 5px rgba(0,187,251,0.75);
 }
-.vantage-grid-loop article .thumbnail img {
+.vantage-grid-loop article .grid-thumbnail img {
   width: 100%;
   height: auto;
   display: block;
