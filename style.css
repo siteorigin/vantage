@@ -2310,7 +2310,7 @@ body.layout-full {
 }
 .vantage-grid-loop {
   zoom: 1;
-  margin: 25px -15px 0 -15px;
+  margin: 0 -15px 0 -15px;
 }
 .vantage-grid-loop:before {
   content: '';
