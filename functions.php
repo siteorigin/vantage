@@ -76,7 +76,7 @@ function vantage_setup() {
 	add_image_size('vantage-thumbnail-no-sidebar', 1080, 380, true);
 	add_image_size('vantage-slide', 960, 480, true);
 	add_image_size('vantage-carousel', 272, 182, true);
-	add_image_size('vantage-grid-loop', 218, 136, true);
+	add_image_size('vantage-grid-loop', 436, 272, true);
 
 	if( !defined('SITEORIGIN_PANELS_VERSION') && !siteorigin_plugin_activation_is_activating('siteorigin-panels') ){
 		// Only include panels lite if the panels plugin doesn't exist

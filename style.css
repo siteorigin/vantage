@@ -2349,6 +2349,8 @@ body.layout-full {
   box-shadow: 0 0 5px rgba(0,187,251,0.75);
 }
 .vantage-grid-loop article .thumbnail img {
+  width: 100%;
+  height: auto;
   display: block;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -2379,6 +2381,17 @@ body.layout-full {
 }
 .vantage-grid-loop .clear {
   clear: both;
+}
+@media (max-width: 640px) {
+  body.responsive .vantage-grid-loop article {
+    width: 50%;
+  }
+}
+@media (max-width: 480px) {
+  body.responsive .vantage-grid-loop article {
+    float: none;
+    width: 100%;
+  }
 }
 .vantage-circleicon-loop {
   zoom: 1;
