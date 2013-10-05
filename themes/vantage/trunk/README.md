@@ -82,4 +82,6 @@ Premium: Added Page Builder element styles
 Fixed responsive header for iPad.
 Fixed drop down menu for iPad.
 Added mobile-device class to body when visiting from a mobile device.
+Responsive CSS improvements.
+Fixed carousel loop with long title.
 Premium: Added more customizations.

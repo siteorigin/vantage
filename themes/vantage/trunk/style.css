@@ -507,6 +507,9 @@ body {
     margin: 0;
     padding: 0;
   }
+  .responsive.layout-boxed #colophon {
+    margin-bottom: 0;
+  }
 }
 header#masthead {
   background: #fcfcfc;
@@ -1553,6 +1556,18 @@ article.page .entry-categories a {
 #commentform .required {
   color: #A40802;
 }
+@media (max-width: 480px) {
+  body.responsive #commentform label {
+    float: none;
+    width: 100%;
+    margin-bottom: 3px;
+  }
+  body.responsive #commentform input,
+  body.responsive #commentform textarea {
+    float: none;
+    width: 100%;
+  }
+}
 /* =Sidebars and Asides
 ----------------------------------------------- */
 #colophon {
@@ -2227,6 +2242,8 @@ body.layout-full {
   display: block;
   float: left;
   margin-right: 15px;
+  width: 242px;
+  overflow-x: hidden;
 }
 .vantage-carousel-wrapper .vantage-carousel li.carousel-entry:last-child {
   margin-right: 0;
