@@ -137,6 +137,24 @@ function vantage_customizer_init(){
 				'no_live' => true,
 			),
 
+			'hover_background_second' => array(
+				'type' => 'color',
+				'title' => __('Second Level Hover', 'vantage'),
+				'default' => '#00bcff',
+				'selector' => '.main-navigation ul ul li:hover > a',
+				'property' => 'background-color',
+				'no_live' => true,
+			),
+
+			'hover_text_second' => array(
+				'type' => 'color',
+				'title' => __('Second Level Hover Text', 'vantage'),
+				'default' => '#FFFFFF',
+				'selector' => '.main-navigation ul ul li:hover > a',
+				'property' => 'color',
+				'no_live' => true,
+			),
+
 			'search' => array(
 				'type' => 'color',
 				'title' => __('Search Icon Background', 'vantage'),
