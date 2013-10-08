@@ -20,7 +20,7 @@ function vantage_prebuilt_page_layouts($layouts){
 			0 =>
 			array(
 				'title' => __('Editable Home Page','vantage'),
-				'text' => __('You can edit this home page using our free, drag and drop Page Builder, or simply disable it to fall back to a standard blog. It\'s a powerful page building experience.','vantage'),
+				'text' => __("You can edit this home page using our free, drag and drop Page Builder, or simply disable it to fall back to a standard blog. It's a powerful page building experience.",'vantage'),
 				'icon' => 'icon-edit',
 				'image' => '',
 				'icon_position' => 'top',
