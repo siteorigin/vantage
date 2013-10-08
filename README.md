@@ -88,4 +88,5 @@ Premium: Added more customizations.
 
 **1.0.10**
 Added size options for circle icon widget.
+Fixed post navigation and added a setting to remove it.
 Premium: Fixed customization.
