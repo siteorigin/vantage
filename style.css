@@ -585,6 +585,7 @@ body.no-sidebar #primary {
 }
 #main-slider {
   line-height: 0;
+  background: #EEEEEE;
 }
 #main-slider .flexslider {
   margin-bottom: 0;
@@ -598,6 +599,9 @@ body.no-sidebar #primary {
   background: rgba(0, 0, 0, 0.25);
   border: 3px solid white;
   font-weight: bold;
+}
+#main-slider .metaslider {
+  margin: 0 auto;
 }
 /* =Responsive Layout
 ----------------------------------------------- */
@@ -1040,6 +1044,8 @@ article.page .entry-categories a {
   margin-top: -20px;
   margin-bottom: 40px;
   zoom: 1;
+  height: 32px;
+  overflow: hidden;
 }
 .post-navigation:before,
 #image-navigation:before {
@@ -1072,6 +1078,7 @@ article.page .entry-categories a {
   font-size: 11px;
   font-weight: bold;
   color: #646464;
+  display: inline-block;
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.125);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.125);
   box-shadow: 0 1px 1px rgba(0,0,0,0.125);
@@ -1406,9 +1413,6 @@ article.page .entry-categories a {
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 0 5px rgba(0,0,0, 0.5);
   box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 0 5px rgba(0,0,0, 0.5);
   color: #EFEFEF;
-}
-.site-content {
-  overflow-x: hidden;
 }
 .site-content .nav-previous,
 .site-content .nav-next {

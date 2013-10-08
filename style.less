@@ -436,6 +436,7 @@ body.no-sidebar #primary {
 
 #main-slider {
 	line-height: 0;
+	background: #EEEEEE;
 
 	.flexslider {
 		margin-bottom: 0;
@@ -451,6 +452,10 @@ body.no-sidebar #primary {
 		background: rgba(0,0,0,0.25);
 		border: 3px solid white;
 		font-weight: bold;
+	}
+
+	.metaslider {
+		margin:  0 auto;
 	}
 }
 
@@ -903,6 +908,8 @@ article.page{
 	margin-top: -20px;
 	margin-bottom: 40px;
 	.clearfix();
+	height: 32px;
+	overflow: hidden;
 
 	a {
 		text-decoration: none;
@@ -913,6 +920,7 @@ article.page{
 		font-size: 11px;
 		font-weight: bold;
 		color: #646464;
+		display: inline-block;
 
 		.meta-nav {
 			display: inline-block;
@@ -1244,8 +1252,6 @@ article.page{
 }
 
 .site-content {
-
-	overflow-x: hidden;
 
 	.nav-previous, .nav-next {
 		white-space: nowrap;
