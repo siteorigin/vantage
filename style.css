@@ -1044,8 +1044,6 @@ article.page .entry-categories a {
   margin-top: -20px;
   margin-bottom: 40px;
   zoom: 1;
-  height: 32px;
-  overflow: hidden;
 }
 .post-navigation:before,
 #image-navigation:before {
@@ -1107,6 +1105,9 @@ article.page .entry-categories a {
 .post-navigation .nav-next .meta-nav,
 #image-navigation .nav-next .meta-nav {
   margin-left: 7px;
+}
+.single-nav-wrapper {
+  overflow: hidden;
 }
 /* Reset the navigation */
 #image-navigation {
