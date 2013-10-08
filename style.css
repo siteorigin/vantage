@@ -1407,6 +1407,13 @@ article.page .entry-categories a {
   box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 0 5px rgba(0,0,0, 0.5);
   color: #EFEFEF;
 }
+.site-content {
+  overflow-x: hidden;
+}
+.site-content .nav-previous,
+.site-content .nav-next {
+  white-space: nowrap;
+}
 .site-content .nav-previous {
   float: left;
   width: 50%;
@@ -1415,6 +1422,15 @@ article.page .entry-categories a {
   float: right;
   text-align: right;
   width: 50%;
+}
+@media (max-width: 480px) {
+  body.responsive .site-content .nav-previous,
+  body.responsive .site-content .nav-next {
+    float: none;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 }
 /* =Comments
 ----------------------------------------------- */
