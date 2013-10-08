@@ -85,3 +85,7 @@ Added mobile-device class to body when visiting from a mobile device.
 Responsive CSS improvements.
 Fixed carousel loop with long title.
 Premium: Added more customizations.
+
+**1.0.10**
+Added size options for circle icon widget.
+Premium: Fixed customization.

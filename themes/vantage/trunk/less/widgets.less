@@ -197,7 +197,7 @@
 .widget_circleicon-widget {
 
 	@icon_size: 65px;
-	@icon_border: 0px;
+	@icon_font_size: 24px;
 
 	clear:both;
 
@@ -230,7 +230,6 @@
 			height: @icon_size;
 			.rounded(@icon_size*2);
 			.transition(0.5s);
-			border: @icon_border solid white;
 
 			background-position: center center;
 			background-size: cover;
@@ -238,7 +237,7 @@
 
 			[class^="icon-"] {
 				display: block;
-				font-size: 24px;
+				font-size: @icon_font_size;
 				width: 100%;
 				height: 1em;
 				text-align: center;
@@ -296,44 +295,168 @@
 
 		/* The different icon positions */
 		&.icon-position-top {
-			padding-top: (@icon_size + 2*@icon_border) + 10px;
+			padding-top: @icon_size + 10px;
 
 			.circle-icon {
 				top: 0;
 				left: 50%;
-				margin-left: -(@icon_size + 2*@icon_border)/2;
+				margin-left: -(@icon_size)/2;
 			}
 		}
 
 		&.icon-position-bottom {
-			padding-bottom: (@icon_size + 2*@icon_border) + 10px;
+			padding-bottom: (@icon_size) + 10px;
 
 			.circle-icon {
 				bottom: 0;
 				left: 50%;
-				margin-left: -(@icon_size + 2*@icon_border)/2;
+				margin-left: -(@icon_size)/2;
 			}
 		}
 
 		&.icon-position-left {
 			text-align: left;
-			padding-left: (@icon_size + 2*@icon_border) + 10px;
+			padding-left: (@icon_size) + 10px;
 
 			.circle-icon {
 				left: 0;
 				top: 50%;
-				margin-top: -(@icon_size + 2*@icon_border)/2;
+				margin-top: -(@icon_size)/2;
 			}
 		}
 
 		&.icon-position-right {
 			text-align: left;
-			padding-right: (@icon_size + 2*@icon_border) + 10px;
+			padding-right: (@icon_size) + 10px;
 
 			.circle-icon {
 				right: 0;
 				top: 50%;
-				margin-top: -(@icon_size + 2*@icon_border)/2;
+				margin-top: -(@icon_size)/2;
+			}
+		}
+	}
+
+	/* A medium sized icon */
+
+	.circle-icon-box.circle-icon-size-medium {
+
+		@icon_size: 81.25px;
+		@icon_font_size: 30px;
+
+		.circle-icon {
+			width: @icon_size;
+			height: @icon_size;
+			.rounded(@icon_size*2);
+			.transition(0.5s);
+
+			[class^="icon-"] {
+				font-size: 36px;
+				line-height: 1.1em;
+			}
+		}
+
+		/* The different icon positions */
+		&.icon-position-top {
+			padding-top: @icon_size + 10px;
+
+			.circle-icon {
+				top: 0;
+				left: 50%;
+				margin-left: -(@icon_size)/2;
+			}
+		}
+
+		&.icon-position-bottom {
+			padding-bottom: (@icon_size) + 10px;
+
+			.circle-icon {
+				bottom: 0;
+				left: 50%;
+				margin-left: -(@icon_size)/2;
+			}
+		}
+
+		&.icon-position-left {
+			text-align: left;
+			padding-left: (@icon_size) + 10px;
+
+			.circle-icon {
+				left: 0;
+				top: 50%;
+				margin-top: -(@icon_size)/2;
+			}
+		}
+
+		&.icon-position-right {
+			text-align: left;
+			padding-right: (@icon_size) + 10px;
+
+			.circle-icon {
+				right: 0;
+				top: 50%;
+				margin-top: -(@icon_size)/2;
+			}
+		}
+	}
+
+	.circle-icon-box.circle-icon-size-large {
+
+		@icon_size: 100px;
+		@icon_font_size: 38px;
+
+		.circle-icon {
+			width: @icon_size;
+			height: @icon_size;
+			.rounded(@icon_size*2);
+			.transition(0.5s);
+
+			[class^="icon-"] {
+				font-size: 44px;
+				line-height: 1.1em;
+			}
+		}
+
+		/* The different icon positions */
+		&.icon-position-top {
+			padding-top: @icon_size + 10px;
+
+			.circle-icon {
+				top: 0;
+				left: 50%;
+				margin-left: -(@icon_size)/2;
+			}
+		}
+
+		&.icon-position-bottom {
+			padding-bottom: (@icon_size) + 10px;
+
+			.circle-icon {
+				bottom: 0;
+				left: 50%;
+				margin-left: -(@icon_size)/2;
+			}
+		}
+
+		&.icon-position-left {
+			text-align: left;
+			padding-left: (@icon_size) + 10px;
+
+			.circle-icon {
+				left: 0;
+				top: 50%;
+				margin-top: -(@icon_size)/2;
+			}
+		}
+
+		&.icon-position-right {
+			text-align: left;
+			padding-right: (@icon_size) + 10px;
+
+			.circle-icon {
+				right: 0;
+				top: 50%;
+				margin-top: -(@icon_size)/2;
 			}
 		}
 	}
