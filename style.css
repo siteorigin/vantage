@@ -2019,6 +2019,8 @@ body.layout-full {
 }
 .widget_circleicon-widget {
   clear: both;
+  /* A medium sized icon */
+
 }
 .widget_circleicon-widget .circle-icon-box {
   text-align: center;
@@ -2055,7 +2057,6 @@ body.layout-full {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  border: 0px solid #ffffff;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -2142,6 +2143,112 @@ body.layout-full {
   right: 0;
   top: 50%;
   margin-top: -32.5px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-medium {
+  /* The different icon positions */
+
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-medium .circle-icon {
+  width: 81.25px;
+  height: 81.25px;
+  -webkit-border-radius: 162.5px;
+  -moz-border-radius: 162.5px;
+  border-radius: 162.5px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-medium .circle-icon [class^="icon-"] {
+  font-size: 36px;
+  line-height: 1.1em;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.icon-position-top {
+  padding-top: 91.25px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.icon-position-top .circle-icon {
+  top: 0;
+  left: 50%;
+  margin-left: -40.625px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.icon-position-bottom {
+  padding-bottom: 91.25px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.icon-position-bottom .circle-icon {
+  bottom: 0;
+  left: 50%;
+  margin-left: -40.625px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.icon-position-left {
+  text-align: left;
+  padding-left: 91.25px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.icon-position-left .circle-icon {
+  left: 0;
+  top: 50%;
+  margin-top: -40.625px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.icon-position-right {
+  text-align: left;
+  padding-right: 91.25px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.icon-position-right .circle-icon {
+  right: 0;
+  top: 50%;
+  margin-top: -40.625px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-large {
+  /* The different icon positions */
+
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-large .circle-icon {
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  border-radius: 200px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-large .circle-icon [class^="icon-"] {
+  font-size: 44px;
+  line-height: 1.1em;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-large.icon-position-top {
+  padding-top: 110px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-large.icon-position-top .circle-icon {
+  top: 0;
+  left: 50%;
+  margin-left: -50px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-large.icon-position-bottom {
+  padding-bottom: 110px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-large.icon-position-bottom .circle-icon {
+  bottom: 0;
+  left: 50%;
+  margin-left: -50px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-large.icon-position-left {
+  text-align: left;
+  padding-left: 110px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-large.icon-position-left .circle-icon {
+  left: 0;
+  top: 50%;
+  margin-top: -50px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-large.icon-position-right {
+  text-align: left;
+  padding-right: 110px;
+}
+.widget_circleicon-widget .circle-icon-box.circle-icon-size-large.icon-position-right .circle-icon {
+  right: 0;
+  top: 50%;
+  margin-top: -50px;
 }
 .widget_headline-widget {
   text-align: center;

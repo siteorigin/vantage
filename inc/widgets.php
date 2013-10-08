@@ -21,8 +21,21 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 
+		$instance = wp_parse_args( $instance, array(
+			'title' => '',
+			'text' => '',
+			'icon' => '',
+			'image' => '',
+			'icon_position' => 'top',
+			'icon_size' => 'small',
+			'more' => '',
+			'more_url' => '',
+			'all_linkable' => false,
+			'box' => false,
+		) );
+
 		?>
-		<div class="circle-icon-box icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo empty($instance['box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?>">
+		<div class="circle-icon-box icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo empty($instance['box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?> circle-icon-size-<?php echo $instance['icon_size'] ?>">
 			<div class="circle-icon-wrapper">
                 <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon"><?php endif; ?>
 				<div class="circle-icon" <?php if(!empty($instance['image'])) : ?>style="background-image: url(<?php echo esc_url($instance['image']) ?>)"<?php endif; ?>>
@@ -59,6 +72,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			'icon' => '',
 			'image' => '',
 			'icon_position' => 'top',
+			'icon_size' => 'small',
 			'more' => '',
 			'more_url' => '',
 			'all_linkable' => false,
@@ -101,6 +115,14 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 				<option value="bottom" <?php selected('bottom', $instance['icon_position']) ?>><?php esc_html_e('Bottom', 'vantage') ?></option>
 				<option value="left" <?php selected('left', $instance['icon_position']) ?>><?php esc_html_e('Left', 'vantage') ?></option>
 				<option value="right" <?php selected('right', $instance['icon_position']) ?>><?php esc_html_e('Right', 'vantage') ?></option>
+			</select>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('icon_size') ?>"><?php _e('Icon Size', 'vantage') ?></label>
+			<select id="<?php echo $this->get_field_id('icon_size') ?>" name="<?php echo $this->get_field_name('icon_size') ?>">
+				<option value="small" <?php selected('small', $instance['icon_size']) ?>><?php esc_html_e('Small', 'vantage') ?></option>
+				<option value="medium" <?php selected('medium', $instance['icon_size']) ?>><?php esc_html_e('Medium', 'vantage') ?></option>
+				<option value="large" <?php selected('large', $instance['icon_size']) ?>><?php esc_html_e('Large', 'vantage') ?></option>
 			</select>
 		</p>
 		<p>
