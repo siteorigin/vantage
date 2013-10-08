@@ -90,3 +90,6 @@ Premium: Added more customizations.
 Added size options for circle icon widget.
 Fixed post navigation and added a setting to remove it.
 Premium: Fixed customization.
+
+**1.0.11**
+Fixed small design breaking CSS bug.
