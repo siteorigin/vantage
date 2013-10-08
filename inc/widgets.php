@@ -28,17 +28,27 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			'image' => '',
 			'icon_position' => 'top',
 			'icon_size' => 'small',
+			'icon_background_color' => '',
 			'more' => '',
 			'more_url' => '',
 			'all_linkable' => false,
 			'box' => false,
 		) );
 
+		$icon_styles = array();
+		if(!empty($instance['image'])) {
+			$icon_styles[] = 'background-image: url('.esc_url($instance['image']).')';
+		}
+		if( !empty($instance['icon_background_color']) && preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_background_color'])) {
+			$icon_styles[] = 'background-color: '.$instance['icon_background_color'];
+		}
+
+
 		?>
 		<div class="circle-icon-box icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo empty($instance['box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?> circle-icon-size-<?php echo $instance['icon_size'] ?>">
 			<div class="circle-icon-wrapper">
                 <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon"><?php endif; ?>
-				<div class="circle-icon" <?php if(!empty($instance['image'])) : ?>style="background-image: url(<?php echo esc_url($instance['image']) ?>)"<?php endif; ?>>
+				<div class="circle-icon" <?php if(!empty($icon_styles)) echo 'style="'.implode(';', $icon_styles).'"' ?>>
 					<?php if(!empty($instance['icon'])) : ?><div class="<?php echo esc_attr($instance['icon']) ?>"></div><?php endif; ?>
 				</div>
                 <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
@@ -73,6 +83,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			'image' => '',
 			'icon_position' => 'top',
 			'icon_size' => 'small',
+			'icon_background_color' => '',
 			'more' => '',
 			'more_url' => '',
 			'all_linkable' => false,
@@ -103,6 +114,11 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 					</optgroup>
 				<?php endforeach; ?>
 			</select>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('icon_background_color') ?>"><?php _e('Icon Background Color', 'vantage') ?></label>
+			<input type="text" class="widefat" id="<?php echo $this->get_field_id('icon_background_color') ?>" name="<?php echo $this->get_field_name('icon_background_color') ?>" value="<?php echo esc_attr($instance['icon_background_color']) ?>" />
+			<span class="description"><?php _e('A hex color', 'vantage'); ?></span>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('image') ?>"><?php _e('Circle Background Image URL', 'vantage') ?></label>
