@@ -11,7 +11,7 @@ All Javascript is located in /js/ with license headers where appropriate.
 
 All demo photographs have been sourced from Pixabay and are licensed under the public domain.
 
-This theme is originally based on Underscores (_s) starter theme http://underscores.me/
+This theme is originally based on Underscores (_s) starter theme http://underscores.me/ .
 
 
 SiteOrigin Extras
@@ -75,8 +75,8 @@ Bug fixes with Meta Slider integration.
 Fixed issue with home slider being shown on blog archives.
 Fixed logo issues with Jetpack Photon.
 Minor bug fixes.
-Premium: Added more customizations
-Premium: Added Page Builder element styles
+Premium: Added more customizations.
+Premium: Added Page Builder element styles.
 
 **1.0.9**
 Fixed responsive header for iPad.
