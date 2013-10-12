@@ -83,9 +83,13 @@ function vantage_theme_settings(){
 		'description' => __('Display a scroll-to-top button when a user scrolls down.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('navigation', 'post_nav', 'checkbox', __('Post Navigation', 'vantage'), array(
+	siteorigin_settings_add_field( 'navigation', 'post_nav', 'checkbox', __('Post Navigation', 'vantage'), array(
 		'description' => __('Display next/previous post navigation.', 'vantage')
-	));
+	) );
+
+	siteorigin_settings_add_field( 'navigation', 'home_icon', 'checkbox', __('Home Page Icon', 'vantage'), array(
+		'description' => __('Display home icon for home page menu links.', 'vantage')
+	) );
 
 	/**
 	 * Home Page
@@ -173,6 +177,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['navigation_menu_search'] = true;
 	$defaults['navigation_display_scroll_to_top'] = true;
 	$defaults['navigation_post_nav'] = true;
+	$defaults['navigation_home_icon'] = false;
 
 	$defaults['home_slider'] = 'demo';
 	$defaults['home_slider_stretch'] = true;
