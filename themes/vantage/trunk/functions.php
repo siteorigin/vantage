@@ -33,7 +33,7 @@ include get_template_directory() . '/inc/template-tags.php';
 include get_template_directory() . '/inc/gallery.php';
 include get_template_directory() . '/inc/metaslider.php';
 include get_template_directory() . '/inc/widgets.php';
-include get_template_directory() . '/inc/menu-icon.php';
+include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/woocommerce.php';
 
 

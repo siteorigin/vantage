@@ -600,7 +600,8 @@ body.no-sidebar #primary {
   border: 3px solid white;
   font-weight: bold;
 }
-#main-slider .metaslider {
+#main-slider .metaslider,
+#main-slider #metaslider-demo {
   margin: 0 auto;
 }
 /* =Responsive Layout
