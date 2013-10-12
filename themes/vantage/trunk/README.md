@@ -31,7 +31,6 @@ Change Log
 * Fixed an issue that was causing duplicate rechecks to the SiteOrigin update server.
 * Added option for home page icon.
 
-
 #### 1.0.11
 * Fixed small design breaking CSS bug.
 
