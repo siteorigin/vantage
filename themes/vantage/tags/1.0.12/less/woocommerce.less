@@ -1,0 +1,60 @@
+/* This will override anything from WooCommerce core CSS */
+.woocommerce #page-wrapper {
+
+	.button {
+		.bordered(#d2d2d2, #c3c3c3, #9f9f9f, #c3c3c3);
+		.gradient(#FFFFFF, #dfdfdf, #FFFFFF);
+		.rounded(3px);
+		color: #646464;
+
+		.box-shadow(~"0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5)");
+		width: auto;
+		text-decoration: none;
+
+		/* Improves usability and consistency of cursor style between image-type 'input' and others */
+		cursor: pointer;
+
+		/* Corrects inability to style clickable 'input' types in iOS */
+		-webkit-appearance: button;
+		line-height: 1;
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	}
+
+	.product {
+		h1.entry-title{
+			font-size: 22px;
+			color: #3b3b3b;
+			margin-bottom: 20px;
+
+			a {
+				color: inherit;
+				text-decoration: none;
+				font-weight: bold;
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+.woocommerce-page {
+	#container {
+		float: left;
+		width: 71.287%;
+	}
+}
+
+@media (max-width:680px) {
+	body.responsive.woocommerce-page #container {
+		float: none;
+		width: auto;
+	}
+}
+
+@media (max-width:480px) {
+	body.responsive.woocommerce-page #container ul.products li.product {
+		width: 240px;
+		float:none;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
