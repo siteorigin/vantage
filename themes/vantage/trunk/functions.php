@@ -276,11 +276,12 @@ function vantage_render_slider(){
 	if( is_front_page() && siteorigin_setting('home_slider') != 'none' ) {
 		$slider = siteorigin_setting('home_slider');
 	}
-	else if( is_page() && get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true) != 'none' ) {
+
+	if( is_page() && get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true) != 'none' ) {
 		$slider = get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true);
 	}
-	else return;
 
+	if( empty($slider) ) return;
 
 	global $vantage_is_main_slider;
 	$vantage_is_main_slider = true;

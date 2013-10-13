@@ -27,6 +27,9 @@ Bundled Resources
 Change Log
 ---------------
 
+#### 1.0.13
+* Fixed issue with Meta Slider on home page.
+
 #### 1.0.12
 * Fixed an issue that was causing duplicate rechecks to the SiteOrigin update server.
 * Added option for home page icon.
