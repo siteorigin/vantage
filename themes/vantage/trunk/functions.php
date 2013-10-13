@@ -274,11 +274,18 @@ function vantage_get_query_variables(){
 function vantage_render_slider(){
 
 	if( is_front_page() && siteorigin_setting('home_slider') != 'none' ) {
-		$slider = siteorigin_setting('home_slider');
+		$settings_slider = siteorigin_setting('home_slider');
+
+		if(!empty($settings_slider)) {
+			$slider = $settings_slider;
+		}
 	}
 
 	if( is_page() && get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true) != 'none' ) {
-		$slider = get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true);
+		$page_slider = get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true);
+		if( !empty($page_slider) ) {
+			$slider = $page_slider;
+		}
 	}
 
 	if( empty($slider) ) return;
