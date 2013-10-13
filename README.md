@@ -29,6 +29,7 @@ Change Log
 
 #### 1.0.13
 * Fixed issue with Meta Slider on home page.
+* Added setting for blog featured image.
 
 #### 1.0.12
 * Fixed an issue that was causing duplicate rechecks to the SiteOrigin update server.

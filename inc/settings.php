@@ -124,6 +124,11 @@ function vantage_theme_settings(){
 		'description' => __('Show the post date.', 'vantage')
 	));
 
+	siteorigin_settings_add_field('blog', 'featured_image', 'checkbox', __('Featured Image', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the featured image on a post single page.', 'vantage')
+	));
+
 	/**
 	 * Social Settings
 	 */
@@ -184,6 +189,7 @@ function vantage_theme_setting_defaults($defaults){
 
 	$defaults['blog_post_author'] = true;
 	$defaults['blog_post_date'] = true;
+	$defaults['blog_featured_image'] = true;
 
 	$defaults['social_ajax_comments'] = true;
 	$defaults['social_share_post'] = true;
