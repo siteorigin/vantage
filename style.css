@@ -534,7 +534,7 @@ header#masthead hgroup h1 {
   font-size: 36px;
   line-height: 1em;
 }
-header#masthead hgroup img {
+header#masthead hgroup .logo img {
   max-width: 100%;
   height: auto;
 }

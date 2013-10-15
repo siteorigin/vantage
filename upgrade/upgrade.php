@@ -52,6 +52,11 @@ function vantage_premium_upgrade_content($content){
 	);
 
 	$content['features'][] = array(
+		'heading' => __("Social Media Widget", 'vantage'),
+		'content' => __("A social media widget with neat little icons that link out to your social media profiles. Add the widget to your header, footer, sidebar or any Page Builder page.", 'vantage'),
+	);
+
+	$content['features'][] = array(
 		'heading' => __("Ajax Comments", 'vantage'),
 		'content' => __("Want to keep the conversation flowing? Ajax comments means your visitors can comment without reloading your page. So commenting wont interrupt a video or lose their position in one of your galleries.", 'vantage'),
 	);
