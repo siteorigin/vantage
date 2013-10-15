@@ -19,7 +19,7 @@ get_header(); ?>
 				<?php do_action('vantage_entry_main_top') ?>
 
 				<header class="entry-header">
-					<h1 class="entry-title"><?php echo apply_filters( 'vantage_404_title', __( 'That page can&rsquo;t be found.', 'vantage' ) ); ?></h1>
+					<h1 class="entry-title"><?php echo apply_filters( 'vantage_404_title', __( "That page can't be found.", 'vantage' ) ); ?></h1>
 				</header><!-- .entry-header -->
 
 				<div class="entry-content">
