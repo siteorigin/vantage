@@ -126,8 +126,8 @@ function vantage_widgets_init() {
 		'id' => 'sidebar-1',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
-		'before_title' => '<h1 class="widget-title">',
-		'after_title' => '</h1>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
 	) );
 
 	register_sidebar( array(
@@ -135,8 +135,17 @@ function vantage_widgets_init() {
 		'id' => 'sidebar-footer',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
-		'before_title' => '<h1 class="widget-title">',
-		'after_title' => '</h1>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Header', 'vantage' ),
+		'id' => 'sidebar-header',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'vantage_widgets_init' );
