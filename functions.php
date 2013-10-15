@@ -310,6 +310,12 @@ function vantage_render_slider(){
 
 function vantage_post_class_filter($classes){
 	$classes[] = 'post';
+
+	if( has_post_thumbnail() && !is_singular() ) {
+		$classes[] = 'post-with-thumbnail';
+		$classes[] = 'post-with-thumbnail-' . siteorigin_setting('blog_featured_image_type');
+	}
+
 	$classes = array_unique($classes);
 	return $classes;
 }

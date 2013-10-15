@@ -1040,6 +1040,31 @@ article.post .entry-categories a,
 article.page .entry-categories a {
   color: #777777;
 }
+article.post.post-with-thumbnail-icon .entry-thumbnail,
+article.page.post-with-thumbnail-icon .entry-thumbnail {
+  margin-top: 0.2em;
+  float: left;
+  clear: none;
+  width: 11.68%;
+  /* 90px in standard width */
+
+}
+article.post.post-with-thumbnail-icon .entry-thumbnail img,
+article.page.post-with-thumbnail-icon .entry-thumbnail img {
+  width: 100%;
+  height: auto;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+article.post.post-with-thumbnail-icon .entry-main,
+article.page.post-with-thumbnail-icon .entry-main {
+  width: 650px;
+  width: 84.41%;
+  /* 650px in standard width */
+
+  float: right;
+}
 .post-navigation,
 #image-navigation {
   margin-top: -20px;
