@@ -44,14 +44,22 @@
 }
 
 @media (max-width:680px) {
-	body.responsive.woocommerce-page #container {
-		float: none;
-		width: auto;
+	body.responsive.woocommerce-page {
+		#container {
+			float: none;
+			width: auto;
+		}
+
+		.product-thumbnail {
+			display: none;
+		}
+
+		.cart_totals  {
+			width: 100%;
+			float: none;
+		}
 	}
 
-	body.responsive.woocommerce-page .product-thumbnail {
-		display: none;
-	}
 }
 
 @media (max-width:480px) {

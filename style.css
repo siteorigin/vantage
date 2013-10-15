@@ -2683,6 +2683,10 @@ body.layout-full {
   body.responsive.woocommerce-page .product-thumbnail {
     display: none;
   }
+  body.responsive.woocommerce-page .cart_totals {
+    width: 100%;
+    float: none;
+  }
 }
 @media (max-width: 480px) {
   body.responsive.woocommerce-page #container ul.products li.product {
