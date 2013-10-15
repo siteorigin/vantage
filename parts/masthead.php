@@ -2,9 +2,20 @@
 
 	<hgroup class="full-container">
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php vantage_display_logo(); ?></a>
-		<div class="support-text">
-			<?php do_action('vantage_support_text'); ?>
-		</div>
+
+		<?php if( is_active_sidebar('sidebar-header') ) : ?>
+
+			<div id="header-sidebar">
+				<?php dynamic_sidebar( 'sidebar-header' ); ?>
+			</div>
+
+		<?php else : ?>
+
+			<div class="support-text">
+				<?php do_action('vantage_support_text'); ?>
+			</div>
+
+		<?php endif; ?>
 	</hgroup>
 
 	<nav role="navigation" class="site-navigation main-navigation primary <?php if( siteorigin_setting('navigation_use_sticky_menu') ) echo 'use-sticky-menu' ?>">
