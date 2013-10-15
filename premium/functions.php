@@ -12,6 +12,7 @@ include get_template_directory() . '/premium/extras/share/share.php';
 include get_template_directory() . '/premium/inc/settings.php';
 include get_template_directory() . '/premium/inc/customizer.php';
 include get_template_directory() . '/premium/inc/panels.php';
+include get_template_directory() . '/premium/inc/widgets.php';
 
 function vantage_premium_setup(){
 	if( siteorigin_setting('social_ajax_comments') ) siteorigin_ajax_comments_activate();
@@ -27,6 +28,11 @@ function vantage_premium_remove_credits(){
 	return '';
 }
 add_filter('vantage_footer_attribution', 'vantage_premium_remove_credits');
+
+function vantage_premium_enqueue_styles(){
+	wp_enqueue_style('vantage-premium', get_template_directory_uri().'/premium/style.css', array(), SITEORIGIN_THEME_VERSION);
+}
+add_action('wp_enqueue_scripts', 'vantage_premium_enqueue_styles', 11);
 
 /**
  * Show the social share icons
