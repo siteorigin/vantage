@@ -54,6 +54,7 @@ function vantage_premium_upgrade_content($content){
 	$content['features'][] = array(
 		'heading' => __("Social Media Widget", 'vantage'),
 		'content' => __("A social media widget with neat little icons that link out to your social media profiles. Add the widget to your header, footer, sidebar or any Page Builder page.", 'vantage'),
+		'image' => get_template_directory_uri().'/upgrade/teasers/social-widget.png',
 	);
 
 	$content['features'][] = array(

@@ -30,6 +30,7 @@ Change Log
 #### 1.1
 * Added blog archive settings to change layout and thumbnail display.
 * Added widgetized area to the header. Designed for a single widget to replace site info text.
+* Premium: Added social media icons widget.
 
 
 #### 1.0.13
