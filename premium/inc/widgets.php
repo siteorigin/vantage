@@ -38,6 +38,10 @@ class Vantage_Premium_Social_Media_Widget extends WP_Widget{
 		// outputs the content of the widget
 		echo $args['before_widget'];
 
+		if(!empty($instance['title'])) {
+			echo $args['before_title'].$instance['title'].$args['after_title'];
+		}
+
 		foreach($this->networks as $id => $name) {
 			if(!empty($instance[$id])) {
 				?><a class="social-media-icon social-media-icon-<?php echo $id ?> social-media-icon-<?php echo esc_attr($instance['size']) ?>" href="<?php echo esc_url( $instance[$id] ) ?>" title="<?php echo esc_html( get_bloginfo('name') . ' ' . $name ) ?>" <?php if(!empty($instance['new_window'])) echo 'target="_blank"'; ?>><?php

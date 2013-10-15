@@ -11,6 +11,7 @@
   clear: both;
 }
 .widget_vantage-social-media .social-media-icon {
+  text-decoration: none;
   display: inline-block;
   margin-right: 4px;
   background: green;

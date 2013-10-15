@@ -575,6 +575,10 @@ header#masthead hgroup #header-sidebar {
 header#masthead hgroup #header-sidebar aside.widget {
   margin: 0;
 }
+header#masthead hgroup #header-sidebar .widget-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 #main {
   zoom: 1;
 }
@@ -1933,8 +1937,8 @@ body.layout-full {
 #footer-widgets .widget:last-child {
   margin-bottom: 0;
 }
-#secondary .widget h1.widget-title,
-#footer-widgets .widget h1.widget-title {
+#secondary .widget .widget-title,
+#footer-widgets .widget .widget-title {
   font-size: 15px;
   color: #3b3b3b;
   font-weight: bold;
@@ -1991,7 +1995,7 @@ body.layout-full {
 #footer-widgets .widget a {
   color: #cccccc;
 }
-#footer-widgets .widget h1.widget-title {
+#footer-widgets .widget .widget-title {
   color: #e2e2e2;
   font-size: 14px;
   font-weight: bold;
@@ -2675,6 +2679,9 @@ body.layout-full {
   body.responsive.woocommerce-page #container {
     float: none;
     width: auto;
+  }
+  body.responsive.woocommerce-page .product-thumbnail {
+    display: none;
   }
 }
 @media (max-width: 480px) {
