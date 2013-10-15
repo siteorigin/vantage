@@ -802,6 +802,7 @@ article.page{
 	}
 
 	.entry-header {
+
 		.entry-thumbnail {
 
 			img {
@@ -899,6 +900,28 @@ article.page{
 
 		a {
 			color: #777777;
+		}
+	}
+
+	&.post-with-thumbnail-icon {
+
+		.entry-thumbnail {
+			margin-top: 0.2em;
+			float: left;
+			clear:none;
+			width: 11.68%; /* 90px in standard width */
+
+			img {
+				width: 100%;
+				height: auto;
+				.rounded(3px);
+			}
+		}
+
+		.entry-main {
+			width: 650px;
+			width: 84.41%; /* 650px in standard width */
+			float: right;
 		}
 	}
 }

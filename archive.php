@@ -14,41 +14,28 @@ get_header(); ?>
 <section id="primary" class="content-area">
 	<div id="content" class="site-content" role="main">
 
-	<?php if ( have_posts() ) : ?>
-
 		<header class="page-header">
 			<h1 id="page-title"><?php echo vantage_get_archive_title() ?></h1>
 			<?php
-				if ( is_category() ) {
-					// show an optional category description
-					$category_description = category_description();
-					if ( ! empty( $category_description ) )
-						echo apply_filters( 'vantage_category_archive_meta', '<div class="taxonomy-description">' . $category_description . '</div>' );
+			if ( is_category() ) {
+				// show an optional category description
+				$category_description = category_description();
+				if ( ! empty( $category_description ) )
+					echo apply_filters( 'vantage_category_archive_meta', '<div class="taxonomy-description">' . $category_description . '</div>' );
 
-				}
-				elseif ( is_tag() ) {
-					// show an optional tag description
-					$tag_description = tag_description();
-					if ( ! empty( $tag_description ) )
-						echo apply_filters( 'vantage_tag_archive_meta', '<div class="taxonomy-description">' . $tag_description . '</div>' );
-				}
+			}
+			elseif ( is_tag() ) {
+				// show an optional tag description
+				$tag_description = tag_description();
+				if ( ! empty( $tag_description ) )
+					echo apply_filters( 'vantage_tag_archive_meta', '<div class="taxonomy-description">' . $tag_description . '</div>' );
+			}
 			?>
 		</header><!-- .page-header -->
 
-		<?php /* Start the Loop */ ?>
-		<?php while ( have_posts() ) : the_post(); ?>
-				
-			<?php get_template_part( 'content' ); ?>
-				
-		<?php endwhile; ?>
+		<?php get_template_part( 'loops/loop', siteorigin_setting('archive_layout') ) ?>
 
 		<?php vantage_content_nav( 'nav-below' ); ?>
-
-	<?php else : ?>
-
-		<?php get_template_part( 'no-results', 'archive' ); ?>
-
-	<?php endif; ?>
 
 	</div><!-- #content .site-content -->
 </section><!-- #primary .content-area -->
