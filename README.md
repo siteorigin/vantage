@@ -27,6 +27,11 @@ Bundled Resources
 Change Log
 ---------------
 
+#### 1.1
+* Added blog archive settings to change layout and thumbnail display.
+* Added widgetized area to the header. Designed for a single widget to replace site info text.
+
+
 #### 1.0.13
 * Fixed issue with Meta Slider on home page.
 * Added setting for blog featured image.

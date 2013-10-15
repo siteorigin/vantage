@@ -399,6 +399,36 @@ header#masthead {
 			font-style: italic;
 			max-width: 50%;
 		}
+
+		#header-sidebar {
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+
+			/* IE 10+ */
+			display:-ms-flexbox;
+			-ms-flex-pack:center;
+			-ms-flex-align:center;
+
+			/* Firefox */
+			display:-moz-box;
+			-moz-box-pack:center;
+			-moz-box-align:center;
+
+			/* Safari, Opera, and Chrome */
+			display:-webkit-box;
+			-webkit-box-pack:center;
+			-webkit-box-align:center;
+
+			display:box;
+			box-pack:center;
+			box-align:center;
+
+			aside.widget {
+				margin: 0;
+			}
+		}
 	}
 }
 
@@ -471,12 +501,14 @@ body.no-sidebar #primary {
 			hgroup {
 				text-align: center;
 
-				.support-text {
+				.support-text, #header-sidebar {
 					position: static;
 					display: block;
 					margin-top: 30px;
 					max-width: 100%;
 				}
+
+
 			}
 		}
 
