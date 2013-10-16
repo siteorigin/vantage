@@ -544,14 +544,8 @@ header#masthead hgroup h1 {
   font-size: 36px;
   line-height: 1em;
 }
-header#masthead hgroup .logo {
-  float: left;
-  display: block;
-}
 header#masthead hgroup .logo img {
   display: block;
-  max-width: 100%;
-  height: auto;
 }
 header#masthead hgroup .support-text {
   line-height: 1.2em;
@@ -662,6 +656,11 @@ body.no-sidebar #primary {
 @media (max-width: 680px) {
   body.responsive header#masthead hgroup {
     text-align: center;
+  }
+  body.responsive header#masthead hgroup .logo img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
   }
   body.responsive header#masthead hgroup .support-text,
   body.responsive header#masthead hgroup #header-sidebar {
