@@ -64,6 +64,15 @@ function vantage_customizer_init(){
 		),
 
 		'vantage_general' => array(
+			'header_padding' => array(
+				'type' => 'measurement',
+				'title' => __('Header Padding', 'vantage'),
+				'default' => 45,
+				'unit' => 'px',
+				'selector' => 'header#masthead hgroup',
+				'property' => array('padding-top', 'padding-bottom'),
+			),
+
 			'link_color' => array(
 				'type' => 'color',
 				'title' => __('Link Color', 'vantage'),

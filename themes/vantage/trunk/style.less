@@ -364,13 +364,14 @@ body {
 
 header#masthead {
 	background: #fcfcfc;
-	padding: 25px 35px;
+	padding: 0 35px 0 35px;
 	.box-sizing(border-box);
 
 	hgroup {
-		margin-bottom: 40px;
-		margin-top: 20px;
 		position: relative;
+		padding-top: 45px;
+		padding-bottom: 45px;
+		line-height: 1em;
 
 		a {
 			color: inherit;
@@ -384,9 +385,14 @@ header#masthead {
 			line-height: 1em;
 		}
 
-		.logo img {
-			max-width: 100%;
-			height: auto;
+		.logo {
+			display: inline-block;
+
+			img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
 		}
 
 		.support-text {
@@ -574,7 +580,7 @@ body.responsive {
 ----------------------------------------------- */
 
 .main-navigation {
-	margin: 0 -35px -25px -35px;
+	margin: 0 -35px;
 	background: #343538;
 	font-size: 13px;
 
