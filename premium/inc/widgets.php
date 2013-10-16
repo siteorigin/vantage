@@ -28,6 +28,8 @@ class Vantage_Premium_Social_Media_Widget extends WP_Widget{
 			'rss' => __('RSS', 'vantage'),
 			'skype' => __('Skype', 'vantage'),
 			'youtube' => __('YouTube', 'vantage'),
+			'github' => __('GitHub', 'vantage'),
+			'google-plus' => __('Google Plus', 'vantage'),
 
 			// These ones don't have FontAwesome Icons
 			'vimeo' => __('Vimeo', 'vantage'),
