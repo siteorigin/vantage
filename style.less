@@ -387,13 +387,8 @@ header#masthead {
 		}
 
 		.logo {
-			float: left;
-			display: block;
-
 			img {
 				display: block;
-				max-width: 100%;
-				height: auto;
 			}
 		}
 
@@ -517,6 +512,12 @@ body.no-sidebar #primary {
 		header#masthead {
 			hgroup {
 				text-align: center;
+
+				.logo img {
+					margin: 0 auto;
+					max-width: 100%;
+					height: auto;
+				}
 
 				.support-text, #header-sidebar {
 					position: static;
