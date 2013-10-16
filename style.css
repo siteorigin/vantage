@@ -558,6 +558,12 @@ header#masthead hgroup #header-sidebar {
   right: 0;
   top: 0;
   height: 100%;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   /* IE 10+ */
 
   display: -ms-flexbox;
