@@ -368,10 +368,11 @@ header#masthead {
 	.box-sizing(border-box);
 
 	hgroup {
+		.clearfix();
+
 		position: relative;
 		padding-top: 45px;
 		padding-bottom: 45px;
-		line-height: 1em;
 
 		a {
 			color: inherit;
@@ -386,7 +387,8 @@ header#masthead {
 		}
 
 		.logo {
-			display: inline-block;
+			float: left;
+			display: block;
 
 			img {
 				display: block;

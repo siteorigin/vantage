@@ -520,10 +520,19 @@ header#masthead {
   box-sizing: border-box;
 }
 header#masthead hgroup {
+  zoom: 1;
   position: relative;
   padding-top: 45px;
   padding-bottom: 45px;
-  line-height: 1em;
+}
+header#masthead hgroup:before {
+  content: '';
+  display: block;
+}
+header#masthead hgroup:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 header#masthead hgroup a {
   color: inherit;
@@ -536,7 +545,8 @@ header#masthead hgroup h1 {
   line-height: 1em;
 }
 header#masthead hgroup .logo {
-  display: inline-block;
+  float: left;
+  display: block;
 }
 header#masthead hgroup .logo img {
   display: block;
