@@ -20,9 +20,6 @@
 
 	<nav role="navigation" class="site-navigation main-navigation primary <?php if( siteorigin_setting('navigation_use_sticky_menu') ) echo 'use-sticky-menu' ?>">
 		<div class="full-container">
-			<h1 class="assistive-text"><?php _e( 'Menu', 'vantage' ); ?></h1>
-			<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'vantage' ); ?>"><?php _e( 'Skip to content', 'vantage' ); ?></a></div>
-
 			<?php if( siteorigin_setting('navigation_menu_search') ) : ?>
 				<div id="search-icon">
 					<div id="search-icon-icon"><div class="icon"></div></div>

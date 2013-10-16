@@ -237,6 +237,42 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5a59', endColorstr='#ff4a49', GradientType=0);
   border: 1px solid #ff3130;
 }
+.widget_vantage-social-media .social-media-icon.social-media-icon-github {
+  background: #387cc9;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #387cc9), color-stop(1, #4484cc));
+  background: -ms-linear-gradient(bottom, #387cc9, #4484cc);
+  background: -moz-linear-gradient(center bottom, #387cc9 0%, #4484cc 100%);
+  background: -o-linear-gradient(#4484cc, #387cc9);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4484cc', endColorstr='#387cc9', GradientType=0);
+  border: 1px solid #3170b6;
+}
+.widget_vantage-social-media .social-media-icon.social-media-icon-github:hover {
+  background: #4887cd;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #4887cd), color-stop(1, #548ed1));
+  background: -ms-linear-gradient(bottom, #4887cd, #548ed1);
+  background: -moz-linear-gradient(center bottom, #4887cd 0%, #548ed1 100%);
+  background: -o-linear-gradient(#548ed1, #4887cd);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#548ed1', endColorstr='#4887cd', GradientType=0);
+  border: 1px solid #3679c6;
+}
+.widget_vantage-social-media .social-media-icon.social-media-icon-google-plus {
+  background: #f80000;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f80000), color-stop(1, #ff0808));
+  background: -ms-linear-gradient(bottom, #f80000, #ff0808);
+  background: -moz-linear-gradient(center bottom, #f80000 0%, #ff0808 100%);
+  background: -o-linear-gradient(#ff0808, #f80000);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0808', endColorstr='#f80000', GradientType=0);
+  border: 1px solid #df0000;
+}
+.widget_vantage-social-media .social-media-icon.social-media-icon-google-plus:hover {
+  background: #ff0d0d;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ff0d0d), color-stop(1, #ff1d1d));
+  background: -ms-linear-gradient(bottom, #ff0d0d, #ff1d1d);
+  background: -moz-linear-gradient(center bottom, #ff0d0d 0%, #ff1d1d 100%);
+  background: -o-linear-gradient(#ff1d1d, #ff0d0d);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1d1d', endColorstr='#ff0d0d', GradientType=0);
+  border: 1px solid #f30000;
+}
 .widget_vantage-social-media .social-media-icon.social-media-icon-vimeo {
   background: #42b8ff;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #42b8ff), color-stop(1, #51beff));
