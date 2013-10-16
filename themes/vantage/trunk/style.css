@@ -669,6 +669,11 @@ body.no-sidebar #primary {
     margin-top: 30px;
     max-width: 100%;
   }
+  body.responsive header#masthead hgroup .support-text img,
+  body.responsive header#masthead hgroup #header-sidebar img {
+    max-width: 100%;
+    height: auto;
+  }
   body.responsive header#masthead hgroup #header-sidebar {
     padding-top: 0;
     padding-bottom: 0;
