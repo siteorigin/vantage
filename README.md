@@ -31,8 +31,8 @@ Change Log
 * Added blog archive settings to change layout and thumbnail display.
 * Added widgetized area to the header. Designed for a single widget to replace site info text.
 * Fix to responsive CSS for WooCommerce integration.
-* Small CSS changes for header to give a more logical header padding. **Double check your child theme if you've customized the header.**
 * Fixed issue where IE8 wasn't displaying site logo.
+* Small changes to header CSS to give a more logical header padding. **Double check your child theme/custom CSS if you've customized the header.**
 * Premium: Added social media icons widget.
 * Premium: Added customizer setting to change header padding.
 

@@ -652,6 +652,14 @@ body.no-sidebar #primary {
 }
 /* =Responsive Layout
 ----------------------------------------------- */
+@media (max-width: 1080px) {
+  body.responsive header#masthead hgroup .logo img {
+    /* Scale down the logo */
+  
+    max-width: 100%;
+    height: auto;
+  }
+}
 /* We consider 680px to be mobile resolution */
 @media (max-width: 680px) {
   body.responsive header#masthead hgroup {
@@ -659,8 +667,6 @@ body.no-sidebar #primary {
   }
   body.responsive header#masthead hgroup .logo img {
     margin: 0 auto;
-    max-width: 100%;
-    height: auto;
   }
   body.responsive header#masthead hgroup .support-text,
   body.responsive header#masthead hgroup #header-sidebar {

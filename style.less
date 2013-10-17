@@ -505,6 +505,20 @@ body.no-sidebar #primary {
 /* =Responsive Layout
 ----------------------------------------------- */
 
+@media (max-width:1080px) {
+	body.responsive {
+		header#masthead {
+			hgroup {
+				.logo img {
+					/* Scale down the logo */
+					max-width: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
+}
+
 /* We consider 680px to be mobile resolution */
 @media (max-width:680px) {
 	body.responsive {
@@ -515,8 +529,6 @@ body.no-sidebar #primary {
 
 				.logo img {
 					margin: 0 auto;
-					max-width: 100%;
-					height: auto;
 				}
 
 				.support-text, #header-sidebar {
