@@ -1,97 +1,6 @@
-.widget_vantage-social-media {
-  zoom: 1;
-}
-.widget_vantage-social-media:before {
-  content: '';
-  display: block;
-}
-.widget_vantage-social-media:after {
-  content: '';
-  display: table;
-  clear: both;
-}
 .widget_vantage-social-media .social-media-icon {
-  text-decoration: none;
-  display: inline-block;
-  margin-right: 4px;
-  background: green;
-  position: relative;
-  width: 36px;
-  height: 36px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 1px rgba(0,0,0,0.1);
-  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 1px rgba(0,0,0,0.1);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 1px rgba(0,0,0,0.1);
   /* The icons */
 
-}
-.widget_vantage-social-media .social-media-icon [class^="icon-"] {
-  width: 1em;
-  height: 1em;
-  text-align: center;
-  display: block;
-  position: absolute;
-  line-height: 1em;
-  color: #FFFFFF;
-  top: 50%;
-  left: 50%;
-  margin-top: -0.45em;
-  margin-left: -0.5em;
-  font-size: 18px;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
-}
-.widget_vantage-social-media .social-media-icon img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 18px;
-  height: 18px;
-  margin-left: -9px;
-  margin-top: -8px;
-}
-.widget_vantage-social-media .social-media-icon:last-child {
-  margin-right: 0;
-}
-.widget_vantage-social-media .social-media-icon.social-media-icon-facebook {
-  background: #597ac7;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #597ac7), color-stop(1, #6483cb));
-  background: -ms-linear-gradient(bottom, #597ac7, #6483cb);
-  background: -moz-linear-gradient(center bottom, #597ac7 0%, #6483cb 100%);
-  background: -o-linear-gradient(#6483cb, #597ac7);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6483cb', endColorstr='#597ac7', GradientType=0);
-  border: 1px solid #466bc1;
-}
-.widget_vantage-social-media .social-media-icon.social-media-icon-facebook:hover {
-  background: #6886cc;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #6886cc), color-stop(1, #748fd0));
-  background: -ms-linear-gradient(bottom, #6886cc, #748fd0);
-  background: -moz-linear-gradient(center bottom, #6886cc 0%, #748fd0 100%);
-  background: -o-linear-gradient(#748fd0, #6886cc);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#748fd0', endColorstr='#6886cc', GradientType=0);
-  border: 1px solid #5577c6;
-}
-.widget_vantage-social-media .social-media-icon.social-media-icon-twitter {
-  background: #5bbcec;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #5bbcec), color-stop(1, #69c2ee));
-  background: -ms-linear-gradient(bottom, #5bbcec, #69c2ee);
-  background: -moz-linear-gradient(center bottom, #5bbcec 0%, #69c2ee 100%);
-  background: -o-linear-gradient(#69c2ee, #5bbcec);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#69c2ee', endColorstr='#5bbcec', GradientType=0);
-  border: 1px solid #44b3e9;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 1px 1px rgba(0,0,0,0.1);
-  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 1px 1px rgba(0,0,0,0.1);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 1px 1px rgba(0,0,0,0.1);
-}
-.widget_vantage-social-media .social-media-icon.social-media-icon-twitter:hover {
-  background: #6dc3ee;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #6dc3ee), color-stop(1, #7bc9f0));
-  background: -ms-linear-gradient(bottom, #6dc3ee, #7bc9f0);
-  background: -moz-linear-gradient(center bottom, #6dc3ee 0%, #7bc9f0 100%);
-  background: -o-linear-gradient(#7bc9f0, #6dc3ee);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7bc9f0', endColorstr='#6dc3ee', GradientType=0);
-  border: 1px solid #56baeb;
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-linkedin {
   background: #0070b4;
@@ -112,22 +21,22 @@
   border: 1px solid #006daf;
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-dribbble {
-  background: #d97aa5;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #d97aa5), color-stop(1, #dc86ad));
-  background: -ms-linear-gradient(bottom, #d97aa5, #dc86ad);
-  background: -moz-linear-gradient(center bottom, #d97aa5 0%, #dc86ad 100%);
-  background: -o-linear-gradient(#dc86ad, #d97aa5);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dc86ad', endColorstr='#d97aa5', GradientType=0);
-  border: 1px solid #d36698;
+  background: #ea4d89;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ea4d89), color-stop(1, #ec5b92));
+  background: -ms-linear-gradient(bottom, #ea4d89, #ec5b92);
+  background: -moz-linear-gradient(center bottom, #ea4d89 0%, #ec5b92 100%);
+  background: -o-linear-gradient(#ec5b92, #ea4d89);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ec5b92', endColorstr='#ea4d89', GradientType=0);
+  border: 1px solid #e7367a;
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-dribbble:hover {
-  background: #de8ab0;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #de8ab0), color-stop(1, #e196b8));
-  background: -ms-linear-gradient(bottom, #de8ab0, #e196b8);
-  background: -moz-linear-gradient(center bottom, #de8ab0 0%, #e196b8 100%);
-  background: -o-linear-gradient(#e196b8, #de8ab0);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e196b8', endColorstr='#de8ab0', GradientType=0);
-  border: 1px solid #d876a2;
+  background: #ec5f95;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ec5f95), color-stop(1, #ee6d9e));
+  background: -ms-linear-gradient(bottom, #ec5f95, #ee6d9e);
+  background: -moz-linear-gradient(center bottom, #ec5f95 0%, #ee6d9e 100%);
+  background: -o-linear-gradient(#ee6d9e, #ec5f95);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee6d9e', endColorstr='#ec5f95', GradientType=0);
+  border: 1px solid #e94886;
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-flickr {
   background: #444444;
@@ -183,24 +92,6 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fd5a55', endColorstr='#fd4c46', GradientType=0);
   border: 1px solid #fd332d;
 }
-.widget_vantage-social-media .social-media-icon.social-media-icon-rss {
-  background: #ff9900;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ff9900), color-stop(1, #ff9f0f));
-  background: -ms-linear-gradient(bottom, #ff9900, #ff9f0f);
-  background: -moz-linear-gradient(center bottom, #ff9900 0%, #ff9f0f 100%);
-  background: -o-linear-gradient(#ff9f0f, #ff9900);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9f0f', endColorstr='#ff9900', GradientType=0);
-  border: 1px solid #e68a00;
-}
-.widget_vantage-social-media .social-media-icon.social-media-icon-rss:hover {
-  background: #ffa114;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffa114), color-stop(1, #ffa724));
-  background: -ms-linear-gradient(bottom, #ffa114, #ffa724);
-  background: -moz-linear-gradient(center bottom, #ffa114 0%, #ffa724 100%);
-  background: -o-linear-gradient(#ffa724, #ffa114);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa724', endColorstr='#ffa114', GradientType=0);
-  border: 1px solid #fa9600;
-}
 .widget_vantage-social-media .social-media-icon.social-media-icon-skype {
   background: #09c6ff;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #09c6ff), color-stop(1, #18caff));
@@ -254,24 +145,6 @@
   background: -o-linear-gradient(#548ed1, #4887cd);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#548ed1', endColorstr='#4887cd', GradientType=0);
   border: 1px solid #3679c6;
-}
-.widget_vantage-social-media .social-media-icon.social-media-icon-google-plus {
-  background: #f80000;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f80000), color-stop(1, #ff0808));
-  background: -ms-linear-gradient(bottom, #f80000, #ff0808);
-  background: -moz-linear-gradient(center bottom, #f80000 0%, #ff0808 100%);
-  background: -o-linear-gradient(#ff0808, #f80000);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0808', endColorstr='#f80000', GradientType=0);
-  border: 1px solid #df0000;
-}
-.widget_vantage-social-media .social-media-icon.social-media-icon-google-plus:hover {
-  background: #ff0d0d;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ff0d0d), color-stop(1, #ff1d1d));
-  background: -ms-linear-gradient(bottom, #ff0d0d, #ff1d1d);
-  background: -moz-linear-gradient(center bottom, #ff0d0d 0%, #ff1d1d 100%);
-  background: -o-linear-gradient(#ff1d1d, #ff0d0d);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1d1d', endColorstr='#ff0d0d', GradientType=0);
-  border: 1px solid #f30000;
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-vimeo {
   background: #42b8ff;

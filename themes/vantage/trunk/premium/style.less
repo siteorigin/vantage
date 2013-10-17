@@ -2,8 +2,6 @@
 
 .widget_vantage-social-media {
 
-	.clearfix();
-
 	.social-button-style(@color) {
 		.gradient(@color, @color, lighten(@color, 3%));
 		border: 1px solid darken(@color, 5%);
@@ -16,61 +14,12 @@
 	}
 
 	.social-media-icon {
-		text-decoration: none;
-		display: inline-block;
-		margin-right: 4px;
-
-		background: green;
-		position: relative;
-
-		width: 36px;
-		height: 36px;
-		.rounded(3px);
-		.box-shadow(~"inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 1px rgba(0,0,0,0.1)");
-
-		[class^="icon-"]{
-			width: 1em;
-			height: 1em;
-			text-align: center;
-			display: block;
-			position: absolute;
-			line-height: 1em;
-			color: #FFFFFF;
-			top: 50%;
-			left: 50%;
-			margin-top: -0.45em;
-			margin-left: -0.5em;
-			font-size: 18px;
-			text-shadow: 0 1px 1px rgba(0,0,0,0.125);
-		}
-
-		img {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			width: 18px;
-			height: 18px;
-			margin-left: -9px;
-			margin-top: -8px;
-		}
-
-		&:last-child {
-			margin-right: 0;
-		}
-
 		/* The icons */
-		&.social-media-icon-facebook {
-			.social-button-style(#597ac7);
-		}
-		&.social-media-icon-twitter {
-			.social-button-style(#5bbcec);
-			.box-shadow(~"inset 0 1px 0 rgba(255,255,255,0.25), 0 1px 1px rgba(0,0,0,0.1)");
-		}
 		&.social-media-icon-linkedin {
 			.social-button-style(#0070b4);
 		}
 		&.social-media-icon-dribbble {
-			.social-button-style(#d97aa5);
+			.social-button-style(#ea4d89);
 		}
 		&.social-media-icon-flickr {
 			.social-button-style(#444444);
@@ -81,9 +30,6 @@
 		&.social-media-icon-pinterest {
 			.social-button-style(#fd3832);
 		}
-		&.social-media-icon-rss {
-			.social-button-style(#ff9900);
-		}
 		&.social-media-icon-skype {
 			.social-button-style(#09c6ff);
 		}
@@ -92,9 +38,6 @@
 		}
 		&.social-media-icon-github {
 			.social-button-style(#387cc9);
-		}
-		&.social-media-icon-google-plus {
-			.social-button-style(#f80000);
 		}
 		&.social-media-icon-vimeo {
 			.social-button-style(#42b8ff);
