@@ -157,8 +157,9 @@ input,
 select,
 textarea {
   color: #333;
-  font-family: "Helvetica Neue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  line-height: 1.5;
+  font-family: Arial;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  line-height: 1.5em;
   font-size: 13px;
   word-wrap: break-word;
 }
@@ -544,6 +545,10 @@ header#masthead hgroup h1 {
   font-size: 36px;
   line-height: 1em;
 }
+header#masthead hgroup .logo {
+  display: block;
+  float: left;
+}
 header#masthead hgroup .logo img {
   display: block;
 }
@@ -558,28 +563,24 @@ header#masthead hgroup .support-text {
   max-width: 50%;
 }
 header#masthead hgroup #header-sidebar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: 100%;
   position: absolute;
   right: 0;
   top: 0;
-  height: 100%;
-  padding-top: 45px;
-  padding-bottom: 45px;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  /* IE 10+ */
+  /* Center align layout. Based on old CSS3 spec, so update when new spec is available */
 
   display: -ms-flexbox;
   -ms-flex-pack: center;
   -ms-flex-align: center;
-  /* Firefox */
-
   display: -moz-box;
   -moz-box-pack: center;
   -moz-box-align: center;
-  /* Safari, Opera, and Chrome */
-
   display: -webkit-box;
   -webkit-box-pack: center;
   -webkit-box-align: center;
@@ -588,11 +589,16 @@ header#masthead hgroup #header-sidebar {
   box-align: center;
 }
 header#masthead hgroup #header-sidebar aside.widget {
-  margin: 0;
+  margin-bottom: 0;
 }
 header#masthead hgroup #header-sidebar .widget-title {
   font-weight: bold;
   margin-bottom: 5px;
+}
+body.ie-8 header#masthead hgroup #header-sidebar,
+body.ie-9 header#masthead hgroup #header-sidebar {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 #main {
   zoom: 1;
@@ -654,7 +660,7 @@ body.no-sidebar #primary {
 ----------------------------------------------- */
 @media (max-width: 1080px) {
   body.responsive header#masthead hgroup .logo img {
-    /* Scale down the logo */
+    /* Scale down the logo if necessary */
   
     max-width: 100%;
     height: auto;
@@ -664,6 +670,9 @@ body.no-sidebar #primary {
 @media (max-width: 680px) {
   body.responsive header#masthead hgroup {
     text-align: center;
+  }
+  body.responsive header#masthead hgroup .logo {
+    float: none;
   }
   body.responsive header#masthead hgroup .logo img {
     margin: 0 auto;
@@ -681,8 +690,9 @@ body.no-sidebar #primary {
     height: auto;
   }
   body.responsive header#masthead hgroup #header-sidebar {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    height: auto;
   }
   body.responsive #primary,
   body.responsive #secondary {

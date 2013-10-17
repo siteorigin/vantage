@@ -69,7 +69,7 @@ function vantage_customizer_init(){
 				'title' => __('Header Padding', 'vantage'),
 				'default' => 45,
 				'unit' => 'px',
-				'selector' => 'header#masthead hgroup, #header-sidebar',
+				'selector' => 'header#masthead hgroup',
 				'property' => array('padding-top', 'padding-bottom'),
 			),
 
