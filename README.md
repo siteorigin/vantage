@@ -33,7 +33,7 @@ Change Log
 * Fix to responsive CSS for WooCommerce integration.
 * Fixed issue where IE8 wasn't displaying site logo.
 * Small changes to header CSS to give a more logical header padding. **Double check your child theme/custom CSS if you've customized the header.**
-* Premium: Added social media icons widget.
+* Added social media icons widget. Vantage Premium has additional sizes and networks.
 * Premium: Added customizer setting to change header padding.
 
 #### 1.0.13

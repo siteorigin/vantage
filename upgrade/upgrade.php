@@ -52,8 +52,8 @@ function vantage_premium_upgrade_content($content){
 	);
 
 	$content['features'][] = array(
-		'heading' => __("Social Media Widget", 'vantage'),
-		'content' => __("A social media widget with neat little icons that link out to your social media profiles. Add the widget to your header, footer, sidebar or any Page Builder page.", 'vantage'),
+		'heading' => __("Enhanced Social Media Widget", 'vantage'),
+		'content' => __("Additional social networks and sizes (small and large) for the social media widget. Networks include LinkedIn, Dribbble, Flickr, Instagram, Pinterest, Skype, YouTube, GitHub and Vimeo. With more coming as they're requested.", 'vantage'),
 		'image' => get_template_directory_uri().'/upgrade/teasers/social-widget.png',
 	);
 
