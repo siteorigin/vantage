@@ -193,4 +193,13 @@ jQuery(function($){
         })
     }
 
+    // Resize the header
+    $('#header-sidebar').each(function(){
+        var $$ = $(this);
+        var padding = ( $$.outerHeight() - $$.find('.widget').outerHeight() ) / 2;
+        $$.css({
+            'padding-top' : padding,
+            'padding-bottom' : padding
+        })
+    })
 });
