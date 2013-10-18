@@ -34,6 +34,7 @@ add_filter('vantage_social_widget_networks', 'vantage_premium_social_widget_add_
 function vantage_premium_social_widget_add_sizes($sizes) {
 	$sizes['small'] = __('Small', 'vantage');
 	$sizes['large'] = __('Large', 'vantage');
+	return $sizes;
 }
 add_filter('vantage_social_widget_sizes', 'vantage_premium_social_widget_add_sizes');
 
