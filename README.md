@@ -28,7 +28,9 @@ Change Log
 ---------------
 
 #### 1.1.1
+* Fixed Social widget to improve display in header on boxed layout.
 * Premium: Added customizer setting to change padding of main menu.
+* Premium: Removed duplicate CSS for social icon.
 
 #### 1.1
 * Added blog archive settings to change layout and thumbnail display.
