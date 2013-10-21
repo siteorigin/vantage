@@ -27,6 +27,9 @@ Bundled Resources
 Change Log
 ---------------
 
+#### 1.1.1
+* Premium: Added customizer setting to change padding of main menu.
+
 #### 1.1
 * Added blog archive settings to change layout and thumbnail display.
 * Added widgetized area to the header. Designed for a single widget to replace site info text.

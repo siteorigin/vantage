@@ -227,6 +227,10 @@ function vantage_body_class($classes){
 		$classes[] = 'mobile-device';
 	}
 
+	if(siteorigin_setting('navigation_menu_search')) {
+		$classes[] = 'has-menu-search';
+	}
+
 	return $classes;
 }
 add_filter('body_class', 'vantage_body_class');
