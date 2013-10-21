@@ -28,6 +28,9 @@ Change Log
 ---------------
 
 #### 1.1.1
+* Premium: Fixed auto updates system.
+
+#### 1.1.1
 * Fixed Social widget to improve display in header on boxed layout.
 * Fixed archive posts view.
 * Premium: Added customizer settings for main menu to change icon color and item padding.
