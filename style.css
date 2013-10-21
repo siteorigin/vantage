@@ -862,7 +862,6 @@ body.mobile-device .main-navigation li:hover ul {
   top: 0;
   right: 0;
   height: 100%;
-  max-height: 59px;
 }
 #search-icon #search-icon-icon {
   -ms-box-sizing: border-box;
