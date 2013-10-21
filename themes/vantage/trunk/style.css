@@ -767,9 +767,6 @@ body.responsive.layout-full #page-wrapper .full-container {
   background: #00bcff;
   color: #FFFFFF;
 }
-.main-navigation ul li:hover > a [class^="icon-"] {
-  color: #FFFFFF;
-}
 .main-navigation ul li a {
   padding: 20px 35px;
   -ms-box-sizing: border-box;
@@ -843,6 +840,9 @@ body.responsive.layout-full #page-wrapper .full-container {
   font-size: 16px;
   line-height: 0.5em;
   color: #CCCCCC;
+}
+.main-navigation a:hover [class^="icon-"] {
+  color: #FFFFFF;
 }
 body.has-menu-search .main-navigation ul {
   margin-right: 59px;
