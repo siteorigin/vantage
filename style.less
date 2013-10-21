@@ -726,7 +726,10 @@ body.responsive {
 		line-height: 0.5em;
 		color: #CCCCCC;
 	}
+}
 
+body.has-menu-search .main-navigation ul {
+	margin-right: 59px;
 }
 
 
@@ -748,8 +751,6 @@ body.mobile-device {
 
 }
 
-
-
 .mobile-nav-frame {
 	[class^="icon-"] {
 		margin-right: 10px;
@@ -757,27 +758,34 @@ body.mobile-device {
 }
 
 #search-icon {
-	float: right;
-	position: relative;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	max-height: 59px;
 
 	#search-icon-icon {
 		.box-sizing(border-box);
+		position: relative;
 		display: block;
 		cursor: pointer;
 		background-color: #303134;
 		width: 59px;
-		height: 59px;
+		height: 100%;
 
 		&, .icon-search {
 			.transition(0.4s);
 		}
 
-		padding: 22px 21px;
-
 		.icon {
-			display: inline-block;
+			position: absolute;
+			display: block;
 			width: 17px;
 			height: 17px;
+			top: 50%;
+			left: 50%;
+			margin-top: -8px;
+			margin-left: -8.5px;
 
 			background: url(./images/sprites/search-icon.png) no-repeat;
 		}
