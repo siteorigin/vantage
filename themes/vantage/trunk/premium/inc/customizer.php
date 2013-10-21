@@ -188,6 +188,15 @@ function vantage_customizer_init(){
 				'property' => 'color',
 			),
 
+			'topbottom_padding' => array(
+				'type' => 'measurement',
+				'title' => __('Menu Item Padding', 'vantage'),
+				'default' => 20,
+				'unit' => 'px',
+				'selector' => '.main-navigation ul li a',
+				'property' => array('padding-top', 'padding-bottom'),
+			),
+
 		),
 
 		'vantage_widgets' => array(

@@ -843,6 +843,9 @@ body.responsive.layout-full #page-wrapper .full-container {
   line-height: 0.5em;
   color: #CCCCCC;
 }
+body.has-menu-search .main-navigation ul {
+  margin-right: 59px;
+}
 /* Handle the navigation slightly differently on mobile devices */
 body.mobile-device .main-navigation ul ul {
   display: none;
@@ -854,20 +857,23 @@ body.mobile-device .main-navigation li:hover ul {
   margin-right: 10px;
 }
 #search-icon {
-  float: right;
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  max-height: 59px;
 }
 #search-icon #search-icon-icon {
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  position: relative;
   display: block;
   cursor: pointer;
   background-color: #303134;
   width: 59px;
-  height: 59px;
-  padding: 22px 21px;
+  height: 100%;
 }
 #search-icon #search-icon-icon,
 #search-icon #search-icon-icon .icon-search {
@@ -877,9 +883,14 @@ body.mobile-device .main-navigation li:hover ul {
   transition: all 0.4s ease;
 }
 #search-icon #search-icon-icon .icon {
-  display: inline-block;
+  position: absolute;
+  display: block;
   width: 17px;
   height: 17px;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8.5px;
   background: url(./images/sprites/search-icon.png) no-repeat;
 }
 #search-icon #search-icon-icon:hover {
