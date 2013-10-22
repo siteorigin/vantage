@@ -2526,6 +2526,24 @@ body.layout-full {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1d1d', endColorstr='#ff0d0d', GradientType=0);
   border: 1px solid #f30000;
 }
+.widget_vantage-social-media .social-media-icon.social-media-icon-rss {
+  background: #ff9200;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ff9200), color-stop(1, #ff990f));
+  background: -ms-linear-gradient(bottom, #ff9200, #ff990f);
+  background: -moz-linear-gradient(center bottom, #ff9200 0%, #ff990f 100%);
+  background: -o-linear-gradient(#ff990f, #ff9200);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff990f', endColorstr='#ff9200', GradientType=0);
+  border: 1px solid #e68300;
+}
+.widget_vantage-social-media .social-media-icon.social-media-icon-rss:hover {
+  background: #ff9b14;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ff9b14), color-stop(1, #ffa124));
+  background: -ms-linear-gradient(bottom, #ff9b14, #ffa124);
+  background: -moz-linear-gradient(center bottom, #ff9b14 0%, #ffa124 100%);
+  background: -o-linear-gradient(#ffa124, #ff9b14);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa124', endColorstr='#ff9b14', GradientType=0);
+  border: 1px solid #fa8f00;
+}
 /* =Some row styling for page builder
 ----------------------------------------------- */
 .panel-row-style {
