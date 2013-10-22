@@ -27,7 +27,10 @@ Bundled Resources
 Change Log
 ---------------
 
-#### 1.1.1
+#### 1.1.3
+* Fixed RSS icon CSS.
+
+#### 1.1.2
 * Premium: Fixed auto updates system.
 
 #### 1.1.1
