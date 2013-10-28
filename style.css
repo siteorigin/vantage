@@ -2429,7 +2429,6 @@ body.layout-full {
   display: block;
   float: left;
   margin-right: 4px;
-  background: green;
   position: relative;
   width: 36px;
   height: 36px;
@@ -2543,6 +2542,15 @@ body.layout-full {
   background: -o-linear-gradient(#ffa124, #ff9b14);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa124', endColorstr='#ff9b14', GradientType=0);
   border: 1px solid #fa8f00;
+}
+@media (max-width: 680px) {
+  body.responsive .widget_vantage-social-media {
+    text-align: center;
+  }
+  body.responsive .widget_vantage-social-media .social-media-icon {
+    display: inline-block;
+    float: none;
+  }
 }
 /* =Some row styling for page builder
 ----------------------------------------------- */

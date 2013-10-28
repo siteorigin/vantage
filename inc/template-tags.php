@@ -370,7 +370,7 @@ function vantage_pagination($pages = '', $range = 2) {
 			'total' => $pages,
 			'current' => $paged,
 			'mid_size' => $showitems,
-			'format' => $wp_rewrite->permalink_structure == '' ? ( strpos(get_pagenum_link(false), '?') === false ? '?paged=%#%' : '&paged=%#%' ) : 'page/%#%/',
+			'format' => ( $wp_rewrite->permalink_structure == '' || is_search() ) ? ( strpos(get_pagenum_link(false), '?') === false ? '?paged=%#%' : '&paged=%#%' ) : 'page/%#%/',
 			'base' => get_pagenum_link(false).'%_%',
 		));
 		echo "</div>\n";
