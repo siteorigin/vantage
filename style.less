@@ -390,6 +390,8 @@ header#masthead {
 		.logo {
 			display: block;
 			float: left;
+			max-width: 100%;
+
 			img {
 				display: block;
 			}
@@ -448,9 +450,11 @@ header#masthead {
 }
 
 body.ie-8,body.ie-9 {
-	header#masthead hgroup #header-sidebar {
-		padding-top: 40px;
-		padding-bottom: 40px;
+	header#masthead hgroup {
+		#header-sidebar {
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
 	}
 }
 
