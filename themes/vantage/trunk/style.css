@@ -548,9 +548,7 @@ header#masthead hgroup h1 {
 header#masthead hgroup .logo {
   display: block;
   float: left;
-}
-header#masthead hgroup .logo img {
-  display: block;
+  max-width: 100%;
 }
 header#masthead hgroup .support-text {
   line-height: 1.2em;
@@ -2582,6 +2580,9 @@ body.layout-full {
     margin: 0 -35px;
     padding: 25px 35px;
   }
+}
+.panel-grid-cell .flexslider {
+  margin-bottom: 0;
 }
 .vantage-carousel-title {
   font-size: 14px;

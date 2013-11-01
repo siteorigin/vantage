@@ -169,6 +169,13 @@ function vantage_display_logo(){
 			'height' => round($height),
 		) );
 
+		if($logo_attributes['width'] > vantage_get_site_width()) {
+			// Don't let the width be more than the site width.
+			$width = vantage_get_site_width();
+			$logo_attributes['height'] = round($logo_attributes['height'] / ($logo_attributes['width'] / $width));
+			$logo_attributes['width'] = $width;
+		}
+
 		$logo_attributes_str = array();
 		if( !empty( $logo_attributes ) ) {
 			foreach($logo_attributes as $name => $val) {
