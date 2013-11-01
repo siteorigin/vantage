@@ -32,7 +32,7 @@ Change Log
 * Fixed double pagination on category pages.
 * Fixed alignment of social icons for responsive layout.
 * Fixed search pagination.
-* Added maximum logo size to prevent overflow.
+* Added maximum logo width to prevent overflow.
 * Minor CSS fixes.
 
 #### 1.1.2
