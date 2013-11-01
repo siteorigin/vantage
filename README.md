@@ -27,13 +27,13 @@ Bundled Resources
 Change Log
 ---------------
 
-#### 1.1.4
-* Fixed alignment of social icons for responsive layout.
-* Fixed search pagination.
-
 #### 1.1.3
 * Fixed RSS icon CSS.
 * Fixed double pagination on category pages.
+* Fixed alignment of social icons for responsive layout.
+* Fixed search pagination.
+* Added maximum logo size to prevent overflow.
+* Minor CSS fixes.
 
 #### 1.1.2
 * Premium: Fixed auto updates system.
