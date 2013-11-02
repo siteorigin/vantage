@@ -550,6 +550,9 @@ header#masthead hgroup .logo {
   float: left;
   max-width: 100%;
 }
+header#masthead hgroup .logo img {
+  vertical-align: bottom;
+}
 header#masthead hgroup .support-text {
   line-height: 1.2em;
   position: absolute;
