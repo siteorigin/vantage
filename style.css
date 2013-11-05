@@ -591,6 +591,8 @@ header#masthead hgroup #header-sidebar {
 }
 header#masthead hgroup #header-sidebar aside.widget {
   margin-bottom: 0;
+  float: right;
+  position: relative;
 }
 header#masthead hgroup #header-sidebar .widget-title {
   font-weight: bold;
@@ -1036,6 +1038,7 @@ article.page .entry-header h1.entry-title {
   color: #3b3b3b;
   font-size: 20px;
   font-weight: 500;
+  line-height: 1.35em;
 }
 article.post .entry-header h1.entry-title a,
 article.page .entry-header h1.entry-title a {
