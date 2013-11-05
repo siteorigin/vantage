@@ -33,6 +33,7 @@ Change Log
 * Fixed alignment of social icons for responsive layout.
 * Fixed search pagination.
 * Added maximum logo width to prevent overflow.
+* Removed iframe from premium upgrade page.
 * Minor CSS fixes.
 
 #### 1.1.2
