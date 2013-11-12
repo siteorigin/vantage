@@ -858,7 +858,9 @@ body.mobile-device .main-navigation li:hover ul {
   display: block;
 }
 .mobile-nav-frame [class^="icon-"] {
+  display: inline-block;
   margin-right: 10px;
+  min-width: 1em;
 }
 #search-icon {
   position: absolute;
