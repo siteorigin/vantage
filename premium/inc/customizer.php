@@ -75,7 +75,7 @@ function vantage_customizer_init(){
 
 			'link_color' => array(
 				'type' => 'color',
-				'title' => __('Link Color', 'vantage'),
+				'title' => __('Content Link Color', 'vantage'),
 				'default' => '#248cc8',
 				'selector' => '.entry-content p a, .entry-content p a:visited, #secondary p a, #secondary p a:visited',
 				'property' => 'color',
@@ -84,7 +84,7 @@ function vantage_customizer_init(){
 
 			'link_hover_color' => array(
 				'type' => 'color',
-				'title' => __('Link Hover Color', 'vantage'),
+				'title' => __('Content Link Hover Color', 'vantage'),
 				'default' => '#f47e3c',
 				'selector' => '.entry-content p a:hover, .entry-content p a:focus, .entry-content p a:active, #secondary p a:hover',
 				'property' => 'color',
