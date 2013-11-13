@@ -63,10 +63,22 @@
 }
 
 @media (max-width:480px) {
-	body.responsive.woocommerce-page #container ul.products li.product {
-		width: 240px;
-		float:none;
-		margin-right: auto;
-		margin-left: auto;
+	body.responsive.woocommerce-page {
+
+		#container ul.products li.product {
+			width: 240px;
+			float:none;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		#content div.product div.images,
+		#content div.product div.summary {
+			float: none;
+			width: auto;
+		}
+
 	}
+
+
 }

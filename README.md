@@ -30,7 +30,8 @@ Change Log
 #### 1.1.4
 * Fixed Circle Icon widget clash with FontAwesome CSS.
 * Small changes to premium upgrade page.
-* Various CSS fixes.
+* Fixed some invalid HTML.
+* Various CSS fixes and responsive improvements.
 * Premium: Fixed Twitter share.
 
 #### 1.1.3

@@ -167,6 +167,7 @@ function vantage_display_logo(){
 			'src' => $src,
 			'width' => round($width),
 			'height' => round($height),
+			'alt' => sprintf( __('%s Logo', 'vantage'), get_bloginfo('name') ),
 		) );
 
 		if($logo_attributes['width'] > vantage_get_site_width()) {
@@ -180,7 +181,7 @@ function vantage_display_logo(){
 		if( !empty( $logo_attributes ) ) {
 			foreach($logo_attributes as $name => $val) {
 				if( empty($val) ) continue;
-				$logo_attributes_str[] = $name.'="'.esc_attr($val).'"';
+				$logo_attributes_str[] = $name.'="'.esc_attr($val).'" ';
 			}
 		}
 		$logo_html = apply_filters('vantage_logo_image', '<img '.implode($logo_attributes_str).' />');
