@@ -256,7 +256,7 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 
 				$icon = apply_filters('vantage_social_widget_icon_'.$id, '');
 				if(!empty($icon)) echo $icon;
-				else echo '<span class="icon-' . $id . '" />';
+				else echo '<span class="icon-' . $id . '"></span>';
 
 				?></a><?php
 			}
@@ -338,7 +338,7 @@ add_action( 'widgets_init', 'vantage_register_widgets');
  */
 function vantage_filter_carousel_loop($title, $instance = array(), $id = false){
 	if($id == 'siteorigin-panels-postloop' && isset($instance['template']) && $instance['template'] == 'loops/loop-carousel.php') {
-		$title = '<div class="vantage-carousel-title"><span class="vantage-carousel-title-text">'.$title.'</span><a href="#" class="next">next</a><a href="#" class="previous">previous</a></div>';
+		$title = '<span class="vantage-carousel-title"><span class="vantage-carousel-title-text">'.$title.'</span><a href="#" class="next">next</a><a href="#" class="previous">previous</a></span>';
 	}
 	return $title;
 }

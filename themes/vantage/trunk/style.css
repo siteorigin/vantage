@@ -2902,4 +2902,9 @@ body.layout-full {
     margin-right: auto;
     margin-left: auto;
   }
+  body.responsive.woocommerce-page #content div.product div.images,
+  body.responsive.woocommerce-page #content div.product div.summary {
+    float: none;
+    width: auto;
+  }
 }
