@@ -1370,6 +1370,10 @@ article.page.post-with-thumbnail-icon .entry-main {
   box-sizing: border-box;
   text-align: center;
 }
+.entry-content .wp-caption.aligncenter {
+  margin-left: auto;
+  margin-right: auto;
+}
 .entry-content .wp-caption:first-child {
   margin-top: 25px;
 }

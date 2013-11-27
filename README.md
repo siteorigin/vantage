@@ -29,9 +29,9 @@ Change Log
 
 #### 1.1.5
 * Fixed image margins.
+* Fixed image with caption center alignment.
 * Fixed WordPress gallery layout.
 * Fixed content width.
-* Fixed audio embed controls.
 
 #### 1.1.4
 * Fixed Circle Icon widget clash with FontAwesome CSS.
