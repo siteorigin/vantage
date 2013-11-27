@@ -1330,22 +1330,21 @@ article.page.post-with-thumbnail-icon .entry-main {
   top: .5ex;
 }
 .entry-content .gallery {
-  margin: 25px 0 !important;
+  margin: 15px 0 25px 0;
 }
 .entry-content .gallery .gallery-item {
-  margin-bottom: 0 !important;
-  margin-top: 0 !important;
+  margin-bottom: 0;
 }
 .entry-content .gallery .gallery-icon {
   line-height: 0;
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 }
 .entry-content .gallery img {
   border: none !important;
 }
 .entry-content .gallery .gallery-caption {
-  margin: 10px !important;
-  padding-left: 0 !important;
+  margin: 10px;
+  padding-left: 0;
 }
 .entry-content table {
   width: 100%;
@@ -1381,12 +1380,12 @@ article.page.post-with-thumbnail-icon .entry-main {
 .entry-content .alignleft {
   /* This is also styled on a global level */
 
-  margin: 0 0 1.5em 1.5em;
+  margin: 0 1.5em 1.5em 0;
 }
 .entry-content .alignright {
   /* This is also styled on a global level */
 
-  margin: 0 1.5em 1.5em 0;
+  margin: 0 0 1.5em 1.5em;
 }
 .entry-content img.wp-smiley {
   border: none;
