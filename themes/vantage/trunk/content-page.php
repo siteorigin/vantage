@@ -15,7 +15,7 @@
 		<?php do_action('vantage_entry_main_top') ?>
 
 		<header class="entry-header">
-			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'vantage' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+			<h1 class="entry-title"><?php the_title(); ?></h1>
 		</header><!-- .entry-header -->
 
 		<div class="entry-content">
