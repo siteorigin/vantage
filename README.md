@@ -27,6 +27,12 @@ Bundled Resources
 Change Log
 ---------------
 
+#### 1.1.5
+* Fixed image margins.
+* Fixed WordPress gallery layout.
+* Fixed content width.
+* Fixed audio embed controls.
+
 #### 1.1.4
 * Fixed Circle Icon widget clash with FontAwesome CSS.
 * Small changes to premium upgrade page.
