@@ -61,6 +61,50 @@ function vantage_customizer_init(){
 				'selector' => 'h1,h2,h3,h4,h5,h6',
 			),
 
+			// Font sizes
+
+			'page_title_size' => array(
+				'type' => 'measurement',
+				'title' => __('Page Title Size', 'vantage'),
+				'default' => 20,
+				'unit' => 'px',
+				'selector' => '#page-title, article.post .entry-header h1.entry-title, article.page .entry-header h1.entry-title',
+				'property' => array('font-size'),
+			),
+
+			'page_title_color' => array(
+				'type' => 'color',
+				'title' => __('Page Title Color', 'vantage'),
+				'default' => '#3b3b3b',
+				'selector' => '#page-title, article.post .entry-header h1.entry-title, article.page .entry-header h1.entry-title',
+				'property' => array('color'),
+			),
+
+			'content_size' => array(
+				'type' => 'measurement',
+				'title' => __('Content Size', 'vantage'),
+				'default' => 13,
+				'unit' => 'px',
+				'selector' => '.entry-content',
+				'property' => array('font-size'),
+			),
+
+			'content_color' => array(
+				'type' => 'color',
+				'title' => __('Content Color', 'vantage'),
+				'default' => '#666666',
+				'selector' => '.entry-content',
+				'property' => array('color'),
+			),
+
+			'content_heading_color' => array(
+				'type' => 'color',
+				'title' => __('Content Heading Color', 'vantage'),
+				'default' => '#444444',
+				'selector' => '.entry-content h1,.entry-content h2,.entry-content h3,.entry-content h4,.entry-content h5,.entry-content h6',
+				'property' => array('color'),
+			),
+
 		),
 
 		'vantage_general' => array(
