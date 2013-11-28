@@ -1,3 +1,8 @@
+<?php
+/**
+ * Part Name: Default Footer
+ */
+?>
 <footer id="colophon" class="site-footer" role="contentinfo">
 
 	<div id="footer-widgets" class="full-container">
