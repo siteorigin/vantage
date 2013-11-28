@@ -32,6 +32,8 @@ Change Log
 * Fixed image with caption center alignment.
 * Fixed WordPress gallery layout.
 * Fixed content width.
+* Fixed intermittent problem with menu hovers.
+* Premium: Added more customization options.
 
 #### 1.1.4
 * Fixed Circle Icon widget clash with FontAwesome CSS.
