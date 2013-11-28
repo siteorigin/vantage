@@ -89,7 +89,7 @@ function vantage_setup() {
 	));
 
 	global $content_width, $vantage_site_width;
-	if ( ! isset( $content_width ) ) $content_width = 789; /* pixels */
+	if ( ! isset( $content_width ) ) $content_width = 720; /* pixels */
 
 	if ( ! isset( $vantage_site_width ) ) {
 		$vantage_site_width = siteorigin_setting('layout_bound') == 'full' ? 1080 : 1010;
