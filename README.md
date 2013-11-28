@@ -27,6 +27,10 @@ Bundled Resources
 Change Log
 ---------------
 
+#### 1.1.6
+* Fixed header resizing for header widget area.
+* Added way for child themes to specify their own masthead and footer files.
+
 #### 1.1.5
 * Fixed image margins.
 * Fixed image with caption center alignment.

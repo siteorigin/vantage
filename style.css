@@ -536,7 +536,6 @@ header#masthead hgroup:after {
   clear: both;
 }
 header#masthead hgroup a {
-  color: inherit;
   text-decoration: none;
 }
 header#masthead hgroup h1 {
@@ -737,12 +736,22 @@ body.responsive.layout-full #page-wrapper .full-container {
   background: #343538;
   font-size: 13px;
   position: relative;
+  /* Font awesome icons */
+
   /* General menu link styling */
 
   /* For when the menu becomes a sticky menu */
 
-  /* Font awesome icons */
-
+}
+.main-navigation [class^="icon-"] {
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 16px;
+  line-height: 0.5em;
+  color: #CCCCCC;
+}
+.main-navigation a:hover [class^="icon-"] {
+  color: #FFFFFF;
 }
 .main-navigation ul {
   list-style: none;
@@ -828,16 +837,6 @@ body.responsive.layout-full #page-wrapper .full-container {
   -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
   -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
   box-shadow: 0 2px 1px rgba(0,0,0,0.15);
-}
-.main-navigation [class^="icon-"] {
-  display: inline-block;
-  margin-right: 15px;
-  font-size: 16px;
-  line-height: 0.5em;
-  color: #CCCCCC;
-}
-.main-navigation a:hover [class^="icon-"] {
-  color: #FFFFFF;
 }
 body.has-menu-search .main-navigation ul {
   margin-right: 59px;

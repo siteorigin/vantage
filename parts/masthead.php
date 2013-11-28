@@ -1,3 +1,8 @@
+<?php
+/**
+ * Part Name: Default Masthead
+ */
+?>
 <header id="masthead" class="site-header" role="banner">
 
 	<hgroup class="full-container">
@@ -16,7 +21,8 @@
 			</div>
 
 		<?php endif; ?>
-	</hgroup>
+
+	</hgroup><!-- hgroup.full-container -->
 
 	<nav role="navigation" class="site-navigation main-navigation primary <?php if( siteorigin_setting('navigation_use_sticky_menu') ) echo 'use-sticky-menu' ?>">
 		<div class="full-container">
