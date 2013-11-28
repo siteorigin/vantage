@@ -94,12 +94,12 @@ jQuery(function($){
             $ul.css({
                 'display' : 'block',
                 'opacity' : 0
-            }).clearQueue().animate({opacity: 1}, 'fast');
+            }).clearQueue().animate({opacity: 1}, 400);
         } )
         .on('mouseleave', '.main-navigation ul li', function(){
             var $$ = $(this);
             var $ul = $$.find('> ul');
-            $ul.clearQueue().animate({opacity: 0}, 'fast', function(){$ul.css('display', 'none')});
+            $ul.clearQueue().animate({opacity: 0}, 400, function(){ $ul.css('display', 'none') });
         } );
 
     // The search bar
