@@ -662,13 +662,10 @@ body.responsive {
 
 		/* Second level menu items */
 		ul {
-			.transition(0.35s);
 			.box-shadow(~"0 1px 2px rgba(0,0,0,0.15)");
 
 			background: #464646;
-			visibility: hidden;
-            opacity:0;
-			pointer-events: none;
+			display: none;
 
 			position: absolute;
 			top: 100%;
@@ -701,9 +698,7 @@ body.responsive {
 
 		li:hover {
 			> ul {
-				visibility: visible !important;
-				opacity:1 !important;
-				pointer-events: auto !important;
+				display: block;
 			}
 		}
 	}
