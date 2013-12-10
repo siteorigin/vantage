@@ -212,7 +212,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Icon Color', 'vantage'),
 				'default' => '#CCCCCC',
-				'selector' => '.main-navigation [class^="icon-"]',
+				'selector' => '.main-navigation [class^="icon-"], .main-navigation .mobile-nav-icon',
 				'property' => 'color',
 			),
 
@@ -220,7 +220,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Icon Hover Color', 'vantage'),
 				'default' => '#FFFFFF',
-				'selector' => '.main-navigation a:hover [class^="icon-"]',
+				'selector' => '.main-navigation a:hover [class^="icon-"], .main-navigation a:hover .mobile-nav-icon',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -336,7 +336,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Headings', 'vantage'),
 				'default' => '#e2e2e2',
-				'selector' => '#footer-widgets .widget h1.widget-title',
+				'selector' => '#footer-widgets .widget .widget-title',
 				'property' => 'color',
 			),
 
