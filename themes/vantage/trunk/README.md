@@ -30,6 +30,9 @@ Change Log
 #### 1.1.6
 * Fixed header resizing for header widget area.
 * Added way for child themes to specify their own masthead and footer files.
+* Premium: Fixed customizer setting for footer widgets.
+* Premium: Improved mobile navigation.
+
 
 #### 1.1.5
 * Fixed image margins.
