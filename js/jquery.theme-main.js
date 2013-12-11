@@ -215,13 +215,23 @@ jQuery(function($){
         })
     }
 
-    // Resize the header
+    // Resize the header widget area
     $('#header-sidebar').each(function(){
         var $$ = $(this);
         var padding = ( $$.outerHeight() - $$.find('> *').outerHeight() ) / 2;
-        $$.css({
-            'padding-top' : padding,
-            'padding-bottom' : padding
-        })
+
+        if(padding > 15) {
+            $$.css({
+                'padding-top' : padding,
+                'padding-bottom' : padding
+            });
+        }
+        else{
+            padding = -padding + 15;
+            $('header#masthead .logo > *').css({
+                'padding-top' : padding,
+                'padding-bottom' : padding
+            });
+        }
     })
 });

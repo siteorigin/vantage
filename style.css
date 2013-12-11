@@ -569,21 +569,22 @@ header#masthead hgroup #header-sidebar {
   position: absolute;
   right: 0;
   top: 0;
+  overflow: hidden;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /* Center align layout. Based on old CSS3 spec, so update when new spec is available */
 
-  display: -ms-flexbox;
   -ms-flex-pack: center;
   -ms-flex-align: center;
-  display: -moz-box;
+  display: -ms-flexbox;
   -moz-box-pack: center;
   -moz-box-align: center;
-  display: -webkit-box;
+  display: -moz-box;
   -webkit-box-pack: center;
   -webkit-box-align: center;
+  display: -webkit-box;
   display: box;
   box-pack: center;
   box-align: center;
@@ -596,6 +597,18 @@ header#masthead hgroup #header-sidebar aside.widget {
 header#masthead hgroup #header-sidebar .widget-title {
   font-weight: bold;
   margin-bottom: 5px;
+}
+header#masthead.masthead-logo-in-menu .logo {
+  float: left;
+  padding: 12px 0;
+  margin-right: 15px;
+}
+header#masthead.masthead-logo-in-menu .logo > * {
+  display: block;
+}
+header#masthead.masthead-logo-in-menu .logo > img {
+  max-height: 35px;
+  width: auto;
 }
 body.ie-8 header#masthead hgroup #header-sidebar,
 body.ie-9 header#masthead hgroup #header-sidebar {
@@ -667,6 +680,22 @@ body.no-sidebar #primary {
     max-width: 100%;
     height: auto;
   }
+  body.responsive header#masthead.masthead-logo-in-menu .logo {
+    margin-left: 20px;
+  }
+  body.responsive header#masthead.masthead-logo-in-menu .main-navigation .menu-mobilenav-container ul {
+    margin-right: 0;
+  }
+  body.responsive header#masthead.masthead-logo-in-menu .main-navigation .menu-mobilenav-container ul li {
+    float: right;
+  }
+  body.responsive header#masthead.masthead-logo-in-menu .main-navigation .menu-mobilenav-container ul li a {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  body.responsive header#masthead.masthead-logo-in-menu #search-icon-icon {
+    display: none;
+  }
 }
 /* We consider 680px to be mobile resolution */
 @media (max-width: 680px) {
@@ -678,6 +707,8 @@ body.no-sidebar #primary {
   }
   body.responsive header#masthead hgroup .logo img {
     margin: 0 auto;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
   }
   body.responsive header#masthead hgroup .support-text,
   body.responsive header#masthead hgroup #header-sidebar {
@@ -695,6 +726,11 @@ body.no-sidebar #primary {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     height: auto;
+  }
+  body.responsive header#masthead hgroup #header-sidebar .widget {
+    display: block;
+    margin: 0 auto;
+    float: none;
   }
   body.responsive #primary,
   body.responsive #secondary {
