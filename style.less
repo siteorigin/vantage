@@ -414,27 +414,27 @@ header#masthead {
 			position: absolute;
 			right: 0;
 			top: 0;
+			overflow: hidden;
 
 			.box-sizing(border-box);
 
 			/* Center align layout. Based on old CSS3 spec, so update when new spec is available */
 
-			display:-ms-flexbox;
 			-ms-flex-pack:center;
 			-ms-flex-align:center;
+			display:-ms-flexbox;
 
-			display:-moz-box;
 			-moz-box-pack:center;
 			-moz-box-align:center;
+			display:-moz-box;
 
-			display:-webkit-box;
 			-webkit-box-pack:center;
 			-webkit-box-align:center;
+			display:-webkit-box;
 
 			display:box;
 			box-pack:center;
 			box-align:center;
-
 
 			aside.widget {
 				margin-bottom: 0;
@@ -445,6 +445,23 @@ header#masthead {
 			.widget-title {
 				font-weight: bold;
 				margin-bottom: 5px;
+			}
+		}
+	}
+
+	&.masthead-logo-in-menu {
+		.logo {
+			float: left;
+			padding: 12px 0;
+			margin-right: 15px;
+
+			> * {
+				display: block;
+			}
+
+			> img {
+				max-height: 35px;
+				width: auto;
 			}
 		}
 	}
@@ -530,6 +547,29 @@ body.no-sidebar #primary {
 					height: auto;
 				}
 			}
+
+			&.masthead-logo-in-menu {
+				.logo {
+					margin-left: 20px;
+				}
+
+				.main-navigation .menu-mobilenav-container ul {
+					margin-right: 0;
+					li {
+						float: right;
+
+						a {
+							padding-left: 20px;
+							padding-right: 20px;
+						}
+
+					}
+				}
+
+				#search-icon-icon {
+					display: none;
+				}
+			}
 		}
 	}
 }
@@ -547,6 +587,8 @@ body.no-sidebar #primary {
 
 					img {
 						margin: 0 auto;
+						padding-top: 0px !important;
+						padding-bottom: 0px !important;
 					}
 				}
 
@@ -566,6 +608,12 @@ body.no-sidebar #primary {
 					padding-top: 0 !important;
 					padding-bottom: 0 !important;
 					height: auto;
+
+					.widget{
+						display: block;
+						margin: 0 auto;
+						float: none;
+					}
 				}
 
 			}
