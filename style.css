@@ -2916,6 +2916,14 @@ body.layout-full {
   font-weight: bold;
   font-size: 20px;
 }
+.woocommerce #page-wrapper .upsells.products h2 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+.woocommerce #page-wrapper .upsells.products ul.products li.product {
+  max-width: 150px;
+}
 .woocommerce-page #container {
   float: left;
   width: 71.287%;
