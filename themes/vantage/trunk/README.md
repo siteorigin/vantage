@@ -33,6 +33,7 @@ Change Log
 * Added way for child themes to specify their own masthead and footer files.
 * Added a different masthead layout - with logo in the menu.
 * Small WordPress 3.8 fixes.
+* WooCommerce CSS fixes.
 * Premium: Fixed customizer setting for footer widgets.
 * Premium: Improved mobile navigation.
 
