@@ -27,6 +27,9 @@ Bundled Resources
 Change Log
 ---------------
 
+#### 1.1.7
+* Fixed issue in settings section of admin.
+
 #### 1.1.6
 * Fixed header resizing for header widget area.
 * Fixed bug that occurred when using a large widget in the header area.
