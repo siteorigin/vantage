@@ -223,6 +223,7 @@ function vantage_category_transient_flusher() {
 add_action( 'edit_category', 'vantage_category_transient_flusher' );
 add_action( 'save_post', 'vantage_category_transient_flusher' );
 
+if( !function_exists( 'vantage_get_archive_title' ) ) :
 /**
  * Return the archive title depending on which page is being displayed.
  * 
@@ -262,6 +263,7 @@ function vantage_get_archive_title(){
 	
 	return apply_filters('vantage_archive_title', $title);
 }
+endif;
 
 /**
  * Get the post meta.
@@ -352,6 +354,7 @@ function vantage_next_attachment_url($post = null){
 	return $next_attachment_url;
 }
 
+if( !function_exists( 'vantage_pagination' ) ) :
 /**
  * Display the pagination
  *
@@ -374,13 +377,14 @@ function vantage_pagination($pages = '', $range = 2) {
 
 	if(1 != $pages) {
 		echo "<div class='pagination'>";
-		echo paginate_links(array(
+		echo paginate_links( array(
 			'total' => $pages,
 			'current' => $paged,
 			'mid_size' => $showitems,
-			'format' => ( $wp_rewrite->permalink_structure == '' || is_search() ) ? ( strpos(get_pagenum_link(false), '?') === false ? '?paged=%#%' : '&paged=%#%' ) : 'page/%#%/',
+			'format' => ( $wp_rewrite->permalink_structure == '' || is_search() ) ? ( strpos(get_pagenum_link(false), '?') === false ? '?paged=%#%' : '&paged=%#%' ) : '/page/%#%/',
 			'base' => get_pagenum_link(false).'%_%',
-		));
+		) );
 		echo "</div>\n";
 	}
 }
+endif;
