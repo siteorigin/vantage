@@ -27,6 +27,11 @@ Bundled Resources
 Change Log
 ---------------
 
+#### 1.1.8
+* Fixed circle icon widget issue.
+* Meta Slider compatibility fix.
+* Improved WooCommerce responsive.
+
 #### 1.1.7
 * Fixed issue in settings section of admin.
 
