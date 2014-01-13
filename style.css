@@ -610,6 +610,9 @@ header#masthead.masthead-logo-in-menu .logo > img {
   max-height: 35px;
   width: auto;
 }
+.layout-boxed header#masthead.masthead-logo-in-menu .logo {
+  margin-left: 25px;
+}
 body.ie-8 header#masthead hgroup #header-sidebar,
 body.ie-9 header#masthead hgroup #header-sidebar {
   padding-top: 40px;
