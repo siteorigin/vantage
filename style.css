@@ -593,6 +593,10 @@ header#masthead hgroup #header-sidebar aside.widget {
   margin-bottom: 0;
   float: right;
   position: relative;
+  margin-right: 25px;
+}
+header#masthead hgroup #header-sidebar aside.widget:last-child {
+  margin-right: 0;
 }
 header#masthead hgroup #header-sidebar .widget-title {
   font-weight: bold;
