@@ -2953,4 +2953,10 @@ body.layout-full {
     float: none;
     width: auto;
   }
+  body.responsive.woocommerce-page .col2-set .col-1,
+  body.responsive.woocommerce-page .col2-set .col-2 {
+    display: block;
+    float: none;
+    width: auto;
+  }
 }
