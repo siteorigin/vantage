@@ -151,7 +151,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		</p>
         <p>
             <label for="<?php echo $this->get_field_id('all_linkable') ?>">
-                <input type="checkbox" id="<?php echo $this->get_field_id('all_linkable') ?>" name="<?php echo $this->get_field_name('all_linkable') ?>" <?php checked($instance['all_linkable']) ?> />
+                <input type="checkbox" id="<?php echo $this->get_field_id('all_linkable') ?>" name="<?php echo $this->get_field_name('all_linkable') ?>" <?php checked( $instance['all_linkable'] ) ?> />
                 <?php _e('Link title and icon to "More URL"', 'vantage') ?>
             </label>
         </p>
@@ -168,6 +168,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 
 	public function update( $new_instance, $old_instance ) {
 		$new_instance['box'] = !empty($new_instance['box']);
+		$new_instance['all_linkable'] = !empty($new_instance['all_linkable']);
 		return $new_instance;
 	}
 }
