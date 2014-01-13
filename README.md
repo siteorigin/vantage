@@ -31,7 +31,8 @@ Change Log
 * Fixed circle icon widget issue.
 * Meta Slider compatibility fix.
 * Improved WooCommerce responsive.
-* Fixed CSS for WooCommerce.
+* Fixed CSS for WooCommerce checkout to make it responsive.
+* Added CSS for WooCommerce product list widgets.
 * Fixed logo spacing with logo in menu and boxed layout combination.
 
 #### 1.1.7
