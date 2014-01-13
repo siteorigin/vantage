@@ -279,11 +279,11 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id('title') ?>"><?php _e('Title') ?></label><br/>
+			<label for="<?php echo $this->get_field_id('title') ?>"><?php _e('Title', 'vantage') ?></label><br/>
 			<input type="text" name="<?php echo $this->get_field_name('title') ?>" id="<?php echo $this->get_field_id('title') ?>" value="<?php echo esc_attr($instance['title']) ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('size') ?>"><?php _e('Icon Size') ?></label><br/>
+			<label for="<?php echo $this->get_field_id('size') ?>"><?php _e('Icon Size', 'vantage') ?></label><br/>
 			<select id="<?php echo $this->get_field_id('size') ?>" name="<?php echo $this->get_field_name('size') ?>">
 				<?php foreach($sizes as $id => $name) : ?>
 					<option value="<?php echo esc_attr($id) ?>" <?php selected($instance['size'], $id) ?>><?php echo esc_html($name) ?></option>
@@ -304,7 +304,7 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 		?>
 		<p>
 			<input type="checkbox" name="<?php echo $this->get_field_name('new_window') ?>" id="<?php echo $this->get_field_id('new_window') ?>" <?php checked($instance['new_window']) ?> />
-			<label for="<?php echo $this->get_field_id('new_window') ?>"><?php _e('Open in New Window') ?></label>
+			<label for="<?php echo $this->get_field_id('new_window') ?>"><?php _e('Open in New Window', 'vantage') ?></label>
 
 		</p>
 		<?php

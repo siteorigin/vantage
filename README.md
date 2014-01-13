@@ -35,6 +35,7 @@ Change Log
 * Added CSS for WooCommerce product list widgets.
 * Fixed logo spacing with logo in menu and boxed layout combination.
 * Added right margin to header widgets when there are more than 1.
+* Added missing text domains.
 
 #### 1.1.7
 * Fixed issue in settings section of admin.
