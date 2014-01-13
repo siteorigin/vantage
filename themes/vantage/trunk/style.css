@@ -2963,3 +2963,44 @@ body.layout-full {
     width: auto;
   }
 }
+/* The WooCommerce Widgets */
+.widget .product_list_widget {
+  margin: 0;
+  list-style: none;
+  margin-right: -10px;
+  zoom: 1;
+}
+.widget .product_list_widget:before {
+  content: '';
+  display: block;
+}
+.widget .product_list_widget:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.widget .product_list_widget li {
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-left: 0;
+  width: 33%;
+  padding-right: 10px;
+  float: left;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.widget .product_list_widget li img {
+  width: 100%;
+  height: auto;
+}
+.widget .product_list_widget li a {
+  text-decoration: none;
+  color: #444444;
+  font-weight: 500;
+  line-height: 1.1em;
+}
+.widget .product_list_widget li span.amount {
+  display: block;
+}
