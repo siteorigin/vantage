@@ -158,7 +158,7 @@ function vantage_theme_settings(){
 			'large' => __('Large', 'vantage'),
 			'icon' => __('Small Icon', 'vantage'),
 		),
-		'description' => __('Show the featured image on a post single page.', 'vantage')
+		'description' => __('Size of the featured image in the blog post archives.', 'vantage')
 	) );
 
 	/**

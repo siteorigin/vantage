@@ -220,7 +220,11 @@ jQuery(function($){
     // Resize the header widget area
     $('#header-sidebar').each(function(){
         var $$ = $(this);
-        var padding = ( $$.outerHeight() - $$.find('> *').outerHeight() ) / 2;
+        var padding = 0;
+        $$.find('> aside').each(function(){
+            var thisPadding = ( $$.outerHeight() - $$.find('> aside').outerHeight() ) / 2;
+            if(thisPadding > padding) padding = thisPadding;
+        });
 
         if(padding > 15) {
             $$.css({
@@ -235,5 +239,6 @@ jQuery(function($){
                 'padding-bottom' : padding
             });
         }
-    })
+    });
+
 });
