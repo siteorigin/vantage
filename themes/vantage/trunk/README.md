@@ -27,6 +27,10 @@ Bundled Resources
 Change Log
 ---------------
 
+#### 1.1.9
+* Fixed header widget resizing.
+* Minor typo fixes.
+
 #### 1.1.8
 * Fixed circle icon widget issue.
 * Meta Slider compatibility fix.
@@ -35,7 +39,7 @@ Change Log
 * Added CSS for WooCommerce product list widgets.
 * Fixed logo spacing with logo in menu and boxed layout combination.
 * Added right margin to header widgets when there are more than 1.
-* Added missing text domains.
+* Added missing translation text domains.
 
 #### 1.1.7
 * Fixed issue in settings section of admin.
