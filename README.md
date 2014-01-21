@@ -27,7 +27,7 @@ Bundled Resources
 Change Log
 ---------------
 
-#### 1.1.9
+#### 1.1.9 (under development)
 * Fixed header widget resizing.
 * Minor typo fixes.
 
