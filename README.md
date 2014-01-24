@@ -30,6 +30,7 @@ Change Log
 #### 1.1.9 (under development)
 * Fixed header widget resizing.
 * Minor typo fixes.
+* Premium: Added customization for logo centering and removing content image drop shadow.
 
 #### 1.1.8
 * Fixed circle icon widget issue.
