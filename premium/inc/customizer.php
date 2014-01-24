@@ -108,6 +108,7 @@ function vantage_customizer_init(){
 		),
 
 		'vantage_general' => array(
+
 			'header_padding' => array(
 				'type' => 'measurement',
 				'title' => __('Header Padding', 'vantage'),
@@ -115,6 +116,13 @@ function vantage_customizer_init(){
 				'unit' => 'px',
 				'selector' => 'header#masthead hgroup',
 				'property' => array('padding-top', 'padding-bottom'),
+			),
+
+			'logo_centered' => array(
+				'type' => 'checkbox',
+				'title' => __('Center Logo', 'vantage'),
+				'default' => false,
+				'callback' => 'vantage_customizer_callback_logo_center',
 			),
 
 			'link_color' => array(
@@ -134,6 +142,7 @@ function vantage_customizer_init(){
 				'property' => 'color',
 				'no_live' => true,
 			),
+
 		),
 
 		// The main menu
@@ -312,6 +321,13 @@ function vantage_customizer_init(){
 				'property' => 'background-image',
 			),
 
+			'image_shadow' => array(
+				'type' => 'checkbox',
+				'title' => __('Image Shadow and Rounding', 'vantage'),
+				'default' => true,
+				'callback' => 'vantage_customizer_callback_image_shadow',
+			),
+
 		),
 
 		'vantage_footer' => array(
@@ -371,10 +387,7 @@ function vantage_customizer_init(){
 				'selector' => '#colophon #theme-attribution a, #colophon #site-info a',
 				'property' => 'color',
 			),
-
 		),
-
-
 	) );
 
 	// Include all the SiteOrigin customizer classes
@@ -403,3 +416,36 @@ function vantage_customizer_style() {
 	echo $builder->css();
 }
 add_action('wp_head', 'vantage_customizer_style', 20);
+
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ */
+function vantage_customizer_callback_logo_center($builder, $val, $setting){
+	if( $val ) {
+		$builder->add_css('header#masthead hgroup .logo', 'float', 'none');
+		$builder->add_css('header#masthead hgroup .logo img', 'display', 'block');
+		$builder->add_css('header#masthead hgroup .logo img', 'margin', '0 auto');
+	}
+
+	return $builder;
+}
+
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ */
+function vantage_customizer_callback_image_shadow($builder, $val, $setting){
+	if( !$val ) {
+		$builder->add_css('.entry-content img', '-webkit-border-radius', '0 !important');
+		$builder->add_css('.entry-content img', '-moz-border-radius', '0 !important');
+		$builder->add_css('.entry-content img', 'border-radius', '0 !important');
+		$builder->add_css('.entry-content img', '-webkit-box-shadow', 'none !important');
+		$builder->add_css('.entry-content img', '-moz-box-shadow', 'none !important');
+		$builder->add_css('.entry-content img', 'box-shadow', 'none !important');
+	}
+
+	return $builder;
+}
