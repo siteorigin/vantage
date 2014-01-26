@@ -27,7 +27,7 @@ Bundled Resources
 Change Log
 ---------------
 
-#### 1.1.9 (under development)
+#### 1.1.9
 * Fixed header widget resizing.
 * Minor typo fixes.
 * Fixed responsive layout for circle icon post loop.
