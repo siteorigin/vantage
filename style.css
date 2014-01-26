@@ -2850,12 +2850,14 @@ body.layout-full {
   margin-top: 20px;
 }
 @media (max-width: 640px) {
-  body.responsive .vantage-grid-loop article {
+  body.responsive .vantage-grid-loop article,
+  body.responsive .vantage-circleicon-loop .widget_circleicon-widget {
     width: 50%;
   }
 }
 @media (max-width: 480px) {
-  body.responsive .vantage-grid-loop article {
+  body.responsive .vantage-grid-loop article,
+  body.responsive .vantage-circleicon-loop .widget_circleicon-widget {
     float: none;
     width: 100%;
   }
