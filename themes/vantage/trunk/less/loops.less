@@ -203,15 +203,21 @@
 }
 
 @media (max-width:640px) {
-	body.responsive .vantage-grid-loop article {
-		width: 50%;
+	body.responsive {
+		.vantage-grid-loop article,
+		.vantage-circleicon-loop .widget_circleicon-widget {
+			width: 50%;
+		}
 	}
 }
 
 @media (max-width:480px) {
-	body.responsive .vantage-grid-loop article {
-		float: none;
-		width: 100%;
+	body.responsive {
+		.vantage-grid-loop article,
+		.vantage-circleicon-loop .widget_circleicon-widget {
+			float: none;
+			width: 100%;
+		}
 	}
 }
 

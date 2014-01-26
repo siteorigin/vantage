@@ -30,7 +30,10 @@ Change Log
 #### 1.1.9 (under development)
 * Fixed header widget resizing.
 * Minor typo fixes.
+* Fixed responsive layout for circle icon post loop.
 * Premium: Added customization for logo centering and removing content image drop shadow.
+* Premium: Added customisation for current menu item.
+* Premium: Fixed icon hover color customize.
 
 #### 1.1.8
 * Fixed circle icon widget issue.
