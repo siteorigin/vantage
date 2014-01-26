@@ -229,7 +229,25 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Icon Hover Color', 'vantage'),
 				'default' => '#FFFFFF',
-				'selector' => '.main-navigation a:hover [class^="icon-"], .main-navigation a:hover .mobile-nav-icon',
+				'selector' => '.main-navigation ul li:hover > a [class^="icon-"], .main-navigation ul li:hover > a .mobile-nav-icon',
+				'property' => 'color',
+				'no_live' => true,
+			),
+
+			'current_background' => array(
+				'type' => 'color',
+				'title' => __('Current Page Background', 'vantage'),
+				'default' => '#343538',
+				'selector' => '.main-navigation ul li.current-menu-item > a',
+				'property' => 'background-color',
+				'no_live' => true,
+			),
+
+			'current_text' => array(
+				'type' => 'color',
+				'title' => __('Current Page Text', 'vantage'),
+				'default' => '#FFFFFF',
+				'selector' => '.main-navigation ul li.current-menu-item > a, .main-navigation ul li.current-menu-item > a [class^="icon-"]',
 				'property' => 'color',
 				'no_live' => true,
 			),
