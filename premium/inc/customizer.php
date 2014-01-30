@@ -285,6 +285,15 @@ function vantage_customizer_init(){
 				'property' => array('padding-top', 'padding-bottom'),
 			),
 
+			'widget_menu_border' => array(
+				'type' => 'color',
+				'title' => __('Header Widget Menu Border Color', 'vantage'),
+				'default' => '#00bcff',
+				'selector' => '#header-sidebar .widget_nav_menu ul.menu > li > ul.sub-menu',
+				'property' => array('border-top-color'),
+				'no_live' => true,
+			),
+
 		),
 
 		'vantage_widgets' => array(

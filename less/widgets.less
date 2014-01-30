@@ -583,6 +583,84 @@
 	}
 }
 
+/* =Custom Menu Widget in Header Area
+----------------------------------------------- */
+
+#header-sidebar {
+	.widget_nav_menu {
+		ul.menu {
+			margin: 0;
+
+			> li{
+				list-style: none;
+				display: inline-block;
+				margin-right: 20px;
+				position: relative;
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+				> a {
+					display: block;
+					text-decoration: none;
+					color: #666666;
+					font-weight: 500;
+					padding: 0.75em 0;
+					line-height: 1em;
+				}
+
+				ul.sub-menu {
+					display: none;
+					position: absolute;
+					margin: 0;
+					z-index:100;
+
+					border: 1px solid #E6E6E6;
+
+					.box-shadow(~"0 1px 1px rgba(0,0,0,0.1)");
+
+					top: 2.5em;
+					left: -10px;
+					background: white;
+
+
+					li {
+						position: relative;
+						list-style: none;
+						width: 160px;
+						.box-sizing(border-box);
+						padding: 10px 10px;
+
+						a {
+							display: block;
+							text-decoration: none;
+							color: #888888;
+						}
+					}
+
+					ul {
+						display: none;
+						top: -1px;
+						left: 160px;
+					}
+				}
+
+				> ul.sub-menu {
+					border-top: 2px solid #00bcff;
+				}
+			}
+
+			li:hover {
+				> ul.sub-menu {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+
 /* =Some row styling for page builder
 ----------------------------------------------- */
 

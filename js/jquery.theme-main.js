@@ -108,6 +108,21 @@ jQuery(function($){
             $ul.data('final-opacity', 0);
         } );
 
+    // Hover for the menu widget in the header
+    $('#header-sidebar .widget_nav_menu')
+        .on('mouseenter', 'ul.menu li', function(){
+            var $$ = $(this);
+            var $ul = $$.find('> ul');
+            $ul.finish().css('opacity', 0)
+                .hide().slideDown(200)
+                .animate( { opacity: 1 }, { queue: false, duration: 200 } );
+        } )
+        .on('mouseleave', 'ul.menu li', function(){
+            var $$ = $(this);
+            var $ul = $$.find('> ul');
+            $ul.finish().fadeOut(150);
+        } );
+
     // The search bar
     var isSearchHover = false;
     $(document).click(function(){
