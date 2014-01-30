@@ -27,6 +27,10 @@ Bundled Resources
 Change Log
 ---------------
 
+#### 1.1.10 (under development)
+* Added support for a custom menu widget in the header widget area.
+* Premium: Added customization for the menu widget in the header widget area.
+
 #### 1.1.9
 * Fixed header widget resizing.
 * Minor typo fixes.
