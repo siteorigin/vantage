@@ -56,12 +56,17 @@ function vantage_theme_settings(){
 			'boxed' => __('Boxed', 'vantage'),
 			'full' => __('Full Width', 'vantage'),
 		),
-		'description' => __('Use a special responsive menu for small screen devices.', 'vantage')
+		'description' => __('Change the width of the bounding box.', 'vantage')
 	) );
 
 	siteorigin_settings_add_field('layout', 'masthead', 'select', __('Masthead Layout', 'vantage'), array(
 		'options' => siteorigin_settings_template_part_names('parts/masthead', 'Part Name'),
 		'description' => __("Change which header area layout you're using.", 'vantage')
+	) );
+
+	siteorigin_settings_add_field('layout', 'menu', 'select', __('Masthead Menu', 'vantage'), array(
+		'options' => siteorigin_settings_template_part_names('parts/menu', 'Part Name'),
+		'description' => __("Choose how the masthead menu is displayed.", 'vantage')
 	) );
 
 	siteorigin_settings_add_field('layout', 'footer', 'select', __('Footer Layout', 'vantage'), array(

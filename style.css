@@ -569,7 +569,6 @@ header#masthead hgroup #header-sidebar {
   position: absolute;
   right: 0;
   top: 0;
-  overflow: hidden;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -779,6 +778,7 @@ body.responsive.layout-full #page-wrapper .full-container {
   background: #343538;
   font-size: 13px;
   position: relative;
+  min-height: 35px;
   /* Font awesome icons */
 
   /* General menu link styling */
@@ -2602,6 +2602,67 @@ body.layout-full {
     display: inline-block;
     float: none;
   }
+}
+/* =Custom Menu Widget in Header Area
+----------------------------------------------- */
+#header-sidebar .widget_nav_menu ul.menu {
+  margin: 0;
+}
+#header-sidebar .widget_nav_menu ul.menu > li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+}
+#header-sidebar .widget_nav_menu ul.menu > li:last-child {
+  margin-right: 0;
+}
+#header-sidebar .widget_nav_menu ul.menu > li > a {
+  display: block;
+  text-decoration: none;
+  color: #666666;
+  font-weight: 500;
+  padding: 0.75em 0;
+  line-height: 1em;
+}
+#header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu {
+  display: none;
+  position: absolute;
+  margin: 0;
+  z-index: 100;
+  border: 1px solid #E6E6E6;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  top: 2.5em;
+  left: -10px;
+  background: white;
+}
+#header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu li {
+  position: relative;
+  list-style: none;
+  width: 160px;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 10px;
+}
+#header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu li a {
+  display: block;
+  text-decoration: none;
+  color: #888888;
+}
+#header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu ul {
+  display: none;
+  top: -1px;
+  left: 160px;
+}
+#header-sidebar .widget_nav_menu ul.menu > li > ul.sub-menu {
+  border-top: 2px solid #00bcff;
+}
+#header-sidebar .widget_nav_menu ul.menu li:hover > ul.sub-menu {
+  display: block;
 }
 /* =Some row styling for page builder
 ----------------------------------------------- */
