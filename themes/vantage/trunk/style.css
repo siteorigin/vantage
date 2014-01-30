@@ -2620,7 +2620,7 @@ body.layout-full {
 #header-sidebar .widget_nav_menu ul.menu > li > a {
   display: block;
   text-decoration: none;
-  color: #666666;
+  color: #555555;
   font-weight: 500;
   padding: 0.75em 0;
   line-height: 1em;
@@ -2651,7 +2651,7 @@ body.layout-full {
 #header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu li a {
   display: block;
   text-decoration: none;
-  color: #888888;
+  color: #777777;
 }
 #header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu ul {
   display: none;
