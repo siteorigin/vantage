@@ -2668,6 +2668,10 @@ body.layout-full {
 ----------------------------------------------- */
 .panel-row-style {
   zoom: 1;
+  margin: 0 -20px;
+  padding: 25px 20px;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 .panel-row-style:before {
   content: '';
@@ -2682,15 +2686,13 @@ body.layout-full {
   background: #F6F6F6;
   border-top: 1px solid #DDDDDD;
   border-bottom: 1px solid #DDDDDD;
-  margin: 0 -20px;
-  padding: 25px 20px;
 }
-.layout-full .panel-row-style-wide-grey {
+.layout-full .panel-row-style {
   margin: 0 -1000px;
   padding: 25px 1000px 25px 1000px;
 }
 @media (max-width: 680px) {
-  body.responsive.layout-boxed .panel-row-style-wide-grey {
+  body.responsive.layout-boxed .panel-row-style {
     margin: 0 -35px;
     padding: 25px 35px;
   }

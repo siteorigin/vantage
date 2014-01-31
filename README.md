@@ -29,6 +29,7 @@ Change Log
 
 #### 1.1.10 (under development)
 * Added support for a custom menu widget in the header widget area.
+* Added support for advanced row styles in Page Builder 1.4.4.
 * Premium: Added customization for the menu widget in the header widget area.
 
 #### 1.1.9
