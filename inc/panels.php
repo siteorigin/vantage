@@ -221,6 +221,11 @@ function vantage_panels_row_style_fields($fields) {
 		'type' => 'url',
 	);
 
+	$fields['background_image_repeat'] = array(
+		'name' => __('Repeat Background Image', 'vantage'),
+		'type' => 'checkbox',
+	);
+
 	$fields['no_margin'] = array(
 		'name' => __('No Bottom Margin', 'vantage'),
 		'type' => 'checkbox',
@@ -237,6 +242,7 @@ function vantage_panels_panels_row_style_attributes($attr, $style) {
 	if(!empty($style['bottom_border'])) $attr['style'] .= 'border-bottom: 1px solid '.$style['bottom_border'].'; ';
 	if(!empty($style['background'])) $attr['style'] .= 'background-color: '.$style['background'].'; ';
 	if(!empty($style['background_image'])) $attr['style'] .= 'background-image: url('.esc_url($style['background_image']).'); ';
+	if(!empty($style['background_image_repeat'])) $attr['style'] .= 'background-repeat: repeat; ';
 
 	if(empty($attr['style'])) unset($attr['style']);
 	return $attr;
