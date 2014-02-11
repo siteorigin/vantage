@@ -2688,8 +2688,8 @@ body.layout-full {
   border-bottom: 1px solid #DDDDDD;
 }
 .layout-full .panel-row-style {
-  margin: 0 -600px;
-  padding: 25px 600px 25px 600px;
+  margin: 0 -1000px;
+  padding: 25px 1000px 25px 1000px;
 }
 @media (max-width: 680px) {
   body.responsive.layout-boxed .panel-row-style {
