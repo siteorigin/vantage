@@ -27,7 +27,10 @@ Bundled Resources
 Change Log
 ---------------
 
-#### 1.1.10 (under development)
+#### 1.1.11
+* Premium: Fixed issue with Skype URLs in social widget.
+
+#### 1.1.10
 * Added support for a custom menu widget in the header widget area.
 * Added support for advanced row styles in Page Builder 1.4.4.
 * Premium: Added customization for the menu widget in the header widget area.
