@@ -28,7 +28,12 @@ Change Log
 ---------------
 
 #### 1.1.11
+* Shorten title in next and previous post links if they're too long.
+* Fixed conflict with HQ WP Photo Seller plugin.
+* Improved bundled translation file.
 * Premium: Fixed issue with Skype URLs in social widget.
+* Premium: Added responsive code for social sharing icons.
+* Premium: Fixed bug in mobile navigation search.
 
 #### 1.1.10
 * Added support for a custom menu widget in the header widget area.
