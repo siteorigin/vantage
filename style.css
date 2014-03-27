@@ -1161,6 +1161,17 @@ article.page .share-buttons li {
   display: block;
   float: left;
 }
+@media (max-width: 480px) {
+  article.post .share-buttons li,
+  article.page .share-buttons li {
+    float: none;
+    margin-bottom: 10px;
+  }
+  article.post .share-buttons li:last-child,
+  article.page .share-buttons li:last-child {
+    margin-bottom: 0;
+  }
+}
 article.post .entry-summary p:last-child,
 article.page .entry-summary p:last-child {
   margin-bottom: 0;
