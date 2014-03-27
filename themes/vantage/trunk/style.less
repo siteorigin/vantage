@@ -1046,6 +1046,17 @@ article.page{
 			display: block;
 			float: left;
 		}
+
+		@media (max-width:480px) {
+			li {
+				float: none;
+				margin-bottom: 10px;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
 	}
 
 	.entry-summary {
