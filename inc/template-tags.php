@@ -29,6 +29,9 @@ function vantage_content_nav( $nav_id ) {
 	if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
 		return;
 
+	// Add the shorten title filter
+	add_filter('the_title', 'vantage_content_nav_shorten_title');
+
 	$nav_class = 'site-navigation paging-navigation';
 	if ( is_single() )
 		$nav_class = 'site-navigation post-navigation';
@@ -52,8 +55,25 @@ function vantage_content_nav( $nav_id ) {
 
 	</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
 	<?php
+
+	// Remove the shorten title filter
+	remove_filter('the_title', 'vantage_content_nav_shorten_title');
 }
 endif; // vantage_content_nav
+
+/**
+ * Filter the title to shorten it. This is used by vantage_content_nav function.
+ *
+ * @param $title
+ * @return string
+ */
+function vantage_content_nav_shorten_title($title){
+	if(strlen($title) > 40) {
+		$title = wp_trim_words($title, 5);
+	}
+
+	return $title;
+}
 
 if ( ! function_exists( 'vantage_comment' ) ) :
 /**
