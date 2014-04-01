@@ -27,7 +27,7 @@ Bundled Resources
 Change Log
 ---------------
 
-#### 1.1.11
+#### 1.1.11 (under development)
 * Shorten title in next and previous post links if they're too long.
 * Fixed conflict with HQ WP Photo Seller plugin.
 * Improved bundled translation file.
