@@ -28,6 +28,8 @@ Change Log
 ---------------
 
 #### 1.1.11 (under development)
+* Fixed multi level hover issue in menus on mobile devices.
+* Fixed logo image HTML by adding spaces between attributes.
 * Shorten title in next and previous post links if they're too long.
 * Fixed conflict with HQ WP Photo Seller plugin.
 * Improved bundled translation file.
