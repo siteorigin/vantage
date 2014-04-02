@@ -27,7 +27,7 @@ Bundled Resources
 Change Log
 ---------------
 
-#### 1.1.11 (under development)
+#### 1.1.11
 * Fixed multi level hover issue in menus on mobile devices.
 * Fixed logo image HTML by adding spaces between attributes.
 * Shorten title in next and previous post links if they're too long.
