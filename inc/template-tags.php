@@ -204,7 +204,8 @@ function vantage_display_logo(){
 				$logo_attributes_str[] = $name.'="'.esc_attr($val).'" ';
 			}
 		}
-		$logo_html = apply_filters('vantage_logo_image', '<img '.implode($logo_attributes_str).' />');
+
+		$logo_html = apply_filters('vantage_logo_image', '<img '.implode( ' ', $logo_attributes_str ).' />');
 	}
 
 	// Echo the image
