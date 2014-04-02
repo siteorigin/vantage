@@ -887,7 +887,7 @@ body.has-menu-search .main-navigation ul {
 body.mobile-device .main-navigation ul ul {
   display: none;
 }
-body.mobile-device .main-navigation li:hover ul {
+body.mobile-device .main-navigation li:hover > ul {
   display: block;
 }
 .mobile-nav-frame [class^="icon-"] {
