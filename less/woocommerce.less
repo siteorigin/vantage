@@ -20,6 +20,19 @@
 		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 	}
 
+	h1.page-title {
+		color: #3b3b3b;
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 1.35em;
+		margin-bottom: 1em;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+
 	.product {
 		h1.entry-title{
 			font-size: 22px;
@@ -88,6 +101,41 @@
 		#content div.product div.summary {
 			float: none;
 			width: auto;
+		}
+
+
+		table.shop_table {
+			td,th {
+				padding-left: 3px;
+				padding-right: 3px;
+			}
+		}
+
+		#content table.cart .actions {
+			.coupon {
+				float: none;
+
+				#coupon_code {
+					margin-bottom: 6px;
+				}
+
+				input {
+					float: none;
+					display: block;
+					width: 100%;
+				}
+			}
+
+			> input {
+				float: none;
+				display: block;
+				width: 100%;
+				margin-bottom: 6px;
+
+				&.checkout-button {
+					margin-bottom: 0;
+				}
+			}
 		}
 
 		.col2-set {
