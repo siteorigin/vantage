@@ -590,7 +590,7 @@ header#masthead hgroup #header-sidebar {
 }
 header#masthead hgroup #header-sidebar aside.widget {
   margin-bottom: 0;
-  float: right;
+  float: left;
   position: relative;
   margin-right: 25px;
 }
@@ -1399,6 +1399,12 @@ article.page.post-with-thumbnail-icon .entry-main {
   padding-left: 0;
 }
 .entry-content table {
+  border-bottom: 1px solid #ededed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 14px;
+  line-height: 2;
+  margin: 0 0 20px;
   width: 100%;
 }
 .entry-content img {
@@ -2987,6 +2993,17 @@ body.layout-full {
   line-height: 1;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
+.woocommerce #page-wrapper h1.page-title {
+  color: #3b3b3b;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35em;
+  margin-bottom: 1em;
+}
+.woocommerce #page-wrapper h1.page-title a {
+  color: inherit;
+  text-decoration: none;
+}
 .woocommerce #page-wrapper .product h1.entry-title {
   font-size: 22px;
   color: #3b3b3b;
@@ -3034,6 +3051,31 @@ body.layout-full {
   body.responsive.woocommerce-page #content div.product div.summary {
     float: none;
     width: auto;
+  }
+  body.responsive.woocommerce-page table.shop_table td,
+  body.responsive.woocommerce-page table.shop_table th {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  body.responsive.woocommerce-page #content table.cart .actions .coupon {
+    float: none;
+  }
+  body.responsive.woocommerce-page #content table.cart .actions .coupon #coupon_code {
+    margin-bottom: 6px;
+  }
+  body.responsive.woocommerce-page #content table.cart .actions .coupon input {
+    float: none;
+    display: block;
+    width: 100%;
+  }
+  body.responsive.woocommerce-page #content table.cart .actions > input {
+    float: none;
+    display: block;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+  body.responsive.woocommerce-page #content table.cart .actions > input.checkout-button {
+    margin-bottom: 0;
   }
   body.responsive.woocommerce-page .col2-set .col-1,
   body.responsive.woocommerce-page .col2-set .col-2 {

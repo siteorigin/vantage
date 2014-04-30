@@ -27,6 +27,12 @@ Bundled Resources
 Change Log
 ---------------
 
+#### 1.1.12
+* Updated to latest extras framework.
+* Fixed small issue in responsive checkout.
+* Fixed ordering of header widgets.
+* Additional improvements to bundled POT file.
+
 #### 1.1.11
 * Fixed multi level hover issue in menus on mobile devices.
 * Fixed logo image HTML by adding spaces between attributes.
