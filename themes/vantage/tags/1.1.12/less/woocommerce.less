@@ -1,0 +1,184 @@
+/* This will override anything from WooCommerce core CSS */
+.woocommerce #page-wrapper {
+
+	.button {
+		.bordered(#d2d2d2, #c3c3c3, #9f9f9f, #c3c3c3);
+		.gradient(#FFFFFF, #dfdfdf, #FFFFFF);
+		.rounded(3px);
+		color: #646464;
+
+		.box-shadow(~"0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5)");
+		width: auto;
+		text-decoration: none;
+
+		/* Improves usability and consistency of cursor style between image-type 'input' and others */
+		cursor: pointer;
+
+		/* Corrects inability to style clickable 'input' types in iOS */
+		-webkit-appearance: button;
+		line-height: 1;
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	}
+
+	h1.page-title {
+		color: #3b3b3b;
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 1.35em;
+		margin-bottom: 1em;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+
+	.product {
+		h1.entry-title{
+			font-size: 22px;
+			color: #3b3b3b;
+			margin-bottom: 20px;
+
+			a {
+				color: inherit;
+				text-decoration: none;
+				font-weight: bold;
+				font-size: 20px;
+			}
+		}
+	}
+
+	.upsells.products {
+		h2 {
+			font-size: 14px;
+			font-weight: 500;
+			margin-bottom: 1em;
+		}
+
+		ul.products li.product {
+			max-width: 150px;
+		}
+	}
+}
+
+.woocommerce-page {
+	#container {
+		float: left;
+		width: 71.287%;
+	}
+}
+
+@media (max-width:680px) {
+	body.responsive.woocommerce-page {
+		#container {
+			float: none;
+			width: auto;
+		}
+
+		.product-thumbnail {
+			display: none;
+		}
+
+		.cart_totals  {
+			width: 100%;
+			float: none;
+		}
+	}
+
+}
+
+@media (max-width:480px) {
+	body.responsive.woocommerce-page {
+
+		#container ul.products li.product {
+			width: 240px;
+			float:none;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		#content div.product div.images,
+		#content div.product div.summary {
+			float: none;
+			width: auto;
+		}
+
+
+		table.shop_table {
+			td,th {
+				padding-left: 3px;
+				padding-right: 3px;
+			}
+		}
+
+		#content table.cart .actions {
+			.coupon {
+				float: none;
+
+				#coupon_code {
+					margin-bottom: 6px;
+				}
+
+				input {
+					float: none;
+					display: block;
+					width: 100%;
+				}
+			}
+
+			> input {
+				float: none;
+				display: block;
+				width: 100%;
+				margin-bottom: 6px;
+
+				&.checkout-button {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.col2-set {
+			.col-1, .col-2  {
+				display: block;
+				float: none;
+				width: auto;
+			}
+		}
+
+	}
+}
+
+/* The WooCommerce Widgets */
+.widget .product_list_widget {
+	margin: 0;
+	list-style: none;
+	margin-right: -10px;
+	.clearfix();
+
+	li {
+		.box-sizing(border-box);
+		margin-left: 0;
+		width: 33%;
+		padding-right: 10px;
+		float: left;
+		text-align: center;
+		margin-bottom: 10px;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+
+		a {
+			text-decoration: none;
+			color: #444444;
+			font-weight: 500;
+			line-height: 1.1em;
+		}
+
+		span.amount {
+			display: block;
+		}
+	}
+}
