@@ -397,12 +397,15 @@ function vantage_pagination($pages = '', $range = 2) {
 	}
 
 	if(1 != $pages) {
+		$format_permalink = substr( get_pagenum_link(false), -1, 1 ) == '/' ? 'page/%#%/' : '/page/%#%/';
+		$format_query_string = strpos(get_pagenum_link(false), '?') === false ? '?paged=%#%' : '&paged=%#%';
+
 		echo "<div class='pagination'>";
 		echo paginate_links( array(
 			'total' => $pages,
 			'current' => $paged,
 			'mid_size' => $showitems,
-			'format' => ( $wp_rewrite->permalink_structure == '' || is_search() ) ? ( strpos(get_pagenum_link(false), '?') === false ? '?paged=%#%' : '&paged=%#%' ) : '/page/%#%/',
+			'format' => ( $wp_rewrite->permalink_structure == '' || is_search() ) ? $format_query_string : $format_permalink,
 			'base' => get_pagenum_link(false).'%_%',
 		) );
 		echo "</div>\n";

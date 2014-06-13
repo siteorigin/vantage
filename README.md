@@ -27,6 +27,9 @@ Bundled Resources
 Change Log
 ---------------
 
+#### 1.1.13
+* Fixed pagination.
+
 #### 1.1.12
 * Updated to latest extras framework.
 * Fixed small issue in responsive checkout.
