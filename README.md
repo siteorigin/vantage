@@ -31,6 +31,7 @@ Change Log
 * Fixed pagination issue.
 * Framework updates.
 * Updates for compatibility with Page Builder.
+* Improved compatibility with WordPress reading settings.
 
 #### 1.1.12
 * Updated to latest extras framework.
