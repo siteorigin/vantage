@@ -367,5 +367,8 @@ function vantage_responsive_header(){
 	if( siteorigin_setting('layout_responsive') ) {
 		?><meta name="viewport" content="width=device-width, initial-scale=1" /><?php
 	}
+	else {
+		?><meta name="viewport" content="width=1280" /><?php
+	}
 }
 add_action('wp_head', 'vantage_responsive_header');

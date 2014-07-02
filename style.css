@@ -84,16 +84,12 @@ td {
 html {
   font-size: 62.5%;
   /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
-
   overflow-y: scroll;
   /* Keeps page centred in all browsers regardless of content height */
-
   -webkit-text-size-adjust: 100%;
   /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
-
   -ms-text-size-adjust: 100%;
   /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
-
 }
 body {
   background: #fff;
@@ -116,7 +112,6 @@ ul {
 }
 table {
   /* tables still need 'cellspacing="0"' in the markup */
-
   border-collapse: separate;
   border-spacing: 0;
 }
@@ -142,7 +137,6 @@ a:focus {
 a:hover,
 a:active {
   /* Improves readability when focused and also mouse hovered in all browsers people.opera.com/patrickl/experiments/keyboard/test */
-
   outline: 0;
 }
 a img {
@@ -290,13 +284,10 @@ input,
 select,
 textarea {
   /* Corrects font size not being inherited in all browsers */
-
   font-size: 100%;
   /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-
   margin: 0;
   /* Improves appearance and consistency in all browsers */
-
   vertical-align: baseline;
   *vertical-align: middle;
   -ms-box-sizing: border-box;
@@ -307,10 +298,8 @@ textarea {
 button,
 input {
   /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
-
   line-height: normal;
   /* Corrects inner spacing displayed oddly in IE6/7 */
-
   *overflow: visible;
 }
 button,
@@ -340,10 +329,8 @@ input[type="submit"] {
   width: auto;
   text-decoration: none;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
-
   cursor: pointer;
   /* Corrects inability to style clickable 'input' types in iOS */
-
   -webkit-appearance: button;
   line-height: 1;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -353,7 +340,6 @@ html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
   /* Button hover style */
-
   border-top: solid 1px #dadada;
   border-left: solid 1px #cfcfcf;
   border-right: solid 1px #cfcfcf;
@@ -374,7 +360,6 @@ html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
   /* Button click style */
-
   border-top: solid 1px #aaaaaa;
   border-left: solid 1px #bbbbbb;
   border-right: solid 1px #bbbbbb;
@@ -391,14 +376,11 @@ input[type="radio"] {
   box-sizing: border-box;
   padding: 0;
   /* Addresses excess padding in IE8/9 */
-
 }
 input[type="search"] {
   /* Addresses appearance set to searchfield in S5, Chrome */
-
   -webkit-appearance: textfield;
   /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
-
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -406,13 +388,11 @@ input[type="search"] {
 }
 input[type="search"]::-webkit-search-decoration {
   /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
-
   -webkit-appearance: none;
 }
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
-
   border: 0;
   padding: 0;
 }
@@ -441,10 +421,8 @@ input[type=password] {
 }
 textarea {
   /* Removes default vertical scrollbar in IE6/7/8/9 */
-
   overflow: auto;
   /* Improves readability and alignment in all browsers */
-
   vertical-align: top;
 }
 /* Alignment */
@@ -467,7 +445,6 @@ textarea {
 .assistive-text {
   clip: rect(1px 1px 1px 1px);
   /* IE6, IE7 */
-
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
 }
@@ -574,7 +551,6 @@ header#masthead hgroup #header-sidebar {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /* Center align layout. Based on old CSS3 spec, so update when new spec is available and supported */
-
   -ms-flex-pack: center;
   -ms-flex-align: center;
   display: -ms-flexbox;
@@ -644,9 +620,13 @@ body.no-sidebar #primary {
 /* Full Width Primary blocks */
 .siteorigin-panels-home #primary,
 .page-template-templatestemplate-full-php #primary,
+.page-template-home-panels-php #primary,
 .page-template-templatestemplate-full-notitle-php #primary {
   width: auto;
   float: none;
+}
+.siteorigin-panels-home #secondary {
+  display: none;
 }
 #secondary {
   float: right;
@@ -682,7 +662,6 @@ body.no-sidebar #primary {
 @media (max-width: 1080px) {
   body.responsive header#masthead hgroup .logo img {
     /* Scale down the logo if necessary */
-  
     max-width: 100%;
     height: auto;
   }
@@ -779,11 +758,8 @@ body.responsive.layout-full #page-wrapper .full-container {
   font-size: 13px;
   position: relative;
   /* Font awesome icons */
-
   /* General menu link styling */
-
   /* For when the menu becomes a sticky menu */
-
 }
 .main-navigation [class^="icon-"] {
   display: inline-block;
@@ -801,7 +777,6 @@ body.responsive.layout-full #page-wrapper .full-container {
   padding-left: 0;
   zoom: 1;
   /* Second level menu items */
-
 }
 .main-navigation ul:before {
   content: '';
@@ -846,7 +821,6 @@ body.responsive.layout-full #page-wrapper .full-container {
   left: 0;
   z-index: 99999;
   /* Third Level Items */
-
 }
 .main-navigation ul ul a {
   width: 200px;
@@ -855,7 +829,6 @@ body.responsive.layout-full #page-wrapper .full-container {
 .main-navigation ul ul li {
   position: relative;
   /* Hovering over 2nd level items */
-
 }
 .main-navigation ul ul li:hover > a {
   background: #00bcff;
@@ -938,21 +911,21 @@ body.mobile-device .main-navigation li:hover > ul {
   left: 50%;
   margin-top: -8px;
   margin-left: -8.5px;
-  background: url(./images/sprites/search-icon.png) no-repeat;
+  background: url(images/sprites/search-icon.png) no-repeat;
 }
 #search-icon #search-icon-icon:hover {
   background-color: #00bcff;
 }
 #search-icon #search-icon-icon:hover .icon {
-  background: url(./images/sprites/search-icon-white.png) no-repeat;
+  background: url(images/sprites/search-icon-white.png) no-repeat;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2) {
   #search-icon #search-icon-icon .icon {
-    background: url(./images/retina/search-icon.png) no-repeat;
+    background: url(images/retina/search-icon.png) no-repeat;
     background-size: 17px 17px;
   }
   #search-icon #search-icon-icon:hover .icon {
-    background: url(./images/retina/search-icon-white.png) no-repeat;
+    background: url(images/retina/search-icon-white.png) no-repeat;
     background-size: 17px 17px;
   }
 }
@@ -989,7 +962,6 @@ body.mobile-device .main-navigation li:hover > ul {
 ----------------------------------------------- */
 article.sticky {
   /* Style a sticky post */
-
 }
 #page-title {
   color: #3b3b3b;
@@ -1193,7 +1165,6 @@ article.page.post-with-thumbnail-icon .entry-thumbnail {
   clear: none;
   width: 11.68%;
   /* 90px in standard width */
-
 }
 article.post.post-with-thumbnail-icon .entry-thumbnail img,
 article.page.post-with-thumbnail-icon .entry-thumbnail img {
@@ -1208,7 +1179,6 @@ article.page.post-with-thumbnail-icon .entry-main {
   width: 650px;
   width: 84.41%;
   /* 650px in standard width */
-
   float: right;
 }
 .post-navigation,
@@ -1306,7 +1276,6 @@ article.page.post-with-thumbnail-icon .entry-main {
   line-height: 1.6em;
   color: #666666;
   /* WordPress Images */
-
 }
 .entry-content:before {
   content: '';
@@ -1441,12 +1410,10 @@ article.page.post-with-thumbnail-icon .entry-main {
 }
 .entry-content .alignleft {
   /* This is also styled on a global level */
-
   margin: 0 1.5em 1.5em 0;
 }
 .entry-content .alignright {
   /* This is also styled on a global level */
-
   margin: 0 0 1.5em 1.5em;
 }
 .entry-content img.wp-smiley {
@@ -1701,7 +1668,6 @@ article.page.post-with-thumbnail-icon .entry-main {
 }
 #comments .commentlist .bypostauthor {
   /* Change the comment by the post author */
-
 }
 #commentform label {
   margin-top: 2px;
@@ -1792,7 +1758,6 @@ article.page.post-with-thumbnail-icon .entry-main {
 }
 body.layout-full {
   /* Use the same color as the footer */
-
   background-color: #2f3033;
 }
 .layout-full #colophon {
@@ -1807,7 +1772,7 @@ body.layout-full {
   right: 20px;
   width: 48px;
   height: 48px;
-  background: url(./images/sprites/to-top.png);
+  background: url(images/sprites/to-top.png);
   -ms-transform: scale(0, 0);
   -webkit-transform: scale(0, 0);
   transform: scale(0, 0);
@@ -1819,7 +1784,7 @@ body.layout-full {
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2) {
   #scroll-to-top {
-    background-image: url(./images/retina/to-top.png);
+    background-image: url(images/retina/to-top.png);
     background-size: 48px 48px;
   }
 }
@@ -1905,7 +1870,6 @@ body.layout-full {
   background-size: cover;
   background-position: center center;
   /* Stuff specific to metaslider */
-
 }
 .flexslider .slides > li .content img {
   max-width: 100%;
@@ -2191,7 +2155,6 @@ body.layout-full {
   right: 30px;
   margin-top: -20px;
   /* This should be half the height of the button */
-
 }
 /* Responsive styles for the call to action widget */
 @media (max-width: 680px) {
@@ -2222,13 +2185,11 @@ body.layout-full {
 .widget_circleicon-widget {
   clear: both;
   /* A medium sized icon */
-
 }
 .widget_circleicon-widget .circle-icon-box {
   text-align: center;
   position: relative;
   /* The different icon positions */
-
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-show-box {
   border: 1px solid #DDDDDD;
@@ -2308,7 +2269,7 @@ body.layout-full {
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2) {
   .widget_circleicon-widget .circle-icon-box a.more-button i {
-    background: url(./images/retina/more-icon.png);
+    background: url(images/retina/more-icon.png);
     background-size: 5px 8px;
   }
 }
@@ -2348,7 +2309,6 @@ body.layout-full {
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-medium {
   /* The different icon positions */
-
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-medium .circle-icon {
   width: 81.25px;
@@ -2401,7 +2361,6 @@ body.layout-full {
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-large {
   /* The different icon positions */
-
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-large .circle-icon {
   width: 100px;
@@ -2506,7 +2465,6 @@ body.layout-full {
   -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 1px rgba(0,0,0,0.1);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 1px rgba(0,0,0,0.1);
   /* The icons */
-
 }
 .widget_vantage-social-media .social-media-icon [class^="icon-"] {
   width: 1em;
@@ -2985,10 +2943,8 @@ body.layout-full {
   width: auto;
   text-decoration: none;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
-
   cursor: pointer;
   /* Corrects inability to style clickable 'input' types in iOS */
-
   -webkit-appearance: button;
   line-height: 1;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);

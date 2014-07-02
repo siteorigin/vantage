@@ -27,8 +27,10 @@ Bundled Resources
 Change Log
 ---------------
 
-#### 1.1.13
-* Fixed pagination.
+#### 1.2
+* Fixed pagination issue.
+* Framework updates.
+* Updates for compatibility with Page Builder.
 
 #### 1.1.12
 * Updated to latest extras framework.
