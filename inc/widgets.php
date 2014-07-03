@@ -353,22 +353,42 @@ function vantage_carousel_ajax_handler(){
 
 	$query = $_GET['query'];
 	$query['paged'] = $_GET['paged'];
+	$query['post_status'] = 'publish';
 
-	query_posts($query);
+	$query = new WP_Query($query);
+
 	ob_start();
-	get_template_part('loops/loop', 'carousel');
+	?>
+	<div class="vantage-carousel-wrapper">
 
-	global $wp_query;
-	$count = $wp_query->post_count;
+		<?php $vars = vantage_get_query_variables(); ?>
+
+		<ul class="vantage-carousel" data-query="<?php echo esc_attr(json_encode( $vars )) ?>" data-ajax-url="<?php echo esc_url( admin_url('admin-ajax.php') ) ?>">
+			<?php while( $query->have_posts() ) : $query->the_post(); ?>
+				<li class="carousel-entry">
+					<div class="thumbnail">
+						<?php if( has_post_thumbnail() ) : $img = wp_get_attachment_image_src(get_post_thumbnail_id(), 'vantage-carousel'); ?>
+							<a href="<?php the_permalink() ?>" style="background-image: url(<?php echo esc_url($img[0]) ?>)">
+								<span class="overlay"></span>
+							</a>
+						<?php else : ?>
+							<a href="<?php the_permalink() ?>" class="default-thumbnail"><span class="overlay"></span></a>
+						<?php endif; ?>
+					</div>
+					<h3><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
+				</li>
+			<?php endwhile; ?>
+		</ul>
+	</div>
+	<?php
 
 	// Reset everything
-	wp_reset_query();
 	wp_reset_postdata();
 
 	header('content-type:application/json');
 	echo json_encode( array(
 		'html' => ob_get_clean(),
-		'count' => $count,
+		'count' => $query->post_count,
 	) );
 
 	exit();
