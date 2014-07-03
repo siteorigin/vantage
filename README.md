@@ -9,9 +9,19 @@ This theme, like WordPress, is licensed under the GPL 2.0. Use it to make someth
 
 All Javascript is located in /js/ with license headers where appropriate.
 
-All demo photographs have been sourced from Pixabay and are licensed under the public domain.
-
 This theme is originally based on Underscores (_s) starter theme http://underscores.me/ .
+
+
+Demo Photos
+---------------
+This theme contains the following demo photos.
+
+* Cell Phone image sourced from http://www.publicdomainpictures.net/view-image.php?image=15874&picture=woman-showing-a-cell-phone
+  Licensed under Public Domain.
+* Basketball Player image sourced from http://pixabay.com/en/basketball-sports-teams-players-95607/
+  Licensed under Public Domain with confirmation of full CC0 license from the author.
+* Nature Scene photo sourced from http://publicdomainarchive.com/
+  Licensed under public domain.
 
 
 SiteOrigin Extras
@@ -32,6 +42,10 @@ Change Log
 * Framework updates.
 * Updates for compatibility with Page Builder.
 * Improved compatibility with WordPress reading settings.
+* Removed all uses of query_posts.
+* Ensure only published posts are queried by the carousel.
+* Made sure all images used in demo are fully public domain.
+* Updated screenshot to larger size.
 
 #### 1.1.12
 * Updated to latest extras framework.
