@@ -19,7 +19,7 @@ This theme contains the following demo photos.
 * Cell Phone image sourced from http://www.publicdomainpictures.net/view-image.php?image=15874&picture=woman-showing-a-cell-phone
   Licensed under Public Domain.
 * Basketball Player image sourced from http://pixabay.com/en/basketball-sports-teams-players-95607/
-  Licensed under Public Domain with confirmation of full CC0 license from the author.
+  Licensed under Public Domain with confirmation of full Public Domain/CC0 license from the author.
 * Nature Scene photo sourced from http://publicdomainarchive.com/
   Licensed under public domain.
 
@@ -46,6 +46,7 @@ Change Log
 * Ensure only published posts are queried by the carousel.
 * Made sure all images used in demo are fully public domain.
 * Updated screenshot to larger size.
+* Turned home-panels into a standard page template.
 
 #### 1.1.12
 * Updated to latest extras framework.
