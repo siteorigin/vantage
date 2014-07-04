@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Vantage\n"
-"POT-Creation-Date: 2014-04-30 13:04+0200\n"
-"PO-Revision-Date: 2014-04-30 13:04+0200\n"
+"POT-Creation-Date: 2014-07-04 22:08+0200\n"
+"PO-Revision-Date: 2014-07-04 22:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -136,10 +136,9 @@ msgstr ""
 msgid "Prebuilt Layouts"
 msgstr ""
 
-#: extras/metaslider/metaslider.php:69 extras/panels-lite/inc/widgets.php:194
-#: extras/settings/settings.php:396 extras/slider/slider.php:271
-#: extras/slider/tpl/admin-builder.php:29 extras/widgets/widgets.php:338
-#: inc/menu.php:58 inc/widgets.php:108
+#: extras/metaslider/metaslider.php:69 extras/settings/settings.php:367
+#: extras/slider/slider.php:271 extras/slider/tpl/admin-builder.php:29
+#: extras/widgets/widgets.php:338 inc/menu.php:58 inc/widgets.php:108
 msgid "None"
 msgstr ""
 
@@ -159,141 +158,8 @@ msgstr ""
 msgid "Displays a post loop."
 msgstr ""
 
-#: extras/panels-lite/inc/widgets.php:148
-msgid "Unfortunately your theme doesn't have any post loops."
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:159 inc/widgets.php:98
-#: inc/widgets.php:282 premium/extras/widgets/widgets.php:274
-msgid "Title"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:163
-msgid "Template"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:178
-msgid "Post Type"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:187
-msgid "Posts Per Page"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:192
-msgid "Order By"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:195
-msgid "Post ID"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:196
-msgid "Author"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:197
-#: extras/panels-lite/inc/widgets.php:198
-msgid "Name"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:199
-msgid "Date"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:200
-msgid "Modified"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:201
-msgid "Parent"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:202
-msgid "Random"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:203
-msgid "Comment Count"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:204
-#: extras/panels-lite/inc/widgets.php:205
-msgid "Menu Order"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:210
-msgid "Order"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:212
-msgid "Descending"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:213
-msgid "Ascending"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:218
-msgid "Sticky Posts"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:220
-#: premium/extras/widgets/widgets.php:194
-msgid "Default"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:221
-msgid "Ignore Sticky"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:222
-msgid "Exclude Sticky"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:223
-msgid "Only Sticky"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:228
-msgid "Additional "
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:230
-#, php-format
-msgid ""
-"Additional query arguments. See <a href=\"%s\" target=\"_blank"
-"\">query_posts</a>."
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:240
-msgid "Image (PB)"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:242
-msgid "Displays a simple image."
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:275
-msgid "Image URL"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:279 premium/extras/slider/slider.php:9
-msgid "Destination URL"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:293
-msgid "Embedded Video (PB)"
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:295
-#: premium/extras/widgets/widgets.php:105
-msgid "Embeds a video."
-msgstr ""
-
-#: extras/panels-lite/inc/widgets.php:324
-#: premium/extras/widgets/widgets.php:131
-msgid "Video"
+#: extras/panels-lite/inc/widgets.php:94
+msgid "Please install Page Builder to use this widget."
 msgstr ""
 
 #: extras/panels-lite/panels-lite.php:12
@@ -304,7 +170,7 @@ msgstr ""
 msgid "Home Page"
 msgstr ""
 
-#: extras/panels-lite/panels-lite.php:25 extras/panels-lite/panels-lite.php:49
+#: extras/panels-lite/panels-lite.php:25 extras/panels-lite/panels-lite.php:48
 #: extras/panels-lite/panels-lite.php:54
 #: extras/panels-lite/tpl/admin-home-page.php:4 extras/panels/panels.php:31
 #: extras/panels/panels.php:41 extras/panels/panels.php:262
@@ -321,7 +187,7 @@ msgid ""
 "Your theme has Page Builder support. Would you like to install it? It's free."
 msgstr ""
 
-#: extras/panels-lite/panels-lite.php:81 extras/panels/panels.php:562
+#: extras/panels-lite/panels-lite.php:74 extras/panels/panels.php:562
 msgid "Edit Home Page"
 msgstr ""
 
@@ -508,7 +374,7 @@ msgstr ""
 
 #: extras/premium/premium.php:12 extras/premium/premium.php:173
 #: extras/premium/premium.php:273 extras/premium/tpl/upgrade-page.php:16
-#: extras/premium/tpl/upgrade-page.php:123 extras/settings/settings.php:367
+#: extras/premium/tpl/upgrade-page.php:123 extras/settings/settings.php:338
 msgid "Premium"
 msgstr ""
 
@@ -567,7 +433,7 @@ msgstr ""
 msgid "%s Premium includes additional templates"
 msgstr ""
 
-#: extras/premium/premium.php:173 extras/settings/settings.php:367
+#: extras/premium/premium.php:173 extras/settings/settings.php:338
 #, php-format
 msgid ""
 "Only available in <strong>%s</strong> - <strong class=\"upgrade\">Upgrade "
@@ -671,9 +537,8 @@ msgstr ""
 
 #: extras/premium/tpl/upgrade-page.php:87
 msgid ""
-"Although we appreciate and support all our users, our support staff "
-"prioritize orders of <strong>$15</strong> or more. Support on this order "
-"will take longer."
+"Although we appreciate and support all our users, we only offer prioritized "
+"support for orders of <strong>$15</strong> or more."
 msgstr ""
 
 #: extras/premium/tpl/upgrade-page.php:91
@@ -760,12 +625,12 @@ msgstr ""
 #: extras/settings/message.php:3
 #, php-format
 msgid ""
-"I hope %s is working well for you! Sign up to <a href='%s' "
-"target='_blank'>our newsletter</a> if you'd like more free themes and "
-"goodies."
+"Hi! I'm Greg from SiteOrigin. I hope %s is working well for you! Sign up to "
+"<a href='%s' target='_blank'>our newsletter</a> if you'd like more free "
+"themes and goodies."
 msgstr ""
 
-#: extras/settings/page.php:4 extras/settings/settings.php:67
+#: extras/settings/page.php:4 extras/settings/settings.php:66
 #, php-format
 msgid "%s Theme Settings"
 msgstr ""
@@ -774,73 +639,77 @@ msgstr ""
 msgid "Save Settings"
 msgstr ""
 
-#: extras/settings/settings.php:68
+#: extras/settings/page.php:14
+msgid "Theme Support Forum"
+msgstr ""
+
+#: extras/settings/settings.php:67
 msgid "Theme Settings"
 msgstr ""
 
-#: extras/settings/settings.php:82
+#: extras/settings/settings.php:81
 msgid "Please update to the latest version of WordPress to use theme settings."
 msgstr ""
 
-#: extras/settings/settings.php:266
+#: extras/settings/settings.php:237
 msgid "Enabled"
 msgstr ""
 
-#: extras/settings/settings.php:321
+#: extras/settings/settings.php:292
 #, php-format
 msgid ""
 "You need to <a href=\"%s\">upgrade</a> to WordPress 3.5 to use media fields"
 msgstr ""
 
-#: extras/settings/settings.php:339
+#: extras/settings/settings.php:310
 msgid "Choose Media"
 msgstr ""
 
-#: extras/settings/settings.php:340
+#: extras/settings/settings.php:311
 msgid "Set Media"
 msgstr ""
 
-#: extras/settings/settings.php:354
+#: extras/settings/settings.php:325
 msgid "Remove"
 msgstr ""
 
-#: extras/settings/settings.php:384
+#: extras/settings/settings.php:355
 msgid "Select Images"
 msgstr ""
 
-#: extras/settings/settings.php:409
+#: extras/settings/settings.php:385
 #, php-format
 msgid "This field requires the %s plugin. "
 msgstr ""
 
-#: extras/settings/settings.php:412
+#: extras/settings/settings.php:388
 #, php-format
 msgid "<a href=\"%s\" target=\"_blank\">Install %s</a> now. "
 msgstr ""
 
-#: extras/settings/settings.php:436 inc/template-tags.php:115
+#: extras/settings/settings.php:413 inc/template-tags.php:115
 msgid "Edit"
 msgstr ""
 
-#: extras/settings/settings.php:442
+#: extras/settings/settings.php:419
 msgid "Unknown Field Type"
 msgstr ""
 
-#: extras/settings/settings.php:529
+#: extras/settings/settings.php:508
 msgid "Settings saved."
 msgstr ""
 
-#: extras/settings/settings.php:546
+#: extras/settings/settings.php:527
 #, php-format
 msgid ""
 "Read %s's <a href='%s'>theme documentation</a> for help with these settings."
 msgstr ""
 
-#: extras/settings/settings.php:553
+#: extras/settings/settings.php:534
 msgid "Settings Help"
 msgstr ""
 
-#: extras/settings/settings.php:603
+#: extras/settings/settings.php:584
 msgid "Set Media File"
 msgstr ""
 
@@ -962,18 +831,6 @@ msgstr ""
 
 #: extras/slider/tpl/admin-builder.php:51
 msgid "Upload Media"
-msgstr ""
-
-#: extras/theme-widgets/theme-widgets.php:7
-msgid "Theme Widgets"
-msgstr ""
-
-#: extras/theme-widgets/tpl/admin.php:3 premium/inc/customizer.php:22
-msgid "Widgets"
-msgstr ""
-
-#: extras/theme-widgets/tpl/admin.php:6
-msgid "You can enable/disable any widgets you need."
 msgstr ""
 
 #: extras/update/update.php:59
@@ -1125,31 +982,31 @@ msgstr ""
 msgid "Medical Icons"
 msgstr ""
 
-#: functions.php:65
+#: functions.php:73
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:128
+#: functions.php:136
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:137 premium/inc/customizer.php:32
+#: functions.php:145 premium/inc/customizer.php:32
 msgid "Footer"
 msgstr ""
 
-#: functions.php:146
+#: functions.php:154
 msgid "Header"
 msgstr ""
 
-#: functions.php:266
+#: functions.php:274
 msgid "Back To Top"
 msgstr ""
 
-#: image.php:27
+#: image.php:28
 msgid "&larr; Previous"
 msgstr ""
 
-#: image.php:28
+#: image.php:29
 msgid "Next &rarr;"
 msgstr ""
 
@@ -1239,31 +1096,31 @@ msgid ""
 "bring your pages to life."
 msgstr ""
 
-#: inc/panels.php:197
+#: inc/panels.php:182
 msgid "Wide Grey"
 msgstr ""
 
-#: inc/panels.php:205
+#: inc/panels.php:190
 msgid "Top Border Color"
 msgstr ""
 
-#: inc/panels.php:210
+#: inc/panels.php:195
 msgid "Bottom Border Color"
 msgstr ""
 
-#: inc/panels.php:215
+#: inc/panels.php:200
 msgid "Background Color"
 msgstr ""
 
-#: inc/panels.php:220
+#: inc/panels.php:205
 msgid "Background Image"
 msgstr ""
 
-#: inc/panels.php:225
+#: inc/panels.php:210
 msgid "Repeat Background Image"
 msgstr ""
 
-#: inc/panels.php:230
+#: inc/panels.php:215
 msgid "No Bottom Margin"
 msgstr ""
 
@@ -1674,6 +1531,11 @@ msgstr ""
 msgid "More Info"
 msgstr ""
 
+#: inc/widgets.php:98 inc/widgets.php:282
+#: premium/extras/widgets/widgets.php:274
+msgid "Title"
+msgstr ""
+
 #: inc/widgets.php:119
 msgid "Icon Background Color"
 msgstr ""
@@ -1793,7 +1655,7 @@ msgid "A <a href=\"%s\">SiteOrigin</a> Theme"
 msgstr ""
 
 #: premium/extras/css/css.php:7 premium/extras/css/css.php:25
-#: premium/extras/css/css.php:65
+#: premium/extras/css/css.php:64
 msgid "Custom CSS"
 msgstr ""
 
@@ -1815,12 +1677,16 @@ msgid ""
 "making edits. "
 msgstr ""
 
-#: premium/extras/css/css.php:76
+#: premium/extras/css/css.php:68
+msgid "Custom CSS Updated"
+msgstr ""
+
+#: premium/extras/css/css.php:81
 #, php-format
 msgid "Changes apply to %s and its child themes"
 msgstr ""
 
-#: premium/extras/css/css.php:81
+#: premium/extras/css/css.php:86
 msgid "Save CSS"
 msgstr ""
 
@@ -1846,6 +1712,10 @@ msgstr ""
 
 #: premium/extras/share/share.php:15
 msgid "like"
+msgstr ""
+
+#: premium/extras/slider/slider.php:9
+msgid "Destination URL"
 msgstr ""
 
 #: premium/extras/widgets/widgets.php:13
@@ -1884,12 +1754,24 @@ msgstr ""
 msgid "SiteOrigin Embedded Video"
 msgstr ""
 
+#: premium/extras/widgets/widgets.php:105
+msgid "Embeds a video."
+msgstr ""
+
+#: premium/extras/widgets/widgets.php:131
+msgid "Video"
+msgstr ""
+
 #: premium/extras/widgets/widgets.php:150
 msgid "SiteOrigin Bullet List"
 msgstr ""
 
 #: premium/extras/widgets/widgets.php:152
 msgid "A simple bullet list."
+msgstr ""
+
+#: premium/extras/widgets/widgets.php:194
+msgid "Default"
 msgstr ""
 
 #: premium/extras/widgets/widgets.php:203
@@ -1919,6 +1801,10 @@ msgstr ""
 
 #: premium/inc/customizer.php:7
 msgid "Fonts"
+msgstr ""
+
+#: premium/inc/customizer.php:22
+msgid "Widgets"
 msgstr ""
 
 #: premium/inc/customizer.php:27
