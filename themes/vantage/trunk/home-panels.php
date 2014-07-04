@@ -17,7 +17,10 @@ get_header();
 	<div id="content" class="site-content" role="main">
 		<div class="entry-content">
 			<?php
-			if ( is_page() ) the_content();
+			if ( is_page() ) {
+				the_post();
+				the_content();
+			}
 			else if( function_exists('siteorigin_panels_render') ) echo siteorigin_panels_render('home');
 			else echo siteorigin_panels_lite_home_render();
 			?>
