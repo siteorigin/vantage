@@ -39,14 +39,14 @@ Change Log
 
 #### 1.2
 * Fixed pagination issue.
-* Framework updates.
 * Updates for compatibility with Page Builder.
 * Improved compatibility with WordPress reading settings.
 * Removed all uses of query_posts.
 * Ensure only published posts are queried by the carousel.
 * Made sure all images used in demo are fully public domain.
-* Updated screenshot to larger size.
+* Updated theme screenshot to larger size.
 * Turned home-panels into a standard page template.
+* Framework updates.
 
 #### 1.1.12
 * Updated to latest extras framework.
