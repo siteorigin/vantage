@@ -625,8 +625,9 @@ body.no-sidebar #primary {
   width: auto;
   float: none;
 }
-.siteorigin-panels-home #secondary {
-  display: none;
+.page-template-default #primary {
+  float: left;
+  width: 71.287%;
 }
 #secondary {
   float: right;
