@@ -27,7 +27,7 @@ Underscores WordPress Theme is distributed under the terms of the GNU GPL
 
 Vantage WordPress Theme bundles the following third-party resources:
 
-HTML5 Shiv, Copyright Keith Clark
+HTML5 Shiv, Copyright 2011 Alexander Farkas
 Released under a dual MIT/GPL2 License
 Source: https://code.google.com/p/html5shiv/
 
@@ -39,7 +39,7 @@ Flex Slider, Copyright 2012 WooThemes
 Free to use under the GPLv2 license.
 Source: http://www.woothemes.com/flexslider/
 
-Selectivizr, Copyright Keith Clark
+Selectivizr, Copyright 2011 Keith Clark
 Freely distributable under the terms of the MIT license
 
 LESS Elements, Copyright 2011 Dmitry Fadeyev
@@ -79,6 +79,7 @@ Change Log
 * Updated theme screenshot to larger size.
 * Turned home-panels into a standard page template.
 * Framework updates.
+* Clarified theme and bundled resource licenses.
 
 #### 1.1.12
 * Updated to latest extras framework.
