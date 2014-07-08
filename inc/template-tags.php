@@ -302,15 +302,18 @@ function vantage_get_post_categories(){
 		// This blog only has 1 category so we just need to worry about tags in the meta text
 		if ( '' != $tag_list ) {
 			$meta_text = __( '<strong>Tagged</strong> %2$s.', 'vantage' );
-		} else {
+		}
+		else {
 			$meta_text = '';
 		}
 
-	} else {
+	}
+	else {
 		// But this blog has loads of categories so we should probably display them here
 		if ( '' != $tag_list ) {
 			$meta_text = __( 'Posted in %1$s and tagged %2$s.', 'vantage' );
-		} else {
+		}
+		else {
 			$meta_text = __( 'Posted in %1$s.', 'vantage' );
 		}
 

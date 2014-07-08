@@ -5,11 +5,48 @@ Vantage is a multipurpose WordPress theme, based on _s with integration into Sit
 
 License
 ---------------
-This theme, like WordPress, is licensed under the GPL 2.0. Use it to make something cool, have fun, and share what you've learned with others. The premium version of this theme is also licensed under the same GPL 2.0 license.
 
-All Javascript is located in /js/ with license headers where appropriate.
+Vantage WordPress Theme, Copyright 2013 Greg Priday
+Vantage is distributed under the terms of the GNU GPL
 
-This theme is originally based on Underscores (_s) starter theme http://underscores.me/ .
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see http://www.gnu.org/copyleft/gpl.html.
+
+Vantage WordPress Theme is derived from Underscores WordPress Theme, Copyright 2012 Automattic http://underscores.me/
+Underscores WordPress Theme is distributed under the terms of the GNU GPL
+
+Vantage WordPress Theme bundles the following third-party resources:
+
+HTML5 Shiv, Copyright Keith Clark
+Released under a dual MIT/GPL2 License
+Source: https://code.google.com/p/html5shiv/
+
+FitVids, Copyright 2013, Chris Coyier
+Released under the WTFPL license - http://sam.zoy.org/wtfpl/
+Source: http://fitvidsjs.com/
+
+Flex Slider, Copyright 2012 WooThemes
+Free to use under the GPLv2 license.
+Source: http://www.woothemes.com/flexslider/
+
+Selectivizr, Copyright Keith Clark
+Freely distributable under the terms of the MIT license
+
+LESS Elements, Copyright 2011 Dmitry Fadeyev
+Dedicated to the public domain and is free for all uses, commercial or otherwise.
+
+FontAwesome Copyright 2012 Dave Gandy
+licensed under SIL OFL 1.1 <http://scripts.sil.org/OFL>
 
 
 Demo Photos
@@ -27,11 +64,6 @@ This theme contains the following demo photos.
 SiteOrigin Extras
 ---------------
 This theme is built around the SiteOrigin extras framework contained in the folder extras/. All code is licensed under GPL 2.0 and copyright Greg Priday unless otherwise stated in the file header.
-
-
-Bundled Resources
----------------
-* FontAwesome by Dave Gandy licensed under SIL OFL 1.1 <http://scripts.sil.org/OFL>
 
 
 Change Log
@@ -100,7 +132,6 @@ Change Log
 * WooCommerce CSS fixes.
 * Premium: Fixed customizer setting for footer widgets.
 * Premium: Improved mobile navigation.
-
 
 #### 1.1.5
 * Fixed image margins.
