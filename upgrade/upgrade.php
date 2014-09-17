@@ -2,7 +2,7 @@
 
 function vantage_premium_upgrade_content($content){
 	$content['premium_title'] = __('Upgrade To Vantage Premium', 'vantage');
-	$content['premium_summary'] = __("If you've enjoyed using Vantage, you're going to love Vantage Premium. It's a robust upgrade to vantage that gives you some useful features. You choose the price, so you can decide what it's worth to give your site a professional edge.", 'vantage');
+	$content['premium_summary'] = __("If you've enjoyed using Vantage, you're going to love Vantage Premium. It's a robust upgrade to Vantage that gives you some useful features. You choose the price, so you can decide what it's worth to give your site a professional edge.", 'vantage');
 
 	$content['buy_url'] = 'http://siteorigin.fetchapp.com/sell/nctheigh';
 	$content['premium_video_poster'] = get_template_directory_uri().'/upgrade/poster.jpg';
@@ -12,17 +12,17 @@ function vantage_premium_upgrade_content($content){
 
 	$content['features'][] = array(
 		'heading' => __('Premium Email Support', 'vantage'),
-		'content' => __("Need help setting up vantage? Upgrading to vantage Premium gives you email support. We have a growing support team ready to help you with your questions.", 'vantage'),
+		'content' => __("Need help setting up Vantage? Upgrading to Vantage Premium gives you email support. We have a growing support team ready to help you with your questions.", 'vantage'),
 	);
 
 	$content['features'][] = array(
 		'heading' => __('Name The Price', 'vantage'),
-		'content' => __("You can choose exactly how much you pay for vantage Premium. Pay what ever you think the features are worth to you. Regardless, you're supporting the continued development of vantage.", 'vantage'),
+		'content' => __("You can choose exactly how much you pay for Vantage Premium. Pay what ever you think the features are worth to you. Regardless, you're supporting the continued development of Vantage.", 'vantage'),
 	);
 
 	$content['features'][] = array(
 		'heading' => __("Responsive Features", 'vantage'),
-		'content' => __("The final puzzle pieces in making vantage fully responsive. Vantage Premium has footer widgets that collapse below each other on small screen devices. Its menu collapses into a single navigate button which activates an intuitive nested menu system and site search.", 'vantage'),
+		'content' => __("The final puzzle pieces in making Vantage fully responsive. Vantage Premium has footer widgets that collapse below each other on small screen devices. Its menu collapses into a single navigate button which activates an intuitive nested menu system and site search.", 'vantage'),
 		'image' => get_template_directory_uri().'/upgrade/teasers/mobile-nav.png',
 	);
 
@@ -69,12 +69,12 @@ function vantage_premium_upgrade_content($content){
 
 	$content['features'][] = array(
 		'heading' => __("CSS Editor", 'vantage'),
-		'content' => __("A simple CSS editor that lets you easily add code that changes the look of vantage. You can count on our support staff to help you with CSS snippets to get the look you're after. Best of all, your changes will persist across updates.", 'vantage'),
+		'content' => __("A simple CSS editor that lets you easily add code that changes the look of Vantage. You can count on our support staff to help you with CSS snippets to get the look you're after. Best of all, your changes will persist across updates.", 'vantage'),
 	);
 
 	$content['features'][] = array(
 		'heading' => __("Continued Updates", 'vantage'),
-		'content' => __("You'll help support the continued development of vantage - ensuring it works with future versions of WordPress for years to come.", 'vantage'),
+		'content' => __("You'll help support the continued development of Vantage - ensuring it works with future versions of WordPress for years to come.", 'vantage'),
 	);
 
 	$content['testimonials'] = array(
