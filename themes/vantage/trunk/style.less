@@ -8,9 +8,6 @@ Version: trunk
 License: GNU General Public License 2.0
 License URI: license.txt
 Tags: responsive-layout, fluid-layout, custom-background, custom-menu, featured-images, theme-options, threaded-comments, translation-ready, black, white, light, one-column, two-columns, full-width-template
-
-spritemapper.sprite_dirs = images/sprites
-spritemapper.output_css = style.sprites.css
 */
 
 @import "less/mixins";
@@ -53,10 +50,6 @@ hr {
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
-}
-
-h1,h2,h3,h4,h5,h6 {
-	clear: both;
 }
 
 /* Text elements */
@@ -368,7 +361,7 @@ header#masthead {
 	padding: 0 35px 0 35px;
 	.box-sizing(border-box);
 
-	hgroup {
+	.hgroup {
 		.clearfix();
 
 		position: relative;
@@ -466,17 +459,23 @@ header#masthead {
 			> img {
 				max-height: 35px;
 				width: auto;
+
+				height: auto;
+				max-width: 100%;
 			}
+
 		}
 	}
 }
 
-.layout-boxed header#masthead.masthead-logo-in-menu .logo {
-	margin-left: 25px;
+.layout-boxed header#masthead.masthead-logo-in-menu {
+	img.logo {
+		margin-left: 25px;
+	}
 }
 
 body.ie-8,body.ie-9 {
-	header#masthead hgroup {
+	header#masthead .hgroup {
 		#header-sidebar {
 			padding-top: 40px;
 			padding-bottom: 40px;
@@ -554,7 +553,7 @@ body.no-sidebar #primary {
 @media (max-width:1080px) {
 	body.responsive {
 		header#masthead {
-			hgroup {
+			.hgroup {
 				.logo img {
 					/* Scale down the logo if necessary */
 					max-width: 100%;
@@ -593,7 +592,7 @@ body.no-sidebar #primary {
 	body.responsive {
 
 		header#masthead {
-			hgroup {
+			.hgroup {
 				text-align: center;
 
 				.logo {
@@ -636,10 +635,6 @@ body.no-sidebar #primary {
 		#primary, #secondary {
 			width: auto;
 			float: none;
-		}
-
-		#search-icon {
-
 		}
 
 		#secondary {
@@ -850,37 +845,24 @@ body.mobile-device {
 			.transition(0.4s);
 		}
 
-		.icon {
+		.vantage-icon-search {
 			position: absolute;
 			display: block;
 			width: 17px;
 			height: 17px;
+			font-size: 17px;
 			top: 50%;
 			left: 50%;
 			margin-top: -8px;
 			margin-left: -8.5px;
-
-			background: url(./images/sprites/search-icon.png) no-repeat;
+			color: #d1d1d1;
 		}
 
 		&:hover {
-			.icon {
-				background: url(./images/sprites/search-icon-white.png) no-repeat;
+			.vantage-icon-search {
+				color: #FFFFFF;
 			}
 			background-color: #00bcff;
-		}
-
-		@media screen and (-webkit-min-device-pixel-ratio: 2) {
-			.icon {
-				background: url(./images/retina/search-icon.png) no-repeat;
-				background-size: 17px 17px;
-			}
-
-			&:hover .icon{
-				background: url(./images/retina/search-icon-white.png) no-repeat;
-				background-size: 17px 17px;
-			}
-
 		}
 
 	}
@@ -1706,15 +1688,18 @@ body.layout-full{
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
-	width: 48px;
-	height: 48px;
-	background: url(./images/sprites/to-top.png);
+	background: rgba(0,0,0,0.2);
+	padding: 20px;
 
-	@media screen and (-webkit-min-device-pixel-ratio: 2) {
-		& {
-			background-image: url(./images/retina/to-top.png);
-			background-size: 48px 48px;
-		}
+	.rounded(3px);
+	text-decoration: none;
+
+	.vantage-icon-arrow-up {
+		font-size: 18px;
+		display: block;
+		width: 18px;
+		height: 18px;
+		color: rgba(255,255,255,0.2);
 	}
 
 	-ms-transform: scale(0, 0);
@@ -1737,3 +1722,4 @@ body.layout-full{
 @import "less/widgets";
 @import "less/loops";
 @import "less/woocommerce";
+@import "less/icons";

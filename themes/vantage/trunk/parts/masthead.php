@@ -5,7 +5,7 @@
 ?>
 <header id="masthead" class="site-header" role="banner">
 
-	<hgroup class="full-container">
+	<div class="hgroup full-container">
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php vantage_display_logo(); ?></a>
 
 		<?php if( is_active_sidebar('sidebar-header') ) : ?>
@@ -27,7 +27,7 @@
 
 		<?php endif; ?>
 
-	</hgroup><!-- hgroup.full-container -->
+	</div><!-- .hgroup.full-container -->
 
 	<?php get_template_part( 'parts/menu', apply_filters( 'vantage_menu_type', siteorigin_setting( 'layout_menu' ) ) ); ?>
 
