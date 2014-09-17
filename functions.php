@@ -48,6 +48,7 @@ if ( ! function_exists( 'vantage_setup' ) ) :
  * @since vantage 1.0
  */
 function vantage_setup() {
+
 	// Initialize SiteOrigin settings
 	siteorigin_settings_init();
 	
@@ -220,8 +221,10 @@ add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
 
 /**
  * Add custom body classes.
- * 
+ *
  * @param $classes
+ *
+ * @return array
  * @package vantage
  * @since 1.0
  */
@@ -271,7 +274,7 @@ add_action('vantage_support_text', 'vantage_top_text_area');
  */
 function vantage_back_to_top() {
 	if( !siteorigin_setting('navigation_display_scroll_to_top') ) return;
-	?><a href="#" id="scroll-to-top"><?php __('Back To Top', 'vantage') ?></a><?php
+	?><a href="#" id="scroll-to-top" title="<?php esc_attr_e('Back To Top', 'vantage') ?>"><span class="vantage-icon-arrow-up"></span></a><?php
 }
 add_action('wp_footer', 'vantage_back_to_top');
 

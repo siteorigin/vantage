@@ -203,10 +203,7 @@ add_action('admin_init', 'vantage_theme_settings');
  * @since vantage 1.0
  */
 function vantage_theme_setting_defaults($defaults){
-	$defaults['logo_image'] = array(
-		get_template_directory_uri().'/images/logo.png', 40, 181
-	);
-
+	$defaults['logo_image'] = false;
 	$defaults['logo_image_retina'] = false;
 	$defaults['logo_header_text'] = __('Call me! Maybe?', 'vantage');
 

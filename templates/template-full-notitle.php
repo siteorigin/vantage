@@ -1,6 +1,6 @@
 <?php
 /**
- * This template displays full width pages with a page title.
+ * This template displays full width pages without a page title.
  *
  * @package vantage
  * @since vantage 1.0

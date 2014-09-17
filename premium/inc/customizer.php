@@ -238,7 +238,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Current Page Background', 'vantage'),
 				'default' => '#343538',
-				'selector' => '.main-navigation ul li.current-menu-item > a',
+				'selector' => '.main-navigation ul li.current-menu-item > a, .main-navigation ul li.current_page_item > a ',
 				'property' => 'background-color',
 				'no_live' => true,
 			),
@@ -247,7 +247,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Current Page Text', 'vantage'),
 				'default' => '#FFFFFF',
-				'selector' => '.main-navigation ul li.current-menu-item > a, .main-navigation ul li.current-menu-item > a [class^="icon-"]',
+				'selector' => '.main-navigation ul li.current-menu-item > a, .main-navigation ul li.current-menu-item > a [class^="icon-"], .main-navigation ul li.current-page-item > a, .main-navigation ul li.current-page-item > a [class^="icon-"]',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -258,6 +258,23 @@ function vantage_customizer_init(){
 				'default' => '#303134',
 				'selector' => '#search-icon #search-icon-icon',
 				'property' => 'background-color',
+			),
+
+			'search_icon' => array(
+				'type' => 'color',
+				'title' => __('Search Icon Color', 'vantage'),
+				'default' => '#d1d1d1',
+				'selector' => '#search-icon #search-icon-icon .vantage-icon-search',
+				'property' => 'color',
+			),
+
+			'search_icon_hover' => array(
+				'type' => 'color',
+				'title' => __('Search Icon Hover Color', 'vantage'),
+				'default' => '#FFFFFF',
+				'selector' => '#search-icon #search-icon-icon:hover .vantage-icon-search',
+				'property' => 'color',
+				'no_live' => true,
 			),
 
 			'search_input' => array(
@@ -437,6 +454,8 @@ add_action( 'customize_register', 'vantage_customizer_register', 15 );
  */
 function vantage_customizer_style() {
 	global $siteorigin_vantage_customizer;
+	if( empty($siteorigin_vantage_customizer) ) return;
+
 	$builder = $siteorigin_vantage_customizer->create_css_builder();
 
 	// Add any extra CSS customizations
