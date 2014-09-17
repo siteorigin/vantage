@@ -11,8 +11,8 @@ function vantage_premium_upgrade_content($content){
 	$content['features'] = array();
 
 	$content['features'][] = array(
-		'heading' => __('Premium Email Support', 'vantage'),
-		'content' => __("Need help setting up Vantage? Upgrading to Vantage Premium gives you email support. We have a growing support team ready to help you with your questions.", 'vantage'),
+		'heading' => __('Premium Support', 'vantage'),
+		'content' => __("Need help setting up Vantage? Upgrading to Vantage Premium gives you prioritized forum support and email support if you need it. We have a growing support team ready to help you with your questions.", 'vantage'),
 	);
 
 	$content['features'][] = array(
