@@ -339,7 +339,10 @@ add_action( 'widgets_init', 'vantage_register_widgets');
  */
 function vantage_filter_carousel_loop($title, $instance = array(), $id = false){
 	if($id == 'siteorigin-panels-postloop' && isset($instance['template']) && $instance['template'] == 'loops/loop-carousel.php') {
-		$title = '<span class="vantage-carousel-title"><span class="vantage-carousel-title-text">'.$title.'</span><a href="#" class="next">next</a><a href="#" class="previous">previous</a></span>';
+		$new_title = '<span class="vantage-carousel-title"><span class="vantage-carousel-title-text">'. $title . '</span>';
+		$new_title .= '<a href="#" class="next" title="' . esc_attr( __('Next', 'vantage') ) . '"><span class="vantage-icon-arrow-right"></span></a>';
+		$new_title .= '<a href="#" class="previous" title="' . esc_attr( __('Previous', 'vantage') ) . '"><span class="vantage-icon-arrow-left"></span></a>';
+		$title = $new_title;
 	}
 	return $title;
 }

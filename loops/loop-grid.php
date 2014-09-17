@@ -6,7 +6,7 @@
 <?php if( have_posts() ) : $i = 0; ?>
 
 	<div class="vantage-grid-loop">
-		<?php while( have_posts() ): the_post(); $i++ ?>
+		<?php while( have_posts() ): the_post(); $i++; ?>
 			<article <?php post_class(array('grid-post')) ?>>
 
 				<?php if( has_post_thumbnail() ) : ?>

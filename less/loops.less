@@ -11,35 +11,34 @@
 	}
 
 	a.next, a.previous {
+		background: #3a3a3a;
+		.rounded(2px);
+		text-decoration: none;
+		color: #FFFFFF;
 		display: block;
 		float: right;
-		height: 17px;
-		width: 17px;
 		overflow: hidden;
-		text-indent: -9999px;
 		background-position: center center;
 		margin-left: 2px;
+		padding: 4px 4px 5px 4px;
+
+		.vantage-icon-arrow-left,
+		.vantage-icon-arrow-right {
+			line-height: 10px;
+			display: block;
+			font-size: 8px;
+			width: 8px;
+			height: 8px;
+			text-align: center;
+		}
 	}
 
 	a.next {
-		background: url(images/sprites/carousel-right.png);
 	}
 
 	a.previous {
-		background: url(images/sprites/carousel-left.png);
 	}
 
-	@media screen and (-webkit-min-device-pixel-ratio: 2) {
-		a.next {
-			background: url(images/retina/carousel-right.png);
-			background-size: 17px 17px;
-		}
-
-		a.previous {
-			background: url(images/retina/carousel-left.png);
-			background-size: 17px 17px;
-		}
-	}
 }
 
 .vantage-carousel-wrapper {
