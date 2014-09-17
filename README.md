@@ -73,6 +73,7 @@ Change Log
 * Removed default logo as per theme review requirements.
 * Fixed logo width for mobile devices in logo-in-menu layout.
 * Replaced sprites with iconic fonts.
+* Removed hgroup tag.
 * Premium: added more customizations.
 
 #### 1.2
