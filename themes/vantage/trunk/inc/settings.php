@@ -265,3 +265,8 @@ function vantage_feature_suggestion_url($url){
 	return 'http://sorig.in/vantage-suggestions';
 }
 add_filter('siteorigin_settings_suggest_features_url', 'vantage_feature_suggestion_url');
+
+function vantage_siteorigin_settings_page_icon($icon){
+	return get_template_directory_uri().'/images/settings-icon.png';
+}
+add_filter('siteorigin_settings_page_icon', 'vantage_siteorigin_settings_page_icon');
