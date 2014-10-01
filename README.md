@@ -69,6 +69,10 @@ This theme is built around the SiteOrigin extras framework contained in the fold
 Change Log
 ---------------
 
+#### 1.2.2
+* Fixed hgroup based customizer settings.
+* Framework updates.
+
 #### 1.2.1
 * Removed default logo as per theme review requirements.
 * Fixed logo width for mobile devices in logo-in-menu layout.
