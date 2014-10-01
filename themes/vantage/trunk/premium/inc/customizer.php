@@ -114,7 +114,7 @@ function vantage_customizer_init(){
 				'title' => __('Header Padding', 'vantage'),
 				'default' => 45,
 				'unit' => 'px',
-				'selector' => 'header#masthead hgroup',
+				'selector' => 'header#masthead .hgroup',
 				'property' => array('padding-top', 'padding-bottom'),
 			),
 
@@ -470,9 +470,9 @@ add_action('wp_head', 'vantage_customizer_style', 20);
  */
 function vantage_customizer_callback_logo_center($builder, $val, $setting){
 	if( $val ) {
-		$builder->add_css('header#masthead hgroup .logo', 'float', 'none');
-		$builder->add_css('header#masthead hgroup .logo img', 'display', 'block');
-		$builder->add_css('header#masthead hgroup .logo img', 'margin', '0 auto');
+		$builder->add_css('header#masthead .hgroup .logo', 'float', 'none');
+		$builder->add_css('header#masthead .hgroup .logo img', 'display', 'block');
+		$builder->add_css('header#masthead .hgroup .logo img', 'margin', '0 auto');
 	}
 
 	return $builder;
