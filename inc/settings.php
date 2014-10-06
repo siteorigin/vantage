@@ -13,6 +13,7 @@
  * @since vantage 1.0
  */
 function vantage_theme_settings(){
+
 	siteorigin_settings_add_section( 'logo', __('Logo', 'vantage' ) );
 	siteorigin_settings_add_section( 'layout', __('Layout', 'vantage' ) );
 	siteorigin_settings_add_section( 'home', __('Home', 'vantage' ) );
@@ -192,7 +193,7 @@ function vantage_theme_settings(){
 	) );
 
 }
-add_action('siteorigin_settings_init', 'vantage_theme_settings');
+add_action('admin_init', 'vantage_theme_settings');
 
 /**
  * Setup theme default settings.

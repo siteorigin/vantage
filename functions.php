@@ -35,7 +35,6 @@ include get_template_directory() . '/inc/metaslider.php';
 include get_template_directory() . '/inc/widgets.php';
 include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/woocommerce.php';
-include get_template_directory() . '/tour/tour.php';
 
 
 if ( ! function_exists( 'vantage_setup' ) ) :
