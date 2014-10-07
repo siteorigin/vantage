@@ -12,14 +12,14 @@ function vantage_settings_tour($tour){
 	$tour[] = array(
 		'title' => __( 'Upload Your Logo', 'vantage' ),
 		'content' => __( 'The first step to making your site uniquely your own is to upload your custom logo. Choose a logo image below, and it will replace the plain-text site title. Any size will work, but we recommend that you use a smaller version of your logo.', 'vantage' ),
-		'image' => get_template_directory_uri() . '/tour/steps/logo.png',
+		'image' => get_template_directory_uri() . '/tour/steps/upload-logo.jpg',
 		'setting' => 'logo_image',
 	);
 
 	$tour[] = array(
 		'title' => __( 'Upload Your Retina Logo', 'vantage' ),
 		'content' => __( 'A retina logo is a double-sized version of your standard logo. Vantage displays this version of your logo to users with high pixel density displays. Currently, these are most common on mobile devices, but they are starting to infiltrate desktop devices too.', 'vantage' ),
-		'image' => get_template_directory_uri() . '/tour/steps/logo.png',
+		'image' => get_template_directory_uri() . '/tour/steps/upload-logo-retina.jpg',
 		'setting' => 'logo_image_retina',
 	);
 
