@@ -75,8 +75,12 @@ function vantage_settings_tour($tour){
 		// Only show this step if the user isn't already using premium
 		$tour[] = array(
 			'title' => __( 'Check Out Vantage Premium', 'vantage' ),
-			'content' => __( "You may have noticed that some settings and features are only available in Vantage Premium. This is a cost-effective upgrade that gives you access to a lot of extra features. Take a look to see if this is something you might find useful.", 'vantage' ),
+			'content' => __( "You may have noticed that some settings and features are only available in Vantage Premium. This is a cost-effective upgrade that gives you access to a lot of bonus features. Take a look to see if this is something you might find useful.", 'vantage' ),
 			'image' => get_template_directory_uri() . '/tour/steps/premium.jpg',
+			'action' => array(
+				'text' => __( 'More About Vantage Premium', 'vantage' ),
+				'href' => admin_url('themes.php?page=premium_upgrade'),
+			),
 			'video' => 74123479,
 		);
 	}
