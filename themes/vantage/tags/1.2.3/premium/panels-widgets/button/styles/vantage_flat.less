@@ -1,0 +1,77 @@
+/*
+Name: Vantage Flat
+Template: simple
+Author: Greg Priday
+Author URI: http://siteorigin.com/
+*/
+
+@background_color: #F5F5F5;
+
+@text_lighten: 75%;
+@inset_highlight: 10%;
+@drop_shadow: 0.1;
+@text_shadow: 10%;
+
+@rounded: 4px;
+@font_size: 1em;
+
+@padding_top: 10px;
+@padding_sides: 45px;
+
+@font_family: inherit;
+@font_weight: 500;
+
+@import "../../../less/mixins";
+
+& {
+
+	a {
+		display:inline-block;
+		padding: (@padding_top+1) @padding_sides @padding_top @padding_sides;
+
+		.rounded(@rounded);
+
+		color: lumlighten(@background_color, @text_lighten);
+
+		font-size: @font_size;
+		font-family: @font_family;
+		font-weight: @font_weight;
+		text-decoration:none;
+
+		text-shadow: 0 1px 0 lumdarken(@background_color, @text_shadow);
+		text-align: center;
+		border-bottom: 2px solid lumdarken(@background_color, 8%);
+
+		.gradient(@background_color, lumdarken(@background_color, 0.5%), lumlighten(@background_color, 0.5%));
+
+		&:hover {
+			.gradient(lumlighten(@background_color, 2%), lumdarken(@background_color, 2%), lumlighten(@background_color, 2%));
+		}
+
+		&:active {
+			.gradient(lumdarken(@background_color, 3%), lumdarken(@background_color, 3%), @background_color);
+			.box-shadow(none);
+			padding-top: @padding_top + 2;
+			padding-bottom: @padding_top - 1;
+		}
+	}
+
+	&.align-left {
+		text-align: left;
+	}
+
+	&.align-right {
+		text-align: right;
+	}
+
+	&.align-center {
+		text-align: center;
+	}
+
+	&.align-justify {
+		a {
+			display: block;
+		}
+	}
+
+}
