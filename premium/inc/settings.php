@@ -23,7 +23,7 @@ function vantage_premium_theme_settings(){
 		'validator' => 'twitter',
 	));
 }
-add_action('admin_init', 'vantage_premium_theme_settings', 15);
+add_action('siteorigin_settings_init', 'vantage_premium_theme_settings', 15);
 
 
 function vantage_premium_theme_setting_defaults($defaults){
