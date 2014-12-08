@@ -125,7 +125,9 @@ function vantage_prebuilt_page_layouts($layouts){
 			1 =>
 			array(
 				'cells' => '1',
-				'style' => 'wide-grey',
+				'style' => array(
+					'class' => 'wide-grey'
+				),
 			),
 			2 =>
 			array(
@@ -188,31 +190,43 @@ function vantage_panels_row_style_fields($fields) {
 
 	$fields['top_border'] = array(
 		'name' => __('Top Border Color', 'vantage'),
+		'priority' => 3,
+		'group' => 'theme',
 		'type' => 'color',
 	);
 
 	$fields['bottom_border'] = array(
 		'name' => __('Bottom Border Color', 'vantage'),
+		'priority' => 3,
+		'group' => 'theme',
 		'type' => 'color',
 	);
 
 	$fields['background'] = array(
 		'name' => __('Background Color', 'vantage'),
+		'priority' => 5,
+		'group' => 'theme',
 		'type' => 'color',
 	);
 
 	$fields['background_image'] = array(
-		'name' => __('Background Image', 'vantage'),
+		'name' => __('Background Image URL', 'vantage'),
+		'priority' => 6,
+		'group' => 'theme',
 		'type' => 'url',
 	);
 
 	$fields['background_image_repeat'] = array(
 		'name' => __('Repeat Background Image', 'vantage'),
+		'priority' => 7,
+		'group' => 'theme',
 		'type' => 'checkbox',
 	);
 
 	$fields['no_margin'] = array(
 		'name' => __('No Bottom Margin', 'vantage'),
+		'priority' => 10,
+		'group' => 'theme',
 		'type' => 'checkbox',
 	);
 
@@ -229,7 +243,7 @@ function vantage_panels_panels_row_style_attributes($attr, $style) {
 	if(!empty($style['background_image'])) $attr['style'] .= 'background-image: url('.esc_url($style['background_image']).'); ';
 	if(!empty($style['background_image_repeat'])) $attr['style'] .= 'background-repeat: repeat; ';
 
-	if(empty($attr['style'])) unset($attr['style']);
+	if( empty($attr['style']) ) unset( $attr['style'] );
 	return $attr;
 }
 add_filter('siteorigin_panels_row_style_attributes', 'vantage_panels_panels_row_style_attributes', 10, 2);
