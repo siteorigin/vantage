@@ -2052,6 +2052,10 @@ body.layout-full {
   margin-bottom: 0;
   color: #b9b9b9;
 }
+#footer-widgets .widget.panel,
+#footer-widgets .widget.widget_siteorigin-panels-builder {
+  padding: 0;
+}
 #footer-widgets .widget a {
   color: #cccccc;
 }
