@@ -1928,9 +1928,11 @@ body.layout-full {
     background-size: 32px 85px;
   }
   .flexslider .flex-direction-nav li a.flex-prev {
+    background-size: cover;
     background-image: url(images/retina/gallery-prev.png);
   }
   .flexslider .flex-direction-nav li a.flex-next {
+    background-size: cover;
     background-image: url(images/retina/gallery-next.png);
   }
 }
