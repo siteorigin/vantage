@@ -116,7 +116,7 @@ function vantage_theme_settings(){
 			__('This theme supports <a href="%s" target="_blank">Meta Slider</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
 			'http://sorig.in/metaslider',
 			siteorigin_metaslider_install_link(),
-			'http://siteorigin.com/vantage-documentation/slider/'
+			'https://siteorigin.com/vantage-documentation/slider/'
 		)
 	));
 
