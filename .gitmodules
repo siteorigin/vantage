@@ -1,6 +1,6 @@
 [submodule "extras"]
 	path = extras
-	url = git@github.com/siteorigin/extras
+	url = git@github.com:siteorigin/extras
 [submodule "premium/extras"]
 	path = premium/extras
-	url = git@github.com/siteorigin/extras-premium
+	url = git@github.com:siteorigin/extras-premium
