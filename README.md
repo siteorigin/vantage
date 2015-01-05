@@ -72,6 +72,7 @@ Change Log
 #### 1.2.4
 * Fixed retina home page slider.
 * Updated links to include HTTPS.
+* Framework updates.
 
 #### 1.2.3
 * Added theme tour to help setup.
