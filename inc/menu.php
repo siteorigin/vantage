@@ -10,7 +10,8 @@ function vantage_filter_nav_menu_items($item_output, $item, $depth, $args){
 		$icon = get_post_meta($object_id, 'vantage_menu_icon', true);
 
 		if(!empty($icon)) {
-			$item_output = str_replace('<span class="icon"></span>', '<span class="'.esc_attr($icon).'"></span>', $item_output);
+			$icon = apply_filters('vantage_fontawesome_icon_name', $icon );
+			$item_output = str_replace( '<span class="icon"></span>', '<span class="' . esc_attr( $icon ) . '"></span>', $item_output );
 		}
 		else {
 			$item_output = str_replace('<span class="icon"></span>', '', $item_output);
@@ -18,9 +19,8 @@ function vantage_filter_nav_menu_items($item_output, $item, $depth, $args){
 	}
 	elseif($object_type == 'custom') {
 		if( siteorigin_setting('navigation_home_icon') && strpos($item_output, 'href="'.home_url('/').'"', 0) !== false ) {
-			$item_output = str_replace('<span class="icon"></span>', '<span class="icon-home"></span>', $item_output);
+			$item_output = str_replace('<span class="icon"></span>', '<span class="fa fa-home"></span>', $item_output);
 		}
-
 	}
 	else {
 		$item_output = str_replace('<span class="icon"></span>', '', $item_output);
@@ -52,6 +52,9 @@ function vantage_menu_icon_metabox_render($post){
 	$icons = include (get_template_directory().'/fontawesome/icons.php');
 	$sections = include (get_template_directory().'/fontawesome/icon-sections.php');
 	$current = get_post_meta($post->ID, 'vantage_menu_icon', true);
+	if(!empty($current)) {
+		$current = apply_filters('vantage_fontawesome_icon_name', $current );
+	}
 
 	?>
 	<select name="vantage_menu_icon">
@@ -73,7 +76,8 @@ function vantage_menu_icon_metabox_render($post){
  * @return string
  */
 function vantage_icon_get_name($icon){
-	$name = str_replace('icon-', '', $icon);
+	$name = preg_replace('/^icon-/', '', $icon);
+	$name = preg_replace('/^fa fa-/', '', $name);
 	$name = str_replace('-', ' ', $name);
 	$name = ucwords($name);
 	return $name;
