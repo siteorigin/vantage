@@ -1781,6 +1781,18 @@ body.layout-full {
   transform: scale(1, 1);
   opacity: 1 !important;
 }
+#map-canvas img,
+#gmap_canvas img {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  line-height: normal !important;
+  max-width: none;
+  zoom: normal !important;
+}
 /* =Sliders
 ----------------------------------------------- */
 /* Resets */
