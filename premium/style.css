@@ -1,6 +1,5 @@
 .widget_vantage-social-media .social-media-icon {
   /* The icons */
-
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-linkedin {
   background: #0070b4;
@@ -174,7 +173,7 @@
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.widget_vantage-social-media .social-media-icon.social-media-icon-small [class^="icon-"] {
+.widget_vantage-social-media .social-media-icon.social-media-icon-small [class^="fa fa-"] {
   font-size: 12px;
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-small img {
@@ -190,7 +189,7 @@
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-.widget_vantage-social-media .social-media-icon.social-media-icon-large [class^="icon-"] {
+.widget_vantage-social-media .social-media-icon.social-media-icon-large [class^="fa fa-"] {
   font-size: 22px;
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-large img {

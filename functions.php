@@ -37,6 +37,8 @@ include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/woocommerce.php';
 include get_template_directory() . '/tour/tour.php';
 
+include get_template_directory() . '/fontawesome/icon-migration.php';
+
 
 if ( ! function_exists( 'vantage_setup' ) ) :
 /**

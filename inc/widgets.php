@@ -43,13 +43,16 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			$icon_styles[] = 'background-color: '.$instance['icon_background_color'];
 		}
 
-
+		$icon = $instance['icon'];
+		if ( ! empty( $icon ) ) {
+			$icon = apply_filters('vantage_fontawesome_icon_name', $icon );
+		}
 		?>
 		<div class="circle-icon-box circle-icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo empty($instance['box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?> circle-icon-size-<?php echo $instance['icon_size'] ?>">
 			<div class="circle-icon-wrapper">
                 <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon"><?php endif; ?>
 				<div class="circle-icon" <?php if(!empty($icon_styles)) echo 'style="'.implode(';', $icon_styles).'"' ?>>
-					<?php if(!empty($instance['icon'])) : ?><div class="<?php echo esc_attr($instance['icon']) ?>"></div><?php endif; ?>
+					<?php if(!empty($icon)) : ?><div class="<?php echo esc_attr($icon) ?>"></div><?php endif; ?>
 				</div>
                 <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
 			</div>
@@ -92,7 +95,9 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 
 		$icons = include ( get_template_directory() . '/fontawesome/icons.php' );
 		$sections = include (get_template_directory().'/fontawesome/icon-sections.php');
-
+		if(!empty($instance['icon'])) {
+			$instance['icon'] = apply_filters('vantage_fontawesome_icon_name', $instance['icon'] );
+		}
 		?>
 		<p>
 			<label for="<?php echo $this->get_field_id('title') ?>"><?php _e('Title', 'vantage') ?></label>
