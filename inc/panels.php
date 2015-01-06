@@ -230,9 +230,14 @@ function vantage_panels_row_style_fields($fields) {
 		'type' => 'checkbox',
 	);
 
+	// How we also need to remove some of the fields implemented by Page Builder 2 that aren't compatible.
+	unset( $fields['background_image_attachment'] );
+	unset( $fields['background_display'] );
+	unset( $fields['border_color'] );
+
 	return $fields;
 }
-add_filter('siteorigin_panels_row_style_fields', 'vantage_panels_row_style_fields');
+add_filter('siteorigin_panels_row_style_fields', 'vantage_panels_row_style_fields', 11);
 
 function vantage_panels_panels_row_style_attributes($attr, $style) {
 	$attr['style'] = '';
