@@ -262,7 +262,7 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 
 				$icon = apply_filters('vantage_social_widget_icon_'.$id, '');
 				if(!empty($icon)) echo $icon;
-				else echo '<span class="icon-' . $id . '"></span>';
+				else echo '<span class="fa fa-' . $id . '"></span>';
 
 				?></a><?php
 			}
