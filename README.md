@@ -69,9 +69,11 @@ This theme is built around the SiteOrigin extras framework contained in the fold
 Change Log
 ---------------
 
-#### 1.2.4
+#### 1.3
 * Fixed retina home page slider.
 * Updated links to include HTTPS.
+* Updated to Font Awesome 4.2.0 - including migration functions.
+* Improved Page builder 2.0 compatibility.
 * Framework updates.
 
 #### 1.2.3
