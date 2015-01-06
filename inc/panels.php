@@ -265,14 +265,14 @@ add_filter('siteorigin_panels_row_attributes', 'vantage_panels_panels_row_attrib
  *
  * @return mixed
  */
-function vantage_panels_add_recommended_widgets($widgets){
+function vantage_panels_add_widget_groups($widgets){
 	$widgets['Vantage_CircleIcon_Widget']['groups'] = array('vantage');
 	$widgets['Vantage_Headline_Widget']['groups'] = array('vantage');
 	$widgets['Vantage_Social_Media_Widget']['groups'] = array('vantage');
 	return $widgets;
 
 }
-add_filter('siteorigin_panels_widgets', 'vantage_panels_add_recommended_widgets');
+add_filter('siteorigin_panels_widgets', 'vantage_panels_add_widget_groups');
 
 function vantage_panels_add_widgets_dialog_tabs($tabs){
 	$tabs[] = array(
