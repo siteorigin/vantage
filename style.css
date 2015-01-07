@@ -1793,6 +1793,14 @@ body.layout-full {
   max-width: none;
   zoom: normal !important;
 }
+/* Entry Meta */
+.updated {
+  display: none;
+}
+/* Pages - Entry Meta */
+.page .entry-meta {
+  display: none;
+}
 /* =Sliders
 ----------------------------------------------- */
 /* Resets */
