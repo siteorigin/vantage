@@ -50,6 +50,10 @@ function vantage_theme_settings(){
 		'description' => __('Scale your layout for small screen devices.', 'vantage')
 	));
 
+	siteorigin_settings_add_field('layout', 'fitvids', 'checkbox', __('Enable FitVids.js', 'vantage'), array(
+		'description' => __('Include FitVids.js fluid embedded video layouts.', 'vantage')
+	));
+
 	siteorigin_settings_add_field('layout', 'bound', 'select', __('Layout Bound', 'vantage'), array(
 		'options' => array(
 			'boxed' => __('Boxed', 'vantage'),
@@ -207,6 +211,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['logo_header_text'] = __('Call me! Maybe?', 'vantage');
 
 	$defaults['layout_responsive'] = true;
+	$defaults['layout_fitvids'] = true;
 	$defaults['layout_bound'] = 'full';
 	$defaults['layout_masthead'] = '';
 	$defaults['layout_footer'] = '';

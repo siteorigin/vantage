@@ -10,7 +10,9 @@ jQuery(function($){
     } );
     
     /* Setup fitvids for entry content and panels */
-    $('.entry-content, .entry-content .panel' ).fitVids();
+    if(typeof $.fn.fitVids != 'undefined') {
+        $('.entry-content, .entry-content .panel' ).fitVids();
+    }
 
     if( !$('body').hasClass('mobile-device') ) {
 
