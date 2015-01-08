@@ -155,7 +155,8 @@ jQuery(function($){
     }).resize();
 
     // The sticky menu
-    if( $('nav.site-navigation.primary').hasClass('use-sticky-menu') && !$('body').hasClass('mobile-device')) {
+    if( ($('nav.site-navigation.primary').hasClass('use-sticky-menu') && !$('body').hasClass('mobile-device')) ||
+        ($('body').hasClass('mobile-device') && $('nav.site-navigation.primary').hasClass('use-sticky-menu-mobile')) ) {
 
         var adminBarHeight = $('body').hasClass('admin-bar') ? $('#wpadminbar').outerHeight() : 0;
         var $mc = null;

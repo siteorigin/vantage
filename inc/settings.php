@@ -94,6 +94,10 @@ function vantage_theme_settings(){
 		'description' => __('Sticks the menu to the top of the screen when a user scrolls down.', 'vantage')
 	));
 
+	siteorigin_settings_add_field('navigation', 'use_sticky_menu_mobile', 'checkbox', __('Mobile Sticky Menu', 'vantage'), array(
+		'description' => __('Sticks the menu to the top of the screen when a user scrolls down on a mobile device.', 'vantage')
+	));
+
 	siteorigin_settings_add_field('navigation', 'menu_search', 'checkbox', __('Search in Menu', 'vantage'), array(
 		'description' => __('Display a search in the main menu.', 'vantage')
 	));
@@ -219,6 +223,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['navigation_responsive_menu'] = true;
 	$defaults['navigation_responsive_menu_text'] = '';
 	$defaults['navigation_use_sticky_menu'] = true;
+	$defaults['navigation_use_sticky_menu_mobile'] = false;
 	$defaults['navigation_menu_search'] = true;
 	$defaults['navigation_display_scroll_to_top'] = true;
 	$defaults['navigation_post_nav'] = true;
