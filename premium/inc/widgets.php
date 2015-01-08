@@ -17,9 +17,8 @@ function vantage_premium_social_widget_add_networks($networks) {
 		'skype' => __('Skype', 'vantage'),
 		'youtube' => __('YouTube', 'vantage'),
 		'github' => __('GitHub', 'vantage'),
-
-		// These ones don't have FontAwesome Icons
 		'vimeo' => __('Vimeo', 'vantage'),
+		'vk' => __('VK', 'vantage'),
 	) );
 
 	return $networks;
