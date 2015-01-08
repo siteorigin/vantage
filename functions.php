@@ -198,7 +198,7 @@ add_action( 'wp_enqueue_scripts', 'vantage_register_scripts' , 5);
 function vantage_scripts() {
 	wp_enqueue_style( 'vantage-style', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION );
 	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main.js', array('jquery', 'flexslider'), SITEORIGIN_THEME_VERSION );
-	wp_enqueue_style( 'vantage-fontawesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '3.2.1' );
+	wp_enqueue_style( 'vantage-fontawesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '4.2.0' );
 
 	if( siteorigin_setting( 'layout_fitvids' ) ) {
 		wp_enqueue_script( 'fitvids' , get_template_directory_uri() . '/js/jquery.fitvids.js' , array('jquery'), '1.0' );
