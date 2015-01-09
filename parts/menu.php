@@ -14,8 +14,8 @@ if ( siteorigin_setting( 'navigation_use_sticky_menu' ) ) {
 	$nav_classes[] = 'use-sticky-menu';
 }
 
-if ( siteorigin_setting( 'navigation_use_sticky_menu_mobile' ) ) {
-	$nav_classes[] = 'use-sticky-menu-mobile';
+if ( siteorigin_setting( 'navigation_mobile_navigation' ) ) {
+	$nav_classes[] = 'mobile-navigation';
 }
 ?>
 
