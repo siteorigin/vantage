@@ -193,7 +193,7 @@ function vantage_customizer_init(){
 			'hover_text' => array(
 				'type' => 'color',
 				'title' => __('Hover Text', 'vantage'),
-				'default' => '#FFFFFF',
+				'default' => '#ffffff',
 				'selector' => '.main-navigation ul li:hover > a, .main-navigation ul li:hover > a [class^="fa fa-"]',
 				'property' => 'color',
 				'no_live' => true,
@@ -211,7 +211,7 @@ function vantage_customizer_init(){
 			'hover_text_second' => array(
 				'type' => 'color',
 				'title' => __('Second Level Hover Text', 'vantage'),
-				'default' => '#FFFFFF',
+				'default' => '#ffffff',
 				'selector' => '.main-navigation ul ul li:hover > a',
 				'property' => 'color',
 				'no_live' => true,
@@ -220,7 +220,7 @@ function vantage_customizer_init(){
 			'icon_color' => array(
 				'type' => 'color',
 				'title' => __('Icon Color', 'vantage'),
-				'default' => '#CCCCCC',
+				'default' => '#cccccc',
 				'selector' => '.main-navigation [class^="fa fa-"], .main-navigation .mobile-nav-icon',
 				'property' => 'color',
 			),
@@ -228,7 +228,7 @@ function vantage_customizer_init(){
 			'icon_hover_color' => array(
 				'type' => 'color',
 				'title' => __('Icon Hover Color', 'vantage'),
-				'default' => '#FFFFFF',
+				'default' => '#ffffff',
 				'selector' => '.main-navigation ul li:hover > a [class^="fa fa-"], .main-navigation ul li:hover > a .mobile-nav-icon',
 				'property' => 'color',
 				'no_live' => true,
@@ -246,7 +246,7 @@ function vantage_customizer_init(){
 			'current_text' => array(
 				'type' => 'color',
 				'title' => __('Current Page Text', 'vantage'),
-				'default' => '#FFFFFF',
+				'default' => '#ffffff',
 				'selector' => '.main-navigation ul li.current-menu-item > a, .main-navigation ul li.current-menu-item > a [class^="fa fa-"], .main-navigation ul li.current-page-item > a, .main-navigation ul li.current-page-item > a [class^="fa fa-"]',
 				'property' => 'color',
 				'no_live' => true,
@@ -271,7 +271,7 @@ function vantage_customizer_init(){
 			'search_icon_hover' => array(
 				'type' => 'color',
 				'title' => __('Search Icon Hover Color', 'vantage'),
-				'default' => '#FFFFFF',
+				'default' => '#ffffff',
 				'selector' => '#search-icon #search-icon-icon:hover .vantage-icon-search',
 				'property' => 'color',
 				'no_live' => true,
@@ -325,7 +325,7 @@ function vantage_customizer_init(){
 			'circle_icon_icon' => array(
 				'type' => 'color',
 				'title' => __('Circle Icon Widget Icon', 'vantage'),
-				'default' => '#FFFFFF',
+				'default' => '#ffffff',
 				'selector' => '.widget_circleicon-widget .circle-icon-box .circle-icon [class^="fa fa-"]',
 				'property' => 'color',
 			),
@@ -419,7 +419,7 @@ function vantage_customizer_init(){
 			'site_into' => array(
 				'type' => 'color',
 				'title' => __('Site Info Text', 'vantage'),
-				'default' => '#AAAAAA',
+				'default' => '#aaaaaa',
 				'selector' => '#colophon #theme-attribution, #colophon #site-info',
 				'property' => 'color',
 			),
@@ -427,7 +427,7 @@ function vantage_customizer_init(){
 			'site_into_link' => array(
 				'type' => 'color',
 				'title' => __('Site Info Link', 'vantage'),
-				'default' => '#DDDDDD',
+				'default' => '#dddddd',
 				'selector' => '#colophon #theme-attribution a, #colophon #site-info a',
 				'property' => 'color',
 			),
