@@ -201,7 +201,7 @@ jQuery(function($){
             var $s = $(this);
 
             // Move the image into the background
-            var $img = $s.find('img.msDefaultImage').eq(0);
+            var $img = $s.find('img.ms-default-image').eq(0);
             if(!$img.length) {
                 $img = $s.find('img').eq(0);
             }
