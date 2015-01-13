@@ -236,7 +236,7 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 			'vantage-social-media',
 			__('Vantage Social Media', 'vantage'),
 			array(
-				'description' => __( 'Add nice little icons that link out to your social media profiles.', 'text_domain' )
+				'description' => __( 'Add nice little icons that link out to your social media profiles.', 'vantage' )
 			)
 		);
 
