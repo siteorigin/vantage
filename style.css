@@ -1975,8 +1975,8 @@ body.layout-full {
   max-width: 100%;
   height: auto;
 }
-#metaslider-demo .msDefaultImage,
-.vantage-slide-with-image .msDefaultImage {
+#metaslider-demo .ms-default-image,
+.vantage-slide-with-image .ms-default-image {
   max-width: 100%;
   height: auto;
 }
