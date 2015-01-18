@@ -347,6 +347,7 @@ function vantage_filter_carousel_loop($title, $instance = array(), $id = false){
 		$new_title = '<span class="vantage-carousel-title"><span class="vantage-carousel-title-text">'. $title . '</span>';
 		$new_title .= '<a href="#" class="next" title="' . esc_attr( __('Next', 'vantage') ) . '"><span class="vantage-icon-arrow-right"></span></a>';
 		$new_title .= '<a href="#" class="previous" title="' . esc_attr( __('Previous', 'vantage') ) . '"><span class="vantage-icon-arrow-left"></span></a>';
+		$new_title .= '</span>';
 		$title = $new_title;
 	}
 	return $title;
@@ -383,7 +384,12 @@ function vantage_carousel_ajax_handler(){
 							<a href="<?php the_permalink() ?>" class="default-thumbnail"><span class="overlay"></span></a>
 						<?php endif; ?>
 					</div>
-					<h3><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
+					<?php
+					$title = get_the_title();
+					if( empty( $title ) ) {
+						$title = _e( 'Post ', 'vantage' ) . get_the_ID();
+					} ?>
+					<h3><a href="<?php the_permalink() ?>"><?php echo $title ?></a></h3>
 				</li>
 			<?php endwhile; ?>
 		</ul>
