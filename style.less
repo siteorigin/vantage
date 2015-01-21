@@ -831,6 +831,7 @@ body.mobile-device {
 	top: 0;
 	right: 0;
 	height: 100%;
+  	z-index: 110;
 
 	#search-icon-icon {
 		.box-sizing(border-box);
@@ -1729,6 +1730,17 @@ body.layout-full{
   max-width: none;
   zoom: normal !important;
 }
+
+/* Entry Meta */
+
+.updated { display: none; }
+
+/* Pages - Entry Meta */
+
+.page .entry-meta {
+  display: none;
+}
+
 
 @import "less/slider";
 @import "less/widgets";

@@ -2,8 +2,25 @@
 /**
  * Part Name: Default Menu
  */
+
+$ubermenu_active = function_exists( 'ubermenu' );
+$nav_classes = array( 'site-navigation' );
+if ( ! $ubermenu_active ) {
+	$nav_classes[] = 'main-navigation';
+}
+$nav_classes[] = 'primary';
+
+if ( siteorigin_setting( 'navigation_use_sticky_menu' ) ) {
+	$nav_classes[] = 'use-sticky-menu';
+}
+
+if ( siteorigin_setting( 'navigation_mobile_navigation' ) ) {
+	$nav_classes[] = 'mobile-navigation';
+}
 ?>
-<nav role="navigation" class="site-navigation main-navigation primary <?php if( siteorigin_setting('navigation_use_sticky_menu') ) echo 'use-sticky-menu' ?>">
+
+<nav role="navigation" class="<?php echo implode( ' ', $nav_classes) ?>">
+
 	<div class="full-container">
 		<?php if( siteorigin_setting('navigation_menu_search') ) : ?>
 			<div id="search-icon">
@@ -14,6 +31,12 @@
 			</div>
 		<?php endif; ?>
 
-		<?php wp_nav_menu( array( 'theme_location' => 'primary', 'link_before' => '<span class="icon"></span>' ) ); ?>
+		<?php if( $ubermenu_active ): ?>
+			<?php ubermenu( 'main' , array( 'menu' => 2 ) ); ?>
+		<?php else: ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'link_before' => '<span class="icon"></span>' ) ); ?>
+		<?php endif; ?>
 	</div>
 </nav><!-- .site-navigation .main-navigation -->
+
+

@@ -10,9 +10,11 @@ jQuery(function($){
     } );
     
     /* Setup fitvids for entry content and panels */
-    $('.entry-content, .entry-content .panel' ).fitVids();
+    if(typeof $.fn.fitVids != 'undefined') {
+        $('.entry-content, .entry-content .panel' ).fitVids();
+    }
 
-    if( !$('body').hasClass('mobile-device') ) {
+    if( !$('body').hasClass('mobile-device') || $('nav.site-navigation.primary').hasClass('mobile-navigation')) {
 
         // Everything we need for scrolling up and down.
         $(window).scroll( function(){
@@ -153,7 +155,8 @@ jQuery(function($){
     }).resize();
 
     // The sticky menu
-    if( $('nav.site-navigation.primary').hasClass('use-sticky-menu') && !$('body').hasClass('mobile-device')) {
+    if( ($('nav.site-navigation.primary').hasClass('use-sticky-menu') && !$('body').hasClass('mobile-device')) ||
+        ($('body').hasClass('mobile-device') && $('nav.site-navigation.primary').hasClass('mobile-navigation')) ) {
 
         var adminBarHeight = $('body').hasClass('admin-bar') ? $('#wpadminbar').outerHeight() : 0;
         var $mc = null;
