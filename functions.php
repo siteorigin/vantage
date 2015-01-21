@@ -216,7 +216,7 @@ add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
  */
 function vantage_web_fonts(){
 	if( !siteorigin_setting('logo_image') ) {
-		wp_enqueue_style('vantage-google-webfont-roboto', 'https://fonts.googleapis.com/css?family=Roboto:300');
+		wp_enqueue_style('vantage-google-webfont-roboto', '//fonts.googleapis.com/css?family=Roboto:300');
 	}
 }
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
