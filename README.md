@@ -75,6 +75,14 @@ Change Log
 * Updated to Font Awesome 4.2.0 - including migration functions.
 * Improved Page builder 2.0 compatibility.
 * Framework updates.
+* Fixed widget validation errors.
+* Fixed widget HTML/CSS validation errors.
+* Added option to reneable sticky menu on mobile.
+* Added UberMenu compatibility.
+* Added option to disable FitVids.
+* Fix to ensure image shadows don't apply to Google maps.
+* Fixed retina slider images.
+* Premium: Added VK Widget.
 
 #### 1.2.3
 * Added theme tour to help setup.
