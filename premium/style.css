@@ -1,6 +1,5 @@
 .widget_vantage-social-media .social-media-icon {
   /* The icons */
-
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-linkedin {
   background: #0070b4;
@@ -167,6 +166,24 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66c5ff', endColorstr='#56c0ff', GradientType=0);
   border: 1px solid #3db6ff;
 }
+.widget_vantage-social-media .social-media-icon.social-media-icon-vk {
+  background: #537599;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #537599), color-stop(1, #587da3));
+  background: -ms-linear-gradient(bottom, #537599, #587da3);
+  background: -moz-linear-gradient(center bottom, #537599 0%, #587da3 100%);
+  background: -o-linear-gradient(#587da3, #537599);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#587da3', endColorstr='#537599', GradientType=0);
+  border: 1px solid #4a6888;
+}
+.widget_vantage-social-media .social-media-icon.social-media-icon-vk:hover {
+  background: #5b7fa6;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #5b7fa6), color-stop(1, #6587ab));
+  background: -ms-linear-gradient(bottom, #5b7fa6, #6587ab);
+  background: -moz-linear-gradient(center bottom, #5b7fa6 0%, #6587ab 100%);
+  background: -o-linear-gradient(#6587ab, #5b7fa6);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6587ab', endColorstr='#5b7fa6', GradientType=0);
+  border: 1px solid #517296;
+}
 .widget_vantage-social-media .social-media-icon.social-media-icon-small {
   width: 24px;
   height: 24px;
@@ -174,7 +191,7 @@
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.widget_vantage-social-media .social-media-icon.social-media-icon-small [class^="icon-"] {
+.widget_vantage-social-media .social-media-icon.social-media-icon-small [class^="fa fa-"] {
   font-size: 12px;
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-small img {
@@ -190,7 +207,7 @@
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-.widget_vantage-social-media .social-media-icon.social-media-icon-large [class^="icon-"] {
+.widget_vantage-social-media .social-media-icon.social-media-icon-large [class^="fa fa-"] {
   font-size: 22px;
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-large img {
