@@ -1923,6 +1923,7 @@ body.layout-full {
   padding: 0;
 }
 .flexslider .flex-direction-nav li a {
+  z-index: 200;
   display: block;
   position: absolute;
   top: 50%;
