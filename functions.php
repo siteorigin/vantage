@@ -7,7 +7,7 @@
  * @license GPL 2.0
  */
 
-define('SITEORIGIN_THEME_VERSION', '1.3');
+define('SITEORIGIN_THEME_VERSION', 'dev');
 define('SITEORIGIN_THEME_ENDPOINT', 'http://updates.siteorigin.com/');
 
 if( file_exists( get_template_directory() . '/premium/functions.php' ) ){
