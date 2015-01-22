@@ -138,7 +138,7 @@ if ( ! function_exists( 'vantage_posted_on' ) ) :
  */
 function vantage_posted_on() {
 	$posted_on_parts = array(
-		'on' => __('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>', 'vantage'),
+		'on' => __('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><time class="updated" datetime="' . esc_attr( get_the_modified_date( 'c' ) ) . '">' . esc_html( get_the_modified_date() ) . '</time></span>', 'vantage'),
 		'by' => __( '<span class="byline"> by <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'vantage' ),
 	);
 	$posted_on_parts = apply_filters('vantage_post_on_parts', $posted_on_parts);

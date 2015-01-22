@@ -30,7 +30,7 @@ function vantage_metaslider_filter_flex_slide($html, $slide, $settings){
 		$settings['height'] = round( $settings['height'] / 1080 * $settings['width'] );
 		$settings['width'] = 1080;
 
-		$html = sprintf("<img src='%s' class='msDefaultImage' width='%d' height='%d' />", $slide['thumb'], intval($settings['width']), intval($settings['height']));
+		$html = sprintf("<img src='%s' class='ms-default-image' width='%d' height='%d' />", $slide['thumb'], intval($settings['width']), intval($settings['height']));
 
 		if (strlen($slide['url'])) {
 			$html = '<a href="' . esc_url( $slide['url'] ) . '" target="' . esc_attr( $slide['target'] ) . '">' . $html . '</a>';

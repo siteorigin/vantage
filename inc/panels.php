@@ -230,9 +230,14 @@ function vantage_panels_row_style_fields($fields) {
 		'type' => 'checkbox',
 	);
 
+	// How we also need to remove some of the fields implemented by Page Builder 2 that aren't compatible.
+	unset( $fields['background_image_attachment'] );
+	unset( $fields['background_display'] );
+	unset( $fields['border_color'] );
+
 	return $fields;
 }
-add_filter('siteorigin_panels_row_style_fields', 'vantage_panels_row_style_fields');
+add_filter('siteorigin_panels_row_style_fields', 'vantage_panels_row_style_fields', 11);
 
 function vantage_panels_panels_row_style_attributes($attr, $style) {
 	$attr['style'] = '';
@@ -265,14 +270,14 @@ add_filter('siteorigin_panels_row_attributes', 'vantage_panels_panels_row_attrib
  *
  * @return mixed
  */
-function vantage_panels_add_recommended_widgets($widgets){
+function vantage_panels_add_widget_groups($widgets){
 	$widgets['Vantage_CircleIcon_Widget']['groups'] = array('vantage');
 	$widgets['Vantage_Headline_Widget']['groups'] = array('vantage');
 	$widgets['Vantage_Social_Media_Widget']['groups'] = array('vantage');
 	return $widgets;
 
 }
-add_filter('siteorigin_panels_widgets', 'vantage_panels_add_recommended_widgets');
+add_filter('siteorigin_panels_widgets', 'vantage_panels_add_widget_groups');
 
 function vantage_panels_add_widgets_dialog_tabs($tabs){
 	$tabs[] = array(

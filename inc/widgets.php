@@ -43,13 +43,16 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			$icon_styles[] = 'background-color: '.$instance['icon_background_color'];
 		}
 
-
+		$icon = $instance['icon'];
+		if ( ! empty( $icon ) ) {
+			$icon = apply_filters('vantage_fontawesome_icon_name', $icon );
+		}
 		?>
 		<div class="circle-icon-box circle-icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo empty($instance['box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?> circle-icon-size-<?php echo $instance['icon_size'] ?>">
 			<div class="circle-icon-wrapper">
                 <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon"><?php endif; ?>
 				<div class="circle-icon" <?php if(!empty($icon_styles)) echo 'style="'.implode(';', $icon_styles).'"' ?>>
-					<?php if(!empty($instance['icon'])) : ?><div class="<?php echo esc_attr($instance['icon']) ?>"></div><?php endif; ?>
+					<?php if(!empty($icon)) : ?><div class="<?php echo esc_attr($icon) ?>"></div><?php endif; ?>
 				</div>
                 <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
 			</div>
@@ -92,7 +95,9 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 
 		$icons = include ( get_template_directory() . '/fontawesome/icons.php' );
 		$sections = include (get_template_directory().'/fontawesome/icon-sections.php');
-
+		if(!empty($instance['icon'])) {
+			$instance['icon'] = apply_filters('vantage_fontawesome_icon_name', $instance['icon'] );
+		}
 		?>
 		<p>
 			<label for="<?php echo $this->get_field_id('title') ?>"><?php _e('Title', 'vantage') ?></label>
@@ -231,7 +236,7 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 			'vantage-social-media',
 			__('Vantage Social Media', 'vantage'),
 			array(
-				'description' => __( 'Add nice little icons that link out to your social media profiles.', 'text_domain' )
+				'description' => __( 'Add nice little icons that link out to your social media profiles.', 'vantage' )
 			)
 		);
 
@@ -257,7 +262,7 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 
 				$icon = apply_filters('vantage_social_widget_icon_'.$id, '');
 				if(!empty($icon)) echo $icon;
-				else echo '<span class="icon-' . $id . '"></span>';
+				else echo '<span class="fa fa-' . $id . '"></span>';
 
 				?></a><?php
 			}
@@ -342,6 +347,7 @@ function vantage_filter_carousel_loop($title, $instance = array(), $id = false){
 		$new_title = '<span class="vantage-carousel-title"><span class="vantage-carousel-title-text">'. $title . '</span>';
 		$new_title .= '<a href="#" class="next" title="' . esc_attr( __('Next', 'vantage') ) . '"><span class="vantage-icon-arrow-right"></span></a>';
 		$new_title .= '<a href="#" class="previous" title="' . esc_attr( __('Previous', 'vantage') ) . '"><span class="vantage-icon-arrow-left"></span></a>';
+		$new_title .= '</span>';
 		$title = $new_title;
 	}
 	return $title;
@@ -378,7 +384,12 @@ function vantage_carousel_ajax_handler(){
 							<a href="<?php the_permalink() ?>" class="default-thumbnail"><span class="overlay"></span></a>
 						<?php endif; ?>
 					</div>
-					<h3><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
+					<?php
+					$title = get_the_title();
+					if( empty( $title ) ) {
+						$title = _e( 'Post ', 'vantage' ) . get_the_ID();
+					} ?>
+					<h3><a href="<?php the_permalink() ?>"><?php echo $title ?></a></h3>
 				</li>
 			<?php endwhile; ?>
 		</ul>
