@@ -85,6 +85,7 @@ Change Log
 * Updated Fitvids, Flex Slider and HTML5.js
 * Framework updates.
 * Premium: Added VK Widget.
+* Added Russian and Japanese translations.
 
 #### 1.2.3
 * Added theme tour to help setup.
