@@ -247,6 +247,7 @@ function vantage_panels_panels_row_style_attributes($attr, $style) {
 	if(!empty($style['background'])) $attr['style'] .= 'background-color: '.$style['background'].'; ';
 	if(!empty($style['background_image'])) $attr['style'] .= 'background-image: url('.esc_url($style['background_image']).'); ';
 	if(!empty($style['background_image_repeat'])) $attr['style'] .= 'background-repeat: repeat; ';
+	if(!empty($style['row_css'])) $attr['style'] .= $style['row_css'];
 
 	if( empty($attr['style']) ) unset( $attr['style'] );
 	return $attr;
