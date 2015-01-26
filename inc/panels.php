@@ -240,7 +240,7 @@ function vantage_panels_row_style_fields($fields) {
 add_filter('siteorigin_panels_row_style_fields', 'vantage_panels_row_style_fields', 11);
 
 function vantage_panels_panels_row_style_attributes($attr, $style) {
-	$attr['style'] = '';
+	if(empty($attr['style'])) $attr['style'] = '';
 
 	if(!empty($style['top_border'])) $attr['style'] .= 'border-top: 1px solid '.$style['top_border'].'; ';
 	if(!empty($style['bottom_border'])) $attr['style'] .= 'border-bottom: 1px solid '.$style['bottom_border'].'; ';
