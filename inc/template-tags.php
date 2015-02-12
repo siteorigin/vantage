@@ -166,6 +166,12 @@ function vantage_display_logo(){
 	$logo = apply_filters('vantage_logo_image_id', $logo);
 
 	if( empty($logo) ) {
+		if ( function_exists( 'jetpack_the_site_logo' ) && jetpack_has_site_logo() ) {
+			// We'll let Jetpack handle things
+			jetpack_the_site_logo();
+			return;
+		}
+
 		// Just display the site title
 		$logo_html = '<h1 class="site-title">'.get_bloginfo( 'name' ).'</h1>';
 		$logo_html = apply_filters('vantage_logo_text', $logo_html);
