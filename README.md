@@ -82,7 +82,10 @@ Change Log
 * Added option to disable FitVids.
 * Fix to ensure image shadows don't apply to Google maps.
 * Fixed retina slider images.
+* Updated Fitvids, Flex Slider and HTML5.js
+* Framework updates.
 * Premium: Added VK Widget.
+* Added Russian and Japanese translations.
 
 #### 1.2.3
 * Added theme tour to help setup.
