@@ -240,13 +240,14 @@ function vantage_panels_row_style_fields($fields) {
 add_filter('siteorigin_panels_row_style_fields', 'vantage_panels_row_style_fields', 11);
 
 function vantage_panels_panels_row_style_attributes($attr, $style) {
-	$attr['style'] = '';
+	if(empty($attr['style'])) $attr['style'] = '';
 
 	if(!empty($style['top_border'])) $attr['style'] .= 'border-top: 1px solid '.$style['top_border'].'; ';
 	if(!empty($style['bottom_border'])) $attr['style'] .= 'border-bottom: 1px solid '.$style['bottom_border'].'; ';
 	if(!empty($style['background'])) $attr['style'] .= 'background-color: '.$style['background'].'; ';
 	if(!empty($style['background_image'])) $attr['style'] .= 'background-image: url('.esc_url($style['background_image']).'); ';
 	if(!empty($style['background_image_repeat'])) $attr['style'] .= 'background-repeat: repeat; ';
+	if(!empty($style['row_css'])) $attr['style'] .= $style['row_css'];
 
 	if( empty($attr['style']) ) unset( $attr['style'] );
 	return $attr;
