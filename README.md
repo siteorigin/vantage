@@ -73,6 +73,7 @@ Change Log
 * Fixed Jetpack logo support.
 * Fixed settings sanitization to allow some HTML in fields.
 * Premium: Fixed integer sanitization functions.
+* Premium: Fixed image customizer settings.
 
 #### 1.3
 * Fixed retina home page slider.
