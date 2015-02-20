@@ -69,6 +69,12 @@ This theme is built around the SiteOrigin extras framework contained in the fold
 Change Log
 ---------------
 
+#### 1.3.1
+* Fixed Jetpack logo support.
+* Fixed settings sanitization to allow some HTML in fields.
+* Premium: Fixed integer sanitization functions.
+* Premium: Fixed image customizer settings.
+
 #### 1.3
 * Fixed retina home page slider.
 * Updated links to include HTTPS.
