@@ -396,3 +396,24 @@ function vantage_responsive_header(){
 	}
 }
 add_action('wp_head', 'vantage_responsive_header');
+
+/**
+
+ * Handles the site title, copyright symbol and year string replace for the Footer Copyright theme option.
+
+ */
+function vantage_footer_site_info_sub($copyright){
+
+	return str_replace(
+
+		array('{site-title}', '{copyright}', '{year}'),
+
+		array(get_bloginfo('name'), '&copy;', date('Y')),
+
+		$copyright
+
+	);
+
+}
+
+add_filter( 'vantage_site_info', 'vantage_footer_site_info_sub' );
