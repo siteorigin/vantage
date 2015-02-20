@@ -196,7 +196,7 @@ function vantage_theme_settings(){
 	 */
 
 	siteorigin_settings_add_field( 'general', 'site_info_text', 'text', __( 'Site Information Text', 'vantage' ), array(
-		'description' => __( 'Text displayed in your footer. Useful for copyright information.', 'vantage' )
+		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' )
 	) );
 
 }
