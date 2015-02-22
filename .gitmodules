@@ -4,3 +4,6 @@
 [submodule "premium/extras"]
 	path = premium/extras
 	url = git@github.com:siteorigin/extras-premium
+[submodule "inc/panels-lite"]
+	path = inc/panels-lite
+	url = git@github.com:siteorigin/panels-lite.git
