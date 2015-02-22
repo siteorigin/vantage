@@ -96,7 +96,7 @@ function vantage_setup() {
 
 	if( !defined('SITEORIGIN_PANELS_VERSION') && !siteorigin_plugin_activation_is_activating('siteorigin-panels') ){
 		// Only include panels lite if the panels plugin doesn't exist
-		include get_template_directory() . '/extras/panels-lite/panels-lite.php';
+		include get_template_directory() . '/inc/panels-lite/panels-lite.php';
 	}
 
 	add_theme_support('siteorigin-premium-teaser', array(

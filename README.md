@@ -69,6 +69,12 @@ This theme is built around the SiteOrigin extras framework contained in the fold
 Change Log
 ---------------
 
+#### 1.3.2
+* Added auto text - copyright, sitename and year to footer text.
+* Fixed mobile navigation setting default.
+* Migrated to new Page Builder lite.
+* Premium: Fixed font enqueueing of bold fonts.
+
 #### 1.3.1
 * Fixed Jetpack logo support.
 * Fixed settings sanitization to allow some HTML in fields.
