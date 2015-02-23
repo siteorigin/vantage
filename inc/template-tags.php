@@ -138,8 +138,8 @@ if ( ! function_exists( 'vantage_posted_on' ) ) :
  */
 function vantage_posted_on() {
 	$posted_on_parts = array(
-		'on' => __('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><time class="updated" datetime="' . esc_attr( get_the_modified_date( 'c' ) ) . '">' . esc_html( get_the_modified_date() ) . '</time></span>', 'vantage'),
-		'by' => __( '<span class="byline"> by <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'vantage' ),
+		'on' => __( 'Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><time class="updated" datetime="%5$s">%6$s</time>', 'vantage'),
+		'by' => __( '<span class="byline"> by <span class="author vcard"><a class="url fn n" href="%7$s" title="%8$s" rel="author">%9$s</a></span></span>', 'vantage' ),
 	);
 	$posted_on_parts = apply_filters('vantage_post_on_parts', $posted_on_parts);
 
@@ -149,6 +149,8 @@ function vantage_posted_on() {
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
 		apply_filters('vantage_post_on_date', esc_html( get_the_date() )),
+		esc_attr( get_the_modified_date( 'c' ) ),
+		esc_html( get_the_modified_date() ),
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 		esc_attr( sprintf( __( 'View all posts by %s', 'vantage' ), get_the_author() ) ),
 		get_the_author()
