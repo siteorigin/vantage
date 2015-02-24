@@ -69,6 +69,11 @@ This theme is built around the SiteOrigin extras framework contained in the fold
 Change Log
 ---------------
 
+#### 1.3.4
+* Moved all body_class filtering into a single function.
+* Removed all URL shortner links.
+* Small CSS fixes.
+
 #### 1.3.3
 * Premium: Fixed fatal error with older versions of PHP.
 
