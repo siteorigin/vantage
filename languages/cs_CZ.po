@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vantage\n"
 "POT-Creation-Date: 2014-07-04 22:08+0200\n"
-"PO-Revision-Date: 2015-01-28 16:05+0100\n"
+"PO-Revision-Date: 2015-02-24 01:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1530,19 +1530,21 @@ msgstr "Váš komentář čeká na posouzení."
 #, php-format
 msgid ""
 "Posted on <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class="
-"\"entry-date\" datetime=\"%3$s\">%4$s</time></a>"
+"\"entry-date\" datetime=\"%3$s\">%4$s</time></a><time class=\"updated\" "
+"datetime=\"%5$s\">%6$s</time>"
 msgstr ""
 "Publikováno <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class="
-"\"entry-date\" datetime=\"%3$s\">%4$s</time></a>"
+"\"entry-date\" datetime=\"%3$s\">%4$s</time></a><time class=\"updated\" "
+"datetime=\"%5$s\">%6$s</time>"
 
 #: inc/template-tags.php:142
 #, php-format
 msgid ""
 "<span class=\"byline\"> by <span class=\"author vcard\"><a class=\"url fn n"
-"\" href=\"%5$s\" title=\"%6$s\" rel=\"author\">%7$s</a></span></span>"
+"\" href=\"%7$s\" title=\"%8$s\" rel=\"author\">%9$s</a></span></span>"
 msgstr ""
 "<span class=\"byline\"> by <span class=\"author vcard\"><a class=\"url fn n"
-"\" href=\"%5$s\" title=\"%6$s\" rel=\"author\">%7$s</a></span></span>"
+"\" href=\"%7$s\" title=\"%8$s\" rel=\"author\">%9$s</a></span></span>"
 
 #: inc/template-tags.php:153
 #, php-format
