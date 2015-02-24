@@ -31,6 +31,24 @@ function vantage_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 
+	if( siteorigin_setting('layout_responsive') ) {
+		$classes[] = 'responsive';
+	}
+	$classes[] = 'layout-'.siteorigin_setting('layout_bound');
+	$classes[] = 'no-js';
+
+	if( !is_active_sidebar('sidebar-1') ) {
+		$classes[] = 'no-sidebar';
+	}
+
+	if( wp_is_mobile() ) {
+		$classes[] = 'mobile-device';
+	}
+
+	if(siteorigin_setting('navigation_menu_search')) {
+		$classes[] = 'has-menu-search';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'vantage_body_classes' );
