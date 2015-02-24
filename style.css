@@ -938,7 +938,7 @@ body.mobile-device .main-navigation li:hover > ul {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  background: transparent;
+  background-color: transparent;
   outline: none;
   padding: 0 15px;
 }
