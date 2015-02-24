@@ -11,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.1\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: _n:1,2;_e\n"
@@ -1524,19 +1524,21 @@ msgstr "コメントをモデレート待ちの状態です。"
 #, php-format
 msgid ""
 "Posted on <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class="
-"\"entry-date\" datetime=\"%3$s\">%4$s</time></a>"
+"\"entry-date\" datetime=\"%3$s\">%4$s</time></a><time class=\"updated\" "
+"datetime=\"%5$s\">%6$s</time>"
 msgstr ""
 "投稿日 <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-"
-"date\" datetime=\"%3$s\">%4$s</time></a>"
+"date\" datetime=\"%3$s\">%4$s</time></a><time class=\"updated\" datetime="
+"\"%5$s\">%6$s</time>"
 
 #: inc/template-tags.php:142
 #, php-format
 msgid ""
 "<span class=\"byline\"> by <span class=\"author vcard\"><a class=\"url fn n"
-"\" href=\"%5$s\" title=\"%6$s\" rel=\"author\">%7$s</a></span></span>"
+"\" href=\"%7$s\" title=\"%8$s\" rel=\"author\">%9$s</a></span></span>"
 msgstr ""
 "<span class=\"byline\"> by <span class=\"author vcard\"><a class=\"url fn n"
-"\" href=\"%5$s\" title=\"%6$s\" rel=\"author\">%7$s</a></span></span>"
+"\" href=\"%7$s\" title=\"%8$s\" rel=\"author\">%9$s</a></span></span>"
 
 #: inc/template-tags.php:153
 #, php-format
