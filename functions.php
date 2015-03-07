@@ -189,14 +189,6 @@ function vantage_print_styles(){
 add_action('wp_head', 'vantage_print_styles', 11);
 
 /**
- * Register all the bundled scripts
- */
-function vantage_register_scripts(){
-	wp_register_script( 'flexslider' , get_template_directory_uri() . '/js/jquery.flexslider.js' , array('jquery'), '2.1' );
-}
-add_action( 'wp_enqueue_scripts', 'vantage_register_scripts' , 5);
-
-/**
  * Enqueue scripts and styles
  */
 function vantage_scripts() {
@@ -205,8 +197,8 @@ function vantage_scripts() {
 
 	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	wp_enqueue_script( 'flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . $js_suffix . '.js' , array('jquery'), '2.1' );
-	wp_register_script( 'touch-swipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . $js_suffix . '.js' , array( 'jquery' ), '1.6.6' );
-	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main' . $js_suffix . '.js', array( 'jquery', 'touch-swipe' ), SITEORIGIN_THEME_VERSION );
+	wp_enqueue_script( 'touch-swipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . $js_suffix . '.js' , array( 'jquery' ), '1.6.6' );
+	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main' . $js_suffix . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION );
 
 	if( siteorigin_setting( 'layout_fitvids' ) ) {
 		wp_enqueue_script( 'fitvids' , get_template_directory_uri() . '/js/jquery.fitvids' . $js_suffix . '.js' , array('jquery'), '1.0' );
