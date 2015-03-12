@@ -234,17 +234,19 @@ jQuery(function($){
     }).resize();
 
     // The sticky menu
-    if( ($('nav.site-navigation.primary').hasClass('use-sticky-menu') && !$('body').hasClass('mobile-device')) ||
-        ($('body').hasClass('mobile-device') && $('nav.site-navigation.primary').hasClass('mobile-navigation')) ) {
+    var isMobileDevice = $('body').hasClass('mobile-device');
+    if( ($('nav.site-navigation.primary').hasClass('use-sticky-menu') && !isMobileDevice) ||
+        (isMobileDevice && $('nav.site-navigation.primary').hasClass('mobile-navigation')) ) {
 
         var adminBarHeight = $('body').hasClass('admin-bar') ? $('#wpadminbar').outerHeight() : 0;
         var $mc = null;
         var resetStickyMenu = function(){
             var $$ = $('nav.site-navigation.primary');
-
+            var scrollTop = $(window).scrollTop();
+            var adminBarBottom = isMobileDevice ? adminBarHeight - scrollTop : adminBarHeight;
             // Work out the current position
-            if( $$.position().top <= $(window).scrollTop() + adminBarHeight ) {
-
+            if( $$.position().top <= scrollTop + adminBarHeight ) {
+                var topPos = Math.max(adminBarBottom, 0);
                 if($mc == null){
                     $mc = $$;
                     $$ = $$.clone().insertBefore($$);
@@ -252,7 +254,7 @@ jQuery(function($){
                     $mc.css({
                         'position' : 'fixed',
                         'width' : $$.outerWidth(),
-                        'top' : adminBarHeight,
+                        'top' : topPos,
                         'left' : $$.position().left,
                         'z-index' : 998
                     }).addClass('sticky').insertAfter($$);
@@ -260,6 +262,7 @@ jQuery(function($){
                 else {
                     $mc.css({
                         'width' : $$.outerWidth(),
+                        'top' : topPos,
                         'left' : $$.position().left
                     });
                 }
