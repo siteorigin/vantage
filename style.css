@@ -1802,6 +1802,28 @@ body.layout-full {
 .page .entry-meta {
   display: none;
 }
+/* Vantage Jetpack Subscription Form */
+#commentform p.comment-subscription-form {
+  margin-bottom: 0px;
+}
+#commentform p.comment-subscription-form input[type="checkbox"] {
+  float: none;
+  font-size: 1em;
+  line-height: 1.92857em;
+  vertical-align: middle;
+}
+#commentform p.comment-subscription-form label.subscribe-label {
+  font-size: 1em;
+  float: none;
+  line-height: 1.92857em;
+  font-weight: normal;
+  margin: 0;
+  padding-left: 10px;
+  width: auto;
+}
+#commentform p.form-submit {
+  margin-bottom: 2em;
+}
 /* =Sliders
 ----------------------------------------------- */
 /* Resets */
