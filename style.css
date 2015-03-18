@@ -849,10 +849,10 @@ body.has-menu-search .main-navigation ul {
   margin-right: 59px;
 }
 /* Handle the navigation slightly differently on mobile devices */
-body.mobile-device .main-navigation ul ul {
+body.so-vantage-mobile-device .main-navigation ul ul {
   display: none;
 }
-body.mobile-device .main-navigation li:hover > ul {
+body.so-vantage-mobile-device .main-navigation li:hover > ul {
   display: block;
 }
 .mobile-nav-frame [class^="fa fa-"] {

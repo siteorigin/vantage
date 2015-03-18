@@ -14,7 +14,7 @@ jQuery(function($){
         $('.entry-content, .entry-content .panel' ).fitVids();
     }
 
-    if( !$('body').hasClass('mobile-device') || $('nav.site-navigation.primary').hasClass('mobile-navigation')) {
+    if( !$('body').hasClass('so-vantage-mobile-device') || $('nav.site-navigation.primary').hasClass('mobile-navigation')) {
 
         // Everything we need for scrolling up and down.
         $(window).scroll( function(){
@@ -234,7 +234,7 @@ jQuery(function($){
     }).resize();
 
     // The sticky menu
-    var isMobileDevice = $('body').hasClass('mobile-device');
+    var isMobileDevice = $('body').hasClass('so-vantage-mobile-device');
     if( ($('nav.site-navigation.primary').hasClass('use-sticky-menu') && !isMobileDevice) ||
         (isMobileDevice && $('nav.site-navigation.primary').hasClass('mobile-navigation')) ) {
 
