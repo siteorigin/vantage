@@ -14,7 +14,7 @@ jQuery(function($){
         $('.entry-content, .entry-content .panel' ).fitVids();
     }
 
-    if( !$('body').hasClass('mobile-device') || $('nav.site-navigation.primary').hasClass('mobile-navigation')) {
+    if( !$('body').hasClass('so-vantage-mobile-device') || $('nav.site-navigation.primary').hasClass('mobile-navigation')) {
 
         // Everything we need for scrolling up and down.
         $(window).scroll( function(){
@@ -33,8 +33,10 @@ jQuery(function($){
         var $$ = $(this);
         var wrap = $$.closest('.widget');
         var title = wrap.find('.widget-title');
+        var $items = $$.find('.carousel-entry');
+        var $firstItem = $items.eq(0);
 
-        var position = 0, page = 1, fetching = false, complete = false;
+        var position = 0, page = 1, fetching = false, complete = false, numItems = $items.length, itemWidth = ( $firstItem.width() + parseInt($firstItem.css('margin-right')) );
 
         var updatePosition = function() {
             if ( position < 0 ) position = 0;
@@ -57,6 +59,7 @@ jQuery(function($){
                         function (data, status){
                             var $items = $(data.html);
                             var count = $items.find('.carousel-entry').appendTo($$).hide().fadeIn().length;
+                            numItems += count;
                             if(count == 0) {
                                 complete = true;
                                 $$.find('.loading').fadeOut(function(){$(this).remove()});
@@ -69,10 +72,8 @@ jQuery(function($){
                     )
                 }
             }
-            var entry = $$.find('.carousel-entry').eq(0);
-            $$.css('margin-left', -(( entry.width() + parseInt(entry.css('margin-right'))) * position) + 'px' );
-
-            // Load the next batch
+            $$.css('transition-duration', "0.45s");
+            $$.css('margin-left', -( itemWidth * position) + 'px' );
         };
 
         title.find('a.previous').click( function(){
@@ -86,6 +87,84 @@ jQuery(function($){
             updatePosition();
             return false;
         } );
+        var validSwipe = false;
+        var prevDistance = 0;
+        var startPosition = 0;
+        var velocity = 0;
+        var prevTime = 0;
+        var posInterval;
+        $$.swipe( {
+            excludedElements: "",
+            triggerOnTouchEnd: true,
+            threshold: 75,
+            swipeStatus: function (event, phase, direction, distance, duration, fingerCount, fingerData) {
+                if ( phase == "start" ) {
+                    startPosition = -( itemWidth * position);
+                    prevTime = new Date().getTime();
+                    clearInterval(posInterval);
+                }
+                else if ( phase == "move" ) {
+                    if( direction == "left" ) distance *= -1;
+                    setNewPosition(startPosition + distance);
+                    var newTime = new Date().getTime();
+                    var timeDelta = (newTime - prevTime) / 1000;
+                    velocity = (distance - prevDistance) / timeDelta;
+                    prevTime = newTime;
+                    prevDistance = distance;
+                }
+                else if ( phase == "end" ) {
+                    validSwipe = true;
+                    if( direction == "left" ) distance *= -1;
+                    if(Math.abs(velocity) > 400) {
+                        velocity *= 0.1;
+                        var startTime = new Date().getTime();
+                        var cumulativeDistance = 0;
+                        posInterval = setInterval(function () {
+                            var time = (new Date().getTime() - startTime) / 1000;
+                            cumulativeDistance += velocity * time;
+                            var newPos = startPosition + distance + cumulativeDistance;
+                            var decel = 30;
+                            var end = (Math.abs(velocity) - decel) < 0;
+                            if(direction == "left") {
+                                velocity += decel;
+                            } else {
+                                velocity -= decel;
+                            }
+                            if(end || !setNewPosition(newPos)) {
+                                clearInterval(posInterval);
+                                setFinalPosition();
+                            }
+                        }, 20);
+                    } else {
+                        setFinalPosition();
+                    }
+                }
+                else if( phase == "cancel") {
+                    updatePosition();
+                }
+            }
+        } );
+        var setNewPosition = function(newPosition) {
+            if(newPosition < 50 && newPosition >  -( itemWidth * numItems )) {
+                $$.css('transition-duration', "0s");
+                $$.css('margin-left', newPosition + 'px' );
+                return true;
+            }
+            return false;
+        };
+        var setFinalPosition = function() {
+            var finalPosition = parseInt( $$.css('margin-left') );
+            position = Math.abs( Math.round( finalPosition / itemWidth ) );
+            updatePosition();
+        };
+        $$.on('click', 'li.carousel-entry .thumbnail a',
+            function (event) {
+                if(validSwipe) {
+                    event.preventDefault();
+                    validSwipe = false;
+                }
+            }
+        )
     } );
 
     // The menu hover effects
@@ -155,17 +234,19 @@ jQuery(function($){
     }).resize();
 
     // The sticky menu
-    if( ($('nav.site-navigation.primary').hasClass('use-sticky-menu') && !$('body').hasClass('mobile-device')) ||
-        ($('body').hasClass('mobile-device') && $('nav.site-navigation.primary').hasClass('mobile-navigation')) ) {
+    var isMobileDevice = $('body').hasClass('so-vantage-mobile-device');
+    if( ($('nav.site-navigation.primary').hasClass('use-sticky-menu') && !isMobileDevice) ||
+        (isMobileDevice && $('nav.site-navigation.primary').hasClass('mobile-navigation')) ) {
 
         var adminBarHeight = $('body').hasClass('admin-bar') ? $('#wpadminbar').outerHeight() : 0;
         var $mc = null;
         var resetStickyMenu = function(){
             var $$ = $('nav.site-navigation.primary');
-
+            var scrollTop = $(window).scrollTop();
+            var adminBarBottom = isMobileDevice ? adminBarHeight - scrollTop : adminBarHeight;
             // Work out the current position
-            if( $$.position().top <= $(window).scrollTop() + adminBarHeight ) {
-
+            if( $$.position().top <= scrollTop + adminBarHeight ) {
+                var topPos = Math.max(adminBarBottom, 0);
                 if($mc == null){
                     $mc = $$;
                     $$ = $$.clone().insertBefore($$);
@@ -173,7 +254,7 @@ jQuery(function($){
                     $mc.css({
                         'position' : 'fixed',
                         'width' : $$.outerWidth(),
-                        'top' : adminBarHeight,
+                        'top' : topPos,
                         'left' : $$.position().left,
                         'z-index' : 998
                     }).addClass('sticky').insertAfter($$);
@@ -181,6 +262,7 @@ jQuery(function($){
                 else {
                     $mc.css({
                         'width' : $$.outerWidth(),
+                        'top' : topPos,
                         'left' : $$.position().left
                     });
                 }
