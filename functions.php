@@ -189,14 +189,6 @@ function vantage_print_styles(){
 add_action('wp_head', 'vantage_print_styles', 11);
 
 /**
- * Register all the bundled scripts
- */
-function vantage_register_scripts(){
-	wp_register_script( 'flexslider' , get_template_directory_uri() . '/js/jquery.flexslider.js' , array('jquery'), '2.1' );
-}
-add_action( 'wp_enqueue_scripts', 'vantage_register_scripts' , 5);
-
-/**
  * Enqueue scripts and styles
  */
 function vantage_scripts() {
