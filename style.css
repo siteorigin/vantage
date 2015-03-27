@@ -1589,6 +1589,21 @@ article.page.post-with-thumbnail-icon .entry-main {
   margin-right: 4px;
   line-height: 0.75em;
 }
+#comments .comment-navigation {
+  zoom: 1;
+  float: none;
+  margin-bottom: 2em;
+  width: 100%;
+}
+#comments .comment-navigation:before {
+  content: '';
+  display: block;
+}
+#comments .comment-navigation:after {
+  content: '';
+  display: table;
+  clear: both;
+}
 #comments .commentlist {
   margin: 0 0 40px 0;
   list-style: none;
