@@ -31,6 +31,17 @@ function vantage_theme_settings(){
 		'description' => __('Your own custom logo.', 'vantage')
 	) );
 
+	siteorigin_settings_add_field('logo', 'in_menu_constrain', 'checkbox', __('Constrain Logo Height', 'vantage'), array(
+		'label' => __('Yes', 'vantage'),
+		'description' => __('When using the "logo in menu" masthead layout, constrain the logo size to fit the menu height.', 'vantage'),
+		'conditional' => array(
+			'show' => array(
+				'layout_masthead' => 'logo-in-menu',
+			),
+			'hide' => 'else'
+		)
+	) );
+
 	siteorigin_settings_add_teaser('logo', 'image_retina', __('Retina Logo', 'vantage'), array(
 		'choose' => __('Choose Image', 'vantage'),
 		'update' => __('Set Logo', 'vantage'),
@@ -211,6 +222,7 @@ add_action('siteorigin_settings_init', 'vantage_theme_settings');
  */
 function vantage_theme_setting_defaults($defaults){
 	$defaults['logo_image'] = false;
+	$defaults['logo_in_menu_constrain'] = true;
 	$defaults['logo_image_retina'] = false;
 	$defaults['logo_header_text'] = __('Call me! Maybe?', 'vantage');
 
