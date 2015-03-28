@@ -356,7 +356,7 @@ body {
 	}
 }
 
-header#masthead {
+#masthead {
 	background: #fcfcfc;
 	padding: 0 35px 0 35px;
 	.box-sizing(border-box);
@@ -472,14 +472,14 @@ header#masthead {
 	}
 }
 
-.layout-boxed header#masthead.masthead-logo-in-menu {
+.layout-boxed #masthead.masthead-logo-in-menu {
 	img.logo {
 		margin-left: 25px;
 	}
 }
 
 body.ie-8,body.ie-9 {
-	header#masthead .hgroup {
+	#masthead .hgroup {
 		#header-sidebar {
 			padding-top: 40px;
 			padding-bottom: 40px;
@@ -556,7 +556,7 @@ body.no-sidebar #primary {
 
 @media (max-width:1080px) {
 	body.responsive {
-		header#masthead {
+		#masthead {
 			.hgroup {
 				.logo img {
 					/* Scale down the logo if necessary */
@@ -591,49 +591,57 @@ body.no-sidebar #primary {
 	}
 }
 
+.responsive-group() {
+	.hgroup {
+		text-align: center;
+
+		.logo {
+			float:none;
+
+			img {
+				margin: 0 auto;
+				padding-top: 0px !important;
+				padding-bottom: 0px !important;
+			}
+		}
+
+		.support-text,
+		#header-sidebar {
+			position: static;
+			display: block;
+			margin-top: 30px;
+			max-width: 100%;
+
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+		}
+
+		#header-sidebar {
+			padding-top: 0 !important;
+			padding-bottom: 0 !important;
+			height: auto;
+
+			.widget{
+				display: block;
+				margin: 0 auto;
+				float: none;
+			}
+		}
+	}
+}
+
+#masthead.force-responsive {
+	.responsive-group();
+}
+
 /* We consider 680px to be mobile resolution */
 @media (max-width:680px) {
 	body.responsive {
 
-		header#masthead {
-			.hgroup {
-				text-align: center;
-
-				.logo {
-					float:none;
-
-					img {
-						margin: 0 auto;
-						padding-top: 0px !important;
-						padding-bottom: 0px !important;
-					}
-				}
-
-				.support-text, #header-sidebar {
-					position: static;
-					display: block;
-					margin-top: 30px;
-					max-width: 100%;
-
-					img {
-						max-width: 100%;
-						height: auto;
-					}
-				}
-
-				#header-sidebar {
-					padding-top: 0 !important;
-					padding-bottom: 0 !important;
-					height: auto;
-
-					.widget{
-						display: block;
-						margin: 0 auto;
-						float: none;
-					}
-				}
-
-			}
+		#masthead {
+			.responsive-group();
 		}
 
 		#primary, #secondary {

@@ -478,7 +478,7 @@ body {
     margin-bottom: 0;
   }
 }
-header#masthead {
+#masthead {
   background: #fcfcfc;
   padding: 0 35px 0 35px;
   -ms-box-sizing: border-box;
@@ -486,39 +486,39 @@ header#masthead {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-header#masthead .hgroup {
+#masthead .hgroup {
   zoom: 1;
   position: relative;
   padding-top: 45px;
   padding-bottom: 45px;
 }
-header#masthead .hgroup:before {
+#masthead .hgroup:before {
   content: '';
   display: block;
 }
-header#masthead .hgroup:after {
+#masthead .hgroup:after {
   content: '';
   display: table;
   clear: both;
 }
-header#masthead .hgroup a {
+#masthead .hgroup a {
   text-decoration: none;
 }
-header#masthead .hgroup h1 {
+#masthead .hgroup h1 {
   color: #666666;
   font-weight: 100;
   font-size: 36px;
   line-height: 1em;
 }
-header#masthead .hgroup .logo {
+#masthead .hgroup .logo {
   display: block;
   float: left;
   max-width: 100%;
 }
-header#masthead .hgroup .logo img {
+#masthead .hgroup .logo img {
   vertical-align: bottom;
 }
-header#masthead .hgroup .support-text {
+#masthead .hgroup .support-text {
   line-height: 1.2em;
   position: absolute;
   right: 0;
@@ -528,7 +528,7 @@ header#masthead .hgroup .support-text {
   font-style: italic;
   max-width: 50%;
 }
-header#masthead .hgroup #header-sidebar {
+#masthead .hgroup #header-sidebar {
   padding-top: 15px;
   padding-bottom: 15px;
   height: 100%;
@@ -553,41 +553,41 @@ header#masthead .hgroup #header-sidebar {
   box-pack: center;
   box-align: center;
 }
-header#masthead .hgroup #header-sidebar aside.widget {
+#masthead .hgroup #header-sidebar aside.widget {
   margin-bottom: 0;
   float: left;
   position: relative;
   margin-right: 25px;
 }
-header#masthead .hgroup #header-sidebar aside.widget:last-child {
+#masthead .hgroup #header-sidebar aside.widget:last-child {
   margin-right: 0;
 }
-header#masthead .hgroup #header-sidebar .widget-title {
+#masthead .hgroup #header-sidebar .widget-title {
   font-weight: bold;
   margin-bottom: 5px;
 }
-header#masthead.masthead-logo-in-menu .logo {
+#masthead.masthead-logo-in-menu .logo {
   float: left;
   padding: 12px 0;
   margin-right: 15px;
 }
-header#masthead.masthead-logo-in-menu .logo > * {
+#masthead.masthead-logo-in-menu .logo > * {
   display: block;
 }
-header#masthead.masthead-logo-in-menu .logo > img {
+#masthead.masthead-logo-in-menu .logo > img {
   max-height: 35px;
   width: auto;
   height: auto;
   max-width: 100%;
 }
-header#masthead.masthead-logo-in-menu .logo > img.logo-no-height-constrain {
+#masthead.masthead-logo-in-menu .logo > img.logo-no-height-constrain {
   max-height: none;
 }
-.layout-boxed header#masthead.masthead-logo-in-menu img.logo {
+.layout-boxed #masthead.masthead-logo-in-menu img.logo {
   margin-left: 25px;
 }
-body.ie-8 header#masthead .hgroup #header-sidebar,
-body.ie-9 header#masthead .hgroup #header-sidebar {
+body.ie-8 #masthead .hgroup #header-sidebar,
+body.ie-9 #masthead .hgroup #header-sidebar {
   padding-top: 40px;
   padding-bottom: 40px;
 }
@@ -655,59 +655,92 @@ body.no-sidebar #primary {
 /* =Responsive Layout
 ----------------------------------------------- */
 @media (max-width: 1080px) {
-  body.responsive header#masthead .hgroup .logo img {
+  body.responsive #masthead .hgroup .logo img {
     /* Scale down the logo if necessary */
     max-width: 100%;
     height: auto;
   }
-  body.responsive header#masthead.masthead-logo-in-menu .logo {
+  body.responsive #masthead.masthead-logo-in-menu .logo {
     margin-left: 20px;
   }
-  body.responsive header#masthead.masthead-logo-in-menu .main-navigation .menu-mobilenav-container ul {
+  body.responsive #masthead.masthead-logo-in-menu .main-navigation .menu-mobilenav-container ul {
     margin-right: 0;
   }
-  body.responsive header#masthead.masthead-logo-in-menu .main-navigation .menu-mobilenav-container ul li {
+  body.responsive #masthead.masthead-logo-in-menu .main-navigation .menu-mobilenav-container ul li {
     float: right;
   }
-  body.responsive header#masthead.masthead-logo-in-menu .main-navigation .menu-mobilenav-container ul li a {
+  body.responsive #masthead.masthead-logo-in-menu .main-navigation .menu-mobilenav-container ul li a {
     padding-left: 20px;
     padding-right: 20px;
   }
-  body.responsive header#masthead.masthead-logo-in-menu #search-icon-icon {
+  body.responsive #masthead.masthead-logo-in-menu #search-icon-icon {
     display: none;
   }
 }
+#masthead.force-responsive .hgroup {
+  text-align: center;
+}
+#masthead.force-responsive .hgroup .logo {
+  float: none;
+}
+#masthead.force-responsive .hgroup .logo img {
+  margin: 0 auto;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+#masthead.force-responsive .hgroup .support-text,
+#masthead.force-responsive .hgroup #header-sidebar {
+  position: static;
+  display: block;
+  margin-top: 30px;
+  max-width: 100%;
+}
+#masthead.force-responsive .hgroup .support-text img,
+#masthead.force-responsive .hgroup #header-sidebar img {
+  max-width: 100%;
+  height: auto;
+}
+#masthead.force-responsive .hgroup #header-sidebar {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  height: auto;
+}
+#masthead.force-responsive .hgroup #header-sidebar .widget {
+  display: block;
+  margin: 0 auto;
+  float: none;
+}
 /* We consider 680px to be mobile resolution */
 @media (max-width: 680px) {
-  body.responsive header#masthead .hgroup {
+  body.responsive #masthead .hgroup {
     text-align: center;
   }
-  body.responsive header#masthead .hgroup .logo {
+  body.responsive #masthead .hgroup .logo {
     float: none;
   }
-  body.responsive header#masthead .hgroup .logo img {
+  body.responsive #masthead .hgroup .logo img {
     margin: 0 auto;
     padding-top: 0px !important;
     padding-bottom: 0px !important;
   }
-  body.responsive header#masthead .hgroup .support-text,
-  body.responsive header#masthead .hgroup #header-sidebar {
+  body.responsive #masthead .hgroup .support-text,
+  body.responsive #masthead .hgroup #header-sidebar {
     position: static;
     display: block;
     margin-top: 30px;
     max-width: 100%;
   }
-  body.responsive header#masthead .hgroup .support-text img,
-  body.responsive header#masthead .hgroup #header-sidebar img {
+  body.responsive #masthead .hgroup .support-text img,
+  body.responsive #masthead .hgroup #header-sidebar img {
     max-width: 100%;
     height: auto;
   }
-  body.responsive header#masthead .hgroup #header-sidebar {
+  body.responsive #masthead .hgroup #header-sidebar {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     height: auto;
   }
-  body.responsive header#masthead .hgroup #header-sidebar .widget {
+  body.responsive #masthead .hgroup #header-sidebar .widget {
     display: block;
     margin: 0 auto;
     float: none;
