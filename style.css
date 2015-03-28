@@ -2698,7 +2698,8 @@ body.layout-full {
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
 }
-.layout-full .panel-row-style {
+.layout-full .panel-row-style.panel-row-style-wide-grey,
+.layout-full .panel-row-style.panel-row-style-full-width {
   margin: 0 -1000px;
   padding: 25px 1000px 25px 1000px;
 }
