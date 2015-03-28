@@ -368,7 +368,7 @@ function vantage_customizer_init(){
 			'image_shadow' => array(
 				'type' => 'checkbox',
 				'title' => __('Image Shadow and Rounding', 'vantage'),
-				'default' => true,
+				'default' => false,
 				'callback' => 'vantage_customizer_callback_image_shadow',
 			),
 
@@ -467,6 +467,8 @@ add_action('wp_head', 'vantage_customizer_style', 20);
  * @param SiteOrigin_Customizer_CSS_Builder $builder
  * @param mixed $val
  * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
  */
 function vantage_customizer_callback_logo_center($builder, $val, $setting){
 	if( $val ) {
@@ -482,14 +484,16 @@ function vantage_customizer_callback_logo_center($builder, $val, $setting){
  * @param SiteOrigin_Customizer_CSS_Builder $builder
  * @param mixed $val
  * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
  */
 function vantage_customizer_callback_image_shadow($builder, $val, $setting){
-	if( !$val ) {
-		$builder->add_css('.entry-content img', '-webkit-border-radius', '0 !important');
-		$builder->add_css('.entry-content img', '-moz-border-radius', '0 !important');
-		$builder->add_css('.entry-content img', 'border-radius', '0 !important');
-		$builder->add_css('.entry-content img', '-webkit-box-shadow', 'none !important');
-		$builder->add_css('.entry-content img', '-moz-box-shadow', 'none !important');
+	if( $val ) {
+		$builder->add_css('.entry-content img', '-webkit-border-radius', '3px');
+		$builder->add_css('.entry-content img', '-moz-border-radius', '3px');
+		$builder->add_css('.entry-content img', 'border-radius', '3px');
+		$builder->add_css('.entry-content img', '-webkit-box-shadow', '3px');
+		$builder->add_css('.entry-content img', '-moz-box-shadow', '3px');
 		$builder->add_css('.entry-content img', 'box-shadow', 'none !important');
 	}
 
