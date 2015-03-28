@@ -74,7 +74,14 @@ add_action('add_meta_boxes', 'vantage_metaslider_page_setting_metabox');
 
 function vantage_metaslider_page_setting_metabox_render($post){
 	$metaslider = get_post_meta($post->ID, 'vantage_metaslider_slider', true);
-	$options = siteorigin_metaslider_get_options(false);
+
+	$is_home = $post->ID == get_option( 'page_on_front' );
+	// If we're on the home page and the user hasn't explicitly set something here use the 'home_slider' theme setting.
+	if ( $is_home && empty( $metaslider ) ) {
+		$metaslider = siteorigin_setting( 'home_slider' );
+	}
+	//Include the demo slider in the options if it's the home page.
+	$options = siteorigin_metaslider_get_options($is_home);
 
 	?>
 	<label><?php _e('Display Page Metaslider', 'vantage') ?></label>
@@ -93,5 +100,9 @@ function vantage_metaslider_page_setting_save($post_id){
 	if( defined('DOING_AJAX') ) return;
 
 	update_post_meta($post_id, 'vantage_metaslider_slider', $_POST['vantage_page_metaslider']);
+	// If we're on the home page update the 'home_slider' theme setting as well.
+	if ( $post_id == get_option( 'page_on_front' ) ) {
+		siteorigin_settings_set( 'home_slider', $_POST['vantage_page_metaslider'] );
+	}
 }
 add_action('save_post', 'vantage_metaslider_page_setting_save');
