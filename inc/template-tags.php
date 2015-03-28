@@ -260,6 +260,7 @@ if( !function_exists( 'vantage_get_archive_title' ) ) :
  */
 function vantage_get_archive_title(){
 	$title = '';
+	global $wp_query;
 	if ( is_category() ) {
 		$title = sprintf( __( 'Category Archives: %s', 'vantage' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 
@@ -285,6 +286,12 @@ function vantage_get_archive_title(){
 	elseif ( is_year() ) {
 		$title = sprintf( __( 'Yearly Archives: %s', 'vantage' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
 
+	}
+	elseif ( !empty($wp_query->query_vars['taxonomy']) ) {
+		$value = get_query_var($wp_query->query_vars['taxonomy']);
+		$term = get_term_by('slug',$value,$wp_query->query_vars['taxonomy']);
+		$tax = get_taxonomy( $wp_query->query_vars['taxonomy'] );
+		$title = sprintf( __( '%s: %s', 'vantage' ), $tax->label, $term->name );
 	}
 	else {
 		$title = __( 'Archives', 'vantage' );
