@@ -949,14 +949,19 @@ article.sticky {
 }
 #page-title {
   color: #3b3b3b;
-  margin-bottom: 20px;
-  font-size: 20px;
+  margin-bottom: 25px;
+  font-size: 1.8em;
   font-weight: 500;
 }
 #page-title a {
   color: inherit;
   text-decoration: none;
   font-weight: bold;
+}
+.taxonomy-description {
+  margin-top: -15px;
+  color: #666;
+  font-style: italic;
 }
 article.post,
 article.page {
