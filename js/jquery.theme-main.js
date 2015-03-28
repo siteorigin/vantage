@@ -1,16 +1,17 @@
 /**
  * Main theme Javascript - (c) Greg Priday, freely distributable under the terms of the GPL 2.0 license.
  */
+
+/* global jQuery */
+
 jQuery(function($){
     $('body.no-js').removeClass('no-js');
 
     // Initialize the flex slider
-    $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider').flexslider( {
-
-    } );
+    $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider').flexslider( { } );
     
     /* Setup fitvids for entry content and panels */
-    if(typeof $.fn.fitVids != 'undefined') {
+    if(typeof $.fn.fitVids !== 'undefined') {
         $('.entry-content, .entry-content .panel' ).fitVids();
     }
 
@@ -18,8 +19,12 @@ jQuery(function($){
 
         // Everything we need for scrolling up and down.
         $(window).scroll( function(){
-            if($(window).scrollTop() > 150) $('#scroll-to-top').addClass('displayed');
-            else $('#scroll-to-top').removeClass('displayed');
+            if($(window).scrollTop() > 150) {
+                $('#scroll-to-top').addClass('displayed');
+            }
+            else {
+                $('#scroll-to-top').removeClass('displayed');
+            }
         } );
 
         $('#scroll-to-top').click( function(){
@@ -39,7 +44,9 @@ jQuery(function($){
         var position = 0, page = 1, fetching = false, complete = false, numItems = $items.length, itemWidth = ( $firstItem.width() + parseInt($firstItem.css('margin-right')) );
 
         var updatePosition = function() {
-            if ( position < 0 ) position = 0;
+            if ( position < 0 ) {
+                position = 0;
+            }
             if ( position >= $$.find('.carousel-entry').length - 1 ) {
                 position = $$.find('.carousel-entry').length - 1;
 
@@ -60,16 +67,18 @@ jQuery(function($){
                             var $items = $(data.html);
                             var count = $items.find('.carousel-entry').appendTo($$).hide().fadeIn().length;
                             numItems += count;
-                            if(count == 0) {
+                            if(count === 0) {
                                 complete = true;
-                                $$.find('.loading').fadeOut(function(){$(this).remove()});
+                                $$.find('.loading').fadeOut(function(){
+                                    $(this).remove();
+                                });
                             }
                             else {
                                 $$.find('.loading').remove();
                             }
                             fetching = false;
                         }
-                    )
+                    );
                 }
             }
             $$.css('transition-duration', "0.45s");
@@ -87,6 +96,7 @@ jQuery(function($){
             updatePosition();
             return false;
         } );
+
         var validSwipe = false;
         var prevDistance = 0;
         var startPosition = 0;
@@ -98,13 +108,15 @@ jQuery(function($){
             triggerOnTouchEnd: true,
             threshold: 75,
             swipeStatus: function (event, phase, direction, distance, duration, fingerCount, fingerData) {
-                if ( phase == "start" ) {
+                if ( phase === "start" ) {
                     startPosition = -( itemWidth * position);
                     prevTime = new Date().getTime();
                     clearInterval(posInterval);
                 }
-                else if ( phase == "move" ) {
-                    if( direction == "left" ) distance *= -1;
+                else if ( phase === "move" ) {
+                    if( direction === "left" ) {
+                        distance *= -1;
+                    }
                     setNewPosition(startPosition + distance);
                     var newTime = new Date().getTime();
                     var timeDelta = (newTime - prevTime) / 1000;
@@ -112,9 +124,11 @@ jQuery(function($){
                     prevTime = newTime;
                     prevDistance = distance;
                 }
-                else if ( phase == "end" ) {
+                else if ( phase === "end" ) {
                     validSwipe = true;
-                    if( direction == "left" ) distance *= -1;
+                    if( direction === "left" ) {
+                        distance *= -1;
+                    }
                     if(Math.abs(velocity) > 400) {
                         velocity *= 0.1;
                         var startTime = new Date().getTime();
@@ -125,9 +139,10 @@ jQuery(function($){
                             var newPos = startPosition + distance + cumulativeDistance;
                             var decel = 30;
                             var end = (Math.abs(velocity) - decel) < 0;
-                            if(direction == "left") {
+                            if( direction === "left" ) {
                                 velocity += decel;
-                            } else {
+                            }
+                            else {
                                 velocity -= decel;
                             }
                             if(end || !setNewPosition(newPos)) {
@@ -139,11 +154,12 @@ jQuery(function($){
                         setFinalPosition();
                     }
                 }
-                else if( phase == "cancel") {
+                else if( phase === "cancel") {
                     updatePosition();
                 }
             }
         } );
+
         var setNewPosition = function(newPosition) {
             if(newPosition < 50 && newPosition >  -( itemWidth * numItems )) {
                 $$.css('transition-duration', "0s");
@@ -164,7 +180,7 @@ jQuery(function($){
                     validSwipe = false;
                 }
             }
-        )
+        );
     } );
 
     // The menu hover effects
@@ -182,7 +198,7 @@ jQuery(function($){
             var $$ = $(this);
             var $ul = $$.find('> ul');
             $ul.clearQueue().animate( {opacity: 0}, 250, function(){
-                if($ul.data('final-opacity') == 0) {
+                if($ul.data('final-opacity') === 0) {
                     $ul.css('display', 'none');
                 }
             });
@@ -207,7 +223,9 @@ jQuery(function($){
     // The search bar
     var isSearchHover = false;
     $(document).click(function(){
-        if(!isSearchHover) $('#search-icon form').fadeOut(250);
+        if(!isSearchHover) {
+            $('#search-icon form').fadeOut(250);
+        }
     });
 
     $(document)
@@ -247,7 +265,7 @@ jQuery(function($){
             // Work out the current position
             if( $$.position().top <= scrollTop + adminBarHeight ) {
                 var topPos = Math.max(adminBarBottom, 0);
-                if($mc == null){
+                if( $mc === null ){
                     $mc = $$;
                     $$ = $$.clone().insertBefore($$);
 
@@ -273,7 +291,7 @@ jQuery(function($){
                     $mc = null;
                 }
             }
-        }
+        };
         $(window).scroll( resetStickyMenu ).resize( resetStickyMenu );
         resetStickyMenu();
     }
@@ -309,19 +327,19 @@ jQuery(function($){
     // Substitute any retina images
     var pixelRatio = !!window.devicePixelRatio ? window.devicePixelRatio : 1;
     if( pixelRatio > 1 ) {
-        $('img[data-retina-image]').each(function(){
+        $('img[data-retina-image]').each( function(){
             var $$ = $(this);
             $$.attr('src', $$.data('retina-image'));
 
             // If the width attribute isn't set, then lets scale to 50%
-            if( typeof $$.attr('width') == 'undefined' ) {
+            if( typeof $$.attr('width') === 'undefined' ) {
                 $$.load( function(){
                     var size = [$$.width(), $$.height()];
                     $$.width(size[0]/2);
                     $$.height(size[1]/2);
                 } );
             }
-        })
+        } );
     }
 
     // Resize the header widget area
@@ -330,7 +348,9 @@ jQuery(function($){
         var padding = 0;
         $$.find('> aside').each(function(){
             var thisPadding = ( $$.outerHeight() - $$.find('> aside').outerHeight() ) / 2;
-            if(thisPadding > padding) padding = thisPadding;
+            if(thisPadding > padding) {
+                padding = thisPadding;
+            }
         });
 
         if(padding > 15) {
