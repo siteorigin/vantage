@@ -51,7 +51,7 @@ function vantage_customizer_init(){
 				'type' => 'font',
 				'title' => __('Site Title Font', 'vantage'),
 				'default' => 'Helvetica Neue',
-				'selector' => 'header#masthead h1',
+				'selector' => '#masthead h1',
 			),
 
 			'heading_font' => array(
@@ -114,7 +114,7 @@ function vantage_customizer_init(){
 				'title' => __('Header Padding', 'vantage'),
 				'default' => 45,
 				'unit' => 'px',
-				'selector' => 'header#masthead .hgroup',
+				'selector' => '#masthead .hgroup',
 				'property' => array('padding-top', 'padding-bottom'),
 			),
 
@@ -337,7 +337,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Masthead Background', 'vantage'),
 				'default' => '#fcfcfc',
-				'selector' => 'header#masthead',
+				'selector' => '#masthead',
 				'property' => 'background-color',
 			),
 
@@ -345,7 +345,7 @@ function vantage_customizer_init(){
 				'type' => 'image',
 				'title' => __('Masthead Background Image', 'vantage'),
 				'default' => false,
-				'selector' => 'header#masthead',
+				'selector' => '#masthead',
 				'property' => 'background-image',
 			),
 
@@ -472,9 +472,9 @@ add_action('wp_head', 'vantage_customizer_style', 20);
  */
 function vantage_customizer_callback_logo_center($builder, $val, $setting){
 	if( $val ) {
-		$builder->add_css('header#masthead .hgroup .logo', 'float', 'none');
-		$builder->add_css('header#masthead .hgroup .logo img', 'display', 'block');
-		$builder->add_css('header#masthead .hgroup .logo img', 'margin', '0 auto');
+		$builder->add_css('#masthead .hgroup .logo', 'float', 'none');
+		$builder->add_css('#masthead .hgroup .logo img', 'display', 'block');
+		$builder->add_css('#masthead .hgroup .logo img', 'margin', '0 auto');
 	}
 
 	return $builder;

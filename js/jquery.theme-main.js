@@ -361,11 +361,21 @@ jQuery(function($){
         }
         else{
             padding = -padding + 15;
-            $('header#masthead .logo > *').css({
+            $('#masthead .logo > *').css({
                 'padding-top' : padding,
                 'padding-bottom' : padding
             });
         }
+
+        var autoResponsive = function(){
+            $$.closest('#masthead').removeClass('force-responsive');
+            var $l = $('#masthead .logo').find('h1,img');
+            if( $$.offset().left < $l.offset().left + $l.outerWidth() ) {
+                $$.closest('#masthead').addClass('force-responsive');
+            }
+        };
+        $(window).resize(autoResponsive);
+        autoResponsive();
     });
 
 });
