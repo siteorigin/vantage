@@ -193,6 +193,7 @@ function vantage_display_logo(){
 		// Add all the logo attributes
 		$logo_attributes = apply_filters('vantage_logo_image_attributes', array(
 			'src' => $src,
+			'class' => siteorigin_setting('logo_in_menu_constrain') ? 'logo-height-constrain' : 'logo-no-height-constrain',
 			'width' => round($width),
 			'height' => round($height),
 			'alt' => sprintf( __('%s Logo', 'vantage'), get_bloginfo('name') ),

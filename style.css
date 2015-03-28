@@ -580,6 +580,9 @@ header#masthead.masthead-logo-in-menu .logo > img {
   height: auto;
   max-width: 100%;
 }
+header#masthead.masthead-logo-in-menu .logo > img.logo-no-height-constrain {
+  max-height: none;
+}
 .layout-boxed header#masthead.masthead-logo-in-menu img.logo {
   margin-left: 25px;
 }
