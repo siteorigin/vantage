@@ -254,7 +254,7 @@ function vantage_panels_panels_row_style_attributes($attr, $style) {
 		$attr['class'][] = 'panel-row-style-full-width';
 	}
 
-	if( isset($style['class']) && $style['class'] == 'wide-grey' ) {
+	if( isset($style['class']) && $style['class'] == 'wide-grey' && siteorigin_setting( 'layout_bound' ) == 'full' ) {
 		$attr['style'] .= 'padding-left: 1000px; padding-right: 1000px;';
 	}
 
@@ -301,3 +301,8 @@ function vantage_panels_add_widgets_dialog_tabs($tabs){
 	return $tabs;
 }
 add_filter('siteorigin_panels_widget_dialog_tabs', 'vantage_panels_add_widgets_dialog_tabs');
+
+function vantage_panels_add_full_width_container(){
+	return '#main';
+}
+add_filter('siteorigin_panels_full_width_container', 'vantage_panels_add_full_width_container');
