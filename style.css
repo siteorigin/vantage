@@ -3130,6 +3130,17 @@ body.layout-full {
 .widget .product_list_widget li span.amount {
   display: block;
 }
+#yoast-breadcrumbs {
+  background: rgba(0, 0, 0, 0.025);
+  margin-top: -20px;
+  margin-bottom: 20px;
+  padding: 0.5em 0.75em;
+  font-weight: 500;
+  color: #474747;
+}
+#yoast-breadcrumbs a {
+  text-decoration: none;
+}
 @font-face {
   font-family: 'vantage-icons';
   src: url('icons/vantage-icons.eot?-9o183q');
