@@ -492,9 +492,10 @@ function vantage_customizer_callback_image_shadow($builder, $val, $setting){
 		$builder->add_css('.entry-content img', '-webkit-border-radius', '3px');
 		$builder->add_css('.entry-content img', '-moz-border-radius', '3px');
 		$builder->add_css('.entry-content img', 'border-radius', '3px');
-		$builder->add_css('.entry-content img', '-webkit-box-shadow', '3px');
-		$builder->add_css('.entry-content img', '-moz-box-shadow', '3px');
-		$builder->add_css('.entry-content img', 'box-shadow', 'none !important');
+
+		$builder->add_css('.entry-content img', '-webkit-box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
+		$builder->add_css('.entry-content img', '-moz-box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
+		$builder->add_css('.entry-content img', 'box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
 	}
 
 	return $builder;
