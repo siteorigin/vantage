@@ -277,7 +277,8 @@ function vantage_get_query_variables(){
 function vantage_render_slider(){
 
 	if( is_front_page() && siteorigin_setting('home_slider') != 'none' ) {
-		$settings_slider = siteorigin_setting('home_slider');
+		$settings_slider = siteorigin_setting( 'home_slider' );
+		$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
 
 		if(!empty($settings_slider)) {
 			$slider = $settings_slider;
@@ -289,6 +290,7 @@ function vantage_render_slider(){
 		if( !empty($page_slider) ) {
 			$slider = $page_slider;
 		}
+		$slider_stretch = get_post_meta(get_the_ID(), 'vantage_metaslider_slider_stretch', true) == "1";
 	}
 
 	if( empty($slider) ) return;
@@ -296,7 +298,7 @@ function vantage_render_slider(){
 	global $vantage_is_main_slider;
 	$vantage_is_main_slider = true;
 
-	?><div id="main-slider" <?php if( siteorigin_setting('home_slider_stretch') ) echo 'data-stretch="true"' ?>><?php
+	?><div id="main-slider" <?php if( $slider_stretch ) echo 'data-stretch="true"' ?>><?php
 
 
 	if($slider == 'demo') get_template_part('slider/demo');

@@ -82,6 +82,7 @@ function vantage_metaslider_page_setting_metabox_render($post){
 	}
 	//Include the demo slider in the options if it's the home page.
 	$options = siteorigin_metaslider_get_options($is_home);
+	$metaslider_stretch = get_post_meta($post->ID, 'vantage_metaslider_slider_stretch', true);
 
 	?>
 	<label><?php _e('Display Page Metaslider', 'vantage') ?></label>
@@ -90,6 +91,10 @@ function vantage_metaslider_page_setting_metabox_render($post){
 			<option value="<?php echo esc_attr($id) ?>" <?php selected($metaslider, $id) ?>><?php echo esc_html($name) ?></option>
 		<?php endforeach; ?>
 	</select>
+	<div class="checkbox-wrapper">
+		<input id="vantage_page_metaslider_stretch" name="vantage_page_metaslider_stretch" type="checkbox" <?php checked( $metaslider_stretch ) ?> />
+		<label for="vantage_page_metaslider_stretch"><?php _e('Stretch Page Metaslider', 'vantage') ?></label>
+	</div>
 	<?php
 	wp_nonce_field('save', '_vantage_metaslider_nonce');
 }
@@ -100,9 +105,12 @@ function vantage_metaslider_page_setting_save($post_id){
 	if( defined('DOING_AJAX') ) return;
 
 	update_post_meta($post_id, 'vantage_metaslider_slider', $_POST['vantage_page_metaslider']);
+	$slider_stretch = $_POST['vantage_page_metaslider_stretch'] == "on";
+	update_post_meta($post_id, 'vantage_metaslider_slider_stretch', $slider_stretch );
 	// If we're on the home page update the 'home_slider' theme setting as well.
 	if ( $post_id == get_option( 'page_on_front' ) ) {
 		siteorigin_settings_set( 'home_slider', $_POST['vantage_page_metaslider'] );
+		siteorigin_settings_set( 'home_slider_stretch', $slider_stretch );
 	}
 }
 add_action('save_post', 'vantage_metaslider_page_setting_save');
