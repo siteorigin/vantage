@@ -85,16 +85,18 @@ function vantage_metaslider_page_setting_metabox_render($post){
 	$metaslider_stretch = get_post_meta($post->ID, 'vantage_metaslider_slider_stretch', true);
 
 	?>
-	<label><?php _e('Display Page Metaslider', 'vantage') ?></label>
-	<select name="vantage_page_metaslider">
-		<?php foreach($options as $id => $name) : ?>
-			<option value="<?php echo esc_attr($id) ?>" <?php selected($metaslider, $id) ?>><?php echo esc_html($name) ?></option>
-		<?php endforeach; ?>
-	</select>
-	<div class="checkbox-wrapper">
+	<label><strong><?php _e('Display Page Metaslider', 'vantage') ?></strong></label>
+	<p>
+		<select name="vantage_page_metaslider">
+			<?php foreach($options as $id => $name) : ?>
+				<option value="<?php echo esc_attr($id) ?>" <?php selected($metaslider, $id) ?>><?php echo esc_html($name) ?></option>
+			<?php endforeach; ?>
+		</select>
+	</p>
+	<p class="checkbox-wrapper">
 		<input id="vantage_page_metaslider_stretch" name="vantage_page_metaslider_stretch" type="checkbox" <?php checked( $metaslider_stretch ) ?> />
 		<label for="vantage_page_metaslider_stretch"><?php _e('Stretch Page Metaslider', 'vantage') ?></label>
-	</div>
+	</p>
 	<?php
 	wp_nonce_field('save', '_vantage_metaslider_nonce');
 }
@@ -105,7 +107,7 @@ function vantage_metaslider_page_setting_save($post_id){
 	if( defined('DOING_AJAX') ) return;
 
 	update_post_meta($post_id, 'vantage_metaslider_slider', $_POST['vantage_page_metaslider']);
-	$slider_stretch = $_POST['vantage_page_metaslider_stretch'] == "on";
+	$slider_stretch = filter_input(INPUT_POST, 'vantage_page_metaslider_stretch') == "on";
 	update_post_meta($post_id, 'vantage_metaslider_slider_stretch', $slider_stretch );
 	// If we're on the home page update the 'home_slider' theme setting as well.
 	if ( $post_id == get_option( 'page_on_front' ) ) {
