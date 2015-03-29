@@ -13,6 +13,7 @@ include get_template_directory() . '/premium/inc/settings.php';
 include get_template_directory() . '/premium/inc/customizer.php';
 include get_template_directory() . '/premium/inc/panels.php';
 include get_template_directory() . '/premium/inc/widgets.php';
+include get_template_directory() . '/premium/inc/picturefill.php';
 
 function vantage_premium_setup(){
 	if( siteorigin_setting('social_ajax_comments') ) siteorigin_ajax_comments_activate();

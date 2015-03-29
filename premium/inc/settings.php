@@ -22,6 +22,8 @@ function vantage_premium_theme_settings(){
 	siteorigin_settings_add_field('social', 'twitter', 'text', null, array(
 		'validator' => 'twitter',
 	));
+
+	siteorigin_settings_add_field('general', 'adaptive_images', 'checkbox');
 }
 add_action('siteorigin_settings_init', 'vantage_premium_theme_settings', 15);
 
