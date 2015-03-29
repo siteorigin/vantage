@@ -302,6 +302,15 @@ function vantage_customizer_init(){
 				'property' => array('padding-top', 'padding-bottom'),
 			),
 
+			'font_size' => array(
+				'type' => 'measurement',
+				'title' => __('Menu Font Size', 'vantage'),
+				'default' => 1,
+				'unit' => 'em',
+				'selector' => '.main-navigation',
+				'property' => array('font-size'),
+			),
+
 			'widget_menu_border' => array(
 				'type' => 'color',
 				'title' => __('Header Widget Menu Border Color', 'vantage'),
