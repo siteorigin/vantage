@@ -612,14 +612,15 @@ body.no-sidebar #primary {
   width: auto;
 }
 /* Full Width Primary blocks */
-.siteorigin-panels-home #primary,
-.page-template-templatestemplate-full-php #primary,
-.page-template-home-panels-php #primary,
-.page-template-templatestemplate-full-notitle-php #primary {
+.vantage-layout-width-full-width #primary,
+.vantage-layout-width-full-width-stretched #primary {
   width: auto;
   float: none;
 }
-.page-template-default #primary {
+.vantage-layout-width-full-width-stretched #main > .full-container {
+  max-width: 100% !important;
+}
+.vantage-layout-width-normal #primary {
   float: left;
   width: 71.287%;
 }
