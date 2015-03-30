@@ -36,6 +36,7 @@ include get_template_directory() . '/inc/widgets.php';
 include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/woocommerce.php';
 include get_template_directory() . '/inc/seo.php';
+include get_template_directory() . '/inc/page-layout.php';
 include get_template_directory() . '/tour/tour.php';
 
 include get_template_directory() . '/fontawesome/icon-migration.php';
@@ -197,12 +198,12 @@ function vantage_scripts() {
 	wp_enqueue_style( 'vantage-fontawesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '4.2.0' );
 
 	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	wp_enqueue_script( 'flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . $js_suffix . '.js' , array('jquery'), '2.1' );
-	wp_enqueue_script( 'touch-swipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . $js_suffix . '.js' , array( 'jquery' ), '1.6.6' );
+	wp_enqueue_script( 'vantage-flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . $js_suffix . '.js' , array('jquery'), '2.1' );
+	wp_enqueue_script( 'vantage-touch-swipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . $js_suffix . '.js' , array( 'jquery' ), '1.6.6' );
 	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main' . $js_suffix . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION );
 
 	if( siteorigin_setting( 'layout_fitvids' ) ) {
-		wp_enqueue_script( 'fitvids' , get_template_directory_uri() . '/js/jquery.fitvids' . $js_suffix . '.js' , array('jquery'), '1.0' );
+		wp_enqueue_script( 'vantage-fitvids' , get_template_directory_uri() . '/js/jquery.fitvids' . $js_suffix . '.js' , array('jquery'), '1.0' );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -210,7 +211,7 @@ function vantage_scripts() {
 	}
 
 	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation' . $js_suffix . '.js', array( 'jquery' ), '20120202' );
+		wp_enqueue_script( 'vantage-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation' . $js_suffix . '.js', array( 'jquery' ), '20120202' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
@@ -277,7 +278,8 @@ function vantage_get_query_variables(){
 function vantage_render_slider(){
 
 	if( is_front_page() && siteorigin_setting('home_slider') != 'none' ) {
-		$settings_slider = siteorigin_setting('home_slider');
+		$settings_slider = siteorigin_setting( 'home_slider' );
+		$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
 
 		if(!empty($settings_slider)) {
 			$slider = $settings_slider;
@@ -289,6 +291,7 @@ function vantage_render_slider(){
 		if( !empty($page_slider) ) {
 			$slider = $page_slider;
 		}
+		$slider_stretch = get_post_meta(get_the_ID(), 'vantage_metaslider_slider_stretch', true) == "1";
 	}
 
 	if( empty($slider) ) return;
@@ -296,7 +299,7 @@ function vantage_render_slider(){
 	global $vantage_is_main_slider;
 	$vantage_is_main_slider = true;
 
-	?><div id="main-slider" <?php if( siteorigin_setting('home_slider_stretch') ) echo 'data-stretch="true"' ?>><?php
+	?><div id="main-slider" <?php if( $slider_stretch ) echo 'data-stretch="true"' ?>><?php
 
 
 	if($slider == 'demo') get_template_part('slider/demo');
