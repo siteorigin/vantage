@@ -28,7 +28,7 @@ function vantage_premium_filter_thumbnail_attributes( $attr, $attachment, $size 
 
 		// Add the normal size for small screen devices
 		$src = wp_get_attachment_image_src($attachment->ID, $size );
-		if( !empty($src[0]) ) $srcset[1280] = $src[0];
+		if( !empty($src[0]) ) $srcset[1080] = $src[0];
 
 		$srcset = apply_filters('vantage_image_srcset', $srcset, $attr, $attachment, $size);
 
