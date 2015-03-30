@@ -210,6 +210,11 @@ function vantage_theme_settings(){
 		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' )
 	) );
 
+	siteorigin_settings_add_teaser('general', 'adaptive_images', __('Mobile Adaptive Images', 'vantage'), array(
+		'description' => __('Rescale images to the most appropriate size for mobile devices.', 'vantage'),
+		// 'teaser-image' => get_template_directory_uri().'/upgrade/teasers/share-rec.png',
+	));
+
 }
 add_action('siteorigin_settings_init', 'vantage_theme_settings');
 
@@ -256,6 +261,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['social_twitter'] = '';
 
 	$defaults['general_site_info_text'] = '';
+	$defaults['general_adaptive_images'] = false;
 
 	return $defaults;
 }
