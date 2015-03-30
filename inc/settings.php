@@ -295,9 +295,13 @@ add_filter('siteorigin_settings_page_icon', 'vantage_siteorigin_settings_page_ic
 function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $old_value ) {
 	//Update home slider post meta.
 	$home_id = get_option( 'page_on_front' );
-	if ( $home_id != 0 && $new_value['home_slider'] != $old_value['home_slider'] ) {
-		update_post_meta($home_id, 'vantage_metaslider_slider', $new_value['home_slider'] );
-		update_post_meta($home_id, 'vantage_metaslider_slider_stretch', $new_value['home_slider_stretch']);
+	if ( $home_id != 0 ) {
+		if ( $new_value['home_slider'] != $old_value['home_slider'] ) {
+			update_post_meta($home_id, 'vantage_metaslider_slider', $new_value['home_slider'] );
+		}
+		if ( $new_value['home_slider_stretch'] != $old_value['home_slider_stretch'] ) {
+			update_post_meta($home_id, 'vantage_metaslider_slider_stretch', $new_value['home_slider_stretch']);
+		}
 	}
 	return $new_value;
 }
