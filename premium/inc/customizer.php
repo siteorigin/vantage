@@ -129,7 +129,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Content Link Color', 'vantage'),
 				'default' => '#248cc8',
-				'selector' => '.entry-content p a, .entry-content p a:visited, #secondary p a, #secondary p a:visited',
+				'selector' => '.entry-content a, .entry-content a:visited, #secondary a, #secondary a:visited, #masthead .hgroup a, #masthead .hgroup a:visited',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -138,7 +138,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Content Link Hover Color', 'vantage'),
 				'default' => '#f47e3c',
-				'selector' => '.entry-content p a:hover, .entry-content p a:focus, .entry-content p a:active, #secondary p a:hover',
+				'selector' => '.entry-content a:hover, .entry-content a:focus, .entry-content a:active, #secondary a:hover, #masthead .hgroup a:hover, #masthead .hgroup a:focus, #masthead .hgroup a:active',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -419,9 +419,17 @@ function vantage_customizer_init(){
 
 			'links' => array(
 				'type' => 'color',
-				'title' => __('Links', 'vantage'),
+				'title' => __('Link Color', 'vantage'),
 				'default' => '#cccccc',
-				'selector' => '#footer-widgets .widget a',
+				'selector' => '#footer-widgets .widget a, #footer-widgets .widget a:visited',
+				'property' => 'color',
+			),
+
+			'link_hover' => array(
+				'type' => 'color',
+				'title' => __('Link Hover Color', 'vantage'),
+				'default' => '#cccccc',
+				'selector' => '#footer-widgets .widget a:hover, #footer-widgets .widget a:focus, #footer-widgets .widget a:active',
 				'property' => 'color',
 			),
 
