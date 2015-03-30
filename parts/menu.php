@@ -29,9 +29,7 @@ $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 		<?php if( siteorigin_setting('navigation_menu_search') ) : ?>
 			<div id="search-icon">
 				<div id="search-icon-icon"><div class="vantage-icon-search"></div></div>
-				<form method="get" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
-					<input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" />
-				</form>
+				<?php get_search_form() ?>
 			</div>
 		<?php endif; ?>
 
