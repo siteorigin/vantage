@@ -827,6 +827,7 @@ body.responsive.layout-full #page-wrapper .full-container {
 }
 .main-navigation ul li a {
   padding: 20px 35px;
+  line-height: 1em;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
