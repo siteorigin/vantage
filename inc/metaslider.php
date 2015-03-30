@@ -80,9 +80,13 @@ function vantage_metaslider_page_setting_metabox_render($post){
 	if ( $is_home && empty( $metaslider ) ) {
 		$metaslider = siteorigin_setting( 'home_slider' );
 	}
+	// Default stretch setting to theme setting.
+	$metaslider_stretch = siteorigin_setting( 'home_slider_stretch' );
 	//Include the demo slider in the options if it's the home page.
 	$options = siteorigin_metaslider_get_options($is_home);
-	$metaslider_stretch = get_post_meta($post->ID, 'vantage_metaslider_slider_stretch', true);
+	if ( metadata_exists( 'post', $post->ID, 'vantage_metaslider_slider_stretch' ) ) {
+		$metaslider_stretch = get_post_meta($post->ID, 'vantage_metaslider_slider_stretch', true);
+	}
 
 	?>
 	<label><strong><?php _e('Display Page Metaslider', 'vantage') ?></strong></label>
