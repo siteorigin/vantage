@@ -256,39 +256,57 @@ jQuery(function($){
     if( ($('nav.site-navigation.primary').hasClass('use-sticky-menu') && !isMobileDevice) ||
         (isMobileDevice && $('nav.site-navigation.primary').hasClass('mobile-navigation')) ) {
 
-        var adminBarHeight = $('body').hasClass('admin-bar') ? $('#wpadminbar').outerHeight() : 0;
-        var $mc = null;
-        var resetStickyMenu = function(){
-            var $$ = $('nav.site-navigation.primary');
-            var scrollTop = $(window).scrollTop();
-            var adminBarBottom = isMobileDevice ? adminBarHeight - scrollTop : adminBarHeight;
-            // Work out the current position
-            if( $$.position().top <= scrollTop + adminBarHeight ) {
-                var topPos = Math.max(adminBarBottom, 0);
-                if( $mc === null ){
-                    $mc = $$;
-                    $$ = $$.clone().insertBefore($$);
+        var $$ = $('nav.site-navigation.primary');
+        var $stickyContainer = $('<div id="sticky-container"></div>');
 
-                    $mc.css({
+        $stickyContainer.css('margin-left', $$.css('margin-left'));
+        $stickyContainer.css('margin-right', $$.css('margin-right'));
+        $stickyContainer.css('position', $$.css('position'));
+        var $initTop;
+        var resetStickyMenu = function(){
+            if(!$initTop) {
+                $initTop = $$.offset().top;
+            }
+            var threshold = 0;
+            if ( $('body').hasClass('admin-bar') ) {
+                var adminBar = $('#wpadminbar');
+                var adminBarHeight = adminBar.outerHeight();
+                threshold = adminBar.css('position') == "absolute" ? 0 : adminBarHeight;
+            }
+            var scrollTop = $(window).scrollTop();
+            var navTop = $initTop - scrollTop;
+
+            if( navTop <= threshold ) {
+                if( ! $$.hasClass( 'sticky') ) {
+                    $$.wrapAll( $stickyContainer );
+                    // Work out the current position
+                    $$.css({
                         'position' : 'fixed',
-                        'width' : $$.outerWidth(),
-                        'top' : topPos,
-                        'left' : $$.position().left,
+                        'width' : $$.parent().width(),
+                        'top' : threshold,
+                        'left' : $$.parent().position().left,
                         'z-index' : 998
-                    }).addClass('sticky').insertAfter($$);
-                }
-                else {
-                    $mc.css({
-                        'width' : $$.outerWidth(),
-                        'top' : topPos,
-                        'left' : $$.position().left
+                    }).addClass('sticky');
+                } else {
+                    $$.css({
+                        'width': $$.parent().width(),
+                        'top': threshold,
+                        'left': $$.parent().position().left
                     });
                 }
+                $$.parent().css('height', $$.outerHeight());
             }
             else {
-                if($mc !== null){
-                    $mc.remove();
-                    $mc = null;
+                if($$.hasClass('sticky')) {
+                    $$.css({
+                        'position': '',
+                        'width': '',
+                        'top': '',
+                        'left': '',
+                        'z-index': ''
+                    }).removeClass('sticky');
+                    $$.unwrap();
+                    $initTop = null;
                 }
             }
         };
