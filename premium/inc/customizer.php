@@ -363,6 +363,20 @@ function vantage_customizer_init(){
 				'property' => 'background-image',
 			),
 
+			'masthead_background_image_layout' => array(
+				'type' => 'select',
+				'title' => __('Masthead Background Image Layout', 'vantage'),
+				'default' => '',
+				'selector' => '#masthead',
+				'choices' => array(
+					'' => __( 'Default', 'vantage' ),
+					'center' => __( 'Center', 'vantage' ),
+					'tile' => __( 'Tile', 'vantage' ),
+					'cover' => __( 'Cover', 'vantage' ),
+				),
+				'callback' => 'vantage_customizer_callback_image_layout'
+			),
+
 			'page_background' => array(
 				'type' => 'color',
 				'title' => __('Page Background', 'vantage'),
@@ -377,6 +391,20 @@ function vantage_customizer_init(){
 				'default' => false,
 				'selector' => '#main',
 				'property' => 'background-image',
+			),
+
+			'page_background_image_layout' => array(
+				'type' => 'select',
+				'title' => __('Page Background Image Layout', 'vantage'),
+				'default' => '',
+				'selector' => '#main',
+				'choices' => array(
+					'' => __( 'Default', 'vantage' ),
+					'center' => __( 'Center', 'vantage' ),
+					'tile' => __( 'Tile', 'vantage' ),
+					'cover' => __( 'Cover', 'vantage' ),
+				),
+				'callback' => 'vantage_customizer_callback_image_layout'
 			),
 
 			'image_shadow' => array(
@@ -556,6 +584,28 @@ function vantage_customizer_callback_sidebar_position($builder, $val, $setting){
 		} else {
 			$builder->add_css('.vantage-layout-width-normal #primary', 'float', 'left');
 			$builder->add_css('.vantage-layout-width-normal #secondary', 'float', 'right');
+		}
+	}
+
+	return $builder;
+}
+
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_image_layout($builder, $val, $setting){
+	if( $val ) {
+		if ( $val == 'center' ) {
+			$builder->add_css($setting['selector'], 'background-position', 'center');
+			$builder->add_css($setting['selector'], 'background-repeat', 'no-repeat');
+		} else if ( $val == 'tile' ) {
+			$builder->add_css($setting['selector'], 'background-repeat', 'repeat');
+		} else if ( $val == 'cover' ) {
+			$builder->add_css($setting['selector'], 'background-size', 'cover');
 		}
 	}
 
