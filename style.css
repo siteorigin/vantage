@@ -651,6 +651,9 @@ body.no-sidebar #primary {
 #main-slider #metaslider-demo {
   margin: 0 auto;
 }
+#main-slider #metaslider-demo {
+  text-align: center;
+}
 /* =Responsive Layout
 ----------------------------------------------- */
 @media (max-width: 1080px) {
