@@ -28,6 +28,11 @@ function vantage_customizer_init(){
 			'priority' => 55,
 		),
 
+		'vantage_sidebar' => array(
+			'title' => __('Sidebar', 'vantage'),
+			'priority' => 90,
+		),
+
 		'vantage_footer' => array(
 			'title' => __('Footer', 'vantage'),
 			'priority' => 100,
@@ -449,6 +454,20 @@ function vantage_customizer_init(){
 				'property' => 'color',
 			),
 		),
+
+		'vantage_sidebar' => array(
+			'position' => array(
+				'type' => 'select',
+				'title' => __('Sidebar Position', 'vantage'),
+				'default' => 'right',
+				'choices' => array(
+					'none'   => __( 'None', 'vantage' ),
+					'left'   => __( 'Left', 'vantage' ),
+					'right'  => __( 'Right', 'vantage' )
+				),
+				'callback' => 'vantage_customizer_callback_sidebar_position',
+			)
+		),
 	) );
 
 	// Include all the SiteOrigin customizer classes
@@ -513,6 +532,31 @@ function vantage_customizer_callback_image_shadow($builder, $val, $setting){
 		$builder->add_css('.entry-content img', '-webkit-box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
 		$builder->add_css('.entry-content img', '-moz-box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
 		$builder->add_css('.entry-content img', 'box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
+	}
+
+	return $builder;
+}
+
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_sidebar_position($builder, $val, $setting){
+	if( $val ) {
+		if ( $val == 'left' ) {
+			$builder->add_css('.vantage-layout-width-normal #primary', 'float', 'right');
+			$builder->add_css('.vantage-layout-width-normal #secondary', 'float', 'left');
+		} else if ( $val == 'none' ) {
+			$builder->add_css('.vantage-layout-width-normal #primary', 'float', 'none');
+			$builder->add_css('.vantage-layout-width-normal #primary', 'width', 'auto');
+			$builder->add_css('.vantage-layout-width-normal #secondary', 'display', 'none');
+		} else {
+			$builder->add_css('.vantage-layout-width-normal #primary', 'float', 'left');
+			$builder->add_css('.vantage-layout-width-normal #secondary', 'float', 'right');
+		}
 	}
 
 	return $builder;
