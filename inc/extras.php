@@ -40,6 +40,9 @@ function vantage_body_classes( $classes ) {
 	if( !is_active_sidebar('sidebar-1') ) {
 		$classes[] = 'no-sidebar';
 	}
+	else {
+		$classes[] = 'has-sidebar';
+	}
 
 	if( wp_is_mobile() ) {
 		$classes[] = 'so-vantage-mobile-device';
