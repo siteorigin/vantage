@@ -302,12 +302,18 @@
 /* Page Layouts */
 
 .woocommerce-page {
-
 	&.woocommerce-cart,
 	&.woocommerce-checkout {
 		#primary {
 			float: none;
 			margin: 0 auto;
+		}
+	}
+
+	&.woocommerce-checkout {
+		#ship-to-different-address-checkbox {
+			margin: 3px 10px 0 0 ;
+			float: left;
 		}
 	}
 
