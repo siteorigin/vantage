@@ -574,16 +574,32 @@ function vantage_customizer_callback_image_shadow($builder, $val, $setting){
  */
 function vantage_customizer_callback_sidebar_position($builder, $val, $setting){
 	if( $val ) {
+		// Figure out which selector we need to use based on the layout bound.
 		if ( $val == 'left' ) {
-			$builder->add_css('.vantage-layout-width-normal #primary', 'float', 'right');
-			$builder->add_css('.vantage-layout-width-normal #secondary', 'float', 'left');
-		} else if ( $val == 'none' ) {
-			$builder->add_css('.vantage-layout-width-normal #primary', 'float', 'none');
-			$builder->add_css('.vantage-layout-width-normal #primary', 'width', 'auto');
-			$builder->add_css('.vantage-layout-width-normal #secondary', 'display', 'none');
-		} else {
-			$builder->add_css('.vantage-layout-width-normal #primary', 'float', 'left');
-			$builder->add_css('.vantage-layout-width-normal #secondary', 'float', 'right');
+			$builder->add_css('body.has-sidebar  #primary', 'float', 'right');
+			$builder->add_css('body.has-sidebar  #secondary', 'float', 'left');
+
+			if( function_exists('is_woocommerce') && is_woocommerce() ) {
+				$builder->add_css('.woocommerce-page #container', 'float', 'right');
+			}
+		}
+		else if ( $val == 'none' ) {
+			$builder->add_css('body.has-sidebar  #primary', 'float', 'none');
+			$builder->add_css('body.has-sidebar  #primary', 'width', 'auto');
+			$builder->add_css('body.has-sidebar  #secondary', 'display', 'none');
+
+			if( function_exists('is_woocommerce') && is_woocommerce() ) {
+				$builder->add_css('.woocommerce-page #container', 'float', 'none');
+				$builder->add_css('.woocommerce-page #container', 'width', 'auto');
+			}
+		}
+		else if ( $val == 'right' ) {
+			$builder->add_css('body.has-sidebar  #primary', 'float', 'left');
+			$builder->add_css('body.has-sidebar  #secondary', 'float', 'right');
+
+			if( function_exists('is_woocommerce') && is_woocommerce() ) {
+				$builder->add_css('.woocommerce-page #container', 'float', 'left');
+			}
 		}
 	}
 
@@ -602,9 +618,11 @@ function vantage_customizer_callback_image_layout($builder, $val, $setting){
 		if ( $val == 'center' ) {
 			$builder->add_css($setting['selector'], 'background-position', 'center');
 			$builder->add_css($setting['selector'], 'background-repeat', 'no-repeat');
-		} else if ( $val == 'tile' ) {
+		}
+		else if ( $val == 'tile' ) {
 			$builder->add_css($setting['selector'], 'background-repeat', 'repeat');
-		} else if ( $val == 'cover' ) {
+		}
+		else if ( $val == 'cover' ) {
 			$builder->add_css($setting['selector'], 'background-size', 'cover');
 		}
 	}
