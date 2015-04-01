@@ -3019,6 +3019,9 @@ body.layout-full {
   padding-left: 20px;
   padding-right: 20px;
 }
+.vantage-circleicon-loop .clear {
+  clear: both;
+}
 /* This will override anything from WooCommerce core CSS */
 .woocommerce {
   /* The more generic WooCommerce elements */
