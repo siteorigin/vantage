@@ -492,14 +492,23 @@ body.ie-8,body.ie-9 {
 	width: 71.287%;
 }
 
+body.sidebar-position-left #primary {
+	float: right;
+}
+
+body.sidebar-position-none #primary {
+	float: none;
+	width: auto;
+}
+
 body.no-sidebar #primary {
 	float: none;
 	width: auto;
 }
 
 /* Full Width Primary blocks */
-.vantage-layout-width-full-width #primary,
-.vantage-layout-width-full-width-stretched #primary {
+body.vantage-layout-width-full-width #primary,
+body.vantage-layout-width-full-width-stretched #primary {
 	width: auto;
 	float: none;
 }
@@ -516,6 +525,14 @@ body.no-sidebar #primary {
 #secondary {
 	float: right;
 	width: 23.762%;
+}
+
+body.sidebar-position-left #secondary {
+	float: left;
+}
+
+body.sidebar-position-none #secondary {
+	display: none;
 }
 
 #main {

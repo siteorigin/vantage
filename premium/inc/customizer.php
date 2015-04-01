@@ -493,7 +493,7 @@ function vantage_customizer_init(){
 					'left'   => __( 'Left', 'vantage' ),
 					'right'  => __( 'Right', 'vantage' )
 				),
-				'callback' => 'vantage_customizer_callback_sidebar_position',
+				'no_live' => true
 			)
 		),
 	) );
@@ -572,47 +572,6 @@ function vantage_customizer_callback_image_shadow($builder, $val, $setting){
  *
  * @return SiteOrigin_Customizer_CSS_Builder
  */
-function vantage_customizer_callback_sidebar_position($builder, $val, $setting){
-	if( $val ) {
-		// Figure out which selector we need to use based on the layout bound.
-		if ( $val == 'left' ) {
-			$builder->add_css('body.has-sidebar  #primary', 'float', 'right');
-			$builder->add_css('body.has-sidebar  #secondary', 'float', 'left');
-
-			if( function_exists('is_woocommerce') && is_woocommerce() ) {
-				$builder->add_css('.woocommerce-page #container', 'float', 'right');
-			}
-		}
-		else if ( $val == 'none' ) {
-			$builder->add_css('body.has-sidebar  #primary', 'float', 'none');
-			$builder->add_css('body.has-sidebar  #primary', 'width', 'auto');
-			$builder->add_css('body.has-sidebar  #secondary', 'display', 'none');
-
-			if( function_exists('is_woocommerce') && is_woocommerce() ) {
-				$builder->add_css('.woocommerce-page #container', 'float', 'none');
-				$builder->add_css('.woocommerce-page #container', 'width', 'auto');
-			}
-		}
-		else if ( $val == 'right' ) {
-			$builder->add_css('body.has-sidebar  #primary', 'float', 'left');
-			$builder->add_css('body.has-sidebar  #secondary', 'float', 'right');
-
-			if( function_exists('is_woocommerce') && is_woocommerce() ) {
-				$builder->add_css('.woocommerce-page #container', 'float', 'left');
-			}
-		}
-	}
-
-	return $builder;
-}
-
-/**
- * @param SiteOrigin_Customizer_CSS_Builder $builder
- * @param mixed $val
- * @param array $setting
- *
- * @return SiteOrigin_Customizer_CSS_Builder
- */
 function vantage_customizer_callback_image_layout($builder, $val, $setting){
 	if( $val ) {
 		if ( $val == 'center' ) {
@@ -629,3 +588,13 @@ function vantage_customizer_callback_image_layout($builder, $val, $setting){
 
 	return $builder;
 }
+
+function vantage_customizer_change_body_class($classes){
+	$sidebar_position = get_theme_mod('vantage_sidebar_position');
+	if( !empty($sidebar_position) ) {
+		$classes[] = 'sidebar-position-' . sanitize_html_class($sidebar_position);
+	}
+
+	return $classes;
+}
+add_filter('body_class', 'vantage_customizer_change_body_class');
