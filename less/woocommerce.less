@@ -267,9 +267,9 @@
 	.product_list_widget {
 		li {
 			display: block;
-			width: 100%;
+			width: auto;
 			text-align: left;
-			padding-left: 40px;
+			padding-left: 45px;
 			margin-bottom: 10px;
 
 			a.remove {
@@ -278,7 +278,7 @@
 
 			img {
 				float: left;
-				margin-left: -40px;
+				margin-left: -45px;
 			}
 
 			.quantity {
@@ -286,12 +286,29 @@
 					display: inline;
 				}
 			}
+
+			dl.variation {
+				padding: 0;
+				border: none;
+				display: block;
+				line-height: 1em;
+				margin-top: 0.5em;
+
+				dt {
+					clear: none;
+				}
+
+				dd {
+					padding: 0;
+					margin: 0;
+				}
+			}
 		}
 	}
 
 	&.widget_shopping_cart {
 		.product_list_widget li{
-			padding-left: 70px;
+			padding-left: 75px;
 		}
 	}
 
