@@ -18,9 +18,11 @@
 
 			<header class="entry-header">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
+				<?php if ( siteorigin_setting( 'blog_post_metadata' ) ) : ?>
 				<div class="entry-meta">
 					<?php vantage_posted_on(); ?>
 				</div><!-- .entry-meta -->
+				<?php endif; ?>
 			</header><!-- .entry-header -->
 
 		<?php endif; ?>

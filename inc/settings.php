@@ -161,6 +161,11 @@ function vantage_theme_settings(){
 		'description' => __('Choose how to display posts on post archive when using default blog layout.', 'vantage')
 	));
 
+	siteorigin_settings_add_field('blog', 'post_metadata', 'checkbox', __('Post Metadata', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the post metadata in blog archive pages.', 'vantage')
+	));
+
 	siteorigin_settings_add_field('blog', 'post_author', 'checkbox', __('Post Author', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the post author in blog archive pages.', 'vantage')
@@ -251,6 +256,7 @@ function vantage_theme_setting_defaults($defaults){
 
 	$defaults['blog_archive_layout'] = 'blog';
 	$defaults['blog_archive_content'] = 'full';
+	$defaults['blog_post_metadata'] = true;
 	$defaults['blog_post_author'] = true;
 	$defaults['blog_post_date'] = true;
 	$defaults['blog_featured_image'] = true;
