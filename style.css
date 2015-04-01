@@ -3004,6 +3004,9 @@ body.layout-full {
   padding-right: 20px;
 }
 /* This will override anything from WooCommerce core CSS */
+.woocommerce {
+  /* The more generic WooCommerce elements */
+}
 .woocommerce #page-wrapper .button {
   border-top: solid 1px #d2d2d2;
   border-left: solid 1px #c3c3c3;
@@ -3078,6 +3081,108 @@ body.layout-full {
   color: #5e5e5e;
   margin-bottom: 20px;
 }
+.woocommerce a.remove {
+  padding: 2px;
+  line-height: 0.85em;
+}
+.woocommerce a.button,
+.woocommerce .checkout-button,
+.woocommerce input.button,
+.woocommerce .button.alt {
+  padding: 12px 20px;
+  border-top: solid 1px #d2d2d2;
+  border-left: solid 1px #c3c3c3;
+  border-right: solid 1px #c3c3c3;
+  border-bottom: solid 1px #9f9f9f;
+  background: #ffffff;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dfdfdf), color-stop(1, #ffffff));
+  background: -ms-linear-gradient(bottom, #dfdfdf, #ffffff);
+  background: -moz-linear-gradient(center bottom, #dfdfdf 0%, #ffffff 100%);
+  background: -o-linear-gradient(#ffffff, #dfdfdf);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dfdfdf', GradientType=0);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #646464;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  width: auto;
+  text-decoration: none;
+  /* Improves usability and consistency of cursor style between image-type 'input' and others */
+  cursor: pointer;
+  /* Corrects inability to style clickable 'input' types in iOS */
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.woocommerce a.button:focus,
+.woocommerce .checkout-button:focus,
+.woocommerce input.button:focus,
+.woocommerce .button.alt:focus {
+  /* Button hover style */
+  border-top: solid 1px #dadada;
+  border-left: solid 1px #cfcfcf;
+  border-right: solid 1px #cfcfcf;
+  border-bottom: solid 1px #a8a8a8;
+  background: #ffffff;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ebebeb), color-stop(1, #ffffff));
+  background: -ms-linear-gradient(bottom, #ebebeb, #ffffff);
+  background: -moz-linear-gradient(center bottom, #ebebeb 0%, #ffffff 100%);
+  background: -o-linear-gradient(#ffffff, #ebebeb);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ebebeb', GradientType=0);
+}
+.woocommerce a.button:active,
+.woocommerce .checkout-button:active,
+.woocommerce input.button:active,
+.woocommerce .button.alt:active {
+  /* Button click style */
+  border-top: solid 1px #aaaaaa;
+  border-left: solid 1px #bbbbbb;
+  border-right: solid 1px #bbbbbb;
+  border-bottom: solid 1px #bbbbbb;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+.woocommerce .button.alt {
+  font-size: 1em;
+  text-shadow: none;
+  border-top: solid 1px #0086c5;
+  border-left: solid 1px #007ebd;
+  border-right: solid 1px #007ebd;
+  border-bottom: solid 1px #0077b4;
+  background: #00bcff;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #00aaeb), color-stop(1, #00bcff));
+  background: -ms-linear-gradient(bottom, #00aaeb, #00bcff);
+  background: -moz-linear-gradient(center bottom, #00aaeb 0%, #00bcff 100%);
+  background: -o-linear-gradient(#00bcff, #00aaeb);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00bcff', endColorstr='#00aaeb', GradientType=0);
+}
+.woocommerce .button.alt:hover,
+.woocommerce .button.alt:active,
+.woocommerce .button.alt.disabled,
+.woocommerce .button.alt:disabled,
+.woocommerce .button.alt:disabled[disabled],
+.woocommerce .button.alt.disabled:hover,
+.woocommerce .button.alt:disabled:hover,
+.woocommerce .button.alt:disabled[disabled]:hover {
+  border-top: solid 1px #0090d4;
+  border-left: solid 1px #0088cc;
+  border-right: solid 1px #0088cc;
+  border-bottom: solid 1px #0081c3;
+  background: #0fc0ff;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #00b5fa), color-stop(1, #0fc0ff));
+  background: -ms-linear-gradient(bottom, #00b5fa, #0fc0ff);
+  background: -moz-linear-gradient(center bottom, #00b5fa 0%, #0fc0ff 100%);
+  background: -o-linear-gradient(#0fc0ff, #00b5fa);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0fc0ff', endColorstr='#00b5fa', GradientType=0);
+}
+.woocommerce .shop_table .actions .button {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
 .woocommerce-page #container {
   float: left;
   width: 71.287%;
@@ -3143,69 +3248,27 @@ body.layout-full {
     width: auto;
   }
 }
-.widget.woocommerce .button {
-  padding: 12px 20px;
-  border-top: solid 1px #d2d2d2;
-  border-left: solid 1px #c3c3c3;
-  border-right: solid 1px #c3c3c3;
-  border-bottom: solid 1px #9f9f9f;
-  background: #ffffff;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dfdfdf), color-stop(1, #ffffff));
-  background: -ms-linear-gradient(bottom, #dfdfdf, #ffffff);
-  background: -moz-linear-gradient(center bottom, #dfdfdf 0%, #ffffff 100%);
-  background: -o-linear-gradient(#ffffff, #dfdfdf);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dfdfdf', GradientType=0);
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  font-size: 12px;
-  font-weight: bold;
-  color: #646464;
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  width: auto;
-  text-decoration: none;
-  /* Improves usability and consistency of cursor style between image-type 'input' and others */
-  cursor: pointer;
-  /* Corrects inability to style clickable 'input' types in iOS */
-  line-height: 1;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+.widget.woocommerce {
+  zoom: 1;
 }
-.widget.woocommerce .button:focus {
-  /* Button hover style */
-  border-top: solid 1px #dadada;
-  border-left: solid 1px #cfcfcf;
-  border-right: solid 1px #cfcfcf;
-  border-bottom: solid 1px #a8a8a8;
-  background: #ffffff;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ebebeb), color-stop(1, #ffffff));
-  background: -ms-linear-gradient(bottom, #ebebeb, #ffffff);
-  background: -moz-linear-gradient(center bottom, #ebebeb 0%, #ffffff 100%);
-  background: -o-linear-gradient(#ffffff, #ebebeb);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ebebeb', GradientType=0);
+.widget.woocommerce:before {
+  content: '';
+  display: block;
 }
-.widget.woocommerce .button:active {
-  /* Button click style */
-  border-top: solid 1px #aaaaaa;
-  border-left: solid 1px #bbbbbb;
-  border-right: solid 1px #bbbbbb;
-  border-bottom: solid 1px #bbbbbb;
-  -webkit-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+.widget.woocommerce:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 .widget.woocommerce .product_list_widget li {
   display: block;
   width: 100%;
   text-align: left;
-  padding-left: 70px;
+  padding-left: 40px;
   margin-bottom: 10px;
 }
 .widget.woocommerce .product_list_widget li a.remove {
   top: 3px;
-  padding: 2px;
-  line-height: 0.85em;
 }
 .widget.woocommerce .product_list_widget li img {
   float: left;
@@ -3213,6 +3276,23 @@ body.layout-full {
 }
 .widget.woocommerce .product_list_widget li .quantity .amount {
   display: inline;
+}
+.widget.woocommerce.widget_shopping_cart .product_list_widget li {
+  padding-left: 70px;
+}
+.widget.woocommerce.widget_product_search label {
+  display: none;
+}
+.widget.woocommerce.widget_product_search input[type="search"] {
+  padding: 8px;
+  display: block;
+  width: 100%;
+}
+.widget.woocommerce.widget_product_search input[type="submit"] {
+  margin-top: 10px;
+  display: inline-block;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 .widget.woocommerce .total {
   border-top: 1px solid #e8e8e8;
@@ -3223,49 +3303,17 @@ body.layout-full {
 }
 .widget.woocommerce .buttons {
   float: right;
-  margin-bottom: ;
   display: inline-block;
 }
-/* The WooCommerce Widgets */
-.widget .product_list_widget {
-  margin: 0;
-  list-style: none;
-  margin-right: -10px;
-  zoom: 1;
+.widget.woocommerce .button {
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
-.widget .product_list_widget:before {
-  content: '';
-  display: block;
-}
-.widget .product_list_widget:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-.widget .product_list_widget li {
-  -ms-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin-left: 0;
-  width: 33%;
-  padding-right: 10px;
-  float: left;
-  text-align: center;
-  margin-bottom: 10px;
-}
-.widget .product_list_widget li img {
-  width: 100%;
-  height: auto;
-}
-.widget .product_list_widget li a {
-  text-decoration: none;
-  color: #444444;
-  font-weight: 500;
-  line-height: 1.1em;
-}
-.widget .product_list_widget li span.amount {
-  display: block;
+/* Page Layouts */
+.woocommerce-page.woocommerce-cart #primary,
+.woocommerce-page.woocommerce-checkout #primary {
+  float: none;
+  margin: 0 auto;
 }
 #yoast-breadcrumbs {
   background: rgba(0, 0, 0, 0.025);
