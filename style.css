@@ -3315,6 +3315,10 @@ body.layout-full {
   float: none;
   margin: 0 auto;
 }
+.woocommerce-page.woocommerce-checkout #ship-to-different-address-checkbox {
+  margin: 3px 10px 0 0 ;
+  float: left;
+}
 #yoast-breadcrumbs {
   background: rgba(0, 0, 0, 0.025);
   margin-top: -20px;
