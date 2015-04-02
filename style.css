@@ -798,7 +798,6 @@ body.responsive.layout-full #page-wrapper .full-container {
 .main-navigation {
   margin: 0 -35px;
   background: #343538;
-  font-size: 13px;
   position: relative;
   /* Font awesome icons */
   /* General menu link styling */
@@ -815,6 +814,7 @@ body.responsive.layout-full #page-wrapper .full-container {
   color: #ffffff;
 }
 .main-navigation ul {
+  text-align: left;
   list-style: none;
   margin: 0;
   padding-left: 0;
@@ -831,9 +831,9 @@ body.responsive.layout-full #page-wrapper .full-container {
   clear: both;
 }
 .main-navigation ul li {
-  display: block;
+  display: inline-block;
+  font-size: 13px;
   position: relative;
-  float: left;
 }
 .main-navigation ul li:hover > a {
   background: #00bcff;
@@ -872,6 +872,7 @@ body.responsive.layout-full #page-wrapper .full-container {
 }
 .main-navigation ul ul li {
   position: relative;
+  text-align: left;
   /* Hovering over 2nd level items */
 }
 .main-navigation ul ul li:hover > a {

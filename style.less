@@ -718,7 +718,6 @@ body.responsive {
 .main-navigation {
 	margin: 0 -35px;
 	background: #343538;
-	font-size: 13px;
 	position: relative;
 
 	/* Font awesome icons */
@@ -735,15 +734,16 @@ body.responsive {
 	}
 
 	ul {
+		text-align: left;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
 		.clearfix();
 
 		li {
-			display:block;
+			display: inline-block;
+			font-size: 13px;
 			position: relative;
-			float: left;
 
 			&:hover > a {
 				background: #00bcff;
@@ -780,6 +780,7 @@ body.responsive {
 
 			li {
 				position: relative;
+				text-align: left;
 
 				/* Hovering over 2nd level items */
 				&:hover > a {
