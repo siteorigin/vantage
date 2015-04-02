@@ -154,6 +154,19 @@ function vantage_customizer_init(){
 
 		'vantage_menu' => array(
 
+			'menu_alignment' => array(
+				'type' => 'select',
+				'title' => __('Menu Alignment', 'vantage'),
+				'default' => 'left',
+				'selector' => '.main-navigation ul',
+				'property' => 'text-align',
+				'choices' => array(
+					'left' => __( 'Left', 'vantage' ),
+					'right' => __( 'Right', 'vantage' ),
+					'center' => __( 'Center', 'vantage' ),
+				),
+			),
+
 			'background' => array(
 				'type' => 'color',
 				'title' => __('Background', 'vantage'),
