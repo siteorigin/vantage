@@ -5,7 +5,7 @@
 ?>
 
 <?php if( have_posts() ) : $i = 0; ?>
-	<div class="vantage-circleicon-loop">
+	<div id="vantage-circleicon-loop" class="vantage-circleicon-loop">
 
 		<?php
 		while( have_posts() ){
