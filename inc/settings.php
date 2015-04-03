@@ -189,6 +189,11 @@ function vantage_theme_settings(){
 		'description' => __('Size of the featured image in the blog post archives.', 'vantage')
 	) );
 
+	siteorigin_settings_add_field('blog', 'author_box', 'checkbox', __('Author Box', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show an author box below each blog post.', 'vantage')
+	) );
+
 	/**
 	 * Social Settings
 	 */
@@ -265,6 +270,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['blog_post_date'] = true;
 	$defaults['blog_featured_image'] = true;
 	$defaults['blog_featured_image_type'] = 'large';
+	$defaults['blog_author_box'] = false;
 
 	$defaults['social_ajax_comments'] = true;
 	$defaults['social_share_post'] = true;
