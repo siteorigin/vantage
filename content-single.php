@@ -41,7 +41,7 @@
 			</div>
 		<?php endif; ?>
 
-		<?php if( siteorigin_setting('blog_author_box') ) : ?>
+		<?php if( is_singular() && siteorigin_setting('blog_author_box') ) : ?>
 			<div class="author-box">
 				<div class="avatar-box">
 					<div class="avatar-wrapper"><?php echo get_avatar( get_the_author_meta('user_email'), 70 ) ?></div>
