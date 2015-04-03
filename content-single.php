@@ -41,6 +41,21 @@
 			</div>
 		<?php endif; ?>
 
+		<?php if( is_singular() && siteorigin_setting('blog_author_box') ) : ?>
+			<div class="author-box">
+				<div class="avatar-box">
+					<div class="avatar-wrapper"><?php echo get_avatar( get_the_author_meta('user_email'), 70 ) ?></div>
+				</div>
+				<div class="box-content entry-content">
+					<h3 class="box-title"><?php echo esc_html( get_the_author_meta('display_name') ) ?></h3>
+					<div class="box-description">
+						<?php echo wp_kses_post( wpautop( get_the_author_meta('description') ) ) ?>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
+
+
 		<?php do_action('vantage_entry_main_bottom') ?>
 
 	</div>
