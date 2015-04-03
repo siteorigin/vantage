@@ -1149,12 +1149,89 @@ article.post .more-link .meta-nav,
 article.page .more-link .meta-nav {
   display: none;
 }
+article.post .author-box,
+article.page .author-box {
+  margin: 20px 0 0 0;
+  border: 1px solid #cccccc;
+  background: #f0f0f0;
+  position: relative;
+  zoom: 1;
+}
+article.post .author-box:before,
+article.page .author-box:before {
+  content: '';
+  display: block;
+}
+article.post .author-box:after,
+article.page .author-box:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+article.post .author-box .avatar-box,
+article.page .author-box .avatar-box {
+  padding: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+article.post .author-box .avatar-box .avatar-wrapper,
+article.page .author-box .avatar-box .avatar-wrapper {
+  background: #ffffff;
+  padding: 5px;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+article.post .author-box .avatar-box .avatar-wrapper img,
+article.page .author-box .avatar-box .avatar-wrapper img {
+  display: block;
+}
+article.post .author-box .box-content,
+article.page .author-box .box-content {
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px 25px;
+  margin-left: 132px;
+  background: #f9f9f9;
+  min-height: 132px;
+  border-left: 1px solid #cccccc;
+  -webkit-box-shadow: inset 2px 0 2px rgba(0,0,0,0.035);
+  -moz-box-shadow: inset 2px 0 2px rgba(0,0,0,0.035);
+  box-shadow: inset 2px 0 2px rgba(0,0,0,0.035);
+}
+article.post .author-box .box-content .box-title,
+article.page .author-box .box-content .box-title {
+  color: #3b3b3b;
+  font-size: 1.25em;
+  line-height: 1.1em;
+  font-weight: 500;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+article.post .author-box .box-content .box-description,
+article.page .author-box .box-content .box-description {
+  min-height: 0;
+  margin-bottom: 0;
+}
+article.post .author-box .box-content .box-description > *:first-child,
+article.page .author-box .box-content .box-description > *:first-child {
+  margin-top: 0;
+}
+article.post .author-box .box-content .box-description > *:last-child,
+article.page .author-box .box-content .box-description > *:last-child {
+  margin-bottom: 0;
+}
 article.post .share-buttons,
 article.page .share-buttons {
   margin: 20px 0 0 0;
   padding: 15px 25px;
-  background: #f5f5f5;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #cccccc;
+  background: #f9f9f9;
   list-style: none;
   zoom: 1;
 }

@@ -41,6 +41,21 @@
 			</div>
 		<?php endif; ?>
 
+		<?php if( siteorigin_setting('blog_author_box') ) : ?>
+			<div class="author-box">
+				<div class="avatar-box">
+					<div class="avatar-wrapper"><?php echo get_avatar( get_the_author_meta('user_email'), 70 ) ?></div>
+				</div>
+				<div class="box-content entry-content">
+					<h3 class="box-title">Test Author Box</h3>
+					<div class="box-description">
+						<p>Phasellus tempor metus metus, a pellentesque elit faucibus quis. Curabitur scelerisque arcu nec libero molestie tristique. Suspendisse metus magna, semper et turpis sed, scelerisque maximus augue.</p>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
+
+
 		<?php do_action('vantage_entry_main_bottom') ?>
 
 	</div>
