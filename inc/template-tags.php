@@ -14,6 +14,9 @@ if ( ! function_exists( 'vantage_content_nav' ) ) :
  * @since vantage 1.0
  */
 function vantage_content_nav( $nav_id ) {
+	if( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
+		return;
+	}
 	global $wp_query, $post;
 
 	// Don't print empty markup on single pages if there's nowhere to navigate.

@@ -1,0 +1,9 @@
+/* The button to display more posts. */
+#infinite-handle span {
+  background: #333;
+  border-radius: 1px;
+  color: #eee;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 6px 16px;
+}
