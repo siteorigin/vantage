@@ -1,6 +1,6 @@
 /*
-Name: Vantage Horizontal Footer Menu
-Description: Have your footer menu widget display horizontally
+Name: Horizontal Footer Menu
+Description: Insert a Custom Menu widget into the footer and have it display horizontally. Insert the Custom Menu widget first, other widgets will display below it.
 */
 
 #footer-widgets .widget.widget_nav_menu {
