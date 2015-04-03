@@ -549,9 +549,9 @@ add_action('wp_head', 'vantage_customizer_style', 20);
  */
 function vantage_customizer_callback_logo_center($builder, $val, $setting){
 	if( $val ) {
-		$builder->add_css('#masthead .hgroup .logo', 'float', 'none');
-		$builder->add_css('#masthead .hgroup .logo img', 'display', 'block');
-		$builder->add_css('#masthead .hgroup .logo img', 'margin', '0 auto');
+		$builder->add_css('#masthead .hgroup .logo, #masthead .hgroup .site-logo-link', 'float', 'none');
+		$builder->add_css('#masthead .hgroup .logo img, #masthead .hgroup .site-logo-link img', 'display', 'block');
+		$builder->add_css('#masthead .hgroup .logo img, #masthead .hgroup .site-logo-link img', 'margin', '0 auto');
 	}
 
 	return $builder;
