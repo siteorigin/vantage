@@ -220,6 +220,10 @@ function vantage_theme_settings(){
 		// 'teaser-image' => get_template_directory_uri().'/upgrade/teasers/share-rec.png',
 	));
 
+	siteorigin_settings_add_field('general', 'js_enqueue_footer', 'checkbox', __('Enqueue JavaScript in Footer', 'vantage'), array(
+		'description' => __('Enqueue JavaScript files in the footer, if possible.', 'vantage'),
+	));
+
 }
 add_action('siteorigin_settings_init', 'vantage_theme_settings');
 
@@ -268,6 +272,7 @@ function vantage_theme_setting_defaults($defaults){
 
 	$defaults['general_site_info_text'] = '';
 	$defaults['general_adaptive_images'] = false;
+	$defaults['general_js_enqueue_footer'] = false;
 
 	return $defaults;
 }
