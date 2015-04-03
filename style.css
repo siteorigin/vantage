@@ -3458,6 +3458,45 @@ body.layout-full {
   margin: 3px 10px 0 0 ;
   float: left;
 }
+/* The button to display more posts. */
+#infinite-handle span {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 2px 2px 2px 0;
+  padding: 6px 9px 5px 9px;
+  background: #4f5355;
+  border-top: solid 1px #d2d2d2;
+  border-left: solid 1px #c3c3c3;
+  border-right: solid 1px #c3c3c3;
+  border-bottom: solid 1px #9f9f9f;
+  background: #ffffff;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dfdfdf), color-stop(1, #ffffff));
+  background: -ms-linear-gradient(bottom, #dfdfdf, #ffffff);
+  background: -moz-linear-gradient(center bottom, #dfdfdf 0%, #ffffff 100%);
+  background: -o-linear-gradient(#ffffff, #dfdfdf);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dfdfdf', GradientType=0);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-weight: bold;
+  color: #646464;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  width: auto;
+  text-decoration: none;
+}
+#infinite-handle span:hover {
+  background: #f0f0f0;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #d0d0d0), color-stop(1, #f0f0f0));
+  background: -ms-linear-gradient(bottom, #d0d0d0, #f0f0f0);
+  background: -moz-linear-gradient(center bottom, #d0d0d0 0%, #f0f0f0 100%);
+  background: -o-linear-gradient(#f0f0f0, #d0d0d0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#d0d0d0', GradientType=0);
+  color: #606060;
+}
 #yoast-breadcrumbs {
   background: rgba(0, 0, 0, 0.025);
   margin-top: -20px;

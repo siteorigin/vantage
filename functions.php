@@ -112,9 +112,68 @@ function vantage_setup() {
 	if ( ! isset( $vantage_site_width ) ) {
 		$vantage_site_width = siteorigin_setting('layout_bound') == 'full' ? 1080 : 1010;
 	}
+
+	$container = 'content';
+	$render_function = '';
+	$wrapper = true;
+	// The posts_per_page setting only works when type is 'scroll'.
+	// When type is set to 'click' either explicitly or automatically,
+	// due to there being footer widgets, it uses the "Blog pages show at most X posts" setting
+	// under Settings > Reading instead. :(
+	// https://wordpress.org/support/topic/posts_per_page-not-having-any-effect
+	$posts_per_page = 7;
+	if ( siteorigin_setting( 'blog_archive_layout' ) == 'circleicon' ) {
+		$container = 'vantage-circleicon-loop';
+		$render_function = 'vantage_infinite_scroll_render';
+		$wrapper = false;
+		$posts_per_page = 6;
+	}
+	else if ( siteorigin_setting( 'blog_archive_layout' ) == 'grid' ) {
+		$container = 'vantage-grid-loop';
+		$render_function = 'vantage_infinite_scroll_render';
+		$wrapper = false;
+		$posts_per_page = 8;
+	}
+
+	add_filter( 'infinite_scroll_settings', 'vantage_infinite_scroll_settings' );
+
+	add_theme_support( 'infinite-scroll', array(
+		'container' => $container,
+		'footer' => 'page',
+		'render' => $render_function,
+		'wrapper' => $wrapper,
+		'posts_per_page' => $posts_per_page,
+		'type' => 'click',
+//		'footer_widgets' => 'sidebar-footer',
+	) );
 }
 endif; // vantage_setup
 add_action( 'after_setup_theme', 'vantage_setup' );
+
+// Override Jetpack Infinite Scroll default behaviour of ignoring explicit posts_per_page setting when type is 'click'.
+function vantage_infinite_scroll_settings( $settings ) {
+	if ( $settings['type'] == 'click' ) {
+		if( siteorigin_setting( 'blog_archive_layout' ) == 'circleicon' ) {
+			$settings['posts_per_page'] = 6;
+		}
+		else if ( siteorigin_setting( 'blog_archive_layout' ) == 'grid' ) {
+			$settings['posts_per_page'] = 8;
+		}
+	}
+	return $settings;
+}
+
+function vantage_infinite_scroll_render() {
+	ob_start();
+	get_template_part( 'loops/loop', siteorigin_setting( 'blog_archive_layout' ) );
+	$var = ob_get_clean();
+	// Strip leading and trailing whitespace.
+	$var = trim( $var );
+	// Remove the opening and closing div tags for subsequent pages of posts for correct circleicon and grid layouts.
+	$var = preg_replace( '/^<div.+>/', '', $var );
+	$var = preg_replace( '/<\/div>$/', '', $var );
+	echo $var;
+}
 
 /**
  * Setup the WordPress core custom background feature.
