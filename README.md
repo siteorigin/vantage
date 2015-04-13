@@ -48,6 +48,10 @@ Dedicated to the public domain and is free for all uses, commercial or otherwise
 FontAwesome Copyright 2012 Dave Gandy
 licensed under SIL OFL 1.1 <http://scripts.sil.org/OFL>
 
+TouchSwipe jQuery Plugin
+Copyright (c) 2010-2015 Matt Bryson
+Dual licensed under the MIT or GPL Version 2 licenses.
+
 
 Demo Photos
 ---------------
