@@ -814,12 +814,12 @@ body.responsive.layout-full #page-wrapper .full-container {
   color: #ffffff;
 }
 .main-navigation ul {
+  display: flex;
   text-align: left;
   list-style: none;
   margin: 0;
   padding-left: 0;
   zoom: 1;
-  font-size: 0;
   /* Second level menu items */
 }
 .main-navigation ul:before {
