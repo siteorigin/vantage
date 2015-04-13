@@ -1,0 +1,8 @@
+/*
+Name: Menu Drop Down Item Padding
+Description: Menu item padding is available from Appearance > Customize. Use this snippet to separately set the top and bottom padding of your drop down menu items. */
+
+.main-navigation ul ul a {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}

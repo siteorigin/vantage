@@ -1,0 +1,12 @@
+/*
+Name: Hide the Sidebar on Mobile
+Description: Hide the sidebar below 680px resolution. */
+
+@media (max-width: 680px) {
+	#primary {
+		width: 100%;
+	}
+	#secondary {
+		display: none;
+	}
+}
