@@ -1,6 +1,6 @@
 /*
 Name: Horizontal Footer Menu
-Description: Insert a Custom Menu widget into the footer and have it display horizontally. Insert the Custom Menu widget first, other widgets will display below it.
+Description: Insert a Custom Menu widget into the footer and have it display horizontally. Insert the Custom Menu widget first, other widgets will display below it. No adjustment of the below values is required.
 */
 
 #footer-widgets .widget.widget_nav_menu {

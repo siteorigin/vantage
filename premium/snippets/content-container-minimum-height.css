@@ -1,6 +1,6 @@
 /*
 Name: Content Container Minimum Height
-Description: Establish a minimum height for the content container. This will ensure the footer gets pushed down on pages where there is little or no content. Adjust the 500px value as required.
+Description: Establish a minimum height for the main content container. This will ensure the footer gets pushed down on pages where there is little or no content. Adjust the px value below as required.
 */
 
 #main {
