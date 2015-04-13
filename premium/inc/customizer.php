@@ -325,7 +325,7 @@ function vantage_customizer_init(){
 				'title' => __('Menu Font Size', 'vantage'),
 				'default' => 13,
 				'unit' => 'px',
-				'selector' => '.main-navigation',
+				'selector' => '.main-navigation ul li',
 				'property' => array('font-size'),
 			),
 
