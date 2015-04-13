@@ -819,6 +819,7 @@ body.responsive.layout-full #page-wrapper .full-container {
   margin: 0;
   padding-left: 0;
   zoom: 1;
+  font-size: 0;
   /* Second level menu items */
 }
 .main-navigation ul:before {
