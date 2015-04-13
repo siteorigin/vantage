@@ -97,6 +97,7 @@ Change Log
 * Fixed circle Icon blog loop row clearing.
 * Added author box and setting.
 * Added option to enqueue Javascript in footer.
+* Properly use searchform.php for translation plugins.
 * Premium: Added basic support for picturefill.
 * Premium: Improvements to custom CSS editor. Allows live CSS editing.
 * Premium: Option to Disable Sidebar and/or Use Left Sidebar.
