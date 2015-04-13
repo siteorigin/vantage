@@ -1,0 +1,9 @@
+/*
+Name: Hide the Main Meta Slider
+Description: Below 680px resolution the site title or logo will no longer be clickable or display a hand icon. Suitable for one page websites. */
+
+@media (max-width: 680px) {
+	#main-slider {
+		display: none;
+	}
+}
