@@ -48,6 +48,10 @@ Dedicated to the public domain and is free for all uses, commercial or otherwise
 FontAwesome Copyright 2012 Dave Gandy
 licensed under SIL OFL 1.1 <http://scripts.sil.org/OFL>
 
+TouchSwipe jQuery Plugin
+Copyright (c) 2010-2015 Matt Bryson
+Dual licensed under the MIT or GPL Version 2 licenses.
+
 
 Demo Photos
 ---------------
@@ -68,6 +72,39 @@ This theme is built around the SiteOrigin extras framework contained in the fold
 
 Change Log
 ---------------
+
+#### 1.4
+* Added swipe to carousel post loop.
+* Improvements to sticky menu. Several bugs fixed.
+* Added CSS for Jetpack comment subscription checkboxes.
+* Removed enqueuing of unminified flexslider.
+* Fixed issue in IE where stretched slider links weren't working.
+* Fixed comment pagination formatting issues.
+* Fixed Meta Slider conflict with theme/page settings.
+* Removed default image rounding and shadow - this is now a setting.
+* Added bigger screenshot to match guideline requirements.
+* Fixed incompatibility with Page Builder row padding setting.
+* Added Page Builder full width container and fixed full width in boxed layout.
+* Improved custom taxonomy display.
+* Added setting to enable/disable constrain logo height with logo in masthead layout.
+* Added basic Yoast breadcrumb support.
+* Fix that prevents widgets from overlapping logo in masthead.
+* Removed legacy blog template.
+* Added stretch Option for Meta Sliders on Pages.
+* New page layout metabox. Replaces need for page templates.
+* Several WooCommerce compatibility improvements.
+* Added option to remove post meta.
+* Fixed circle Icon blog loop row clearing.
+* Added author box and setting.
+* Added option to enqueue Javascript in footer.
+* Properly use searchform.php for translation plugins.
+* Premium: Added basic support for picturefill.
+* Premium: Improvements to custom CSS editor. Allows live CSS editing.
+* Premium: Option to Disable Sidebar and/or Use Left Sidebar.
+* Premium: Masthead Background Image Responsivness.
+* Premium: Added LinkedIn to post sharing.
+* Premium: Added Customizer option to center nav.
+* Premium: Fixed Jetpack logo centering.
 
 #### 1.3.4
 * Moved all body_class filtering into a single function.
