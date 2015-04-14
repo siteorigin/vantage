@@ -1,0 +1,9 @@
+/*
+Name: Hide the Main Meta Slider for Mobile
+Description: Hide the main page Meta Slider below 680px resolution. Adjusting the max width value below will change the screen size at which the slider is hidden. */
+
+@media (max-width: 680px) {
+	#main-slider {
+		display: none;
+	}
+}

@@ -1,0 +1,9 @@
+/*
+Name: Style the Header Text
+Description: Style the header text managed from Appearance > Theme Settings > Logo > Header Text. Adjust the values below as required. italic can be chaged to normal. */
+
+header#masthead .hgroup .support-text {
+	color: #4b4b4b;
+	font-size: 13px;
+	font-style: italic;
+}

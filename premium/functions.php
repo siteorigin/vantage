@@ -13,6 +13,7 @@ include get_template_directory() . '/premium/inc/settings.php';
 include get_template_directory() . '/premium/inc/customizer.php';
 include get_template_directory() . '/premium/inc/panels.php';
 include get_template_directory() . '/premium/inc/widgets.php';
+include get_template_directory() . '/premium/inc/picturefill.php';
 
 function vantage_premium_setup(){
 	if( siteorigin_setting('social_ajax_comments') ) siteorigin_ajax_comments_activate();
@@ -21,6 +22,9 @@ function vantage_premium_setup(){
 	if( siteorigin_setting('navigation_responsive_menu') ) {
 		include get_template_directory() . '/premium/extras/mobilenav/mobilenav.php';
 	}
+
+	// Add the snippets folder to the custom CSS editor
+	siteorigin_custom_css_register_snippet_path( get_template_directory() . '/premium/snippets/' );
 }
 add_action('after_setup_theme', 'vantage_premium_setup', 15);
 

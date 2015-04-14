@@ -14,6 +14,9 @@ if ( ! function_exists( 'vantage_content_nav' ) ) :
  * @since vantage 1.0
  */
 function vantage_content_nav( $nav_id ) {
+	if( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
+		return;
+	}
 	global $wp_query, $post;
 
 	// Don't print empty markup on single pages if there's nowhere to navigate.
@@ -193,6 +196,7 @@ function vantage_display_logo(){
 		// Add all the logo attributes
 		$logo_attributes = apply_filters('vantage_logo_image_attributes', array(
 			'src' => $src,
+			'class' => siteorigin_setting('logo_in_menu_constrain') ? 'logo-height-constrain' : 'logo-no-height-constrain',
 			'width' => round($width),
 			'height' => round($height),
 			'alt' => sprintf( __('%s Logo', 'vantage'), get_bloginfo('name') ),
@@ -260,6 +264,7 @@ if( !function_exists( 'vantage_get_archive_title' ) ) :
  */
 function vantage_get_archive_title(){
 	$title = '';
+	global $wp_query;
 	if ( is_category() ) {
 		$title = sprintf( __( 'Category Archives: %s', 'vantage' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 
@@ -285,6 +290,12 @@ function vantage_get_archive_title(){
 	elseif ( is_year() ) {
 		$title = sprintf( __( 'Yearly Archives: %s', 'vantage' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
 
+	}
+	elseif ( !empty($wp_query->query_vars['taxonomy']) ) {
+		$value = get_query_var($wp_query->query_vars['taxonomy']);
+		$term = get_term_by('slug',$value,$wp_query->query_vars['taxonomy']);
+		$tax = get_taxonomy( $wp_query->query_vars['taxonomy'] );
+		$title = sprintf( __( '%s: %s', 'vantage' ), $tax->label, $term->name );
 	}
 	else {
 		$title = __( 'Archives', 'vantage' );

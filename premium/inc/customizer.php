@@ -28,6 +28,11 @@ function vantage_customizer_init(){
 			'priority' => 55,
 		),
 
+		'vantage_sidebar' => array(
+			'title' => __('Sidebar', 'vantage'),
+			'priority' => 90,
+		),
+
 		'vantage_footer' => array(
 			'title' => __('Footer', 'vantage'),
 			'priority' => 100,
@@ -51,7 +56,7 @@ function vantage_customizer_init(){
 				'type' => 'font',
 				'title' => __('Site Title Font', 'vantage'),
 				'default' => 'Helvetica Neue',
-				'selector' => 'header#masthead h1',
+				'selector' => '#masthead h1',
 			),
 
 			'heading_font' => array(
@@ -114,7 +119,7 @@ function vantage_customizer_init(){
 				'title' => __('Header Padding', 'vantage'),
 				'default' => 45,
 				'unit' => 'px',
-				'selector' => 'header#masthead .hgroup',
+				'selector' => '#masthead .hgroup',
 				'property' => array('padding-top', 'padding-bottom'),
 			),
 
@@ -129,7 +134,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Content Link Color', 'vantage'),
 				'default' => '#248cc8',
-				'selector' => '.entry-content p a, .entry-content p a:visited, #secondary p a, #secondary p a:visited',
+				'selector' => '.entry-content a, .entry-content a:visited, #secondary a, #secondary a:visited, #masthead .hgroup a, #masthead .hgroup a:visited',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -138,7 +143,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Content Link Hover Color', 'vantage'),
 				'default' => '#f47e3c',
-				'selector' => '.entry-content p a:hover, .entry-content p a:focus, .entry-content p a:active, #secondary p a:hover',
+				'selector' => '.entry-content a:hover, .entry-content a:focus, .entry-content a:active, #secondary a:hover, #masthead .hgroup a:hover, #masthead .hgroup a:focus, #masthead .hgroup a:active',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -148,6 +153,19 @@ function vantage_customizer_init(){
 		// The main menu
 
 		'vantage_menu' => array(
+
+			'menu_alignment' => array(
+				'type' => 'select',
+				'title' => __('Menu Alignment', 'vantage'),
+				'default' => 'left',
+				'selector' => '.main-navigation ul',
+				'property' => 'text-align',
+				'choices' => array(
+					'left' => __( 'Left', 'vantage' ),
+					'right' => __( 'Right', 'vantage' ),
+					'center' => __( 'Center', 'vantage' ),
+				),
+			),
 
 			'background' => array(
 				'type' => 'color',
@@ -302,6 +320,15 @@ function vantage_customizer_init(){
 				'property' => array('padding-top', 'padding-bottom'),
 			),
 
+			'font_size' => array(
+				'type' => 'measurement',
+				'title' => __('Menu Font Size', 'vantage'),
+				'default' => 13,
+				'unit' => 'px',
+				'selector' => '.main-navigation ul li',
+				'property' => array('font-size'),
+			),
+
 			'widget_menu_border' => array(
 				'type' => 'color',
 				'title' => __('Header Widget Menu Border Color', 'vantage'),
@@ -337,7 +364,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Masthead Background', 'vantage'),
 				'default' => '#fcfcfc',
-				'selector' => 'header#masthead',
+				'selector' => '#masthead',
 				'property' => 'background-color',
 			),
 
@@ -345,8 +372,22 @@ function vantage_customizer_init(){
 				'type' => 'image',
 				'title' => __('Masthead Background Image', 'vantage'),
 				'default' => false,
-				'selector' => 'header#masthead',
+				'selector' => '#masthead',
 				'property' => 'background-image',
+			),
+
+			'masthead_background_image_layout' => array(
+				'type' => 'select',
+				'title' => __('Masthead Background Image Layout', 'vantage'),
+				'default' => '',
+				'selector' => '#masthead',
+				'choices' => array(
+					'' => __( 'Default', 'vantage' ),
+					'center' => __( 'Center', 'vantage' ),
+					'tile' => __( 'Tile', 'vantage' ),
+					'cover' => __( 'Cover', 'vantage' ),
+				),
+				'callback' => 'vantage_customizer_callback_image_layout'
 			),
 
 			'page_background' => array(
@@ -365,10 +406,24 @@ function vantage_customizer_init(){
 				'property' => 'background-image',
 			),
 
+			'page_background_image_layout' => array(
+				'type' => 'select',
+				'title' => __('Page Background Image Layout', 'vantage'),
+				'default' => '',
+				'selector' => '#main',
+				'choices' => array(
+					'' => __( 'Default', 'vantage' ),
+					'center' => __( 'Center', 'vantage' ),
+					'tile' => __( 'Tile', 'vantage' ),
+					'cover' => __( 'Cover', 'vantage' ),
+				),
+				'callback' => 'vantage_customizer_callback_image_layout'
+			),
+
 			'image_shadow' => array(
 				'type' => 'checkbox',
 				'title' => __('Image Shadow and Rounding', 'vantage'),
-				'default' => true,
+				'default' => false,
 				'callback' => 'vantage_customizer_callback_image_shadow',
 			),
 
@@ -410,9 +465,17 @@ function vantage_customizer_init(){
 
 			'links' => array(
 				'type' => 'color',
-				'title' => __('Links', 'vantage'),
+				'title' => __('Link Color', 'vantage'),
 				'default' => '#cccccc',
-				'selector' => '#footer-widgets .widget a',
+				'selector' => '#footer-widgets .widget a, #footer-widgets .widget a:visited',
+				'property' => 'color',
+			),
+
+			'link_hover' => array(
+				'type' => 'color',
+				'title' => __('Link Hover Color', 'vantage'),
+				'default' => '#cccccc',
+				'selector' => '#footer-widgets .widget a:hover, #footer-widgets .widget a:focus, #footer-widgets .widget a:active',
 				'property' => 'color',
 			),
 
@@ -431,6 +494,20 @@ function vantage_customizer_init(){
 				'selector' => '#colophon #theme-attribution a, #colophon #site-info a',
 				'property' => 'color',
 			),
+		),
+
+		'vantage_sidebar' => array(
+			'position' => array(
+				'type' => 'select',
+				'title' => __('Sidebar Position', 'vantage'),
+				'default' => 'right',
+				'choices' => array(
+					'none'   => __( 'None', 'vantage' ),
+					'left'   => __( 'Left', 'vantage' ),
+					'right'  => __( 'Right', 'vantage' )
+				),
+				'no_live' => true
+			)
 		),
 	) );
 
@@ -467,12 +544,14 @@ add_action('wp_head', 'vantage_customizer_style', 20);
  * @param SiteOrigin_Customizer_CSS_Builder $builder
  * @param mixed $val
  * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
  */
 function vantage_customizer_callback_logo_center($builder, $val, $setting){
 	if( $val ) {
-		$builder->add_css('header#masthead .hgroup .logo', 'float', 'none');
-		$builder->add_css('header#masthead .hgroup .logo img', 'display', 'block');
-		$builder->add_css('header#masthead .hgroup .logo img', 'margin', '0 auto');
+		$builder->add_css('#masthead .hgroup .logo, #masthead .hgroup .site-logo-link', 'float', 'none');
+		$builder->add_css('#masthead .hgroup .logo img, #masthead .hgroup .site-logo-link img', 'display', 'block');
+		$builder->add_css('#masthead .hgroup .logo img, #masthead .hgroup .site-logo-link img', 'margin', '0 auto');
 	}
 
 	return $builder;
@@ -482,16 +561,53 @@ function vantage_customizer_callback_logo_center($builder, $val, $setting){
  * @param SiteOrigin_Customizer_CSS_Builder $builder
  * @param mixed $val
  * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
  */
 function vantage_customizer_callback_image_shadow($builder, $val, $setting){
-	if( !$val ) {
-		$builder->add_css('.entry-content img', '-webkit-border-radius', '0 !important');
-		$builder->add_css('.entry-content img', '-moz-border-radius', '0 !important');
-		$builder->add_css('.entry-content img', 'border-radius', '0 !important');
-		$builder->add_css('.entry-content img', '-webkit-box-shadow', 'none !important');
-		$builder->add_css('.entry-content img', '-moz-box-shadow', 'none !important');
-		$builder->add_css('.entry-content img', 'box-shadow', 'none !important');
+	if( $val ) {
+		$builder->add_css('.entry-content img', '-webkit-border-radius', '3px');
+		$builder->add_css('.entry-content img', '-moz-border-radius', '3px');
+		$builder->add_css('.entry-content img', 'border-radius', '3px');
+
+		$builder->add_css('.entry-content img', '-webkit-box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
+		$builder->add_css('.entry-content img', '-moz-box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
+		$builder->add_css('.entry-content img', 'box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
 	}
 
 	return $builder;
 }
+
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_image_layout($builder, $val, $setting){
+	if( $val ) {
+		if ( $val == 'center' ) {
+			$builder->add_css($setting['selector'], 'background-position', 'center');
+			$builder->add_css($setting['selector'], 'background-repeat', 'no-repeat');
+		}
+		else if ( $val == 'tile' ) {
+			$builder->add_css($setting['selector'], 'background-repeat', 'repeat');
+		}
+		else if ( $val == 'cover' ) {
+			$builder->add_css($setting['selector'], 'background-size', 'cover');
+		}
+	}
+
+	return $builder;
+}
+
+function vantage_customizer_change_body_class($classes){
+	$sidebar_position = get_theme_mod('vantage_sidebar_position');
+	if( !empty($sidebar_position) ) {
+		$classes[] = 'sidebar-position-' . sanitize_html_class($sidebar_position);
+	}
+
+	return $classes;
+}
+add_filter('body_class', 'vantage_customizer_change_body_class');

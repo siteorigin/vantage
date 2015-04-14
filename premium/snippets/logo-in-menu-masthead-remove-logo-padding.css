@@ -1,0 +1,7 @@
+/*
+Name: Logo in Menu Masthead Layout: Remove Logo Padding
+Description: With Appearance > Theme Settings > Layout > Masthead Layout set to Logo in Menu, remove all the logo padding. No adjustment of the below value is required. */
+
+header#masthead.masthead-logo-in-menu .logo {
+	padding: 0;
+}

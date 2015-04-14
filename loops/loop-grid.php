@@ -5,7 +5,7 @@
 ?>
 <?php if( have_posts() ) : $i = 0; ?>
 
-	<div class="vantage-grid-loop">
+	<div id="vantage-grid-loop" class="vantage-grid-loop">
 		<?php while( have_posts() ): the_post(); $i++; ?>
 			<article <?php post_class(array('grid-post')) ?>>
 

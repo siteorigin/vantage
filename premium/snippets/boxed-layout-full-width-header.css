@@ -1,0 +1,17 @@
+/*
+Name: Boxed Layout: Full Width Header
+Description: With Theme Settings > Layout > Layout Bound set to Boxed, use this snippet to make your header full width. No adjustment of the below values is required. */
+
+body.responsive #page-wrapper {
+  max-width: none;
+  padding-top: 0;
+}
+
+#masthead .full-container, 
+#main-slider, 
+#main, 
+#colophon {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1080px;
+}

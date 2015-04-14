@@ -242,12 +242,21 @@ add_filter('siteorigin_panels_row_style_fields', 'vantage_panels_row_style_field
 function vantage_panels_panels_row_style_attributes($attr, $style) {
 	if(empty($attr['style'])) $attr['style'] = '';
 
-	if(!empty($style['top_border'])) $attr['style'] .= 'border-top: 1px solid '.$style['top_border'].'; ';
-	if(!empty($style['bottom_border'])) $attr['style'] .= 'border-bottom: 1px solid '.$style['bottom_border'].'; ';
-	if(!empty($style['background'])) $attr['style'] .= 'background-color: '.$style['background'].'; ';
+	if(!empty($style['top_border'])) $attr['style'] .= 'border-top: 1px solid '.esc_attr($style['top_border']).'; ';
+	if(!empty($style['bottom_border'])) $attr['style'] .= 'border-bottom: 1px solid '.esc_attr($style['bottom_border']).'; ';
+	if(!empty($style['background'])) $attr['style'] .= 'background-color: '.esc_attr($style['background']).'; ';
 	if(!empty($style['background_image'])) $attr['style'] .= 'background-image: url('.esc_url($style['background_image']).'); ';
 	if(!empty($style['background_image_repeat'])) $attr['style'] .= 'background-repeat: repeat; ';
 	if(!empty($style['row_css'])) $attr['style'] .= $style['row_css'];
+
+	if( isset($style['row_stretch']) && strpos($style['row_stretch'], 'full') !== false ) {
+		// We'll use this to prevent the jump when loading.
+		$attr['class'][] = 'panel-row-style-full-width';
+	}
+
+	if( isset($style['class']) && $style['class'] == 'wide-grey' && siteorigin_setting( 'layout_bound' ) == 'full' ) {
+		$attr['style'] .= 'padding-left: 1000px; padding-right: 1000px;';
+	}
 
 	if( empty($attr['style']) ) unset( $attr['style'] );
 	return $attr;
@@ -292,3 +301,8 @@ function vantage_panels_add_widgets_dialog_tabs($tabs){
 	return $tabs;
 }
 add_filter('siteorigin_panels_widget_dialog_tabs', 'vantage_panels_add_widgets_dialog_tabs');
+
+function vantage_panels_add_full_width_container(){
+	return '#main';
+}
+add_filter('siteorigin_panels_full_width_container', 'vantage_panels_add_full_width_container');

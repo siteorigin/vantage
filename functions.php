@@ -35,6 +35,8 @@ include get_template_directory() . '/inc/metaslider.php';
 include get_template_directory() . '/inc/widgets.php';
 include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/woocommerce.php';
+include get_template_directory() . '/inc/seo.php';
+include get_template_directory() . '/inc/page-layout.php';
 include get_template_directory() . '/tour/tour.php';
 
 include get_template_directory() . '/fontawesome/icon-migration.php';
@@ -110,9 +112,68 @@ function vantage_setup() {
 	if ( ! isset( $vantage_site_width ) ) {
 		$vantage_site_width = siteorigin_setting('layout_bound') == 'full' ? 1080 : 1010;
 	}
+
+	$container = 'content';
+	$render_function = '';
+	$wrapper = true;
+	// The posts_per_page setting only works when type is 'scroll'.
+	// When type is set to 'click' either explicitly or automatically,
+	// due to there being footer widgets, it uses the "Blog pages show at most X posts" setting
+	// under Settings > Reading instead. :(
+	// https://wordpress.org/support/topic/posts_per_page-not-having-any-effect
+	$posts_per_page = 7;
+	if ( siteorigin_setting( 'blog_archive_layout' ) == 'circleicon' ) {
+		$container = 'vantage-circleicon-loop';
+		$render_function = 'vantage_infinite_scroll_render';
+		$wrapper = false;
+		$posts_per_page = 6;
+	}
+	else if ( siteorigin_setting( 'blog_archive_layout' ) == 'grid' ) {
+		$container = 'vantage-grid-loop';
+		$render_function = 'vantage_infinite_scroll_render';
+		$wrapper = false;
+		$posts_per_page = 8;
+	}
+
+	add_filter( 'infinite_scroll_settings', 'vantage_infinite_scroll_settings' );
+
+	add_theme_support( 'infinite-scroll', array(
+		'container' => $container,
+		'footer' => 'page',
+		'render' => $render_function,
+		'wrapper' => $wrapper,
+		'posts_per_page' => $posts_per_page,
+		'type' => 'click',
+//		'footer_widgets' => 'sidebar-footer',
+	) );
 }
 endif; // vantage_setup
 add_action( 'after_setup_theme', 'vantage_setup' );
+
+// Override Jetpack Infinite Scroll default behaviour of ignoring explicit posts_per_page setting when type is 'click'.
+function vantage_infinite_scroll_settings( $settings ) {
+	if ( $settings['type'] == 'click' ) {
+		if( siteorigin_setting( 'blog_archive_layout' ) == 'circleicon' ) {
+			$settings['posts_per_page'] = 6;
+		}
+		else if ( siteorigin_setting( 'blog_archive_layout' ) == 'grid' ) {
+			$settings['posts_per_page'] = 8;
+		}
+	}
+	return $settings;
+}
+
+function vantage_infinite_scroll_render() {
+	ob_start();
+	get_template_part( 'loops/loop', siteorigin_setting( 'blog_archive_layout' ) );
+	$var = ob_get_clean();
+	// Strip leading and trailing whitespace.
+	$var = trim( $var );
+	// Remove the opening and closing div tags for subsequent pages of posts for correct circleicon and grid layouts.
+	$var = preg_replace( '/^<div.+>/', '', $var );
+	$var = preg_replace( '/<\/div>$/', '', $var );
+	echo $var;
+}
 
 /**
  * Setup the WordPress core custom background feature.
@@ -189,34 +250,27 @@ function vantage_print_styles(){
 add_action('wp_head', 'vantage_print_styles', 11);
 
 /**
- * Register all the bundled scripts
- */
-function vantage_register_scripts(){
-	wp_register_script( 'flexslider' , get_template_directory_uri() . '/js/jquery.flexslider.js' , array('jquery'), '2.1' );
-}
-add_action( 'wp_enqueue_scripts', 'vantage_register_scripts' , 5);
-
-/**
  * Enqueue scripts and styles
  */
 function vantage_scripts() {
 	wp_enqueue_style( 'vantage-style', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION );
 	wp_enqueue_style( 'vantage-fontawesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '4.2.0' );
-
+	$in_footer = siteorigin_setting( 'general_js_enqueue_footer' );
 	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	wp_enqueue_script( 'flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . $js_suffix . '.js' , array('jquery'), '2.1' );
-	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main' . $js_suffix . '.js', array('jquery'), SITEORIGIN_THEME_VERSION );
+	wp_enqueue_script( 'vantage-flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . $js_suffix . '.js' , array('jquery'), '2.1', $in_footer );
+	wp_enqueue_script( 'vantage-touch-swipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . $js_suffix . '.js' , array( 'jquery' ), '1.6.6', $in_footer );
+	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main' . $js_suffix . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION, $in_footer );
 
 	if( siteorigin_setting( 'layout_fitvids' ) ) {
-		wp_enqueue_script( 'fitvids' , get_template_directory_uri() . '/js/jquery.fitvids' . $js_suffix . '.js' , array('jquery'), '1.0' );
+		wp_enqueue_script( 'vantage-fitvids' , get_template_directory_uri() . '/js/jquery.fitvids' . $js_suffix . '.js' , array('jquery'), '1.0', $in_footer );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+		wp_enqueue_script( 'comment-reply', $in_footer );
 	}
 
 	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation' . $js_suffix . '.js', array( 'jquery' ), '20120202' );
+		wp_enqueue_script( 'vantage-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation' . $js_suffix . '.js', array( 'jquery' ), '20120202', $in_footer );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
@@ -283,7 +337,8 @@ function vantage_get_query_variables(){
 function vantage_render_slider(){
 
 	if( is_front_page() && siteorigin_setting('home_slider') != 'none' ) {
-		$settings_slider = siteorigin_setting('home_slider');
+		$settings_slider = siteorigin_setting( 'home_slider' );
+		$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
 
 		if(!empty($settings_slider)) {
 			$slider = $settings_slider;
@@ -295,6 +350,11 @@ function vantage_render_slider(){
 		if( !empty($page_slider) ) {
 			$slider = $page_slider;
 		}
+		$slider_stretch = get_post_meta(get_the_ID(), 'vantage_metaslider_slider_stretch', true);
+		if( $slider_stretch === '' ) {
+			// We'll default to whatever the home page slider stretch setting is
+			$slider_stretch = siteorigin_setting('home_slider_stretch');
+		}
 	}
 
 	if( empty($slider) ) return;
@@ -302,7 +362,7 @@ function vantage_render_slider(){
 	global $vantage_is_main_slider;
 	$vantage_is_main_slider = true;
 
-	?><div id="main-slider" <?php if( siteorigin_setting('home_slider_stretch') ) echo 'data-stretch="true"' ?>><?php
+	?><div id="main-slider" <?php if( $slider_stretch ) echo 'data-stretch="true"' ?>><?php
 
 
 	if($slider == 'demo') get_template_part('slider/demo');

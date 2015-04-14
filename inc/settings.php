@@ -31,6 +31,17 @@ function vantage_theme_settings(){
 		'description' => __('Your own custom logo.', 'vantage')
 	) );
 
+	siteorigin_settings_add_field('logo', 'in_menu_constrain', 'checkbox', __('Constrain Logo Height', 'vantage'), array(
+		'label' => __('Yes', 'vantage'),
+		'description' => __('When using the "logo in menu" masthead layout, constrain the logo size to fit the menu height.', 'vantage'),
+		'conditional' => array(
+			'show' => array(
+				'layout_masthead' => 'logo-in-menu',
+			),
+			'hide' => 'else'
+		)
+	) );
+
 	siteorigin_settings_add_teaser('logo', 'image_retina', __('Retina Logo', 'vantage'), array(
 		'choose' => __('Choose Image', 'vantage'),
 		'update' => __('Set Logo', 'vantage'),
@@ -150,6 +161,11 @@ function vantage_theme_settings(){
 		'description' => __('Choose how to display posts on post archive when using default blog layout.', 'vantage')
 	));
 
+	siteorigin_settings_add_field('blog', 'post_metadata', 'checkbox', __('Post Metadata', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the post metadata in blog archive pages.', 'vantage')
+	));
+
 	siteorigin_settings_add_field('blog', 'post_author', 'checkbox', __('Post Author', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the post author in blog archive pages.', 'vantage')
@@ -171,6 +187,11 @@ function vantage_theme_settings(){
 			'icon' => __('Small Icon', 'vantage'),
 		),
 		'description' => __('Size of the featured image in the blog post archives.', 'vantage')
+	) );
+
+	siteorigin_settings_add_field('blog', 'author_box', 'checkbox', __('Author Box', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show an author box below each blog post.', 'vantage')
 	) );
 
 	/**
@@ -199,6 +220,15 @@ function vantage_theme_settings(){
 		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' )
 	) );
 
+	siteorigin_settings_add_teaser('general', 'adaptive_images', __('Mobile Adaptive Images', 'vantage'), array(
+		'description' => __('Rescale images to the most appropriate size for mobile devices.', 'vantage'),
+		// 'teaser-image' => get_template_directory_uri().'/upgrade/teasers/share-rec.png',
+	));
+
+	siteorigin_settings_add_field('general', 'js_enqueue_footer', 'checkbox', __('Enqueue JavaScript in Footer', 'vantage'), array(
+		'description' => __('Enqueue JavaScript files in the footer, if possible.', 'vantage'),
+	));
+
 }
 add_action('siteorigin_settings_init', 'vantage_theme_settings');
 
@@ -211,6 +241,7 @@ add_action('siteorigin_settings_init', 'vantage_theme_settings');
  */
 function vantage_theme_setting_defaults($defaults){
 	$defaults['logo_image'] = false;
+	$defaults['logo_in_menu_constrain'] = true;
 	$defaults['logo_image_retina'] = false;
 	$defaults['logo_header_text'] = __('Call me! Maybe?', 'vantage');
 
@@ -234,16 +265,20 @@ function vantage_theme_setting_defaults($defaults){
 
 	$defaults['blog_archive_layout'] = 'blog';
 	$defaults['blog_archive_content'] = 'full';
+	$defaults['blog_post_metadata'] = true;
 	$defaults['blog_post_author'] = true;
 	$defaults['blog_post_date'] = true;
 	$defaults['blog_featured_image'] = true;
 	$defaults['blog_featured_image_type'] = 'large';
+	$defaults['blog_author_box'] = false;
 
 	$defaults['social_ajax_comments'] = true;
 	$defaults['social_share_post'] = true;
 	$defaults['social_twitter'] = '';
 
 	$defaults['general_site_info_text'] = '';
+	$defaults['general_adaptive_images'] = false;
+	$defaults['general_js_enqueue_footer'] = false;
 
 	return $defaults;
 }
@@ -279,3 +314,18 @@ function vantage_siteorigin_settings_page_icon($icon){
 	return get_template_directory_uri().'/images/settings-icon.png';
 }
 add_filter('siteorigin_settings_page_icon', 'vantage_siteorigin_settings_page_icon');
+
+function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $old_value ) {
+	//Update home slider post meta.
+	$home_id = get_option( 'page_on_front' );
+	if ( $home_id != 0 ) {
+		if ( $new_value['home_slider'] != $old_value['home_slider'] ) {
+			update_post_meta($home_id, 'vantage_metaslider_slider', $new_value['home_slider'] );
+		}
+		if ( $new_value['home_slider_stretch'] != $old_value['home_slider_stretch'] ) {
+			update_post_meta($home_id, 'vantage_metaslider_slider_stretch', $new_value['home_slider_stretch']);
+		}
+	}
+	return $new_value;
+}
+add_filter( 'pre_update_option_vantage_theme_settings', 'vantage_siteorigin_settings_home_slider_update_post_meta', 10, 2 );
