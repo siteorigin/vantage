@@ -14,12 +14,18 @@
 
 		<?php do_action('vantage_entry_main_top') ?>
 
-		<header class="entry-header">
-			<h1 class="entry-title"><?php the_title(); ?></h1>
-			<div class="entry-meta">
-				<?php vantage_posted_on(); ?>
-			</div><!-- .entry-meta -->
-		</header><!-- .entry-header -->
+		<?php if( vantage_page_layout_get_layout( get_the_ID(), 'show_title' ) == 'yes' ) : ?>
+
+			<header class="entry-header">
+				<h1 class="entry-title"><?php the_title(); ?></h1>
+				<?php if ( siteorigin_setting( 'blog_post_metadata' ) ) : ?>
+				<div class="entry-meta">
+					<?php vantage_posted_on(); ?>
+				</div><!-- .entry-meta -->
+				<?php endif; ?>
+			</header><!-- .entry-header -->
+
+		<?php endif; ?>
 
 		<div class="entry-content">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'vantage' ) ); ?>

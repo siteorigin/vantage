@@ -22,7 +22,7 @@
 
 			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'vantage' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
-			<?php if ( get_post_type() == 'post' ) : ?>
+			<?php if ( siteorigin_setting( 'blog_post_metadata' ) && get_post_type() == 'post' ) : ?>
 				<div class="entry-meta">
 					<?php vantage_posted_on(); ?>
 				</div><!-- .entry-meta -->
@@ -40,6 +40,21 @@
 				<?php echo vantage_get_post_categories() ?>
 			</div>
 		<?php endif; ?>
+
+		<?php if( is_singular() && siteorigin_setting('blog_author_box') ) : ?>
+			<div class="author-box">
+				<div class="avatar-box">
+					<div class="avatar-wrapper"><?php echo get_avatar( get_the_author_meta('user_email'), 70 ) ?></div>
+				</div>
+				<div class="box-content entry-content">
+					<h3 class="box-title"><?php echo esc_html( get_the_author_meta('display_name') ) ?></h3>
+					<div class="box-description">
+						<?php echo wp_kses_post( wpautop( get_the_author_meta('description') ) ) ?>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
+
 
 		<?php do_action('vantage_entry_main_bottom') ?>
 

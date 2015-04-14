@@ -137,6 +137,93 @@
 	}
 }
 
+#wp-calendar {
+	border: none;
+	margin: 0;
+	
+	caption { 
+		font-weight: 600;
+		text-align: right;
+		padding-bottom: 0.4286em;
+	}
+
+	th, 
+	td {
+		border: none;
+		padding: 0.2143em 0.2143em 0.1429em !important;
+	}
+
+	thead th {
+		text-align: center;
+		padding-bottom: 0.4286em !important; 
+	}
+
+	tbody {
+
+		.pad {
+			background: none;
+		}
+
+		td { 
+			background: #ddd; 
+			border: 0.1429em solid #fff;
+			text-align: center;
+			
+			&:hover {
+				background: #fff;  			
+			}
+
+			a {
+				border-bottom: none !important;
+				display: block;
+				text-decoration: none;
+				
+				&:hover {
+					border-bottom: none !important;
+					text-decoration: none;
+				}
+			}
+		}		
+	}
+
+	tfoot {
+
+		#prev, 
+		#next {
+			padding-top: 0.4286em !important; 
+		}
+
+		#next {
+			text-align: right;			
+		}
+	}
+}
+
+/* Footer Calendar styling: colors assume the original theme footer background color. */
+.site-footer #wp-calendar {
+
+	tbody td {
+		background: #434447;
+		border-color: #2f3033;
+		
+		a {
+			color: #fff;
+			
+			&:hover {
+				color: #b9b9b9;
+			}
+		}
+	}	
+
+	tfoot #prev, 
+	tfoot #next {
+
+		a:hover {
+			color: #fff;
+		}
+	}	
+}
+
 .widget_call-to-action {
 	position: relative;
 	padding: 25px 30px 23px 30px;
@@ -682,9 +769,17 @@
 	border-bottom: 1px solid #dddddd;
 }
 
-.layout-full .panel-row-style {
+.layout-full .panel-row-style.panel-row-style-wide-grey,
+.layout-full .panel-row-style.panel-row-style-full-width {
 	margin: 0 -1000px;
 	padding: 25px 1000px 25px 1000px;
+}
+
+.layout-boxed {
+	.panel-row-style{
+		margin: 0 -35px;
+		padding: 25px 35px;
+	}
 }
 
 @media (max-width:680px) {

@@ -19,10 +19,11 @@ get_header();
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
 					<h1 class="entry-title"><?php the_title(); ?></h1>
-
+					<?php if ( siteorigin_setting( 'blog_post_metadata' ) ) : ?>
 					<div class="entry-meta">
 						<?php echo vantage_posted_on() ?>
 					</div><!-- .entry-meta -->
+					<?php endif; ?>
 
 					<nav id="image-navigation" class="site-navigation">
 						<span class="previous-image"><?php previous_image_link( false, __( '&larr; Previous', 'vantage' ) ); ?></span>

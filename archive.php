@@ -30,6 +30,11 @@ get_header(); ?>
 				if ( ! empty( $tag_description ) )
 					echo apply_filters( 'vantage_tag_archive_meta', '<div class="taxonomy-description">' . $tag_description . '</div>' );
 			}
+			else {
+				$description = term_description();
+				if ( ! empty( $description ) )
+					echo apply_filters( 'vantage_taxonomy_archive_meta', '<div class="taxonomy-description">' . $description . '</div>' );
+			}
 			?>
 		</header><!-- .page-header -->
 
