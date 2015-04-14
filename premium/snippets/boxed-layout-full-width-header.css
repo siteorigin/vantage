@@ -1,6 +1,6 @@
 /*
-Name: Boxed Layout - Full Width Header
-Description: With Theme Settings > Layout > Layout Bound set to Boxed, use this snippet to make your header full width. */
+Name: Boxed Layout: Full Width Header
+Description: With Theme Settings > Layout > Layout Bound set to Boxed, use this snippet to make your header full width. No adjustment of the below values is required. */
 
 body.responsive #page-wrapper {
   max-width: none;

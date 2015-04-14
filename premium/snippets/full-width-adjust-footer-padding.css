@@ -1,6 +1,6 @@
 /*
-Name: Full Width Layout - Adjust Footer Padding
-Description: With Appearance > Theme Settings > Layout > Layout Bound set to Full Width, adjust the padding applied to the footer widget area. */
+Name: Full Width Layout: Adjust Footer Padding
+Description: With Appearance > Theme Settings > Layout > Layout Bound set to Full Width, adjust the padding applied to the footer widget area. Adjust the px values below as required. */
 
 #colophon {
 	padding-top: 30px;
