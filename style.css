@@ -2310,6 +2310,66 @@ body.layout-full {
   display: block;
   text-align: center;
 }
+#wp-calendar {
+  border: none;
+  margin: 0;
+}
+#wp-calendar caption {
+  font-weight: 600;
+  text-align: right;
+  padding-bottom: 0.4286em;
+}
+#wp-calendar th,
+#wp-calendar td {
+  border: none;
+  padding: 0.2143em 0.2143em 0.1429em !important;
+}
+#wp-calendar thead th {
+  text-align: center;
+  padding-bottom: 0.4286em !important;
+}
+#wp-calendar tbody .pad {
+  background: none;
+}
+#wp-calendar tbody td {
+  background: #ddd;
+  border: 0.1429em solid #fff;
+  text-align: center;
+}
+#wp-calendar tbody td:hover {
+  background: #fff;
+}
+#wp-calendar tbody td a {
+  border-bottom: none !important;
+  display: block;
+  text-decoration: none;
+}
+#wp-calendar tbody td a:hover {
+  border-bottom: none !important;
+  text-decoration: none;
+}
+#wp-calendar tfoot #prev,
+#wp-calendar tfoot #next {
+  padding-top: 0.4286em !important;
+}
+#wp-calendar tfoot #next {
+  text-align: right;
+}
+/* Footer Calendar styling: colors assume the original theme footer background color. */
+.site-footer #wp-calendar tbody td {
+  background: #434447;
+  border-color: #2f3033;
+}
+.site-footer #wp-calendar tbody td a {
+  color: #fff;
+}
+.site-footer #wp-calendar tbody td a:hover {
+  color: #b9b9b9;
+}
+.site-footer #wp-calendar tfoot #prev a:hover,
+.site-footer #wp-calendar tfoot #next a:hover {
+  color: #fff;
+}
 .widget_call-to-action {
   position: relative;
   padding: 25px 30px 23px 30px;
