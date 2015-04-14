@@ -97,6 +97,7 @@ jQuery(function($){
             return false;
         } );
 
+        // Setup swiping for mobile devices
         var validSwipe = false;
         var prevDistance = 0;
         var startPosition = 0;
@@ -173,14 +174,14 @@ jQuery(function($){
             position = Math.abs( Math.round( finalPosition / itemWidth ) );
             updatePosition();
         };
-        $$.on('click', 'li.carousel-entry .thumbnail a',
-            function (event) {
-                if(validSwipe) {
-                    event.preventDefault();
-                    validSwipe = false;
-                }
+
+        // Prevent clicks when we're swiping
+        $$.on('click', 'li.carousel-entry .thumbnail a', function (event) {
+            if(validSwipe) {
+                event.preventDefault();
+                validSwipe = false;
             }
-        );
+        } );
     } );
 
     // The menu hover effects
