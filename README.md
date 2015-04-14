@@ -106,7 +106,6 @@ Change Log
 * Premium: Added Customizer option to center nav.
 * Premium: Fixed Jetpack logo centering.
 
-
 #### 1.3.4
 * Moved all body_class filtering into a single function.
 * Removed all URL shortner links.
