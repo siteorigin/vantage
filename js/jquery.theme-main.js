@@ -385,15 +385,19 @@ jQuery(function($){
             });
         }
 
-        var autoResponsive = function(){
-            $$.closest('#masthead').removeClass('force-responsive');
-            var $l = $('#masthead .logo').find('h1,img');
-            if( $$.offset().left < $l.offset().left + $l.outerWidth() ) {
-                $$.closest('#masthead').addClass('force-responsive');
-            }
-        };
-        $(window).resize(autoResponsive);
-        autoResponsive();
+        if( $$.hasClass('no-logo-overlay') ) {
+            // This will prevent the widgets from overlaying the logo
+            var autoResponsive = function(){
+                $$.closest('#masthead').removeClass('force-responsive');
+                var $l = $('#masthead .logo').find('h1,img');
+                if( $$.offset().left < $l.offset().left + $l.outerWidth() ) {
+                    $$.closest('#masthead').addClass('force-responsive');
+                }
+            };
+            $(window).resize(autoResponsive);
+            autoResponsive();
+        }
+
     });
 
 });
