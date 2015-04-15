@@ -73,6 +73,10 @@ This theme is built around the SiteOrigin extras framework contained in the fold
 Change Log
 ---------------
 
+#### 1.4.1
+* Small fix to home page stretch.
+* Added setting to disable use of Yoast SEO Breadcrumbs.
+
 #### 1.4
 * Added swipe to carousel post loop.
 * Improvements to sticky menu. Several bugs fixed.
