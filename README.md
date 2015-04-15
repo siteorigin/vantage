@@ -73,6 +73,12 @@ This theme is built around the SiteOrigin extras framework contained in the fold
 Change Log
 ---------------
 
+#### 1.4.2
+* Removed Page Layout metabox - sticking to using Page Templates.
+* Menu alignment setting fix.
+* Fixed menu clearing for logo in masthead layout.
+* Fixed issued with sticky menu not always unsticking when at top of page.
+
 #### 1.4.1
 * Small fix to home page stretch.
 * Added setting to disable use of Yoast SEO Breadcrumbs.
