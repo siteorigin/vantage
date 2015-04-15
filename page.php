@@ -30,6 +30,5 @@ get_header(); ?>
 	</div><!-- #content .site-content -->
 </div><!-- #primary .content-area -->
 
-<?php if( vantage_page_layout_get_layout( get_the_ID(), 'width' ) == 'normal' ) get_sidebar(); ?>
-
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
