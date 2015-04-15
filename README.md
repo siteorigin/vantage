@@ -78,6 +78,7 @@ Change Log
 * Menu alignment setting fix.
 * Fixed menu clearing for logo in masthead layout.
 * Fixed issued with sticky menu not always unsticking when at top of page.
+* Added a setting to disable widget/logo overlay prevention fix.
 
 #### 1.4.1
 * Small fix to home page stretch.
