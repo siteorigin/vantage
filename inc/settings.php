@@ -125,6 +125,10 @@ function vantage_theme_settings(){
 		'description' => __('Enables Sticky Menu and Scroll To Top for mobile devices.', 'vantage')
 	));
 
+	siteorigin_settings_add_field('navigation', 'yoast_breadcrumbs', 'checkbox', __('Yoast Breadcrumbs', 'vantage'), array(
+		'description' => __('Display Yoast SEO breadcrumbs if you have it installed.', 'vantage')
+	));
+
 	/**
 	 * Home Page
 	 */
@@ -259,6 +263,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['navigation_display_scroll_to_top'] = true;
 	$defaults['navigation_post_nav'] = true;
 	$defaults['navigation_home_icon'] = false;
+	$defaults['navigation_yoast_breadcrumbs'] = true;
 
 	$defaults['home_slider'] = 'demo';
 	$defaults['home_slider_stretch'] = true;
