@@ -483,6 +483,16 @@ body {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  zoom: 1;
+}
+#masthead:before {
+  content: '';
+  display: block;
+}
+#masthead:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 #masthead .hgroup {
   zoom: 1;
@@ -564,16 +574,28 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
 }
+#masthead.masthead-logo-in-menu .main-navigation {
+  zoom: 1;
+}
+#masthead.masthead-logo-in-menu .main-navigation:before {
+  content: '';
+  display: block;
+}
+#masthead.masthead-logo-in-menu .main-navigation:after {
+  content: '';
+  display: table;
+  clear: both;
+}
 #masthead.masthead-logo-in-menu .logo {
   float: left;
-  padding: 12px 0;
+  padding: 10px 0;
   margin-right: 15px;
 }
 #masthead.masthead-logo-in-menu .logo > * {
   display: block;
 }
 #masthead.masthead-logo-in-menu .logo > img {
-  max-height: 35px;
+  max-height: 33px;
   width: auto;
   height: auto;
   max-width: 100%;
@@ -639,6 +661,17 @@ body.sidebar-position-left #secondary {
 }
 body.sidebar-position-none #secondary {
   display: none;
+}
+.siteorigin-panels-home #primary,
+.page-template-templatestemplate-full-php #primary,
+.page-template-home-panels-php #primary,
+.page-template-templatestemplate-full-notitle-php #primary {
+  width: auto;
+  float: none;
+}
+.page-template-default #primary {
+  float: left;
+  width: 71.287%;
 }
 #main {
   background: #fcfcfc;
