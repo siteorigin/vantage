@@ -125,9 +125,11 @@ function vantage_theme_settings(){
 		'description' => __('Enables Sticky Menu and Scroll To Top for mobile devices.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('navigation', 'yoast_breadcrumbs', 'checkbox', __('Yoast Breadcrumbs', 'vantage'), array(
-		'description' => __('Display Yoast SEO breadcrumbs if you have it installed.', 'vantage')
-	));
+	if( function_exists('yoast_breadcrumb') ) {
+		siteorigin_settings_add_field('navigation', 'yoast_breadcrumbs', 'checkbox', __('Yoast Breadcrumbs', 'vantage'), array(
+			'description' => __('Display Yoast SEO breadcrumbs if you have it installed.', 'vantage')
+		) );
+	}
 
 	/**
 	 * Home Page
