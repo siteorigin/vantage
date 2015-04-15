@@ -356,6 +356,7 @@ body {
 	background: #fcfcfc;
 	padding: 0 35px 0 35px;
 	.box-sizing(border-box);
+	.clearfix();
 
 	.hgroup {
 		.clearfix();
@@ -443,9 +444,14 @@ body {
 	}
 
 	&.masthead-logo-in-menu {
+
+		.main-navigation {
+			.clearfix();
+		}
+
 		.logo {
 			float: left;
-			padding: 12px 0;
+			padding: 10px 0;
 			margin-right: 15px;
 
 			> * {
@@ -453,7 +459,7 @@ body {
 			}
 
 			> img {
-				max-height: 35px;
+				max-height: 33px;
 				width: auto;
 
 				height: auto;
