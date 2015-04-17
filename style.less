@@ -192,6 +192,9 @@ input {
 
 	/* Improves usability and consistency of cursor style between image-type 'input' and others */
 	cursor: pointer;
+	
+	/* Corrects inability to style clickable 'input' types in iOS */
+	-webkit-appearance: button; 
 
 	/* Corrects inability to style clickable 'input' types in iOS */
 	line-height: 1;
@@ -216,7 +219,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"]{
-	.vantage-button();
+	.vantage-button();	
 }
 
 input[type="checkbox"],
