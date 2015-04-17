@@ -434,3 +434,13 @@ function vantage_pagination($pages = '', $range = 2) {
 	}
 }
 endif;
+
+if( !function_exists( 'vantage_read_more_link' ) ) :
+/**
+ * Filter the read more link.
+ */
+function vantage_read_more_link() {
+	return '<a class="more-link" href="' . get_permalink() . '">' . wp_kses_post( siteorigin_setting('blog_read_more') ) .'<span class="meta-nav">&rarr;</span></a></span';
+}
+add_filter( 'the_content_more_link', 'vantage_read_more_link' );
+endif;
