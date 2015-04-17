@@ -43,7 +43,7 @@
 			</div><!-- .entry-summary -->
 		<?php else : ?>
 			<div class="entry-content">
-				<?php if(siteorigin_setting('blog_archive_content') == 'excerpt') the_excerpt(); else the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'vantage' ) ); ?>
+				<?php if(siteorigin_setting('blog_archive_content') == 'excerpt') the_excerpt(); else the_content(); ); ?>
 				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
 		<?php endif; ?>
