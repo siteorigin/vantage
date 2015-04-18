@@ -276,8 +276,8 @@ function vantage_theme_setting_defaults($defaults){
 
 	$defaults['blog_archive_layout'] = 'blog';
 	$defaults['blog_featured_image_type'] = 'large';
-	$defaults['blog_archive_content'] = 'Continue reading';
-	$defaults['blog_read_more'] = 'full';
+	$defaults['blog_archive_content'] = 'full';
+	$defaults['blog_read_more'] = __('Continue reading', 'vantage');
 	$defaults['blog_post_metadata'] = true;
 	$defaults['blog_post_date'] = true;
 	$defaults['blog_post_author'] = true;
