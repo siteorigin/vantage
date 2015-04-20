@@ -62,7 +62,7 @@ function vantage_theme_settings(){
 	));
 
 	siteorigin_settings_add_field('layout', 'fitvids', 'checkbox', __('Enable FitVids.js', 'vantage'), array(
-		'description' => __('Include FitVids.js fluid embedded video layouts.', 'vantage')
+		'description' => __('Include FitVids.js fluid embedded video layouts.', 'vantage')	
 	));
 
 	siteorigin_settings_add_field('layout', 'bound', 'select', __('Layout Bound', 'vantage'), array(
@@ -172,7 +172,13 @@ function vantage_theme_settings(){
 			'full' => __('Full Post', 'vantage'),
 			'excerpt' => __('Post Excerpt', 'vantage'),
 		),
-		'description' => __('Choose how to display posts on post archive when using default blog layout.', 'vantage')
+		'description' => __('Choose how to display posts on post archive when using default blog layout.', 'vantage'),
+		'conditional' => array(
+			'show' => array(
+				'blog_archive_layout' => 'blog',
+			),
+			'hide' => 'else'
+		)		
 	));	
 
 	siteorigin_settings_add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
