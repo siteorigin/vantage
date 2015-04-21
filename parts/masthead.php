@@ -10,7 +10,7 @@
 
 		<?php if( is_active_sidebar('sidebar-header') ) : ?>
 
-			<div id="header-sidebar">
+			<div id="header-sidebar" <?php if( siteorigin_setting('logo_no_widget_overlay') ) echo 'class="no-logo-overlay"' ?>>
 				<?php
 				// Display the header area sidebar, and tell mobile navigation that we can use menus in here
 				add_filter('siteorigin_mobilenav_is_valid', '__return_true');
