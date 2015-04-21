@@ -92,6 +92,10 @@ function vantage_theme_settings(){
 		'description' => __("Change which footer area layout you're using.", 'vantage')
 	) );
 
+	siteorigin_settings_add_field('layout', 'force_panels_full', 'checkbox', __('Force Page Builder Styles Full Width', 'vantage'), array(
+		'description' => __('Force Page Builder rows with styles to be full width. Only necessary for legacy reasons.', 'vantage')
+	));
+
 	/**
 	 * Navigation settings
 	 */
@@ -232,7 +236,6 @@ function vantage_theme_settings(){
 
 	siteorigin_settings_add_teaser('general', 'adaptive_images', __('Mobile Adaptive Images', 'vantage'), array(
 		'description' => __('Rescale images to the most appropriate size for mobile devices.', 'vantage'),
-		// 'teaser-image' => get_template_directory_uri().'/upgrade/teasers/share-rec.png',
 	));
 
 	siteorigin_settings_add_field('general', 'js_enqueue_footer', 'checkbox', __('Enqueue JavaScript in Footer', 'vantage'), array(
@@ -261,6 +264,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['layout_bound'] = 'full';
 	$defaults['layout_masthead'] = '';
 	$defaults['layout_footer'] = '';
+	$defaults['layout_force_panels_full'] = true;
 
 	$defaults['navigation_responsive_menu'] = true;
 	$defaults['navigation_responsive_menu_text'] = '';

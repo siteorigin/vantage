@@ -52,6 +52,10 @@ function vantage_body_classes( $classes ) {
 		$classes[] = 'has-menu-search';
 	}
 
+	if( siteorigin_setting('layout_force_panels_full') ) {
+		$classes[] = 'panels-style-force-full';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'vantage_body_classes' );
