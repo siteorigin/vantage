@@ -53,6 +53,10 @@ function vantage_theme_settings(){
 		'description' => __('Text that appears to the right of your logo.', 'vantage')
 	) );
 
+	siteorigin_settings_add_field('logo', 'no_widget_overlay', 'checkbox', __('No Widget Overlay', 'vantage'), array(
+		'description' => __('If enabled, header widgets wont overlap main logo image.', 'vantage')
+	));
+
 	/**
 	 * Layout Settings
 	 */
@@ -260,6 +264,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['logo_in_menu_constrain'] = true;
 	$defaults['logo_image_retina'] = false;
 	$defaults['logo_header_text'] = __('Call me! Maybe?', 'vantage');
+	$defaults['logo_no_widget_overlay'] = false;
 
 	$defaults['layout_responsive'] = true;
 	$defaults['layout_fitvids'] = true;
