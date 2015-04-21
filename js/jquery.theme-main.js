@@ -265,7 +265,7 @@ jQuery(function($){
         $stickyContainer.css('position', $$.css('position'));
         var $initTop;
         var resetStickyMenu = function(){
-            if(!$initTop) {
+            if($initTop == null || typeof $initTop == "undefined") {
                 $initTop = $$.offset().top;
             }
             var threshold = 0;
@@ -276,8 +276,7 @@ jQuery(function($){
             }
             var scrollTop = $(window).scrollTop();
             var navTop = $initTop - scrollTop;
-
-            if( navTop <= threshold ) {
+            if( navTop < threshold ) {
                 if( ! $$.hasClass( 'sticky') ) {
                     $$.wrapAll( $stickyContainer );
                     // Work out the current position
@@ -386,15 +385,19 @@ jQuery(function($){
             });
         }
 
-        var autoResponsive = function(){
-            $$.closest('#masthead').removeClass('force-responsive');
-            var $l = $('#masthead .logo').find('h1,img');
-            if( $$.offset().left < $l.offset().left + $l.outerWidth() ) {
-                $$.closest('#masthead').addClass('force-responsive');
-            }
-        };
-        $(window).resize(autoResponsive);
-        autoResponsive();
+        if( $$.hasClass('no-logo-overlay') ) {
+            // This will prevent the widgets from overlaying the logo
+            var autoResponsive = function(){
+                $$.closest('#masthead').removeClass('force-responsive');
+                var $l = $('#masthead .logo').find('h1,img');
+                if( $$.offset().left < $l.offset().left + $l.outerWidth() ) {
+                    $$.closest('#masthead').addClass('force-responsive');
+                }
+            };
+            $(window).resize(autoResponsive);
+            autoResponsive();
+        }
+
     });
 
 });
