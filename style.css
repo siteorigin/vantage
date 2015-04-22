@@ -321,8 +321,6 @@ input[type="submit"] {
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
   cursor: pointer;
   /* Corrects inability to style clickable 'input' types in iOS */
-  -webkit-appearance: button;
-  /* Corrects inability to style clickable 'input' types in iOS */
   line-height: 1;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
@@ -3312,8 +3310,6 @@ body.layout-full {
   text-decoration: none;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
   cursor: pointer;
-  /* Corrects inability to style clickable 'input' types in iOS */
-  -webkit-appearance: button;
   /* Corrects inability to style clickable 'input' types in iOS */
   line-height: 1;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
