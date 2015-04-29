@@ -6,7 +6,7 @@
  * @since vantage 1.0
  * @license GPL 2.0
  * 
- * Template Name: (Legacy) Full Width Page, No Title
+ * Template Name: Full Width Page, No Title
  */
 
 get_template_part('page');
