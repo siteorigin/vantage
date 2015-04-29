@@ -1983,8 +1983,11 @@ body.layout-full {
   display: none;
 }
 /* Pages - Entry Meta */
-.page .entry-meta {
+article.page .entry-meta {
   display: none;
+}
+article.page .entry-content .entry-meta {
+  display: block;
 }
 /* Vantage Jetpack Subscription Form */
 #commentform p.comment-subscription-form {
