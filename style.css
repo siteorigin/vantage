@@ -321,8 +321,6 @@ input[type="submit"] {
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
   cursor: pointer;
   /* Corrects inability to style clickable 'input' types in iOS */
-  -webkit-appearance: button;
-  /* Corrects inability to style clickable 'input' types in iOS */
   line-height: 1;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
@@ -485,6 +483,16 @@ body {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  zoom: 1;
+}
+#masthead:before {
+  content: '';
+  display: block;
+}
+#masthead:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 #masthead .hgroup {
   zoom: 1;
@@ -566,16 +574,28 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
 }
+#masthead.masthead-logo-in-menu .main-navigation {
+  zoom: 1;
+}
+#masthead.masthead-logo-in-menu .main-navigation:before {
+  content: '';
+  display: block;
+}
+#masthead.masthead-logo-in-menu .main-navigation:after {
+  content: '';
+  display: table;
+  clear: both;
+}
 #masthead.masthead-logo-in-menu .logo {
   float: left;
-  padding: 12px 0;
+  padding: 10px 0;
   margin-right: 15px;
 }
 #masthead.masthead-logo-in-menu .logo > * {
   display: block;
 }
 #masthead.masthead-logo-in-menu .logo > img {
-  max-height: 35px;
+  max-height: 33px;
   width: auto;
   height: auto;
   max-width: 100%;
@@ -641,6 +661,17 @@ body.sidebar-position-left #secondary {
 }
 body.sidebar-position-none #secondary {
   display: none;
+}
+.siteorigin-panels-home #primary,
+.page-template-templatestemplate-full-php #primary,
+.page-template-home-panels-php #primary,
+.page-template-templatestemplate-full-notitle-php #primary {
+  width: auto;
+  float: none;
+}
+.page-template-default #primary {
+  float: left;
+  width: 71.287%;
 }
 #main {
   background: #fcfcfc;
@@ -802,6 +833,7 @@ body.responsive.layout-full #page-wrapper .full-container {
   margin: 0 -35px;
   background: #343538;
   position: relative;
+  font-size: 0;
   /* Font awesome icons */
   /* General menu link styling */
   /* For when the menu becomes a sticky menu */
@@ -817,7 +849,6 @@ body.responsive.layout-full #page-wrapper .full-container {
   color: #ffffff;
 }
 .main-navigation ul {
-  display: flex;
   text-align: left;
   list-style: none;
   margin: 0;
@@ -3282,8 +3313,6 @@ article.page .entry-content .entry-meta {
   text-decoration: none;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
   cursor: pointer;
-  /* Corrects inability to style clickable 'input' types in iOS */
-  -webkit-appearance: button;
   /* Corrects inability to style clickable 'input' types in iOS */
   line-height: 1;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
