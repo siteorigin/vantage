@@ -3155,6 +3155,9 @@ article.page .entry-meta:first-of-type {
 .vantage-grid-loop .clear {
   clear: both;
 }
+.widget_siteorigin-panels-postloop h1.entry-title {
+  margin-bottom: 0;
+}
 .widget_siteorigin-panels-postloop .pagination {
   margin-top: 20px;
 }
