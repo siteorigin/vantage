@@ -331,14 +331,6 @@ jQuery(function($){
             $img.css('visibility', 'hidden');
             // Add a wrapper
             $s.wrapInner('<div class="full-container"></div>');
-            var link = $s.find('a');
-            if(link.length) {
-                $s.click(function () {
-                    if(link.attr('href')) {
-                        window.location.href = link.attr('href');
-                    }
-                });
-            }
         });
     });
 
