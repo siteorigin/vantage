@@ -331,6 +331,18 @@ jQuery(function($){
             $img.css('visibility', 'hidden');
             // Add a wrapper
             $s.wrapInner('<div class="full-container"></div>');
+            var link = $s.find('a');
+            if(link.length) {
+                $s.mouseover(function () {
+                    $s.css('cursor', 'hand');
+                });
+                $s.mouseout(function () {
+                    $s.css('cursor', 'pointer');
+                });
+                $s.click(function () {
+                    window.open( link.attr( 'href' ), link.attr( 'target' ) );
+                });
+            }
         });
     });
 
