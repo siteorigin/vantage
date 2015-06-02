@@ -339,7 +339,8 @@ jQuery(function($){
                 $s.mouseout(function () {
                     $s.css('cursor', 'pointer');
                 });
-                $s.click(function () {
+                $s.click(function ( event ) {
+                    event.preventDefault();
                     window.open( link.attr( 'href' ), link.attr( 'target' ) );
                 });
             }
