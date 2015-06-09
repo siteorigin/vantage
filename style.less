@@ -836,8 +836,13 @@ body.responsive {
 	}
 
 	/* For when the menu becomes a sticky menu */
-	&.sticky {
-		.box-shadow(~"0 2px 1px rgba(0,0,0,0.15)");
+	&.sticky:after {
+		bottom: -6px;
+ 		box-shadow: rgba(0,0,0,0.25) 0 6px 6px -6px inset;
+  		content: "";
+  		height: 6px;
+  		position: absolute;
+  		width: 100%;		
 	}
 }
 
