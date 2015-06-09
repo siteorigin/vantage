@@ -257,7 +257,7 @@ function vantage_scripts() {
 	$in_footer = siteorigin_setting( 'general_js_enqueue_footer' );
 	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	wp_enqueue_script( 'jquery-flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . $js_suffix . '.js' , array('jquery'), '2.1', $in_footer );
-	wp_enqueue_script( 'vantage-touch-swipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . $js_suffix . '.js' , array( 'jquery' ), '1.6.6', $in_footer );
+	wp_enqueue_script( 'jquery-touchswipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . $js_suffix . '.js' , array( 'jquery' ), '1.6.6', $in_footer );
 	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main' . $js_suffix . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION, $in_footer );
 
 	if( siteorigin_setting( 'layout_fitvids' ) ) {
