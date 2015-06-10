@@ -928,10 +928,13 @@ body.responsive.layout-full #page-wrapper .full-container {
   color: #e2e2e2;
   font-weight: bold;
 }
-.main-navigation.sticky {
-  -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
-  -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
-  box-shadow: 0 2px 1px rgba(0,0,0,0.15);
+.main-navigation.sticky:after {
+  bottom: -6px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 6px 6px -6px inset;
+  content: "";
+  height: 6px;
+  position: absolute;
+  width: 100%;
 }
 body.has-menu-search .main-navigation ul {
   margin-right: 59px;
@@ -1983,11 +1986,8 @@ body.layout-full {
   display: none;
 }
 /* Pages - Entry Meta */
-article.page .entry-meta {
+article.page .entry-meta:first-of-type {
   display: none;
-}
-article.page .entry-content .entry-meta {
-  display: block;
 }
 /* Vantage Jetpack Subscription Form */
 #commentform p.comment-subscription-form {
@@ -3158,6 +3158,10 @@ article.page .entry-content .entry-meta {
 .vantage-grid-loop .clear {
   clear: both;
 }
+.widget_siteorigin-panels-postloop h1.entry-title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 .widget_siteorigin-panels-postloop .pagination {
   margin-top: 20px;
 }
@@ -3609,8 +3613,8 @@ article.page .entry-content .entry-meta {
 }
 @font-face {
   font-family: 'vantage-icons';
-  src: url('icons/vantage-icons.eot?-9o183q');
-  src: url('icons/vantage-icons.eot?#iefix-9o183q') format('embedded-opentype'), url('icons/vantage-icons.woff?-9o183q') format('woff'), url('icons/vantage-icons.ttf?-9o183q') format('truetype'), url('icons/vantage-icons.svg?-9o183q#icomoon') format('svg');
+  src: url('icons/vantage-icons.eot');
+  src: url('icons/vantage-icons.eot?#iefix') format('embedded-opentype'), url('icons/vantage-icons.woff') format('woff'), url('icons/vantage-icons.ttf?') format('truetype'), url('icons/vantage-icons.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
