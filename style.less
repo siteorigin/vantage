@@ -1869,10 +1869,12 @@ body.layout-full{
 
 .updated { display: none; }
 
-/* Pages - Entry Meta */
+.page .entry-meta {
+  display: none; /* Hide entry meta on pages */
+}
 
-article.page .entry-meta:first-of-type {
-	display: none;
+.page .panel-grid-cell .entry-meta {
+  display: block; /* Display entry meta on pages if within a Page Builder cell (Post Loop widget) */
 }
 
 /* Vantage Jetpack Subscription Form */

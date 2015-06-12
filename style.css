@@ -1985,9 +1985,13 @@ body.layout-full {
 .updated {
   display: none;
 }
-/* Pages - Entry Meta */
-article.page .entry-meta:first-of-type {
+.page .entry-meta {
   display: none;
+  /* Hide entry meta on pages */
+}
+.page .panel-grid-cell .entry-meta {
+  display: block;
+  /* Display entry meta on pages if within a Page Builder cell (Post Loop widget) */
 }
 /* Vantage Jetpack Subscription Form */
 #commentform p.comment-subscription-form {
