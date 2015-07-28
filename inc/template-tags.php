@@ -14,7 +14,13 @@ if ( ! function_exists( 'vantage_content_nav' ) ) :
  * @since vantage 1.0
  */
 function vantage_content_nav( $nav_id ) {
-	if( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
+	$jetpack_infinite_scroll_active = class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' );
+	//Check if we're in the Page Builder Post Loop widget.
+	$is_page_builder_post_loop_widget = class_exists( 'SiteOrigin_Panels_Widgets_PostLoop' ) &&
+	                                    method_exists( 'SiteOrigin_Panels_Widgets_PostLoop', 'is_rendering_loop' ) &&
+	                                    SiteOrigin_Panels_Widgets_PostLoop::is_rendering_loop();
+
+	if( $jetpack_infinite_scroll_active && ! $is_page_builder_post_loop_widget ) {
 		return;
 	}
 	global $wp_query, $post;
