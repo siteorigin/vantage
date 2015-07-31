@@ -630,6 +630,11 @@ body.ie-9 #masthead .hgroup #header-sidebar {
 body.sidebar-position-left #primary {
   float: right;
 }
+body.sidebar-position-left.page-template-home-panels #primary,
+body.sidebar-position-left.page-template-template-full #primary,
+body.sidebar-position-left.page-template-template-full-notitle #primary {
+  float: none;
+}
 body.sidebar-position-none #primary {
   float: none;
   width: auto;
@@ -1985,9 +1990,13 @@ body.layout-full {
 .updated {
   display: none;
 }
-/* Pages - Entry Meta */
-article.page .entry-meta:first-of-type {
+.page .entry-meta {
   display: none;
+  /* Hide entry meta on pages */
+}
+.page .panel-grid-cell .entry-meta {
+  display: block;
+  /* Display entry meta on pages if within a Page Builder cell (Post Loop widget) */
 }
 /* Vantage Jetpack Subscription Form */
 #commentform p.comment-subscription-form {
