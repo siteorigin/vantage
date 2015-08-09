@@ -72,7 +72,7 @@ This theme is built around the SiteOrigin extras framework contained in the fold
 
 Custom Background 
 ---------------
-Please note that the WordPress Custom Background feature is only enabled when using the "Boxed" layout bound theme setting. It isn't available when using the default Full Width setting. Layout Bound can be set from Appearance > Theme Settings > Layout > Layout Bound. Custom Background options can be set from Appearance > Customize > Colors > Background Color and Appearance > Customize > Background Image.
+Please note that the WordPress Custom Background feature is only enabled when using the "Boxed" layout bound theme setting. It isn't available when using the default "Full Width" setting. Layout Bound can be set from Appearance > Theme Settings > Layout > Layout Bound. Custom Background options can be set from Appearance > Customize > Colors > Background Color and Appearance > Customize > Background Image.
 
 
 Change Log
