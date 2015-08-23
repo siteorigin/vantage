@@ -109,6 +109,10 @@ function vantage_theme_settings(){
 		'description' => __('The button used for the responsive menu.', 'vantage')
 	));
 
+	siteorigin_settings_add_teaser('navigation', 'responsive_menu_search', __('Responsive Menu Search', 'vantage'), array(
+		'description' => __('Enable search in the responsive menu.', 'vantage')
+	));
+
 	siteorigin_settings_add_field('navigation', 'use_sticky_menu', 'checkbox', __('Sticky Menu', 'vantage'), array(
 		'description' => __('Sticks the menu to the top of the screen when a user scrolls down.', 'vantage')
 	));
@@ -278,6 +282,7 @@ function vantage_theme_setting_defaults($defaults){
 
 	$defaults['navigation_responsive_menu'] = true;
 	$defaults['navigation_responsive_menu_text'] = '';
+	$defaults['navigation_responsive_menu_search'] = true;
 	$defaults['navigation_use_sticky_menu'] = true;
 	$defaults['navigation_mobile_navigation'] = false;
 	$defaults['navigation_menu_search'] = true;
