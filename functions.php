@@ -343,13 +343,17 @@ function vantage_render_slider(){
 			$slider = $settings_slider;
 		}
 	}
-
-	if( is_page() && get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true) != 'none' ) {
-		$page_slider = get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true);
+	$page_id = get_the_ID();
+	$is_wc_shop = function_exists( 'is_woocommerce' ) && is_woocommerce() && is_shop();
+	if ( $is_wc_shop ) {
+		$page_id = wc_get_page_id( 'shop' );
+	}
+	if( ( is_page() || $is_wc_shop ) && get_post_meta($page_id, 'vantage_metaslider_slider', true) != 'none' ) {
+		$page_slider = get_post_meta($page_id, 'vantage_metaslider_slider', true);
 		if( !empty($page_slider) ) {
 			$slider = $page_slider;
 		}
-		$slider_stretch = get_post_meta(get_the_ID(), 'vantage_metaslider_slider_stretch', true);
+		$slider_stretch = get_post_meta($page_id, 'vantage_metaslider_slider_stretch', true);
 		if( $slider_stretch === '' ) {
 			// We'll default to whatever the home page slider stretch setting is
 			$slider_stretch = siteorigin_setting('home_slider_stretch');
