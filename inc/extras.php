@@ -47,8 +47,8 @@ function vantage_body_classes( $classes ) {
 	if( wp_is_mobile() ) {
 		$classes[] = 'so-vantage-mobile-device';
 	}
-
-	if(siteorigin_setting('navigation_menu_search')) {
+	$mega_menu_active = function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( 'primary' );
+	if(siteorigin_setting('navigation_menu_search') && !$mega_menu_active) {
 		$classes[] = 'has-menu-search';
 	}
 
