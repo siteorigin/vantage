@@ -37,12 +37,15 @@ function vantage_body_classes( $classes ) {
 	$classes[] = 'layout-'.siteorigin_setting('layout_bound');
 	$classes[] = 'no-js';
 
-	$wc_shop_sidebar = vantage_is_woocommerce_active() && is_shop() && is_active_sidebar( 'shop' );
-	if( !is_active_sidebar('sidebar-1') && !$wc_shop_sidebar ) {
-		$classes[] = 'no-sidebar';
-	}
-	else {
-		$classes[] = 'has-sidebar';
+	$is_full_width_template = is_page_template( 'templates/template-full.php' ) || is_page_template( 'templates/template-full-notitle.php' );
+	if( !$is_full_width_template ) {
+		$wc_shop_sidebar = vantage_is_woocommerce_active() && is_shop() && is_active_sidebar( 'shop' );
+		if( !is_active_sidebar('sidebar-1') && !$wc_shop_sidebar ) {
+			$classes[] = 'no-sidebar';
+		}
+		else {
+			$classes[] = 'has-sidebar';
+		}
 	}
 
 	if( wp_is_mobile() ) {
