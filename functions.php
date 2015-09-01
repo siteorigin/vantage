@@ -174,6 +174,10 @@ function vantage_infinite_scroll_render() {
 	echo $var;
 }
 
+function vantage_is_woocommerce_active() {
+	return in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
+}
+
 /**
  * Setup the WordPress core custom background feature.
  * 
@@ -208,6 +212,17 @@ function vantage_widgets_init() {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
+
+	if( vantage_is_woocommerce_active() ) {
+		register_sidebar( array(
+			'name' => __( 'Shop', 'vantage' ),
+			'id' => 'shop',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
+		) );
+	}
 
 	register_sidebar( array(
 		'name' => __( 'Footer', 'vantage' ),
@@ -344,7 +359,7 @@ function vantage_render_slider(){
 		}
 	}
 	$page_id = get_the_ID();
-	$is_wc_shop = function_exists( 'is_woocommerce' ) && is_woocommerce() && is_shop();
+	$is_wc_shop = vantage_is_woocommerce_active() && is_woocommerce() && is_shop();
 	if ( $is_wc_shop ) {
 		$page_id = wc_get_page_id( 'shop' );
 	}
