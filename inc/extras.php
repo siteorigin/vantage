@@ -37,7 +37,8 @@ function vantage_body_classes( $classes ) {
 	$classes[] = 'layout-'.siteorigin_setting('layout_bound');
 	$classes[] = 'no-js';
 
-	if( !is_active_sidebar('sidebar-1') ) {
+	$wc_shop_sidebar = vantage_is_woocommerce_active() && is_shop() && is_active_sidebar( 'shop' );
+	if( !is_active_sidebar('sidebar-1') && !$wc_shop_sidebar ) {
 		$classes[] = 'no-sidebar';
 	}
 	else {
