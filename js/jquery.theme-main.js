@@ -275,7 +275,7 @@ jQuery(function($){
                 threshold = adminBar.css('position') == "absolute" ? 0 : adminBarHeight;
             }
             var scrollTop = $(window).scrollTop();
-            var navTop = $initTop - scrollTop;
+            var navTop = parseInt($initTop - scrollTop);//Force truncation of float value.
             if( navTop < threshold ) {
                 if( ! $$.hasClass( 'sticky') ) {
                     $$.wrapAll( $stickyContainer );
