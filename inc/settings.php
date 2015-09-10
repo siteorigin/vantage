@@ -317,8 +317,8 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['blog_post_date'] = true;
 	$defaults['blog_post_author'] = true;
 	$defaults['blog_post_comment_count'] = false;
-	$defaults['blog_post_categories'] = false;
-	$defaults['blog_post_tags'] = false;
+	$defaults['blog_post_categories'] = true;
+	$defaults['blog_post_tags'] = true;
 	$defaults['blog_author_box'] = false;
 	$defaults['blog_read_more'] = __('Continue reading', 'vantage');
 
