@@ -415,8 +415,9 @@ add_filter('post_class', 'vantage_post_class_filter');
  * @return mixed
  */
 function vantage_filter_vantage_post_on_parts($parts){
-	if(!siteorigin_setting('blog_post_author')) $parts['by'] = '';
 	if(!siteorigin_setting('blog_post_date')) $parts['on'] = '';
+	if(!siteorigin_setting('blog_post_author')) $parts['by'] = '';
+	if(!siteorigin_setting('blog_post_comment_count')) $parts['with'] = '';
 
 	return $parts;
 }

@@ -162,14 +162,17 @@ function vantage_posted_on() {
 		get_the_author()
 	);
 
+
+	$comments_link = '<span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text() . '</a></span>';
+
 	$posted_on_parts = array(
-		'on' => __( 'Posted on %1$s', 'vantage'),
-		'by' => __( '<span class="byline"> by %2$s</span>', 'vantage' ),
+		'on' => sprintf( __( 'Posted on %s', 'vantage'), $date_time ),
+		'by' => sprintf( __( '<span class="byline"> by %s</span>', 'vantage' ), $author),
+		'with' => ' | ' . $comments_link
 	);
-	$posted_on_parts = apply_filters('vantage_post_on_parts', $posted_on_parts);
+	$posted_on_parts = apply_filters( 'vantage_post_on_parts', $posted_on_parts );
 
-
-	$posted_on = sprintf( implode(' ', $posted_on_parts), $date_time, $author );
+	$posted_on = implode(' ', $posted_on_parts);
 	echo apply_filters('vantage_posted_on', $posted_on);
 }
 endif;
@@ -329,9 +332,9 @@ function vantage_get_post_categories(){
 	/* translators: used between list items, there is a space after the comma */
 	$tag_list = get_the_tag_list( '', __( ', ', 'vantage' ) );
 
-	if ( ! vantage_categorized_blog() ) {
-		// This blog only has 1 category so we just need to worry about tags in the meta text
-		if ( '' != $tag_list ) {
+	if ( ! vantage_categorized_blog() || ! siteorigin_setting( 'blog_post_categories' ) ) {
+		// This blog only has 1 category or so we just need to worry about tags in the meta text
+		if ( '' != $tag_list && siteorigin_setting( 'blog_post_tags' ) ) {
 			$meta_text = __( '<strong>Tagged</strong> %2$s.', 'vantage' );
 		}
 		else {
@@ -341,7 +344,7 @@ function vantage_get_post_categories(){
 	}
 	else {
 		// But this blog has loads of categories so we should probably display them here
-		if ( '' != $tag_list ) {
+		if ( '' != $tag_list && siteorigin_setting( 'blog_post_tags' )) {
 			$meta_text = __( 'Posted in %1$s and tagged %2$s.', 'vantage' );
 		}
 		else {

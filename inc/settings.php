@@ -169,15 +169,7 @@ function vantage_theme_settings(){
 	siteorigin_settings_add_field('blog', 'archive_layout', 'select', __('Blog Archive Layout', 'vantage'), array(
 		'options' => vantage_blog_layout_options(),
 		'description' => __('Show the post author in blog archive pages.', 'vantage')
-	) );	
-
-	siteorigin_settings_add_field('blog', 'featured_image_type', 'select', __('Featured Image Type', 'vantage'), array(
-		'options' => array(
-			'large' => __('Large', 'vantage'),
-			'icon' => __('Small Icon', 'vantage'),
-		),
-		'description' => __('Size of the featured image in the blog post archives.', 'vantage')
-	) );	
+	) );
 
 	siteorigin_settings_add_field('blog', 'archive_content', 'select', __('Post Content', 'vantage'), array(
 		'options' => array(
@@ -190,37 +182,60 @@ function vantage_theme_settings(){
 				'blog_archive_layout' => 'blog',
 			),
 			'hide' => 'else'
-		)		
-	));	
+		)
+	));
 
-	siteorigin_settings_add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
-		'description' => __('The link displayed when post content is split using the "more" quicktag.', 'vantage')
-	));		
+	siteorigin_settings_add_field('blog', 'featured_image', 'checkbox', __('Featured Image', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the featured image on a post single page.', 'vantage')
+	) );
+
+	siteorigin_settings_add_field('blog', 'featured_image_type', 'select', __('Featured Image Type', 'vantage'), array(
+		'options' => array(
+			'large' => __('Large', 'vantage'),
+			'icon' => __('Small Icon', 'vantage'),
+		),
+		'description' => __('Size of the featured image in the blog post archives.', 'vantage')
+	) );
 
 	siteorigin_settings_add_field('blog', 'post_metadata', 'checkbox', __('Post Metadata', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
-		'description' => __('Show the post metadata in blog archive pages.', 'vantage')
+		'description' => __('Show the post metadata under the post title in blog archive pages.', 'vantage')
 	));
 
 	siteorigin_settings_add_field('blog', 'post_date', 'checkbox', __('Post Date', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the post date.', 'vantage')
-	));	
+	));
 
 	siteorigin_settings_add_field('blog', 'post_author', 'checkbox', __('Post Author', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the post author in blog archive pages.', 'vantage')
-	));	
+	));
 
-	siteorigin_settings_add_field('blog', 'featured_image', 'checkbox', __('Featured Image', 'vantage'), array(
+	siteorigin_settings_add_field('blog', 'post_comment_count', 'checkbox', __('Post Comment Count', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
-		'description' => __('Show the featured image on a post single page.', 'vantage')
-	) );	
+		'description' => __('Show the number of comments in blog archive pages.', 'vantage')
+	));
+
+	siteorigin_settings_add_field('blog', 'post_categories', 'checkbox', __('Post Categories', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the post categories in blog archive pages.', 'vantage')
+	));
+
+	siteorigin_settings_add_field('blog', 'post_tags', 'checkbox', __('Post Tags', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the post tags in blog archive pages.', 'vantage')
+	));
 
 	siteorigin_settings_add_field('blog', 'author_box', 'checkbox', __('Author Box', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show an author box below each blog post.', 'vantage')
 	) );
+
+	siteorigin_settings_add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
+		'description' => __('The link displayed when post content is split using the "more" quicktag.', 'vantage')
+	));
 
 	/**
 	 * Social Settings
@@ -295,14 +310,17 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['home_slider_stretch'] = true;
 
 	$defaults['blog_archive_layout'] = 'blog';
-	$defaults['blog_featured_image_type'] = 'large';
 	$defaults['blog_archive_content'] = 'full';
-	$defaults['blog_read_more'] = __('Continue reading', 'vantage');
+	$defaults['blog_featured_image'] = true;
+	$defaults['blog_featured_image_type'] = 'large';
 	$defaults['blog_post_metadata'] = true;
 	$defaults['blog_post_date'] = true;
 	$defaults['blog_post_author'] = true;
-	$defaults['blog_featured_image'] = true;
+	$defaults['blog_post_comment_count'] = false;
+	$defaults['blog_post_categories'] = false;
+	$defaults['blog_post_tags'] = false;
 	$defaults['blog_author_box'] = false;
+	$defaults['blog_read_more'] = __('Continue reading', 'vantage');
 
 	$defaults['social_ajax_comments'] = true;
 	$defaults['social_share_post'] = true;
