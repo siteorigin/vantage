@@ -163,7 +163,7 @@ function vantage_posted_on() {
 	);
 
 
-	$comments_link = '<span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text() . '</a></span>';
+	$comments_link = '<span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text( 'Leave a comment' ) . '</a></span>';
 
 	$posted_on_parts = array(
 		'on' => sprintf( __( 'Posted on %s', 'vantage'), $date_time ),
