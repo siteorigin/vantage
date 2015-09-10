@@ -220,12 +220,12 @@ function vantage_theme_settings(){
 
 	siteorigin_settings_add_field('blog', 'post_categories', 'checkbox', __('Post Categories', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
-		'description' => __('Show the post categories in blog archive pages.', 'vantage')
+		'description' => __('Show the post categories on post single pages.', 'vantage')
 	));
 
 	siteorigin_settings_add_field('blog', 'post_tags', 'checkbox', __('Post Tags', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
-		'description' => __('Show the post tags in blog archive pages.', 'vantage')
+		'description' => __('Show the post tags on post single pages.', 'vantage')
 	));
 
 	siteorigin_settings_add_field('blog', 'author_box', 'checkbox', __('Author Box', 'vantage'), array(
