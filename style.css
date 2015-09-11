@@ -1294,10 +1294,12 @@ article.page .share-buttons li {
   height: 20px;
   display: block;
   float: left;
+  max-width: 110px;
 }
 @media (max-width: 480px) {
   article.post .share-buttons li,
   article.page .share-buttons li {
+    width: inherit !important;
     float: none;
     margin-bottom: 10px;
   }
