@@ -21,7 +21,6 @@ else {
 include get_template_directory() . '/extras/settings/settings.php';
 include get_template_directory() . '/extras/premium/premium.php';
 include get_template_directory() . '/extras/update/update.php';
-include get_template_directory() . '/extras/adminbar/adminbar.php';
 include get_template_directory() . '/extras/plugin-activation/plugin-activation.php';
 include get_template_directory() . '/extras/metaslider/metaslider.php';
 
