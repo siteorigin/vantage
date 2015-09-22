@@ -174,6 +174,10 @@ function vantage_infinite_scroll_render() {
 	echo $var;
 }
 
+function vantage_is_woocommerce_active() {
+	return in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
+}
+
 /**
  * Setup the WordPress core custom background feature.
  * 
@@ -208,6 +212,17 @@ function vantage_widgets_init() {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
+
+	if( vantage_is_woocommerce_active() ) {
+		register_sidebar( array(
+			'name' => __( 'Shop', 'vantage' ),
+			'id' => 'shop',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
+		) );
+	}
 
 	register_sidebar( array(
 		'name' => __( 'Footer', 'vantage' ),
@@ -343,13 +358,17 @@ function vantage_render_slider(){
 			$slider = $settings_slider;
 		}
 	}
-
-	if( is_page() && get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true) != 'none' ) {
-		$page_slider = get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true);
+	$page_id = get_the_ID();
+	$is_wc_shop = vantage_is_woocommerce_active() && is_woocommerce() && is_shop();
+	if ( $is_wc_shop ) {
+		$page_id = wc_get_page_id( 'shop' );
+	}
+	if( ( is_page() || $is_wc_shop ) && get_post_meta($page_id, 'vantage_metaslider_slider', true) != 'none' ) {
+		$page_slider = get_post_meta($page_id, 'vantage_metaslider_slider', true);
 		if( !empty($page_slider) ) {
 			$slider = $page_slider;
 		}
-		$slider_stretch = get_post_meta(get_the_ID(), 'vantage_metaslider_slider_stretch', true);
+		$slider_stretch = get_post_meta($page_id, 'vantage_metaslider_slider_stretch', true);
 		if( $slider_stretch === '' ) {
 			// We'll default to whatever the home page slider stretch setting is
 			$slider_stretch = siteorigin_setting('home_slider_stretch');
@@ -396,8 +415,9 @@ add_filter('post_class', 'vantage_post_class_filter');
  * @return mixed
  */
 function vantage_filter_vantage_post_on_parts($parts){
-	if(!siteorigin_setting('blog_post_author')) $parts['by'] = '';
 	if(!siteorigin_setting('blog_post_date')) $parts['on'] = '';
+	if(!siteorigin_setting('blog_post_author')) $parts['by'] = '';
+	if(!siteorigin_setting('blog_post_comment_count')) $parts['with'] = '';
 
 	return $parts;
 }

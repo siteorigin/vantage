@@ -109,6 +109,10 @@ function vantage_theme_settings(){
 		'description' => __('The button used for the responsive menu.', 'vantage')
 	));
 
+	siteorigin_settings_add_teaser('navigation', 'responsive_menu_search', __('Responsive Menu Search', 'vantage'), array(
+		'description' => __('Enable search in the responsive menu.', 'vantage')
+	));
+
 	siteorigin_settings_add_field('navigation', 'use_sticky_menu', 'checkbox', __('Sticky Menu', 'vantage'), array(
 		'description' => __('Sticks the menu to the top of the screen when a user scrolls down.', 'vantage')
 	));
@@ -164,16 +168,8 @@ function vantage_theme_settings(){
 
 	siteorigin_settings_add_field('blog', 'archive_layout', 'select', __('Blog Archive Layout', 'vantage'), array(
 		'options' => vantage_blog_layout_options(),
-		'description' => __('Show the post author in blog archive pages.', 'vantage')
-	) );	
-
-	siteorigin_settings_add_field('blog', 'featured_image_type', 'select', __('Featured Image Type', 'vantage'), array(
-		'options' => array(
-			'large' => __('Large', 'vantage'),
-			'icon' => __('Small Icon', 'vantage'),
-		),
-		'description' => __('Size of the featured image in the blog post archives.', 'vantage')
-	) );	
+		'description' => __('Choose the layout to be used on blog and archive pages.', 'vantage')
+	) );
 
 	siteorigin_settings_add_field('blog', 'archive_content', 'select', __('Post Content', 'vantage'), array(
 		'options' => array(
@@ -186,37 +182,60 @@ function vantage_theme_settings(){
 				'blog_archive_layout' => 'blog',
 			),
 			'hide' => 'else'
-		)		
-	));	
-
-	siteorigin_settings_add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
-		'description' => __('The link displayed when post content is split using the "more" quicktag.', 'vantage')
-	));		
-
-	siteorigin_settings_add_field('blog', 'post_metadata', 'checkbox', __('Post Metadata', 'vantage'), array(
-		'label' => __('Display', 'vantage'),
-		'description' => __('Show the post metadata in blog archive pages.', 'vantage')
+		)
 	));
 
-	siteorigin_settings_add_field('blog', 'post_date', 'checkbox', __('Post Date', 'vantage'), array(
-		'label' => __('Display', 'vantage'),
-		'description' => __('Show the post date.', 'vantage')
-	));	
-
-	siteorigin_settings_add_field('blog', 'post_author', 'checkbox', __('Post Author', 'vantage'), array(
-		'label' => __('Display', 'vantage'),
-		'description' => __('Show the post author in blog archive pages.', 'vantage')
-	));	
+	siteorigin_settings_add_field('blog', 'featured_image_type', 'select', __('Featured Image Type', 'vantage'), array(
+		'options' => array(
+			'large' => __('Large', 'vantage'),
+			'icon' => __('Small Icon', 'vantage'),
+		),
+		'description' => __('Size of the featured image in the blog post archives when using default blog layout.', 'vantage')
+	) );
 
 	siteorigin_settings_add_field('blog', 'featured_image', 'checkbox', __('Featured Image', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the featured image on a post single page.', 'vantage')
 	) );	
 
+	siteorigin_settings_add_field('blog', 'post_metadata', 'checkbox', __('Post Metadata', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the post metadata under the post title.', 'vantage')
+	));
+
+	siteorigin_settings_add_field('blog', 'post_date', 'checkbox', __('Post Date', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the post date under the post title.', 'vantage')
+	));
+
+	siteorigin_settings_add_field('blog', 'post_author', 'checkbox', __('Post Author', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the post author under the post title.', 'vantage')
+	));
+
+	siteorigin_settings_add_field('blog', 'post_comment_count', 'checkbox', __('Post Comment Count', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the number of comments under the post title.', 'vantage')
+	));
+
+	siteorigin_settings_add_field('blog', 'post_categories', 'checkbox', __('Post Categories', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the post categories below the single post.', 'vantage')
+	));
+
+	siteorigin_settings_add_field('blog', 'post_tags', 'checkbox', __('Post Tags', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show the post tags below the single post.', 'vantage')
+	));
+
 	siteorigin_settings_add_field('blog', 'author_box', 'checkbox', __('Author Box', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show an author box below each blog post.', 'vantage')
 	) );
+
+	siteorigin_settings_add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
+		'description' => __('The link displayed when post content is split using the "more" quicktag.', 'vantage')
+	));
 
 	/**
 	 * Social Settings
@@ -278,6 +297,7 @@ function vantage_theme_setting_defaults($defaults){
 
 	$defaults['navigation_responsive_menu'] = true;
 	$defaults['navigation_responsive_menu_text'] = '';
+	$defaults['navigation_responsive_menu_search'] = true;
 	$defaults['navigation_use_sticky_menu'] = true;
 	$defaults['navigation_mobile_navigation'] = false;
 	$defaults['navigation_menu_search'] = true;
@@ -290,14 +310,17 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['home_slider_stretch'] = true;
 
 	$defaults['blog_archive_layout'] = 'blog';
-	$defaults['blog_featured_image_type'] = 'large';
 	$defaults['blog_archive_content'] = 'full';
-	$defaults['blog_read_more'] = __('Continue reading', 'vantage');
+	$defaults['blog_featured_image'] = true;
+	$defaults['blog_featured_image_type'] = 'large';
 	$defaults['blog_post_metadata'] = true;
 	$defaults['blog_post_date'] = true;
 	$defaults['blog_post_author'] = true;
-	$defaults['blog_featured_image'] = true;
+	$defaults['blog_post_comment_count'] = false;
+	$defaults['blog_post_categories'] = true;
+	$defaults['blog_post_tags'] = true;
 	$defaults['blog_author_box'] = false;
+	$defaults['blog_read_more'] = __('Continue reading', 'vantage');
 
 	$defaults['social_ajax_comments'] = true;
 	$defaults['social_share_post'] = true;

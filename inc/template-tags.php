@@ -146,24 +146,33 @@ if ( ! function_exists( 'vantage_posted_on' ) ) :
  * @since vantage 1.0
  */
 function vantage_posted_on() {
-	$posted_on_parts = array(
-		'on' => __( 'Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><time class="updated" datetime="%5$s">%6$s</time>', 'vantage'),
-		'by' => __( '<span class="byline"> by <span class="author vcard"><a class="url fn n" href="%7$s" title="%8$s" rel="author">%9$s</a></span></span>', 'vantage' ),
-	);
-	$posted_on_parts = apply_filters('vantage_post_on_parts', $posted_on_parts);
-
-
-	$posted_on = sprintf( implode(' ', $posted_on_parts),
+	$date_time = '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><time class="updated" datetime="%5$s">%6$s</time>';
+	$date_time = sprintf( $date_time,
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
 		apply_filters('vantage_post_on_date', esc_html( get_the_date() )),
 		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() ),
+		esc_html( get_the_modified_date() )
+	);
+
+	$author = sprintf('<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 		esc_attr( sprintf( __( 'View all posts by %s', 'vantage' ), get_the_author() ) ),
 		get_the_author()
 	);
+
+
+	$comments_link = '<span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text( 'Leave a comment' ) . '</a></span>';
+
+	$posted_on_parts = array(
+		'on' => sprintf( __( 'Posted on %s', 'vantage'), $date_time ),
+		'by' => sprintf( __( '<span class="byline"> by %s</span>', 'vantage' ), $author),
+		'with' => ' | ' . $comments_link
+	);
+	$posted_on_parts = apply_filters( 'vantage_post_on_parts', $posted_on_parts );
+
+	$posted_on = implode(' ', $posted_on_parts);
 	echo apply_filters('vantage_posted_on', $posted_on);
 }
 endif;
@@ -323,9 +332,9 @@ function vantage_get_post_categories(){
 	/* translators: used between list items, there is a space after the comma */
 	$tag_list = get_the_tag_list( '', __( ', ', 'vantage' ) );
 
-	if ( ! vantage_categorized_blog() ) {
-		// This blog only has 1 category so we just need to worry about tags in the meta text
-		if ( '' != $tag_list ) {
+	if ( ! vantage_categorized_blog() || ! siteorigin_setting( 'blog_post_categories' ) ) {
+		// This blog only has 1 category or so we just need to worry about tags in the meta text
+		if ( '' != $tag_list && siteorigin_setting( 'blog_post_tags' ) ) {
 			$meta_text = __( '<strong>Tagged</strong> %2$s.', 'vantage' );
 		}
 		else {
@@ -335,7 +344,7 @@ function vantage_get_post_categories(){
 	}
 	else {
 		// But this blog has loads of categories so we should probably display them here
-		if ( '' != $tag_list ) {
+		if ( '' != $tag_list && siteorigin_setting( 'blog_post_tags' )) {
 			$meta_text = __( 'Posted in %1$s and tagged %2$s.', 'vantage' );
 		}
 		else {

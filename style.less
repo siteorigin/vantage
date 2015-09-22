@@ -1165,10 +1165,12 @@ article.page{
 			height: 20px;
 			display: block;
 			float: left;
+			max-width: 110px;
 		}
 
 		@media (max-width:480px) {
 			li {
+				width: inherit !important;
 				float: none;
 				margin-bottom: 10px;
 
@@ -1855,6 +1857,7 @@ body.layout-full{
 		-webkit-transform: scale(1, 1);
 		transform: scale(1, 1);
 		opacity: 1 !important;
+		z-index: 500;
 	}
 
 }
