@@ -356,8 +356,23 @@
 	&.woocommerce-cart,
 	&.woocommerce-checkout {
 		#primary {
-			float: none;
-			margin: 0 auto;
+			float: left;
+			width: 71.287%;
+		}
+
+		&.no-sidebar {
+			#primary {
+				float: none;
+				width: auto;
+			}
+		}
+
+		&.sidebar-position-left #primary {
+			float: right;
+		}
+
+		&.sidebar-position-none #primary {
+			width: 100%;
 		}
 	}
 

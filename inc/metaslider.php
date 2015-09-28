@@ -54,7 +54,7 @@ function vantage_metaslider_filter_flex_slide($html, $slide, $settings){
 add_filter('metaslider_image_flex_slider_markup', 'vantage_metaslider_filter_flex_slide', 10, 3);
 
 /**
- * Filter metaslider settings when Vantage setting is selected.
+ * Filter Meta Slider settings when Vantage setting is selected.
  *
  * @param $settings
  */
@@ -89,7 +89,7 @@ function vantage_metaslider_page_setting_metabox_render($post){
 	}
 
 	?>
-	<label><strong><?php _e('Display Page Metaslider', 'vantage') ?></strong></label>
+	<label><strong><?php _e('Display Page Meta Slider', 'vantage') ?></strong></label>
 	<p>
 		<select name="vantage_page_metaslider">
 			<?php foreach($options as $id => $name) : ?>
@@ -99,7 +99,7 @@ function vantage_metaslider_page_setting_metabox_render($post){
 	</p>
 	<p class="checkbox-wrapper">
 		<input id="vantage_page_metaslider_stretch" name="vantage_page_metaslider_stretch" type="checkbox" <?php checked( $metaslider_stretch ) ?> />
-		<label for="vantage_page_metaslider_stretch"><?php _e('Stretch Page Metaslider', 'vantage') ?></label>
+		<label for="vantage_page_metaslider_stretch"><?php _e('Stretch Page Meta Slider', 'vantage') ?></label>
 	</p>
 	<?php
 	wp_nonce_field('save', '_vantage_metaslider_nonce');

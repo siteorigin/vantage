@@ -275,7 +275,7 @@ jQuery(function($){
                 threshold = adminBar.css('position') == "absolute" ? 0 : adminBarHeight;
             }
             var scrollTop = $(window).scrollTop();
-            var navTop = $initTop - scrollTop;
+            var navTop = parseInt($initTop - scrollTop);//Force truncation of float value.
             if( navTop < threshold ) {
                 if( ! $$.hasClass( 'sticky') ) {
                     $$.wrapAll( $stickyContainer );
@@ -331,12 +331,20 @@ jQuery(function($){
             $img.css('visibility', 'hidden');
             // Add a wrapper
             $s.wrapInner('<div class="full-container"></div>');
+            // This is because IE doesn't detect links correctly when we stretch slider images.
             var link = $s.find('a');
             if(link.length) {
-                $s.click(function () {
-                    if(link.attr('href')) {
-                        window.location.href = link.attr('href');
-                    }
+                $s.mouseover(function () {
+                    $s.css('cursor', 'hand');
+                });
+                $s.mouseout(function () {
+                    $s.css('cursor', 'pointer');
+                });
+                $s.click(function ( event ) {
+                    event.preventDefault();
+                    var clickTarget = $(event.target);
+                    var navTarget = clickTarget.is('a') ? clickTarget : link;
+                    window.open( navTarget.attr( 'href' ), navTarget.attr( 'target' ) );
                 });
             }
         });

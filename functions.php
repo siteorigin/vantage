@@ -21,7 +21,6 @@ else {
 include get_template_directory() . '/extras/settings/settings.php';
 include get_template_directory() . '/extras/premium/premium.php';
 include get_template_directory() . '/extras/update/update.php';
-include get_template_directory() . '/extras/adminbar/adminbar.php';
 include get_template_directory() . '/extras/plugin-activation/plugin-activation.php';
 include get_template_directory() . '/extras/metaslider/metaslider.php';
 
@@ -174,6 +173,10 @@ function vantage_infinite_scroll_render() {
 	echo $var;
 }
 
+function vantage_is_woocommerce_active() {
+	return in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
+}
+
 /**
  * Setup the WordPress core custom background feature.
  * 
@@ -208,6 +211,17 @@ function vantage_widgets_init() {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
+
+	if( vantage_is_woocommerce_active() ) {
+		register_sidebar( array(
+			'name' => __( 'Shop', 'vantage' ),
+			'id' => 'shop',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
+		) );
+	}
 
 	register_sidebar( array(
 		'name' => __( 'Footer', 'vantage' ),
@@ -253,15 +267,15 @@ add_action('wp_head', 'vantage_print_styles', 11);
  */
 function vantage_scripts() {
 	wp_enqueue_style( 'vantage-style', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION );
-	wp_enqueue_style( 'vantage-fontawesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '4.2.0' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '4.2.0' );
 	$in_footer = siteorigin_setting( 'general_js_enqueue_footer' );
 	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	wp_enqueue_script( 'vantage-flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . $js_suffix . '.js' , array('jquery'), '2.1', $in_footer );
-	wp_enqueue_script( 'vantage-touch-swipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . $js_suffix . '.js' , array( 'jquery' ), '1.6.6', $in_footer );
+	wp_enqueue_script( 'jquery-flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . $js_suffix . '.js' , array('jquery'), '2.1', $in_footer );
+	wp_enqueue_script( 'jquery-touchswipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . $js_suffix . '.js' , array( 'jquery' ), '1.6.6', $in_footer );
 	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main' . $js_suffix . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION, $in_footer );
 
 	if( siteorigin_setting( 'layout_fitvids' ) ) {
-		wp_enqueue_script( 'vantage-fitvids' , get_template_directory_uri() . '/js/jquery.fitvids' . $js_suffix . '.js' , array('jquery'), '1.0', $in_footer );
+		wp_enqueue_script( 'jquery-fitvids' , get_template_directory_uri() . '/js/jquery.fitvids' . $js_suffix . '.js' , array('jquery'), '1.0', $in_footer );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -343,13 +357,17 @@ function vantage_render_slider(){
 			$slider = $settings_slider;
 		}
 	}
-
-	if( is_page() && get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true) != 'none' ) {
-		$page_slider = get_post_meta(get_the_ID(), 'vantage_metaslider_slider', true);
+	$page_id = get_the_ID();
+	$is_wc_shop = vantage_is_woocommerce_active() && is_woocommerce() && is_shop();
+	if ( $is_wc_shop ) {
+		$page_id = wc_get_page_id( 'shop' );
+	}
+	if( ( is_page() || $is_wc_shop ) && get_post_meta($page_id, 'vantage_metaslider_slider', true) != 'none' ) {
+		$page_slider = get_post_meta($page_id, 'vantage_metaslider_slider', true);
 		if( !empty($page_slider) ) {
 			$slider = $page_slider;
 		}
-		$slider_stretch = get_post_meta(get_the_ID(), 'vantage_metaslider_slider_stretch', true);
+		$slider_stretch = get_post_meta($page_id, 'vantage_metaslider_slider_stretch', true);
 		if( $slider_stretch === '' ) {
 			// We'll default to whatever the home page slider stretch setting is
 			$slider_stretch = siteorigin_setting('home_slider_stretch');
@@ -396,8 +414,9 @@ add_filter('post_class', 'vantage_post_class_filter');
  * @return mixed
  */
 function vantage_filter_vantage_post_on_parts($parts){
-	if(!siteorigin_setting('blog_post_author')) $parts['by'] = '';
 	if(!siteorigin_setting('blog_post_date')) $parts['on'] = '';
+	if(!siteorigin_setting('blog_post_author')) $parts['by'] = '';
+	if(!siteorigin_setting('blog_post_comment_count')) $parts['with'] = '';
 
 	return $parts;
 }

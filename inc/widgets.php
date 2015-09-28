@@ -317,7 +317,7 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 		if(!defined('SITEORIGIN_IS_PREMIUM')) {
 			?>
 			<p style="background: #cbe385; padding: 8px;">
-				<?php printf(__('Get additional social and professional network icons and sizes in <a href="%s" target="_blank">Vantage Premium</a>.'), admin_url('themes.php?page=premium_upgrade')) ?>
+				<?php printf(__('Get additional social and professional network icons and sizes in <a href="%s" target="_blank">Vantage Premium</a>.', 'vantage'), admin_url('themes.php?page=premium_upgrade')) ?>
 			</p>
 			<?php
 		}

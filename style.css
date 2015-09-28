@@ -3,7 +3,7 @@ Theme Name: Vantage
 Author: SiteOrigin
 Author URI: http://siteorigin.com/
 Theme URI: http://siteorigin.com/theme/vantage/
-Description: Vantage is a flexible multipurpose theme. It's strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, MetaSlider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free and premium support on our support <a href="http://siteorigin.com/thread/">forums</a> (http://siteorigin.com/thread/).
+Description: Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, MetaSlider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free and premium support on our support <a href="http://siteorigin.com/thread/">forums</a> (http://siteorigin.com/thread/).
 Version: dev
 License: GNU General Public License 2.0
 License URI: license.txt
@@ -630,6 +630,11 @@ body.ie-9 #masthead .hgroup #header-sidebar {
 body.sidebar-position-left #primary {
   float: right;
 }
+body.sidebar-position-left.page-template-home-panels #primary,
+body.sidebar-position-left.page-template-template-full #primary,
+body.sidebar-position-left.page-template-template-full-notitle #primary {
+  float: none;
+}
 body.sidebar-position-none #primary {
   float: none;
   width: auto;
@@ -928,10 +933,13 @@ body.responsive.layout-full #page-wrapper .full-container {
   color: #e2e2e2;
   font-weight: bold;
 }
-.main-navigation.sticky {
-  -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
-  -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
-  box-shadow: 0 2px 1px rgba(0,0,0,0.15);
+.main-navigation.sticky:after {
+  bottom: -6px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 6px 6px -6px inset;
+  content: "";
+  height: 6px;
+  position: absolute;
+  width: 100%;
 }
 body.has-menu-search .main-navigation ul {
   margin-right: 59px;
@@ -1286,10 +1294,12 @@ article.page .share-buttons li {
   height: 20px;
   display: block;
   float: left;
+  max-width: 110px;
 }
 @media (max-width: 480px) {
   article.post .share-buttons li,
   article.page .share-buttons li {
+    width: inherit !important;
     float: none;
     margin-bottom: 10px;
   }
@@ -1965,6 +1975,7 @@ body.layout-full {
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
   opacity: 1 !important;
+  z-index: 500;
 }
 #map-canvas img,
 #gmap_canvas img {
@@ -1982,9 +1993,13 @@ body.layout-full {
 .updated {
   display: none;
 }
-/* Pages - Entry Meta */
 .page .entry-meta {
   display: none;
+  /* Hide entry meta on pages */
+}
+.page .panel-grid-cell .entry-meta {
+  display: block;
+  /* Display entry meta on pages if within a Page Builder cell (Post Loop widget) */
 }
 /* Vantage Jetpack Subscription Form */
 #commentform p.comment-subscription-form {
@@ -2929,7 +2944,8 @@ body.layout-full {
   border-bottom: 1px solid #dddddd;
 }
 .layout-full .panel-row-style.panel-row-style-wide-grey,
-.layout-full .panel-row-style.panel-row-style-full-width {
+.layout-full .panel-row-style.panel-row-style-full-width,
+.layout-full.panels-style-force-full .panel-row-style {
   margin: 0 -1000px;
   padding: 25px 1000px 25px 1000px;
 }
@@ -3153,6 +3169,10 @@ body.layout-full {
 }
 .vantage-grid-loop .clear {
   clear: both;
+}
+.widget_siteorigin-panels-postloop h1.entry-title {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .widget_siteorigin-panels-postloop .pagination {
   margin-top: 20px;
@@ -3546,8 +3566,21 @@ body.layout-full {
 /* Page Layouts */
 .woocommerce-page.woocommerce-cart #primary,
 .woocommerce-page.woocommerce-checkout #primary {
+  float: left;
+  width: 71.287%;
+}
+.woocommerce-page.woocommerce-cart.no-sidebar #primary,
+.woocommerce-page.woocommerce-checkout.no-sidebar #primary {
   float: none;
-  margin: 0 auto;
+  width: auto;
+}
+.woocommerce-page.woocommerce-cart.sidebar-position-left #primary,
+.woocommerce-page.woocommerce-checkout.sidebar-position-left #primary {
+  float: right;
+}
+.woocommerce-page.woocommerce-cart.sidebar-position-none #primary,
+.woocommerce-page.woocommerce-checkout.sidebar-position-none #primary {
+  width: 100%;
 }
 .woocommerce-page.woocommerce-checkout #ship-to-different-address-checkbox {
   margin: 3px 10px 0 0 ;
@@ -3561,6 +3594,8 @@ body.layout-full {
   display: inline-block;
   margin: 2px 2px 2px 0;
   padding: 6px 9px 5px 9px;
+  text-decoration: none;
+  width: auto;
   background: #4f5355;
   border-top: solid 1px #d2d2d2;
   border-left: solid 1px #c3c3c3;
@@ -3580,8 +3615,6 @@ body.layout-full {
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  width: auto;
-  text-decoration: none;
 }
 #infinite-handle span:hover {
   background: #f0f0f0;
@@ -3591,6 +3624,11 @@ body.layout-full {
   background: -o-linear-gradient(#f0f0f0, #d0d0d0);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#d0d0d0', GradientType=0);
   color: #606060;
+}
+#infinite-handle span button {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 #yoast-breadcrumbs {
   background: rgba(0, 0, 0, 0.025);
@@ -3605,8 +3643,8 @@ body.layout-full {
 }
 @font-face {
   font-family: 'vantage-icons';
-  src: url('icons/vantage-icons.eot?-9o183q');
-  src: url('icons/vantage-icons.eot?#iefix-9o183q') format('embedded-opentype'), url('icons/vantage-icons.woff?-9o183q') format('woff'), url('icons/vantage-icons.ttf?-9o183q') format('truetype'), url('icons/vantage-icons.svg?-9o183q#icomoon') format('svg');
+  src: url('icons/vantage-icons.eot');
+  src: url('icons/vantage-icons.eot?#iefix') format('embedded-opentype'), url('icons/vantage-icons.woff') format('woff'), url('icons/vantage-icons.ttf?') format('truetype'), url('icons/vantage-icons.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -3637,4 +3675,46 @@ body.layout-full {
 }
 .vantage-icon-search:before {
   content: "\e604";
+}
+/* Ensure Vantage button styles don't impact JW Player buttons */
+span.jwcontrols span button {
+  background: initial;
+  border: initial;
+  border-radius: initial;
+  box-shadow: initial;
+  color: initial;
+  font-size: initial;
+  font-weight: initial;
+  line-height: initial;
+  padding: initial;
+  text-decoration: initial;
+  text-shadow: initial;
+}
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background-color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #333333;
+  display: block;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
 }

@@ -70,8 +70,45 @@ SiteOrigin Extras
 This theme is built around the SiteOrigin extras framework contained in the folder extras/. All code is licensed under GPL 2.0 and copyright Greg Priday unless otherwise stated in the file header.
 
 
+Custom Background 
+---------------
+Please note that the WordPress Custom Background feature is only enabled when using the "Boxed" layout bound theme setting. It isn't available when using the default "Full Width" setting. Layout Bound can be set from Appearance > Theme Settings > Layout > Layout Bound. Custom Background options can be set from Appearance > Customize > Colors > Background Color and Appearance > Customize > Background Image.
+
+
 Change Log
 ---------------
+
+#### 1.4.4
+* Removed admin bar.
+* Better resizing behaviour for share buttons.
+* Change order and content of blog theme settings.
+* Removed HTML from translation strings.
+* Fix Jetpack infinite scroll button styles.
+* Raised z-index of scroll to top button so it appears above sliders and hero image widgets.
+* Full width pages no longer have has-sidebar class.
+* Fixed sidebar issues on WooCommerce checkout pages
+* Added WooCommerce sidebar
+* Max Mega Menu theme integration.
+* Apply Menu Item Padding customizer setting to logo when using Logo In Menu masthead layout.
+* Ensure site title is centered if Customize > Theme Design > General > Center Logo customizer setting is enabled.
+* Ensure MetaSlider is rendered on WooCommerce shop page.
+* Setting to disable search in the responsive menu.
+* Ignore navigation_responsive_menu setting when Ubermenu is installed and active.
+* Fix Page Build Post Loop pagination in Vantage when Jetpack infinite scroll is active
+* Fixed float of primary container for full width templates.
+* Standardized enqueue prefixes.
+* Remove top margin from Post Loop h1.
+* Sticky menu shadow fix.
+* Allow for links in captions in stretched slider images.
+* Removed font icon query strings.
+* Post loop h1 entry title margin-fix.
+* UberMenu integration fix.
+* Properly integrate with new SiteOrigin CSS plugin.
+* Premium: Added more custom CSS snippets.
+* Various minor CSS fixes and other corrections.
+
+#### 1.4.3
+* Added force full width setting.
 
 #### 1.4.2
 * Removed Page Layout metabox - sticking to using Page Templates.
