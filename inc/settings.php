@@ -334,7 +334,7 @@ function vantage_theme_setting_defaults($defaults){
 
 	return $defaults;
 }
-add_filter('siteorigin_theme_default_settings', 'vantage_theme_setting_defaults');
+add_filter('siteorigin_settings_defaults', 'vantage_theme_setting_defaults');
 
 function vantage_blog_layout_options(){
 	$layouts = array();
@@ -392,3 +392,26 @@ function vantage_siteorigin_settings_localize( $loc ){
 	return $loc;
 }
 add_filter( 'siteorigin_settings_localization', 'vantage_siteorigin_settings_localize' );
+
+/**
+ * Convert post ID based images into full URLs
+ *
+ * @param $mods
+ *
+ * @return mixed
+ */
+function vantage_siteorigin_setting_update_image( $mods ) {
+	$convert = array( 'logo_image', 'logo_image_retina' );
+	$old_settings = get_option( 'vantage_theme_settings' );
+
+	foreach ( $convert as $key ) {
+		if( empty( $mods[ 'theme_settings_' . $key ] ) && !empty( $old_settings[$key] ) ) {
+			$image_src = wp_get_attachment_image_src( $old_settings[$key], 'full');
+			if( !empty( $image_src[0] ) ) {
+				$mods[ 'theme_settings_' . $key ] = $image_src[0];
+			}
+		}
+	}
+	return $mods;
+}
+add_filter( 'option_theme_mods_vantage', 'vantage_siteorigin_setting_update_image' );
