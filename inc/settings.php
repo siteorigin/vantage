@@ -44,7 +44,7 @@ function vantage_theme_settings(){
 		)
 	) );
 
-	$settings->add_teaser('logo', 'image_retina', __('Retina Logo', 'vantage'), array(
+	$settings->add_teaser('logo', 'image_retina', 'media', __('Retina Logo', 'vantage'), array(
 		'choose' => __('Choose Image', 'vantage'),
 		'update' => __('Set Logo', 'vantage'),
 		'description' => __('A double sized version of your logo for retina displays. Must be used in addition to standard logo.', 'vantage'),
@@ -102,16 +102,16 @@ function vantage_theme_settings(){
 	 * Navigation settings
 	 */
 
-	$settings->add_teaser('navigation', 'responsive_menu', __('Responsive Menu', 'vantage'), array(
+	$settings->add_teaser('navigation', 'responsive_menu', 'checkbox', __('Responsive Menu', 'vantage'), array(
 		'description' => __('Use a special responsive menu for small screen devices.', 'vantage'),
 		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/mobile-nav.png',
 	));
 
-	$settings->add_teaser('navigation', 'responsive_menu_text', __('Responsive Menu Text', 'vantage'), array(
+	$settings->add_teaser('navigation', 'responsive_menu_text', 'text', __('Responsive Menu Text', 'vantage'), array(
 		'description' => __('The button used for the responsive menu.', 'vantage')
 	));
 
-	$settings->add_teaser('navigation', 'responsive_menu_search', __('Responsive Menu Search', 'vantage'), array(
+	$settings->add_teaser('navigation', 'responsive_menu_search', 'checkbox', __('Responsive Menu Search', 'vantage'), array(
 		'description' => __('Enable search in the responsive menu.', 'vantage')
 	));
 
@@ -243,16 +243,17 @@ function vantage_theme_settings(){
 	 * Social Settings
 	 */
 
-	$settings->add_teaser('social', 'ajax_comments', __('Ajax Comments', 'vantage'), array(
+	$settings->add_teaser('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
 		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage')
 	));
 
-	$settings->add_teaser('social', 'share_post', __('Post Sharing', 'vantage'), array(
+	$settings->add_teaser('social', 'share_post', 'checkbox', __('Post Sharing', 'vantage'), array(
 		'description' => __('Show icons to share your posts on Facebook, Twitter and Google+.', 'vantage'),
 		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/share.png',
 	));
 
-	$settings->add_teaser('social', 'twitter', __('Twitter Handle', 'vantage'), array(
+	$settings->add_teaser('social', 'twitter', 'text', __('Twitter Handle', 'vantage'), array(
+		'validator' => 'twitter',
 		'description' => __('This handle will be recommended after a user shares one of your posts.', 'vantage'),
 		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/share-rec.png',
 	));
@@ -265,7 +266,7 @@ function vantage_theme_settings(){
 		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' )
 	) );
 
-	$settings->add_teaser('general', 'adaptive_images', __('Mobile Adaptive Images', 'vantage'), array(
+	$settings->add_teaser('general', 'adaptive_images', 'checkbox', __('Mobile Adaptive Images', 'vantage'), array(
 		'description' => __('Rescale images to the most appropriate size for mobile devices.', 'vantage'),
 	));
 
