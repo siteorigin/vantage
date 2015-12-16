@@ -9,7 +9,7 @@
 
 define('SITEORIGIN_THEME_VERSION', 'dev');
 define('SITEORIGIN_THEME_ENDPOINT', 'http://updates.siteorigin.com/');
-define('SITEORIGIN_THEME_JS_PREFIX', '');
+define('SITEORIGIN_THEME_JS_PREFIX', defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' );
 
 if( file_exists( get_template_directory() . '/premium/functions.php' ) ){
 	include get_template_directory() . '/premium/functions.php';

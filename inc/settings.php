@@ -358,11 +358,6 @@ function vantage_blog_layout_options(){
 	return $layouts;
 }
 
-function vantage_siteorigin_settings_page_icon($icon){
-	return get_template_directory_uri().'/images/settings-icon.png';
-}
-add_filter('siteorigin_settings_page_icon', 'vantage_siteorigin_settings_page_icon');
-
 function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $old_value ) {
 	//Update home slider post meta.
 	$home_id = get_option( 'page_on_front' );
@@ -388,6 +383,10 @@ function vantage_siteorigin_settings_localize( $loc ){
 		// For the controls
 		'variant' =>  __('Variant', 'vantage'),
 		'subset' =>  __('Subset', 'vantage'),
+
+		// For the premium upgrade modal
+		'modal_title' => __('Vantage Premium Upgrade', 'vantage'),
+		'close' => __('Close', 'vantage'),
 	);
 
 	return $loc;
