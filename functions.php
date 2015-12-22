@@ -22,7 +22,6 @@ else {
 include get_template_directory() . '/inc/settings/settings.php';
 
 // Include all the SiteOrigin extras
-include get_template_directory() . '/extras/premium/premium.php';
 include get_template_directory() . '/extras/plugin-activation/plugin-activation.php';
 include get_template_directory() . '/extras/metaslider/metaslider.php';
 
