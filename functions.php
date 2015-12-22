@@ -20,7 +20,6 @@ else {
 // Include all the SiteOrigin extras
 include get_template_directory() . '/extras/settings/settings.php';
 include get_template_directory() . '/extras/premium/premium.php';
-include get_template_directory() . '/extras/update/update.php';
 include get_template_directory() . '/extras/plugin-activation/plugin-activation.php';
 include get_template_directory() . '/extras/metaslider/metaslider.php';
 
@@ -54,7 +53,7 @@ function vantage_setup() {
 
 	// Initialize SiteOrigin settings
 	siteorigin_settings_init();
-	
+
 	// Make the theme translatable
 	load_theme_textdomain( 'vantage', get_template_directory() . '/languages' );
 
