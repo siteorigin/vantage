@@ -347,10 +347,10 @@ html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
   /* Button click style */
-  border-top: solid 1px #aaaaaa;
-  border-left: solid 1px #bbbbbb;
-  border-right: solid 1px #bbbbbb;
-  border-bottom: solid 1px #bbbbbb;
+  border-top: solid 1px #aaa;
+  border-left: solid 1px #bbb;
+  border-right: solid 1px #bbb;
+  border-bottom: solid 1px #bbb;
   -webkit-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
@@ -3355,10 +3355,10 @@ body.layout-full {
 .woocommerce input.button:active,
 .woocommerce .button.alt:active {
   /* Button click style */
-  border-top: solid 1px #aaaaaa;
-  border-left: solid 1px #bbbbbb;
-  border-right: solid 1px #bbbbbb;
-  border-bottom: solid 1px #bbbbbb;
+  border-top: solid 1px #aaa;
+  border-left: solid 1px #bbb;
+  border-right: solid 1px #bbb;
+  border-bottom: solid 1px #bbb;
   -webkit-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
