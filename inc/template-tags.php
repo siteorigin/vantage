@@ -183,6 +183,11 @@ if(!function_exists('vantage_display_logo')):
  */
 function vantage_display_logo(){
 	$logo = siteorigin_setting( 'logo_image' );
+
+	if( !is_numeric( $logo ) ) {
+		$logo = SiteOrigin_Settings::get_image_id( $logo );
+	}
+
 	$logo = apply_filters('vantage_logo_image_id', $logo);
 
 	if( empty($logo) ) {

@@ -13,47 +13,43 @@
  * @since vantage 1.0
  */
 function vantage_theme_settings(){
-	siteorigin_settings_add_section( 'logo', __('Logo', 'vantage' ) );
-	siteorigin_settings_add_section( 'layout', __('Layout', 'vantage' ) );
-	siteorigin_settings_add_section( 'home', __('Home', 'vantage' ) );
-	siteorigin_settings_add_section( 'navigation', __('Navigation', 'vantage' ) );
-	siteorigin_settings_add_section( 'blog', __('Blog', 'vantage' ) );
-	siteorigin_settings_add_section( 'social', __('Social', 'vantage' ) );
-	siteorigin_settings_add_section( 'general', __('General', 'vantage' ) );
+	$settings = SiteOrigin_Settings::single();
+
+	$settings->add_section( 'logo', __('Logo', 'vantage' ) );
+	$settings->add_section( 'layout', __('Layout', 'vantage' ) );
+	$settings->add_section( 'home', __('Home', 'vantage' ) );
+	$settings->add_section( 'navigation', __('Navigation', 'vantage' ) );
+	$settings->add_section( 'blog', __('Blog', 'vantage' ) );
+	$settings->add_section( 'social', __('Social', 'vantage' ) );
+	$settings->add_section( 'general', __('General', 'vantage' ) );
 
 	/**
 	 * Logo Settings
 	 */
 
-	siteorigin_settings_add_field('logo', 'image', 'media', __('Logo Image', 'vantage'), array(
+	$settings->add_field('logo', 'image', 'media', __('Logo Image', 'vantage'), array(
 		'choose' => __('Choose Image', 'vantage'),
 		'update' => __('Set Logo', 'vantage'),
 		'description' => __('Your own custom logo.', 'vantage')
 	) );
 
-	siteorigin_settings_add_field('logo', 'in_menu_constrain', 'checkbox', __('Constrain Logo Height', 'vantage'), array(
+	$settings->add_field('logo', 'in_menu_constrain', 'checkbox', __('Constrain Logo Height', 'vantage'), array(
 		'label' => __('Yes', 'vantage'),
 		'description' => __('When using the "logo in menu" masthead layout, constrain the logo size to fit the menu height.', 'vantage'),
-		'conditional' => array(
-			'show' => array(
-				'layout_masthead' => 'logo-in-menu',
-			),
-			'hide' => 'else'
-		)
 	) );
 
-	siteorigin_settings_add_teaser('logo', 'image_retina', __('Retina Logo', 'vantage'), array(
+	$settings->add_teaser('logo', 'image_retina', 'media', __('Retina Logo', 'vantage'), array(
 		'choose' => __('Choose Image', 'vantage'),
 		'update' => __('Set Logo', 'vantage'),
 		'description' => __('A double sized version of your logo for retina displays. Must be used in addition to standard logo.', 'vantage'),
 		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/retina-logo.png',
 	) );
 
-	siteorigin_settings_add_field('logo', 'header_text', 'text', __('Header Text', 'vantage'), array(
+	$settings->add_field('logo', 'header_text', 'text', __('Header Text', 'vantage'), array(
 		'description' => __('Text that appears to the right of your logo.', 'vantage')
 	) );
 
-	siteorigin_settings_add_field('logo', 'no_widget_overlay', 'checkbox', __('No Widget Overlay', 'vantage'), array(
+	$settings->add_field('logo', 'no_widget_overlay', 'checkbox', __('No Widget Overlay', 'vantage'), array(
 		'description' => __('If enabled, header widgets won\'t overlap main logo image.', 'vantage')
 	));
 
@@ -61,15 +57,15 @@ function vantage_theme_settings(){
 	 * Layout Settings
 	 */
 
-	siteorigin_settings_add_field('layout', 'responsive', 'checkbox', __('Responsive Layout', 'vantage'), array(
+	$settings->add_field('layout', 'responsive', 'checkbox', __('Responsive Layout', 'vantage'), array(
 		'description' => __('Scale your layout for small screen devices.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('layout', 'fitvids', 'checkbox', __('Enable FitVids.js', 'vantage'), array(
+	$settings->add_field('layout', 'fitvids', 'checkbox', __('Enable FitVids.js', 'vantage'), array(
 		'description' => __('Include FitVids.js fluid embedded video layouts.', 'vantage')	
 	));
 
-	siteorigin_settings_add_field('layout', 'bound', 'select', __('Layout Bound', 'vantage'), array(
+	$settings->add_field('layout', 'bound', 'select', __('Layout Bound', 'vantage'), array(
 		'options' => array(
 			'boxed' => __('Boxed', 'vantage'),
 			'full' => __('Full Width', 'vantage'),
@@ -77,22 +73,22 @@ function vantage_theme_settings(){
 		'description' => __('Change the width of the bounding box.', 'vantage')
 	) );
 
-	siteorigin_settings_add_field('layout', 'masthead', 'select', __('Masthead Layout', 'vantage'), array(
-		'options' => siteorigin_settings_template_part_names('parts/masthead', 'Part Name'),
+	$settings->add_field('layout', 'masthead', 'select', __('Masthead Layout', 'vantage'), array(
+		'options' => $settings->template_part_names('parts/masthead', 'Part Name'),
 		'description' => __("Change which header area layout you're using.", 'vantage')
 	) );
 
-	siteorigin_settings_add_field('layout', 'menu', 'select', __('Masthead Menu', 'vantage'), array(
-		'options' => siteorigin_settings_template_part_names('parts/menu', 'Part Name'),
+	$settings->add_field('layout', 'menu', 'select', __('Masthead Menu', 'vantage'), array(
+		'options' => $settings->template_part_names('parts/menu', 'Part Name'),
 		'description' => __("Choose how the masthead menu is displayed.", 'vantage')
 	) );
 
-	siteorigin_settings_add_field('layout', 'footer', 'select', __('Footer Layout', 'vantage'), array(
-		'options' => siteorigin_settings_template_part_names('parts/footer', 'Part Name'),
+	$settings->add_field('layout', 'footer', 'select', __('Footer Layout', 'vantage'), array(
+		'options' => $settings->template_part_names('parts/footer', 'Part Name'),
 		'description' => __("Change which footer area layout you're using.", 'vantage')
 	) );
 
-	siteorigin_settings_add_field('layout', 'force_panels_full', 'checkbox', __('Force Page Builder Styles Full Width', 'vantage'), array(
+	$settings->add_field('layout', 'force_panels_full', 'checkbox', __('Force Page Builder Styles Full Width', 'vantage'), array(
 		'description' => __('Force Page Builder rows with styles to be full width. Only necessary for legacy reasons.', 'vantage')
 	));
 
@@ -100,45 +96,45 @@ function vantage_theme_settings(){
 	 * Navigation settings
 	 */
 
-	siteorigin_settings_add_teaser('navigation', 'responsive_menu', __('Responsive Menu', 'vantage'), array(
+	$settings->add_teaser('navigation', 'responsive_menu', 'checkbox', __('Responsive Menu', 'vantage'), array(
 		'description' => __('Use a special responsive menu for small screen devices.', 'vantage'),
 		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/mobile-nav.png',
 	));
 
-	siteorigin_settings_add_teaser('navigation', 'responsive_menu_text', __('Responsive Menu Text', 'vantage'), array(
+	$settings->add_teaser('navigation', 'responsive_menu_text', 'text', __('Responsive Menu Text', 'vantage'), array(
 		'description' => __('The button used for the responsive menu.', 'vantage')
 	));
 
-	siteorigin_settings_add_teaser('navigation', 'responsive_menu_search', __('Responsive Menu Search', 'vantage'), array(
+	$settings->add_teaser('navigation', 'responsive_menu_search', 'checkbox', __('Responsive Menu Search', 'vantage'), array(
 		'description' => __('Enable search in the responsive menu.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('navigation', 'use_sticky_menu', 'checkbox', __('Sticky Menu', 'vantage'), array(
+	$settings->add_field('navigation', 'use_sticky_menu', 'checkbox', __('Sticky Menu', 'vantage'), array(
 		'description' => __('Sticks the menu to the top of the screen when a user scrolls down.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('navigation', 'menu_search', 'checkbox', __('Search in Menu', 'vantage'), array(
+	$settings->add_field('navigation', 'menu_search', 'checkbox', __('Search in Menu', 'vantage'), array(
 		'description' => __('Display a search in the main menu.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('navigation', 'display_scroll_to_top', 'checkbox', __('Display Scroll To Top', 'vantage'), array(
+	$settings->add_field('navigation', 'display_scroll_to_top', 'checkbox', __('Display Scroll To Top', 'vantage'), array(
 		'description' => __('Display a scroll-to-top button when a user scrolls down.', 'vantage')
 	));
 
-	siteorigin_settings_add_field( 'navigation', 'post_nav', 'checkbox', __('Post Navigation', 'vantage'), array(
+	$settings->add_field( 'navigation', 'post_nav', 'checkbox', __('Post Navigation', 'vantage'), array(
 		'description' => __('Display next/previous post navigation.', 'vantage')
 	) );
 
-	siteorigin_settings_add_field( 'navigation', 'home_icon', 'checkbox', __('Home Page Icon', 'vantage'), array(
+	$settings->add_field( 'navigation', 'home_icon', 'checkbox', __('Home Page Icon', 'vantage'), array(
 		'description' => __('Display home icon for home page menu links.', 'vantage')
 	) );
 
-	siteorigin_settings_add_field('navigation', 'mobile_navigation', 'checkbox', __('Mobile Navigation', 'vantage'), array(
+	$settings->add_field('navigation', 'mobile_navigation', 'checkbox', __('Mobile Navigation', 'vantage'), array(
 		'description' => __('Enables Sticky Menu and Scroll To Top for mobile devices.', 'vantage')
 	));
 
 	if( function_exists('yoast_breadcrumb') ) {
-		siteorigin_settings_add_field('navigation', 'yoast_breadcrumbs', 'checkbox', __('Yoast Breadcrumbs', 'vantage'), array(
+		$settings->add_field('navigation', 'yoast_breadcrumbs', 'checkbox', __('Yoast Breadcrumbs', 'vantage'), array(
 			'description' => __('Display Yoast SEO breadcrumbs if you have it installed.', 'vantage')
 		) );
 	}
@@ -147,7 +143,7 @@ function vantage_theme_settings(){
 	 * Home Page
 	 */
 
-	siteorigin_settings_add_field('home', 'slider', 'select', __('Home Page Slider', 'vantage'), array(
+	$settings->add_field('home', 'slider', 'select', __('Home Page Slider', 'vantage'), array(
 		'options' => siteorigin_metaslider_get_options(true),
 		'description' => sprintf(
 			__('This theme supports <a href="%s" target="_blank">Meta Slider</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
@@ -157,7 +153,7 @@ function vantage_theme_settings(){
 		)
 	));
 
-	siteorigin_settings_add_field('home', 'slider_stretch', 'checkbox', __('Stretch Home Slider', 'vantage'), array(
+	$settings->add_field('home', 'slider_stretch', 'checkbox', __('Stretch Home Slider', 'vantage'), array(
 		'label' => __('Stretch', 'vantage'),
 		'description' => __('Stretch the home page slider to the width of the screen if using the full width layout.', 'vantage'),
 	) );
@@ -166,26 +162,20 @@ function vantage_theme_settings(){
 	 * Blog Settings
 	 */
 
-	siteorigin_settings_add_field('blog', 'archive_layout', 'select', __('Blog Archive Layout', 'vantage'), array(
+	$settings->add_field('blog', 'archive_layout', 'select', __('Blog Archive Layout', 'vantage'), array(
 		'options' => vantage_blog_layout_options(),
 		'description' => __('Choose the layout to be used on blog and archive pages.', 'vantage')
 	) );
 
-	siteorigin_settings_add_field('blog', 'archive_content', 'select', __('Post Content', 'vantage'), array(
+	$settings->add_field('blog', 'archive_content', 'select', __('Post Content', 'vantage'), array(
 		'options' => array(
 			'full' => __('Full Post', 'vantage'),
 			'excerpt' => __('Post Excerpt', 'vantage'),
 		),
 		'description' => __('Choose how to display posts on post archive when using default blog layout.', 'vantage'),
-		'conditional' => array(
-			'show' => array(
-				'blog_archive_layout' => 'blog',
-			),
-			'hide' => 'else'
-		)
 	));
 
-	siteorigin_settings_add_field('blog', 'featured_image_type', 'select', __('Featured Image Type', 'vantage'), array(
+	$settings->add_field('blog', 'featured_image_type', 'select', __('Featured Image Type', 'vantage'), array(
 		'options' => array(
 			'large' => __('Large', 'vantage'),
 			'icon' => __('Small Icon', 'vantage'),
@@ -193,47 +183,47 @@ function vantage_theme_settings(){
 		'description' => __('Size of the featured image in the blog post archives when using default blog layout.', 'vantage')
 	) );
 
-	siteorigin_settings_add_field('blog', 'featured_image', 'checkbox', __('Featured Image', 'vantage'), array(
+	$settings->add_field('blog', 'featured_image', 'checkbox', __('Featured Image', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the featured image on a post single page.', 'vantage')
 	) );	
 
-	siteorigin_settings_add_field('blog', 'post_metadata', 'checkbox', __('Post Metadata', 'vantage'), array(
+	$settings->add_field('blog', 'post_metadata', 'checkbox', __('Post Metadata', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the post metadata under the post title.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('blog', 'post_date', 'checkbox', __('Post Date', 'vantage'), array(
+	$settings->add_field('blog', 'post_date', 'checkbox', __('Post Date', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the post date under the post title.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('blog', 'post_author', 'checkbox', __('Post Author', 'vantage'), array(
+	$settings->add_field('blog', 'post_author', 'checkbox', __('Post Author', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the post author under the post title.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('blog', 'post_comment_count', 'checkbox', __('Post Comment Count', 'vantage'), array(
+	$settings->add_field('blog', 'post_comment_count', 'checkbox', __('Post Comment Count', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the number of comments under the post title.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('blog', 'post_categories', 'checkbox', __('Post Categories', 'vantage'), array(
+	$settings->add_field('blog', 'post_categories', 'checkbox', __('Post Categories', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the post categories below the single post.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('blog', 'post_tags', 'checkbox', __('Post Tags', 'vantage'), array(
+	$settings->add_field('blog', 'post_tags', 'checkbox', __('Post Tags', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the post tags below the single post.', 'vantage')
 	));
 
-	siteorigin_settings_add_field('blog', 'author_box', 'checkbox', __('Author Box', 'vantage'), array(
+	$settings->add_field('blog', 'author_box', 'checkbox', __('Author Box', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show an author box below each blog post.', 'vantage')
 	) );
 
-	siteorigin_settings_add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
+	$settings->add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
 		'description' => __('The link displayed when post content is split using the "more" quicktag.', 'vantage')
 	));
 
@@ -241,16 +231,17 @@ function vantage_theme_settings(){
 	 * Social Settings
 	 */
 
-	siteorigin_settings_add_teaser('social', 'ajax_comments', __('Ajax Comments', 'vantage'), array(
+	$settings->add_teaser('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
 		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage')
 	));
 
-	siteorigin_settings_add_teaser('social', 'share_post', __('Post Sharing', 'vantage'), array(
+	$settings->add_teaser('social', 'share_post', 'checkbox', __('Post Sharing', 'vantage'), array(
 		'description' => __('Show icons to share your posts on Facebook, Twitter and Google+.', 'vantage'),
 		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/share.png',
 	));
 
-	siteorigin_settings_add_teaser('social', 'twitter', __('Twitter Handle', 'vantage'), array(
+	$settings->add_teaser('social', 'twitter', 'text', __('Twitter Handle', 'vantage'), array(
+		'validator' => 'twitter',
 		'description' => __('This handle will be recommended after a user shares one of your posts.', 'vantage'),
 		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/share-rec.png',
 	));
@@ -259,15 +250,11 @@ function vantage_theme_settings(){
 	 * General Settings
 	 */
 
-	siteorigin_settings_add_field( 'general', 'site_info_text', 'text', __( 'Site Information Text', 'vantage' ), array(
+	$settings->add_field( 'general', 'site_info_text', 'text', __( 'Site Information Text', 'vantage' ), array(
 		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' )
 	) );
 
-	siteorigin_settings_add_teaser('general', 'adaptive_images', __('Mobile Adaptive Images', 'vantage'), array(
-		'description' => __('Rescale images to the most appropriate size for mobile devices.', 'vantage'),
-	));
-
-	siteorigin_settings_add_field('general', 'js_enqueue_footer', 'checkbox', __('Enqueue JavaScript in Footer', 'vantage'), array(
+	$settings->add_field('general', 'js_enqueue_footer', 'checkbox', __('Enqueue JavaScript in Footer', 'vantage'), array(
 		'description' => __('Enqueue JavaScript files in the footer, if possible.', 'vantage'),
 	));
 
@@ -332,7 +319,7 @@ function vantage_theme_setting_defaults($defaults){
 
 	return $defaults;
 }
-add_filter('siteorigin_theme_default_settings', 'vantage_theme_setting_defaults');
+add_filter('siteorigin_settings_defaults', 'vantage_theme_setting_defaults');
 
 function vantage_blog_layout_options(){
 	$layouts = array();
@@ -355,16 +342,6 @@ function vantage_blog_layout_options(){
 	return $layouts;
 }
 
-function vantage_feature_suggestion_url($url){
-	return 'http://sorig.in/vantage-suggestions';
-}
-add_filter('siteorigin_settings_suggest_features_url', 'vantage_feature_suggestion_url');
-
-function vantage_siteorigin_settings_page_icon($icon){
-	return get_template_directory_uri().'/images/settings-icon.png';
-}
-add_filter('siteorigin_settings_page_icon', 'vantage_siteorigin_settings_page_icon');
-
 function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $old_value ) {
 	//Update home slider post meta.
 	$home_id = get_option( 'page_on_front' );
@@ -379,3 +356,46 @@ function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $
 	return $new_value;
 }
 add_filter( 'pre_update_option_vantage_theme_settings', 'vantage_siteorigin_settings_home_slider_update_post_meta', 10, 2 );
+
+function vantage_siteorigin_settings_localize( $loc ){
+	$loc = array(
+		'section_title' => __('Theme Settings', 'vantage'),
+		'section_description' => __('Settings for your theme', 'vantage'),
+		'premium_only' =>  __('Premium Only', 'vantage'),
+		'premium_url' => '#',
+
+		// For the controls
+		'variant' =>  __('Variant', 'vantage'),
+		'subset' =>  __('Subset', 'vantage'),
+
+		// For the premium upgrade modal
+		'modal_title' => __('Vantage Premium Upgrade', 'vantage'),
+		'close' => __('Close', 'vantage'),
+	);
+
+	return $loc;
+}
+add_filter( 'siteorigin_settings_localization', 'vantage_siteorigin_settings_localize' );
+
+/**
+ * Convert post ID based images into full URLs
+ *
+ * @param $mods
+ *
+ * @return mixed
+ */
+function vantage_siteorigin_setting_update_image( $mods ) {
+	$convert = array( 'logo_image', 'logo_image_retina' );
+	$old_settings = get_option( 'vantage_theme_settings' );
+
+	foreach ( $convert as $key ) {
+		if( empty( $mods[ 'theme_settings_' . $key ] ) && !empty( $old_settings[$key] ) ) {
+			$image_src = wp_get_attachment_image_src( $old_settings[$key], 'full');
+			if( !empty( $image_src[0] ) ) {
+				$mods[ 'theme_settings_' . $key ] = $image_src[0];
+			}
+		}
+	}
+	return $mods;
+}
+add_filter( 'option_theme_mods_vantage', 'vantage_siteorigin_setting_update_image' );

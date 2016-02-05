@@ -9,6 +9,7 @@
 
 define('SITEORIGIN_THEME_VERSION', 'dev');
 define('SITEORIGIN_THEME_ENDPOINT', 'http://updates.siteorigin.com/');
+define('SITEORIGIN_THEME_JS_PREFIX', defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' );
 
 if( file_exists( get_template_directory() . '/premium/functions.php' ) ){
 	include get_template_directory() . '/premium/functions.php';
@@ -17,9 +18,10 @@ else {
 	include get_template_directory() . '/upgrade/upgrade.php';
 }
 
+// Load the new settings framework
+include get_template_directory() . '/inc/settings/settings.php';
+
 // Include all the SiteOrigin extras
-include get_template_directory() . '/extras/settings/settings.php';
-include get_template_directory() . '/extras/premium/premium.php';
 include get_template_directory() . '/extras/plugin-activation/plugin-activation.php';
 include get_template_directory() . '/extras/metaslider/metaslider.php';
 
@@ -50,9 +52,6 @@ if ( ! function_exists( 'vantage_setup' ) ) :
  * @since vantage 1.0
  */
 function vantage_setup() {
-
-	// Initialize SiteOrigin settings
-	siteorigin_settings_init();
 
 	// Make the theme translatable
 	load_theme_textdomain( 'vantage', get_template_directory() . '/languages' );
@@ -348,7 +347,7 @@ function vantage_get_query_variables(){
  */
 function vantage_render_slider(){
 
-	if( is_front_page() && siteorigin_setting('home_slider') != 'none' ) {
+	if( is_front_page() && !in_array( siteorigin_setting( 'home_slider' ), array( '', 'none' ) ) ) {
 		$settings_slider = siteorigin_setting( 'home_slider' );
 		$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
 
