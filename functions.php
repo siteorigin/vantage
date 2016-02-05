@@ -347,7 +347,7 @@ function vantage_get_query_variables(){
  */
 function vantage_render_slider(){
 
-	if( is_front_page() && siteorigin_setting('home_slider') != 'none' ) {
+	if( is_front_page() && !in_array( siteorigin_setting( 'home_slider' ), array( '', 'none' ) ) ) {
 		$settings_slider = siteorigin_setting( 'home_slider' );
 		$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
 
