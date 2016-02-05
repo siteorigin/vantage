@@ -36,12 +36,6 @@ function vantage_theme_settings(){
 	$settings->add_field('logo', 'in_menu_constrain', 'checkbox', __('Constrain Logo Height', 'vantage'), array(
 		'label' => __('Yes', 'vantage'),
 		'description' => __('When using the "logo in menu" masthead layout, constrain the logo size to fit the menu height.', 'vantage'),
-		'conditional' => array(
-			'show' => array(
-				'layout_masthead' => 'logo-in-menu',
-			),
-			'hide' => 'else'
-		)
 	) );
 
 	$settings->add_teaser('logo', 'image_retina', 'media', __('Retina Logo', 'vantage'), array(
@@ -179,12 +173,6 @@ function vantage_theme_settings(){
 			'excerpt' => __('Post Excerpt', 'vantage'),
 		),
 		'description' => __('Choose how to display posts on post archive when using default blog layout.', 'vantage'),
-		'conditional' => array(
-			'show' => array(
-				'blog_archive_layout' => 'blog',
-			),
-			'hide' => 'else'
-		)
 	));
 
 	$settings->add_field('blog', 'featured_image_type', 'select', __('Featured Image Type', 'vantage'), array(
@@ -265,10 +253,6 @@ function vantage_theme_settings(){
 	$settings->add_field( 'general', 'site_info_text', 'text', __( 'Site Information Text', 'vantage' ), array(
 		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' )
 	) );
-
-	$settings->add_teaser('general', 'adaptive_images', 'checkbox', __('Mobile Adaptive Images', 'vantage'), array(
-		'description' => __('Rescale images to the most appropriate size for mobile devices.', 'vantage'),
-	));
 
 	$settings->add_field('general', 'js_enqueue_footer', 'checkbox', __('Enqueue JavaScript in Footer', 'vantage'), array(
 		'description' => __('Enqueue JavaScript files in the footer, if possible.', 'vantage'),
