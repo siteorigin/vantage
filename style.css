@@ -1902,6 +1902,28 @@ article.page.post-with-thumbnail-icon .entry-main {
 #commentform .required {
   color: #a40802;
 }
+/* Vantage Jetpack Subscription Form */
+#commentform p.comment-subscription-form {
+  margin-bottom: 0px;
+}
+#commentform p.comment-subscription-form input[type="checkbox"] {
+  float: none;
+  font-size: 1em;
+  line-height: 1.92857em;
+  vertical-align: middle;
+}
+#commentform p.comment-subscription-form label.subscribe-label {
+  font-size: 1em;
+  float: none;
+  line-height: 1.92857em;
+  font-weight: normal;
+  margin: 0;
+  padding-left: 10px;
+  width: auto;
+}
+#commentform p.form-submit {
+  margin-bottom: 2em;
+}
 @media (max-width: 480px) {
   body.responsive #commentform label {
     float: none;
@@ -2000,28 +2022,6 @@ body.layout-full {
 .page .panel-grid-cell .entry-meta {
   display: block;
   /* Display entry meta on pages if within a Page Builder cell (Post Loop widget) */
-}
-/* Vantage Jetpack Subscription Form */
-#commentform p.comment-subscription-form {
-  margin-bottom: 0px;
-}
-#commentform p.comment-subscription-form input[type="checkbox"] {
-  float: none;
-  font-size: 1em;
-  line-height: 1.92857em;
-  vertical-align: middle;
-}
-#commentform p.comment-subscription-form label.subscribe-label {
-  font-size: 1em;
-  float: none;
-  line-height: 1.92857em;
-  font-weight: normal;
-  margin: 0;
-  padding-left: 10px;
-  width: auto;
-}
-#commentform p.form-submit {
-  margin-bottom: 2em;
 }
 /* =Sliders
 ----------------------------------------------- */
