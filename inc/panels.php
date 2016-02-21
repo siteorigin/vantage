@@ -247,7 +247,6 @@ function vantage_panels_panels_row_style_attributes($attr, $style) {
 	if(!empty($style['background'])) $attr['style'] .= 'background-color: '.esc_attr($style['background']).'; ';
 	if(!empty($style['background_image'])) $attr['style'] .= 'background-image: url('.esc_url($style['background_image']).'); ';
 	if(!empty($style['background_image_repeat'])) $attr['style'] .= 'background-repeat: repeat; ';
-	if(!empty($style['row_css'])) $attr['style'] .= $style['row_css'];
 
 	if( isset($style['row_stretch']) && strpos($style['row_stretch'], 'full') !== false ) {
 		// We'll use this to prevent the jump when loading.
