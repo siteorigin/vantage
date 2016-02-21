@@ -186,7 +186,27 @@ function vantage_panels_row_styles($styles) {
 }
 add_filter('siteorigin_panels_row_styles', 'vantage_panels_row_styles');
 
+function vantage_panels_save_post( $post_id, $post ){
+	if( get_post_meta( $post_id, 'vantage_panels_no_legacy', true ) === '' ) {
+
+		if( get_post_meta( $post_id, 'panels_data', true ) === '' ) {
+			// There is no panels_data, so don't use legacy fields
+			add_post_meta( $post_id, 'vantage_panels_no_legacy', 'true', true );
+		}
+		else {
+			// There is existing panels_data, so add legacy fields
+			add_post_meta( $post_id, 'vantage_panels_no_legacy', 'false', true );
+		}
+
+	}
+
+}
+add_action('save_post', 'vantage_panels_save_post', 5, 2);
+
 function vantage_panels_row_style_fields($fields) {
+	if( !empty($_REQUEST['postId']) && get_post_meta( intval( $_REQUEST['postId'] ), 'vantage_panels_no_legacy', true ) === 'true' ) {
+		return $fields;
+	}
 
 	$fields['top_border'] = array(
 		'name' => __('Top Border Color', 'vantage'),
