@@ -5,7 +5,7 @@
  *
  * @action wp_enqueue_scripts
  */
-function vantage_mobilenav_enqueue_scripts() {
+function siteorigin_mobilenav_enqueue_scripts() {
 	$root_uri = get_template_directory_uri() . '/inc/mobilenav/';
 
 	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
@@ -19,10 +19,10 @@ function vantage_mobilenav_enqueue_scripts() {
 	if( siteorigin_setting('navigation_responsive_menu_text') ) {
 		$text['navigate'] = siteorigin_setting('navigation_responsive_menu_text');
 	}
-	$text = apply_filters('vantage_mobilenav_text', $text);
+	$text = apply_filters('siteorigin_mobilenav_text', $text);
 
 	$search = array( 'url' => get_home_url(), 'placeholder' => __( 'Search', 'vantage' ) );
-	$search = apply_filters('vantage_mobilenav_search', $search);
+	$search = apply_filters('siteorigin_mobilenav_search', $search);
 
 	wp_localize_script( 'siteorigin-mobilenav', 'mobileNav', array(
 		'search' => $search,
@@ -31,7 +31,7 @@ function vantage_mobilenav_enqueue_scripts() {
 	) );
 	wp_enqueue_style( 'siteorigin-mobilenav', $root_uri . 'css/mobilenav.css', array(), SITEORIGIN_THEME_VERSION );
 }
-add_action( 'wp_enqueue_scripts', 'vantage_mobilenav_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'siteorigin_mobilenav_enqueue_scripts' );
 
 /**
  * Filter navigation menu to add mobile markers.
@@ -40,9 +40,9 @@ add_action( 'wp_enqueue_scripts', 'vantage_mobilenav_enqueue_scripts' );
  * @param $args
  * @return string
  */
-function vantage_mobilenav_nav_filter($nav_menu, $args){
+function siteorigin_mobilenav_nav_filter($nav_menu, $args){
 	$args = (object) $args;
-	if( empty($args->theme_location) && !apply_filters('vantage_mobilenav_is_valid', false, $args) ) return $nav_menu;
+	if( empty($args->theme_location) && !apply_filters('siteorigin_mobilenav_is_valid', false, $args) ) return $nav_menu;
 
 	static $mobile_nav_id = 1;
 
@@ -62,7 +62,7 @@ function vantage_mobilenav_nav_filter($nav_menu, $args){
 		'back' => __( 'Back', 'vantage' ),
 		'close' => __( 'Close', 'vantage' ),
 	);
-	$text = apply_filters('vantage_mobilenav_text', $text);
+	$text = apply_filters('siteorigin_mobilenav_text', $text);
 
 	$wrap_class = $args->menu_class ? $args->menu_class : '';
 	$wrap_id = 'mobile-nav-item-wrap-'.$mobile_nav_id;
@@ -76,11 +76,11 @@ function vantage_mobilenav_nav_filter($nav_menu, $args){
 
 	return $nav_menu;
 }
-add_filter('wp_nav_menu', 'vantage_mobilenav_nav_filter', 10, 2);
-add_filter('wp_page_menu', 'vantage_mobilenav_nav_filter', 10, 2);
+add_filter('wp_nav_menu', 'siteorigin_mobilenav_nav_filter', 10, 2);
+add_filter('wp_page_menu', 'siteorigin_mobilenav_nav_filter', 10, 2);
 
-function vantage_mobilenav_nav_menu_css(){
-	$mobile_resolution = apply_filters('vantage_mobilenav_resolution', 480);
+function siteorigin_mobilenav_nav_menu_css(){
+	$mobile_resolution = apply_filters('siteorigin_mobilenav_resolution', 480);
 
 	?>
 	<style type="text/css">
@@ -89,7 +89,7 @@ function vantage_mobilenav_nav_menu_css(){
 	</style>
 	<?php
 }
-add_action('wp_head', 'vantage_mobilenav_nav_menu_css');
+add_action('wp_head', 'siteorigin_mobilenav_nav_menu_css');
 
 /**
  * Add custom body classes.
@@ -97,8 +97,8 @@ add_action('wp_head', 'vantage_mobilenav_nav_menu_css');
  * @param $classes
  * @return array
  */
-function vantage_mobilenav_body_class($classes){
+function siteorigin_mobilenav_body_class($classes){
 	$classes[] = 'mobilenav';
 	return $classes;
 }
-add_filter('body_class', 'vantage_mobilenav_body_class');
+add_filter('body_class', 'siteorigin_mobilenav_body_class');
