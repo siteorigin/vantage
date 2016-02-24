@@ -222,7 +222,23 @@ function vantage_display_logo(){
 			'alt' => sprintf( __('%s Logo', 'vantage'), get_bloginfo('name') ),
 		) );
 
-		if($logo_attributes['width'] > vantage_get_site_width()) {
+		// Try adding the retina logo
+		$retina_logo = siteorigin_setting( 'logo_image_retina' );
+		if( !empty($retina_logo) ) {
+			if( is_numeric( $retina_logo ) ) {
+				$retina_logo = apply_filters('vantage_logo_retina_image_id', $retina_logo);
+				$retina_logo_image = wp_get_attachment_image_src($retina_logo, 'full');
+				if( !empty($retina_logo_image[0]) ) {
+					$retina_logo = $retina_logo_image[0];
+				}
+			}
+
+			if( !empty($retina_logo) ) {
+				$logo_attributes['srcset'] = $retina_logo . ' 2x';
+			}
+		}
+
+		if( $logo_attributes['width'] > vantage_get_site_width() ) {
 			// Don't let the width be more than the site width.
 			$width = vantage_get_site_width();
 			$logo_attributes['height'] = round($logo_attributes['height'] / ($logo_attributes['width'] / $width));
