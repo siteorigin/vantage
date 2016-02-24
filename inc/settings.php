@@ -38,11 +38,10 @@ function vantage_theme_settings(){
 		'description' => __('When using the "logo in menu" masthead layout, constrain the logo size to fit the menu height.', 'vantage'),
 	) );
 
-	$settings->add_teaser('logo', 'image_retina', 'media', __('Retina Logo', 'vantage'), array(
+	$settings->add_field('logo', 'image_retina', 'media', __('Retina Logo', 'vantage'), array(
 		'choose' => __('Choose Image', 'vantage'),
 		'update' => __('Set Logo', 'vantage'),
 		'description' => __('A double sized version of your logo for retina displays. Must be used in addition to standard logo.', 'vantage'),
-		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/retina-logo.png',
 	) );
 
 	$settings->add_field('logo', 'header_text', 'text', __('Header Text', 'vantage'), array(
@@ -96,16 +95,15 @@ function vantage_theme_settings(){
 	 * Navigation settings
 	 */
 
-	$settings->add_teaser('navigation', 'responsive_menu', 'checkbox', __('Responsive Menu', 'vantage'), array(
+	$settings->add_field('navigation', 'responsive_menu', 'checkbox', __('Responsive Menu', 'vantage'), array(
 		'description' => __('Use a special responsive menu for small screen devices.', 'vantage'),
-		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/mobile-nav.png',
 	));
 
-	$settings->add_teaser('navigation', 'responsive_menu_text', 'text', __('Responsive Menu Text', 'vantage'), array(
+	$settings->add_field('navigation', 'responsive_menu_text', 'text', __('Responsive Menu Text', 'vantage'), array(
 		'description' => __('The button used for the responsive menu.', 'vantage')
 	));
 
-	$settings->add_teaser('navigation', 'responsive_menu_search', 'checkbox', __('Responsive Menu Search', 'vantage'), array(
+	$settings->add_field('navigation', 'responsive_menu_search', 'checkbox', __('Responsive Menu Search', 'vantage'), array(
 		'description' => __('Enable search in the responsive menu.', 'vantage')
 	));
 
@@ -231,19 +229,8 @@ function vantage_theme_settings(){
 	 * Social Settings
 	 */
 
-	$settings->add_teaser('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
+	$settings->add_field('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
 		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage')
-	));
-
-	$settings->add_teaser('social', 'share_post', 'checkbox', __('Post Sharing', 'vantage'), array(
-		'description' => __('Show icons to share your posts on Facebook, Twitter and Google+.', 'vantage'),
-		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/share.png',
-	));
-
-	$settings->add_teaser('social', 'twitter', 'text', __('Twitter Handle', 'vantage'), array(
-		'validator' => 'twitter',
-		'description' => __('This handle will be recommended after a user shares one of your posts.', 'vantage'),
-		'teaser-image' => get_template_directory_uri().'/upgrade/teasers/share-rec.png',
 	));
 
 	/**
@@ -310,8 +297,6 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['blog_read_more'] = __('Continue reading', 'vantage');
 
 	$defaults['social_ajax_comments'] = true;
-	$defaults['social_share_post'] = true;
-	$defaults['social_twitter'] = '';
 
 	$defaults['general_site_info_text'] = '';
 	$defaults['general_adaptive_images'] = false;
