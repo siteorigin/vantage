@@ -1,0 +1,72 @@
+.metaslider .left table .slide .prebuiltSlides {
+    text-align: center;
+    cursor: pointer;
+}
+
+#siteorigin-metaslider-prebuilt-layouts-overlay{
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: black;
+    opacity: 0.8;
+}
+
+#siteorigin-metaslider-prebuilt-layouts {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    background: #F8F8F8;
+    padding: 25px;
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#siteorigin-metaslider-prebuilt-layouts .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #666;
+    line-height: 1em;
+    display: block;
+    padding: 2px 5px;
+}
+
+#siteorigin-metaslider-prebuilt-layouts h2 {
+    font-size: 20px;
+    font-weight: 200;
+    margin-top: 0;
+}
+
+#siteorigin-metaslider-prebuilt-layouts .layouts .layout {
+    cursor: pointer;
+    float: left;
+    margin-right: 20px;
+    padding-bottom: 5px;
+}
+
+#siteorigin-metaslider-prebuilt-layouts .layouts .layout:hover {
+    background: #F3F3F3;
+}
+
+#siteorigin-metaslider-prebuilt-layouts .layouts .layout img {
+    width: 280px;
+    height: 158px;
+}
+
+#siteorigin-metaslider-prebuilt-layouts .layouts .layout h4 {
+    margin: 5px 0 0 0;
+    text-align: center;
+}
