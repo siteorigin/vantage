@@ -173,6 +173,7 @@ function vantage_is_woocommerce_active() {
 	return in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
 }
 
+if( !function_exists('vantage_register_custom_background') ) :
 /**
  * Setup the WordPress core custom background feature.
  * 
@@ -191,8 +192,11 @@ function vantage_register_custom_background() {
 	}
 
 }
+endif;
 add_action( 'after_setup_theme', 'vantage_register_custom_background' );
 
+
+if( !function_exists('vantage_widgets_init') ) :
 /**
  * Register widgetized area and update sidebar with default widgets
  *
@@ -237,8 +241,14 @@ function vantage_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 }
+endif;
 add_action( 'widgets_init', 'vantage_widgets_init' );
 
+
+if( !function_exists('vantage_print_styles') ) :
+/**
+ * Print all the necessary Vantage styles in the header.
+ */
 function vantage_print_styles(){
 	if( !siteorigin_setting('layout_responsive') ) return;
 
@@ -256,8 +266,11 @@ function vantage_print_styles(){
 	</style>
 	<?php
 }
+endif;
 add_action('wp_head', 'vantage_print_styles', 11);
 
+
+if( !function_exists('vantage_scripts') ) :
 /**
  * Enqueue scripts and styles
  */
@@ -282,8 +295,10 @@ function vantage_scripts() {
 		wp_enqueue_script( 'vantage-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation' . $js_suffix . '.js', array( 'jquery' ), '20120202', $in_footer );
 	}
 }
+endif;
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
 
+if( !function_exists('vantage_web_fonts') ) :
 /**
  * Enqueue any webfonts we need
  */
@@ -292,8 +307,11 @@ function vantage_web_fonts(){
 		wp_enqueue_style('vantage-google-webfont-roboto', '//fonts.googleapis.com/css?family=Roboto:300');
 	}
 }
+endif;
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
 
+
+if( !function_exists('vantage_wp_head') ) :
 function vantage_wp_head(){
 	?>
 	<!--[if lt IE 9]>
@@ -304,16 +322,21 @@ function vantage_wp_head(){
 	<![endif]-->
 	<?php
 }
+endif;
 add_action('wp_head', 'vantage_wp_head');
 
+
+if( !function_exists('vantage_top_text_area') ) :
 /**
  * Display some text in the text area.
  */
 function vantage_top_text_area(){
 	echo wp_kses_post( siteorigin_setting('logo_header_text') );
 }
+endif;
 add_action('vantage_support_text', 'vantage_top_text_area');
 
+if( !function_exists('vantage_back_to_top') ) :
 /**
  * Display the scroll to top link.
  */
@@ -321,8 +344,10 @@ function vantage_back_to_top() {
 	if( !siteorigin_setting('navigation_display_scroll_to_top') ) return;
 	?><a href="#" id="scroll-to-top" title="<?php esc_attr_e('Back To Top', 'vantage') ?>"><span class="vantage-icon-arrow-up"></span></a><?php
 }
+endif;
 add_action('wp_footer', 'vantage_back_to_top');
 
+if( !function_exists('vantage_get_query_variables') ) :
 /**
  * @return mixed
  */
@@ -339,7 +364,9 @@ function vantage_get_query_variables(){
 
 	return $vars;
 }
+endif;
 
+if( !function_exists('vantage_render_slider') ) :
 /**
  * Render the slider.
  */
@@ -388,7 +415,10 @@ function vantage_render_slider(){
 	?></div><?php
 	$vantage_is_main_slider = false;
 }
+endif;
 
+
+if( !function_exists('vantage_post_class_filter') ) :
 function vantage_post_class_filter($classes){
 	$classes[] = 'post';
 
@@ -400,8 +430,11 @@ function vantage_post_class_filter($classes){
 	$classes = array_unique($classes);
 	return $classes;
 }
+endif;
 add_filter('post_class', 'vantage_post_class_filter');
 
+
+if( !function_exists('vantage_filter_vantage_post_on_parts') ) :
 /**
  * Filter the posted on parts to remove the ones disabled in settings.
  *
@@ -415,8 +448,11 @@ function vantage_filter_vantage_post_on_parts($parts){
 
 	return $parts;
 }
+endif;
 add_filter('vantage_post_on_parts', 'vantage_filter_vantage_post_on_parts');
 
+
+if( !function_exists('vantage_get_site_width') ) :
 /**
  * Get the site width.
  *
@@ -425,7 +461,10 @@ add_filter('vantage_post_on_parts', 'vantage_filter_vantage_post_on_parts');
 function vantage_get_site_width(){
 	return apply_filters('vantage_site_width', !empty($GLOBALS['vantage_site_width']) ? $GLOBALS['vantage_site_width'] : 1080);
 }
+endif;
 
+
+if( !function_exists('vantage_responsive_header') ) :
 /**
  * Add the responsive header
  */
@@ -437,8 +476,11 @@ function vantage_responsive_header(){
 		?><meta name="viewport" content="width=1280" /><?php
 	}
 }
+endif;
 add_action('wp_head', 'vantage_responsive_header');
 
+
+if( !function_exists('vantage_footer_site_info_sub') ) :
 /**
 
  * Handles the site title, copyright symbol and year string replace for the Footer Copyright theme option.
@@ -453,5 +495,5 @@ function vantage_footer_site_info_sub($copyright){
 	);
 
 }
-
+endif;
 add_filter( 'vantage_site_info', 'vantage_footer_site_info_sub' );

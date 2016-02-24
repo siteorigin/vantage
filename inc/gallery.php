@@ -8,6 +8,7 @@
  */
 
 
+if ( !function_exists( 'vantage_gallery' ) ) :
 /**
  * Display a flex slider powered gallery.
  *
@@ -107,8 +108,11 @@ function vantage_gallery($contents, $attr){
 
 	return $return;
 }
+endif;
 add_filter('post_gallery', 'vantage_gallery', 10, 2);
 
+
+if ( !function_exists( 'vantage_gallery_types' ) ) :
 /**
  * Add our fancy slider gallery to the list of gallery types.
  * 
@@ -121,8 +125,11 @@ function vantage_gallery_types($types){
 	$types['slider'] = __('Slider', 'vantage');
 	return $types;
 }
+endif;
 add_filter('siteorigin_gallery_types', 'vantage_gallery_types');
 
+
+if ( !function_exists( 'vantage_gallery_default_type' ) ) :
 /**
  * Set our fancy gallery to the default gallery type.
  *
@@ -134,4 +141,5 @@ add_filter('siteorigin_gallery_types', 'vantage_gallery_types');
 function vantage_gallery_default_type(){
 	return 'slider';
 }
+endif;
 add_filter('siteorigin_gallery_default_type', 'vantage_gallery_default_type');

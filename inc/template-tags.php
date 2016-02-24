@@ -7,7 +7,7 @@
  * @license GPL 2.0
  */
 
-if ( ! function_exists( 'vantage_content_nav' ) ) :
+if ( !function_exists( 'vantage_content_nav' ) ) :
 /**
  * Display navigation to next/previous pages when applicable
  *
@@ -70,6 +70,8 @@ function vantage_content_nav( $nav_id ) {
 }
 endif; // vantage_content_nav
 
+
+if ( !function_exists( 'vantage_content_nav_shorten_title' ) ) :
 /**
  * Filter the title to shorten it. This is used by vantage_content_nav function.
  *
@@ -83,6 +85,8 @@ function vantage_content_nav_shorten_title($title){
 
 	return $title;
 }
+endif;
+
 
 if ( ! function_exists( 'vantage_comment' ) ) :
 /**
@@ -139,6 +143,7 @@ function vantage_comment( $comment, $args, $depth ) {
 }
 endif; // ends check for vantage_comment()
 
+
 if ( ! function_exists( 'vantage_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
@@ -176,6 +181,7 @@ function vantage_posted_on() {
 	echo apply_filters('vantage_posted_on', $posted_on);
 }
 endif;
+
 
 if(!function_exists('vantage_display_logo')):
 /**
@@ -261,6 +267,8 @@ function vantage_display_logo(){
 }
 endif;
 
+
+if ( !function_exists( 'vantage_categorized_blog' ) ) :
 /**
  * Returns true if a blog has more than 1 category
  *
@@ -280,7 +288,10 @@ function vantage_categorized_blog() {
 	// Return true if this blog has categories, or else false.
 	return ($count >= 1);
 }
+endif;
 
+
+if ( !function_exists( 'vantage_category_transient_flusher' ) ) :
 /**
  * Flush out the transients used in vantage_categorized_blog
  *
@@ -289,8 +300,10 @@ function vantage_categorized_blog() {
 function vantage_category_transient_flusher() {
 	delete_transient( 'vantage_categorized_blog_cache_count' );
 }
+endif;
 add_action( 'edit_category', 'vantage_category_transient_flusher' );
 add_action( 'save_post', 'vantage_category_transient_flusher' );
+
 
 if( !function_exists( 'vantage_get_archive_title' ) ) :
 /**
@@ -341,6 +354,8 @@ function vantage_get_archive_title(){
 }
 endif;
 
+
+if ( !function_exists( 'vantage_get_post_categories' ) ) :
 /**
  * Get the post meta.
  * 
@@ -384,7 +399,10 @@ function vantage_get_post_categories(){
 	
 	return apply_filters('vantage_post_meta', $meta);
 }
+endif;
 
+
+if ( !function_exists( 'vantage_next_attachment_url' ) ) :
 /**
  * Gets the URL that should be displayed when clicking on an image in the view image page.
  * 
@@ -432,6 +450,8 @@ function vantage_next_attachment_url($post = null){
 	
 	return $next_attachment_url;
 }
+endif;
+
 
 if( !function_exists( 'vantage_pagination' ) ) :
 /**

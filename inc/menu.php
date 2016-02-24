@@ -2,6 +2,8 @@
 
 /* Handle the nav menu icon */
 
+
+if( !function_exists('vantage_filter_nav_menu_items') ) :
 function vantage_filter_nav_menu_items($item_output, $item, $depth, $args){
 	$object_type = get_post_meta($item->ID, '_menu_item_object', true);
 
@@ -29,8 +31,11 @@ function vantage_filter_nav_menu_items($item_output, $item, $depth, $args){
 
 	return $item_output;
 }
+endif;
 add_filter('walker_nav_menu_start_el', 'vantage_filter_nav_menu_items', 10, 4);
 
+
+if( !function_exists('vantage_menu_icon_metabox') ) :
 /**
  * Add the metabox for menu icon.
  */
@@ -43,8 +48,11 @@ function vantage_menu_icon_metabox(){
 		'side'
 	);
 }
+endif;
 add_action('add_meta_boxes', 'vantage_menu_icon_metabox');
 
+
+if( !function_exists('vantage_menu_icon_metabox_render') ) :
 /**
  * @param $post
  */
@@ -70,7 +78,10 @@ function vantage_menu_icon_metabox_render($post){
 	<?php
 	wp_nonce_field('save_post_icon', '_vantage_menuicon_nonce');
 }
+endif;
 
+
+if( !function_exists('vantage_icon_get_name') ) :
 /**
  * @param $icon
  * @return string
@@ -82,7 +93,10 @@ function vantage_icon_get_name($icon){
 	$name = ucwords($name);
 	return $name;
 }
+endif;
 
+
+if( !function_exists('vantage_menu_icon_save') ) :
 /**
  * Save tge post icon setting
  *
@@ -93,4 +107,5 @@ function vantage_menu_icon_save($post_id){
 	if(!current_user_can('edit_post', $post_id));
 	update_post_meta($post_id, 'vantage_menu_icon', $_POST['vantage_menu_icon']);
 }
+endif;
 add_action('save_post', 'vantage_menu_icon_save');
