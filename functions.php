@@ -13,10 +13,6 @@ define('SITEORIGIN_THEME_JS_PREFIX', '');
 // Load the new settings framework
 include get_template_directory() . '/inc/settings/settings.php';
 
-// Include all the SiteOrigin extras
-include get_template_directory() . '/extras/plugin-activation/plugin-activation.php';
-include get_template_directory() . '/extras/metaslider/metaslider.php';
-
 // Load the theme specific files
 include get_template_directory() . '/inc/panels.php';
 include get_template_directory() . '/inc/settings.php';
