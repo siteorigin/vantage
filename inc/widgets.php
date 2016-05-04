@@ -47,23 +47,25 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		if ( ! empty( $icon ) ) {
 			$icon = apply_filters('vantage_fontawesome_icon_name', $icon );
 		}
+
+		$target = (!empty($instance['more_target']) ? 'target="_blank"' : '');
 		?>
 		<div class="circle-icon-box circle-icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo empty($instance['box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?> circle-icon-size-<?php echo $instance['icon_size'] ?>">
 			<div class="circle-icon-wrapper">
-                <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon"><?php endif; ?>
+                <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon" <?php echo $target ?>><?php endif; ?>
 				<div class="circle-icon" <?php if(!empty($icon_styles)) echo 'style="'.implode(';', $icon_styles).'"' ?>>
 					<?php if(!empty($icon)) : ?><div class="<?php echo esc_attr($icon) ?>"></div><?php endif; ?>
 				</div>
                 <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
 			</div>
 
-            <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-title"><?php endif; ?>
+            <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-title" <?php echo $target ?>><?php endif; ?>
 			<?php if(!empty($instance['title'])) : ?><h4><?php echo wp_kses_post( apply_filters('widget_title', $instance['title'] ) ) ?></h4><?php endif; ?>
             <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
 
 			<?php if(!empty($instance['text'])) : ?><p class="text"><?php echo wp_kses_post($instance['text']) ?></p><?php endif; ?>
 			<?php if(!empty($instance['more_url'])) : ?>
-				<a href="<?php echo esc_url($instance['more_url']) ?>" class="more-button"><?php echo !empty($instance['more']) ? esc_html($instance['more']) : __('More Info', 'vantage') ?> <i></i></a>
+				<a href="<?php echo esc_url($instance['more_url']) ?>" class="more-button" <?php echo $target ?>><?php echo !empty($instance['more']) ? esc_html($instance['more']) : __('More Info', 'vantage') ?> <i></i></a>
 			<?php endif; ?>
 		</div>
 		<?php
@@ -90,6 +92,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			'more' => '',
 			'more_url' => '',
 			'all_linkable' => false,
+			'more_target' => false,
 			'box' => false,
 		) );
 
@@ -160,6 +163,12 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
                 <?php _e('Link title and icon to "More URL"', 'vantage') ?>
             </label>
         </p>
+		<p>
+            <label for="<?php echo $this->get_field_id('more_target') ?>">
+                <input type="checkbox" id="<?php echo $this->get_field_id('more_target') ?>" name="<?php echo $this->get_field_name('more_target') ?>" <?php checked( $instance['more_target'] ) ?> />
+                <?php _e('Open link in a new tab', 'vantage') ?>
+            </label>
+        </p>
 		<!--
 		<p>
 			<label for="<?php echo $this->get_field_id('box') ?>">
@@ -174,6 +183,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$new_instance['box'] = !empty($new_instance['box']);
 		$new_instance['all_linkable'] = !empty($new_instance['all_linkable']);
+		$new_instance['more_target'] = !empty($new_instance['more_target']);
 		return $new_instance;
 	}
 }
