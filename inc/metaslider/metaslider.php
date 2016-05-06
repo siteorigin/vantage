@@ -3,6 +3,7 @@
  * Tight integration with Meta Slider
  */
 
+if( !function_exists('siteorigin_metaslider_register_admin_scripts') ) :
 /**
  * Enqueue scripts and styles for meta slider
  */
@@ -19,8 +20,10 @@ function siteorigin_metaslider_register_admin_scripts(){
 		wp_enqueue_style('siteorigin-metaslider-editor-style', get_template_directory_uri().'/slider/metaslider-editor-style.css',  array(), SITEORIGIN_THEME_VERSION);
 	}
 }
+endif;
 add_action('metaslider_register_admin_scripts', 'siteorigin_metaslider_register_admin_scripts');
 
+if( !function_exists('siteorigin_metaslider_prebuilt_window') ) :
 /**
  *
  */
@@ -46,8 +49,10 @@ function siteorigin_metaslider_prebuilt_window(){
 		<?php
 	}
 }
+endif;
 add_action('admin_footer', 'siteorigin_metaslider_prebuilt_window');
 
+if( !function_exists('siteorigin_metaslider_prebuilt_layouts') ) :
 /**
  * @return mixed|void
  */
@@ -64,7 +69,9 @@ function siteorigin_metaslider_prebuilt_layouts(){
 
 	return $layouts;
 }
+endif;
 
+if( !function_exists('siteorigin_metaslider_get_options') ) :
 function siteorigin_metaslider_get_options($has_demo = true){
 	$options = array( '' => __('None', 'vantage') );
 
@@ -84,7 +91,9 @@ function siteorigin_metaslider_get_options($has_demo = true){
 
 	return $options;
 }
+endif;
 
+if( !function_exists('siteorigin_metaslider_install_link') ) :
 function siteorigin_metaslider_install_link(){
 	if( function_exists('siteorigin_plugin_activation_install_url') ) {
 		return siteorigin_plugin_activation_install_url('ml-slider', 'MetaSlider');
@@ -93,12 +102,16 @@ function siteorigin_metaslider_install_link(){
 		return 'http://downloads.wordpress.org/plugin/ml-slider.zip';
 	}
 }
+endif;
 
+if( !function_exists('siteorigin_metaslider_affiliate') ) :
 function siteorigin_metaslider_affiliate(){
 	return 'https://getdpd.com/cart/hoplink/15318?referrer=2h2i49ktlxic4s4osog';
 }
+endif;
 add_filter('metaslider_hoplink', 'siteorigin_metaslider_affiliate');
 
+if( !function_exists('siteorigin_metaslider_layer') ) :
 /**
  * Create the HTML for a slider layer.
  *
@@ -152,3 +165,4 @@ function siteorigin_metaslider_layer($content, $layer_style, $position, $size, $
 
 	return ob_get_clean();
 }
+endif;

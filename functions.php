@@ -138,6 +138,7 @@ function vantage_setup() {
 endif; // vantage_setup
 add_action( 'after_setup_theme', 'vantage_setup' );
 
+if ( ! function_exists( 'vantage_infinite_scroll_settings' ) ) :
 // Override Jetpack Infinite Scroll default behaviour of ignoring explicit posts_per_page setting when type is 'click'.
 function vantage_infinite_scroll_settings( $settings ) {
 	if ( $settings['type'] == 'click' ) {
@@ -150,7 +151,9 @@ function vantage_infinite_scroll_settings( $settings ) {
 	}
 	return $settings;
 }
+endif;
 
+if ( ! function_exists( 'vantage_infinite_scroll_render' ) ) :
 function vantage_infinite_scroll_render() {
 	ob_start();
 	get_template_part( 'loops/loop', siteorigin_setting( 'blog_archive_layout' ) );
@@ -162,7 +165,9 @@ function vantage_infinite_scroll_render() {
 	$var = preg_replace( '/<\/div>$/', '', $var );
 	echo $var;
 }
+endif;
 
+if ( ! function_exists( 'vantage_is_woocommerce_active' ) ) :
 /**
  * Check that WooCommerce is active
  *
@@ -171,11 +176,12 @@ function vantage_infinite_scroll_render() {
 function vantage_is_woocommerce_active() {
 	return in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
 }
+endif;
 
 if( !function_exists('vantage_register_custom_background') ) :
 /**
  * Setup the WordPress core custom background feature.
- * 
+ *
  * @since vantage 1.0
  */
 function vantage_register_custom_background() {

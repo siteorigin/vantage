@@ -329,6 +329,7 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 	}
 }
 
+if( !function_exists('vantage_register_widgets') ) :
 /**
  * Register the Vantage specific widgets.
  */
@@ -337,8 +338,10 @@ function vantage_register_widgets(){
 	register_widget('Vantage_CircleIcon_Widget');
 	register_widget('Vantage_Headline_Widget');
 }
+endif;
 add_action( 'widgets_init', 'vantage_register_widgets');
 
+if( !function_exists('vantage_filter_carousel_loop') ) :
 /**
  * Filter the carousel loop title to add navigation controls.
  */
@@ -352,8 +355,10 @@ function vantage_filter_carousel_loop($title, $instance = array(), $id = false){
 	}
 	return $title;
 }
+endif;
 add_filter('widget_title', 'vantage_filter_carousel_loop', 10, 3);
 
+if( !function_exists('vantage_carousel_ajax_handler') ) :
 /**
  * Handle ajax requests for the carousel.
  */
@@ -407,5 +412,6 @@ function vantage_carousel_ajax_handler(){
 
 	exit();
 }
+endif;
 add_action('wp_ajax_vantage_carousel_load', 'vantage_carousel_ajax_handler');
 add_action('wp_ajax_nopriv_vantage_carousel_load', 'vantage_carousel_ajax_handler');
