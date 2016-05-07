@@ -138,6 +138,12 @@ function vantage_setup() {
 endif; // vantage_setup
 add_action( 'after_setup_theme', 'vantage_setup' );
 
+function vantage_siteorigin_css_snippets_paths( $paths ){
+	$paths[] = get_template_directory() . '/snippets/';
+	return $paths;
+}
+add_filter( 'siteorigin_css_snippet_paths', 'vantage_siteorigin_css_snippets_paths' );
+
 // Override Jetpack Infinite Scroll default behaviour of ignoring explicit posts_per_page setting when type is 'click'.
 function vantage_infinite_scroll_settings( $settings ) {
 	if ( $settings['type'] == 'click' ) {

@@ -1,0 +1,7 @@
+/*
+Name: Uppercase Main Menu
+Description: Change the main menu to only display items in uppercase letters. No adjustment of the below value is required. */
+
+.main-navigation a {
+	text-transform: uppercase;
+}

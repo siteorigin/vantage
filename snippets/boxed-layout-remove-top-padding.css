@@ -1,0 +1,7 @@
+/*
+Name: Boxed Layout: Remove Top Padding
+Description: Theme Settings > Layout > Layout Bound > Boxed introduces a container top padding, use this snippet to remove it. No adjustment of the below value is required. */
+
+#page-wrapper {
+  padding-top: 0;
+}

@@ -1,0 +1,7 @@
+/*
+Name: Set Main Meta Slider Background Color
+Description: Set the background color for the main Meta Slider. Only visible in Full Width layout with the slider stretch off. Adjust the background color value below as required. */
+
+#main-slider {
+	background: #eeeeee;
+}

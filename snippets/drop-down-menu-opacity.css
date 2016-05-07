@@ -1,0 +1,10 @@
+/*
+Name: Set Drop Down Menu Opacity
+Description: Set opacity for the main menu drop down background and hover. In each property the first three values represent the color, the last represents the opacity. Adjust the values below as required. */
+
+.main-navigation ul ul { 
+	background: rgba(52, 53, 56, 0.8);
+} 
+.main-navigation ul ul li:hover > a { 
+	background: rgba(0, 188, 255, 0.8);  
+}
