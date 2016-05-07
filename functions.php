@@ -530,3 +530,34 @@ function vantage_footer_site_info_sub($copyright){
 }
 endif;
 add_filter( 'vantage_site_info', 'vantage_footer_site_info_sub' );
+
+
+if( ! function_exists( 'vantage_filter_mobilenav' ) ) :
+function vantage_filter_mobilenav($text){
+
+	if( siteorigin_setting('navigation_responsive_menu_text') ) {
+		$text['navigate'] = siteorigin_setting('navigation_responsive_menu_text');
+	}
+	return $text;
+}
+endif;
+add_filter('siteorigin_mobilenav_text', 'vantage_filter_mobilenav');
+
+
+if( ! function_exists( 'vantage_filter_mobilenav_collapse' ) ) :
+function vantage_filter_mobilenav_collapse($collpase){
+	return siteorigin_setting('navigation_responsive_menu_collapse');
+}
+endif;
+add_filter('siteorigin_mobilenav_resolution', 'vantage_filter_mobilenav_collapse');
+
+
+if( ! function_exists( 'vantage_filter_mobilenav_search' ) ) :
+function vantage_filter_mobilenav_search( $search ) {
+	if( siteorigin_setting( 'navigation_responsive_menu_search' ) ) {
+		return $search;
+	}
+	return false;
+}
+endif;
+add_filter( 'siteorigin_mobilenav_search', 'vantage_filter_mobilenav_search' );

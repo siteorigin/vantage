@@ -100,6 +100,11 @@ function vantage_theme_settings(){
 		'description' => __('Use a special responsive menu for small screen devices.', 'vantage'),
 	));
 
+	$settings->add_field('navigation', 'responsive_menu_collapse', 'number', __('Responsive Menu Collapse', 'vantage'), array(
+		'description' => __('The resolution when the menu collapses into a mobile navigation menu.', 'vantage'),
+		'min' => 480,
+	) );
+
 	$settings->add_field('navigation', 'responsive_menu_text', 'text', __('Responsive Menu Text', 'vantage'), array(
 		'description' => __('The button used for the responsive menu.', 'vantage')
 	));
@@ -277,8 +282,10 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['layout_force_panels_full'] = true;
 
 	$defaults['navigation_responsive_menu'] = true;
+	$defaults['navigation_responsive_menu_collapse'] = 480;
 	$defaults['navigation_responsive_menu_text'] = '';
 	$defaults['navigation_responsive_menu_search'] = true;
+
 	$defaults['navigation_use_sticky_menu'] = true;
 	$defaults['navigation_mobile_navigation'] = false;
 	$defaults['navigation_menu_search'] = true;
