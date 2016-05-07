@@ -229,7 +229,7 @@ function vantage_theme_settings(){
 	 * Social Settings
 	 */
 
-	$settings->add_field('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
+	$settings->add_teaser('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
 		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage')
 	));
 
@@ -239,6 +239,10 @@ function vantage_theme_settings(){
 
 	$settings->add_field( 'general', 'site_info_text', 'text', __( 'Site Information Text', 'vantage' ), array(
 		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' )
+	) );
+
+	$settings->add_teaser( 'general', 'attribution', 'checkbox', __( 'SiteOrigin Attribution', 'vantage' ), array(
+		'description' => __( "Display a link to SiteOrigin in your footer.", 'vantage' )
 	) );
 
 	$settings->add_field('general', 'js_enqueue_footer', 'checkbox', __('Enqueue JavaScript in Footer', 'vantage'), array(
@@ -299,7 +303,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['social_ajax_comments'] = true;
 
 	$defaults['general_site_info_text'] = '';
-	$defaults['general_adaptive_images'] = false;
+	$defaults['general_attribution'] = true;
 	$defaults['general_js_enqueue_footer'] = false;
 
 	return $defaults;

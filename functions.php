@@ -138,6 +138,28 @@ function vantage_setup() {
 endif; // vantage_setup
 add_action( 'after_setup_theme', 'vantage_setup' );
 
+if ( ! function_exists( 'vantage_premium_setup' ) ) :
+/**
+ * Add support for premium theme components
+ */
+function vantage_premium_setup(){
+
+	// This theme supports the no attribution addon
+	add_theme_support( 'siteorigin-premium-no-attribution', array(
+		'filter'  => 'vantage_footer_attribution',
+		'enabled' => siteorigin_setting( 'general_attribution' ),
+		'siteorigin_setting' => 'general_attribution'
+	) );
+
+	// This theme supports the ajax comments addon
+	add_theme_support( 'siteorigin-premium-ajax-comments', array(
+		'enabled' => siteorigin_setting( 'social_ajax_comments' ),
+		'siteorigin_setting' => 'social_ajax_comments'
+	) );
+}
+endif;
+add_action( 'after_setup_theme', 'vantage_premium_setup' );
+
 function vantage_siteorigin_css_snippets_paths( $paths ){
 	$paths[] = get_template_directory() . '/snippets/';
 	return $paths;
