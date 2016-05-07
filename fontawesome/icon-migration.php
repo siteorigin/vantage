@@ -149,7 +149,7 @@ $icon_migrations = array(
 	'zoom-out' => 'search-minus',
 );
 
-function migrate_fontawesome_icon( $current ){
+function vantage_migrate_fontawesome_icon( $current ){
 	global $icon_migrations;
 
 	if ( strpos( $current, 'icon-' ) === false ) {
@@ -168,4 +168,4 @@ function migrate_fontawesome_icon( $current ){
 	return 'fa fa-'. $new;
 }
 
-add_filter('vantage_fontawesome_icon_name', 'migrate_fontawesome_icon');
+add_filter('vantage_fontawesome_icon_name', 'vantage_migrate_fontawesome_icon');
