@@ -245,6 +245,16 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 			'twitter' => __('Twitter', 'vantage'),
 			'google-plus' => __('Google Plus', 'vantage'),
 			'rss' => __('RSS', 'vantage'),
+			'linkedin' => __('LinkedIn', 'vantage'),
+			'dribbble' => __('Dribbble', 'vantage'),
+			'flickr' => __('Flickr', 'vantage'),
+			'instagram' => __('Instagram', 'vantage'),
+			'pinterest' => __('Pinterest', 'vantage'),
+			'skype' => __('Skype', 'vantage'),
+			'youtube' => __('YouTube', 'vantage'),
+			'github' => __('GitHub', 'vantage'),
+			'vimeo' => __('Vimeo', 'vantage'),
+			'vk' => __('VK', 'vantage'),
 		));
 	}
 
@@ -272,15 +282,17 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 	}
 
 	public function form( $instance ) {
-		$instance = wp_parse_args($instance, array(
+		$instance = wp_parse_args( $instance, array(
 			'size' => 'medium',
 			'title' => '',
 			'new_window' => false,
 		) );
 
-		$sizes = apply_filters('vantage_social_widget_sizes', array(
+		$sizes = apply_filters( 'vantage_social_widget_sizes', array(
+			'large' => __('Large', 'vantage'),
 			'medium' => __('Medium', 'vantage'),
-		));
+			'small' => __('Small', 'vantage'),
+		) );
 
 		?>
 		<p>
@@ -303,7 +315,7 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 				<label for="<?php echo $this->get_field_id($id) ?>"><?php echo $name ?></label>
 				<input type="text" id="<?php echo $this->get_field_id($id) ?>" name="<?php echo $this->get_field_name($id) ?>" value="<?php echo esc_attr(!empty($instance[$id]) ? $instance[$id] : '') ?>" class="widefat"/>
 			</p>
-		<?php
+			<?php
 		}
 
 		?>
@@ -313,14 +325,6 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 
 		</p>
 		<?php
-
-		if(!defined('SITEORIGIN_IS_PREMIUM')) {
-			?>
-			<p style="background: #cbe385; padding: 8px;">
-				<?php printf(__('Get additional social and professional network icons and sizes in <a href="%s" target="_blank">Vantage Premium</a>.', 'vantage'), admin_url('themes.php?page=premium_upgrade')) ?>
-			</p>
-			<?php
-		}
 	}
 
 	public function update( $new_instance, $old_instance ) {
