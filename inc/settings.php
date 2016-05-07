@@ -7,9 +7,10 @@
  * @license GPL 2.0
  */
 
+if( !function_exists('vantage_theme_settings') ) :
 /**
  * Setup theme settings.
- * 
+ *
  * @since vantage 1.0
  */
 function vantage_theme_settings(){
@@ -61,7 +62,7 @@ function vantage_theme_settings(){
 	));
 
 	$settings->add_field('layout', 'fitvids', 'checkbox', __('Enable FitVids.js', 'vantage'), array(
-		'description' => __('Include FitVids.js fluid embedded video layouts.', 'vantage')	
+		'description' => __('Include FitVids.js fluid embedded video layouts.', 'vantage')
 	));
 
 	$settings->add_field('layout', 'bound', 'select', __('Layout Bound', 'vantage'), array(
@@ -184,7 +185,7 @@ function vantage_theme_settings(){
 	$settings->add_field('blog', 'featured_image', 'checkbox', __('Featured Image', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the featured image on a post single page.', 'vantage')
-	) );	
+	) );
 
 	$settings->add_field('blog', 'post_metadata', 'checkbox', __('Post Metadata', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
@@ -250,11 +251,13 @@ function vantage_theme_settings(){
 	));
 
 }
+endif;
 add_action('siteorigin_settings_init', 'vantage_theme_settings');
 
+if( !function_exists('vantage_theme_setting_defaults') ) :
 /**
  * Setup theme default settings.
- * 
+ *
  * @param $defaults
  * @return mixed
  * @since vantage 1.0
@@ -308,8 +311,10 @@ function vantage_theme_setting_defaults($defaults){
 
 	return $defaults;
 }
+endif;
 add_filter('siteorigin_settings_defaults', 'vantage_theme_setting_defaults');
 
+if( !function_exists('vantage_blog_layout_options') ) :
 function vantage_blog_layout_options(){
 	$layouts = array();
 	foreach( glob(get_template_directory().'/loops/loop-*.php') as $template ) {
@@ -330,7 +335,9 @@ function vantage_blog_layout_options(){
 	foreach($exclude as $e) unset($layouts[$e]);
 	return $layouts;
 }
+endif;
 
+if( !function_exists('vantage_siteorigin_settings_home_slider_update_post_meta') ) :
 function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $old_value ) {
 	//Update home slider post meta.
 	$home_id = get_option( 'page_on_front' );
@@ -344,8 +351,10 @@ function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $
 	}
 	return $new_value;
 }
+endif;
 add_filter( 'pre_update_option_vantage_theme_settings', 'vantage_siteorigin_settings_home_slider_update_post_meta', 10, 2 );
 
+if( !function_exists('vantage_siteorigin_settings_localize') ) :
 function vantage_siteorigin_settings_localize( $loc ){
 	$loc = array(
 		'section_title' => __('Theme Settings', 'vantage'),
@@ -364,8 +373,10 @@ function vantage_siteorigin_settings_localize( $loc ){
 
 	return $loc;
 }
+endif;
 add_filter( 'siteorigin_settings_localization', 'vantage_siteorigin_settings_localize' );
 
+if( !function_exists('vantage_siteorigin_setting_update_image') ) :
 /**
  * Convert post ID based images into full URLs
  *
@@ -387,4 +398,5 @@ function vantage_siteorigin_setting_update_image( $mods ) {
 	}
 	return $mods;
 }
+endif;
 add_filter( 'option_theme_mods_vantage', 'vantage_siteorigin_setting_update_image' );
