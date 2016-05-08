@@ -1,5 +1,5 @@
 <?php
-
+if( !function_exists('siteorigin_metaslider_layout_big_headline') ) :
 function siteorigin_metaslider_layout_big_headline($layouts){
 	$layouts['big-headline'] = array(
 		'title' => __('Big Headline', 'siteorigin'),
@@ -28,4 +28,5 @@ function siteorigin_metaslider_layout_big_headline($layouts){
 	);
 	return $layouts;
 }
+endif;
 add_filter('siteorigin_metaslider_layouts', 'siteorigin_metaslider_layout_big_headline');

@@ -1,0 +1,10 @@
+/*
+Name: Remove Footer Link Underlines
+Description: Remove link underlines in both regular and hover states. This snippet only applies to the footer. No adjustment of the below values is required. */
+
+#colophon a { 
+	text-decoration: none; 
+}
+#colophon a:hover { 
+	text-decoration: none; 
+}

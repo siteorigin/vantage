@@ -1,5 +1,5 @@
 <?php
-
+if( !function_exists('siteorigin_metaslider_layout_basic_right') ) :
 function siteorigin_metaslider_layout_basic_right($layouts){
 	$layouts['basic-right'] = array(
 		'title' => __('Basic Right', 'siteorigin'),
@@ -28,4 +28,5 @@ function siteorigin_metaslider_layout_basic_right($layouts){
 	);
 	return $layouts;
 }
+endif;
 add_filter('siteorigin_metaslider_layouts', 'siteorigin_metaslider_layout_basic_right');

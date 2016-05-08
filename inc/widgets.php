@@ -47,23 +47,25 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		if ( ! empty( $icon ) ) {
 			$icon = apply_filters('vantage_fontawesome_icon_name', $icon );
 		}
+
+		$target = (!empty($instance['more_target']) ? 'target="_blank"' : '');
 		?>
 		<div class="circle-icon-box circle-icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo empty($instance['box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?> circle-icon-size-<?php echo $instance['icon_size'] ?>">
 			<div class="circle-icon-wrapper">
-                <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon"><?php endif; ?>
+                <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon" <?php echo $target ?>><?php endif; ?>
 				<div class="circle-icon" <?php if(!empty($icon_styles)) echo 'style="'.implode(';', $icon_styles).'"' ?>>
 					<?php if(!empty($icon)) : ?><div class="<?php echo esc_attr($icon) ?>"></div><?php endif; ?>
 				</div>
                 <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
 			</div>
 
-            <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-title"><?php endif; ?>
+            <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-title" <?php echo $target ?>><?php endif; ?>
 			<?php if(!empty($instance['title'])) : ?><h4><?php echo wp_kses_post( apply_filters('widget_title', $instance['title'] ) ) ?></h4><?php endif; ?>
             <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
 
 			<?php if(!empty($instance['text'])) : ?><p class="text"><?php echo wp_kses_post($instance['text']) ?></p><?php endif; ?>
 			<?php if(!empty($instance['more_url'])) : ?>
-				<a href="<?php echo esc_url($instance['more_url']) ?>" class="more-button"><?php echo !empty($instance['more']) ? esc_html($instance['more']) : __('More Info', 'vantage') ?> <i></i></a>
+				<a href="<?php echo esc_url($instance['more_url']) ?>" class="more-button" <?php echo $target ?>><?php echo !empty($instance['more']) ? esc_html($instance['more']) : __('More Info', 'vantage') ?> <i></i></a>
 			<?php endif; ?>
 		</div>
 		<?php
@@ -90,6 +92,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			'more' => '',
 			'more_url' => '',
 			'all_linkable' => false,
+			'more_target' => false,
 			'box' => false,
 		) );
 
@@ -160,6 +163,12 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
                 <?php _e('Link title and icon to "More URL"', 'vantage') ?>
             </label>
         </p>
+		<p>
+            <label for="<?php echo $this->get_field_id('more_target') ?>">
+                <input type="checkbox" id="<?php echo $this->get_field_id('more_target') ?>" name="<?php echo $this->get_field_name('more_target') ?>" <?php checked( $instance['more_target'] ) ?> />
+                <?php _e('Open link in a new tab', 'vantage') ?>
+            </label>
+        </p>
 		<!--
 		<p>
 			<label for="<?php echo $this->get_field_id('box') ?>">
@@ -174,6 +183,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$new_instance['box'] = !empty($new_instance['box']);
 		$new_instance['all_linkable'] = !empty($new_instance['all_linkable']);
+		$new_instance['more_target'] = !empty($new_instance['more_target']);
 		return $new_instance;
 	}
 }
@@ -245,6 +255,16 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 			'twitter' => __('Twitter', 'vantage'),
 			'google-plus' => __('Google Plus', 'vantage'),
 			'rss' => __('RSS', 'vantage'),
+			'linkedin' => __('LinkedIn', 'vantage'),
+			'dribbble' => __('Dribbble', 'vantage'),
+			'flickr' => __('Flickr', 'vantage'),
+			'instagram' => __('Instagram', 'vantage'),
+			'pinterest' => __('Pinterest', 'vantage'),
+			'skype' => __('Skype', 'vantage'),
+			'youtube' => __('YouTube', 'vantage'),
+			'github' => __('GitHub', 'vantage'),
+			'vimeo' => __('Vimeo', 'vantage'),
+			'vk' => __('VK', 'vantage'),
 		));
 	}
 
@@ -272,15 +292,17 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 	}
 
 	public function form( $instance ) {
-		$instance = wp_parse_args($instance, array(
+		$instance = wp_parse_args( $instance, array(
 			'size' => 'medium',
 			'title' => '',
 			'new_window' => false,
 		) );
 
-		$sizes = apply_filters('vantage_social_widget_sizes', array(
+		$sizes = apply_filters( 'vantage_social_widget_sizes', array(
+			'large' => __('Large', 'vantage'),
 			'medium' => __('Medium', 'vantage'),
-		));
+			'small' => __('Small', 'vantage'),
+		) );
 
 		?>
 		<p>
@@ -303,7 +325,7 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 				<label for="<?php echo $this->get_field_id($id) ?>"><?php echo $name ?></label>
 				<input type="text" id="<?php echo $this->get_field_id($id) ?>" name="<?php echo $this->get_field_name($id) ?>" value="<?php echo esc_attr(!empty($instance[$id]) ? $instance[$id] : '') ?>" class="widefat"/>
 			</p>
-		<?php
+			<?php
 		}
 
 		?>
@@ -313,14 +335,6 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 
 		</p>
 		<?php
-
-		if(!defined('SITEORIGIN_IS_PREMIUM')) {
-			?>
-			<p style="background: #cbe385; padding: 8px;">
-				<?php printf(__('Get additional social and professional network icons and sizes in <a href="%s" target="_blank">Vantage Premium</a>.', 'vantage'), admin_url('themes.php?page=premium_upgrade')) ?>
-			</p>
-			<?php
-		}
 	}
 
 	public function update( $new_instance, $old_instance ) {
@@ -329,6 +343,7 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 	}
 }
 
+if( !function_exists('vantage_register_widgets') ) :
 /**
  * Register the Vantage specific widgets.
  */
@@ -337,8 +352,10 @@ function vantage_register_widgets(){
 	register_widget('Vantage_CircleIcon_Widget');
 	register_widget('Vantage_Headline_Widget');
 }
+endif;
 add_action( 'widgets_init', 'vantage_register_widgets');
 
+if( !function_exists('vantage_filter_carousel_loop') ) :
 /**
  * Filter the carousel loop title to add navigation controls.
  */
@@ -352,8 +369,10 @@ function vantage_filter_carousel_loop($title, $instance = array(), $id = false){
 	}
 	return $title;
 }
+endif;
 add_filter('widget_title', 'vantage_filter_carousel_loop', 10, 3);
 
+if( !function_exists('vantage_carousel_ajax_handler') ) :
 /**
  * Handle ajax requests for the carousel.
  */
@@ -407,5 +426,6 @@ function vantage_carousel_ajax_handler(){
 
 	exit();
 }
+endif;
 add_action('wp_ajax_vantage_carousel_load', 'vantage_carousel_ajax_handler');
 add_action('wp_ajax_nopriv_vantage_carousel_load', 'vantage_carousel_ajax_handler');

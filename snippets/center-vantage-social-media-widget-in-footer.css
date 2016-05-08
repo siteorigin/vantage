@@ -1,0 +1,12 @@
+/*
+Name: Center Footer Vantage Social Media Widget
+Description: Center the Vantage Social Media widget in the footer widget area. Vantage Social Media widget must the only widget in the footer widget area. Doesn't apply to the SiteOrigin Social Media Buttons widget. */
+
+.widget_vantage-social-media {
+	text-align: center;
+}
+
+.widget_vantage-social-media .social-media-icon {
+	display: inline-block;
+	float: none;
+}

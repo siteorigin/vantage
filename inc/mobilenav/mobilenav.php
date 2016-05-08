@@ -1,5 +1,6 @@
 <?php
 
+if( !function_exists('siteorigin_mobilenav_enqueue_scripts') ) :
 /**
  * Enqueue everything for the mobile navigation.
  *
@@ -31,8 +32,10 @@ function siteorigin_mobilenav_enqueue_scripts() {
 	) );
 	wp_enqueue_style( 'siteorigin-mobilenav', $root_uri . 'css/mobilenav.css', array(), SITEORIGIN_THEME_VERSION );
 }
+endif;
 add_action( 'wp_enqueue_scripts', 'siteorigin_mobilenav_enqueue_scripts' );
 
+if( !function_exists('siteorigin_mobilenav_nav_filter') ) :
 /**
  * Filter navigation menu to add mobile markers.
  *
@@ -76,9 +79,11 @@ function siteorigin_mobilenav_nav_filter($nav_menu, $args){
 
 	return $nav_menu;
 }
+endif;
 add_filter('wp_nav_menu', 'siteorigin_mobilenav_nav_filter', 10, 2);
 add_filter('wp_page_menu', 'siteorigin_mobilenav_nav_filter', 10, 2);
 
+if( !function_exists('siteorigin_mobilenav_nav_menu_css') ) :
 function siteorigin_mobilenav_nav_menu_css(){
 	$mobile_resolution = apply_filters('siteorigin_mobilenav_resolution', 480);
 
@@ -89,8 +94,10 @@ function siteorigin_mobilenav_nav_menu_css(){
 	</style>
 	<?php
 }
+endif;
 add_action('wp_head', 'siteorigin_mobilenav_nav_menu_css');
 
+if( !function_exists('siteorigin_mobilenav_body_class') ) :
 /**
  * Add custom body classes.
  *
@@ -101,4 +108,5 @@ function siteorigin_mobilenav_body_class($classes){
 	$classes[] = 'mobilenav';
 	return $classes;
 }
+endif;
 add_filter('body_class', 'siteorigin_mobilenav_body_class');

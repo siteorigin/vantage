@@ -25,7 +25,7 @@ include get_template_directory() . '/inc/metaslider.php';
 include get_template_directory() . '/inc/widgets.php';
 include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/seo.php';
-include get_template_directory() . '/tour/tour.php';
+include get_template_directory() . '/inc/customizer.php';
 
 include get_template_directory() . '/fontawesome/icon-migration.php';
 
@@ -138,6 +138,35 @@ function vantage_setup() {
 endif; // vantage_setup
 add_action( 'after_setup_theme', 'vantage_setup' );
 
+if ( ! function_exists( 'vantage_premium_setup' ) ) :
+/**
+ * Add support for premium theme components
+ */
+function vantage_premium_setup(){
+
+	// This theme supports the no attribution addon
+	add_theme_support( 'siteorigin-premium-no-attribution', array(
+		'filter'  => 'vantage_footer_attribution',
+		'enabled' => siteorigin_setting( 'general_attribution' ),
+		'siteorigin_setting' => 'general_attribution'
+	) );
+
+	// This theme supports the ajax comments addon
+	add_theme_support( 'siteorigin-premium-ajax-comments', array(
+		'enabled' => siteorigin_setting( 'social_ajax_comments' ),
+		'siteorigin_setting' => 'social_ajax_comments'
+	) );
+}
+endif;
+add_action( 'after_setup_theme', 'vantage_premium_setup' );
+
+function vantage_siteorigin_css_snippets_paths( $paths ){
+	$paths[] = get_template_directory() . '/snippets/';
+	return $paths;
+}
+add_filter( 'siteorigin_css_snippet_paths', 'vantage_siteorigin_css_snippets_paths' );
+
+if( !function_exists( 'vantage_infinite_scroll_settings' ) ) :
 // Override Jetpack Infinite Scroll default behaviour of ignoring explicit posts_per_page setting when type is 'click'.
 function vantage_infinite_scroll_settings( $settings ) {
 	if ( $settings['type'] == 'click' ) {
@@ -150,7 +179,9 @@ function vantage_infinite_scroll_settings( $settings ) {
 	}
 	return $settings;
 }
+endif;
 
+if ( ! function_exists( 'vantage_infinite_scroll_render' ) ) :
 function vantage_infinite_scroll_render() {
 	ob_start();
 	get_template_part( 'loops/loop', siteorigin_setting( 'blog_archive_layout' ) );
@@ -162,7 +193,9 @@ function vantage_infinite_scroll_render() {
 	$var = preg_replace( '/<\/div>$/', '', $var );
 	echo $var;
 }
+endif;
 
+if ( ! function_exists( 'vantage_is_woocommerce_active' ) ) :
 /**
  * Check that WooCommerce is active
  *
@@ -171,11 +204,12 @@ function vantage_infinite_scroll_render() {
 function vantage_is_woocommerce_active() {
 	return in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
 }
+endif;
 
 if( !function_exists('vantage_register_custom_background') ) :
 /**
  * Setup the WordPress core custom background feature.
- * 
+ *
  * @since vantage 1.0
  */
 function vantage_register_custom_background() {
@@ -275,7 +309,7 @@ if( !function_exists('vantage_scripts') ) :
  */
 function vantage_scripts() {
 	wp_enqueue_style( 'vantage-style', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION );
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '4.2.0' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '4.6.2' );
 	$in_footer = siteorigin_setting( 'general_js_enqueue_footer' );
 	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	wp_enqueue_script( 'jquery-flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . $js_suffix . '.js' , array('jquery'), '2.1', $in_footer );
@@ -496,3 +530,34 @@ function vantage_footer_site_info_sub($copyright){
 }
 endif;
 add_filter( 'vantage_site_info', 'vantage_footer_site_info_sub' );
+
+
+if( ! function_exists( 'vantage_filter_mobilenav' ) ) :
+function vantage_filter_mobilenav($text){
+
+	if( siteorigin_setting('navigation_responsive_menu_text') ) {
+		$text['navigate'] = siteorigin_setting('navigation_responsive_menu_text');
+	}
+	return $text;
+}
+endif;
+add_filter('siteorigin_mobilenav_text', 'vantage_filter_mobilenav');
+
+
+if( ! function_exists( 'vantage_filter_mobilenav_collapse' ) ) :
+function vantage_filter_mobilenav_collapse($collpase){
+	return siteorigin_setting('navigation_responsive_menu_collapse');
+}
+endif;
+add_filter('siteorigin_mobilenav_resolution', 'vantage_filter_mobilenav_collapse');
+
+
+if( ! function_exists( 'vantage_filter_mobilenav_search' ) ) :
+function vantage_filter_mobilenav_search( $search ) {
+	if( siteorigin_setting( 'navigation_responsive_menu_search' ) ) {
+		return $search;
+	}
+	return false;
+}
+endif;
+add_filter( 'siteorigin_mobilenav_search', 'vantage_filter_mobilenav_search' );
