@@ -12,6 +12,7 @@ define('SITEORIGIN_THEME_JS_PREFIX', '');
 
 // Load the new settings framework
 include get_template_directory() . '/inc/settings/settings.php';
+include get_template_directory() . '/inc/settings/page-settings.php';
 include get_template_directory() . '/inc/metaslider/metaslider.php';
 include get_template_directory() . '/inc/plugin-activation/plugin-activation.php';
 
@@ -134,6 +135,9 @@ function vantage_setup() {
 	if( siteorigin_setting( 'navigation_responsive_menu' ) ) {
 		include get_template_directory() . '/inc/mobilenav/mobilenav.php';
 	}
+
+	// We'll use archive settings
+	add_theme_support( 'siteorigin-template-settings' );
 }
 endif; // vantage_setup
 add_action( 'after_setup_theme', 'vantage_setup' );

@@ -376,6 +376,22 @@ function vantage_siteorigin_settings_localize( $loc ){
 		// For the premium upgrade modal
 		'modal_title' => __('Vantage Premium Upgrade', 'vantage'),
 		'close' => __('Close', 'vantage'),
+
+		// For the settings metabox
+		'meta_box'            => __( 'Page settings', 'vantage' ),
+
+		// For archives section
+		'page_section_title' => __( 'Page Template Settings', 'vantage' ),
+		'page_section_description' => __( 'Change layouts for various pages on your site.', 'vantage' ),
+
+		// For all the different temples and template types
+		'template_home' => __( 'Blog Page', 'vantage' ),
+		'template_search' => __( 'Search Results', 'vantage' ),
+		'template_date' => __( 'Date Archives', 'vantage' ),
+		'template_404' => __( 'Not Found', 'vantage' ),
+		'template_author' => __( 'Author Archives', 'vantage' ),
+		'templates_post_type' => __( 'Type', 'vantage' ),
+		'templates_taxonomy' => __( 'Taxonomy', 'vantage' ),
 	);
 
 	return $loc;
@@ -407,3 +423,110 @@ function vantage_siteorigin_setting_update_image( $mods ) {
 }
 endif;
 add_filter( 'option_theme_mods_vantage', 'vantage_siteorigin_setting_update_image' );
+
+if ( ! function_exists( 'vantage_page_settings' ) ) :
+/**
+ * Setup Page Settings for Vantage
+ */
+function vantage_page_settings( $settings, $type, $id ){
+
+	$settings['layout'] = array(
+		'type'    => 'select',
+		'label'   => __( 'Page Layout', 'vantage' ),
+		'options' => array(
+			'default'            => __( 'Default', 'vantage' ),
+			'no-sidebar'         => __( 'No Sidebar', 'vantage' ),
+			'full-width'         => __( 'Full Width', 'vantage' ),
+			'full-width-sidebar' => __( 'Full Width, With Sidebar', 'vantage' ),
+		),
+	);
+
+	$settings['menu'] = array(
+		'type'    => 'select',
+		'label'   => __( 'Menu Position', 'vantage' ),
+		'options' => array(
+			'default' => __( 'Default', 'vantage' ),
+			'overlap' => __( 'Overlaps Content', 'vantage' ),
+		),
+	);
+
+	$settings['page_title'] = array(
+		'type'           => 'checkbox',
+		'label'          => __( 'Page Title', 'vantage' ),
+		'checkbox_label' => __( 'display', 'vantage' ),
+		'description'    => __( 'Display the page title on this page.', 'vantage' )
+	);
+
+	$settings['masthead_margin'] = array(
+		'type'           => 'checkbox',
+		'label'          => __( 'Masthead Bottom Margin', 'vantage' ),
+		'checkbox_label' => __( 'enable', 'vantage' ),
+		'description'    => __( 'Include the margin below the masthead (top area) of your site.', 'vantage' )
+	);
+
+	$settings['footer_margin'] = array(
+		'type'           => 'checkbox',
+		'label'          => __( 'Footer Top Margin', 'vantage' ),
+		'checkbox_label' => __( 'enable', 'vantage' ),
+		'description'    => __( 'Include the margin above your footer.', 'vantage' )
+	);
+
+	$settings['hide_masthead'] = array(
+		'type'           => 'checkbox',
+		'label'          => __( 'Hide Masthead', 'vantage' ),
+		'checkbox_label' => __( 'hide', 'vantage' ),
+		'description'    => __( 'Hide the masthead on this page.', 'vantage' )
+	);
+
+	$settings['hide_footer_widgets'] = array(
+		'type'           => 'checkbox',
+		'label'          => __( 'Hide Footer Widgets', 'vantage' ),
+		'checkbox_label' => __( 'hide', 'vantage' ),
+		'description'    => __( 'Hide the footer widgets on this page.', 'vantage' )
+	);
+
+	return $settings;
+}
+endif;
+add_action( 'siteorigin_page_settings', 'vantage_page_settings', 10, 3 );
+
+if ( ! function_exists( 'vantage_setup_page_setting_defaults' ) ) :
+/**
+ * Add the default Page Settings
+ */
+function vantage_setup_page_setting_defaults( $defaults, $type, $id ){
+	// All the basic default settings
+	$defaults['layout']              = 'default';
+	$defaults['menu']                = 'default';
+	$defaults['page_title']          = true;
+	$defaults['masthead_margin']     = true;
+	$defaults['footer_margin']       = true;
+	$defaults['hide_masthead']       = false;
+	$defaults['hide_footer_widgets'] = false;
+
+	// Specific default settings for different types
+	if( $type == 'template' && $id == 'home' ) {
+		$defaults['page_title'] = false;
+	}
+
+	return $defaults;
+}
+endif;
+add_filter( 'siteorigin_page_settings_defaults', 'vantage_setup_page_setting_defaults', 10, 3 );
+
+if ( ! function_exists( 'vantage_page_settings_panels_defaults' ) ) :
+/**
+ * Change the default page settings for the home page.
+ *
+ * @param $settings
+ *
+ * @return mixed
+ */
+function vantage_page_settings_panels_defaults( $settings ){
+	$settings['layout']     = 'no-sidebar';
+	$settings['page_title'] = false;
+
+	return $settings;
+}
+endif;
+add_filter('siteorigin_page_settings_panels_home_defaults', 'vantage_page_settings_panels_defaults');
