@@ -28,7 +28,7 @@
 			<?php endif; ?>
 
 			<?php if ( siteorigin_page_setting( 'page_title' ) ) { ?>
-				<h1 class="entry-title"><?php the_title(); ?></h1>
+				<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'vantage' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 			<?php } ?>
 
 			<?php if ( siteorigin_setting( 'blog_post_metadata' ) && 'post' == get_post_type() ) : ?>
