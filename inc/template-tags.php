@@ -167,11 +167,11 @@ function vantage_posted_on() {
 		get_the_author()
 	);
 
-	if( comments_open() ) :
-		$comments_link = ' | <span class="comments-link"><a href="' . get_comments_link() . '">' . __( 'Leave a comment', 'vantage' ) . '</a></span>';
-	else :
+	if( comments_open() || get_comments_number() ) {
+		$comments_link = ' | <span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text() . '</a></span>';
+	} else {
 		$comments_link = '';
-	endif;
+	}
 
 	$posted_on_parts = array(
 		'on' => sprintf( __( 'Posted on %s', 'vantage'), $date_time ),

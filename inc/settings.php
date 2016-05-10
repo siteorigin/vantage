@@ -137,9 +137,9 @@ function vantage_theme_settings(){
 		'description' => __('Enables Sticky Menu and Scroll To Top for mobile devices.', 'vantage')
 	));
 
-	if( function_exists('yoast_breadcrumb') ) {
-		$settings->add_field('navigation', 'yoast_breadcrumbs', 'checkbox', __('Yoast Breadcrumbs', 'vantage'), array(
-			'description' => __('Display Yoast SEO breadcrumbs if you have it installed.', 'vantage')
+	if( function_exists('yoast_breadcrumb') || function_exists('bcn_display') ) {
+		$settings->add_field('navigation', 'yoast_breadcrumbs', 'checkbox', __('Breadcrumbs', 'vantage'), array(
+			'description' => __('Display breadcrumbs if you have Yoast SEO or Breadcrumb NavXT installed.', 'vantage')
 		) );
 	}
 

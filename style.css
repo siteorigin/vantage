@@ -3864,7 +3864,8 @@ body.layout-full {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-#yoast-breadcrumbs {
+#yoast-breadcrumbs,
+#navxt-breadcrumbs {
   background: rgba(0, 0, 0, 0.025);
   margin-top: -20px;
   margin-bottom: 20px;
@@ -3872,7 +3873,8 @@ body.layout-full {
   font-weight: 500;
   color: #474747;
 }
-#yoast-breadcrumbs a {
+#yoast-breadcrumbs a,
+#navxt-breadcrumbs a {
   text-decoration: none;
 }
 @font-face {
