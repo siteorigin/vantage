@@ -499,8 +499,8 @@ function vantage_setup_page_setting_defaults( $defaults, $type, $id ){
 	$defaults['layout']              = 'default';
 	$defaults['menu']                = 'default';
 	$defaults['page_title']          = true;
-	$defaults['masthead_margin']     = false;
-	$defaults['footer_margin']       = false;
+	$defaults['masthead_margin']     = true;
+	$defaults['footer_margin']       = true;
 	$defaults['hide_masthead']       = false;
 	$defaults['hide_footer_widgets'] = false;
 

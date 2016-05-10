@@ -2023,6 +2023,13 @@ body.layout-full {
   display: block;
   /* Display entry meta on pages if within a Page Builder cell (Post Loop widget) */
 }
+/* The Page Setting related layout changes */
+.page-layout-no-masthead-margin #main {
+  padding-top: 0;
+}
+.page-layout-no-footer-margin #main {
+  padding-bottom: 0;
+}
 /* =Sliders
 ----------------------------------------------- */
 /* Resets */
