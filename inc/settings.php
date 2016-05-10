@@ -269,8 +269,8 @@ if( !function_exists('vantage_theme_setting_defaults') ) :
  */
 function vantage_theme_setting_defaults($defaults){
 	$defaults['logo_image'] = false;
-	$defaults['logo_in_menu_constrain'] = true;
 	$defaults['logo_image_retina'] = false;
+	$defaults['logo_in_menu_constrain'] = true;
 	$defaults['logo_header_text'] = __('Call me! Maybe?', 'vantage');
 	$defaults['logo_no_widget_overlay'] = false;
 
