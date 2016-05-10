@@ -69,7 +69,6 @@ function vantage_body_classes( $classes ) {
 
 	if( !empty( $page_settings ) ) {
 		if( !empty( $page_settings['layout'] ) ) $classes[] = 'page-layout-' . $page_settings['layout'];
-		if( !empty( $page_settings['menu'] ) ) $classes[] = 'page-layout-menu-' . $page_settings['menu'];
 
 		if( empty( $page_settings['masthead_margin'] ) ) $classes[] = 'page-layout-no-masthead-margin';
 		if( empty( $page_settings['footer_margin'] ) ) $classes[] = 'page-layout-no-footer-margin';

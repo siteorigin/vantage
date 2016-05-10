@@ -441,15 +441,6 @@ function vantage_page_settings( $settings, $type, $id ){
 		),
 	);
 
-	$settings['menu'] = array(
-		'type'    => 'select',
-		'label'   => __( 'Menu Position', 'vantage' ),
-		'options' => array(
-			'default' => __( 'Default', 'vantage' ),
-			'overlap' => __( 'Overlaps Content', 'vantage' ),
-		),
-	);
-
 	$settings['page_title'] = array(
 		'type'           => 'checkbox',
 		'label'          => __( 'Page Title', 'vantage' ),

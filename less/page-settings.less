@@ -11,3 +11,26 @@
 		padding-bottom: 0;
 	}
 }
+
+.page-template-default {
+	&.page-layout-no-sidebar {
+		#primary {
+			width: 100%;
+		}
+	}
+
+	&.page-layout-full-width.layout-full {
+		#page-wrapper .full-container {
+			max-width: 100%;
+		}
+		#primary {
+			width: 100%;
+		}
+	}
+
+	&.page-layout-full-width-sidebar.layout-full {
+		#page-wrapper .full-container {
+			max-width: 100%;
+		}
+	}
+}
