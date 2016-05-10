@@ -488,7 +488,6 @@ if ( ! function_exists( 'vantage_setup_page_setting_defaults' ) ) :
 function vantage_setup_page_setting_defaults( $defaults, $type, $id ){
 	// All the basic default settings
 	$defaults['layout']              = 'default';
-	$defaults['menu']                = 'default';
 	$defaults['page_title']          = true;
 	$defaults['masthead_margin']     = true;
 	$defaults['footer_margin']       = true;
