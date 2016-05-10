@@ -1,7 +1,7 @@
 <?php
 /**
- * Displays 
- * 
+ * Displays
+ *
  * @package vantage
  * @since vantage 1.0
  * @license GPL 2.0
@@ -20,7 +20,9 @@
 				<div class="entry-thumbnail"><?php the_post_thumbnail( is_active_sidebar('sidebar-1') ? 'post-thumbnail' : 'vantage-thumbnail-no-sidebar' ) ?></div>
 			<?php endif; ?>
 
-			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'vantage' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+			<?php if ( siteorigin_page_setting( 'page_title' ) ) { ?>
+				<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'vantage' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+			<?php } ?>
 
 			<?php if ( siteorigin_setting( 'blog_post_metadata' ) && get_post_type() == 'post' ) : ?>
 				<div class="entry-meta">

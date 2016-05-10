@@ -19,7 +19,9 @@ get_header(); ?>
 				<?php do_action('vantage_entry_main_top') ?>
 
 				<header class="entry-header">
-					<h1 class="entry-title"><?php echo apply_filters( 'vantage_404_title', __( "That page can't be found.", 'vantage' ) ); ?></h1>
+					<?php if( siteorigin_page_setting( 'page_title' ) ) { ?>
+						<h1 class="entry-title"><?php echo apply_filters( 'vantage_404_title', __( "That page can't be found.", 'vantage' ) ); ?></h1>
+					<?php } ?>
 				</header><!-- .entry-header -->
 
 				<div class="entry-content">
