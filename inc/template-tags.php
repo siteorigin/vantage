@@ -192,11 +192,6 @@ if(!function_exists('vantage_display_logo')):
  */
 function vantage_display_logo(){
 	$logo = siteorigin_setting( 'logo_image' );
-
-	if( !is_numeric( $logo ) ) {
-		$logo = SiteOrigin_Settings::get_image_id( $logo );
-	}
-
 	$logo = apply_filters('vantage_logo_image_id', $logo);
 
 	if( empty($logo) ) {
@@ -212,7 +207,7 @@ function vantage_display_logo(){
 	}
 	else {
 		// load the logo image
-		if(is_array($logo)) {
+		if( is_array($logo) ) {
 			list ($src, $height, $width) = $logo;
 		}
 		else {
@@ -234,16 +229,10 @@ function vantage_display_logo(){
 		// Try adding the retina logo
 		$retina_logo = siteorigin_setting( 'logo_image_retina' );
 		if( !empty($retina_logo) ) {
-			if( is_numeric( $retina_logo ) ) {
-				$retina_logo = apply_filters('vantage_logo_retina_image_id', $retina_logo);
-				$retina_logo_image = wp_get_attachment_image_src($retina_logo, 'full');
-				if( !empty($retina_logo_image[0]) ) {
-					$retina_logo = $retina_logo_image[0];
-				}
-			}
-
-			if( !empty($retina_logo) ) {
-				$logo_attributes['srcset'] = $retina_logo . ' 2x';
+			$retina_logo = apply_filters('vantage_logo_retina_image_id', $retina_logo);
+			$retina_logo_image = wp_get_attachment_image_src($retina_logo, 'full');
+			if( !empty($retina_logo_image[0]) ) {
+				$logo_attributes['srcset'] = $retina_logo_image[0] . ' 2x';
 			}
 		}
 
