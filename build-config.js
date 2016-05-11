@@ -38,11 +38,13 @@ module.exports = {
     },
     less: {
         src: [
+            'style.less',
         ],
-        include:[],
+        include:[
+            'less/*.less'
+        ],
         external: {
           src: [
-              'style.less',
               'inc/panels-lite/css/**/*.less',
           ],
           include: [
