@@ -76,6 +76,10 @@ function vantage_body_classes( $classes ) {
 		if( !empty( $page_settings['hide_footer_widgets'] ) ) $classes[] = 'page-layout-hide-footer-widgets';
 	}
 
+	if ( is_page() && is_page_template() ) {
+		$classes[] = 'not-default-page';
+	}
+
 	return $classes;
 }
 endif;
