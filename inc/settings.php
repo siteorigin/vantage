@@ -480,6 +480,17 @@ function vantage_setup_page_setting_defaults( $defaults, $type, $id ){
 endif;
 add_filter( 'siteorigin_page_settings_defaults', 'vantage_setup_page_setting_defaults', 10, 3 );
 
+function vantage_page_settings_message( $post ){
+	if( $post->post_type == 'page' ) {
+		?>
+		<div class="so-page-settings-message" style="background-color: #f3f3f3; padding: 10px; margin-top: 12px; border: 1px solid #d0d0d0">
+			<?php _e( 'To use these page settings, please use the <strong>Default</strong> template selected under <strong>Page Attributes</strong>', 'vantage' ) ?>
+		</div>
+		<?php
+	}
+}
+add_action( 'siteorigin_settings_before_page_settings_meta_box', 'vantage_page_settings_message' );
+
 if ( ! function_exists( 'vantage_page_settings_panels_defaults' ) ) :
 /**
  * Change the default page settings for the home page.
