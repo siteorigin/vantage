@@ -20,9 +20,9 @@
 				<div class="entry-thumbnail"><?php the_post_thumbnail( is_active_sidebar('sidebar-1') ? 'post-thumbnail' : 'vantage-thumbnail-no-sidebar' ) ?></div>
 			<?php endif; ?>
 
-			<?php if ( siteorigin_page_setting( 'page_title' ) ) { ?>
+			<?php if ( siteorigin_page_setting( 'page_title' ) ) : ?>
 				<h1 class="entry-title"><?php the_title(); ?></h1>
-			<?php } ?>
+			<?php endif; ?>
 
 			<?php if ( siteorigin_setting( 'blog_post_metadata' ) && get_post_type() == 'post' ) : ?>
 				<div class="entry-meta">

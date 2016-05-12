@@ -15,13 +15,13 @@
 		<?php do_action('vantage_entry_main_top') ?>
 
 		<header class="entry-header">
-			<?php if ( !is_page_template() ) { ?>
-				<?php if ( siteorigin_page_setting( 'page_title' ) ) { ?>
+			<?php if ( !is_page_template() ) : ?>
+				<?php if ( siteorigin_page_setting( 'page_title' ) ) : ?>
 					<h1 class="entry-title"><?php the_title(); ?></h1>
-				<?php } ?>
-			<?php } else { ?>
+				<?php endif; ?>
+			<?php else : ?>
 				<h1 class="entry-title"><?php the_title(); ?></h1>
-			<?php } ?>
+			<?php endif; ?>
 			<?php if ( siteorigin_setting( 'blog_post_metadata' ) ) : ?>
 			<div class="entry-meta">
 				<?php vantage_posted_on(); ?>

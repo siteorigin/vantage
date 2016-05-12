@@ -15,9 +15,9 @@ get_header(); ?>
 	<?php if ( have_posts() ) : ?>
 
 		<header class="page-header">
-			<?php if ( siteorigin_page_setting( 'page_title' ) ) { ?>
+			<?php if ( siteorigin_page_setting( 'page_title' ) ) : ?>
 				<h1 id="page-title"><?php printf( __( 'Search Results for: %s', 'vantage' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-			<?php } ?>
+			<?php endif; ?>
 		</header><!-- .page-header -->
 
 		<?php /* Start the Loop */ ?>
