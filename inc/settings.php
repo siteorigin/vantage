@@ -455,7 +455,7 @@ function vantage_page_settings( $settings, $type, $id ){
 	return $settings;
 }
 endif;
-add_action( 'siteorigin_page_settings', 'vantage_page_settings', 10, 3 );
+add_filter( 'siteorigin_page_settings', 'vantage_page_settings', 10, 3 );
 
 if ( ! function_exists( 'vantage_setup_page_setting_defaults' ) ) :
 /**

@@ -12,7 +12,6 @@ define('SITEORIGIN_THEME_JS_PREFIX', '');
 
 // Load the new settings framework
 include get_template_directory() . '/inc/settings/settings.php';
-include get_template_directory() . '/inc/settings/page-settings.php';
 include get_template_directory() . '/inc/metaslider/metaslider.php';
 include get_template_directory() . '/inc/plugin-activation/plugin-activation.php';
 
@@ -136,7 +135,7 @@ function vantage_setup() {
 		include get_template_directory() . '/inc/mobilenav/mobilenav.php';
 	}
 
-	// We'll use archive settings
+	// We'll use template settings
 	add_theme_support( 'siteorigin-template-settings' );
 }
 endif; // vantage_setup
