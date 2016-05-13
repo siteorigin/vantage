@@ -254,7 +254,6 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 			'facebook' => __('Facebook', 'vantage'),
 			'twitter' => __('Twitter', 'vantage'),
 			'google-plus' => __('Google Plus', 'vantage'),
-			'rss' => __('RSS', 'vantage'),
 			'linkedin' => __('LinkedIn', 'vantage'),
 			'dribbble' => __('Dribbble', 'vantage'),
 			'flickr' => __('Flickr', 'vantage'),
@@ -265,7 +264,9 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 			'github' => __('GitHub', 'vantage'),
 			'vimeo' => __('Vimeo', 'vantage'),
 			'vk' => __('VK', 'vantage'),
+			'rss' => __('RSS', 'vantage'),
 			'envelope' => __('Email', 'vantage'),
+			'phone' => __('Phone', 'vantage')
 		));
 	}
 
@@ -279,8 +280,10 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 
 		foreach($this->networks as $id => $name) {
 			if(!empty($instance[$id])) {
-				$instance[$id] = ( filter_var( $instance[$id], FILTER_VALIDATE_EMAIL ) ? 'mailto:' . $instance[$id] : $instance[$id] );
-				?><a class="social-media-icon social-media-icon-<?php echo $id ?> social-media-icon-<?php echo esc_attr($instance['size']) ?>" href="<?php echo esc_url( $instance[$id], array('http', 'https', 'mailto', 'skype') ) ?>" title="<?php echo esc_html( get_bloginfo('name') . ' ' . $name ) ?>" <?php if(!empty($instance['new_window'])) echo 'target="_blank"'; ?>><?php
+				$instance[$id] = ( $id == 'envelope' && filter_var( $instance[$id], FILTER_VALIDATE_EMAIL ) ? 'mailto:' . $instance[$id] : $instance[$id] );
+				$instance[$id] = ( $id == 'phone' && !filter_var( $instance[$id], FILTER_VALIDATE_URL && !strpos($instance[$id], 'tel:' === 0) && !strpos($instance[$id], 'sms:' === 0) ) ? 'tel:' . $instance[$id] : $instance[$id] );
+				$instance[$id] = ( $id == 'skype' && !strpos($instance[$id], 'skype:') === 0 && !strpos($instance[$id], 'callto:') === 0 ? 'skype:' . $instance[$id] : $instance[$id] );
+				?><a class="social-media-icon social-media-icon-<?php echo $id ?> social-media-icon-<?php echo esc_attr($instance['size']) ?>" href="<?php echo esc_url( $instance[$id], array('http', 'https', 'mailto', 'skype', 'callto', 'tel', 'sms') ) ?>" title="<?php echo esc_html( get_bloginfo('name') . ' ' . $name ) ?>" <?php if(!empty($instance['new_window'])) echo 'target="_blank"'; ?>><?php
 
 				$icon = apply_filters('vantage_social_widget_icon_'.$id, '');
 				if(!empty($icon)) echo $icon;
