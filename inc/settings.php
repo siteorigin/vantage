@@ -507,3 +507,23 @@ function vantage_page_settings_panels_defaults( $settings ){
 }
 endif;
 add_filter('siteorigin_page_settings_panels_home_defaults', 'vantage_page_settings_panels_defaults');
+
+function vantage_about_page_sections( $about ){
+	$about[ 'video_thumbnail' ] = array(
+		get_template_directory_uri() . '/admin/about/video_thumbnail.jpg',
+		get_template_directory_uri() . '/admin/about/video_thumbnail_2.jpg'
+	);
+	$about['video_url'] = 'https://siteorigin.com/theme/vantage/?autoplay=1';
+	$about['video_description'] = __( 'Get a quick overview of what Vantage has to offer, and why it should be your next theme of choice', 'vantage' );
+
+	$about[ 'sections' ][] = array(
+		'id' => 'tutorial'
+	);
+
+	$about[ 'sections' ][] = array(
+		'id' => 'support'
+	);
+
+	return $about;
+}
+add_filter( 'siteorigin_about_page', 'vantage_about_page_sections' );
