@@ -29,6 +29,8 @@ include get_template_directory() . '/inc/customizer.php';
 
 include get_template_directory() . '/fontawesome/icon-migration.php';
 
+// This is the legacy premium file
+include get_template_directory() . '/premium/premium.php';
 
 if ( ! function_exists( 'vantage_setup' ) ) :
 /**
