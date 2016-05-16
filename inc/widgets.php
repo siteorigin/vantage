@@ -23,7 +23,9 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 
 		$instance = wp_parse_args( $instance, array(
 			'title' => '',
+			'title_color' => '',
 			'text' => '',
+			'text_color' => '',
 			'icon' => '',
 			'image' => '',
 			'icon_position' => 'top',
@@ -42,6 +44,12 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		if( !empty($instance['icon_background_color']) && preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_background_color'])) {
 			$icon_styles[] = 'background-color: '.$instance['icon_background_color'];
 		}
+		if( !empty($instance['title_color']) && preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['title_color'])) {
+			$title_color = 'color: '.$instance['title_color'];
+		}
+		if( !empty($instance['text_color']) && preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['text_color'])) {
+			$text_color = 'color: '.$instance['text_color'];
+		}
 
 		$icon = $instance['icon'];
 		if ( ! empty( $icon ) ) {
@@ -52,18 +60,18 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		?>
 		<div class="circle-icon-box circle-icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo empty($instance['box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?> circle-icon-size-<?php echo $instance['icon_size'] ?>">
 			<div class="circle-icon-wrapper">
-                <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon" <?php echo $target ?>><?php endif; ?>
+				<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon" <?php echo $target ?>><?php endif; ?>
 				<div class="circle-icon" <?php if(!empty($icon_styles)) echo 'style="'.implode(';', $icon_styles).'"' ?>>
 					<?php if(!empty($icon)) : ?><div class="<?php echo esc_attr($icon) ?>"></div><?php endif; ?>
 				</div>
-                <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
+				<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
 			</div>
 
-            <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-title" <?php echo $target ?>><?php endif; ?>
-			<?php if(!empty($instance['title'])) : ?><h4><?php echo wp_kses_post( apply_filters('widget_title', $instance['title'] ) ) ?></h4><?php endif; ?>
-            <?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
+			<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-title" <?php echo $target ?>><?php endif; ?>
+			<?php if(!empty($instance['title'])) : ?><h4 <?php if(!empty($title_color)) echo 'style="'.$title_color.'"' ?>><?php echo wp_kses_post( apply_filters('widget_title', $instance['title'] ) ) ?></h4><?php endif; ?>
+			<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
 
-			<?php if(!empty($instance['text'])) : ?><p class="text"><?php echo wp_kses_post($instance['text']) ?></p><?php endif; ?>
+			<?php if(!empty($instance['text'])) : ?><p class="text" <?php if(!empty($text_color)) echo 'style="'.$text_color.'"' ?>><?php echo wp_kses_post($instance['text']) ?></p><?php endif; ?>
 			<?php if(!empty($instance['more_url'])) : ?>
 				<a href="<?php echo esc_url($instance['more_url']) ?>" class="more-button" <?php echo $target ?>><?php echo !empty($instance['more']) ? esc_html($instance['more']) : __('More Info', 'vantage') ?> <i></i></a>
 			<?php endif; ?>
@@ -83,7 +91,9 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 
 		$instance = wp_parse_args( $instance, array(
 			'title' => '',
+			'title_color' => '',
 			'text' => '',
+			'text_color' => '',
 			'icon' => '',
 			'image' => '',
 			'icon_position' => 'top',
@@ -107,8 +117,16 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id('title') ?>" name="<?php echo $this->get_field_name('title') ?>" value="<?php echo esc_attr($instance['title']) ?>" />
 		</p>
 		<p>
+			<label for="<?php echo $this->get_field_id('title_color') ?>"><?php _e('Title Color', 'vantage') ?></label>
+			<input class="widefat color-picker" id="<?php echo $this->get_field_id('title_color'); ?>" name="<?php echo $this->get_field_name('title_color'); ?>" type="text" value="<?php echo esc_attr( $instance['title_color']); ?>" />
+		</p>
+		<p>
 			<label for="<?php echo $this->get_field_id('text') ?>"><?php _e('Text', 'vantage') ?></label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id('text') ?>" name="<?php echo $this->get_field_name('text') ?>" value="<?php echo esc_attr($instance['text']) ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('text_color') ?>"><?php _e('Text Color', 'vantage') ?></label>
+			<input class="widefat color-picker" id="<?php echo $this->get_field_id('text_color'); ?>" name="<?php echo $this->get_field_name('text_color'); ?>" type="text" value="<?php echo esc_attr( $instance['text_color']); ?>" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('icon') ?>"><?php _e('Icon', 'vantage') ?></label>
@@ -156,18 +174,18 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id('more_url') ?>"><?php _e('More URL', 'vantage') ?></label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id('more_url') ?>" name="<?php echo $this->get_field_name('more_url') ?>" value="<?php echo esc_attr($instance['more_url']) ?>" />
 		</p>
-        <p>
-            <label for="<?php echo $this->get_field_id('all_linkable') ?>">
-                <input type="checkbox" id="<?php echo $this->get_field_id('all_linkable') ?>" name="<?php echo $this->get_field_name('all_linkable') ?>" <?php checked( $instance['all_linkable'] ) ?> />
-                <?php _e('Link title and icon to "More URL"', 'vantage') ?>
-            </label>
-        </p>
 		<p>
-            <label for="<?php echo $this->get_field_id('more_target') ?>">
-                <input type="checkbox" id="<?php echo $this->get_field_id('more_target') ?>" name="<?php echo $this->get_field_name('more_target') ?>" <?php checked( $instance['more_target'] ) ?> />
-                <?php _e('Open link in a new tab', 'vantage') ?>
-            </label>
-        </p>
+			<label for="<?php echo $this->get_field_id('all_linkable') ?>">
+				<input type="checkbox" id="<?php echo $this->get_field_id('all_linkable') ?>" name="<?php echo $this->get_field_name('all_linkable') ?>" <?php checked( $instance['all_linkable'] ) ?> />
+				<?php _e('Link title and icon to "More URL"', 'vantage') ?>
+			</label>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('more_target') ?>">
+				<input type="checkbox" id="<?php echo $this->get_field_id('more_target') ?>" name="<?php echo $this->get_field_name('more_target') ?>" <?php checked( $instance['more_target'] ) ?> />
+				<?php _e('Open link in a new tab', 'vantage') ?>
+			</label>
+		</p>
 		<!--
 		<p>
 			<label for="<?php echo $this->get_field_id('box') ?>">
