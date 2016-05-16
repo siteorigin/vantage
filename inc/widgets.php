@@ -125,8 +125,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('icon_background_color') ?>"><?php _e('Icon Background Color', 'vantage') ?></label>
-			<input type="text" class="widefat" id="<?php echo $this->get_field_id('icon_background_color') ?>" name="<?php echo $this->get_field_name('icon_background_color') ?>" value="<?php echo esc_attr($instance['icon_background_color']) ?>" />
-			<span class="description"><?php _e('A hex color', 'vantage'); ?></span>
+			<input class="widefat color-picker" id="<?php echo $this->get_field_id('icon_background_color'); ?>" name="<?php echo $this->get_field_name('icon_background_color'); ?>" type="text" value="<?php echo esc_attr( $instance['icon_background_color']); ?>" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('image') ?>"><?php _e('Circle Background Image URL', 'vantage') ?></label>
@@ -434,3 +433,18 @@ function vantage_carousel_ajax_handler(){
 endif;
 add_action('wp_ajax_vantage_carousel_load', 'vantage_carousel_ajax_handler');
 add_action('wp_ajax_nopriv_vantage_carousel_load', 'vantage_carousel_ajax_handler');
+
+if( !function_exists('vantage_admin_color_picker') ) :
+/**
+ * Handle color picker fields in widgets.
+ */
+function vantage_admin_color_picker() {
+	if( is_admin() ) {
+		// Add the color picker css file
+		wp_enqueue_style( 'wp-color-picker' );
+		// Include our custom jQuery file with WordPress Color Picker dependency
+		wp_enqueue_script( 'vantage-color-picker', get_template_directory_uri() . '/js/color-picker.js' , array( 'wp-color-picker' ), false, true );
+	}
+}
+endif;
+add_action( 'admin_enqueue_scripts', 'vantage_admin_color_picker' );
