@@ -21,19 +21,13 @@ module.exports = {
         ]
     },
     sass: {
-        src: [
-            'sass/**/*.scss',
-        ],
-        include: [
-            'sass',
-        ],
+        src: [],
+        include: [],
         external: {
           src: [
               'inc/settings/css/**/*.scss',
           ],
-          include: [
-            'inc/settings/css'
-          ],
+          include: [],
         }
     },
     less: {
