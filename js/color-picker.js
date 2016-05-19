@@ -1,21 +1,14 @@
 ( function( $ ){
-	function initColorPicker( widget ) {
-		widget.find( '.color-picker' ).wpColorPicker( {
-			change: _.throttle( function() {
-				$(this).trigger( 'change' );
-			}, 3000 )
-		});
-	}
-
-	function onFormUpdate( event, widget ) {
-		initColorPicker( widget );
-	}
-
-	$( document ).on( 'widget-added widget-updated', onFormUpdate );
-
-	$( document ).ready( function() {
-		$( '#widgets-right .widget:has(.color-picker)' ).each( function () {
-			initColorPicker( $( this ) );
-		} );
-	} );
+	$(document).ready(function($) {
+		$('input.vantage-color-field').wpColorPicker();
+	});
+	$(document).on( "panelsopen", function() {
+		$('input.vantage-color-field').wpColorPicker();
+	});
+	$(document).on( "widget-added", function() {
+		$('input.vantage-color-field').wpColorPicker();
+	});
+	$(document).on( "widget-updated", function() {
+		$('input.vantage-color-field').wpColorPicker();
+	});
 }( jQuery ) );

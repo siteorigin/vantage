@@ -118,7 +118,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('title_color') ?>"><?php _e('Title Color', 'vantage') ?></label>
-			<input class="widefat color-picker" id="<?php echo $this->get_field_id('title_color'); ?>" name="<?php echo $this->get_field_name('title_color'); ?>" type="text" value="<?php echo esc_attr( $instance['title_color']); ?>" />
+			<input class="widefat vantage-color-field" id="<?php echo $this->get_field_id('title_color'); ?>" name="<?php echo $this->get_field_name('title_color'); ?>" type="text" value="<?php echo esc_attr( $instance['title_color']); ?>" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('text') ?>"><?php _e('Text', 'vantage') ?></label>
@@ -126,7 +126,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('text_color') ?>"><?php _e('Text Color', 'vantage') ?></label>
-			<input class="widefat color-picker" id="<?php echo $this->get_field_id('text_color'); ?>" name="<?php echo $this->get_field_name('text_color'); ?>" type="text" value="<?php echo esc_attr( $instance['text_color']); ?>" />
+			<input class="widefat vantage-color-field" id="<?php echo $this->get_field_id('text_color'); ?>" name="<?php echo $this->get_field_name('text_color'); ?>" type="text" value="<?php echo esc_attr( $instance['text_color']); ?>" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('icon') ?>"><?php _e('Icon', 'vantage') ?></label>
@@ -143,7 +143,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('icon_background_color') ?>"><?php _e('Icon Background Color', 'vantage') ?></label>
-			<input class="widefat color-picker" id="<?php echo $this->get_field_id('icon_background_color'); ?>" name="<?php echo $this->get_field_name('icon_background_color'); ?>" type="text" value="<?php echo esc_attr( $instance['icon_background_color']); ?>" />
+			<input class="widefat vantage-color-field" id="<?php echo $this->get_field_id('icon_background_color'); ?>" name="<?php echo $this->get_field_name('icon_background_color'); ?>" type="text" value="<?php echo esc_attr( $instance['icon_background_color']); ?>" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('image') ?>"><?php _e('Circle Background Image URL', 'vantage') ?></label>
