@@ -502,8 +502,7 @@ function vantage_entry_thumbnail() {
 		$thumb_size = 'post-thumbnail';
 	} else {
 		$thumb_size = 'vantage-thumbnail-no-sidebar';
-	} ?>
-	<div class="entry-thumbnail"><?php the_post_thumbnail( $thumb_size ) ?></div>
-	<?php
+	}
+	the_post_thumbnail( $thumb_size );
 }
 endif;
