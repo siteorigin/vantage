@@ -17,7 +17,7 @@
 		<header class="entry-header">
 
 			<?php if( has_post_thumbnail() && siteorigin_setting('blog_featured_image') ): ?>
-				<div class="entry-thumbnail"><?php the_post_thumbnail( is_active_sidebar('sidebar-1') ? 'post-thumbnail' : 'vantage-thumbnail-no-sidebar' ) ?></div>
+				<div class="entry-thumbnail"><?php vantage_entry_thumbnail(); ?></div>
 			<?php endif; ?>
 
 			<?php if ( siteorigin_page_setting( 'page_title' ) ) : ?>

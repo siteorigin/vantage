@@ -492,3 +492,17 @@ function vantage_read_more_link() {
 }
 add_filter( 'the_content_more_link', 'vantage_read_more_link' );
 endif;
+
+if( !function_exists( 'vantage_entry_thumbnail' ) ) :
+/**
+ * Display the post/page thumbnail.
+ */
+function vantage_entry_thumbnail() {
+	if ( in_array( siteorigin_page_setting( 'layout', 'default' ), array( 'default','full-width-sidebar' ), true ) && is_active_sidebar('sidebar-1') ) {
+		$thumb_size = 'post-thumbnail';
+	} else {
+		$thumb_size = 'vantage-thumbnail-no-sidebar';
+	}
+	the_post_thumbnail( $thumb_size );
+}
+endif;
