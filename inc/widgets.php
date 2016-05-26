@@ -117,7 +117,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id('title') ?>" name="<?php echo $this->get_field_name('title') ?>" value="<?php echo esc_attr($instance['title']) ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('title_color') ?>"><?php _e('Title Color', 'vantage') ?></label>
+			<label for="<?php echo $this->get_field_id('title_color') ?>"><?php _e('Title Color', 'vantage') ?></label><br>
 			<input class="widefat vantage-color-field" id="<?php echo $this->get_field_id('title_color'); ?>" name="<?php echo $this->get_field_name('title_color'); ?>" type="text" value="<?php echo esc_attr( $instance['title_color']); ?>" />
 		</p>
 		<p>
@@ -125,7 +125,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id('text') ?>" name="<?php echo $this->get_field_name('text') ?>" value="<?php echo esc_attr($instance['text']) ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('text_color') ?>"><?php _e('Text Color', 'vantage') ?></label>
+			<label for="<?php echo $this->get_field_id('text_color') ?>"><?php _e('Text Color', 'vantage') ?></label><br>
 			<input class="widefat vantage-color-field" id="<?php echo $this->get_field_id('text_color'); ?>" name="<?php echo $this->get_field_name('text_color'); ?>" type="text" value="<?php echo esc_attr( $instance['text_color']); ?>" />
 		</p>
 		<p>
@@ -142,7 +142,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('icon_background_color') ?>"><?php _e('Icon Background Color', 'vantage') ?></label>
+			<label for="<?php echo $this->get_field_id('icon_background_color') ?>"><?php _e('Icon Background Color', 'vantage') ?></label><br>
 			<input class="widefat vantage-color-field" id="<?php echo $this->get_field_id('icon_background_color'); ?>" name="<?php echo $this->get_field_name('icon_background_color'); ?>" type="text" value="<?php echo esc_attr( $instance['icon_background_color']); ?>" />
 		</p>
 		<p>
@@ -150,7 +150,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id('image') ?>" name="<?php echo $this->get_field_name('image') ?>" value="<?php echo esc_attr($instance['image']) ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('icon_position') ?>"><?php _e('Icon Position', 'vantage') ?></label>
+			<label for="<?php echo $this->get_field_id('icon_position') ?>"><?php _e('Icon Position', 'vantage') ?></label><br>
 			<select id="<?php echo $this->get_field_id('icon_position') ?>" name="<?php echo $this->get_field_name('icon_position') ?>">
 				<option value="top" <?php selected('top', $instance['icon_position']) ?>><?php esc_html_e('Top', 'vantage') ?></option>
 				<option value="bottom" <?php selected('bottom', $instance['icon_position']) ?>><?php esc_html_e('Bottom', 'vantage') ?></option>
@@ -159,7 +159,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('icon_size') ?>"><?php _e('Icon Size', 'vantage') ?></label>
+			<label for="<?php echo $this->get_field_id('icon_size') ?>"><?php _e('Icon Size', 'vantage') ?></label><br>
 			<select id="<?php echo $this->get_field_id('icon_size') ?>" name="<?php echo $this->get_field_name('icon_size') ?>">
 				<option value="small" <?php selected('small', $instance['icon_size']) ?>><?php esc_html_e('Small', 'vantage') ?></option>
 				<option value="medium" <?php selected('medium', $instance['icon_size']) ?>><?php esc_html_e('Medium', 'vantage') ?></option>
