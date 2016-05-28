@@ -7,10 +7,18 @@
 /* Make sure select elements fit in widgets */
 .widget select {
 	max-width: 100%;
+	font-size: 1.1em;
+	border-radius: 0;
+	outline: none;
 }
 /* Search widget */
 #searchsubmit {
 	display: none;
+}
+
+.widget .searchform input {
+	width: 100%;
+	padding: 5px;
 }
 
 .textwidget p:first-child{
@@ -19,6 +27,10 @@
 
 .textwidget p:last-child{
 	margin-bottom:0;
+}
+
+.tagcloud a {
+	text-decoration: none;
 }
 
 /* =Sidebar widget styling
@@ -52,8 +64,15 @@
 			}
 
 			li {
+				padding-bottom: 15px;
+
 				a {
 					text-decoration: none;
+				}
+
+				ul.children {
+					padding-top: 15px;
+					margin-bottom: -15px;
 				}
 			}
 		}

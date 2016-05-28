@@ -466,3 +466,16 @@ function vantage_admin_color_picker() {
 }
 endif;
 add_action( 'admin_enqueue_scripts', 'vantage_admin_color_picker' );
+
+if ( ! function_exists( 'vantage_tag_cloud_widget' ) ) :
+/*
+ * Have a uniform size for the tag cloud items
+ */
+function vantage_tag_cloud_widget($args) {
+	$args['largest'] = 1;  //largest tag
+	$args['smallest'] = 1; //smallest tag
+	$args['unit'] = 'em';    //tag font unit
+	return $args;
+}
+endif;
+add_filter( 'widget_tag_cloud_args', 'vantage_tag_cloud_widget' );
