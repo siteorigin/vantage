@@ -9,10 +9,10 @@ jQuery(function($){
 
     // Initialize the flex slider
     $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider').flexslider( { } );
-    
+
     /* Setup fitvids for entry content and panels */
     if(typeof $.fn.fitVids !== 'undefined') {
-        $('.entry-content, .entry-content .panel' ).fitVids();
+        $('.entry-content, .entry-content .panel, .woocommerce #main' ).fitVids();
     }
 
     if( !$('body').hasClass('so-vantage-mobile-device') || $('nav.site-navigation.primary').hasClass('mobile-navigation')) {
