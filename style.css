@@ -2237,7 +2237,7 @@ body.layout-full {
 /* Make sure select elements fit in widgets */
 .widget select {
   max-width: 100%;
-  font-size: 1.1em;
+  font-size: 1em;
   border-radius: 0;
   outline: none;
 }
@@ -2248,6 +2248,7 @@ body.layout-full {
 .widget .searchform input {
   width: 100%;
   padding: 5px;
+  outline: none;
 }
 .textwidget p:first-child {
   margin-top: 0;
@@ -2299,7 +2300,7 @@ body.layout-full {
 #footer-widgets .widget ul li,
 #secondary .widget ol li,
 #footer-widgets .widget ol li {
-  padding-bottom: 15px;
+  padding-bottom: 7px;
 }
 #secondary .widget ul li a,
 #footer-widgets .widget ul li a,
@@ -2311,8 +2312,8 @@ body.layout-full {
 #footer-widgets .widget ul li ul.children,
 #secondary .widget ol li ul.children,
 #footer-widgets .widget ol li ul.children {
-  padding-top: 15px;
-  margin-bottom: -15px;
+  padding-top: 7px;
+  margin-bottom: -7px;
 }
 #footer-widgets {
   zoom: 1;
