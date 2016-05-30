@@ -2237,16 +2237,27 @@ body.layout-full {
 /* Make sure select elements fit in widgets */
 .widget select {
   max-width: 100%;
+  font-size: 1em;
+  border-radius: 0;
+  outline: none;
 }
 /* Search widget */
 #searchsubmit {
   display: none;
+}
+.widget .searchform input {
+  width: 100%;
+  padding: 5px;
+  outline: none;
 }
 .textwidget p:first-child {
   margin-top: 0;
 }
 .textwidget p:last-child {
   margin-bottom: 0;
+}
+.tagcloud a {
+  text-decoration: none;
 }
 /* =Sidebar widget styling
 ----------------------------------------------- */
@@ -2285,11 +2296,24 @@ body.layout-full {
 #footer-widgets .widget ol ol {
   margin-left: 1em;
 }
+#secondary .widget ul li,
+#footer-widgets .widget ul li,
+#secondary .widget ol li,
+#footer-widgets .widget ol li {
+  padding-bottom: 7px;
+}
 #secondary .widget ul li a,
 #footer-widgets .widget ul li a,
 #secondary .widget ol li a,
 #footer-widgets .widget ol li a {
   text-decoration: none;
+}
+#secondary .widget ul li ul.children,
+#footer-widgets .widget ul li ul.children,
+#secondary .widget ol li ul.children,
+#footer-widgets .widget ol li ul.children {
+  padding-top: 7px;
+  margin-bottom: -7px;
 }
 #footer-widgets {
   zoom: 1;
