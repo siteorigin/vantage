@@ -17,7 +17,7 @@
 		<header class="entry-header">
 
 			<?php if( has_post_thumbnail() && siteorigin_setting('blog_featured_image') ): ?>
-				<div class="entry-thumbnail"><?php the_post_thumbnail( is_active_sidebar('sidebar-1') ? 'post-thumbnail' : 'vantage-thumbnail-no-sidebar' ) ?></div>
+				<div class="entry-thumbnail"><?php vantage_entry_thumbnail(); ?></div>
 			<?php endif; ?>
 
 			<?php if ( siteorigin_page_setting( 'page_title' ) ) : ?>
@@ -37,7 +37,7 @@
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 
-		<?php if(vantage_get_post_categories()) : ?>
+		<?php if( vantage_get_post_categories() && ! is_singular( 'jetpack-testimonial' )) : ?>
 			<div class="entry-categories">
 				<?php echo vantage_get_post_categories() ?>
 			</div>

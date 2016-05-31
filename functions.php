@@ -26,6 +26,7 @@ include get_template_directory() . '/inc/widgets.php';
 include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/breadcrumbs.php';
 include get_template_directory() . '/inc/customizer.php';
+include get_template_directory() . '/inc/legacy.php';
 
 include get_template_directory() . '/fontawesome/icon-migration.php';
 
@@ -80,6 +81,8 @@ function vantage_setup() {
 		'size' => 'full',
 	) );
 
+	add_theme_support( 'title-tag' );
+
 	if( !defined('SITEORIGIN_PANELS_VERSION') ){
 		// Only include panels lite if the panels plugin doesn't exist
 		include get_template_directory() . '/inc/panels-lite/panels-lite.php';
@@ -131,7 +134,8 @@ function vantage_setup() {
 		// 'footer_widgets' => 'sidebar-footer',
 	) );
 
-	if( siteorigin_setting( 'navigation_responsive_menu' ) ) {
+	$mega_menu_active = function_exists( 'ubermenu' ) || ( function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( 'primary' ) );
+	if( siteorigin_setting( 'navigation_responsive_menu' ) && !$mega_menu_active ) {
 		include get_template_directory() . '/inc/mobilenav/mobilenav.php';
 	}
 
@@ -146,7 +150,6 @@ if ( ! function_exists( 'vantage_premium_setup' ) ) :
  * Add support for premium theme components
  */
 function vantage_premium_setup(){
-
 	// This theme supports the no attribution addon
 	add_theme_support( 'siteorigin-premium-no-attribution', array(
 		'filter'  => 'vantage_footer_attribution',
