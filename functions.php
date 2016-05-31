@@ -81,6 +81,8 @@ function vantage_setup() {
 		'size' => 'full',
 	) );
 
+	add_theme_support( 'title-tag' );
+
 	if( !defined('SITEORIGIN_PANELS_VERSION') ){
 		// Only include panels lite if the panels plugin doesn't exist
 		include get_template_directory() . '/inc/panels-lite/panels-lite.php';
