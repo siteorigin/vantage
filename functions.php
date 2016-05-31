@@ -26,6 +26,9 @@ include get_template_directory() . '/inc/widgets.php';
 include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/breadcrumbs.php';
 include get_template_directory() . '/inc/customizer.php';
+include get_template_directory() . '/inc/legacy.php';
+
+include get_template_directory() . '/tour/tour.php';
 
 include get_template_directory() . '/fontawesome/icon-migration.php';
 
@@ -79,6 +82,8 @@ function vantage_setup() {
 	add_theme_support( 'site-logo', array(
 		'size' => 'full',
 	) );
+
+	add_theme_support( 'title-tag' );
 
 	if( !defined('SITEORIGIN_PANELS_VERSION') ){
 		// Only include panels lite if the panels plugin doesn't exist

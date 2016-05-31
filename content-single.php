@@ -37,7 +37,7 @@
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 
-		<?php if(vantage_get_post_categories()) : ?>
+		<?php if( vantage_get_post_categories() && ! is_singular( 'jetpack-testimonial' )) : ?>
 			<div class="entry-categories">
 				<?php echo vantage_get_post_categories() ?>
 			</div>
