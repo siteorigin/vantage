@@ -525,12 +525,10 @@ endif;
 add_filter('siteorigin_page_settings_panels_home_defaults', 'vantage_page_settings_panels_defaults');
 
 function vantage_about_page_sections( $about ){
-	$about[ 'video_thumbnail' ] = array(
-		get_template_directory_uri() . '/admin/about/video_thumbnail.jpg',
-		get_template_directory_uri() . '/admin/about/video_thumbnail_2.jpg'
-	);
-	$about['video_url'] = 'https://siteorigin.com/theme/vantage/?autoplay=1';
-	$about['video_description'] = __( 'Get a quick overview of what Vantage has to offer, and why it should be your next theme of choice', 'vantage' );
+	$about['title_image'] = get_template_directory_uri() . '/admin/about/vantage-logo.png';
+	$about['title_image_2x'] = get_template_directory_uri() . '/admin/about/vantage-logo-2x.png';
+
+	$about['description'] = __( 'Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, MetaSlider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store.', 'vantage' );
 
 	$about[ 'sections' ][] = array(
 		'id' => 'tutorial'
