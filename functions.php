@@ -26,6 +26,7 @@ include get_template_directory() . '/inc/widgets.php';
 include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/breadcrumbs.php';
 include get_template_directory() . '/inc/customizer.php';
+include get_template_directory() . '/inc/legacy.php';
 
 include get_template_directory() . '/fontawesome/icon-migration.php';
 
