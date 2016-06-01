@@ -136,7 +136,7 @@ function vantage_comment( $comment, $args, $depth ) {
 
 					<div class="comment-content entry-content"><?php comment_text(); ?></div>
 				</article><!-- #comment-## -->
-		
+
 			<?php
 			break;
 	endswitch;
@@ -167,13 +167,16 @@ function vantage_posted_on() {
 		get_the_author()
 	);
 
-
-	$comments_link = '<span class="comments-link"><a href="' . get_comments_link() . '">' . __( 'Leave a comment', 'vantage' ) . '</a></span>';
+	if( comments_open() || get_comments_number() ) {
+		$comments_link = ' | <span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text() . '</a></span>';
+	} else {
+		$comments_link = '';
+	}
 
 	$posted_on_parts = array(
 		'on' => sprintf( __( 'Posted on %s', 'vantage'), $date_time ),
 		'by' => sprintf( __( '<span class="byline"> by %s</span>', 'vantage' ), $author),
-		'with' => ' | ' . $comments_link
+		'with' => $comments_link
 	);
 	$posted_on_parts = apply_filters( 'vantage_post_on_parts', $posted_on_parts );
 
@@ -185,15 +188,10 @@ endif;
 
 if(!function_exists('vantage_display_logo')):
 /**
- * Display the logo 
+ * Display the logo
  */
 function vantage_display_logo(){
 	$logo = siteorigin_setting( 'logo_image' );
-
-	if( !is_numeric( $logo ) ) {
-		$logo = SiteOrigin_Settings::get_image_id( $logo );
-	}
-
 	$logo = apply_filters('vantage_logo_image_id', $logo);
 
 	if( empty($logo) ) {
@@ -209,7 +207,7 @@ function vantage_display_logo(){
 	}
 	else {
 		// load the logo image
-		if(is_array($logo)) {
+		if( is_array($logo) ) {
 			list ($src, $height, $width) = $logo;
 		}
 		else {
@@ -231,16 +229,10 @@ function vantage_display_logo(){
 		// Try adding the retina logo
 		$retina_logo = siteorigin_setting( 'logo_image_retina' );
 		if( !empty($retina_logo) ) {
-			if( is_numeric( $retina_logo ) ) {
-				$retina_logo = apply_filters('vantage_logo_retina_image_id', $retina_logo);
-				$retina_logo_image = wp_get_attachment_image_src($retina_logo, 'full');
-				if( !empty($retina_logo_image[0]) ) {
-					$retina_logo = $retina_logo_image[0];
-				}
-			}
-
-			if( !empty($retina_logo) ) {
-				$logo_attributes['srcset'] = $retina_logo . ' 2x';
+			$retina_logo = apply_filters('vantage_logo_retina_image_id', $retina_logo);
+			$retina_logo_image = wp_get_attachment_image_src($retina_logo, 'full');
+			if( !empty($retina_logo_image[0]) ) {
+				$logo_attributes['srcset'] = $retina_logo_image[0] . ' 2x';
 			}
 		}
 
@@ -280,11 +272,11 @@ function vantage_categorized_blog() {
 		$count = count( get_categories( array(
 			'hide_empty' => 1,
 		) ) );
-		
+
 		// Count the number of categories that are attached to the posts
 		set_transient( 'vantage_categorized_blog_cache_count', $count );
 	}
-	
+
 	// Return true if this blog has categories, or else false.
 	return ($count >= 1);
 }
@@ -308,7 +300,7 @@ add_action( 'save_post', 'vantage_category_transient_flusher' );
 if( !function_exists( 'vantage_get_archive_title' ) ) :
 /**
  * Return the archive title depending on which page is being displayed.
- * 
+ *
  * @since vantage 1.0
  */
 function vantage_get_archive_title(){
@@ -349,7 +341,7 @@ function vantage_get_archive_title(){
 	else {
 		$title = __( 'Archives', 'vantage' );
 	}
-	
+
 	return apply_filters('vantage_archive_title', $title);
 }
 endif;
@@ -358,7 +350,7 @@ endif;
 if ( !function_exists( 'vantage_get_post_categories' ) ) :
 /**
  * Get the post meta.
- * 
+ *
  * @since vantage 1.0
  */
 function vantage_get_post_categories(){
@@ -396,7 +388,7 @@ function vantage_get_post_categories(){
 		get_permalink(),
 		the_title_attribute( 'echo=0' )
 	);
-	
+
 	return apply_filters('vantage_post_meta', $meta);
 }
 endif;
@@ -405,7 +397,7 @@ endif;
 if ( !function_exists( 'vantage_next_attachment_url' ) ) :
 /**
  * Gets the URL that should be displayed when clicking on an image in the view image page.
- * 
+ *
  * @param null $post
  * @return string
  */
@@ -413,7 +405,7 @@ function vantage_next_attachment_url($post = null){
 	if(empty($post)){
 		global $post;
 	}
-	
+
 	/**
 	 * Grab the IDs of all the image attachments in a gallery so we can get the URL of the next adjacent image in a gallery,
 	 * or the first image (if we're looking at the last image in a gallery), or, in a gallery of one, just the link to that image file
@@ -441,13 +433,13 @@ function vantage_next_attachment_url($post = null){
 			// or get the URL of the first image attachment
 			$next_attachment_url = get_attachment_link( $attachments[ 0 ]->ID );
 		}
-			
+
 	}
 	else {
 		// or, if there's only 1 image, get the URL of the image
 		$next_attachment_url = wp_get_attachment_url();
 	}
-	
+
 	return $next_attachment_url;
 }
 endif;
@@ -499,4 +491,18 @@ function vantage_read_more_link() {
 	return '<a class="more-link" href="' . get_permalink() . '">' . esc_html( siteorigin_setting('blog_read_more') ) .'<span class="meta-nav">&rarr;</span></a></span';
 }
 add_filter( 'the_content_more_link', 'vantage_read_more_link' );
+endif;
+
+if( !function_exists( 'vantage_entry_thumbnail' ) ) :
+/**
+ * Display the post/page thumbnail.
+ */
+function vantage_entry_thumbnail() {
+	if ( in_array( siteorigin_page_setting( 'layout', 'default' ), array( 'default','full-width-sidebar' ), true ) && is_active_sidebar('sidebar-1') ) {
+		$thumb_size = 'post-thumbnail';
+	} else {
+		$thumb_size = 'vantage-thumbnail-no-sidebar';
+	}
+	the_post_thumbnail( $thumb_size );
+}
 endif;

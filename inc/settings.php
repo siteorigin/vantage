@@ -7,9 +7,10 @@
  * @license GPL 2.0
  */
 
+if( !function_exists('vantage_theme_settings') ) :
 /**
  * Setup theme settings.
- * 
+ *
  * @since vantage 1.0
  */
 function vantage_theme_settings(){
@@ -61,7 +62,7 @@ function vantage_theme_settings(){
 	));
 
 	$settings->add_field('layout', 'fitvids', 'checkbox', __('Enable FitVids.js', 'vantage'), array(
-		'description' => __('Include FitVids.js fluid embedded video layouts.', 'vantage')	
+		'description' => __('Include FitVids.js fluid embedded video layouts.', 'vantage')
 	));
 
 	$settings->add_field('layout', 'bound', 'select', __('Layout Bound', 'vantage'), array(
@@ -99,6 +100,11 @@ function vantage_theme_settings(){
 		'description' => __('Use a special responsive menu for small screen devices.', 'vantage'),
 	));
 
+	$settings->add_field('navigation', 'responsive_menu_collapse', 'number', __('Responsive Menu Collapse', 'vantage'), array(
+		'description' => __('The resolution when the menu collapses into a mobile navigation menu.', 'vantage'),
+		'min' => 480,
+	) );
+
 	$settings->add_field('navigation', 'responsive_menu_text', 'text', __('Responsive Menu Text', 'vantage'), array(
 		'description' => __('The button used for the responsive menu.', 'vantage')
 	));
@@ -131,9 +137,9 @@ function vantage_theme_settings(){
 		'description' => __('Enables Sticky Menu and Scroll To Top for mobile devices.', 'vantage')
 	));
 
-	if( function_exists('yoast_breadcrumb') ) {
-		$settings->add_field('navigation', 'yoast_breadcrumbs', 'checkbox', __('Yoast Breadcrumbs', 'vantage'), array(
-			'description' => __('Display Yoast SEO breadcrumbs if you have it installed.', 'vantage')
+	if( function_exists('yoast_breadcrumb') || function_exists('bcn_display') ) {
+		$settings->add_field('navigation', 'yoast_breadcrumbs', 'checkbox', __('Breadcrumbs', 'vantage'), array(
+			'description' => __('Display breadcrumbs if you have Yoast SEO or Breadcrumb NavXT installed.', 'vantage')
 		) );
 	}
 
@@ -184,7 +190,7 @@ function vantage_theme_settings(){
 	$settings->add_field('blog', 'featured_image', 'checkbox', __('Featured Image', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
 		'description' => __('Show the featured image on a post single page.', 'vantage')
-	) );	
+	) );
 
 	$settings->add_field('blog', 'post_metadata', 'checkbox', __('Post Metadata', 'vantage'), array(
 		'label' => __('Display', 'vantage'),
@@ -229,8 +235,9 @@ function vantage_theme_settings(){
 	 * Social Settings
 	 */
 
-	$settings->add_field('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
-		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage')
+	$settings->add_teaser('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
+		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage'),
+		'featured' => 'theme/ajax-comments',
 	));
 
 	/**
@@ -241,24 +248,31 @@ function vantage_theme_settings(){
 		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' )
 	) );
 
+	$settings->add_teaser( 'general', 'attribution', 'checkbox', __( 'SiteOrigin Attribution', 'vantage' ), array(
+		'description' => __( "Add or remove a link to SiteOrigin in your footer.", 'vantage' ),
+		'featured' => 'theme/no-attribution',
+	) );
+
 	$settings->add_field('general', 'js_enqueue_footer', 'checkbox', __('Enqueue JavaScript in Footer', 'vantage'), array(
 		'description' => __('Enqueue JavaScript files in the footer, if possible.', 'vantage'),
 	));
 
 }
+endif;
 add_action('siteorigin_settings_init', 'vantage_theme_settings');
 
+if( !function_exists('vantage_theme_setting_defaults') ) :
 /**
  * Setup theme default settings.
- * 
+ *
  * @param $defaults
  * @return mixed
  * @since vantage 1.0
  */
 function vantage_theme_setting_defaults($defaults){
 	$defaults['logo_image'] = false;
-	$defaults['logo_in_menu_constrain'] = true;
 	$defaults['logo_image_retina'] = false;
+	$defaults['logo_in_menu_constrain'] = true;
 	$defaults['logo_header_text'] = __('Call me! Maybe?', 'vantage');
 	$defaults['logo_no_widget_overlay'] = false;
 
@@ -270,8 +284,10 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['layout_force_panels_full'] = true;
 
 	$defaults['navigation_responsive_menu'] = true;
+	$defaults['navigation_responsive_menu_collapse'] = 480;
 	$defaults['navigation_responsive_menu_text'] = '';
 	$defaults['navigation_responsive_menu_search'] = true;
+
 	$defaults['navigation_use_sticky_menu'] = true;
 	$defaults['navigation_mobile_navigation'] = false;
 	$defaults['navigation_menu_search'] = true;
@@ -299,13 +315,15 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['social_ajax_comments'] = true;
 
 	$defaults['general_site_info_text'] = '';
-	$defaults['general_adaptive_images'] = false;
+	$defaults['general_attribution'] = true;
 	$defaults['general_js_enqueue_footer'] = false;
 
 	return $defaults;
 }
+endif;
 add_filter('siteorigin_settings_defaults', 'vantage_theme_setting_defaults');
 
+if( !function_exists('vantage_blog_layout_options') ) :
 function vantage_blog_layout_options(){
 	$layouts = array();
 	foreach( glob(get_template_directory().'/loops/loop-*.php') as $template ) {
@@ -326,7 +344,9 @@ function vantage_blog_layout_options(){
 	foreach($exclude as $e) unset($layouts[$e]);
 	return $layouts;
 }
+endif;
 
+if( !function_exists('vantage_siteorigin_settings_home_slider_update_post_meta') ) :
 function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $old_value ) {
 	//Update home slider post meta.
 	$home_id = get_option( 'page_on_front' );
@@ -340,8 +360,10 @@ function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $
 	}
 	return $new_value;
 }
+endif;
 add_filter( 'pre_update_option_vantage_theme_settings', 'vantage_siteorigin_settings_home_slider_update_post_meta', 10, 2 );
 
+if( !function_exists('vantage_siteorigin_settings_localize') ) :
 function vantage_siteorigin_settings_localize( $loc ){
 	$loc = array(
 		'section_title' => __('Theme Settings', 'vantage'),
@@ -356,31 +378,168 @@ function vantage_siteorigin_settings_localize( $loc ){
 		// For the premium upgrade modal
 		'modal_title' => __('Vantage Premium Upgrade', 'vantage'),
 		'close' => __('Close', 'vantage'),
+
+		// For the settings metabox
+		'meta_box'            => __( 'Page settings', 'vantage' ),
+
+		// For archives section
+		'page_section_title' => __( 'Page Template Settings', 'vantage' ),
+		'page_section_description' => __( 'Change layouts for various pages on your site.', 'vantage' ),
+
+		// For all the different temples and template types
+		'template_home' => __( 'Blog Page', 'vantage' ),
+		'template_search' => __( 'Search Results', 'vantage' ),
+		'template_date' => __( 'Date Archives', 'vantage' ),
+		'template_404' => __( 'Not Found', 'vantage' ),
+		'template_author' => __( 'Author Archives', 'vantage' ),
+		'templates_post_type' => __( 'Type', 'vantage' ),
+		'templates_taxonomy' => __( 'Taxonomy', 'vantage' ),
 	);
 
 	return $loc;
 }
+endif;
 add_filter( 'siteorigin_settings_localization', 'vantage_siteorigin_settings_localize' );
 
+
+if ( ! function_exists( 'vantage_page_settings' ) ) :
 /**
- * Convert post ID based images into full URLs
+ * Setup Page Settings for Vantage
+ */
+function vantage_page_settings( $settings, $type, $id ){
+
+	$settings['layout'] = array(
+		'type'    => 'select',
+		'label'   => __( 'Page Layout', 'vantage' ),
+		'options' => array(
+			'default'            => __( 'Default', 'vantage' ),
+			'no-sidebar'         => __( 'No Sidebar', 'vantage' ),
+			'full-width'         => __( 'Full Width', 'vantage' ),
+			'full-width-sidebar' => __( 'Full Width, With Sidebar', 'vantage' ),
+		),
+	);
+
+	if( $type == 'post' ) $post = get_post( $id );
+	if( ! empty( $post ) && $post->post_type == 'page' ) {
+		$settings['featured_image'] = array(
+			'type'           => 'checkbox',
+			'label'          => __( 'Page Featured Image', 'vantage' ),
+			'checkbox_label' => __( 'display', 'vantage' ),
+			'description'    => __( 'Display the page featured image on this page.', 'vantage' )
+		);
+	}
+
+	$settings['page_title'] = array(
+		'type'           => 'checkbox',
+		'label'          => __( 'Page Title', 'vantage' ),
+		'checkbox_label' => __( 'display', 'vantage' ),
+		'description'    => __( 'Display the page title on this page.', 'vantage' )
+	);
+
+	$settings['masthead_margin'] = array(
+		'type'           => 'checkbox',
+		'label'          => __( 'Masthead Bottom Margin', 'vantage' ),
+		'checkbox_label' => __( 'enable', 'vantage' ),
+		'description'    => __( 'Include the margin below the masthead (top area) of your site.', 'vantage' )
+	);
+
+	$settings['footer_margin'] = array(
+		'type'           => 'checkbox',
+		'label'          => __( 'Footer Top Margin', 'vantage' ),
+		'checkbox_label' => __( 'enable', 'vantage' ),
+		'description'    => __( 'Include the margin above your footer.', 'vantage' )
+	);
+
+	$settings['hide_masthead'] = array(
+		'type'           => 'checkbox',
+		'label'          => __( 'Hide Masthead', 'vantage' ),
+		'checkbox_label' => __( 'hide', 'vantage' ),
+		'description'    => __( 'Hide the masthead on this page.', 'vantage' )
+	);
+
+	$settings['hide_footer_widgets'] = array(
+		'type'           => 'checkbox',
+		'label'          => __( 'Hide Footer Widgets', 'vantage' ),
+		'checkbox_label' => __( 'hide', 'vantage' ),
+		'description'    => __( 'Hide the footer widgets on this page.', 'vantage' )
+	);
+
+	return $settings;
+}
+endif;
+add_filter( 'siteorigin_page_settings', 'vantage_page_settings', 10, 3 );
+
+if ( ! function_exists( 'vantage_setup_page_setting_defaults' ) ) :
+/**
+ * Add the default Page Settings
+ */
+function vantage_setup_page_setting_defaults( $defaults, $type, $id ){
+	// All the basic default settings
+	$defaults['layout']              = 'default';
+	$defaults['page_title']          = true;
+	$defaults['masthead_margin']     = true;
+	$defaults['footer_margin']       = true;
+	$defaults['hide_masthead']       = false;
+	$defaults['hide_footer_widgets'] = false;
+
+	// Defaults for page only settings
+	if( $type == 'post' ) $post = get_post( $id );
+	if( ! empty( $post ) && $post->post_type == 'page' ) {
+		$defaults['featured_image'] = false;
+	}
+
+	// Specific default settings for different types
+	if( $type == 'template' && $id == 'home' ) {
+		$defaults['page_title'] = false;
+	}
+
+	return $defaults;
+}
+endif;
+add_filter( 'siteorigin_page_settings_defaults', 'vantage_setup_page_setting_defaults', 10, 3 );
+
+function vantage_page_settings_message( $post ){
+	if( $post->post_type == 'page' ) {
+		?>
+		<div class="so-page-settings-message" style="background-color: #f3f3f3; padding: 10px; margin-top: 12px; border: 1px solid #d0d0d0">
+			<?php _e( 'To use these page settings, please use the <strong>Default</strong> template selected under <strong>Page Attributes</strong>', 'vantage' ) ?>
+		</div>
+		<?php
+	}
+}
+add_action( 'siteorigin_settings_before_page_settings_meta_box', 'vantage_page_settings_message' );
+
+if ( ! function_exists( 'vantage_page_settings_panels_defaults' ) ) :
+/**
+ * Change the default page settings for the home page.
  *
- * @param $mods
+ * @param $settings
  *
  * @return mixed
  */
-function vantage_siteorigin_setting_update_image( $mods ) {
-	$convert = array( 'logo_image', 'logo_image_retina' );
-	$old_settings = get_option( 'vantage_theme_settings' );
+function vantage_page_settings_panels_defaults( $settings ){
+	$settings['layout']     = 'no-sidebar';
+	$settings['page_title'] = false;
 
-	foreach ( $convert as $key ) {
-		if( empty( $mods[ 'theme_settings_' . $key ] ) && !empty( $old_settings[$key] ) ) {
-			$image_src = wp_get_attachment_image_src( $old_settings[$key], 'full');
-			if( !empty( $image_src[0] ) ) {
-				$mods[ 'theme_settings_' . $key ] = $image_src[0];
-			}
-		}
-	}
-	return $mods;
+	return $settings;
 }
-add_filter( 'option_theme_mods_vantage', 'vantage_siteorigin_setting_update_image' );
+endif;
+add_filter('siteorigin_page_settings_panels_home_defaults', 'vantage_page_settings_panels_defaults');
+
+function vantage_about_page_sections( $about ){
+	$about['title_image'] = get_template_directory_uri() . '/admin/about/vantage-logo.png';
+	$about['title_image_2x'] = get_template_directory_uri() . '/admin/about/vantage-logo-2x.png';
+
+	$about['description'] = __( 'Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, MetaSlider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store.', 'vantage' );
+
+	$about[ 'sections' ] = array(
+		'free',
+		'support',
+		'mature',
+		'page-builder',
+		'github',
+	);
+
+	return $about;
+}
+add_filter( 'siteorigin_about_page', 'vantage_about_page_sections' );

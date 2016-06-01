@@ -1,0 +1,7 @@
+/*
+Name: Home Page: Remove Content Container Top Padding
+Description: Remove the top padding from the main content container on your home page. This container starts after the home page slider. No adjustment of the below values is required. */
+
+.home #main {
+	padding-top: 0;
+}

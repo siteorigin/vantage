@@ -1,0 +1,11 @@
+/*
+Name: Adjust Widget Sidebar Width
+Description: Adjust the width of the widget sidebar that appears on default pages and posts. Adjust the values below as required. #primary is the main content area, #secondary is the sidebar. Whatever percentage you add to #secondary must be subtracted from #primary. */
+
+#primary {
+	width: 71.287%;
+}
+
+#secondary {
+	width: 23.762%;
+}

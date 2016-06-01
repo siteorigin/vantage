@@ -1,4 +1,5 @@
 <?php
+if ( ! function_exists( 'vantage_settings_tour' ) ) :
 
 function vantage_settings_tour($tour){
 	$tour = array();
@@ -87,4 +88,5 @@ function vantage_settings_tour($tour){
 
 	return $tour;
 }
+endif;
 add_filter('siteorigin_settings_tour_content', 'vantage_settings_tour');

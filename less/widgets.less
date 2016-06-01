@@ -7,10 +7,19 @@
 /* Make sure select elements fit in widgets */
 .widget select {
 	max-width: 100%;
+	font-size: 1em;
+	border-radius: 0;
+	outline: none;
 }
 /* Search widget */
 #searchsubmit {
 	display: none;
+}
+
+.widget .searchform input {
+	width: 100%;
+	padding: 5px;
+	outline: none;
 }
 
 .textwidget p:first-child{
@@ -19,6 +28,10 @@
 
 .textwidget p:last-child{
 	margin-bottom:0;
+}
+
+.tagcloud a {
+	text-decoration: none;
 }
 
 /* =Sidebar widget styling
@@ -52,8 +65,15 @@
 			}
 
 			li {
+				padding-bottom: 7px;
+
 				a {
 					text-decoration: none;
+				}
+
+				ul.children {
+					padding-top: 7px;
+					margin-bottom: -7px;
 				}
 			}
 		}
@@ -95,7 +115,7 @@
 ----------------------------------------------- */
 
 .widget {
-	
+
 	img, iframe, object, select, input {
 		max-width: 100%;
 	}
@@ -103,7 +123,7 @@
 	img {
 		height: auto;
 	}
-	
+
 	a.button {
 		display:inline-block;
 		padding: 9px 26px;
@@ -140,14 +160,14 @@
 #wp-calendar {
 	border: none;
 	margin: 0;
-	
-	caption { 
+
+	caption {
 		font-weight: 600;
 		text-align: right;
 		padding-bottom: 0.4286em;
 	}
 
-	th, 
+	th,
 	td {
 		border: none;
 		padding: 0.2143em 0.2143em 0.1429em !important;
@@ -155,7 +175,7 @@
 
 	thead th {
 		text-align: center;
-		padding-bottom: 0.4286em !important; 
+		padding-bottom: 0.4286em !important;
 	}
 
 	tbody {
@@ -164,37 +184,37 @@
 			background: none;
 		}
 
-		td { 
-			background: #ddd; 
+		td {
+			background: #ddd;
 			border: 0.1429em solid #fff;
 			text-align: center;
-			
+
 			&:hover {
-				background: #fff;  			
+				background: #fff;
 			}
 
 			a {
 				border-bottom: none !important;
 				display: block;
 				text-decoration: none;
-				
+
 				&:hover {
 					border-bottom: none !important;
 					text-decoration: none;
 				}
 			}
-		}		
+		}
 	}
 
 	tfoot {
 
-		#prev, 
+		#prev,
 		#next {
-			padding-top: 0.4286em !important; 
+			padding-top: 0.4286em !important;
 		}
 
 		#next {
-			text-align: right;			
+			text-align: right;
 		}
 	}
 }
@@ -205,23 +225,23 @@
 	tbody td {
 		background: #434447;
 		border-color: #2f3033;
-		
+
 		a {
 			color: #fff;
-			
+
 			&:hover {
 				color: #b9b9b9;
 			}
 		}
-	}	
+	}
 
-	tfoot #prev, 
+	tfoot #prev,
 	tfoot #next {
 
 		a:hover {
 			color: #fff;
 		}
-	}	
+	}
 }
 
 .widget_call-to-action {
@@ -647,15 +667,101 @@
 		&.social-media-icon-facebook {
 			.social-button-style(#597ac7);
 		}
+
 		&.social-media-icon-twitter {
 			.social-button-style(#5bbcec);
 			.box-shadow(~"inset 0 1px 0 rgba(255,255,255,0.25), 0 1px 1px rgba(0,0,0,0.1)");
 		}
+
 		&.social-media-icon-google-plus {
 			.social-button-style(#f80000);
 		}
+
 		&.social-media-icon-rss {
 			.social-button-style(#ff9200);
+		}
+
+		&.social-media-icon-linkedin {
+			.social-button-style(#0070b4);
+		}
+
+		&.social-media-icon-dribbble {
+			.social-button-style(#ea4d89);
+		}
+
+		&.social-media-icon-flickr {
+			.social-button-style(#444444);
+		}
+
+		&.social-media-icon-instagram {
+			.social-button-style(#426f98);
+		}
+
+		&.social-media-icon-pinterest {
+			.social-button-style(#fd3832);
+		}
+
+		&.social-media-icon-skype {
+			.social-button-style(#09c6ff);
+		}
+
+		&.social-media-icon-youtube {
+			.social-button-style(#ff3635);
+		}
+
+		&.social-media-icon-github {
+			.social-button-style(#387cc9);
+		}
+
+		&.social-media-icon-vimeo {
+			.social-button-style(#42b8ff);
+			.box-shadow(~"inset 0 1px 0 rgba(255,255,255,0.25), 0 1px 1px rgba(0,0,0,0.1)");
+		}
+
+		&.social-media-icon-vk {
+			.social-button-style(#537599);
+		}
+
+		&.social-media-icon-envelope {
+			.social-button-style(#34aadc);
+		}
+
+		&.social-media-icon-phone {
+			.social-button-style(#4cd964);
+		}
+
+		&.social-media-icon-small {
+			width: 24px;
+			height: 24px;
+			.rounded(2px);
+
+			[class^="fa fa-"]{
+				font-size: 12px;
+			}
+
+			img {
+				width: 12px;
+				height: 12px;
+				margin-left: -6px;
+				margin-top: -6px;
+			}
+		}
+
+		&.social-media-icon-large {
+			width: 48px;
+			height: 48px;
+			.rounded(4px);
+
+			[class^="fa fa-"]{
+				font-size: 22px;
+			}
+
+			img {
+				width: 22px;
+				height: 22px;
+				margin-left: -11px;
+				margin-top: -10px;
+			}
 		}
 
 	}

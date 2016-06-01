@@ -1,0 +1,7 @@
+/*
+Name: Circle Icon Widget: Hide the More Link
+Description: Hide the more link outputted by the Vantage Circle Icon widget. No adjustment of the below value is required. */
+
+.widget_circleicon-widget .circle-icon-box a.more-button { 
+	display: none; 
+}

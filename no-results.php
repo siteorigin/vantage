@@ -12,7 +12,9 @@
 
 <article id="post-0" class="post no-results not-found">
 	<header class="entry-header">
-		<h1 class="entry-title"><?php _e( 'Nothing Found', 'vantage' ); ?></h1>
+		<?php if ( siteorigin_page_setting( 'page_title' ) ) : ?>
+			<h1 class="entry-title"><?php _e( 'Nothing Found', 'vantage' ); ?></h1>
+		<?php endif; ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

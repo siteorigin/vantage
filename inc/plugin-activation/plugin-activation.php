@@ -1,8 +1,9 @@
 <?php
 
+if( !function_exists('siteorigin_plugin_activation_page') ) :
 function siteorigin_plugin_activation_page(){
 	if(!isset( $_GET[sanitize_key( 'siteorigin-pa-install' )] ) ) return;
-	
+
 	add_theme_page(
 		__('Install Theme Plugin', 'vantage'),
 		__('Install Theme Plugin', 'vantage'),
@@ -11,8 +12,10 @@ function siteorigin_plugin_activation_page(){
 		'siteorigin_plugin_activation_render_page'
 	);
 }
+endif;
 add_action('admin_menu', 'siteorigin_plugin_activation_page');
 
+if( !function_exists('siteorigin_plugin_activation_render_page') ) :
 function siteorigin_plugin_activation_render_page(){
 	?>
 	<div class="wrap">
@@ -20,7 +23,9 @@ function siteorigin_plugin_activation_render_page(){
 	</div>
 	<?php
 }
+endif;
 
+if( !function_exists('siteorigin_plugin_activation_do_plugin_install') ) :
 /**
  * Install a plugin.
  */
@@ -80,7 +85,7 @@ function siteorigin_plugin_activation_do_plugin_install(){
 
 		// Find the source of the plugin
 		$source = !empty( $plugin['source'] ) ? $plugin['source'] : 'http://downloads.wordpress.org/plugin/'.urlencode($plugin['slug']).'.zip';
-		
+
 		/** Create a new instance of Plugin_Upgrader */
 		$upgrader = new Plugin_Upgrader( $skin = new Plugin_Installer_Skin( compact( 'type', 'title', 'url', 'nonce', 'plugin', 'api' ) ) );
 
@@ -91,14 +96,16 @@ function siteorigin_plugin_activation_do_plugin_install(){
 		wp_cache_flush();
 	}
 }
+endif;
 
+if( !function_exists('siteorigin_plugin_activation_install_url') ) :
 function siteorigin_plugin_activation_install_url($plugin, $plugin_name, $source = false){
 	// This is to prevent the issue where this URL is called from outside the admin
 	if( !is_admin() || !function_exists('get_plugins') ) return false;
 
 	$plugins = get_plugins();
 	$plugins = array_keys($plugins);
-	
+
 	$installed = false;
 	foreach($plugins as $plugin_path){
 		if(strpos($plugin_path, $plugin.'/') === 0) {
@@ -106,7 +113,7 @@ function siteorigin_plugin_activation_install_url($plugin, $plugin_name, $source
 			break;
 		}
 	}
-	
+
 	if($installed && !is_plugin_active($plugin)){
 		return wp_nonce_url( self_admin_url('plugins.php?action=activate&plugin='.$plugin_path), 'activate-plugin_'.$plugin_path);
 	}
@@ -129,7 +136,9 @@ function siteorigin_plugin_activation_install_url($plugin, $plugin_name, $source
 		);
 	}
 }
+endif;
 
+if( !function_exists('siteorigin_plugin_activation_is_activating') ) :
 /**
  * Check if a plugin is currently activating.
  *
@@ -147,3 +156,4 @@ function siteorigin_plugin_activation_is_activating( $plugin ){
 		&& strpos($_GET['plugin'], '/'.$plugin.'.php') !== false
 	);
 }
+endif;

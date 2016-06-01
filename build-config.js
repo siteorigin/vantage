@@ -21,28 +21,24 @@ module.exports = {
         ]
     },
     sass: {
-        src: [
-            'sass/**/*.scss',
-        ],
-        include: [
-            'sass',
-        ],
+        src: [],
+        include: [],
         external: {
           src: [
               'inc/settings/css/**/*.scss',
           ],
-          include: [
-            'inc/settings/css'
-          ],
+          include: [],
         }
     },
     less: {
         src: [
+            'style.less',
         ],
-        include:[],
+        include:[
+            'less/*.less'
+        ],
         external: {
           src: [
-              'style.less',
               'inc/panels-lite/css/**/*.less',
           ],
           include: [
