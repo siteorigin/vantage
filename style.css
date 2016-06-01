@@ -1970,7 +1970,7 @@ body.layout-full {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: rgba(0, 0, 0, 0.2);
+  background: #000000;
   padding: 20px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1990,14 +1990,17 @@ body.layout-full {
   display: block;
   width: 18px;
   height: 18px;
-  color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
 }
 #scroll-to-top.displayed {
   -ms-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
-  opacity: 1 !important;
+  opacity: 0.2 !important;
   z-index: 500;
+}
+#scroll-to-top.displayed:hover {
+  opacity: 0.8 !important;
 }
 #map-canvas img,
 #gmap_canvas img {
