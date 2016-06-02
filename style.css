@@ -3259,6 +3259,16 @@ body.layout-full {
 .panel-grid-cell .flexslider {
   margin-bottom: 0;
 }
+/* =Styling for the Polylang widget in masthead
+----------------------------------------------- */
+#masthead .widget_polylang ul {
+  list-style: none;
+}
+#masthead .widget_polylang ul li {
+  display: block;
+  float: left;
+  margin-left: 10px;
+}
 .vantage-carousel-title {
   font-size: 14px;
   font-weight: bold;
