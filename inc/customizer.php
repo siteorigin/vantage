@@ -56,6 +56,22 @@ function vantage_customizer_init(){
 				'selector' => 'h1,h2,h3,h4,h5,h6',
 			),
 			// Font sizes
+			'site_title_size' => array(
+				'type' => 'measurement',
+				'title' => __('Site Title Size', 'vantage'),
+				'default' => 36,
+				'unit' => 'px',
+				'selector' => '#masthead .hgroup h1',
+				'property' => array('font-size'),
+			),
+			'header_text_size' => array(
+				'type' => 'measurement',
+				'title' => __('Header Text Size', 'vantage'),
+				'default' => 13,
+				'unit' => 'px',
+				'selector' => '#masthead .hgroup .support-text',
+				'property' => array('font-size'),
+			),
 			'page_title_size' => array(
 				'type' => 'measurement',
 				'title' => __('Page Title Size', 'vantage'),
