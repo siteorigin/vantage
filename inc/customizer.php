@@ -67,8 +67,8 @@ function vantage_customizer_init(){
 			'header_text_size' => array(
 				'type' => 'measurement',
 				'title' => __('Header Text Size', 'vantage'),
-				'default' => 1,
-				'unit' => 'em',
+				'default' => 13,
+				'unit' => 'px',
 				'selector' => '#masthead .hgroup .support-text',
 				'property' => array('font-size'),
 			),
