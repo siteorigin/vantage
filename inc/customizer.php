@@ -443,6 +443,20 @@ function vantage_customizer_init(){
 				'selector' => '#colophon #theme-attribution a, #colophon #site-info a',
 				'property' => 'color',
 			),
+			'scroll_to_top_color' => array(
+				'type' => 'color',
+				'title' => __('Scroll to Top Color ', 'vantage'),
+				'default' => '#ffffff',
+				'selector' => '#scroll-to-top .vantage-icon-arrow-up',
+				'property' => 'color',
+			),
+			'scroll_to_top_background' => array(
+				'type' => 'color',
+				'title' => __('Scroll to Top Background', 'vantage'),
+				'default' => '#000000',
+				'selector' => '#scroll-to-top',
+				'property' => 'background',
+			),
 		),
 		'vantage_sidebar' => array(
 			'position' => array(

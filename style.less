@@ -1862,7 +1862,7 @@ body.layout-full{
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
-	background: rgba(0,0,0,0.2);
+	background: #000000;
 	padding: 20px;
 
 	.rounded(3px);
@@ -1873,7 +1873,7 @@ body.layout-full{
 		display: block;
 		width: 18px;
 		height: 18px;
-		color: rgba(255,255,255,0.2);
+		color: #ffffff;
 	}
 
 	-ms-transform: scale(0, 0);
@@ -1887,8 +1887,12 @@ body.layout-full{
 		-ms-transform: scale(1, 1);
 		-webkit-transform: scale(1, 1);
 		transform: scale(1, 1);
-		opacity: 1 !important;
+		opacity: 0.2 !important;
 		z-index: 500;
+
+		&:hover {
+			opacity: 0.8 !important;
+		}
 	}
 
 }
