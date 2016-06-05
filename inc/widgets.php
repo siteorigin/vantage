@@ -27,6 +27,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			'text' => '',
 			'text_color' => '',
 			'icon' => '',
+			'icon_color' => '',
 			'image' => '',
 			'icon_position' => 'top',
 			'icon_size' => 'small',
@@ -38,17 +39,20 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		) );
 
 		$icon_styles = array();
-		if(!empty($instance['image'])) {
+		if( !empty($instance['image']) ) {
 			$icon_styles[] = 'background-image: url('.esc_url($instance['image']).')';
 		}
-		if( !empty($instance['icon_background_color']) && preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_background_color'])) {
+		if( !empty($instance['icon_background_color']) && preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_background_color']) ) {
 			$icon_styles[] = 'background-color: '.$instance['icon_background_color'];
 		}
-		if( !empty($instance['title_color']) && preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['title_color'])) {
+		if( !empty($instance['title_color']) && preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['title_color']) ) {
 			$title_color = 'color: '.$instance['title_color'];
 		}
-		if( !empty($instance['text_color']) && preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['text_color'])) {
+		if( !empty($instance['text_color']) && preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['text_color']) ) {
 			$text_color = 'color: '.$instance['text_color'];
+		}
+		if( !empty($instance['icon_color']) && preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_color']) ) {
+			$icon_color = 'color: '.$instance['icon_color'];
 		}
 
 		$icon = $instance['icon'];
@@ -62,7 +66,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<div class="circle-icon-wrapper">
 				<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon" <?php echo $target ?>><?php endif; ?>
 				<div class="circle-icon" <?php if(!empty($icon_styles)) echo 'style="'.implode(';', $icon_styles).'"' ?>>
-					<?php if(!empty($icon)) : ?><div class="<?php echo esc_attr($icon) ?>"></div><?php endif; ?>
+					<?php if(!empty($icon)) : ?><div class="<?php echo esc_attr($icon) ?>" <?php if(!empty($icon_color)) echo 'style="'.$icon_color.'"' ?>></div><?php endif; ?>
 				</div>
 				<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
 			</div>
@@ -95,6 +99,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			'text' => '',
 			'text_color' => '',
 			'icon' => '',
+			'icon_color' => '',
 			'image' => '',
 			'icon_position' => 'top',
 			'icon_size' => 'small',
@@ -140,6 +145,10 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 					</optgroup>
 				<?php endforeach; ?>
 			</select>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('icon_color') ?>"><?php _e('Icon Color', 'vantage') ?></label><br>
+			<input class="widefat vantage-color-field" id="<?php echo $this->get_field_id('icon_color'); ?>" name="<?php echo $this->get_field_name('icon_color'); ?>" type="text" value="<?php echo esc_attr( $instance['icon_color']); ?>" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('icon_background_color') ?>"><?php _e('Icon Background Color', 'vantage') ?></label><br>
