@@ -401,6 +401,19 @@ function vantage_customizer_init(){
 				'selector' => '#colophon',
 				'property' => 'background-image',
 			),
+			'footer_background_image_layout' => array(
+				'type' => 'select',
+				'title' => __('Footer Background Image Layout', 'vantage'),
+				'default' => '',
+				'selector' => '#colophon',
+				'choices' => array(
+					'' => __( 'Default', 'vantage' ),
+					'center' => __( 'Center', 'vantage' ),
+					'tile' => __( 'Tile', 'vantage' ),
+					'cover' => __( 'Cover', 'vantage' ),
+				),
+				'callback' => 'vantage_customizer_callback_image_layout'
+			),
 			'headings' => array(
 				'type' => 'color',
 				'title' => __('Headings', 'vantage'),
