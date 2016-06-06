@@ -133,6 +133,12 @@ function vantage_customizer_init(){
 				'property' => 'color',
 				'no_live' => true,
 			),
+			'link_underline' => array(
+				'type' => 'checkbox',
+				'title' => __('Remove Link Underline', 'vantage'),
+				'default' => false,
+				'callback' => 'vantage_customizer_callback_link_underline',
+			),
 			'link_hover_color' => array(
 				'type' => 'color',
 				'title' => __('Content Link Hover Color', 'vantage'),
@@ -140,6 +146,12 @@ function vantage_customizer_init(){
 				'selector' => '.entry-content a:hover, .entry-content a:focus, .entry-content a:active, #secondary a:hover, #masthead .hgroup a:hover, #masthead .hgroup a:focus, #masthead .hgroup a:active',
 				'property' => 'color',
 				'no_live' => true,
+			),
+			'link_hover_underline' => array(
+				'type' => 'checkbox',
+				'title' => __('Add Link Underline on Hover', 'vantage'),
+				'default' => false,
+				'callback' => 'vantage_customizer_callback_link_hover_underline',
 			),
 		),
 		// The main menu
@@ -528,6 +540,32 @@ function vantage_customizer_callback_image_shadow($builder, $val, $setting){
 		$builder->add_css('.entry-content img', '-webkit-box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
 		$builder->add_css('.entry-content img', '-moz-box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
 		$builder->add_css('.entry-content img', 'box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_link_underline($builder, $val, $setting){
+	if( $val ) {
+		$builder->add_css('.entry-content a, .textwidget a', 'text-decoration', 'none');
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_link_hover_underline($builder, $val, $setting){
+	if( $val ) {
+		$builder->add_css('.entry-content a:hover, .textwidget a:hover', 'text-decoration', 'underline');
 	}
 	return $builder;
 }
