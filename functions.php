@@ -321,6 +321,10 @@ function vantage_scripts() {
 		wp_enqueue_style( 'social-media-widget', get_template_directory_uri().'/css/social-media-widget.css', array(), SITEORIGIN_THEME_VERSION );
 	}
 
+	if ( class_exists( 'woocommerce' ) ) {
+		wp_enqueue_style( 'vantage-woocommerce', get_template_directory_uri() . '/css/woocommerce.css' );
+	}
+
 	$in_footer = siteorigin_setting( 'general_js_enqueue_footer' );
 	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	wp_enqueue_script( 'jquery-flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . $js_suffix . '.js' , array('jquery'), '2.1', $in_footer );
