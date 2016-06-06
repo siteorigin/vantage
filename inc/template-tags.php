@@ -195,9 +195,8 @@ function vantage_display_logo(){
 	$logo = apply_filters('vantage_logo_image_id', $logo);
 
 	if( empty($logo) ) {
-		if ( function_exists( 'jetpack_the_site_logo' ) && jetpack_has_site_logo() ) {
-			// We'll let Jetpack handle things
-			jetpack_the_site_logo();
+		if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
+			the_custom_logo();
 			return;
 		}
 

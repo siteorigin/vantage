@@ -79,9 +79,7 @@ function vantage_setup() {
 	add_image_size( 'vantage-carousel', 272, 182, true );
 	add_image_size( 'vantage-grid-loop', 436, 272, true );
 
-	add_theme_support( 'site-logo', array(
-		'size' => 'full',
-	) );
+	add_theme_support( 'custom-logo' );
 
 	add_theme_support( 'title-tag' );
 
