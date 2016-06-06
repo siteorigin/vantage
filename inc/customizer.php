@@ -416,7 +416,7 @@ function vantage_customizer_init(){
 			),
 			'headings' => array(
 				'type' => 'color',
-				'title' => __('Headings', 'vantage'),
+				'title' => __('Widget Titles', 'vantage'),
 				'default' => '#e2e2e2',
 				'selector' => '#footer-widgets .widget .widget-title',
 				'property' => 'color',
