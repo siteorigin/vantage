@@ -100,11 +100,9 @@ function vantage_theme_settings(){
 		'description' => __('Use a special responsive menu for small screen devices.', 'vantage'),
 	));
 
-	$settings->add_field('navigation', 'responsive_menu_collapse', 'range', __('Responsive Menu Collapse', 'vantage'), array(
-		'description' => __('The resolution when the menu collapses into a mobile navigation menu.', 'vantage'),
-		'min' => 0,
-		'max' => 3000,
-		'step' => 1,
+	$settings->add_field('navigation', 'responsive_menu_collapse', 'number', __('Responsive Menu Collapse', 'vantage'), array(
+		'description' => __('The resolution when the menu collapses into a mobile navigation menu. Value is in pixels.', 'vantage'),
+		'min' => 480,
 	) );
 
 	$settings->add_field('navigation', 'responsive_menu_text', 'text', __('Responsive Menu Text', 'vantage'), array(
