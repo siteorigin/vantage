@@ -334,7 +334,7 @@ function vantage_customizer_init(){
 			),
 			'title' => array(
 				'type' => 'color',
-				'title' => __('Title', 'vantage'),
+				'title' => __('Title Text', 'vantage'),
 				'default' => '#ffffff',
 				'selector' => '.mobile-nav-frame .title h3, .mobile-nav-frame .title .close, .mobile-nav-frame .title .back',
 				'property' => 'color',
@@ -355,9 +355,9 @@ function vantage_customizer_init(){
 			),
 			'menu' => array(
 				'type' => 'color',
-				'title' => __('Menu', 'vantage'),
+				'title' => __('Menu Text', 'vantage'),
 				'default' => '#f3f3f3',
-				'selector' => '.mobile-nav-frame ul li a.link',
+				'selector' => '.mobile-nav-frame ul li a.link, .mobile-nav-frame .next',
 				'property' => 'color',
 			),
 			'menu_background' => array(
@@ -366,6 +366,13 @@ function vantage_customizer_init(){
 				'default' => '#212121',
 				'selector' => '.mobile-nav-frame ul',
 				'property' => 'background-color',
+			),
+			'menu_border' => array(
+				'type' => 'color',
+				'title' => __('Menu Border', 'vantage'),
+				'default' => '#111111',
+				'selector' => '.mobile-nav-frame ul',
+				'property' => 'border-color',
 			),
 		),
 		'vantage_widgets' => array(
