@@ -16,13 +16,17 @@ function vantage_customizer_init(){
 			'title' => __('Menu', 'vantage'),
 			'priority' => 50,
 		),
+		'vantage_mobile_menu' => array(
+			'title' => __('Mobile Menu', 'vantage'),
+			'priority' => 60,
+		),
 		'vantage_widgets' => array(
 			'title' => __('Widgets', 'vantage'),
-			'priority' => 52,
+			'priority' => 70,
 		),
 		'vantage_page' => array(
 			'title' => __('Page', 'vantage'),
-			'priority' => 55,
+			'priority' => 80,
 		),
 		'vantage_sidebar' => array(
 			'title' => __('Sidebar', 'vantage'),
@@ -318,6 +322,50 @@ function vantage_customizer_init(){
 				'selector' => '#header-sidebar .widget_nav_menu ul.menu > li > ul.sub-menu',
 				'property' => array('border-top-color'),
 				'no_live' => true,
+			),
+		),
+		'vantage_mobile_menu' => array(
+			'background' => array(
+				'type' => 'color',
+				'title' => __('Background', 'vantage'),
+				'default' => '#222222',
+				'selector' => '.mobile-nav-frame',
+				'property' => 'background-color',
+			),
+			'title' => array(
+				'type' => 'color',
+				'title' => __('Title', 'vantage'),
+				'default' => '#ffffff',
+				'selector' => '.mobile-nav-frame .title h3, .mobile-nav-frame .title .close, .mobile-nav-frame .title .back',
+				'property' => 'color',
+			),
+			'title_background' => array(
+				'type' => 'color',
+				'title' => __('Title Background', 'vantage'),
+				'default' => '#161616',
+				'selector' => '.mobile-nav-frame .title',
+				'property' => 'background-color',
+			),
+			'search_background' => array(
+				'type' => 'color',
+				'title' => __('Search Background', 'vantage'),
+				'default' => '#e0e0e0',
+				'selector' => '.mobile-nav-frame form.search input[type=search]',
+				'property' => 'background-color',
+			),
+			'menu' => array(
+				'type' => 'color',
+				'title' => __('Menu', 'vantage'),
+				'default' => '#f3f3f3',
+				'selector' => '.mobile-nav-frame ul li a.link',
+				'property' => 'color',
+			),
+			'menu_background' => array(
+				'type' => 'color',
+				'title' => __('Menu Background', 'vantage'),
+				'default' => '#212121',
+				'selector' => '.mobile-nav-frame ul',
+				'property' => 'background-color',
 			),
 		),
 		'vantage_widgets' => array(
