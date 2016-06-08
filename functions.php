@@ -79,9 +79,7 @@ function vantage_setup() {
 	add_image_size( 'vantage-carousel', 272, 182, true );
 	add_image_size( 'vantage-grid-loop', 436, 272, true );
 
-	add_theme_support( 'site-logo', array(
-		'size' => 'full',
-	) );
+	add_theme_support( 'custom-logo' );
 
 	add_theme_support( 'title-tag' );
 
@@ -321,6 +319,10 @@ function vantage_scripts() {
 
 	if ( is_active_widget( false, false, 'vantage-social-media' ) ) {
 		wp_enqueue_style( 'social-media-widget', get_template_directory_uri().'/css/social-media-widget.css', array(), SITEORIGIN_THEME_VERSION );
+	}
+
+	if ( class_exists( 'woocommerce' ) ) {
+		wp_enqueue_style( 'vantage-woocommerce', get_template_directory_uri() . '/css/woocommerce.css' );
 	}
 
 	$in_footer = siteorigin_setting( 'general_js_enqueue_footer' );
