@@ -56,6 +56,22 @@ function vantage_customizer_init(){
 				'selector' => 'h1,h2,h3,h4,h5,h6',
 			),
 			// Font sizes
+			'site_title_size' => array(
+				'type' => 'measurement',
+				'title' => __('Site Title Size', 'vantage'),
+				'default' => 36,
+				'unit' => 'px',
+				'selector' => '#masthead .hgroup h1',
+				'property' => array('font-size'),
+			),
+			'header_text_size' => array(
+				'type' => 'measurement',
+				'title' => __('Header Text Size', 'vantage'),
+				'default' => 13,
+				'unit' => 'px',
+				'selector' => '#masthead .hgroup .support-text',
+				'property' => array('font-size'),
+			),
 			'page_title_size' => array(
 				'type' => 'measurement',
 				'title' => __('Page Title Size', 'vantage'),
@@ -117,6 +133,12 @@ function vantage_customizer_init(){
 				'property' => 'color',
 				'no_live' => true,
 			),
+			'link_underline' => array(
+				'type' => 'checkbox',
+				'title' => __('Remove Link Underline', 'vantage'),
+				'default' => false,
+				'callback' => 'vantage_customizer_callback_link_underline',
+			),
 			'link_hover_color' => array(
 				'type' => 'color',
 				'title' => __('Content Link Hover Color', 'vantage'),
@@ -124,6 +146,12 @@ function vantage_customizer_init(){
 				'selector' => '.entry-content a:hover, .entry-content a:focus, .entry-content a:active, #secondary a:hover, #masthead .hgroup a:hover, #masthead .hgroup a:focus, #masthead .hgroup a:active',
 				'property' => 'color',
 				'no_live' => true,
+			),
+			'link_hover_underline' => array(
+				'type' => 'checkbox',
+				'title' => __('Add Link Underline on Hover', 'vantage'),
+				'default' => false,
+				'callback' => 'vantage_customizer_callback_link_hover_underline',
 			),
 		),
 		// The main menu
@@ -385,9 +413,22 @@ function vantage_customizer_init(){
 				'selector' => '#colophon',
 				'property' => 'background-image',
 			),
+			'footer_background_image_layout' => array(
+				'type' => 'select',
+				'title' => __('Footer Background Image Layout', 'vantage'),
+				'default' => '',
+				'selector' => '#colophon',
+				'choices' => array(
+					'' => __( 'Default', 'vantage' ),
+					'center' => __( 'Center', 'vantage' ),
+					'tile' => __( 'Tile', 'vantage' ),
+					'cover' => __( 'Cover', 'vantage' ),
+				),
+				'callback' => 'vantage_customizer_callback_image_layout'
+			),
 			'headings' => array(
 				'type' => 'color',
-				'title' => __('Headings', 'vantage'),
+				'title' => __('Widget Titles', 'vantage'),
 				'default' => '#e2e2e2',
 				'selector' => '#footer-widgets .widget .widget-title',
 				'property' => 'color',
@@ -426,6 +467,20 @@ function vantage_customizer_init(){
 				'default' => '#dddddd',
 				'selector' => '#colophon #theme-attribution a, #colophon #site-info a',
 				'property' => 'color',
+			),
+			'scroll_to_top_color' => array(
+				'type' => 'color',
+				'title' => __('Scroll to Top Color ', 'vantage'),
+				'default' => '#ffffff',
+				'selector' => '#scroll-to-top .vantage-icon-arrow-up',
+				'property' => 'color',
+			),
+			'scroll_to_top_background' => array(
+				'type' => 'color',
+				'title' => __('Scroll to Top Background', 'vantage'),
+				'default' => '#000000',
+				'selector' => '#scroll-to-top',
+				'property' => 'background',
 			),
 		),
 		'vantage_sidebar' => array(
@@ -498,6 +553,32 @@ function vantage_customizer_callback_image_shadow($builder, $val, $setting){
 		$builder->add_css('.entry-content img', '-webkit-box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
 		$builder->add_css('.entry-content img', '-moz-box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
 		$builder->add_css('.entry-content img', 'box-shadow', '0 1px 2px rgba(0,0,0,0.175)');
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_link_underline($builder, $val, $setting){
+	if( $val ) {
+		$builder->add_css('.entry-content a, .textwidget a', 'text-decoration', 'none');
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_link_hover_underline($builder, $val, $setting){
+	if( $val ) {
+		$builder->add_css('.entry-content a:hover, .textwidget a:hover', 'text-decoration', 'underline');
 	}
 	return $builder;
 }

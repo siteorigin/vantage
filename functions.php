@@ -79,9 +79,7 @@ function vantage_setup() {
 	add_image_size( 'vantage-carousel', 272, 182, true );
 	add_image_size( 'vantage-grid-loop', 436, 272, true );
 
-	add_theme_support( 'site-logo', array(
-		'size' => 'full',
-	) );
+	add_theme_support( 'custom-logo' );
 
 	add_theme_support( 'title-tag' );
 
@@ -313,6 +311,15 @@ if( !function_exists('vantage_scripts') ) :
 function vantage_scripts() {
 	wp_enqueue_style( 'vantage-style', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION );
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '4.6.2' );
+
+	if ( is_active_widget( false, false, 'vantage-social-media' ) ) {
+		wp_enqueue_style( 'social-media-widget', get_template_directory_uri().'/css/social-media-widget.css', array(), SITEORIGIN_THEME_VERSION );
+	}
+
+	if ( class_exists( 'woocommerce' ) ) {
+		wp_enqueue_style( 'vantage-woocommerce', get_template_directory_uri() . '/css/woocommerce.css' );
+	}
+
 	$in_footer = siteorigin_setting( 'general_js_enqueue_footer' );
 	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	wp_enqueue_script( 'jquery-flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . $js_suffix . '.js' , array('jquery'), '2.1', $in_footer );
