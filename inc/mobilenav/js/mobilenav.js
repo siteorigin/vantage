@@ -60,7 +60,7 @@ jQuery( function ( $ ) {
                 // Create the frame if we haven't already
                 frame = $( '<div class="mobile-nav-frame"><div class="title"><h3>' + mobileNav.text.navigate + '</h3></div><div class="slides"><div class="slides-container"></div></div></div>' ).appendTo( 'body' );
                 frame.find( '.title' )
-                    .prepend( '<a href="#" class="back">&larr;</a><a href="#" class="close">X</a>' )
+                    .prepend( '<a href="#" class="back"><i class="fa fa-long-arrow-left"></i></a><a href="#" class="close"><i class="fa fa-times"></i></a>' )
 
                 // Create and insert the search form if enabled
                 if( mobileNav.search ) {
@@ -134,12 +134,7 @@ jQuery( function ( $ ) {
                         slide.find( 'ul' ).append( li );
 
                         if ( $$.find( '> ul' ).length > 0 ) {
-                            var image = $( '<img />' )
-                                .attr( 'src', mobileNav.nextIconUrl )
-                                .attr( 'width', 18 )
-                                .attr( 'height', 26 );
-
-                            var next = $( '<a href="#" class="next"></a>' ).append( image );
+                            var next = $( '<a href="#" class="next"><i class="fa fa-chevron-right"></i></a>' );
                             li.prepend( next );
 
                             var child = $$.find( '> ul' ).eq( 0 );

@@ -100,14 +100,10 @@
 }
 .mobile-nav-frame .next {
   float: right;
-  width: 26px;
-  height: 26px;
-  line-height: 0;
-  margin-top: -3px;
-}
-.mobile-nav-frame .next img {
-  width: 18px;
-  height: 26px;
+  text-decoration: none;
+  color: #F3F3F3;
+  font-size: 17px;
+  font-weight: 300;
 }
 .admin-bar .mobile-nav-frame .title {
   position: relative;
