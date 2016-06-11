@@ -16,6 +16,7 @@ if( !function_exists('vantage_prebuilt_page_layouts') ) :
 function vantage_prebuilt_page_layouts($layouts){
 	$layouts['default-home'] = array (
 		'name' => __('Default Home', 'vantage'),
+		'screenshot' =>  get_template_directory_uri() . '/images/default-home.png',
 		'widgets' =>
 		array(
 			0 =>
