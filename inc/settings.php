@@ -50,7 +50,7 @@ function vantage_theme_settings(){
 	) );
 
 	$settings->add_field('logo', 'no_widget_overlay', 'checkbox', __('No Widget Overlay', 'vantage'), array(
-		'description' => __('If enabled, header widgets won\'t overlap main logo image.', 'vantage')
+		'description' => __("If enabled, header widgets won't overlap main logo image.", 'vantage')
 	));
 
 	/**
@@ -226,8 +226,8 @@ function vantage_theme_settings(){
 		'description' => __('Show an author box below each blog post.', 'vantage')
 	) );
 
-	$settings->add_field('blog', 'comment_author', 'text', __('Post Author\'s Comments', 'vantage'), array(
-		'description' => __('Text displayed as a label next to the post author\'s comments.', 'vantage')
+	$settings->add_field('blog', 'comment_author', 'text', __("Post Author's Comments", 'vantage'), array(
+		'description' => __("Text displayed as a label next to the post author's comments.", 'vantage')
 	));
 
 	$settings->add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
