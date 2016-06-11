@@ -12,7 +12,7 @@ jQuery(function($){
 
     /* Setup fitvids for entry content and panels */
     if(typeof $.fn.fitVids !== 'undefined') {
-        $('.entry-content, .entry-content .panel, .woocommerce #main' ).fitVids();
+        $('.entry-content, .entry-content .panel, .woocommerce #main' ).fitVids({ ignore: '.tableauViz' });
     }
 
     if( !$('body').hasClass('so-vantage-mobile-device') || $('nav.site-navigation.primary').hasClass('mobile-navigation')) {
