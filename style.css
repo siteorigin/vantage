@@ -1127,12 +1127,12 @@ article.page .entry-header .entry-thumbnail {
 article.post .entry-header .entry-thumbnail img,
 article.page .entry-header .entry-thumbnail img {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 article.post .entry-header .entry-thumbnail a,
 article.page .entry-header .entry-thumbnail a {
-  display: block;
+  display: inline-block;
 }
 article.post .entry-header h1.entry-title,
 article.page .entry-header h1.entry-title {
@@ -1462,6 +1462,7 @@ article.page.post-with-thumbnail-icon .entry-main {
 }
 .entry-content p,
 .entry-content > ul,
+.entry-content > ol,
 .entry-content > li,
 .entry-content > dl,
 .entry-content pre,
@@ -1484,13 +1485,20 @@ article.page.post-with-thumbnail-icon .entry-main {
 .entry-content blockquote cite {
   font-weight: bold;
 }
+.entry-content pre {
+  display: block;
+  padding: 10px;
+  word-wrap: break-word;
+}
+.entry-content code {
+  display: inline;
+  padding: 5px;
+}
 .entry-content pre,
 .entry-content code {
-  display: block;
   background: white;
   font-family: "Courier New", Courier, mono;
   border: 1px solid #d9d9d9;
-  padding: 10px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.09);
   overflow-x: auto;
 }
@@ -1526,6 +1534,7 @@ article.page.post-with-thumbnail-icon .entry-main {
 }
 .entry-content .gallery img {
   border: none !important;
+  vertical-align: middle;
 }
 .entry-content .gallery .gallery-caption {
   margin: 10px;
@@ -1725,6 +1734,9 @@ article.page.post-with-thumbnail-icon .entry-main {
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 0 5px rgba(0,0,0, 0.5);
   box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 0 5px rgba(0,0,0, 0.5);
   color: #efefef;
+}
+.site-content {
+  word-wrap: break-word;
 }
 .site-content .nav-previous,
 .site-content .nav-next {
