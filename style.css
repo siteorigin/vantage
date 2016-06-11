@@ -1824,8 +1824,10 @@ article.page.post-with-thumbnail-icon .entry-main {
   font-style: normal;
 }
 #comments .commentlist article .comment-author .author-comment-label {
+  position: relative;
+  top: -3px;
   margin: 0 4px;
-  padding: 2px 5px;
+  padding: 2px 5px 3px;
   background-color: #eee;
   font-size: 11px;
   border-radius: 3px;
