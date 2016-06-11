@@ -14,12 +14,12 @@
 
 		<?php do_action('vantage_entry_main_top') ?>
 
-		<?php if ( siteorigin_page_setting( 'page_title' ) || siteorigin_page_setting( 'featured_image' ) ) : ?>
+		<?php if ( ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) || ( has_post_thumbnail() && siteorigin_page_setting( 'featured_image' ) ) ) : ?>
 			<header class="entry-header">
 				<?php if ( has_post_thumbnail() && siteorigin_page_setting( 'featured_image' ) ) : ?>
 					<div class="entry-thumbnail"><?php vantage_entry_thumbnail(); ?></div>
 				<?php endif; ?>
-				<?php if ( siteorigin_page_setting( 'page_title' ) ) : ?>
+				<?php if ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) : ?>
 					<h1 class="entry-title"><?php the_title(); ?></h1>
 				<?php endif; ?>
 			</header><!-- .entry-header -->
