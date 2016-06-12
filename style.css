@@ -2858,10 +2858,16 @@ body.layout-full {
   margin: 0 -35px;
   padding: 25px 35px;
 }
+.layout-boxed .panel-row-style.panel-row-style-wide-grey {
+  margin: 0 -20px;
+}
 @media (max-width: 680px) {
   body.responsive.layout-boxed .panel-row-style {
     margin: 0 -35px;
     padding: 25px 35px;
+  }
+  body.responsive.layout-boxed .panel-row-style.panel-row-style-wide-grey {
+    margin: 0 -20px;
   }
 }
 .panel-grid-cell .flexslider {
