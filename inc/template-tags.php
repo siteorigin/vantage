@@ -118,10 +118,10 @@ function vantage_comment( $comment, $args, $depth ) {
 
 
 						<div class="comment-meta commentmetadata">
-							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time datetime="<?php comment_time( 'c' ); ?>"><?php
+							<time datetime="<?php comment_time( 'c' ); ?>"><?php
 								/* translators: 1: date, 2: time */
 								printf( __( '%1$s at %2$s', 'vantage' ), get_comment_date(), get_comment_time() );
-								?></time></a>
+								?></time>
 
 							<span class="support">
 								<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
