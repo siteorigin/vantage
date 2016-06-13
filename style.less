@@ -1021,6 +1021,10 @@ article.page{
 			color: #8f8f8f;
 			font-size: 12px;
 
+			@media (max-width: 680px) {
+				font-size: 14px;
+			}
+
 			a {
 				font-weight: 500;
 				color: #5e5e5e;
@@ -1157,6 +1161,10 @@ article.page{
 		color: #999999;
 		font-size: 0.85em;
 
+		@media (max-width: 680px) {
+			font-size: 13px;
+		}
+
 		a {
 			color: #777777;
 		}
@@ -1201,6 +1209,11 @@ article.page{
 		font-weight: bold;
 		color: #646464;
 		display: inline-block;
+
+		@media (max-width: 680px) {
+			font-size: 15px;
+			padding: 13px 20px;
+		}
 
 		.meta-nav {
 			display: inline-block;
@@ -1639,9 +1652,17 @@ article.page{
 				line-height: 1em;
 				margin-bottom: 0.35em;
 
+				@media (max-width: 680px) {
+					margin-bottom: 1em;
+				}
+
 				a{
 					color: inherit;
 					text-decoration: none;
+
+					@media (max-width: 680px) {
+						font-size: 15px;
+					}
 				}
 
 				cite {
@@ -1655,6 +1676,10 @@ article.page{
 				line-height: 1em;
 				margin-bottom: 15px;
 
+				@media (max-width: 680px) {
+					font-size: 13px;
+				}
+
 				a{
 					color: inherit;
 					text-decoration: none;
@@ -1663,6 +1688,10 @@ article.page{
 				.support {
 					display: inline-block;
 					margin-left: 15px;
+
+					.comment-edit-link {
+						margin-left: 15px;
+					}
 				}
 			}
 
@@ -1714,19 +1743,17 @@ article.page{
 
 	p.form-submit {
 		margin-bottom: 0;
-
-		@media (max-width: 680px) {
-			.submit {
-				font-size: 16px;
-				padding: 15px 20px;
-			}
-		}
 	}
 
 	#submit {
 		width: auto;
 		font-size: 12px;
 		padding: 10px 20px;
+
+		@media (max-width: 680px) {
+			font-size: 15px;
+			padding: 13px 20px;
+		}
 	}
 
 	.form-allowed-tags, .form-allowed-tags code, .comment-notes {
@@ -1739,6 +1766,10 @@ article.page{
 		color: #999;
 		margin-bottom: 10px;
 		text-align: right;
+
+		@media (max-width: 680px) {
+			font-size: 13px;
+		}
 	}
 
 	.required {
