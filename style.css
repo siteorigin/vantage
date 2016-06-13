@@ -603,6 +603,11 @@ body {
 #masthead.masthead-logo-in-menu .logo > img.logo-no-height-constrain {
   max-height: none;
 }
+#masthead.masthead-logo-in-menu .logo > h1 {
+  font-size: 20px;
+  font-weight: 100;
+  padding: 7px 15px;
+}
 .layout-boxed #masthead.masthead-logo-in-menu img.logo {
   margin-left: 25px;
 }
