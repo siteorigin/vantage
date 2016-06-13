@@ -994,12 +994,12 @@ article.page{
 
 			img {
 				display: block;
-				width: 100%;
+				max-width: 100%;
 				height: auto;
 			}
 
 			a {
-				display: block;
+				display: inline-block;
 			}
 
 			margin-bottom: 20px;
@@ -1264,6 +1264,7 @@ article.page{
 
 	p,
 	& > ul,
+	& > ol,
 	& > li,
 	& > dl,
 	pre, code, blockquote{
@@ -1293,12 +1294,21 @@ article.page{
 		}
 	}
 
-	pre, code{
+	pre {
 		display: block;
+		padding: 10px;
+		word-wrap: break-word;
+	}
+
+	code {
+		display: inline;
+		padding: 5px;
+	}
+
+	pre, code{
 		background: white;
 		font-family: "Courier New", Courier, mono;
 		border: 1px solid #d9d9d9;
-		padding: 10px;
 
 		box-shadow: 0 1px 2px rgba(0,0,0,0.09);
 
@@ -1347,6 +1357,7 @@ article.page{
 
 		img{
 			border: none !important;
+			vertical-align: middle;
 		}
 
 		.gallery-caption{
@@ -1549,6 +1560,7 @@ article.page{
 }
 
 .site-content {
+	word-wrap: break-word;
 
 	.nav-previous, .nav-next {
 		white-space: nowrap;
@@ -1646,6 +1658,16 @@ article.page{
 
 				cite {
 					font-style: normal;
+				}
+
+				.author-comment-label {
+					position: relative;
+					top: -3px;
+					margin: 0 4px;
+					padding: 2px 5px 3px;
+					background-color: #eee;
+					font-size: 11px;
+					border-radius: 3px;
 				}
 			}
 
