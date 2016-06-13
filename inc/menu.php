@@ -20,7 +20,7 @@ function vantage_filter_nav_menu_items($item_output, $item, $depth, $args){
 		}
 	}
 	elseif($object_type == 'custom') {
-		if( siteorigin_setting('navigation_home_icon') && strpos($item_output, 'href="'.home_url('/').'"', 0) !== false ) {
+		if( siteorigin_setting('navigation_home_icon') && ( strpos($item_output, 'href="'.home_url('/').'"', 0) !== false || strpos($item_output, 'href="'.home_url().'"', 0) !== false ) ) {
 			$item_output = str_replace('<span class="icon"></span>', '<span class="fa fa-home"></span>', $item_output);
 		}
 	}
