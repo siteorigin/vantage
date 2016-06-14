@@ -1151,6 +1151,12 @@ article.page .entry-header .entry-meta {
   color: #8f8f8f;
   font-size: 12px;
 }
+@media (max-width: 680px) {
+  article.post .entry-header .entry-meta,
+  article.page .entry-header .entry-meta {
+    font-size: 14px;
+  }
+}
 article.post .entry-header .entry-meta a,
 article.page .entry-header .entry-meta a {
   font-weight: 500;
@@ -1318,6 +1324,12 @@ article.page .entry-categories {
   color: #999999;
   font-size: 0.85em;
 }
+@media (max-width: 680px) {
+  article.post .entry-categories,
+  article.page .entry-categories {
+    font-size: 13px;
+  }
+}
 article.post .entry-categories a,
 article.page .entry-categories a {
   color: #777777;
@@ -1386,6 +1398,13 @@ article.page.post-with-thumbnail-icon .entry-main {
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.125);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.125);
   box-shadow: 0 1px 1px rgba(0,0,0,0.125);
+}
+@media (max-width: 680px) {
+  .post-navigation a,
+  #image-navigation a {
+    font-size: 14px;
+    padding: 13px 20px;
+  }
 }
 .post-navigation a .meta-nav,
 #image-navigation a .meta-nav {
@@ -1751,7 +1770,7 @@ article.page.post-with-thumbnail-icon .entry-main {
   text-align: right;
   width: 50%;
 }
-@media (max-width: 480px) {
+@media (max-width: 680px) {
   body.responsive .site-content .nav-previous,
   body.responsive .site-content .nav-next {
     float: none;
@@ -1828,9 +1847,19 @@ article.page.post-with-thumbnail-icon .entry-main {
   line-height: 1em;
   margin-bottom: 0.35em;
 }
+@media (max-width: 680px) {
+  #comments .commentlist article .comment-author {
+    margin-bottom: 1em;
+  }
+}
 #comments .commentlist article .comment-author a {
   color: inherit;
   text-decoration: none;
+}
+@media (max-width: 680px) {
+  #comments .commentlist article .comment-author a {
+    font-size: 15px;
+  }
 }
 #comments .commentlist article .comment-author cite {
   font-style: normal;
@@ -1850,12 +1879,20 @@ article.page.post-with-thumbnail-icon .entry-main {
   line-height: 1em;
   margin-bottom: 15px;
 }
+@media (max-width: 680px) {
+  #comments .commentlist article .comment-meta {
+    font-size: 13px;
+  }
+}
 #comments .commentlist article .comment-meta a {
   color: inherit;
   text-decoration: none;
 }
 #comments .commentlist article .comment-meta .support {
   display: inline-block;
+  margin-left: 15px;
+}
+#comments .commentlist article .comment-meta .support .comment-edit-link {
   margin-left: 15px;
 }
 #comments .commentlist article .awaiting-moderation {
@@ -1908,6 +1945,12 @@ article.page.post-with-thumbnail-icon .entry-main {
   font-size: 12px;
   padding: 10px 20px;
 }
+@media (max-width: 680px) {
+  #commentform #submit {
+    font-size: 14px;
+    padding: 13px 20px;
+  }
+}
 #commentform .form-allowed-tags,
 #commentform .form-allowed-tags code,
 #commentform .comment-notes {
@@ -1919,6 +1962,11 @@ article.page.post-with-thumbnail-icon .entry-main {
   color: #999;
   margin-bottom: 10px;
   text-align: right;
+}
+@media (max-width: 680px) {
+  #commentform .logged-in-as {
+    font-size: 13px;
+  }
 }
 #commentform .required {
   color: #a40802;
