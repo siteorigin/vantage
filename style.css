@@ -1402,7 +1402,7 @@ article.page.post-with-thumbnail-icon .entry-main {
 @media (max-width: 680px) {
   .post-navigation a,
   #image-navigation a {
-    font-size: 15px;
+    font-size: 14px;
     padding: 13px 20px;
   }
 }
@@ -1758,7 +1758,7 @@ article.page.post-with-thumbnail-icon .entry-main {
   text-align: right;
   width: 50%;
 }
-@media (max-width: 480px) {
+@media (max-width: 680px) {
   body.responsive .site-content .nav-previous,
   body.responsive .site-content .nav-next {
     float: none;
@@ -1926,7 +1926,7 @@ article.page.post-with-thumbnail-icon .entry-main {
 }
 @media (max-width: 680px) {
   #commentform #submit {
-    font-size: 15px;
+    font-size: 14px;
     padding: 13px 20px;
   }
 }
