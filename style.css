@@ -164,6 +164,14 @@ a:active {
   color: #f47e3c;
 }
 /* Headings and Rulers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
 hr {
   background-color: #ccc;
   border: 0;
@@ -493,6 +501,9 @@ body {
   content: '';
   display: table;
   clear: both;
+}
+#masthead h1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 #masthead .hgroup {
   zoom: 1;
