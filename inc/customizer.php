@@ -65,7 +65,7 @@ function vantage_customizer_init(){
 				'title' => __('Site Title Size', 'vantage'),
 				'default' => 36,
 				'unit' => 'px',
-				'selector' => '#masthead .hgroup h1',
+				'selector' => '#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1',
 				'property' => array('font-size'),
 			),
 			'header_text_size' => array(
