@@ -68,6 +68,13 @@ function vantage_customizer_init(){
 				'selector' => '#masthead .hgroup h1',
 				'property' => array('font-size'),
 			),
+			'site_title_color' => array(
+				'type' => 'color',
+				'title' => __('Site Title Color', 'vantage'),
+				'default' => '#666666',
+				'selector' => '#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1',
+				'property' => array('color'),
+			),
 			'header_text_size' => array(
 				'type' => 'measurement',
 				'title' => __('Header Text Size', 'vantage'),
@@ -75,6 +82,13 @@ function vantage_customizer_init(){
 				'unit' => 'px',
 				'selector' => '#masthead .hgroup .support-text',
 				'property' => array('font-size'),
+			),
+			'header_text_color' => array(
+				'type' => 'color',
+				'title' => __('Header Text Color', 'vantage'),
+				'default' => '#4b4b4b',
+				'selector' => '#masthead .hgroup .support-text',
+				'property' => array('color'),
 			),
 			'page_title_size' => array(
 				'type' => 'measurement',
