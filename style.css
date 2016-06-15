@@ -2437,7 +2437,11 @@ body.layout-full {
   margin-bottom: 20px;
 }
 .vertical #footer-widgets .widget {
+  margin-bottom: 25px;
   width: 100%;
+}
+.vertical #footer-widgets .widget:last-child {
+  margin-bottom: 0;
 }
 /* =General Widget Styling
 ----------------------------------------------- */

@@ -6,7 +6,7 @@
 
 	<?php do_action( 'vantage_before_footer' ); ?>
 
-	<?php get_template_part( 'parts/footer', apply_filters( 'vantage_footer_type', '' ) ); ?>
+	<?php get_template_part( 'parts/footer', apply_filters( 'vantage_footer_type', siteorigin_setting( 'layout_footer' ) ) ); ?>
 
 	<?php do_action( 'vantage_after_footer' ); ?>
 
