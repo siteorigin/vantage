@@ -2436,6 +2436,9 @@ body.layout-full {
   font-weight: bold;
   margin-bottom: 20px;
 }
+.vertical #footer-widgets .widget {
+  width: 100%;
+}
 /* =General Widget Styling
 ----------------------------------------------- */
 .widget img,
