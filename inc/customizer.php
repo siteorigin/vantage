@@ -315,11 +315,19 @@ function vantage_customizer_init(){
 			),
 			'topbottom_padding' => array(
 				'type' => 'measurement',
-				'title' => __('Menu Item Padding (px)', 'vantage'),
+				'title' => __('Menu Item Vertical Padding (px)', 'vantage'),
 				'default' => 20,
 				'unit' => 'px',
 				'selector' => '.main-navigation ul li a, #masthead.masthead-logo-in-menu .logo',
 				'property' => array('padding-top', 'padding-bottom'),
+			),
+			'leftright_padding' => array(
+				'type' => 'measurement',
+				'title' => __('Menu Item Horizontal Padding (px)', 'vantage'),
+				'default' => 35,
+				'unit' => 'px',
+				'selector' => '.main-navigation ul li a, #masthead.masthead-logo-in-menu .logo',
+				'property' => array('padding-left', 'padding-right'),
 			),
 			'font_size' => array(
 				'type' => 'measurement',
