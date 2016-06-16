@@ -96,20 +96,20 @@ function vantage_theme_settings(){
 	 * Navigation settings
 	 */
 
-	$settings->add_field('navigation', 'responsive_menu', 'checkbox', __('Responsive Menu', 'vantage'), array(
-		'description' => __('Use a special responsive menu for small screen devices.', 'vantage'),
+	$settings->add_field('navigation', 'responsive_menu', 'checkbox', __('Mobile Menu', 'vantage'), array(
+		'description' => __('Use a special mobile menu for small screen devices.', 'vantage'),
 	));
 
-	$settings->add_field('navigation', 'responsive_menu_collapse', 'number', __('Responsive Menu Collapse', 'vantage'), array(
+	$settings->add_field('navigation', 'responsive_menu_collapse', 'number', __('Mobile Menu Collapse', 'vantage'), array(
 		'description' => __('The resolution when the menu collapses into a mobile navigation menu. Value is in pixels.', 'vantage')
 	) );
 
-	$settings->add_field('navigation', 'responsive_menu_text', 'text', __('Responsive Menu Text', 'vantage'), array(
-		'description' => __('The button used for the responsive menu.', 'vantage')
+	$settings->add_field('navigation', 'responsive_menu_text', 'text', __('Mobile Menu Text', 'vantage'), array(
+		'description' => __('The button used for the mobile menu.', 'vantage')
 	));
 
-	$settings->add_field('navigation', 'responsive_menu_search', 'checkbox', __('Responsive Menu Search', 'vantage'), array(
-		'description' => __('Enable search in the responsive menu.', 'vantage')
+	$settings->add_field('navigation', 'responsive_menu_search', 'checkbox', __('Mobile Menu Search', 'vantage'), array(
+		'description' => __('Enable search in the mobile menu.', 'vantage')
 	));
 
 	$settings->add_field('navigation', 'use_sticky_menu', 'checkbox', __('Sticky Menu', 'vantage'), array(
