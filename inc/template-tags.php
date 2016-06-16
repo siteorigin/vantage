@@ -96,7 +96,7 @@ if ( ! function_exists( 'vantage_comment' ) ) :
  *
  * @since vantage 1.0
  */
-function vantage_comment( $comment, $args, $depth ) {
+function vantage_comment( $comment, $args, $depth, $post_id = null ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
@@ -114,6 +114,11 @@ function vantage_comment( $comment, $args, $depth ) {
 						<?php echo get_avatar( $comment, 50 ); ?>
 						<div class="comment-author">
 							<cite class="fn"><?php comment_author_link() ?></cite>
+							<?php if ( $post = get_post($post_id) ) : ?>
+								<?php if ( ( $comment->user_id === $post->post_author ) && siteorigin_setting( 'blog_comment_author' ) ) : ?>
+									<span class="author-comment-label"><?php echo siteorigin_setting( 'blog_comment_author' ); ?></span>
+								<?php endif; ?>
+							<?php endif; ?>
 						</div><!-- .comment-author -->
 
 

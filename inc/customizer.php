@@ -68,6 +68,13 @@ function vantage_customizer_init(){
 				'selector' => '#masthead .hgroup h1',
 				'property' => array('font-size'),
 			),
+			'site_title_color' => array(
+				'type' => 'color',
+				'title' => __('Site Title Color', 'vantage'),
+				'default' => '#666666',
+				'selector' => '#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1',
+				'property' => array('color'),
+			),
 			'header_text_size' => array(
 				'type' => 'measurement',
 				'title' => __('Header Text Size', 'vantage'),
@@ -75,6 +82,13 @@ function vantage_customizer_init(){
 				'unit' => 'px',
 				'selector' => '#masthead .hgroup .support-text',
 				'property' => array('font-size'),
+			),
+			'header_text_color' => array(
+				'type' => 'color',
+				'title' => __('Header Text Color', 'vantage'),
+				'default' => '#4b4b4b',
+				'selector' => '#masthead .hgroup .support-text',
+				'property' => array('color'),
 			),
 			'page_title_size' => array(
 				'type' => 'measurement',
@@ -301,11 +315,19 @@ function vantage_customizer_init(){
 			),
 			'topbottom_padding' => array(
 				'type' => 'measurement',
-				'title' => __('Menu Item Padding (px)', 'vantage'),
+				'title' => __('Menu Item Vertical Padding (px)', 'vantage'),
 				'default' => 20,
 				'unit' => 'px',
 				'selector' => '.main-navigation ul li a, #masthead.masthead-logo-in-menu .logo',
 				'property' => array('padding-top', 'padding-bottom'),
+			),
+			'leftright_padding' => array(
+				'type' => 'measurement',
+				'title' => __('Menu Item Horizontal Padding (px)', 'vantage'),
+				'default' => 35,
+				'unit' => 'px',
+				'selector' => '.main-navigation ul li a, #masthead.masthead-logo-in-menu .logo',
+				'property' => array('padding-left', 'padding-right'),
 			),
 			'font_size' => array(
 				'type' => 'measurement',

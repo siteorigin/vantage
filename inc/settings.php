@@ -50,7 +50,7 @@ function vantage_theme_settings(){
 	) );
 
 	$settings->add_field('logo', 'no_widget_overlay', 'checkbox', __('No Widget Overlay', 'vantage'), array(
-		'description' => __('If enabled, header widgets won\'t overlap main logo image.', 'vantage')
+		'description' => __("If enabled, header widgets won't overlap main logo image.", 'vantage')
 	));
 
 	/**
@@ -96,20 +96,20 @@ function vantage_theme_settings(){
 	 * Navigation settings
 	 */
 
-	$settings->add_field('navigation', 'responsive_menu', 'checkbox', __('Responsive Menu', 'vantage'), array(
-		'description' => __('Use a special responsive menu for small screen devices.', 'vantage'),
+	$settings->add_field('navigation', 'responsive_menu', 'checkbox', __('Mobile Menu', 'vantage'), array(
+		'description' => __('Use a special mobile menu for small screen devices.', 'vantage'),
 	));
 
-	$settings->add_field('navigation', 'responsive_menu_collapse', 'number', __('Responsive Menu Collapse', 'vantage'), array(
+	$settings->add_field('navigation', 'responsive_menu_collapse', 'number', __('Mobile Menu Collapse', 'vantage'), array(
 		'description' => __('The resolution when the menu collapses into a mobile navigation menu. Value is in pixels.', 'vantage')
 	) );
 
-	$settings->add_field('navigation', 'responsive_menu_text', 'text', __('Responsive Menu Text', 'vantage'), array(
-		'description' => __('The button used for the responsive menu.', 'vantage')
+	$settings->add_field('navigation', 'responsive_menu_text', 'text', __('Mobile Menu Text', 'vantage'), array(
+		'description' => __('The button used for the mobile menu.', 'vantage')
 	));
 
-	$settings->add_field('navigation', 'responsive_menu_search', 'checkbox', __('Responsive Menu Search', 'vantage'), array(
-		'description' => __('Enable search in the responsive menu.', 'vantage')
+	$settings->add_field('navigation', 'responsive_menu_search', 'checkbox', __('Mobile Menu Search', 'vantage'), array(
+		'description' => __('Enable search in the mobile menu.', 'vantage')
 	));
 
 	$settings->add_field('navigation', 'use_sticky_menu', 'checkbox', __('Sticky Menu', 'vantage'), array(
@@ -226,6 +226,10 @@ function vantage_theme_settings(){
 		'description' => __('Show an author box below each blog post.', 'vantage')
 	) );
 
+	$settings->add_field('blog', 'comment_author', 'text', __("Post Author's Comments", 'vantage'), array(
+		'description' => __("Text displayed as a label next to the post author's comments.", 'vantage')
+	));
+
 	$settings->add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
 		'description' => __('The link displayed when post content is split using the "more" quicktag.', 'vantage')
 	));
@@ -309,6 +313,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['blog_post_categories'] = true;
 	$defaults['blog_post_tags'] = true;
 	$defaults['blog_author_box'] = false;
+	$defaults['blog_comment_author'] = '';
 	$defaults['blog_read_more'] = __('Continue reading', 'vantage');
 
 	$defaults['social_ajax_comments'] = true;
