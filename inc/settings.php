@@ -355,17 +355,17 @@ function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $
 	//Update home slider post meta.
 	$home_id = get_option( 'page_on_front' );
 	if ( $home_id != 0 ) {
-		if ( $new_value['home_slider'] != $old_value['home_slider'] ) {
+		if ( $new_value['theme_settings_home_slider'] != $old_value['theme_settings_home_slider'] ) {
 			update_post_meta($home_id, 'vantage_metaslider_slider', $new_value['home_slider'] );
 		}
-		if ( $new_value['home_slider_stretch'] != $old_value['home_slider_stretch'] ) {
+		if ( $new_value['theme_settings_home_slider_stretch'] != $old_value['theme_settings_home_slider_stretch'] ) {
 			update_post_meta($home_id, 'vantage_metaslider_slider_stretch', $new_value['home_slider_stretch']);
 		}
 	}
 	return $new_value;
 }
 endif;
-add_filter( 'pre_update_option_vantage_theme_settings', 'vantage_siteorigin_settings_home_slider_update_post_meta', 10, 2 );
+add_filter( 'pre_update_option_theme_mods_vantage', 'vantage_siteorigin_settings_home_slider_update_post_meta', 10, 2 );
 
 if( !function_exists('vantage_siteorigin_settings_localize') ) :
 function vantage_siteorigin_settings_localize( $loc ){
