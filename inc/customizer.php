@@ -318,8 +318,9 @@ function vantage_customizer_init(){
 				'title' => __('Menu Item Vertical Padding (px)', 'vantage'),
 				'default' => 20,
 				'unit' => 'px',
-				'selector' => '.main-navigation ul li a, #masthead.masthead-logo-in-menu .logo',
+				'selector' => '.main-navigation ul li a',
 				'property' => array('padding-top', 'padding-bottom'),
+				'no_live' => true,
 			),
 			'leftright_padding' => array(
 				'type' => 'measurement',
