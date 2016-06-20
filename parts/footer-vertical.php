@@ -3,7 +3,7 @@
  * Part Name: Vertical Footer
  */
 ?>
-<footer id="colophon" class="site-footer vertical" role="contentinfo">
+<footer id="colophon" class="site-footer vertical-footer" role="contentinfo">
 
 	<?php if( ! siteorigin_page_setting( 'hide_footer_widgets', false ) ) : ?>
 		<div id="footer-widgets" class="full-container">
@@ -19,4 +19,4 @@
 
 	<?php echo apply_filters( 'vantage_footer_attribution', '<div id="theme-attribution">' . sprintf( __('A <a href="%s">SiteOrigin</a> Theme', 'vantage'), 'https://siteorigin.com') . '</div>' ) ?>
 
-</footer><!-- #colophon .site-footer -->
+</footer><!-- #colophon .site-footer .vertical-footer -->
