@@ -2912,6 +2912,20 @@ body.layout-full {
 #header-sidebar .widget_nav_menu ul.menu li:hover > ul.sub-menu {
   display: block;
 }
+/* =Custom Menu Widget in Footer Area
+----------------------------------------------- */
+#colophon .widget_nav_menu .sub-menu {
+  margin-left: 0;
+}
+#colophon .widget_nav_menu .menu-item {
+  padding-bottom: 0;
+}
+#colophon .widget_nav_menu .menu-item a {
+  display: block;
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+  border-bottom: 1px solid #b9b9b9;
+}
 /* =Some row styling for page builder
 ----------------------------------------------- */
 .panel-row-style {
