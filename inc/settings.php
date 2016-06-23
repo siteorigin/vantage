@@ -533,6 +533,8 @@ function vantage_about_page_sections( $about ){
 	$about['title_image'] = get_template_directory_uri() . '/admin/about/vantage-logo.png';
 	$about['title_image_2x'] = get_template_directory_uri() . '/admin/about/vantage-logo-2x.png';
 
+	$about['documentation_url'] = 'https://siteorigin.com/vantage-documentation/';
+
 	$about['description'] = __( 'Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, MetaSlider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store.', 'vantage' );
 
 	$about[ 'sections' ] = array(
