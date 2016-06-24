@@ -2436,6 +2436,13 @@ body.layout-full {
   font-weight: bold;
   margin-bottom: 20px;
 }
+.vertical-footer #footer-widgets .widget {
+  margin-bottom: 25px;
+  width: 100%;
+}
+.vertical-footer #footer-widgets .widget:last-child {
+  margin-bottom: 0;
+}
 /* =General Widget Styling
 ----------------------------------------------- */
 .widget img,
@@ -2870,7 +2877,7 @@ body.layout-full {
   display: none;
   position: absolute;
   margin: 0;
-  z-index: 100;
+  z-index: 120;
   border: 1px solid #e6e6e6;
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
   -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
@@ -2904,6 +2911,20 @@ body.layout-full {
 }
 #header-sidebar .widget_nav_menu ul.menu li:hover > ul.sub-menu {
   display: block;
+}
+/* =Custom Menu Widget in Footer Area
+----------------------------------------------- */
+#colophon .widget_nav_menu .sub-menu {
+  margin-left: 0;
+}
+#colophon .widget_nav_menu .menu-item {
+  padding-bottom: 0;
+}
+#colophon .widget_nav_menu .menu-item a {
+  display: block;
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+  border-bottom: 1px solid #b9b9b9;
 }
 /* =Some row styling for page builder
 ----------------------------------------------- */

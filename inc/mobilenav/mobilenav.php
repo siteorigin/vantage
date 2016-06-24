@@ -7,10 +7,7 @@ if( !function_exists('siteorigin_mobilenav_enqueue_scripts') ) :
  * @action wp_enqueue_scripts
  */
 function siteorigin_mobilenav_enqueue_scripts() {
-	$root_uri = get_template_directory_uri() . '/inc/mobilenav/';
-
-	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	wp_enqueue_script( 'siteorigin-mobilenav', $root_uri . 'js/mobilenav' . $js_suffix . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION );
+	wp_enqueue_script( 'siteorigin-mobilenav', get_template_directory_uri() . '/inc/mobilenav/js/mobilenav' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION );
 
 	$text = array(
 		'navigate' => __( 'Menu', 'vantage' ),
@@ -28,9 +25,9 @@ function siteorigin_mobilenav_enqueue_scripts() {
 	wp_localize_script( 'siteorigin-mobilenav', 'mobileNav', array(
 		'search' => $search,
 		'text' => $text,
-		'nextIconUrl' => $root_uri.'images/next.png',
+		'nextIconUrl' => get_template_directory_uri() . '/inc/mobilenav/images/next.png',
 	) );
-	wp_enqueue_style( 'siteorigin-mobilenav', $root_uri . 'css/mobilenav.css', array(), SITEORIGIN_THEME_VERSION );
+	wp_enqueue_style( 'siteorigin-mobilenav', get_template_directory_uri() . '/inc/mobilenav/css/mobilenav.css', array(), SITEORIGIN_THEME_VERSION );
 }
 endif;
 add_action( 'wp_enqueue_scripts', 'siteorigin_mobilenav_enqueue_scripts' );

@@ -514,8 +514,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Text', 'vantage'),
 				'default' => '#b9b9b9',
-				'selector' => '#footer-widgets .widget',
-				'property' => 'color',
+				'callback' => 'vantage_customizer_callback_footer_color'
 			),
 			'links' => array(
 				'type' => 'color',
@@ -656,6 +655,20 @@ function vantage_customizer_callback_link_underline($builder, $val, $setting){
 function vantage_customizer_callback_link_hover_underline($builder, $val, $setting){
 	if( $val ) {
 		$builder->add_css('.entry-content a:hover, .textwidget a:hover', 'text-decoration', 'underline');
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_footer_color($builder, $val, $setting){
+	if( $val ) {
+		$builder->add_css('#footer-widgets .widget', 'color', $val);
+		$builder->add_css('#colophon .widget_nav_menu .menu-item a', 'border-color', $val);
 	}
 	return $builder;
 }
