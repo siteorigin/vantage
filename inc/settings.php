@@ -352,20 +352,19 @@ endif;
 
 if( !function_exists('vantage_siteorigin_settings_home_slider_update_post_meta') ) :
 function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $old_value ) {
+
+	if( !isset( $new_value['home_slider'] ) || ! isset( $new_value['home_slider_stretch'] ) ) return $new_value;
+
 	//Update home slider post meta.
 	$home_id = get_option( 'page_on_front' );
 	if ( $home_id != 0 ) {
-		if ( $new_value['home_slider'] != $old_value['home_slider'] ) {
-			update_post_meta($home_id, 'vantage_metaslider_slider', $new_value['home_slider'] );
-		}
-		if ( $new_value['home_slider_stretch'] != $old_value['home_slider_stretch'] ) {
-			update_post_meta($home_id, 'vantage_metaslider_slider_stretch', $new_value['home_slider_stretch']);
-		}
+		update_post_meta( $home_id, 'vantage_metaslider_slider', $new_value['home_slider'] );
+		update_post_meta( $home_id, 'vantage_metaslider_slider_stretch', $new_value['home_slider_stretch'] );
 	}
 	return $new_value;
 }
 endif;
-add_filter( 'pre_update_option_vantage_theme_settings', 'vantage_siteorigin_settings_home_slider_update_post_meta', 10, 2 );
+add_filter( 'pre_update_option_theme_mods_vantage', 'vantage_siteorigin_settings_home_slider_update_post_meta', 10, 2 );
 
 if( !function_exists('vantage_siteorigin_settings_localize') ) :
 function vantage_siteorigin_settings_localize( $loc ){
@@ -533,6 +532,8 @@ add_filter('siteorigin_page_settings_panels_home_defaults', 'vantage_page_settin
 function vantage_about_page_sections( $about ){
 	$about['title_image'] = get_template_directory_uri() . '/admin/about/vantage-logo.png';
 	$about['title_image_2x'] = get_template_directory_uri() . '/admin/about/vantage-logo-2x.png';
+
+	$about['documentation_url'] = 'https://siteorigin.com/vantage-documentation/';
 
 	$about['description'] = __( 'Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, MetaSlider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store.', 'vantage' );
 

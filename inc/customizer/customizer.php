@@ -577,8 +577,7 @@ class SiteOrigin_Customizer_Helper {
 	 * Enqueue the customizer scripts
 	 */
 	function enqueue(){
-		$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		wp_enqueue_script('siteorigin-customizer-preview', get_template_directory_uri() . '/inc/customizer/js/live-customizer' . $js_suffix . '.js', array( 'jquery','customize-preview' ), SITEORIGIN_THEME_VERSION);
+		wp_enqueue_script('siteorigin-customizer-preview', get_template_directory_uri() . '/inc/customizer/js/live-customizer' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery','customize-preview' ), SITEORIGIN_THEME_VERSION);
 		wp_localize_script('siteorigin-customizer-preview', 'customizeSettings', $this->settings);
 	}
 
@@ -586,8 +585,7 @@ class SiteOrigin_Customizer_Helper {
 	 * Enqueue scripts for the actual customizer admin
 	 */
 	function admin_enqueue( ){
-		$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		wp_enqueue_script('siteorigin-customizer-admin', get_template_directory_uri() . '/inc/customizer/js/admin' . $js_suffix . '.js', array( 'jquery', 'customize-controls' ), SITEORIGIN_THEME_VERSION);
+		wp_enqueue_script('siteorigin-customizer-admin', get_template_directory_uri() . '/inc/customizer/js/admin' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery', 'customize-controls' ), SITEORIGIN_THEME_VERSION);
 		wp_localize_script('siteorigin-customizer-admin', 'soCustomizeAdmin', array(
 			'confirm' => __('Are you sure you want to reset your theme customizations?', 'vantage'),
 			'button' => __('Reset Customizations', 'vantage'),
