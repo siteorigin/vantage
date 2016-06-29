@@ -65,8 +65,7 @@ function vantage_customizer_init(){
 				'title' => __('Site Title Size', 'vantage'),
 				'default' => 36,
 				'unit' => 'px',
-				'selector' => '#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1',
-				'property' => array('font-size'),
+				'callback' => 'vantage_customizer_callback_site_title_size',
 			),
 			'header_text_size' => array(
 				'type' => 'measurement',
@@ -577,6 +576,22 @@ function vantage_customizer_style() {
 	echo $builder->css();
 }
 add_action('wp_head', 'vantage_customizer_style', 20);
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_site_title_size($builder, $val, $setting){
+	$mh_layout = siteorigin_setting( 'layout_masthead' );
+	if ( $mh_layout == 'logo-in-menu' ) {
+		$builder->add_css('#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1', 'font-size', $val*0.6 . 'px');
+	} else {
+		$builder->add_css('#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1', 'font-size', $val . 'px');
+	}
+	return $builder;
+}
 /**
  * @param SiteOrigin_Customizer_CSS_Builder $builder
  * @param mixed $val
