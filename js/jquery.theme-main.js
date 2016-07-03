@@ -390,4 +390,12 @@ jQuery(function($){
 
     });
 
+	$('#colophon #footer-widgets .widget_nav_menu a').each(function(){
+		var $$ = $(this),
+			itemDepth = $(this).parents('.sub-menu').length,
+			itemPadding = ( 10 * itemDepth ) + 'px';
+
+		$(this).css('padding-left',itemPadding);
+	});
+
 });
