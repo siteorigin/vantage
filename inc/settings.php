@@ -238,10 +238,10 @@ function vantage_theme_settings(){
 	 * Social Settings
 	 */
 
-	$settings->add_teaser('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
-		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage'),
-		'featured' => 'theme/ajax-comments',
-	));
+//	$settings->add_teaser('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
+//		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage'),
+//		'featured' => 'theme/ajax-comments',
+//	));
 
 	/**
 	 * General Settings
@@ -251,10 +251,10 @@ function vantage_theme_settings(){
 		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' )
 	) );
 
-	$settings->add_teaser( 'general', 'attribution', 'checkbox', __( 'SiteOrigin Attribution', 'vantage' ), array(
-		'description' => __( "Add or remove a link to SiteOrigin in your footer.", 'vantage' ),
-		'featured' => 'theme/no-attribution',
-	) );
+//	$settings->add_teaser( 'general', 'attribution', 'checkbox', __( 'SiteOrigin Attribution', 'vantage' ), array(
+//		'description' => __( "Add or remove a link to SiteOrigin in your footer.", 'vantage' ),
+//		'featured' => 'theme/no-attribution',
+//	) );
 
 	$settings->add_field('general', 'js_enqueue_footer', 'checkbox', __('Enqueue JavaScript in Footer', 'vantage'), array(
 		'description' => __('Enqueue JavaScript files in the footer, if possible.', 'vantage'),
@@ -534,6 +534,8 @@ function vantage_about_page_sections( $about ){
 	$about['title_image_2x'] = get_template_directory_uri() . '/admin/about/vantage-logo-2x.png';
 
 	$about['documentation_url'] = 'https://siteorigin.com/vantage-documentation/';
+
+	$about[ 'premium_url' ] = false;
 
 	$about['description'] = __( 'Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, MetaSlider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store.', 'vantage' );
 
