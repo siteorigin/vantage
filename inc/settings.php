@@ -46,7 +46,7 @@ function vantage_theme_settings(){
 	) );
 
 	$settings->add_field('logo', 'header_text', 'text', __('Header Text', 'vantage'), array(
-		'description' => __('Text that appears to the right of your logo.', 'vantage')
+		'description' => __('Text that appears to the right of your logo. It will be hidden if widgets are placed in the header.', 'vantage')
 	) );
 
 	$settings->add_field('logo', 'no_widget_overlay', 'checkbox', __('No Widget Overlay', 'vantage'), array(
