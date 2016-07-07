@@ -172,7 +172,9 @@ function vantage_posted_on() {
 		get_the_author()
 	);
 
-	if( comments_open() || get_comments_number() ) {
+	if( ( comments_open() || get_comments_number() ) && !siteorigin_setting('blog_post_date') && !siteorigin_setting('blog_post_author') ) {
+		$comments_link = '<span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text() . '</a></span>';
+	} elseif( comments_open() || get_comments_number() ) {
 		$comments_link = ' | <span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text() . '</a></span>';
 	} else {
 		$comments_link = '';
