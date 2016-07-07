@@ -383,8 +383,9 @@ if( !function_exists('vantage_back_to_top') ) :
  * Display the scroll to top link.
  */
 function vantage_back_to_top() {
-	if( !siteorigin_setting('navigation_display_scroll_to_top') ) return;
-	?><a href="#" id="scroll-to-top" title="<?php esc_attr_e('Back To Top', 'vantage') ?>"><span class="vantage-icon-arrow-up"></span></a><?php
+	if( !siteorigin_setting('navigation_display_scroll_to_top') && !siteorigin_setting('navigation_mobile_navigation') ) return;
+	$scroll_to_top = siteorigin_setting('navigation_display_scroll_to_top') ? 'scroll-to-top' : '';
+	?><a href="#" id="scroll-to-top" class="<?php echo $scroll_to_top; ?>" title="<?php esc_attr_e('Back To Top', 'vantage') ?>"><span class="vantage-icon-arrow-up"></span></a><?php
 }
 endif;
 add_action('wp_footer', 'vantage_back_to_top');
