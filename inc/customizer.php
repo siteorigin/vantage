@@ -20,6 +20,10 @@ function vantage_customizer_init(){
 			'title' => __('Mobile Menu', 'vantage'),
 			'priority' => 60,
 		),
+		'vantage_buttons' => array(
+			'title' => __('Buttons', 'vantage'),
+			'priority' => 65,
+		),
 		'vantage_widgets' => array(
 			'title' => __('Widgets', 'vantage'),
 			'priority' => 70,
@@ -397,6 +401,41 @@ function vantage_customizer_init(){
 				'property' => 'border-color',
 			),
 		),
+		'vantage_buttons' => array(
+			'button_background' => array(
+				'type' => 'color',
+				'title' => __('Button Background Color', 'vantage'),
+				'default' => '#dfdfdf',
+				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt',
+				'property' => 'background',
+			),
+			'button_color' => array(
+				'type' => 'color',
+				'title' => __('Button Color', 'vantage'),
+				'default' => '#646464',
+				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt',
+				'property' => 'color',
+			),
+			'button_border' => array(
+				'type' => 'color',
+				'title' => __('Button Border Color', 'vantage'),
+				'default' => '#c3c3c3',
+				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt',
+				'property' => 'border-color',
+			),
+			'button_text_shadow' => array(
+				'type' => 'checkbox',
+				'title' => __('Remove Button Text Shadow', 'vantage'),
+				'default' => false,
+				'callback' => 'vantage_customizer_callback_button_text_shadow',
+			),
+			'button_shadow' => array(
+				'type' => 'checkbox',
+				'title' => __('Remove Button Shadow', 'vantage'),
+				'default' => false,
+				'callback' => 'vantage_customizer_callback_button_shadow',
+			),
+		),
 		'vantage_widgets' => array(
 			'circle_icon_bg' => array(
 				'type' => 'color',
@@ -685,6 +724,34 @@ function vantage_customizer_callback_footer_color($builder, $val, $setting){
 	if( $val ) {
 		$builder->add_css('#footer-widgets .widget', 'color', $val);
 		$builder->add_css('#colophon .widget_nav_menu .menu-item a', 'border-color', $val);
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_button_text_shadow($builder, $val, $setting){
+	if( $val ) {
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt', 'text-shadow', 'none');
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_button_shadow($builder, $val, $setting){
+	if( $val ) {
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt', '-webkit-box-shadow', 'none');
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt', '-moz-box-shadow', 'none');
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt', 'box-shadow', 'none');
 	}
 	return $builder;
 }
