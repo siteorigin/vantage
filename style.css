@@ -520,6 +520,9 @@ body {
   display: table;
   clear: both;
 }
+#masthead .hgroup.masthead-sidebar {
+  padding: 0;
+}
 #masthead .hgroup a {
   text-decoration: none;
 }
