@@ -406,23 +406,17 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Button Background Color', 'vantage'),
 				'default' => '#dfdfdf',
-				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt',
-				'property' => 'background',
-			),
+				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', 'property' => 'background', ),
 			'button_color' => array(
 				'type' => 'color',
 				'title' => __('Button Color', 'vantage'),
 				'default' => '#646464',
-				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt',
-				'property' => 'color',
-			),
+				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', 'property' => 'color', ),
 			'button_border' => array(
 				'type' => 'color',
 				'title' => __('Button Border Color', 'vantage'),
 				'default' => '#c3c3c3',
-				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt',
-				'property' => 'border-color',
-			),
+				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', 'property' => 'border-color', ),
 			'button_text_shadow' => array(
 				'type' => 'checkbox',
 				'title' => __('Remove Button Text Shadow', 'vantage'),
@@ -736,7 +730,7 @@ function vantage_customizer_callback_footer_color($builder, $val, $setting){
  */
 function vantage_customizer_callback_button_text_shadow($builder, $val, $setting){
 	if( $val ) {
-		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt', 'text-shadow', 'none');
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', 'text-shadow', 'none');
 	}
 	return $builder;
 }
@@ -749,9 +743,9 @@ function vantage_customizer_callback_button_text_shadow($builder, $val, $setting
  */
 function vantage_customizer_callback_button_shadow($builder, $val, $setting){
 	if( $val ) {
-		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt', '-webkit-box-shadow', 'none');
-		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt', '-moz-box-shadow', 'none');
-		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .checkout-button, input.button, .button.alt', 'box-shadow', 'none');
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', '-webkit-box-shadow', 'none');
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', '-moz-box-shadow', 'none');
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', 'box-shadow', 'none');
 	}
 	return $builder;
 }
