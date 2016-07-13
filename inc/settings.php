@@ -227,7 +227,8 @@ function vantage_theme_settings(){
 	) );
 
 	$settings->add_field('blog', 'comment_author', 'text', __("Post Author's Comments", 'vantage'), array(
-		'description' => __("Text displayed as a label next to the post author's comments.", 'vantage')
+		'description' => __("Text displayed as a label next to the post author's comments.", 'vantage'),
+		'sanitize_callback' => 'wp_kses_post',
 	));
 
 	$settings->add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
