@@ -537,6 +537,12 @@ function vantage_about_page_sections( $about ){
 
 	$about[ 'premium_url' ] = false;
 
+	$about[ 'video_thumbnail' ] = array(
+		get_template_directory_uri() . '/admin/about/stills/still-1.jpg',
+		get_template_directory_uri() . '/admin/about/stills/still-2.jpg',
+		get_template_directory_uri() . '/admin/about/stills/still-3.jpg'
+	);
+
 	$about['description'] = __( 'Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, MetaSlider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store.', 'vantage' );
 
 	$about[ 'sections' ] = array(
