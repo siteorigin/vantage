@@ -1,13 +1,14 @@
 /*
 Theme Name: Vantage
 Author: SiteOrigin
-Author URI: http://siteorigin.com/
-Theme URI: http://siteorigin.com/theme/vantage/
-Description: Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, MetaSlider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free and premium support on our support <a href="http://siteorigin.com/thread/">forums</a> (http://siteorigin.com/thread/).
+Author URI: https://siteorigin.com/
+Theme URI: https://siteorigin.com/theme/vantage/
+Description: Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, Meta Slider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free and premium support on our support <a href="http://siteorigin.com/thread/">forums</a> (http://siteorigin.com/thread/).
 Version: dev
 License: GNU General Public License 2.0
 License URI: license.txt
 Tags: responsive-layout, fluid-layout, custom-background, custom-menu, featured-images, theme-options, threaded-comments, translation-ready, black, white, light, one-column, two-columns, full-width-template
+Text Domain: vantage
 */
 
 @import "less/mixins";
@@ -28,7 +29,6 @@ textarea {
 	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	line-height: 1.5em;
 	font-size: 13px;
-	word-wrap: break-word;
 }
 
 /* Links */
@@ -44,6 +44,15 @@ a {
 }
 
 /* Headings and Rulers */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
 
 hr {
 	background-color: #ccc;
@@ -175,41 +184,6 @@ input {
 	*overflow: visible;
 
 }
-
-
-.vantage-button() {
-	padding: 12px 20px;
-	.bordered(#d2d2d2, #c3c3c3, #9f9f9f, #c3c3c3);
-	.gradient(#ffffff, #dfdfdf, #ffffff);
-	.rounded(3px);
-	font-size: 12px;
-	font-weight: bold;
-	color: #646464;
-
-	.box-shadow(~"0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5)");
-	width: auto;
-	text-decoration: none;
-
-	/* Improves usability and consistency of cursor style between image-type 'input' and others */
-	cursor: pointer;
-
-	/* Corrects inability to style clickable 'input' types in iOS */
-	line-height: 1;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-
-	&:focus {
-		/* Button hover style */
-		.bordered(#dadada, #cfcfcf, #a8a8a8, #cfcfcf);
-		.gradient(#ffffff, #ebebeb, #ffffff);
-	}
-
-	&:active {
-		/* Button click style */
-		.bordered(#aaa, #bbb, #bbb, #bbb);
-		.box-shadow(~'inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15)');
-	}
-}
-
 
 a.button,
 button,
@@ -358,6 +332,10 @@ body {
 	.box-sizing(border-box);
 	.clearfix();
 
+	h1 {
+		font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	}
+
 	.hgroup {
 		.clearfix();
 
@@ -468,6 +446,12 @@ body {
 
 			> img.logo-no-height-constrain {
 				max-height: none;
+			}
+
+			> h1 {
+				font-size: 20px;
+				font-weight: 100;
+				padding: 7px 15px;
 			}
 
 		}
@@ -848,7 +832,7 @@ body.responsive {
   		content: "";
   		height: 6px;
   		position: absolute;
-  		width: 100%;		
+  		width: 100%;
 	}
 }
 
@@ -1029,12 +1013,12 @@ article.page{
 
 			img {
 				display: block;
-				width: 100%;
+				max-width: 100%;
 				height: auto;
 			}
 
 			a {
-				display: block;
+				display: inline-block;
 			}
 
 			margin-bottom: 20px;
@@ -1055,6 +1039,10 @@ article.page{
 		.entry-meta {
 			color: #8f8f8f;
 			font-size: 12px;
+
+			@media (max-width: 680px) {
+				font-size: 14px;
+			}
 
 			a {
 				font-weight: 500;
@@ -1192,6 +1180,10 @@ article.page{
 		color: #999999;
 		font-size: 0.85em;
 
+		@media (max-width: 680px) {
+			font-size: 13px;
+		}
+
 		a {
 			color: #777777;
 		}
@@ -1236,6 +1228,11 @@ article.page{
 		font-weight: bold;
 		color: #646464;
 		display: inline-block;
+
+		@media (max-width: 680px) {
+			font-size: 14px;
+			padding: 13px 20px;
+		}
 
 		.meta-nav {
 			display: inline-block;
@@ -1299,6 +1296,7 @@ article.page{
 
 	p,
 	& > ul,
+	& > ol,
 	& > li,
 	& > dl,
 	pre, code, blockquote{
@@ -1328,12 +1326,21 @@ article.page{
 		}
 	}
 
-	pre, code{
+	pre {
 		display: block;
+		padding: 10px;
+		word-wrap: break-word;
+	}
+
+	code {
+		display: inline;
+		padding: 5px;
+	}
+
+	pre, code{
 		background: white;
 		font-family: "Courier New", Courier, mono;
 		border: 1px solid #d9d9d9;
-		padding: 10px;
 
 		box-shadow: 0 1px 2px rgba(0,0,0,0.09);
 
@@ -1382,6 +1389,7 @@ article.page{
 
 		img{
 			border: none !important;
+			vertical-align: middle;
 		}
 
 		.gallery-caption{
@@ -1584,6 +1592,7 @@ article.page{
 }
 
 .site-content {
+	word-wrap: break-word;
 
 	.nav-previous, .nav-next {
 		white-space: nowrap;
@@ -1602,7 +1611,7 @@ article.page{
 
 }
 
-@media (max-width:480px) {
+@media (max-width:680px) {
 	body.responsive {
 		.site-content{
 			.nav-previous, .nav-next {
@@ -1674,13 +1683,31 @@ article.page{
 				line-height: 1em;
 				margin-bottom: 0.35em;
 
+				@media (max-width: 680px) {
+					margin-bottom: 1em;
+				}
+
 				a{
 					color: inherit;
 					text-decoration: none;
+
+					@media (max-width: 680px) {
+						font-size: 15px;
+					}
 				}
 
 				cite {
 					font-style: normal;
+				}
+
+				.author-comment-label {
+					position: relative;
+					top: -3px;
+					margin: 0 4px;
+					padding: 2px 5px 3px;
+					background-color: #eee;
+					font-size: 11px;
+					border-radius: 3px;
 				}
 			}
 
@@ -1690,6 +1717,10 @@ article.page{
 				line-height: 1em;
 				margin-bottom: 15px;
 
+				@media (max-width: 680px) {
+					font-size: 13px;
+				}
+
 				a{
 					color: inherit;
 					text-decoration: none;
@@ -1698,6 +1729,10 @@ article.page{
 				.support {
 					display: inline-block;
 					margin-left: 15px;
+
+					.comment-edit-link {
+						margin-left: 15px;
+					}
 				}
 			}
 
@@ -1755,6 +1790,11 @@ article.page{
 		width: auto;
 		font-size: 12px;
 		padding: 10px 20px;
+
+		@media (max-width: 680px) {
+			font-size: 14px;
+			padding: 13px 20px;
+		}
 	}
 
 	.form-allowed-tags, .form-allowed-tags code, .comment-notes {
@@ -1767,10 +1807,45 @@ article.page{
 		color: #999;
 		margin-bottom: 10px;
 		text-align: right;
+
+		@media (max-width: 680px) {
+			font-size: 13px;
+		}
 	}
 
 	.required {
 		color: #a40802;
+	}
+
+}
+
+/* Vantage Jetpack Subscription Form */
+
+#commentform {
+
+	p.comment-subscription-form {
+		margin-bottom: 0px;
+
+		input[type="checkbox"] {
+			float: none;
+			font-size: 1em;
+			line-height: 1.92857em;
+			vertical-align: middle;
+		}
+
+		label.subscribe-label {
+			font-size: 1em;
+			float: none;
+			line-height: 1.92857em;
+			font-weight: normal;
+			margin: 0;
+			padding-left: 10px;
+			width: auto;
+		}
+	}
+
+	p.form-submit {
+		margin-bottom: 2em;
 	}
 }
 
@@ -1831,7 +1906,7 @@ body.layout-full{
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
-	background: rgba(0,0,0,0.2);
+	background: #000000;
 	padding: 20px;
 
 	.rounded(3px);
@@ -1842,7 +1917,7 @@ body.layout-full{
 		display: block;
 		width: 18px;
 		height: 18px;
-		color: rgba(255,255,255,0.2);
+		color: #ffffff;
 	}
 
 	-ms-transform: scale(0, 0);
@@ -1856,8 +1931,12 @@ body.layout-full{
 		-ms-transform: scale(1, 1);
 		-webkit-transform: scale(1, 1);
 		transform: scale(1, 1);
-		opacity: 1 !important;
+		opacity: 0.2 !important;
 		z-index: 500;
+
+		&:hover {
+			opacity: 0.8 !important;
+		}
 	}
 
 }
@@ -1886,40 +1965,12 @@ body.layout-full{
   display: block; /* Display entry meta on pages if within a Page Builder cell (Post Loop widget) */
 }
 
-/* Vantage Jetpack Subscription Form */
-
-#commentform p.comment-subscription-form {
-    margin-bottom: 0px;
-}
-
-#commentform p.comment-subscription-form input[type="checkbox"] {
-    float: none;
-    font-size: 1em;
-    line-height: 1.92857em;
-    vertical-align: middle;
-}
-
-#commentform p.comment-subscription-form label.subscribe-label {
-    font-size: 1em;
-    float: none;
-    line-height: 1.92857em;
-    font-weight: normal;
-    margin: 0;
-    padding-left: 10px;
-    width: auto;
-}
-
-#commentform p.form-submit {
-    margin-bottom: 2em;
-}
-
-
+@import "less/page-settings";
 @import "less/slider";
 @import "less/widgets";
 @import "less/loops";
-@import "less/woocommerce";
 @import "less/jetpack-infinite-scroll";
-@import "less/yoast";
+@import "less/breadcrumbs";
 @import "less/icons";
 @import "less/jwplayer";
 @import "less/accessibility";

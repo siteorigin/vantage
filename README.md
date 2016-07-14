@@ -78,6 +78,50 @@ Please note that the WordPress Custom Background feature is only enabled when us
 Change Log
 ---------------
 
+#### 1.5
+* Moved all settings to customizer, updated SiteOrigin framework.
+* Added page that points to new Customizer settings section.
+* Updated POT files.
+* Fixed translation strings in comments area.
+* Added retina logo, mobile menu and design customizations to free version.
+* Removed references to Vantage Premium.
+* Fixed doubling up of custom CSS from Page Builder.
+* Updated retina logo to use srcset instead of Javascript.
+* Removed upgrade page.
+* Improved child theme compatibility.
+* Removed unused files.
+* Fixed function name prefixes for Font Awesome migration.
+* Added networks to Vantage Social Links widget.
+* Updated to latest Font Awesome.
+* Added snippets for SiteOrigin CSS.
+* Added support for addons in SiteOrigin Premium.
+* Added support for Breadcrumbs NavXT plugin.
+* Added page settings and page settings note about usage.
+* Removed incompatible Meta Slider layouts.
+* Added theme about page.
+* Post loops now support attachments.
+* Added color option to circle icon widget.
+* Added Fitvids support to WooCommerce products.
+* Added styling to default widgets.
+* Removed categories from Jetpack Testimonial posts
+* Added support for WordPress title tag.
+* Added color options for scroll to top icon.
+* Added font size settings for site title and support text.
+* Added styling to polylang widget in masthead.
+* Add link underline and link hover underline option.
+* Moved WooCommerce styling to a separate file.
+* Added mobile menu color settings
+* Styling changes after testing with WP test.
+* Added prebuilt layout screenshot.
+* Small modifications to improve mobile UX.
+* Fixed full width stretched issue.
+* Fixed issue with menu home icon.
+* Fixed logo in menu for .site-title setting.
+* Minor changes to navigation buttons on mobile devices.
+* Added vertical footer layout.
+* Use SITEORIGIN_THEME_JS_PREFIX for Javascript file names.
+* Linked site title size to masthead layout setting.
+
 #### 1.4.4
 * Removed admin bar.
 * Better resizing behaviour for share buttons.

@@ -1,7 +1,7 @@
 <?php
 /**
- * Displays 
- * 
+ * Displays
+ *
  * @package vantage
  * @since vantage 1.0
  * @license GPL 2.0
@@ -23,7 +23,7 @@
 		<header class="entry-header">
 			<?php if( has_post_thumbnail() && siteorigin_setting('blog_featured_image_type') == 'large' ): ?>
 				<div class="entry-thumbnail">
-					<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( is_active_sidebar('sidebar-1') ? 'post-thumbnail' : 'vantage-thumbnail-no-sidebar' ) ?></a>
+					<a href="<?php the_permalink() ?>"><?php vantage_entry_thumbnail(); ?></a>
 				</div>
 			<?php endif; ?>
 

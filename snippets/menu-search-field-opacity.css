@@ -1,0 +1,7 @@
+/*
+Name: Menu Search Field Opacity
+Description: Use RGBA to set the background color and opacity of the main menu search field. The first three values represent the color, the last represents the opacity. Adjust the values below as required. */
+
+#search-icon .searchform {
+	background: rgba(45, 46, 49, 0.8);
+}

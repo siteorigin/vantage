@@ -1,7 +1,7 @@
 <?php
 /**
- * Displays 
- * 
+ * Displays
+ *
  * @package vantage
  * @since vantage 1.0
  * @license GPL 2.0
@@ -14,28 +14,32 @@
 
 		<?php do_action('vantage_entry_main_top') ?>
 
-		<header class="entry-header">
+		<?php if ( ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) || ( has_post_thumbnail() && siteorigin_setting('blog_featured_image') ) || ( siteorigin_setting( 'blog_post_metadata' ) && get_post_type() == 'post' ) ) : ?>
+			<header class="entry-header">
 
-			<?php if( has_post_thumbnail() && siteorigin_setting('blog_featured_image') ): ?>
-				<div class="entry-thumbnail"><?php the_post_thumbnail( is_active_sidebar('sidebar-1') ? 'post-thumbnail' : 'vantage-thumbnail-no-sidebar' ) ?></div>
-			<?php endif; ?>
+				<?php if( has_post_thumbnail() && siteorigin_setting('blog_featured_image') ): ?>
+					<div class="entry-thumbnail"><?php vantage_entry_thumbnail(); ?></div>
+				<?php endif; ?>
 
-			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'vantage' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+				<?php if ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) : ?>
+					<h1 class="entry-title"><?php the_title(); ?></h1>
+				<?php endif; ?>
 
-			<?php if ( siteorigin_setting( 'blog_post_metadata' ) && get_post_type() == 'post' ) : ?>
-				<div class="entry-meta">
-					<?php vantage_posted_on(); ?>
-				</div><!-- .entry-meta -->
-			<?php endif; ?>
+				<?php if ( siteorigin_setting( 'blog_post_metadata' ) && get_post_type() == 'post' ) : ?>
+					<div class="entry-meta">
+						<?php vantage_posted_on(); ?>
+					</div><!-- .entry-meta -->
+				<?php endif; ?>
 
-		</header><!-- .entry-header -->
+			</header><!-- .entry-header -->
+		<?php endif; ?>
 
 		<div class="entry-content">
 			<?php the_content(); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 
-		<?php if(vantage_get_post_categories()) : ?>
+		<?php if( vantage_get_post_categories() && ! is_singular( 'jetpack-testimonial' )) : ?>
 			<div class="entry-categories">
 				<?php echo vantage_get_post_categories() ?>
 			</div>

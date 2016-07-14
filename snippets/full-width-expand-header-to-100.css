@@ -1,0 +1,7 @@
+/*
+Name: Full Width Layout: Expand Header Content to 100%
+Description: With Appearance > Theme Settings > Layout > Layout Bound set to Full Width, expand the header content to 100% of screen width. No adjustment of the below value is required. */
+
+body.responsive.layout-full #page-wrapper .site-header .full-container {
+  max-width: 100% !important;
+}

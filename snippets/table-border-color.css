@@ -1,0 +1,13 @@
+/*
+Name: Table Border Color
+Description: By default Vantage adds a single bottom border to tables. Change this by adding a border to tables and table cells. Adjust the hexadecimal color values below as required. */
+
+#main table { 
+  border: 1px solid #2f3033; 
+}
+
+#main table th,
+#main table td { 
+  border: 1px solid #2f3033; 
+  padding: 0.5em;
+}

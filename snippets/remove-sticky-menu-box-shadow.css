@@ -1,0 +1,9 @@
+/*
+Name: Remove Sticky Menu Box Shadow
+Description: The regular menu doesn't have a box shadow. A shadow is added when the menu turns sticky. Remove it using this snippet. No adjustment of the below values is required. */
+
+.main-navigation.sticky {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}

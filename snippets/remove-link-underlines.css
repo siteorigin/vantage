@@ -1,0 +1,10 @@
+/*
+Name: Remove Link Underlines
+Description: Remove link underlines in both regular and hover states. This snippet applies to the header, main content area, sidebar, and footer. No adjustment of the below values is required. */
+
+a { 
+	text-decoration: none; 
+}
+a:hover { 
+	text-decoration: none; 
+}

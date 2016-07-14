@@ -1,0 +1,8 @@
+/*
+Name: Disable the Site Title or Logo Link
+Description: The site title or logo will no longer be clickable or display a hand icon. Suitable for one page websites. No adjustment of the below values is required. */
+
+#masthead .hgroup a.logo {
+	cursor: default;
+	pointer-events: none;
+}

@@ -7,12 +7,15 @@
  * @param $current
  * @return string
  */
+if( !function_exists('vantage_metaslider_themes') ) :
 function vantage_metaslider_themes($themes, $current){
 	$themes .= "<option value='vantage' class='option flex' ".selected('vantage', $current, false).">".__('Vantage (Flex)', 'vantage')."</option>";
 	return $themes;
 }
+endif;
 add_filter('metaslider_get_available_themes', 'vantage_metaslider_themes', 5, 2);
 
+if( !function_exists('vantage_metaslider_filter_flex_slide') ) :
 /**
  * Change the HTML for the home page slider.
  *
@@ -51,8 +54,10 @@ function vantage_metaslider_filter_flex_slide($html, $slide, $settings){
 
 	return $html;
 }
+endif;
 add_filter('metaslider_image_flex_slider_markup', 'vantage_metaslider_filter_flex_slide', 10, 3);
 
+if( !function_exists('vantage_metaslider_ensure_height') ) :
 /**
  * Filter Meta Slider settings when Vantage setting is selected.
  *
@@ -65,13 +70,17 @@ function vantage_metaslider_ensure_height($settings){
 
 	return $settings;
 }
+endif;
 add_filter('sanitize_post_meta_ml-slider_settings', 'vantage_metaslider_ensure_height');
 
+if( !function_exists('vantage_metaslider_page_setting_metabox') ) :
 function vantage_metaslider_page_setting_metabox(){
 	add_meta_box('vantage-metaslider-page-slider', __('Page Meta Slider', 'vantage'), 'vantage_metaslider_page_setting_metabox_render', 'page', 'side');
 }
+endif;
 add_action('add_meta_boxes', 'vantage_metaslider_page_setting_metabox');
 
+if( !function_exists('vantage_metaslider_page_setting_metabox_render') ) :
 function vantage_metaslider_page_setting_metabox_render($post){
 	$metaslider = get_post_meta($post->ID, 'vantage_metaslider_slider', true);
 
@@ -104,7 +113,9 @@ function vantage_metaslider_page_setting_metabox_render($post){
 	<?php
 	wp_nonce_field('save', '_vantage_metaslider_nonce');
 }
+endif;
 
+if( !function_exists('vantage_metaslider_page_setting_save') ) :
 function vantage_metaslider_page_setting_save($post_id){
 	if( empty($_POST['_vantage_metaslider_nonce']) || !wp_verify_nonce($_POST['_vantage_metaslider_nonce'], 'save') ) return;
 	if( !current_user_can('edit_post', $post_id) ) return;
@@ -119,4 +130,5 @@ function vantage_metaslider_page_setting_save($post_id){
 		siteorigin_settings_set( 'home_slider_stretch', $slider_stretch );
 	}
 }
+endif;
 add_action('save_post', 'vantage_metaslider_page_setting_save');

@@ -1,0 +1,7 @@
+/*
+Name: Boxed Layout: Remove Bottom Margin
+Description: Theme Settings > Layout > Layout Bound > Boxed introduces a container bottom margin, use this snippet to remove it. No adjustment of the below value is required. */
+
+#colophon {
+  margin-bottom: 0;
+}

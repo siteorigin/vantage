@@ -9,10 +9,10 @@ jQuery(function($){
 
     // Initialize the flex slider
     $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider').flexslider( { } );
-    
+
     /* Setup fitvids for entry content and panels */
     if(typeof $.fn.fitVids !== 'undefined') {
-        $('.entry-content, .entry-content .panel' ).fitVids();
+        $('.entry-content, .entry-content .panel, .woocommerce #main' ).fitVids({ ignore: '.tableauViz' });
     }
 
     if( !$('body').hasClass('so-vantage-mobile-device') || $('nav.site-navigation.primary').hasClass('mobile-navigation')) {
@@ -229,6 +229,17 @@ jQuery(function($){
         }
     });
 
+	// Aligning menu elements
+	var mhHeight = $('.masthead-logo-in-menu').height(),
+		menuItemHeight = $('.masthead-logo-in-menu .menu > .menu-item').outerHeight(),
+		logoHeight = $('.masthead-logo-in-menu .logo').outerHeight();
+	if( mhHeight > menuItemHeight ){
+		$('.masthead-logo-in-menu .menu > .menu-item').css('margin-top', (mhHeight - menuItemHeight) / 2);
+	}
+	if( mhHeight > logoHeight ){
+		$('.masthead-logo-in-menu .logo').css('margin-top', (mhHeight - logoHeight) / 2);
+	}
+
     $(document)
         .on('click','#search-icon-icon', function(){
             var $$ = $(this).parent();
@@ -349,24 +360,6 @@ jQuery(function($){
             }
         });
     });
-
-    // Substitute any retina images
-    var pixelRatio = !!window.devicePixelRatio ? window.devicePixelRatio : 1;
-    if( pixelRatio > 1 ) {
-        $('img[data-retina-image]').each( function(){
-            var $$ = $(this);
-            $$.attr('src', $$.data('retina-image'));
-
-            // If the width attribute isn't set, then lets scale to 50%
-            if( typeof $$.attr('width') === 'undefined' ) {
-                $$.load( function(){
-                    var size = [$$.width(), $$.height()];
-                    $$.width(size[0]/2);
-                    $$.height(size[1]/2);
-                } );
-            }
-        } );
-    }
 
     // Resize the header widget area
     $('#header-sidebar').each(function(){

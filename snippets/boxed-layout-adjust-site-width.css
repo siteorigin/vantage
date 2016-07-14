@@ -1,0 +1,7 @@
+/*
+Name: Boxed Layout: Adjust Site Width
+Description: With Appearance > Theme Settings > Layout > Layout Bound set to Boxed, adjust the site width. Adjust the px value below as required. */
+
+body.responsive #page-wrapper {
+	max-width: 1080px;
+}
