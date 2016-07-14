@@ -51,12 +51,12 @@
 					<div class="avatar-wrapper"><?php echo get_avatar( get_the_author_meta( 'user_email' ), 70 ) ?></div>
 				</div>
 				<div class="box-content entry-content">
-					<h3 class="box-title"><?php echo esc_html( get_the_author_meta('display_name') ) ?></h3>
+					<h3 class="box-title"><?php echo esc_html( get_the_author_meta( 'display_name' ) ) ?></h3>
 					<div class="box-description">
 						<?php if( get_the_author_meta( 'description' ) ) : ?>
 							<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ) ?>
 						<?php elseif( current_user_can( 'edit_users', $post->post_author ) ) : ?>
-							<a href="<?php echo get_edit_user_link( $post->post_author ); ?>">Click here to add author bio</a>
+							<a href="<?php echo get_edit_user_link( $post->post_author ); ?>"><?php _e( 'Add author biographical info.', 'vantage' ) ?></a>
 						<?php endif; ?>
 					</div>
 				</div>
