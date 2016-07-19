@@ -696,7 +696,7 @@ function vantage_customizer_callback_footer_color($builder, $val, $setting){
  */
 function vantage_customizer_callback_heading_color($builder, $val, $setting){
 	if( $val ) {
-		$builder->add_css('.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6, #comments .commentlist article .comment-author a, #comments-title, #reply-title, #commentform label', 'color', $val);
+		$builder->add_css('.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6, #comments .commentlist article .comment-author a, #comments .commentlist article .comment-author, #comments-title, #reply-title, #commentform label', 'color', $val);
 		$builder->add_css('#comments-title, #reply-title', 'border-bottom-color', $val);
 	}
 	return $builder;
