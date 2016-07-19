@@ -406,17 +406,21 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Button Background Color', 'vantage'),
 				'default' => '#dfdfdf',
-				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', 'property' => 'background', ),
+				'callback' => 'vantage_customizer_callback_button_background',
+			),
 			'button_color' => array(
 				'type' => 'color',
 				'title' => __('Button Color', 'vantage'),
 				'default' => '#646464',
-				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', 'property' => 'color', ),
+				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover',
+				'property' => 'color',
+			),
 			'button_border' => array(
 				'type' => 'color',
 				'title' => __('Button Border Color', 'vantage'),
 				'default' => '#c3c3c3',
-				'selector' => 'a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', 'property' => 'border-color', ),
+				'callback' => 'vantage_customizer_callback_button_border',
+			),
 			'button_text_shadow' => array(
 				'type' => 'checkbox',
 				'title' => __('Button Text Shadow', 'vantage'),
@@ -718,6 +722,38 @@ function vantage_customizer_callback_footer_color($builder, $val, $setting){
 	if( $val ) {
 		$builder->add_css('#footer-widgets .widget', 'color', $val);
 		$builder->add_css('#colophon .widget_nav_menu .menu-item a', 'border-color', $val);
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_button_background($builder, $val, $setting){
+	if( $val ) {
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', 'background', $val);
+		$builder->add_css('a.button:hover, button:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .post-navigation a:hover, #image-navigation a:hover, article.post .more-link:hover, article.page .more-link:hover, .paging-navigation a:hover, .woocommerce #page-wrapper .button:hover, .woocommerce a.button:hover, .woocommerce .checkout-button:hover, .woocommerce input.button:hover, .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover', 'background', $val);
+		$builder->add_css('a.button:hover, button:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .post-navigation a:hover, #image-navigation a:hover, article.post .more-link:hover, article.page .more-link:hover, .paging-navigation a:hover, .woocommerce #page-wrapper .button:hover, .woocommerce a.button:hover, .woocommerce .checkout-button:hover, .woocommerce input.button:hover', 'opacity', '0.75');
+		$builder->add_css('a.button:focus, button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, .post-navigation a:focus, #image-navigation a:focus, article.post .more-link:focus, article.page .more-link:focus, .paging-navigation a:focus, .woocommerce #page-wrapper .button:focus, .woocommerce a.button:focus, .woocommerce .checkout-button:focus, .woocommerce input.button:focus, .woocommerce input.button:disabled:focus, .woocommerce input.button:disabled[disabled]:focus', 'background', $val);
+		$builder->add_css('a.button:focus, button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, .post-navigation a:focus, #image-navigation a:focus, article.post .more-link:focus, article.page .more-link:focus, .paging-navigation a:focus, .woocommerce #page-wrapper .button:focus, .woocommerce a.button:focus, .woocommerce .checkout-button:focus, .woocommerce input.button:focus', 'opacity', '0.75');
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_button_border($builder, $val, $setting){
+	if( $val ) {
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', 'border-color', $val);
+		$builder->add_css('a.button:hover, button:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .post-navigation a:hover, #image-navigation a:hover, article.post .more-link:hover, article.page .more-link:hover, .paging-navigation a:hover, .woocommerce #page-wrapper .button:hover, .woocommerce a.button:hover, .woocommerce .checkout-button:hover, .woocommerce input.button:hover', 'border-color', $val);
+		$builder->add_css('a.button:focus, button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, .post-navigation a:focus, #image-navigation a:focus, article.post .more-link:focus, article.page .more-link:focus, .paging-navigation a:focus, .woocommerce #page-wrapper .button:focus, .woocommerce a.button:focus, .woocommerce .checkout-button:focus, .woocommerce input.button:focus', 'border-color', $val);
 	}
 	return $builder;
 }
