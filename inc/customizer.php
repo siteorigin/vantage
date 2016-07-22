@@ -63,7 +63,7 @@ function vantage_customizer_init(){
 				'type' => 'font',
 				'title' => __('Menu Font', 'vantage'),
 				'default' => 'Helvetica Neue',
-				'selector' => '.main-navigation, .mobile-nav-frame',
+				'selector' => '.main-navigation, .mobile-nav-frame, .mobile-nav-frame .title h3',
 			),
 			// Font sizes
 			'site_title_size' => array(
