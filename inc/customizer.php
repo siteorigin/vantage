@@ -433,6 +433,26 @@ function vantage_customizer_init(){
 				'default' => true,
 				'callback' => 'vantage_customizer_callback_button_shadow',
 			),
+			'secondary_button_background' => array(
+				'type' => 'color',
+				'title' => __('WooCommerce Button Background Color', 'vantage'),
+				'default' => '#00bcff',
+				'callback' => 'vantage_customizer_callback_button_woo_background',
+			),
+			'secondary_button_color' => array(
+				'type' => 'color',
+				'title' => __('WooCommerce Button Color', 'vantage'),
+				'default' => '#ffffff',
+				'selector' => '.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce #respond input#submit.alt:focus, .woocommerce a.button.alt:focus, .woocommerce button.button.alt:focus, .woocommerce input.button.alt:focus',
+				'property' => 'color',
+			),
+			'secondary_button_border' => array(
+				'type' => 'color',
+				'title' => __('WooCommerce Button Border Color', 'vantage'),
+				'default' => '#646464',
+				'selector' => '.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce #respond input#submit.alt:focus, .woocommerce a.button.alt:focus, .woocommerce button.button.alt:focus, .woocommerce input.button.alt:focus',
+				'property' => 'border-color',
+			),
 		),
 		'vantage_widgets' => array(
 			'circle_icon_bg' => array(
@@ -611,6 +631,10 @@ function vantage_customizer_init(){
 		),
 	) );
 
+	if( !class_exists( 'WooCommerce' ) ) {
+		unset( $settings['vantage_buttons']['secondary_button_background'], $settings['vantage_buttons']['secondary_button_color'], $settings['vantage_buttons']['secondary_button_border'] );
+	}
+
 	// Include all the SiteOrigin customizer classes
 	global $siteorigin_vantage_customizer;
 	$siteorigin_vantage_customizer = new SiteOrigin_Customizer_Helper($settings, $sections, 'vantage');
@@ -779,9 +803,26 @@ function vantage_customizer_callback_button_text_shadow($builder, $val, $setting
  */
 function vantage_customizer_callback_button_shadow($builder, $val, $setting){
 	if( !$val ) {
-		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', '-webkit-box-shadow', 'none');
-		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', '-moz-box-shadow', 'none');
-		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button', 'box-shadow', 'none');
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt', '-webkit-box-shadow', 'none');
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt', '-moz-box-shadow', 'none');
+		$builder->add_css('a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt', 'box-shadow', 'none');
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_button_woo_background($builder, $val, $setting){
+	if( $val ) {
+		$builder->add_css('.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt', 'background', $val);
+		$builder->add_css('.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover', 'background', $val);
+		$builder->add_css('.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover', 'opacity', '0.75');
+		$builder->add_css('.woocommerce #respond input#submit.alt:focus, .woocommerce a.button.alt:focus, .woocommerce button.button.alt:focus, .woocommerce input.button.alt:focus', 'background', $val);
+		$builder->add_css('.woocommerce #respond input#submit.alt:focus, .woocommerce a.button.alt:focus, .woocommerce button.button.alt:focus, .woocommerce input.button.alt:focus', 'opacity', '0.75');
 	}
 	return $builder;
 }
