@@ -11,8 +11,9 @@
 		<?php while( have_posts() ) : the_post(); ?>
 			<li class="carousel-entry">
 				<div class="thumbnail">
-					<?php if( has_post_thumbnail() ) : $img = wp_get_attachment_image_src(get_post_thumbnail_id(), 'vantage-carousel'); ?>
-						<a href="<?php the_permalink() ?>" style="background-image: url(<?php echo esc_url($img[0]) ?>)">
+					<?php $img = wp_get_attachment_image_src(get_post_thumbnail_id(), 'vantage-carousel'); ?>
+					<?php if( $img[0] ) : ?>
+						<a href="<?php the_permalink() ?>" style="background-image: url(<?php echo $img[0] ?>)">
 							<span class="sow-overlay"></span>
 						</a>
 					<?php else : ?>

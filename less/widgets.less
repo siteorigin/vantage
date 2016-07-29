@@ -7,10 +7,19 @@
 /* Make sure select elements fit in widgets */
 .widget select {
 	max-width: 100%;
+	font-size: 1em;
+	border-radius: 0;
+	outline: none;
 }
 /* Search widget */
 #searchsubmit {
 	display: none;
+}
+
+.widget .searchform input {
+	width: 100%;
+	padding: 5px;
+	outline: none;
 }
 
 .textwidget p:first-child{
@@ -19,6 +28,10 @@
 
 .textwidget p:last-child{
 	margin-bottom:0;
+}
+
+.tagcloud a {
+	text-decoration: none;
 }
 
 /* =Sidebar widget styling
@@ -52,8 +65,15 @@
 			}
 
 			li {
+				padding-bottom: 7px;
+
 				a {
 					text-decoration: none;
+				}
+
+				ul.children {
+					padding-top: 7px;
+					margin-bottom: -7px;
 				}
 			}
 		}
@@ -87,6 +107,15 @@
 			font-weight: bold;
 			margin-bottom: 20px;
 		}
+	}
+}
+
+.vertical-footer #footer-widgets .widget {
+	margin-bottom: 25px;
+	width: 100%;
+
+	&:last-child {
+		margin-bottom: 0;
 	}
 }
 
@@ -582,184 +611,6 @@
 	}
 }
 
-/* =Some row styling for page builder
------------------------------------------------ */
-
-.widget_vantage-social-media {
-
-	.clearfix();
-
-	.social-button-style(@color) {
-		.gradient(@color, @color, lighten(@color, 3%));
-		border: 1px solid darken(@color, 5%);
-
-		&:hover {
-			@hover_color: lighten(@color, 4%);
-			.gradient(@hover_color, @hover_color, lighten(@hover_color, 3%));
-			border: 1px solid darken(@hover_color, 5%);
-		}
-	}
-
-	.social-media-icon {
-		text-decoration: none;
-		display: block;
-		float: left;
-		margin-right: 4px;
-
-		position: relative;
-
-		width: 36px;
-		height: 36px;
-		.rounded(3px);
-		.box-shadow(~"inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 1px rgba(0,0,0,0.1)");
-
-		[class^="fa fa-"]{
-			width: 1em;
-			height: 1em;
-			text-align: center;
-			display: block;
-			position: absolute;
-			line-height: 1em;
-			color: #ffffff;
-			top: 50%;
-			left: 50%;
-			margin-top: -0.45em;
-			margin-left: -0.5em;
-			font-size: 18px;
-			text-shadow: 0 1px 1px rgba(0,0,0,0.125);
-		}
-
-		img {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			width: 18px;
-			height: 18px;
-			margin-left: -9px;
-			margin-top: -8px;
-		}
-
-		&:last-child {
-			margin-right: 0;
-		}
-
-		/* The icons */
-		&.social-media-icon-facebook {
-			.social-button-style(#597ac7);
-		}
-
-		&.social-media-icon-twitter {
-			.social-button-style(#5bbcec);
-			.box-shadow(~"inset 0 1px 0 rgba(255,255,255,0.25), 0 1px 1px rgba(0,0,0,0.1)");
-		}
-
-		&.social-media-icon-google-plus {
-			.social-button-style(#f80000);
-		}
-
-		&.social-media-icon-rss {
-			.social-button-style(#ff9200);
-		}
-
-		&.social-media-icon-linkedin {
-			.social-button-style(#0070b4);
-		}
-
-		&.social-media-icon-dribbble {
-			.social-button-style(#ea4d89);
-		}
-
-		&.social-media-icon-flickr {
-			.social-button-style(#444444);
-		}
-
-		&.social-media-icon-instagram {
-			.social-button-style(#426f98);
-		}
-
-		&.social-media-icon-pinterest {
-			.social-button-style(#fd3832);
-		}
-
-		&.social-media-icon-skype {
-			.social-button-style(#09c6ff);
-		}
-
-		&.social-media-icon-youtube {
-			.social-button-style(#ff3635);
-		}
-
-		&.social-media-icon-github {
-			.social-button-style(#387cc9);
-		}
-
-		&.social-media-icon-vimeo {
-			.social-button-style(#42b8ff);
-			.box-shadow(~"inset 0 1px 0 rgba(255,255,255,0.25), 0 1px 1px rgba(0,0,0,0.1)");
-		}
-
-		&.social-media-icon-vk {
-			.social-button-style(#537599);
-		}
-
-		&.social-media-icon-envelope {
-			.social-button-style(#34aadc);
-		}
-
-		&.social-media-icon-phone {
-			.social-button-style(#4cd964);
-		}
-
-		&.social-media-icon-small {
-			width: 24px;
-			height: 24px;
-			.rounded(2px);
-
-			[class^="fa fa-"]{
-				font-size: 12px;
-			}
-
-			img {
-				width: 12px;
-				height: 12px;
-				margin-left: -6px;
-				margin-top: -6px;
-			}
-		}
-
-		&.social-media-icon-large {
-			width: 48px;
-			height: 48px;
-			.rounded(4px);
-
-			[class^="fa fa-"]{
-				font-size: 22px;
-			}
-
-			img {
-				width: 22px;
-				height: 22px;
-				margin-left: -11px;
-				margin-top: -10px;
-			}
-		}
-
-	}
-}
-
-@media (max-width:680px) {
-	body.responsive {
-		.widget_vantage-social-media {
-			text-align: center;
-
-			.social-media-icon {
-				display: inline-block;
-				float:none;
-			}
-		}
-	}
-}
-
 /* =Custom Menu Widget in Header Area
 ----------------------------------------------- */
 
@@ -791,7 +642,7 @@
 					display: none;
 					position: absolute;
 					margin: 0;
-					z-index:100;
+					z-index: 120;
 
 					border: 1px solid #e6e6e6;
 
@@ -837,6 +688,26 @@
 	}
 }
 
+/* =Custom Menu Widget in Footer Area
+----------------------------------------------- */
+#colophon {
+	.widget_nav_menu {
+		.sub-menu {
+			margin-left: 0;
+		}
+
+		.menu-item {
+			padding-bottom: 0;
+
+			a {
+				display: block;
+				padding-bottom: 3px;
+				margin-bottom: 3px;
+				border-bottom: 1px solid #b9b9b9;
+			}
+		}
+	}
+}
 
 /* =Some row styling for page builder
 ----------------------------------------------- */
@@ -866,6 +737,10 @@
 	.panel-row-style{
 		margin: 0 -35px;
 		padding: 25px 35px;
+
+		&.panel-row-style-wide-grey {
+			margin: 0 -20px;
+		}
 	}
 }
 
@@ -874,10 +749,29 @@
 		.panel-row-style {
 			margin: 0 -35px;
 			padding: 25px 35px;
+
+			&.panel-row-style-wide-grey {
+				margin: 0 -20px;
+			}
 		}
 	}
 }
 
 .panel-grid-cell .flexslider {
 	margin-bottom: 0;
+}
+
+/* =Styling for the Polylang widget in masthead
+----------------------------------------------- */
+
+#masthead .widget_polylang {
+	ul {
+		list-style: none;
+
+		li {
+			display: block;
+			float: left;
+			margin-left: 10px;
+		}
+	}
 }

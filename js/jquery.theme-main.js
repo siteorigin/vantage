@@ -9,13 +9,16 @@ jQuery(function($){
 
     // Initialize the flex slider
     $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider').flexslider( { } );
-    
+
     /* Setup fitvids for entry content and panels */
     if(typeof $.fn.fitVids !== 'undefined') {
-        $('.entry-content, .entry-content .panel' ).fitVids();
+        $('.entry-content, .entry-content .panel, .woocommerce #main' ).fitVids({ ignore: '.tableauViz' });
     }
 
-    if( !$('body').hasClass('so-vantage-mobile-device') || $('nav.site-navigation.primary').hasClass('mobile-navigation')) {
+	var isMobileDevice = $('body').hasClass('so-vantage-mobile-device'),
+		isCustomizer = $('body').hasClass('so-vantage-customizer-preview'),
+		isMobileNav = $('nav.site-navigation.primary').hasClass('mobile-navigation');
+    if( ( !isMobileDevice && $('#scroll-to-top').hasClass('scroll-to-top') ) || ( ( isCustomizer || isMobileDevice ) && isMobileNav ) ) {
 
         // Everything we need for scrolling up and down.
         $(window).scroll( function(){
@@ -229,6 +232,17 @@ jQuery(function($){
         }
     });
 
+	// Aligning menu elements
+	var mhHeight = $('.masthead-logo-in-menu').height(),
+		menuItemHeight = $('.masthead-logo-in-menu .menu > .menu-item').outerHeight(),
+		logoHeight = $('.masthead-logo-in-menu .logo').outerHeight();
+	if( mhHeight > menuItemHeight ){
+		$('.masthead-logo-in-menu .menu > .menu-item').css('margin-top', (mhHeight - menuItemHeight) / 2);
+	}
+	if( mhHeight > logoHeight ){
+		$('.masthead-logo-in-menu .logo').css('margin-top', (mhHeight - logoHeight) / 2);
+	}
+
     $(document)
         .on('click','#search-icon-icon', function(){
             var $$ = $(this).parent();
@@ -253,9 +267,8 @@ jQuery(function($){
     }).resize();
 
     // The sticky menu
-    var isMobileDevice = $('body').hasClass('so-vantage-mobile-device');
-    if( ($('nav.site-navigation.primary').hasClass('use-sticky-menu') && !isMobileDevice) ||
-        (isMobileDevice && $('nav.site-navigation.primary').hasClass('mobile-navigation')) ) {
+    if( ( $('nav.site-navigation.primary').hasClass('use-sticky-menu') && !isMobileDevice ) ||
+        ( ( isMobileDevice || isCustomizer ) && isMobileNav ) ) {
 
         var $$ = $('nav.site-navigation.primary');
         var $stickyContainer = $('<div id="sticky-container"></div>');
@@ -389,5 +402,13 @@ jQuery(function($){
         }
 
     });
+
+	$('#colophon #footer-widgets .widget_nav_menu a').each(function(){
+		var $$ = $(this),
+			itemDepth = $(this).parents('.sub-menu').length,
+			itemPadding = ( 10 * itemDepth ) + 'px';
+
+		$(this).css('padding-left',itemPadding);
+	});
 
 });

@@ -334,11 +334,6 @@ class SiteOrigin_Customizer_Helper {
 		$this->add_sections($sections);
 		$this->add_settings($settings);
 
-		if( empty($root_url) ) {
-			$root_url = get_template_directory_uri().'/premium/extras/customizer/';
-		}
-		$this->root_url = $root_url;
-
 		// Add a script that will help us with our previews
 		add_action( 'customize_preview_init', array( $this, 'enqueue' ) );
 		add_action( 'customize_controls_enqueue_scripts', array( $this, 'admin_enqueue' ) );
@@ -577,8 +572,7 @@ class SiteOrigin_Customizer_Helper {
 	 * Enqueue the customizer scripts
 	 */
 	function enqueue(){
-		$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		wp_enqueue_script('siteorigin-customizer-preview', get_template_directory_uri() . '/inc/customizer/js/live-customizer' . $js_suffix . '.js', array( 'jquery','customize-preview' ), SITEORIGIN_THEME_VERSION);
+		wp_enqueue_script('siteorigin-customizer-preview', get_template_directory_uri() . '/inc/customizer/js/live-customizer' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery','customize-preview' ), SITEORIGIN_THEME_VERSION);
 		wp_localize_script('siteorigin-customizer-preview', 'customizeSettings', $this->settings);
 	}
 
@@ -586,8 +580,7 @@ class SiteOrigin_Customizer_Helper {
 	 * Enqueue scripts for the actual customizer admin
 	 */
 	function admin_enqueue( ){
-		$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		wp_enqueue_script('siteorigin-customizer-admin', get_template_directory_uri() . '/inc/customizer/js/admin' . $js_suffix . '.js', array( 'jquery', 'customize-controls' ), SITEORIGIN_THEME_VERSION);
+		wp_enqueue_script('siteorigin-customizer-admin', get_template_directory_uri() . '/inc/customizer/js/admin' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery', 'customize-controls' ), SITEORIGIN_THEME_VERSION);
 		wp_localize_script('siteorigin-customizer-admin', 'soCustomizeAdmin', array(
 			'confirm' => __('Are you sure you want to reset your theme customizations?', 'vantage'),
 			'button' => __('Reset Customizations', 'vantage'),
@@ -600,7 +593,7 @@ class SiteOrigin_Customizer_Helper {
 			)
 		));
 
-		wp_enqueue_style('siteorigin-customizer-admin', $this->root_url . 'css/admin.css', array( ), SITEORIGIN_THEME_VERSION );
+		wp_enqueue_style('siteorigin-customizer-admin', get_template_directory_uri() . '/inc/customizer/css/admin.css', array( ), SITEORIGIN_THEME_VERSION );
 	}
 
 	/**

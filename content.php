@@ -23,13 +23,11 @@
 		<header class="entry-header">
 			<?php if( has_post_thumbnail() && siteorigin_setting('blog_featured_image_type') == 'large' ): ?>
 				<div class="entry-thumbnail">
-					<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( is_active_sidebar('sidebar-1') ? 'post-thumbnail' : 'vantage-thumbnail-no-sidebar' ) ?></a>
+					<a href="<?php the_permalink() ?>"><?php vantage_entry_thumbnail(); ?></a>
 				</div>
 			<?php endif; ?>
 
-			<?php if ( siteorigin_page_setting( 'page_title' ) ) : ?>
-				<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'vantage' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-			<?php endif; ?>
+			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'vantage' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
 			<?php if ( siteorigin_setting( 'blog_post_metadata' ) && 'post' == get_post_type() ) : ?>
 				<div class="entry-meta">

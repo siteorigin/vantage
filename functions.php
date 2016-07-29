@@ -14,6 +14,7 @@ define('SITEORIGIN_THEME_JS_PREFIX', '');
 include get_template_directory() . '/inc/settings/settings.php';
 include get_template_directory() . '/inc/metaslider/metaslider.php';
 include get_template_directory() . '/inc/plugin-activation/plugin-activation.php';
+include get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 
 // Load the theme specific files
 include get_template_directory() . '/inc/panels.php';
@@ -26,6 +27,9 @@ include get_template_directory() . '/inc/widgets.php';
 include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/breadcrumbs.php';
 include get_template_directory() . '/inc/customizer.php';
+include get_template_directory() . '/inc/legacy.php';
+
+// include get_template_directory() . '/tour/tour.php';
 
 include get_template_directory() . '/fontawesome/icon-migration.php';
 
@@ -78,19 +82,14 @@ function vantage_setup() {
 	add_image_size( 'vantage-carousel', 272, 182, true );
 	add_image_size( 'vantage-grid-loop', 436, 272, true );
 
-	add_theme_support( 'site-logo', array(
-		'size' => 'full',
-	) );
+	add_theme_support( 'custom-logo' );
+
+	add_theme_support( 'title-tag' );
 
 	if( !defined('SITEORIGIN_PANELS_VERSION') ){
 		// Only include panels lite if the panels plugin doesn't exist
 		include get_template_directory() . '/inc/panels-lite/panels-lite.php';
 	}
-
-	add_theme_support('siteorigin-premium-teaser', array(
-		'customizer' => true,
-		'settings' => true,
-	));
 
 	global $content_width, $vantage_site_width;
 	if ( ! isset( $content_width ) ) $content_width = 720; /* pixels */
@@ -315,14 +314,22 @@ if( !function_exists('vantage_scripts') ) :
 function vantage_scripts() {
 	wp_enqueue_style( 'vantage-style', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION );
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri().'/fontawesome/css/font-awesome.css', array(), '4.6.2' );
+
+	if ( is_active_widget( false, false, 'vantage-social-media' ) ) {
+		wp_enqueue_style( 'social-media-widget', get_template_directory_uri().'/css/social-media-widget.css', array(), SITEORIGIN_THEME_VERSION );
+	}
+
+	if ( class_exists( 'woocommerce' ) ) {
+		wp_enqueue_style( 'vantage-woocommerce', get_template_directory_uri() . '/css/woocommerce.css' );
+	}
+
 	$in_footer = siteorigin_setting( 'general_js_enqueue_footer' );
-	$js_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	wp_enqueue_script( 'jquery-flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . $js_suffix . '.js' , array('jquery'), '2.1', $in_footer );
-	wp_enqueue_script( 'jquery-touchswipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . $js_suffix . '.js' , array( 'jquery' ), '1.6.6', $in_footer );
-	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main' . $js_suffix . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION, $in_footer );
+	wp_enqueue_script( 'jquery-flexslider' , get_template_directory_uri() . '/js/jquery.flexslider' . SITEORIGIN_THEME_JS_PREFIX . '.js' , array('jquery'), '2.1', $in_footer );
+	wp_enqueue_script( 'jquery-touchswipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . SITEORIGIN_THEME_JS_PREFIX . '.js' , array( 'jquery' ), '1.6.6', $in_footer );
+	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION, $in_footer );
 
 	if( siteorigin_setting( 'layout_fitvids' ) ) {
-		wp_enqueue_script( 'jquery-fitvids' , get_template_directory_uri() . '/js/jquery.fitvids' . $js_suffix . '.js' , array('jquery'), '1.0', $in_footer );
+		wp_enqueue_script( 'jquery-fitvids' , get_template_directory_uri() . '/js/jquery.fitvids' . SITEORIGIN_THEME_JS_PREFIX . '.js' , array('jquery'), '1.0', $in_footer );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -332,6 +339,12 @@ function vantage_scripts() {
 	if ( is_singular() && wp_attachment_is_image() ) {
 		wp_enqueue_script( 'vantage-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation' . $js_suffix . '.js', array( 'jquery' ), '20120202', $in_footer );
 	}
+
+	wp_enqueue_script( 'vantage-html5', get_template_directory_uri() . '/js/html5' . SITEORIGIN_THEME_JS_PREFIX . '.js', array(), '3.7.3' );
+	wp_script_add_data( 'vantage-html5', 'conditional', 'lt IE 9' );
+
+	wp_enqueue_script( 'vantage-selectivizr', get_template_directory_uri() . '/js/selectivizr' . SITEORIGIN_THEME_JS_PREFIX . '.js', array(), '1.0.2' );
+	wp_script_add_data( 'vantage-selectivizr', 'conditional', '(gte IE 6)&(lte IE 8)' );		
 }
 endif;
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
@@ -348,22 +361,6 @@ function vantage_web_fonts(){
 endif;
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
 
-
-if( !function_exists('vantage_wp_head') ) :
-function vantage_wp_head(){
-	?>
-	<!--[if lt IE 9]>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
-	<![endif]-->
-	<!--[if (gte IE 6)&(lte IE 8)]>
-		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/selectivizr.js"></script>
-	<![endif]-->
-	<?php
-}
-endif;
-add_action('wp_head', 'vantage_wp_head');
-
-
 if( !function_exists('vantage_top_text_area') ) :
 /**
  * Display some text in the text area.
@@ -379,8 +376,9 @@ if( !function_exists('vantage_back_to_top') ) :
  * Display the scroll to top link.
  */
 function vantage_back_to_top() {
-	if( !siteorigin_setting('navigation_display_scroll_to_top') ) return;
-	?><a href="#" id="scroll-to-top" title="<?php esc_attr_e('Back To Top', 'vantage') ?>"><span class="vantage-icon-arrow-up"></span></a><?php
+	if( !siteorigin_setting('navigation_display_scroll_to_top') && !siteorigin_setting('navigation_mobile_navigation') ) return;
+	$scroll_to_top = siteorigin_setting('navigation_display_scroll_to_top') ? 'scroll-to-top' : '';
+	?><a href="#" id="scroll-to-top" class="<?php echo $scroll_to_top; ?>" title="<?php esc_attr_e('Back To Top', 'vantage') ?>"><span class="vantage-icon-arrow-up"></span></a><?php
 }
 endif;
 add_action('wp_footer', 'vantage_back_to_top');
@@ -566,3 +564,41 @@ function vantage_filter_mobilenav_search( $search ) {
 }
 endif;
 add_filter( 'siteorigin_mobilenav_search', 'vantage_filter_mobilenav_search' );
+
+/**
+ * Add some plugins to TGM plugin activation
+ */
+function vantage_recommended_plugins(){
+	$plugins = array(
+		array(
+			'name'      => __('SiteOrigin Page Builder', 'vantage'),
+			'slug'      => 'siteorigin-panels',
+			'required'  => false,
+		),
+		array(
+			'name'      => __('SiteOrigin Widgets Bundle', 'vantage'),
+			'slug'      => 'so-widgets-bundle',
+			'required'  => false,
+		),
+		array(
+			'name'      => __('SiteOrigin CSS', 'vantage'),
+			'slug'      => 'so-css',
+			'required'  => false,
+		),
+	);
+
+	$config = array(
+		'id'           => 'tgmpa-vantage',         // Unique ID for hashing notices for multiple instances of TGMPA.
+		'menu'         => 'tgmpa-install-plugins', // Menu slug.
+		'parent_slug'  => 'themes.php',            // Parent menu slug.
+		'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'has_notices'  => true,                    // Show admin notices or not.
+		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
+		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
+		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
+		'message'      => '',                      // Message to output right before the plugins table.
+	);
+
+	tgmpa( $plugins, $config );
+}
+add_action( 'tgmpa_register', 'vantage_recommended_plugins' );

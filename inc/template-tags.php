@@ -96,7 +96,7 @@ if ( ! function_exists( 'vantage_comment' ) ) :
  *
  * @since vantage 1.0
  */
-function vantage_comment( $comment, $args, $depth ) {
+function vantage_comment( $comment, $args, $depth, $post_id = null ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
@@ -114,6 +114,11 @@ function vantage_comment( $comment, $args, $depth ) {
 						<?php echo get_avatar( $comment, 50 ); ?>
 						<div class="comment-author">
 							<cite class="fn"><?php comment_author_link() ?></cite>
+							<?php if ( $post = get_post($post_id) ) : ?>
+								<?php if ( ( $comment->user_id === $post->post_author ) && siteorigin_setting( 'blog_comment_author' ) ) : ?>
+									<span class="author-comment-label"><?php echo siteorigin_setting( 'blog_comment_author' ); ?></span>
+								<?php endif; ?>
+							<?php endif; ?>
 						</div><!-- .comment-author -->
 
 
@@ -167,7 +172,9 @@ function vantage_posted_on() {
 		get_the_author()
 	);
 
-	if( comments_open() || get_comments_number() ) {
+	if( ( comments_open() || get_comments_number() ) && !siteorigin_setting('blog_post_date') && !siteorigin_setting('blog_post_author') ) {
+		$comments_link = '<span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text() . '</a></span>';
+	} elseif( comments_open() || get_comments_number() ) {
 		$comments_link = ' | <span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text() . '</a></span>';
 	} else {
 		$comments_link = '';
@@ -195,9 +202,8 @@ function vantage_display_logo(){
 	$logo = apply_filters('vantage_logo_image_id', $logo);
 
 	if( empty($logo) ) {
-		if ( function_exists( 'jetpack_the_site_logo' ) && jetpack_has_site_logo() ) {
-			// We'll let Jetpack handle things
-			jetpack_the_site_logo();
+		if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
+			the_custom_logo();
 			return;
 		}
 
@@ -491,4 +497,18 @@ function vantage_read_more_link() {
 	return '<a class="more-link" href="' . get_permalink() . '">' . esc_html( siteorigin_setting('blog_read_more') ) .'<span class="meta-nav">&rarr;</span></a></span';
 }
 add_filter( 'the_content_more_link', 'vantage_read_more_link' );
+endif;
+
+if( !function_exists( 'vantage_entry_thumbnail' ) ) :
+/**
+ * Display the post/page thumbnail.
+ */
+function vantage_entry_thumbnail() {
+	if ( in_array( siteorigin_page_setting( 'layout', 'default' ), array( 'default','full-width-sidebar' ), true ) && is_active_sidebar('sidebar-1') ) {
+		$thumb_size = 'post-thumbnail';
+	} else {
+		$thumb_size = 'vantage-thumbnail-no-sidebar';
+	}
+	the_post_thumbnail( $thumb_size );
+}
 endif;
