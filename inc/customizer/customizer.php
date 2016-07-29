@@ -334,11 +334,6 @@ class SiteOrigin_Customizer_Helper {
 		$this->add_sections($sections);
 		$this->add_settings($settings);
 
-		if( empty($root_url) ) {
-			$root_url = get_template_directory_uri().'/premium/extras/customizer/';
-		}
-		$this->root_url = $root_url;
-
 		// Add a script that will help us with our previews
 		add_action( 'customize_preview_init', array( $this, 'enqueue' ) );
 		add_action( 'customize_controls_enqueue_scripts', array( $this, 'admin_enqueue' ) );
@@ -598,7 +593,7 @@ class SiteOrigin_Customizer_Helper {
 			)
 		));
 
-		wp_enqueue_style('siteorigin-customizer-admin', $this->root_url . 'css/admin.css', array( ), SITEORIGIN_THEME_VERSION );
+		wp_enqueue_style('siteorigin-customizer-admin', get_template_directory_uri() . '/inc/customizer/css/admin.css', array( ), SITEORIGIN_THEME_VERSION );
 	}
 
 	/**
