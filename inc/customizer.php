@@ -434,20 +434,20 @@ function vantage_customizer_init(){
 			),
 			'secondary_button_background' => array(
 				'type' => 'color',
-				'title' => __('WooCommerce Button Background Color', 'vantage'),
+				'title' => __('Checkout Button Background Color', 'vantage'),
 				'default' => '#00bcff',
 				'callback' => 'vantage_customizer_callback_button_woo_background',
 			),
 			'secondary_button_color' => array(
 				'type' => 'color',
-				'title' => __('WooCommerce Button Color', 'vantage'),
+				'title' => __('Checkout Button Color', 'vantage'),
 				'default' => '#ffffff',
 				'selector' => '.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce #respond input#submit.alt:focus, .woocommerce a.button.alt:focus, .woocommerce button.button.alt:focus, .woocommerce input.button.alt:focus',
 				'property' => 'color',
 			),
 			'secondary_button_border' => array(
 				'type' => 'color',
-				'title' => __('WooCommerce Button Border Color', 'vantage'),
+				'title' => __('Checkout Button Border Color', 'vantage'),
 				'default' => '#646464',
 				'selector' => '.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce #respond input#submit.alt:focus, .woocommerce a.button.alt:focus, .woocommerce button.button.alt:focus, .woocommerce input.button.alt:focus',
 				'property' => 'border-color',
