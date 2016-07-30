@@ -59,6 +59,12 @@ function vantage_customizer_init(){
 				'default' => 'Helvetica Neue',
 				'selector' => 'h1,h2,h3,h4,h5,h6',
 			),
+			'menu_font' => array(
+				'type' => 'font',
+				'title' => __('Menu Font', 'vantage'),
+				'default' => 'Helvetica Neue',
+				'selector' => '.main-navigation, .mobile-nav-frame, .mobile-nav-frame .title h3',
+			),
 			// Font sizes
 			'site_title_size' => array(
 				'type' => 'measurement',
@@ -116,15 +122,14 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Content Color', 'vantage'),
 				'default' => '#666666',
-				'selector' => '.entry-content',
+				'selector' => '.entry-content, #comments .commentlist article .comment-meta a',
 				'property' => array('color'),
 			),
 			'content_heading_color' => array(
 				'type' => 'color',
 				'title' => __('Content Heading Color', 'vantage'),
 				'default' => '#444444',
-				'selector' => '.entry-content h1,.entry-content h2,.entry-content h3,.entry-content h4,.entry-content h5,.entry-content h6',
-				'property' => array('color'),
+				'callback' => 'vantage_customizer_callback_heading_color',
 			),
 		),
 		'vantage_general' => array(
@@ -146,7 +151,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Content Link Color', 'vantage'),
 				'default' => '#248cc8',
-				'selector' => '.entry-content a, .entry-content a:visited, #secondary a, #secondary a:visited, #masthead .hgroup a, #masthead .hgroup a:visited',
+				'selector' => '.entry-content a, .entry-content a:visited, #secondary a, #secondary a:visited, #masthead .hgroup a, #masthead .hgroup a:visited, .comment-form .logged-in-as a, .comment-form .logged-in-as a:visited',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -160,7 +165,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Content Link Hover Color', 'vantage'),
 				'default' => '#f47e3c',
-				'selector' => '.entry-content a:hover, .entry-content a:focus, .entry-content a:active, #secondary a:hover, #masthead .hgroup a:hover, #masthead .hgroup a:focus, #masthead .hgroup a:active',
+				'selector' => '.entry-content a:hover, .entry-content a:focus, .entry-content a:active, #secondary a:hover, #masthead .hgroup a:hover, #masthead .hgroup a:focus, #masthead .hgroup a:active, .comment-form .logged-in-as a:hover, .comment-form .logged-in-as a:focus, .comment-form .logged-in-as a:active',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -685,6 +690,20 @@ function vantage_customizer_callback_footer_color($builder, $val, $setting){
 	if( $val ) {
 		$builder->add_css('#footer-widgets .widget', 'color', $val);
 		$builder->add_css('#colophon .widget_nav_menu .menu-item a', 'border-color', $val);
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_heading_color($builder, $val, $setting){
+	if( $val ) {
+		$builder->add_css('.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6, #comments .commentlist article .comment-author a, #comments .commentlist article .comment-author, #comments-title, #reply-title, #commentform label', 'color', $val);
+		$builder->add_css('#comments-title, #reply-title', 'border-bottom-color', $val);
 	}
 	return $builder;
 }
