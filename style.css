@@ -1167,6 +1167,10 @@ article.page .entry-header .entry-meta {
   color: #8f8f8f;
   font-size: 12px;
 }
+article.post .entry-header .entry-meta::first-letter,
+article.page .entry-header .entry-meta::first-letter {
+  text-transform: uppercase;
+}
 @media (max-width: 680px) {
   article.post .entry-header .entry-meta,
   article.page .entry-header .entry-meta {
