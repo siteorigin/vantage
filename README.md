@@ -78,6 +78,16 @@ Please note that the WordPress Custom Background feature is only enabled when us
 Change Log
 ---------------
 
+View full release information on [Github](https://github.com/siteorigin/vantage/releases).
+
+#### 1.5.1
+* Updated author bio edit link.
+* Fixed default settings.
+* Added comments section customizer styling.
+* Applying menu font to mobile menu heading.
+* Integration with SiteOrigin Premium.
+* Added settings to modify heading.
+
 #### 1.5
 * Moved all settings to customizer, updated SiteOrigin framework.
 * Added page that points to new Customizer settings section.
