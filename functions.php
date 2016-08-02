@@ -337,6 +337,12 @@ function vantage_scripts() {
 	if ( is_singular() && wp_attachment_is_image() ) {
 		wp_enqueue_script( 'vantage-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation' . $js_suffix . '.js', array( 'jquery' ), '20120202', $in_footer );
 	}
+
+	wp_enqueue_script( 'vantage-html5', get_template_directory_uri() . '/js/html5' . SITEORIGIN_THEME_JS_PREFIX . '.js', array(), '3.7.3' );
+	wp_script_add_data( 'vantage-html5', 'conditional', 'lt IE 9' );
+
+	wp_enqueue_script( 'vantage-selectivizr', get_template_directory_uri() . '/js/selectivizr' . SITEORIGIN_THEME_JS_PREFIX . '.js', array(), '1.0.2' );
+	wp_script_add_data( 'vantage-selectivizr', 'conditional', '(gte IE 6)&(lte IE 8)' );		
 }
 endif;
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
@@ -353,22 +359,6 @@ function vantage_web_fonts(){
 endif;
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
 
-
-if( !function_exists('vantage_wp_head') ) :
-function vantage_wp_head(){
-	?>
-	<!--[if lt IE 9]>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
-	<![endif]-->
-	<!--[if (gte IE 6)&(lte IE 8)]>
-		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/selectivizr.js"></script>
-	<![endif]-->
-	<?php
-}
-endif;
-add_action('wp_head', 'vantage_wp_head');
-
-
 if( !function_exists('vantage_top_text_area') ) :
 /**
  * Display some text in the text area.
@@ -384,8 +374,9 @@ if( !function_exists('vantage_back_to_top') ) :
  * Display the scroll to top link.
  */
 function vantage_back_to_top() {
-	if( !siteorigin_setting('navigation_display_scroll_to_top') ) return;
-	?><a href="#" id="scroll-to-top" title="<?php esc_attr_e('Back To Top', 'vantage') ?>"><span class="vantage-icon-arrow-up"></span></a><?php
+	if( !siteorigin_setting('navigation_display_scroll_to_top') && !siteorigin_setting('navigation_mobile_navigation') ) return;
+	$scroll_to_top = siteorigin_setting('navigation_display_scroll_to_top') ? 'scroll-to-top' : '';
+	?><a href="#" id="scroll-to-top" class="<?php echo $scroll_to_top; ?>" title="<?php esc_attr_e('Back To Top', 'vantage') ?>"><span class="vantage-icon-arrow-up"></span></a><?php
 }
 endif;
 add_action('wp_footer', 'vantage_back_to_top');

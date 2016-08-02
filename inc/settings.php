@@ -46,7 +46,8 @@ function vantage_theme_settings(){
 	) );
 
 	$settings->add_field('logo', 'header_text', 'text', __('Header Text', 'vantage'), array(
-		'description' => __('Text that appears to the right of your logo.', 'vantage')
+		'description' => __('Text that appears to the right of your logo. It will be hidden if widgets are placed in the header.', 'vantage'),
+		'sanitize_callback' => 'wp_kses_post'
 	) );
 
 	$settings->add_field('logo', 'no_widget_overlay', 'checkbox', __('No Widget Overlay', 'vantage'), array(
@@ -227,7 +228,8 @@ function vantage_theme_settings(){
 	) );
 
 	$settings->add_field('blog', 'comment_author', 'text', __("Post Author's Comments", 'vantage'), array(
-		'description' => __("Text displayed as a label next to the post author's comments.", 'vantage')
+		'description' => __("Text displayed as a label next to the post author's comments.", 'vantage'),
+		'sanitize_callback' => 'wp_kses_post',
 	));
 
 	$settings->add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
@@ -238,23 +240,24 @@ function vantage_theme_settings(){
 	 * Social Settings
 	 */
 
-//	$settings->add_teaser('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
-//		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage'),
-//		'featured' => 'theme/ajax-comments',
-//	));
+	$settings->add_teaser('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
+		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage'),
+		'featured' => 'theme/ajax-comments',
+	));
 
 	/**
 	 * General Settings
 	 */
 
 	$settings->add_field( 'general', 'site_info_text', 'text', __( 'Site Information Text', 'vantage' ), array(
-		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' )
+		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' ),
+		'sanitize_callback' => 'wp_kses_post'
 	) );
 
-//	$settings->add_teaser( 'general', 'attribution', 'checkbox', __( 'SiteOrigin Attribution', 'vantage' ), array(
-//		'description' => __( "Add or remove a link to SiteOrigin in your footer.", 'vantage' ),
-//		'featured' => 'theme/no-attribution',
-//	) );
+	$settings->add_teaser( 'general', 'attribution', 'checkbox', __( 'SiteOrigin Attribution', 'vantage' ), array(
+		'description' => __( "Add or remove a link to SiteOrigin in your footer.", 'vantage' ),
+		'featured' => 'theme/no-attribution',
+	) );
 
 	$settings->add_field('general', 'js_enqueue_footer', 'checkbox', __('Enqueue JavaScript in Footer', 'vantage'), array(
 		'description' => __('Enqueue JavaScript files in the footer, if possible.', 'vantage'),
@@ -535,8 +538,6 @@ function vantage_about_page_sections( $about ){
 
 	$about['documentation_url'] = 'https://siteorigin.com/vantage-documentation/';
 
-	$about[ 'premium_url' ] = false;
-
 	$about[ 'video_thumbnail' ] = array(
 		get_template_directory_uri() . '/admin/about/stills/still-1.jpg',
 		get_template_directory_uri() . '/admin/about/stills/still-2.jpg',
@@ -544,6 +545,8 @@ function vantage_about_page_sections( $about ){
 	);
 
 	$about['description'] = __( 'Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, Meta Slider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store.', 'vantage' );
+
+	$about[ 'review' ] = true;
 
 	$about[ 'sections' ] = array(
 		'free',
