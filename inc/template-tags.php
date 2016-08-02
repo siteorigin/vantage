@@ -265,6 +265,23 @@ function vantage_display_logo(){
 }
 endif;
 
+if( !function_exists('vantage_display_logo_text') ) :
+/**
+ * Display text next to the logo
+ */
+function vantage_display_logo_text( $logo ) {
+	$allow_text = siteorigin_setting( 'logo_with_text' );
+
+	if( $allow_text ) {
+		$logo = $logo . '<h1 class="site-title logo-title">' . get_bloginfo( 'name' ) . '</h1>';
+	}
+
+	return $logo;
+
+}
+endif;
+add_filter( 'vantage_logo_image', 'vantage_display_logo_text', 10, 1 );
+
 
 if ( !function_exists( 'vantage_categorized_blog' ) ) :
 /**
