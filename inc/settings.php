@@ -46,7 +46,8 @@ function vantage_theme_settings(){
 	) );
 
 	$settings->add_field('logo', 'header_text', 'text', __('Header Text', 'vantage'), array(
-		'description' => __('Text that appears to the right of your logo. It will be hidden if widgets are placed in the header.', 'vantage')
+		'description' => __('Text that appears to the right of your logo. It will be hidden if widgets are placed in the header.', 'vantage'),
+		'sanitize_callback' => 'wp_kses_post'
 	) );
 
 	$settings->add_field('logo', 'no_widget_overlay', 'checkbox', __('No Widget Overlay', 'vantage'), array(
@@ -239,23 +240,24 @@ function vantage_theme_settings(){
 	 * Social Settings
 	 */
 
-//	$settings->add_teaser('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
-//		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage'),
-//		'featured' => 'theme/ajax-comments',
-//	));
+	$settings->add_teaser('social', 'ajax_comments', 'checkbox', __('Ajax Comments', 'vantage'), array(
+		'description' => __('Keep your conversations flowing with ajax comments.', 'vantage'),
+		'featured' => 'theme/ajax-comments',
+	));
 
 	/**
 	 * General Settings
 	 */
 
 	$settings->add_field( 'general', 'site_info_text', 'text', __( 'Site Information Text', 'vantage' ), array(
-		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' )
+		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' ),
+		'sanitize_callback' => 'wp_kses_post'
 	) );
 
-//	$settings->add_teaser( 'general', 'attribution', 'checkbox', __( 'SiteOrigin Attribution', 'vantage' ), array(
-//		'description' => __( "Add or remove a link to SiteOrigin in your footer.", 'vantage' ),
-//		'featured' => 'theme/no-attribution',
-//	) );
+	$settings->add_teaser( 'general', 'attribution', 'checkbox', __( 'SiteOrigin Attribution', 'vantage' ), array(
+		'description' => __( "Add or remove a link to SiteOrigin in your footer.", 'vantage' ),
+		'featured' => 'theme/no-attribution',
+	) );
 
 	$settings->add_field('general', 'js_enqueue_footer', 'checkbox', __('Enqueue JavaScript in Footer', 'vantage'), array(
 		'description' => __('Enqueue JavaScript files in the footer, if possible.', 'vantage'),

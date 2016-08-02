@@ -65,11 +65,6 @@ This theme contains the following demo photos.
   Licensed under public domain.
 
 
-SiteOrigin Extras
----------------
-This theme is built around the SiteOrigin extras framework contained in the folder extras/. All code is licensed under GPL 2.0 and copyright Greg Priday unless otherwise stated in the file header.
-
-
 Custom Background 
 ---------------
 Please note that the WordPress Custom Background feature is only enabled when using the "Boxed" layout bound theme setting. It isn't available when using the default "Full Width" setting. Layout Bound can be set from Appearance > Theme Settings > Layout > Layout Bound. Custom Background options can be set from Appearance > Customize > Colors > Background Color and Appearance > Customize > Background Image.
@@ -77,6 +72,16 @@ Please note that the WordPress Custom Background feature is only enabled when us
 
 Change Log
 ---------------
+
+View full release information on [Github](https://github.com/siteorigin/vantage/releases).
+
+#### 1.5.1
+* Updated author bio edit link.
+* Fixed default settings.
+* Added comments section customizer styling.
+* Applying menu font to mobile menu heading.
+* Integration with SiteOrigin Premium.
+* Added settings to modify heading.
 
 #### 1.5
 * Moved all settings to customizer, updated SiteOrigin framework.
