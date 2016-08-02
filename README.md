@@ -65,11 +65,6 @@ This theme contains the following demo photos.
   Licensed under public domain.
 
 
-SiteOrigin Extras
----------------
-This theme is built around the SiteOrigin extras framework contained in the folder extras/. All code is licensed under GPL 2.0 and copyright Greg Priday unless otherwise stated in the file header.
-
-
 Custom Background 
 ---------------
 Please note that the WordPress Custom Background feature is only enabled when using the "Boxed" layout bound theme setting. It isn't available when using the default "Full Width" setting. Layout Bound can be set from Appearance > Theme Settings > Layout > Layout Bound. Custom Background options can be set from Appearance > Customize > Colors > Background Color and Appearance > Customize > Background Image.
