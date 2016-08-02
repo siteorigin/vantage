@@ -53,6 +53,10 @@ function vantage_body_classes( $classes ) {
 		}
 	}
 
+	if( is_customize_preview() ) {
+		$classes[] = 'so-vantage-customizer-preview';
+	}
+
 	if( wp_is_mobile() ) {
 		$classes[] = 'so-vantage-mobile-device';
 	}

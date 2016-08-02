@@ -15,7 +15,10 @@ jQuery(function($){
         $('.entry-content, .entry-content .panel, .woocommerce #main' ).fitVids({ ignore: '.tableauViz' });
     }
 
-    if( !$('body').hasClass('so-vantage-mobile-device') || $('nav.site-navigation.primary').hasClass('mobile-navigation')) {
+	var isMobileDevice = $('body').hasClass('so-vantage-mobile-device'),
+		isCustomizer = $('body').hasClass('so-vantage-customizer-preview'),
+		isMobileNav = $('nav.site-navigation.primary').hasClass('mobile-navigation');
+    if( ( !isMobileDevice && $('#scroll-to-top').hasClass('scroll-to-top') ) || ( ( isCustomizer || isMobileDevice ) && isMobileNav ) ) {
 
         // Everything we need for scrolling up and down.
         $(window).scroll( function(){
@@ -264,9 +267,8 @@ jQuery(function($){
     }).resize();
 
     // The sticky menu
-    var isMobileDevice = $('body').hasClass('so-vantage-mobile-device');
-    if( ($('nav.site-navigation.primary').hasClass('use-sticky-menu') && !isMobileDevice) ||
-        (isMobileDevice && $('nav.site-navigation.primary').hasClass('mobile-navigation')) ) {
+    if( ( $('nav.site-navigation.primary').hasClass('use-sticky-menu') && !isMobileDevice ) ||
+        ( ( isMobileDevice || isCustomizer ) && isMobileNav ) ) {
 
         var $$ = $('nav.site-navigation.primary');
         var $stickyContainer = $('<div id="sticky-container"></div>');
@@ -400,5 +402,13 @@ jQuery(function($){
         }
 
     });
+
+	$('#colophon #footer-widgets .widget_nav_menu a').each(function(){
+		var $$ = $(this),
+			itemDepth = $(this).parents('.sub-menu').length,
+			itemPadding = ( 10 * itemDepth ) + 'px';
+
+		$(this).css('padding-left',itemPadding);
+	});
 
 });
