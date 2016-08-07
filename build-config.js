@@ -50,6 +50,7 @@ module.exports = {
     js: {
         src: [
             'js/**/*.js',
+            'premium/**/*.js',
             'inc/*/js/**/*.js',
             '!{node_modules,node_modules/**}',  // Ignore node_modules/ and contents
             '!{tests,tests/**}',                // Ignore tests/ and contents
