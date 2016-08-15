@@ -320,6 +320,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['blog_read_more'] = __('Continue reading', 'vantage');
 
 	$defaults['social_ajax_comments'] = true;
+	$defaults['social_share_post'] = true;
 
 	$defaults['general_site_info_text'] = '';
 	$defaults['general_attribution'] = true;
