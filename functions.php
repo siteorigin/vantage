@@ -120,6 +120,10 @@ function vantage_setup() {
 
 	add_filter( 'infinite_scroll_settings', 'vantage_infinite_scroll_settings' );
 
+	// Allowing use of shortcodes in taxonomy descriptions
+	add_filter( 'term_description', 'shortcode_unautop');
+	add_filter( 'term_description', 'do_shortcode' );
+
 	add_theme_support( 'infinite-scroll', array(
 		'container' => $container,
 		'footer' => 'page',
