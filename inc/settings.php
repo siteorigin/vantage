@@ -39,6 +39,10 @@ function vantage_theme_settings(){
 		'description' => __('When using the "logo in menu" masthead layout, constrain the logo size to fit the menu height.', 'vantage'),
 	) );
 
+	$settings->add_field('logo', 'with_text', 'checkbox', __('Display site title alongside logo', 'vantage'), array(
+		'description' => __("Only applicable if a Logo Image has been set.", 'vantage')
+	));
+
 	$settings->add_field('logo', 'image_retina', 'media', __('Retina Logo', 'vantage'), array(
 		'choose' => __('Choose Image', 'vantage'),
 		'update' => __('Set Logo', 'vantage'),
@@ -279,6 +283,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['logo_image'] = false;
 	$defaults['logo_image_retina'] = false;
 	$defaults['logo_in_menu_constrain'] = true;
+	$defaults['logo_with_text'] = false;
 	$defaults['logo_header_text'] = __('Call me! Maybe?', 'vantage');
 	$defaults['logo_no_widget_overlay'] = false;
 
