@@ -75,6 +75,13 @@ Change Log
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
+#### 1.5.3
+* Update to latest settings framework.
+* Added notice for premium users downgraded to free version.
+
+#### 1.5.2
+* Version bump for Vantage Premium.
+
 #### 1.5.1
 * Updated author bio edit link.
 * Fixed default settings.
