@@ -297,15 +297,16 @@ function vantage_print_styles(){
 
 	// Create the footer widget CSS
 	$sidebars_widgets = wp_get_sidebars_widgets();
-	$count = isset($sidebars_widgets['sidebar-footer']) ? count($sidebars_widgets['sidebar-footer']) : 1;
-	$count = max($count,1);
+	$footer_count = isset( $sidebars_widgets['sidebar-footer'] ) ? count( $sidebars_widgets['sidebar-footer'] ) : 1;
+	$footer_count = max( $footer_count, 1 );
+	$masthead_count = isset( $sidebars_widgets['sidebar-masthead'] ) ? count( $sidebars_widgets['sidebar-footer'] ) : 1;
+	$masthead_count = max( $masthead_count, 1 );
+
 
 	?>
 	<style type="text/css" media="screen">
-		#footer-widgets .widget { width: <?php echo round(100/$count,3) . '%' ?>; }
-		@media screen and (max-width: 640px) {
-			#footer-widgets .widget { width: auto; float: none; }
-		}
+		#footer-widgets .widget { width: <?php echo round(100/$footer_count,3) . '%' ?>; }
+		#masthead-widgets .widget { width: <?php echo round(100/$masthead_count,3) . '%' ?>; }
 	</style>
 	<?php
 }
