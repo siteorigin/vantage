@@ -179,7 +179,8 @@ function vantage_theme_settings(){
 	));
 
 	$settings->add_field('blog', 'excerpt_length', 'number', __('Excerpt Length', 'vantage'), array(
-		'description' => __('If no manual post excerpt is added one will be generated. How many words should it be? Only applicable if Post Excerpt has been selected from the Post Content setting.', 'vantage')
+		'description' => __('If no manual post excerpt is added one will be generated. How many words should it be? Only applicable if Post Excerpt has been selected from the Post Content setting.', 'vantage'),
+		'sanitize_callback' => 'absint'
 	) );
 
 	$settings->add_field('blog', 'featured_image_type', 'select', __('Featured Image Type', 'vantage'), array(

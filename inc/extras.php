@@ -162,4 +162,4 @@ function vantage_excerpt_length( $length ) {
 	return siteorigin_setting( 'blog_excerpt_length' );
 }
 endif;
-add_filter( 'excerpt_length', 'vantage_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'vantage_excerpt_length', 10 );
