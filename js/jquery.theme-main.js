@@ -230,14 +230,14 @@ jQuery(function($){
     });
 
 	// Aligning menu elements
-	var mhHeight = $( '.masthead-logo-in-menu .menu-navigation' ).height(),
-		menuItemHeight = $( '.masthead-logo-in-menu .main-navigation .menu > .menu-item' ).outerHeight(),
-		logoHeight = $( '.masthead-logo-in-menu .main-navigation .logo' ).outerHeight();
+	var mhHeight = $( '.masthead-logo-in-menu' ).height(),
+		menuItemHeight = $( '.masthead-logo-in-menu .menu > .menu-item' ).outerHeight(),
+		logoHeight = $( '.masthead-logo-in-menu .logo' ).outerHeight();
 	if( mhHeight > menuItemHeight ){
-		$( '.masthead-logo-in-menu .main-navigation .menu > .menu-item' ).css( 'margin-top', ( mhHeight - menuItemHeight ) / 2);
+		$( '.masthead-logo-in-menu .menu > .menu-item' ).css( 'margin-top', ( mhHeight - menuItemHeight ) / 2);
 	}
 	if( mhHeight > logoHeight ){
-		$( '.masthead-logo-in-menu .main-navigation .logo' ).css( 'margin-top', ( mhHeight - logoHeight ) / 2);
+		$( '.masthead-logo-in-menu .logo' ).css( 'margin-top', ( mhHeight - logoHeight ) / 2);
 	}
 
     $(document)

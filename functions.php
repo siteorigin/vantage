@@ -240,6 +240,7 @@ function vantage_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Sidebar', 'vantage' ),
 		'id' => 'sidebar-1',
+		'description' => __( 'Displays to the right or left of the content area.', 'vantage' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
 		'before_title' => '<h3 class="widget-title">',
@@ -250,6 +251,7 @@ function vantage_widgets_init() {
 		register_sidebar( array(
 			'name' => __( 'Shop', 'vantage' ),
 			'id' => 'shop',
+			'description' => __( 'Displays on WooCommerce pages.', 'vantage' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget' => '</aside>',
 			'before_title' => '<h3 class="widget-title">',
@@ -260,6 +262,7 @@ function vantage_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Footer', 'vantage' ),
 		'id' => 'sidebar-footer',
+		'description' => __( 'Displays below the content area.', 'vantage' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
 		'before_title' => '<h3 class="widget-title">',
@@ -269,6 +272,7 @@ function vantage_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Header', 'vantage' ),
 		'id' => 'sidebar-header',
+		'description' => __( 'Displays to the right of the logo.', 'vantage' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
 		'before_title' => '<h3 class="widget-title">',
@@ -278,6 +282,7 @@ function vantage_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Masthead', 'vantage' ),
 		'id' => 'sidebar-masthead',
+		'description' => __( 'Replaces the logo and header widget area.', 'vantage' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
 		'before_title' => '<h3 class="widget-title">',

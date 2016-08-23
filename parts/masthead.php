@@ -31,7 +31,9 @@
 
 		<?php else : ?>
 
-			<?php dynamic_sidebar( 'sidebar-masthead' ); ?>
+			<div id="masthead-widgets" class="full-container">
+				<?php dynamic_sidebar( 'sidebar-masthead' ); ?>
+			</div>
 
 		<?php endif; ?>
 
