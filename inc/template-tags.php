@@ -172,7 +172,9 @@ function vantage_posted_on() {
 		get_the_author()
 	);
 
-	if( comments_open() || get_comments_number() ) {
+	if( ( comments_open() || get_comments_number() ) && !siteorigin_setting('blog_post_date') && !siteorigin_setting('blog_post_author') ) {
+		$comments_link = '<span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text() . '</a></span>';
+	} elseif( comments_open() || get_comments_number() ) {
 		$comments_link = ' | <span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text() . '</a></span>';
 	} else {
 		$comments_link = '';
@@ -262,6 +264,23 @@ function vantage_display_logo(){
 	echo apply_filters('vantage_logo_html', $logo_html);
 }
 endif;
+
+if( !function_exists('vantage_display_logo_text') ) :
+/**
+ * Display text next to the logo
+ */
+function vantage_display_logo_text( $logo ) {
+	$allow_text = siteorigin_setting( 'logo_with_text' );
+
+	if( $allow_text ) {
+		$logo = $logo . '<h1 class="site-title logo-title">' . get_bloginfo( 'name' ) . '</h1>';
+	}
+
+	return $logo;
+
+}
+endif;
+add_filter( 'vantage_logo_image', 'vantage_display_logo_text', 10, 1 );
 
 
 if ( !function_exists( 'vantage_categorized_blog' ) ) :
