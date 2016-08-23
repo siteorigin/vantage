@@ -851,6 +851,15 @@ body.responsive.layout-full #page-wrapper .full-container {
   margin-left: auto;
   margin-right: auto;
 }
+/* Make widget layouts vertical below 640px */
+@media screen and (max-width: 640px) {
+  body.responsive #footer-widgets .widget,
+  body.responsive #masthead-widgets .widget {
+    width: auto;
+    float: none;
+    padding: 0;
+  }
+}
 /* =Menu
 ----------------------------------------------- */
 .main-navigation {
@@ -2489,13 +2498,6 @@ body.layout-full {
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 20px;
-}
-@media screen and (max-width: 640px) {
-  #footer-widgets .widget,
-  #masthead-widgets .widget {
-    width: auto;
-    float: none;
-  }
 }
 .vertical-footer #footer-widgets .widget {
   margin-bottom: 25px;
