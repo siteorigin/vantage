@@ -133,7 +133,7 @@ function vantage_customizer_init(){
 				'title' => __('Header Padding', 'vantage'),
 				'default' => 45,
 				'unit' => 'px',
-				'selector' => '#masthead .hgroup, #masthead #masthead-widgets',
+				'selector' => '#masthead .hgroup',
 				'property' => array('padding-top', 'padding-bottom'),
 			),
 			'logo_centered' => array(

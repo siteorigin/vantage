@@ -300,13 +300,12 @@ if( !function_exists('vantage_print_styles') ) :
 function vantage_print_styles(){
 	if( !siteorigin_setting('layout_responsive') ) return;
 
-	// Create the footer widget CSS
+	// Create the footer and masthead widget CSS
 	$sidebars_widgets = wp_get_sidebars_widgets();
 	$footer_count = isset( $sidebars_widgets['sidebar-footer'] ) ? count( $sidebars_widgets['sidebar-footer'] ) : 1;
 	$footer_count = max( $footer_count, 1 );
-	$masthead_count = isset( $sidebars_widgets['sidebar-masthead'] ) ? count( $sidebars_widgets['sidebar-footer'] ) : 1;
+	$masthead_count = isset( $sidebars_widgets['sidebar-masthead'] ) ? count( $sidebars_widgets['sidebar-masthead'] ) : 1;
 	$masthead_count = max( $masthead_count, 1 );
-
 
 	?>
 	<style type="text/css" media="screen">
