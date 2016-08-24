@@ -852,6 +852,16 @@ body.responsive.layout-full #page-wrapper .full-container {
   margin-left: auto;
   margin-right: auto;
 }
+/* Make widget layouts vertical below 640px */
+@media screen and (max-width: 640px) {
+  body.responsive #footer-widgets .widget,
+  body.responsive #masthead-widgets .widget {
+    width: auto;
+    float: none;
+    padding: 0;
+    padding-bottom: 25px;
+  }
+}
 /* =Menu
 ----------------------------------------------- */
 .main-navigation {
@@ -2359,17 +2369,20 @@ body.layout-full {
 /* =Sidebar widget styling
 ----------------------------------------------- */
 #secondary .widget,
-#footer-widgets .widget {
+#footer-widgets .widget,
+#masthead-widgets .widget {
   margin-bottom: 40px;
   font-size: 13px;
   color: #5e5e5e;
 }
 #secondary .widget:last-child,
-#footer-widgets .widget:last-child {
+#footer-widgets .widget:last-child,
+#masthead-widgets .widget:last-child {
   margin-bottom: 0;
 }
 #secondary .widget .widget-title,
-#footer-widgets .widget .widget-title {
+#footer-widgets .widget .widget-title,
+#masthead-widgets .widget .widget-title {
   font-size: 15px;
   color: #3b3b3b;
   font-weight: bold;
@@ -2377,38 +2390,50 @@ body.layout-full {
 }
 #secondary .widget ul,
 #footer-widgets .widget ul,
+#masthead-widgets .widget ul,
 #secondary .widget ol,
-#footer-widgets .widget ol {
+#footer-widgets .widget ol,
+#masthead-widgets .widget ol {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 #secondary .widget ul ul,
 #footer-widgets .widget ul ul,
+#masthead-widgets .widget ul ul,
 #secondary .widget ol ul,
 #footer-widgets .widget ol ul,
+#masthead-widgets .widget ol ul,
 #secondary .widget ul ol,
 #footer-widgets .widget ul ol,
+#masthead-widgets .widget ul ol,
 #secondary .widget ol ol,
-#footer-widgets .widget ol ol {
+#footer-widgets .widget ol ol,
+#masthead-widgets .widget ol ol {
   margin-left: 1em;
 }
 #secondary .widget ul li,
 #footer-widgets .widget ul li,
+#masthead-widgets .widget ul li,
 #secondary .widget ol li,
-#footer-widgets .widget ol li {
+#footer-widgets .widget ol li,
+#masthead-widgets .widget ol li {
   padding-bottom: 7px;
 }
 #secondary .widget ul li a,
 #footer-widgets .widget ul li a,
+#masthead-widgets .widget ul li a,
 #secondary .widget ol li a,
-#footer-widgets .widget ol li a {
+#footer-widgets .widget ol li a,
+#masthead-widgets .widget ol li a {
   text-decoration: none;
 }
 #secondary .widget ul li ul.children,
 #footer-widgets .widget ul li ul.children,
+#masthead-widgets .widget ul li ul.children,
 #secondary .widget ol li ul.children,
-#footer-widgets .widget ol li ul.children {
+#footer-widgets .widget ol li ul.children,
+#masthead-widgets .widget ol li ul.children {
   padding-top: 7px;
   margin-bottom: -7px;
 }
@@ -2445,6 +2470,36 @@ body.layout-full {
 }
 #footer-widgets .widget .widget-title {
   color: #e2e2e2;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+#masthead-widgets {
+  zoom: 1;
+}
+#masthead-widgets:before {
+  content: '';
+  display: block;
+}
+#masthead-widgets:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#masthead-widgets .widget {
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  float: left;
+  padding-right: 25px;
+}
+#masthead-widgets .widget:last-child {
+  padding-right: 0;
+}
+#masthead-widgets .widget .widget-title {
+  color: #3b3b3b;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -2866,19 +2921,23 @@ body.layout-full {
 }
 /* =Custom Menu Widget in Header Area
 ----------------------------------------------- */
-#header-sidebar .widget_nav_menu ul.menu {
+#header-sidebar .widget_nav_menu ul.menu,
+#masthead-widgets .widget_nav_menu ul.menu {
   margin: 0;
 }
-#header-sidebar .widget_nav_menu ul.menu > li {
+#header-sidebar .widget_nav_menu ul.menu > li,
+#masthead-widgets .widget_nav_menu ul.menu > li {
   list-style: none;
   display: inline-block;
   margin-right: 20px;
   position: relative;
 }
-#header-sidebar .widget_nav_menu ul.menu > li:last-child {
+#header-sidebar .widget_nav_menu ul.menu > li:last-child,
+#masthead-widgets .widget_nav_menu ul.menu > li:last-child {
   margin-right: 0;
 }
-#header-sidebar .widget_nav_menu ul.menu > li > a {
+#header-sidebar .widget_nav_menu ul.menu > li > a,
+#masthead-widgets .widget_nav_menu ul.menu > li > a {
   display: block;
   text-decoration: none;
   color: #555555;
@@ -2886,7 +2945,8 @@ body.layout-full {
   padding: 0.75em 0;
   line-height: 1em;
 }
-#header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu {
+#header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu,
+#masthead-widgets .widget_nav_menu ul.menu > li ul.sub-menu {
   display: none;
   position: absolute;
   margin: 0;
@@ -2899,7 +2959,8 @@ body.layout-full {
   left: -10px;
   background: white;
 }
-#header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu li {
+#header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu li,
+#masthead-widgets .widget_nav_menu ul.menu > li ul.sub-menu li {
   position: relative;
   list-style: none;
   width: 160px;
@@ -2909,20 +2970,24 @@ body.layout-full {
   box-sizing: border-box;
   padding: 10px 10px;
 }
-#header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu li a {
+#header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu li a,
+#masthead-widgets .widget_nav_menu ul.menu > li ul.sub-menu li a {
   display: block;
   text-decoration: none;
   color: #777777;
 }
-#header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu ul {
+#header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu ul,
+#masthead-widgets .widget_nav_menu ul.menu > li ul.sub-menu ul {
   display: none;
   top: -1px;
   left: 160px;
 }
-#header-sidebar .widget_nav_menu ul.menu > li > ul.sub-menu {
+#header-sidebar .widget_nav_menu ul.menu > li > ul.sub-menu,
+#masthead-widgets .widget_nav_menu ul.menu > li > ul.sub-menu {
   border-top: 2px solid #00bcff;
 }
-#header-sidebar .widget_nav_menu ul.menu li:hover > ul.sub-menu {
+#header-sidebar .widget_nav_menu ul.menu li:hover > ul.sub-menu,
+#masthead-widgets .widget_nav_menu ul.menu li:hover > ul.sub-menu {
   display: block;
 }
 /* =Custom Menu Widget in Footer Area
