@@ -855,6 +855,7 @@ body.responsive.layout-full #page-wrapper .full-container {
     width: auto;
     float: none;
     padding: 0;
+    padding-bottom: 25px;
   }
 }
 /* =Menu
