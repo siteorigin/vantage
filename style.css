@@ -3302,9 +3302,23 @@ body.layout-full {
   clear: both;
 }
 .vantage-circleicon-loop .widget_circleicon-widget {
-  width: 33.333%;
   float: left;
   clear: none;
+}
+.circleicon-loop-columns-2.vantage-circleicon-loop .widget_circleicon-widget {
+  width: 50%;
+}
+.circleicon-loop-columns-3.vantage-circleicon-loop .widget_circleicon-widget {
+  width: 33.333%;
+}
+.circleicon-loop-columns-4.vantage-circleicon-loop .widget_circleicon-widget {
+  width: 25%;
+}
+.circleicon-loop-columns-5.vantage-circleicon-loop .widget_circleicon-widget {
+  width: 20%;
+}
+.circleicon-loop-columns-6.vantage-circleicon-loop .widget_circleicon-widget {
+  width: 16.666%;
 }
 .vantage-circleicon-loop .widget_circleicon-widget .circle-icon-box {
   padding-left: 20px;

@@ -250,6 +250,13 @@ function vantage_theme_settings(){
 		'description' => __('The link displayed when post content is split using the "more" quicktag or when the read more button is enabled.', 'vantage')
 	));
 
+	$settings->add_field('blog', 'circle_column_count', 'range', __('Circle Icon Archive Column Count', 'vantage'), array(
+		'description' => __('The number of columns to display when the circle icon archive layout is set.', 'vantage'),
+		'min' => 2,
+		'max' => 6,
+		'step' => 1
+	));
+
 	/**
 	 * Social Settings
 	 */
@@ -335,6 +342,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['blog_comment_author']      = '';
 	$defaults['blog_read_more_button']    = false;
 	$defaults['blog_read_more']           = __('Continue reading', 'vantage');
+	$defaults['blog_circle_column_count'] = 3;
 
 	$defaults['social_ajax_comments'] = true;
 

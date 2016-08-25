@@ -5,7 +5,7 @@
 ?>
 
 <?php if( have_posts() ) : $i = 0; ?>
-	<div id="vantage-circleicon-loop" class="vantage-circleicon-loop">
+	<div id="vantage-circleicon-loop" class="vantage-circleicon-loop circleicon-loop-columns-<?php echo siteorigin_setting('blog_circle_column_count') ?>">
 
 		<?php
 		while( have_posts() ){
@@ -25,7 +25,7 @@
 				)
 			);
 
-			if($i % 3 == 0) : ?><div class="clear"></div><?php endif;
+			if($i % siteorigin_setting( 'blog_circle_column_count' ) == 0) : ?><div class="clear"></div><?php endif;
 
 		}
 		?>
