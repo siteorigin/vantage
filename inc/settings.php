@@ -297,7 +297,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['layout_bound']             = 'full';
 	$defaults['layout_masthead']          = '';
 	$defaults['layout_footer']            = '';
-	$defaults['layout_force_panels_full'] = true;
+	$defaults['layout_force_panels_full'] = false;
 
 	$defaults['navigation_responsive_menu']          = true;
 	$defaults['navigation_responsive_menu_collapse'] = 480;
