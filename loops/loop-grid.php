@@ -21,6 +21,7 @@
 
 				<h3><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
 				<div class="excerpt"><?php the_excerpt() ?></div>
+				<?php echo ( siteorigin_setting( 'blog_read_more_button' ) ? '<a class="more-link" href="' . get_permalink() . '">' . esc_html( siteorigin_setting( 'blog_read_more' ) ) .'<span class="meta-nav">&rarr;</span></a>' : '' ); ?>
 			</article>
 			<?php if($i % siteorigin_setting( 'blog_grid_column_count' ) == 0) : ?><div class="clear"></div><?php endif; ?>
 		<?php endwhile; ?>
