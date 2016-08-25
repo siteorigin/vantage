@@ -183,6 +183,11 @@ function vantage_theme_settings(){
 		'description' => __('Choose how to display posts on post archive when using default blog layout.', 'vantage'),
 	));
 
+	$settings->add_field('blog', 'excerpt_length', 'number', __('Excerpt Length', 'vantage'), array(
+		'description' => __('If no manual post excerpt is added one will be generated. How many words should it be? Only applicable if Post Excerpt has been selected from the Post Content setting.', 'vantage'),
+		'sanitize_callback' => 'absint'
+	) );
+
 	$settings->add_field('blog', 'featured_image_type', 'select', __('Featured Image Type', 'vantage'), array(
 		'options' => array(
 			'large' => __('Large', 'vantage'),
@@ -280,54 +285,55 @@ if( !function_exists('vantage_theme_setting_defaults') ) :
  * @since vantage 1.0
  */
 function vantage_theme_setting_defaults($defaults){
-	$defaults['logo_image'] = false;
-	$defaults['logo_image_retina'] = false;
+	$defaults['logo_image']             = false;
+	$defaults['logo_image_retina']      = false;
 	$defaults['logo_in_menu_constrain'] = true;
-	$defaults['logo_with_text'] = false;
-	$defaults['logo_header_text'] = __('Call me! Maybe?', 'vantage');
+	$defaults['logo_with_text']         = false;
+	$defaults['logo_header_text']       = __('Call me! Maybe?', 'vantage');
 	$defaults['logo_no_widget_overlay'] = false;
 
-	$defaults['layout_responsive'] = true;
-	$defaults['layout_fitvids'] = true;
-	$defaults['layout_bound'] = 'full';
-	$defaults['layout_masthead'] = '';
-	$defaults['layout_footer'] = '';
+	$defaults['layout_responsive']        = true;
+	$defaults['layout_fitvids']           = true;
+	$defaults['layout_bound']             = 'full';
+	$defaults['layout_masthead']          = '';
+	$defaults['layout_footer']            = '';
 	$defaults['layout_force_panels_full'] = false;
 
-	$defaults['navigation_responsive_menu'] = true;
+	$defaults['navigation_responsive_menu']          = true;
 	$defaults['navigation_responsive_menu_collapse'] = 480;
-	$defaults['navigation_responsive_menu_text'] = '';
-	$defaults['navigation_responsive_menu_search'] = true;
+	$defaults['navigation_responsive_menu_text']     = '';
+	$defaults['navigation_responsive_menu_search']   = true;
 
-	$defaults['navigation_use_sticky_menu'] = true;
-	$defaults['navigation_mobile_navigation'] = false;
-	$defaults['navigation_menu_search'] = true;
+	$defaults['navigation_use_sticky_menu']       = true;
+	$defaults['navigation_mobile_navigation']     = false;
+	$defaults['navigation_menu_search']           = true;
 	$defaults['navigation_display_scroll_to_top'] = true;
-	$defaults['navigation_post_nav'] = true;
-	$defaults['navigation_home_icon'] = false;
-	$defaults['navigation_yoast_breadcrumbs'] = true;
+	$defaults['navigation_post_nav']              = true;
+	$defaults['navigation_home_icon']             = false;
+	$defaults['navigation_yoast_breadcrumbs']     = true;
 
-	$defaults['home_slider'] = 'demo';
+	$defaults['home_slider']         = 'demo';
 	$defaults['home_slider_stretch'] = true;
 
-	$defaults['blog_archive_layout'] = 'blog';
-	$defaults['blog_archive_content'] = 'full';
-	$defaults['blog_featured_image'] = true;
+	$defaults['blog_archive_layout']      = 'blog';
+	$defaults['blog_archive_content']     = 'full';
+	$defaults['blog_excerpt_length']      = 55;
+	$defaults['blog_featured_image']      = true;
 	$defaults['blog_featured_image_type'] = 'large';
-	$defaults['blog_post_metadata'] = true;
-	$defaults['blog_post_date'] = true;
-	$defaults['blog_post_author'] = true;
-	$defaults['blog_post_comment_count'] = false;
-	$defaults['blog_post_categories'] = true;
-	$defaults['blog_post_tags'] = true;
-	$defaults['blog_author_box'] = false;
-	$defaults['blog_comment_author'] = '';
-	$defaults['blog_read_more'] = __('Continue reading', 'vantage');
+	$defaults['blog_post_metadata']       = true;
+	$defaults['blog_post_date']           = true;
+	$defaults['blog_post_author']         = true;
+	$defaults['blog_post_comment_count']  = false;
+	$defaults['blog_post_categories']     = true;
+	$defaults['blog_post_tags']           = true;
+	$defaults['blog_author_box']          = false;
+	$defaults['blog_comment_author']      = '';
+	$defaults['blog_read_more']           = __('Continue reading', 'vantage');
 
 	$defaults['social_ajax_comments'] = true;
 
-	$defaults['general_site_info_text'] = '';
-	$defaults['general_attribution'] = true;
+	$defaults['general_site_info_text']    = '';
+	$defaults['general_attribution']       = true;
 	$defaults['general_js_enqueue_footer'] = false;
 
 	return $defaults;
