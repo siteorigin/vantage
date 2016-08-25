@@ -5,7 +5,7 @@
 ?>
 <?php if( have_posts() ) : $i = 0; ?>
 
-	<div id="vantage-grid-loop" class="vantage-grid-loop">
+	<div id="vantage-grid-loop" class="vantage-grid-loop grid-loop-columns-<?php echo siteorigin_setting('blog_grid_column_count') ?>">
 		<?php while( have_posts() ): the_post(); $i++; ?>
 			<article <?php post_class(array('grid-post')) ?>>
 
@@ -22,7 +22,7 @@
 				<h3><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
 				<div class="excerpt"><?php the_excerpt() ?></div>
 			</article>
-			<?php if($i % 4 == 0) : ?><div class="clear"></div><?php endif; ?>
+			<?php if($i % siteorigin_setting( 'blog_grid_column_count' ) == 0) : ?><div class="clear"></div><?php endif; ?>
 		<?php endwhile; ?>
 	</div>
 

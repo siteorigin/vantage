@@ -3211,7 +3211,6 @@ body.layout-full {
 }
 .vantage-grid-loop article {
   float: left;
-  width: 25%;
   padding: 0 15px;
   margin-bottom: 30px;
   -ms-box-sizing: border-box;
@@ -3219,6 +3218,21 @@ body.layout-full {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: none;
+}
+.grid-loop-columns-2.vantage-grid-loop article {
+  width: 50%;
+}
+.grid-loop-columns-3.vantage-grid-loop article {
+  width: 33.333%;
+}
+.grid-loop-columns-4.vantage-grid-loop article {
+  width: 25%;
+}
+.grid-loop-columns-5.vantage-grid-loop article {
+  width: 20%;
+}
+.grid-loop-columns-6.vantage-grid-loop article {
+  width: 16.666%;
 }
 .vantage-grid-loop article .grid-thumbnail {
   display: block;
