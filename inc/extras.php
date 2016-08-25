@@ -153,3 +153,13 @@ function vantage_footer_widget_style(){
 }
 endif;
 add_action('wp_head', 'vantage_footer_widget_style', 15);
+
+if ( ! function_exists( 'vantage_excerpt_length' ) ) :
+/*
+ * Filter the except length
+ */
+function vantage_excerpt_length( $length ) {
+	return siteorigin_setting( 'blog_excerpt_length' );
+}
+endif;
+add_filter( 'excerpt_length', 'vantage_excerpt_length', 10 );
