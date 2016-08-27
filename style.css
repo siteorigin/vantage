@@ -3279,6 +3279,27 @@ body.layout-full {
 .vantage-grid-loop article .excerpt p {
   margin: 0;
 }
+.vantage-grid-loop article a.more-button {
+  display: block;
+  text-decoration: none;
+  color: #3b3b3b;
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.vantage-grid-loop article a.more-button i {
+  display: inline-block;
+  width: 5px;
+  height: 8px;
+  margin-left: 3px;
+  background: url(images/sprites/more-icon.png) no-repeat;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .vantage-grid-loop article a.more-button i {
+    background: url(images/retina/more-icon.png);
+    background-size: 5px 8px;
+  }
+}
 .vantage-grid-loop .clear {
   clear: both;
 }
