@@ -3211,7 +3211,6 @@ body.layout-full {
 }
 .vantage-grid-loop article {
   float: left;
-  width: 25%;
   padding: 0 15px;
   margin-bottom: 30px;
   -ms-box-sizing: border-box;
@@ -3219,6 +3218,21 @@ body.layout-full {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-bottom: none;
+}
+.grid-loop-columns-2.vantage-grid-loop article {
+  width: 50%;
+}
+.grid-loop-columns-3.vantage-grid-loop article {
+  width: 33.333%;
+}
+.grid-loop-columns-4.vantage-grid-loop article {
+  width: 25%;
+}
+.grid-loop-columns-5.vantage-grid-loop article {
+  width: 20%;
+}
+.grid-loop-columns-6.vantage-grid-loop article {
+  width: 16.666%;
 }
 .vantage-grid-loop article .grid-thumbnail {
   display: block;
@@ -3265,6 +3279,27 @@ body.layout-full {
 .vantage-grid-loop article .excerpt p {
   margin: 0;
 }
+.vantage-grid-loop article a.more-button {
+  display: block;
+  text-decoration: none;
+  color: #3b3b3b;
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.vantage-grid-loop article a.more-button i {
+  display: inline-block;
+  width: 5px;
+  height: 8px;
+  margin-left: 3px;
+  background: url(images/sprites/more-icon.png) no-repeat;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .vantage-grid-loop article a.more-button i {
+    background: url(images/retina/more-icon.png);
+    background-size: 5px 8px;
+  }
+}
 .vantage-grid-loop .clear {
   clear: both;
 }
@@ -3302,9 +3337,23 @@ body.layout-full {
   clear: both;
 }
 .vantage-circleicon-loop .widget_circleicon-widget {
-  width: 33.333%;
   float: left;
   clear: none;
+}
+.circleicon-loop-columns-2.vantage-circleicon-loop .widget_circleicon-widget {
+  width: 50%;
+}
+.circleicon-loop-columns-3.vantage-circleicon-loop .widget_circleicon-widget {
+  width: 33.333%;
+}
+.circleicon-loop-columns-4.vantage-circleicon-loop .widget_circleicon-widget {
+  width: 25%;
+}
+.circleicon-loop-columns-5.vantage-circleicon-loop .widget_circleicon-widget {
+  width: 20%;
+}
+.circleicon-loop-columns-6.vantage-circleicon-loop .widget_circleicon-widget {
+  width: 16.666%;
 }
 .vantage-circleicon-loop .widget_circleicon-widget .circle-icon-box {
   padding-left: 20px;

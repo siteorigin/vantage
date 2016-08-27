@@ -241,8 +241,27 @@ function vantage_theme_settings(){
 		'sanitize_callback' => 'wp_kses_post',
 	));
 
+	$settings->add_field('blog', 'read_more_button', 'checkbox', __('Read More Button', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show read more button when Post Excerpt is chosen.', 'vantage')
+	));
+
 	$settings->add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
-		'description' => __('The link displayed when post content is split using the "more" quicktag.', 'vantage')
+		'description' => __('The link displayed when post content is split using the "more" quicktag or when the read more button is enabled.', 'vantage')
+	));
+
+	$settings->add_field('blog', 'circle_column_count', 'range', __('Circle Icon Archive Column Count', 'vantage'), array(
+		'description' => __('The number of columns to display when the circle icon archive layout is set.', 'vantage'),
+		'min' => 2,
+		'max' => 6,
+		'step' => 1
+	));
+
+	$settings->add_field('blog', 'grid_column_count', 'range', __('Grid Archive Column Count', 'vantage'), array(
+		'description' => __('The number of columns to display when the grid archive layout is set.', 'vantage'),
+		'min' => 2,
+		'max' => 6,
+		'step' => 1
 	));
 
 	/**
@@ -328,7 +347,10 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['blog_post_tags']           = true;
 	$defaults['blog_author_box']          = false;
 	$defaults['blog_comment_author']      = '';
+	$defaults['blog_read_more_button']    = false;
 	$defaults['blog_read_more']           = __('Continue reading', 'vantage');
+	$defaults['blog_circle_column_count'] = 3;
+	$defaults['blog_grid_column_count']   = 4;
 
 	$defaults['social_ajax_comments'] = true;
 
