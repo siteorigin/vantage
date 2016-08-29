@@ -122,7 +122,7 @@ function vantage_metaslider_page_setting_save($post_id){
 	if( defined('DOING_AJAX') ) return;
 
 	update_post_meta($post_id, 'vantage_metaslider_slider', $_POST['vantage_page_metaslider']);
-	$slider_stretch = filter_input(INPUT_POST, 'vantage_page_metaslider_stretch') == "on";
+	$slider_stretch = !empty( $_POST['vantage_page_metaslider_stretch'] );
 	update_post_meta($post_id, 'vantage_metaslider_slider_stretch', $slider_stretch );
 	// If we're on the home page update the 'home_slider' theme setting as well.
 	if ( $post_id == get_option( 'page_on_front' ) ) {
