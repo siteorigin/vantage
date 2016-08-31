@@ -728,6 +728,21 @@ body.responsive {
 	}
 }
 
+/* Make widget layouts vertical below 640px */
+@media screen and (max-width: 640px) {
+	body.responsive {
+		#footer-widgets,
+		#masthead-widgets {
+			.widget {
+				width: auto;
+				float: none;
+				padding: 0;
+				padding-bottom: 25px;
+			}
+		}
+	}
+}
+
 /* =Menu
 ----------------------------------------------- */
 

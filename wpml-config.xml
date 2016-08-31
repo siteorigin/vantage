@@ -1,0 +1,13 @@
+<wpml-config>  
+    <admin-texts>
+        <key name="theme_mods_vantage">
+            <key name="theme_settings_logo_header_text" />
+            <key name="theme_settings_navigation_responsive_menu_text" />
+            <key name="theme_settings_blog_comment_author" />
+            <key name="theme_settings_blog_read_more" />
+            <key name="theme_settings_general_site_info_text" />
+        </key>
+    </admin-texts>      
+</wpml-config>
+
+

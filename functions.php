@@ -122,6 +122,10 @@ function vantage_setup() {
 
 	add_filter( 'infinite_scroll_settings', 'vantage_infinite_scroll_settings' );
 
+	// Allowing use of shortcodes in taxonomy descriptions
+	add_filter( 'term_description', 'shortcode_unautop');
+	add_filter( 'term_description', 'do_shortcode' );
+
 	add_theme_support( 'infinite-scroll', array(
 		'container' => $container,
 		'footer' => 'page',
@@ -243,6 +247,7 @@ function vantage_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Sidebar', 'vantage' ),
 		'id' => 'sidebar-1',
+		'description' => __( 'Displays to the right or left of the content area.', 'vantage' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
 		'before_title' => '<h3 class="widget-title">',
@@ -253,6 +258,7 @@ function vantage_widgets_init() {
 		register_sidebar( array(
 			'name' => __( 'Shop', 'vantage' ),
 			'id' => 'shop',
+			'description' => __( 'Displays on WooCommerce pages.', 'vantage' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget' => '</aside>',
 			'before_title' => '<h3 class="widget-title">',
@@ -263,6 +269,7 @@ function vantage_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Footer', 'vantage' ),
 		'id' => 'sidebar-footer',
+		'description' => __( 'Displays below the content area.', 'vantage' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
 		'before_title' => '<h3 class="widget-title">',
@@ -272,6 +279,17 @@ function vantage_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Header', 'vantage' ),
 		'id' => 'sidebar-header',
+		'description' => __( 'Displays to the right of the logo.', 'vantage' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Masthead', 'vantage' ),
+		'id' => 'sidebar-masthead',
+		'description' => __( 'Replaces the logo and header widget area.', 'vantage' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
 		'before_title' => '<h3 class="widget-title">',
@@ -289,17 +307,17 @@ if( !function_exists('vantage_print_styles') ) :
 function vantage_print_styles(){
 	if( !siteorigin_setting('layout_responsive') ) return;
 
-	// Create the footer widget CSS
+	// Create the footer and masthead widget CSS
 	$sidebars_widgets = wp_get_sidebars_widgets();
-	$count = isset($sidebars_widgets['sidebar-footer']) ? count($sidebars_widgets['sidebar-footer']) : 1;
-	$count = max($count,1);
+	$footer_count = isset( $sidebars_widgets['sidebar-footer'] ) ? count( $sidebars_widgets['sidebar-footer'] ) : 1;
+	$footer_count = max( $footer_count, 1 );
+	$masthead_count = isset( $sidebars_widgets['sidebar-masthead'] ) ? count( $sidebars_widgets['sidebar-masthead'] ) : 1;
+	$masthead_count = max( $masthead_count, 1 );
 
 	?>
 	<style type="text/css" media="screen">
-		#footer-widgets .widget { width: <?php echo round(100/$count,3) . '%' ?>; }
-		@media screen and (max-width: 640px) {
-			#footer-widgets .widget { width: auto; float: none; }
-		}
+		#footer-widgets .widget { width: <?php echo round(100/$footer_count,3) . '%' ?>; }
+		#masthead-widgets .widget { width: <?php echo round(100/$masthead_count,3) . '%' ?>; }
 	</style>
 	<?php
 }
