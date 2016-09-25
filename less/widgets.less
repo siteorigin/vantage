@@ -8,7 +8,6 @@
 .widget select {
 	max-width: 100%;
 	font-size: 1em;
-	border-radius: 0;
 	outline: none;
 }
 /* Search widget */
@@ -37,7 +36,7 @@
 /* =Sidebar widget styling
 ----------------------------------------------- */
 
-#secondary, #footer-widgets {
+#secondary, #footer-widgets, #masthead-widgets {
 
 	.widget {
 		margin-bottom: 40px;
@@ -107,6 +106,29 @@
 			font-weight: bold;
 			margin-bottom: 20px;
 		}
+	}
+}
+
+#masthead-widgets {
+	.clearfix();
+
+	.widget {
+		.box-sizing(border-box);
+		margin-bottom: 0;
+		float: left;
+		padding-right: 25px;
+
+		&:last-child {
+			padding-right: 0;
+		}
+
+		.widget-title {
+			color: #3b3b3b;
+			font-size: 14px;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+
 	}
 }
 
@@ -614,7 +636,8 @@
 /* =Custom Menu Widget in Header Area
 ----------------------------------------------- */
 
-#header-sidebar {
+#header-sidebar,
+#masthead-widgets {
 	.widget_nav_menu {
 		ul.menu {
 			margin: 0;

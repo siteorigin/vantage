@@ -75,6 +75,21 @@ Change Log
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
+#### 1.5.4
+* Added header widget area.
+* Applied read more setting to circle and grid archive loops.
+* Added WPML config file.
+* Added columns setting for circle icon loop archives.
+* Always show mobile menu when mobile menu collapse set to 0.
+* Disabled force PB styles fullwidth by default.
+
+#### 1.5.3
+* Update to latest settings framework.
+* Added notice for premium users downgraded to free version.
+
+#### 1.5.2
+* Version bump for Vantage Premium.
+
 #### 1.5.1
 * Updated author bio edit link.
 * Fixed default settings.

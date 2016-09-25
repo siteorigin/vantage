@@ -10,7 +10,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if( has_post_thumbnail() && siteorigin_setting('blog_featured_image_type') == 'icon' ): ?>
+	<?php if ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image_type' ) == 'icon' ): ?>
 		<div class="entry-thumbnail">
 			<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'thumbnail' ) ?></a>
 		</div>
@@ -21,7 +21,7 @@
 		<?php do_action('vantage_entry_main_top') ?>
 
 		<header class="entry-header">
-			<?php if( has_post_thumbnail() && siteorigin_setting('blog_featured_image_type') == 'large' ): ?>
+			<?php if ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image_type' ) == 'large' ): ?>
 				<div class="entry-thumbnail">
 					<a href="<?php the_permalink() ?>"><?php vantage_entry_thumbnail(); ?></a>
 				</div>
@@ -43,7 +43,8 @@
 			</div><!-- .entry-summary -->
 		<?php else : ?>
 			<div class="entry-content">
-				<?php if(siteorigin_setting('blog_archive_content') == 'excerpt') the_excerpt(); else the_content(); ?>
+				<?php if ( siteorigin_setting( 'blog_archive_content' ) == 'excerpt' ) the_excerpt(); else the_content(); ?>
+				<?php echo ( ( siteorigin_setting( 'blog_read_more_button' ) && siteorigin_setting( 'blog_archive_content' ) == 'excerpt' ) ? '<a class="more-link" href="' . get_permalink() . '">' . esc_html( siteorigin_setting( 'blog_read_more' ) ) .'<span class="meta-nav">&rarr;</span></a>' : '' ); ?>
 				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
 		<?php endif; ?>

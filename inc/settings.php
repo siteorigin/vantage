@@ -157,7 +157,7 @@ function vantage_theme_settings(){
 			__('This theme supports <a href="%s" target="_blank">Meta Slider</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
 			'https://siteorigin.com/metaslider/',
 			siteorigin_metaslider_install_link(),
-			'https://siteorigin.com/vantage-documentation/slider/'
+			'https://siteorigin.com/vantage-documentation/home-page-slider/'
 		)
 	));
 
@@ -182,6 +182,11 @@ function vantage_theme_settings(){
 		),
 		'description' => __('Choose how to display posts on post archive when using default blog layout.', 'vantage'),
 	));
+
+	$settings->add_field('blog', 'excerpt_length', 'number', __('Excerpt Length', 'vantage'), array(
+		'description' => __('If no manual post excerpt is added one will be generated. How many words should it be? Only applicable if Post Excerpt has been selected from the Post Content setting.', 'vantage'),
+		'sanitize_callback' => 'absint'
+	) );
 
 	$settings->add_field('blog', 'featured_image_type', 'select', __('Featured Image Type', 'vantage'), array(
 		'options' => array(
@@ -236,8 +241,27 @@ function vantage_theme_settings(){
 		'sanitize_callback' => 'wp_kses_post',
 	));
 
+	$settings->add_field('blog', 'read_more_button', 'checkbox', __('Read More Button', 'vantage'), array(
+		'label' => __('Display', 'vantage'),
+		'description' => __('Show read more button when Post Excerpt is chosen.', 'vantage')
+	));
+
 	$settings->add_field('blog', 'read_more', 'text', __('Read More Text', 'vantage'), array(
-		'description' => __('The link displayed when post content is split using the "more" quicktag.', 'vantage')
+		'description' => __('The link displayed when post content is split using the "more" quicktag or when the read more button is enabled.', 'vantage')
+	));
+
+	$settings->add_field('blog', 'circle_column_count', 'range', __('Circle Icon Archive Column Count', 'vantage'), array(
+		'description' => __('The number of columns to display when the circle icon archive layout is set.', 'vantage'),
+		'min' => 2,
+		'max' => 6,
+		'step' => 1
+	));
+
+	$settings->add_field('blog', 'grid_column_count', 'range', __('Grid Archive Column Count', 'vantage'), array(
+		'description' => __('The number of columns to display when the grid archive layout is set.', 'vantage'),
+		'min' => 2,
+		'max' => 6,
+		'step' => 1
 	));
 
 	/**
@@ -280,54 +304,58 @@ if( !function_exists('vantage_theme_setting_defaults') ) :
  * @since vantage 1.0
  */
 function vantage_theme_setting_defaults($defaults){
-	$defaults['logo_image'] = false;
-	$defaults['logo_image_retina'] = false;
+	$defaults['logo_image']             = false;
+	$defaults['logo_image_retina']      = false;
 	$defaults['logo_in_menu_constrain'] = true;
-	$defaults['logo_with_text'] = false;
-	$defaults['logo_header_text'] = __('Call me! Maybe?', 'vantage');
+	$defaults['logo_with_text']         = false;
+	$defaults['logo_header_text']       = __('Call me! Maybe?', 'vantage');
 	$defaults['logo_no_widget_overlay'] = false;
 
-	$defaults['layout_responsive'] = true;
-	$defaults['layout_fitvids'] = true;
-	$defaults['layout_bound'] = 'full';
-	$defaults['layout_masthead'] = '';
-	$defaults['layout_footer'] = '';
-	$defaults['layout_force_panels_full'] = true;
+	$defaults['layout_responsive']        = true;
+	$defaults['layout_fitvids']           = true;
+	$defaults['layout_bound']             = 'full';
+	$defaults['layout_masthead']          = '';
+	$defaults['layout_footer']            = '';
+	$defaults['layout_force_panels_full'] = false;
 
-	$defaults['navigation_responsive_menu'] = true;
+	$defaults['navigation_responsive_menu']          = true;
 	$defaults['navigation_responsive_menu_collapse'] = 480;
-	$defaults['navigation_responsive_menu_text'] = '';
-	$defaults['navigation_responsive_menu_search'] = true;
+	$defaults['navigation_responsive_menu_text']     = '';
+	$defaults['navigation_responsive_menu_search']   = true;
 
-	$defaults['navigation_use_sticky_menu'] = true;
-	$defaults['navigation_mobile_navigation'] = false;
-	$defaults['navigation_menu_search'] = true;
+	$defaults['navigation_use_sticky_menu']       = true;
+	$defaults['navigation_mobile_navigation']     = false;
+	$defaults['navigation_menu_search']           = true;
 	$defaults['navigation_display_scroll_to_top'] = true;
-	$defaults['navigation_post_nav'] = true;
-	$defaults['navigation_home_icon'] = false;
-	$defaults['navigation_yoast_breadcrumbs'] = true;
+	$defaults['navigation_post_nav']              = true;
+	$defaults['navigation_home_icon']             = false;
+	$defaults['navigation_yoast_breadcrumbs']     = true;
 
-	$defaults['home_slider'] = 'demo';
+	$defaults['home_slider']         = 'demo';
 	$defaults['home_slider_stretch'] = true;
 
-	$defaults['blog_archive_layout'] = 'blog';
-	$defaults['blog_archive_content'] = 'full';
-	$defaults['blog_featured_image'] = true;
+	$defaults['blog_archive_layout']      = 'blog';
+	$defaults['blog_archive_content']     = 'full';
+	$defaults['blog_excerpt_length']      = 55;
+	$defaults['blog_featured_image']      = true;
 	$defaults['blog_featured_image_type'] = 'large';
-	$defaults['blog_post_metadata'] = true;
-	$defaults['blog_post_date'] = true;
-	$defaults['blog_post_author'] = true;
-	$defaults['blog_post_comment_count'] = false;
-	$defaults['blog_post_categories'] = true;
-	$defaults['blog_post_tags'] = true;
-	$defaults['blog_author_box'] = false;
-	$defaults['blog_comment_author'] = '';
-	$defaults['blog_read_more'] = __('Continue reading', 'vantage');
+	$defaults['blog_post_metadata']       = true;
+	$defaults['blog_post_date']           = true;
+	$defaults['blog_post_author']         = true;
+	$defaults['blog_post_comment_count']  = false;
+	$defaults['blog_post_categories']     = true;
+	$defaults['blog_post_tags']           = true;
+	$defaults['blog_author_box']          = false;
+	$defaults['blog_comment_author']      = '';
+	$defaults['blog_read_more_button']    = false;
+	$defaults['blog_read_more']           = __('Continue reading', 'vantage');
+	$defaults['blog_circle_column_count'] = 3;
+	$defaults['blog_grid_column_count']   = 4;
 
 	$defaults['social_ajax_comments'] = true;
 
-	$defaults['general_site_info_text'] = '';
-	$defaults['general_attribution'] = true;
+	$defaults['general_site_info_text']    = '';
+	$defaults['general_attribution']       = true;
 	$defaults['general_js_enqueue_footer'] = false;
 
 	return $defaults;
@@ -360,14 +388,11 @@ endif;
 
 if( !function_exists('vantage_siteorigin_settings_home_slider_update_post_meta') ) :
 function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $old_value ) {
-
-	if( !isset( $new_value['home_slider'] ) || ! isset( $new_value['home_slider_stretch'] ) ) return $new_value;
-
 	//Update home slider post meta.
 	$home_id = get_option( 'page_on_front' );
 	if ( $home_id != 0 ) {
-		update_post_meta( $home_id, 'vantage_metaslider_slider', $new_value['home_slider'] );
-		update_post_meta( $home_id, 'vantage_metaslider_slider_stretch', $new_value['home_slider_stretch'] );
+		update_post_meta( $home_id, 'vantage_metaslider_slider', siteorigin_setting( 'home_slider' ) );
+		update_post_meta( $home_id, 'vantage_metaslider_slider_stretch', siteorigin_setting( 'home_slider_stretch' ) );
 	}
 	return $new_value;
 }
