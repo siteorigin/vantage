@@ -510,7 +510,7 @@ function vantage_customizer_init(){
 		'vantage_widgets' => array(
 			'masthead' => array(
 				'type' => 'color',
-				'title' => __(' Masthead Sidebar Widget Titles', 'vantage'),
+				'title' => __(' Masthead Widget Titles', 'vantage'),
 				'default' => '#3b3b3b',
 				'selector' => '#masthead-widgets .widget .widget-title',
 				'property' => 'color',
