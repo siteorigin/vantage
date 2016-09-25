@@ -511,7 +511,8 @@ if( !function_exists( 'vantage_read_more_link' ) ) :
  * Filter the read more link.
  */
 function vantage_read_more_link() {
-	return '<a class="more-link" href="' . get_permalink() . '">' . esc_html( siteorigin_setting('blog_read_more') ) .'<span class="meta-nav">&rarr;</span></a>';
+	$read_more_text = siteorigin_setting( 'blog_read_more' ) ? esc_html( siteorigin_setting( 'blog_read_more' ) ) : __( 'Continue reading', 'vantage' );
+	return '<a class="more-link" href="' . get_permalink() . '">' . $read_more_text .'<span class="meta-nav">&rarr;</span></a>';
 }
 add_filter( 'the_content_more_link', 'vantage_read_more_link' );
 endif;
