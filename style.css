@@ -869,6 +869,7 @@ body.responsive.layout-full #page-wrapper .full-container {
   background: #343538;
   position: relative;
   font-size: 0;
+  z-index: 99999;
   /* Font awesome icons */
   /* General menu link styling */
   /* For when the menu becomes a sticky menu */
