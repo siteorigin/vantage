@@ -390,14 +390,14 @@ if( !function_exists('vantage_siteorigin_settings_home_slider_update_post_meta')
 function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $old_value ) {
 	//Update home slider post meta.
 	$home_id = get_option( 'page_on_front' );
-	if ( $home_id != 0 ) {
+	if ( $home_id ) {
 		update_post_meta( $home_id, 'vantage_metaslider_slider', siteorigin_setting( 'home_slider' ) );
 		update_post_meta( $home_id, 'vantage_metaslider_slider_stretch', siteorigin_setting( 'home_slider_stretch' ) );
 	}
 	return $new_value;
 }
 endif;
-add_filter( 'pre_update_option_theme_mods_vantage', 'vantage_siteorigin_settings_home_slider_update_post_meta', 10, 2 );
+add_filter( 'update_option_theme_mods_vantage', 'vantage_siteorigin_settings_home_slider_update_post_meta', 10, 2 );
 
 if( !function_exists('vantage_siteorigin_settings_localize') ) :
 function vantage_siteorigin_settings_localize( $loc ){
