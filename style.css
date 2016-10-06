@@ -2148,6 +2148,15 @@ body.layout-full {
 :not(.not-default-page).page-layout-full-width-sidebar.layout-full #page-wrapper .full-container {
   max-width: 100%;
 }
+:not(.not-default-page).page-layout-full-width.layout-boxed #page-wrapper {
+  width: 100%;
+}
+:not(.not-default-page).page-layout-full-width.layout-boxed #primary {
+  width: 100%;
+}
+:not(.not-default-page).page-layout-full-width-sidebar.layout-boxed #page-wrapper {
+  width: 100%;
+}
 /* =Sliders
 ----------------------------------------------- */
 /* Resets */
