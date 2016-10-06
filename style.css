@@ -207,6 +207,7 @@ dd {
 }
 b,
 strong {
+  font-weight: 700;
   font-weight: bold;
 }
 dfn,
@@ -869,6 +870,7 @@ body.responsive.layout-full #page-wrapper .full-container {
   background: #343538;
   position: relative;
   font-size: 0;
+  z-index: 99999;
   /* Font awesome icons */
   /* General menu link styling */
   /* For when the menu becomes a sticky menu */
@@ -2345,7 +2347,6 @@ body.layout-full {
 .widget select {
   max-width: 100%;
   font-size: 1em;
-  border-radius: 0;
   outline: none;
 }
 /* Search widget */
