@@ -846,8 +846,11 @@ body.responsive {
 		color: #e2e2e2;
 		font-weight: bold;
 	}
-
 	/* For when the menu becomes a sticky menu */
+	&.sticky {
+		top: 0;	
+	}
+
 	&.sticky:after {
 		bottom: -6px;
  		box-shadow: rgba(0,0,0,0.25) 0 6px 6px -6px inset;
