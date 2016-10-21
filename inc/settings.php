@@ -20,6 +20,7 @@ function vantage_theme_settings(){
 	$settings->add_section( 'layout', __('Layout', 'vantage' ) );
 	$settings->add_section( 'home', __('Home', 'vantage' ) );
 	$settings->add_section( 'navigation', __('Navigation', 'vantage' ) );
+	$settings->add_section( 'icons', __('Icons', 'vantage' ) );
 	$settings->add_section( 'blog', __('Blog', 'vantage' ) );
 	$settings->add_section( 'social', __('Social', 'vantage' ) );
 	$settings->add_section( 'general', __('General', 'vantage' ) );
@@ -146,6 +147,30 @@ function vantage_theme_settings(){
 			'description' => __('Display breadcrumbs if you have Yoast SEO or Breadcrumb NavXT installed.', 'vantage')
 		) );
 	}
+
+	/**
+	 * Icons
+	 */
+
+	$settings->add_field( 'icons', 'menu', 'media', __( 'Mobile Menu Icon', 'vantage' ), array(
+ 		'choose' => __( 'Choose Image', 'vantage' ),
+ 		'update' => __( 'Set Logo', 'vantage' )
+ 	) );
+
+	$settings->add_field( 'icons', 'menu_close', 'media', __( 'Mobile Menu Close Icon', 'vantage' ), array(
+ 		'choose' => __( 'Choose Image', 'vantage' ),
+ 		'update' => __( 'Set Logo', 'vantage' )
+ 	) );
+
+	$settings->add_field( 'icons', 'search', 'media', __( 'Search Icon', 'vantage' ), array(
+ 		'choose' => __( 'Choose Image', 'vantage' ),
+ 		'update' => __( 'Set Logo', 'vantage' )
+ 	) );
+
+	$settings->add_field( 'icons', 'menu_home', 'media', __( 'Menu Home Page Icon', 'vantage' ), array(
+ 		'choose' => __( 'Choose Image', 'vantage' ),
+ 		'update' => __( 'Set Logo', 'vantage' )
+ 	) );
 
 	/**
 	 * Home Page
@@ -322,6 +347,11 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['navigation_responsive_menu_collapse'] = 480;
 	$defaults['navigation_responsive_menu_text']     = '';
 	$defaults['navigation_responsive_menu_search']   = true;
+
+	$defaults['menu']       = false;
+	$defaults['menu_close'] = false;
+	$defaults['search']     = false;
+	$defaults['menu_home']  = false;
 
 	$defaults['navigation_use_sticky_menu']       = true;
 	$defaults['navigation_mobile_navigation']     = false;
