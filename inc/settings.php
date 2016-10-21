@@ -348,10 +348,10 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['navigation_responsive_menu_text']     = '';
 	$defaults['navigation_responsive_menu_search']   = true;
 
-	$defaults['menu']       = false;
-	$defaults['menu_close'] = false;
-	$defaults['search']     = false;
-	$defaults['menu_home']  = false;
+	$defaults['icons_menu']       = false;
+	$defaults['icons_menu_close'] = false;
+	$defaults['icons_search']     = false;
+	$defaults['icons_menu_home']  = false;
 
 	$defaults['navigation_use_sticky_menu']       = true;
 	$defaults['navigation_mobile_navigation']     = false;

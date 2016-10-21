@@ -60,7 +60,7 @@ jQuery( function ( $ ) {
                 // Create the frame if we haven't already
                 frame = $( '<div class="mobile-nav-frame"><div class="title"><h3>' + mobileNav.text.navigate + '</h3></div><div class="slides"><div class="slides-container"></div></div></div>' ).appendTo( 'body' );
                 frame.find( '.title' )
-                    .prepend( '<a href="#" class="back"><i class="fa fa-long-arrow-left"></i></a><a href="#" class="close"><i class="fa fa-times"></i></a>' )
+                    .prepend( '<a href="#" class="back"><i class="fa fa-long-arrow-left"></i></a><a href="#" class="close">' + mobileNav.mobileMenuClose + '</a>' )
 
                 // Create and insert the search form if enabled
                 if( mobileNav.search ) {
