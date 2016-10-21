@@ -12,7 +12,7 @@ function vantage_filter_nav_menu_items($item_output, $item, $depth, $args){
 		$icon = get_post_meta($object_id, 'vantage_menu_icon', true);
 
 		if( siteorigin_setting('navigation_home_icon') && ( strpos($item_output, 'href="'.home_url('/').'"', 0) !== false || strpos($item_output, 'href="'.home_url().'"', 0) !== false ) ) {
-			$item_output = str_replace('<span class="icon"></span>', '<span class="fa fa-home"></span>', $item_output);
+			$item_output = str_replace('<span class="icon"></span>', vantage_display_icon( 'menu-home' ), $item_output);
 		}
 		elseif( !empty($icon) ) {
 			$icon = apply_filters('vantage_fontawesome_icon_name', $icon );
@@ -24,7 +24,7 @@ function vantage_filter_nav_menu_items($item_output, $item, $depth, $args){
 	}
 	elseif($object_type == 'custom') {
 		if( siteorigin_setting('navigation_home_icon') && ( strpos($item_output, 'href="'.home_url('/').'"', 0) !== false || strpos($item_output, 'href="'.home_url().'"', 0) !== false ) ) {
-			$item_output = str_replace('<span class="icon"></span>', '<span class="fa fa-home"></span>', $item_output);
+			$item_output = str_replace('<span class="icon"></span>', vantage_display_icon( 'menu-home' ), $item_output);
 		}
 	}
 	else {
