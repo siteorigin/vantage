@@ -870,7 +870,7 @@ body.responsive.layout-full #page-wrapper .full-container {
   background: #343538;
   position: relative;
   font-size: 0;
-  z-index: 99999;
+  z-index: 9999;
   /* Font awesome icons */
   /* General menu link styling */
   /* For when the menu becomes a sticky menu */
@@ -881,6 +881,11 @@ body.responsive.layout-full #page-wrapper .full-container {
   font-size: 16px;
   line-height: 0.5em;
   color: #cccccc;
+}
+.main-navigation .menu-item-home img {
+  margin-right: 15px;
+  max-height: 16px;
+  max-width: 16px;
 }
 .main-navigation a:hover [class^="fa fa-"] {
   color: #ffffff;
@@ -965,6 +970,9 @@ body.responsive.layout-full #page-wrapper .full-container {
   color: #e2e2e2;
   font-weight: bold;
 }
+.main-navigation.sticky {
+  top: 0;
+}
 .main-navigation.sticky:after {
   bottom: -6px;
   box-shadow: rgba(0, 0, 0, 0.25) 0 6px 6px -6px inset;
@@ -996,6 +1004,10 @@ body.so-vantage-mobile-device .main-navigation li:hover > ul {
 .mobile-nav-icon:before {
   font-size: 14px;
   content: "\f00b";
+}
+.mobilenav-main-link img {
+  max-height: 14px;
+  margin-right: 10px;
 }
 #search-icon {
   position: absolute;
@@ -1034,6 +1046,16 @@ body.so-vantage-mobile-device .main-navigation li:hover > ul {
   margin-top: -8px;
   margin-left: -8.5px;
   color: #d1d1d1;
+}
+#search-icon #search-icon-icon img {
+  position: absolute;
+  display: block;
+  max-width: 17px;
+  max-height: 17px;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8.5px;
 }
 #search-icon #search-icon-icon:hover {
   background-color: #00bcff;
