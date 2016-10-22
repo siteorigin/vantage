@@ -555,11 +555,19 @@ function vantage_display_icon( $type ) {
 			endif;
 			break;
 
+		case 'search' :
+			if ( siteorigin_setting( 'icons_search' ) ) :
+				return wp_get_attachment_image( siteorigin_setting( 'icons_search' ), 'full', false, '' );
+			else :
+				return '<span class="fa fa-home"></span>';
+			endif;
+			break;
+
 		case 'menu-home' :
 			if ( siteorigin_setting( 'icons_menu_home' ) ) :
 				return wp_get_attachment_image( siteorigin_setting( 'icons_menu_home' ), 'full', false, '' );
 			else :
-				return '<span class="fa fa-home"></span>';
+				return '<div class="vantage-icon-search"></div>';
 			endif;
 			break;
 
