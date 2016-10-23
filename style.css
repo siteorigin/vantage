@@ -882,11 +882,6 @@ body.responsive.layout-full #page-wrapper .full-container {
   line-height: 0.5em;
   color: #cccccc;
 }
-.main-navigation .menu-item-home img {
-  margin-right: 15px;
-  max-height: 16px;
-  max-width: 16px;
-}
 .main-navigation a:hover [class^="fa fa-"] {
   color: #ffffff;
 }
@@ -996,6 +991,11 @@ body.so-vantage-mobile-device .main-navigation li:hover > ul {
   margin-right: 10px;
   min-width: 1em;
 }
+.mobile-nav-frame img {
+  max-height: 18px;
+  max-width: 18px;
+  margin-right: 10px;
+}
 .mobile-nav-icon {
   font-family: 'FontAwesome';
   display: inline-block;
@@ -1006,7 +1006,8 @@ body.so-vantage-mobile-device .main-navigation li:hover > ul {
   content: "\f00b";
 }
 .mobilenav-main-link img {
-  max-height: 14px;
+  max-height: 15px;
+  max-width: 20px;
   margin-right: 10px;
 }
 #search-icon {

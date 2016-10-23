@@ -167,11 +167,6 @@ function vantage_theme_settings(){
  		'update' => __( 'Set Logo', 'vantage' )
  	) );
 
-	$settings->add_field( 'icons', 'menu_home', 'media', __( 'Menu Home Page Icon', 'vantage' ), array(
- 		'choose' => __( 'Choose Image', 'vantage' ),
- 		'update' => __( 'Set Logo', 'vantage' )
- 	) );
-
 	/**
 	 * Home Page
 	 */
@@ -351,7 +346,6 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['icons_menu']       = false;
 	$defaults['icons_menu_close'] = false;
 	$defaults['icons_search']     = false;
-	$defaults['icons_menu_home']  = false;
 
 	$defaults['navigation_use_sticky_menu']       = true;
 	$defaults['navigation_mobile_navigation']     = false;
