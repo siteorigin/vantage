@@ -2,6 +2,10 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
+= 1.5.6 - 24 October 2016 =
+* Added sticky menu fallback.
+* Added Customizer settings for the search and menu icons.
+
 = 1.5.5 - 10 October 2016 =
 * Added scope to the full-width page setting for the boxed layout bound.
 * Updated to the latest SiteOrigin Settings framework.
