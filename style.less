@@ -848,7 +848,7 @@ body.responsive {
 	}
 	/* For when the menu becomes a sticky menu */
 	&.sticky {
-		top: 0;	
+		top: 0;
 	}
 
 	&.sticky:after {
@@ -888,6 +888,12 @@ body.so-vantage-mobile-device {
 		margin-right: 10px;
 		min-width: 1em;
 	}
+
+	img {
+		max-height: 18px;
+		max-width: 18px;
+		margin-right: 10px;
+	}
 }
 
 .mobile-nav-icon {
@@ -899,6 +905,14 @@ body.so-vantage-mobile-device {
 .mobile-nav-icon:before {
 	font-size: 14px;
 	content: "\f00b";
+}
+
+.mobilenav-main-link {
+	img {
+		max-height: 15px;
+		max-width: 20px;
+		margin-right: 10px;
+	}
 }
 
 #search-icon {
@@ -932,6 +946,17 @@ body.so-vantage-mobile-device {
 			margin-top: -8px;
 			margin-left: -8.5px;
 			color: #d1d1d1;
+		}
+
+		img {
+			position: absolute;
+			display: block;
+			max-width: 17px;
+			max-height: 17px;
+			top: 50%;
+			left: 50%;
+			margin-top: -8px;
+			margin-left: -8.5px;
 		}
 
 		&:hover {

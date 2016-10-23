@@ -26,6 +26,7 @@ function siteorigin_mobilenav_enqueue_scripts() {
 		'search' => $search,
 		'text' => $text,
 		'nextIconUrl' => get_template_directory_uri() . '/inc/mobilenav/images/next.png',
+		'mobileMenuClose' => vantage_display_icon( 'mobile-menu-close' ),
 	) );
 	wp_enqueue_style( 'siteorigin-mobilenav', get_template_directory_uri() . '/inc/mobilenav/css/mobilenav.css', array(), SITEORIGIN_THEME_VERSION );
 }
@@ -66,7 +67,7 @@ function siteorigin_mobilenav_nav_filter($nav_menu, $args){
 
 	$wrap_class = $args->menu_class ? $args->menu_class : '';
 	$wrap_id = 'mobile-nav-item-wrap-'.$mobile_nav_id;
-	$items = '<li><a href="#" class="mobilenav-main-link" data-id="'.$mobile_nav_id.'"><span class="mobile-nav-icon"></span>'.$text['navigate'].'</a></li>';
+	$items = '<li><a href="#" class="mobilenav-main-link" data-id="'.$mobile_nav_id.'">'. vantage_display_icon('mobile-menu') .$text['navigate'].'</a></li>';
 
 	$nav_menu .= sprintf( $args->items_wrap, esc_attr( $wrap_id ), esc_attr( $wrap_class ), $items );
 

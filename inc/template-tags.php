@@ -530,3 +530,39 @@ function vantage_entry_thumbnail() {
 	the_post_thumbnail( $thumb_size );
 }
 endif;
+
+if ( ! function_exists( 'vantage_display_icon' ) ) :
+/**
+ * Displays icons.
+ */
+function vantage_display_icon( $type ) {
+
+	switch( $type ) {
+
+		case 'mobile-menu' :
+			if ( siteorigin_setting( 'icons_menu' ) ) :
+				return wp_get_attachment_image( siteorigin_setting( 'icons_menu' ), 'full', false, '' );
+			else :
+				return '<span class="mobile-nav-icon"></span>';
+			endif;
+			break;
+
+		case 'mobile-menu-close' :
+			if ( siteorigin_setting( 'icons_menu_close' ) ) :
+				return wp_get_attachment_image( siteorigin_setting( 'icons_menu_close' ), 'full', false, '' );
+			else :
+				return '<i class="fa fa-times"></i>';
+			endif;
+			break;
+
+		case 'search' :
+			if ( siteorigin_setting( 'icons_search' ) ) :
+				return wp_get_attachment_image( siteorigin_setting( 'icons_search' ), 'full', false, '' );
+			else :
+				return '<div class="vantage-icon-search"></div>';
+			endif;
+			break;
+
+	}
+}
+endif;
