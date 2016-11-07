@@ -511,7 +511,8 @@ if( !function_exists( 'vantage_read_more_link' ) ) :
  * Filter the read more link.
  */
 function vantage_read_more_link() {
-	return '<a class="more-link" href="' . get_permalink() . '">' . esc_html( siteorigin_setting('blog_read_more') ) .'<span class="meta-nav">&rarr;</span></a>';
+	$read_more_text = siteorigin_setting( 'blog_read_more' ) ? esc_html( siteorigin_setting( 'blog_read_more' ) ) : __( 'Continue reading', 'vantage' );
+	return '<a class="more-link" href="' . get_permalink() . '">' . $read_more_text .'<span class="meta-nav">&rarr;</span></a>';
 }
 add_filter( 'the_content_more_link', 'vantage_read_more_link' );
 endif;
@@ -527,5 +528,41 @@ function vantage_entry_thumbnail() {
 		$thumb_size = 'vantage-thumbnail-no-sidebar';
 	}
 	the_post_thumbnail( $thumb_size );
+}
+endif;
+
+if ( ! function_exists( 'vantage_display_icon' ) ) :
+/**
+ * Displays icons.
+ */
+function vantage_display_icon( $type ) {
+
+	switch( $type ) {
+
+		case 'mobile-menu' :
+			if ( siteorigin_setting( 'icons_menu' ) ) :
+				return wp_get_attachment_image( siteorigin_setting( 'icons_menu' ), 'full', false, '' );
+			else :
+				return '<span class="mobile-nav-icon"></span>';
+			endif;
+			break;
+
+		case 'mobile-menu-close' :
+			if ( siteorigin_setting( 'icons_menu_close' ) ) :
+				return wp_get_attachment_image( siteorigin_setting( 'icons_menu_close' ), 'full', false, '' );
+			else :
+				return '<i class="fa fa-times"></i>';
+			endif;
+			break;
+
+		case 'search' :
+			if ( siteorigin_setting( 'icons_search' ) ) :
+				return wp_get_attachment_image( siteorigin_setting( 'icons_search' ), 'full', false, '' );
+			else :
+				return '<div class="vantage-icon-search"></div>';
+			endif;
+			break;
+
+	}
 }
 endif;

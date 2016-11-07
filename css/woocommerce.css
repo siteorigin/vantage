@@ -162,6 +162,7 @@
 }
 .woocommerce .button.alt:hover,
 .woocommerce .button.alt:active,
+.woocommerce .button.alt:focus,
 .woocommerce .button.alt.disabled,
 .woocommerce .button.alt:disabled,
 .woocommerce .button.alt:disabled[disabled],

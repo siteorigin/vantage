@@ -5,10 +5,10 @@ Author URI: https://siteorigin.com/
 Theme URI: https://siteorigin.com/theme/vantage/
 Description: Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, Meta Slider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free and premium support on our support <a href="http://siteorigin.com/thread/">forums</a> (http://siteorigin.com/thread/).
 Version: dev
-License: GNU General Public License 2.0
-License URI: license.txt
-Tags: responsive-layout, fluid-layout, custom-background, custom-menu, featured-images, theme-options, threaded-comments, translation-ready, black, white, light, one-column, two-columns, full-width-template
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: vantage
+Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
 */
 /* =Reset
 -------------------------------------------------------------- */
@@ -207,6 +207,7 @@ dd {
 }
 b,
 strong {
+  font-weight: 700;
   font-weight: bold;
 }
 dfn,
@@ -869,6 +870,7 @@ body.responsive.layout-full #page-wrapper .full-container {
   background: #343538;
   position: relative;
   font-size: 0;
+  z-index: 9999;
   /* Font awesome icons */
   /* General menu link styling */
   /* For when the menu becomes a sticky menu */
@@ -963,6 +965,9 @@ body.responsive.layout-full #page-wrapper .full-container {
   color: #e2e2e2;
   font-weight: bold;
 }
+.main-navigation.sticky {
+  top: 0;
+}
 .main-navigation.sticky:after {
   bottom: -6px;
   box-shadow: rgba(0, 0, 0, 0.25) 0 6px 6px -6px inset;
@@ -986,6 +991,11 @@ body.so-vantage-mobile-device .main-navigation li:hover > ul {
   margin-right: 10px;
   min-width: 1em;
 }
+.mobile-nav-frame img {
+  max-height: 18px;
+  max-width: 18px;
+  margin-right: 10px;
+}
 .mobile-nav-icon {
   font-family: 'FontAwesome';
   display: inline-block;
@@ -994,6 +1004,11 @@ body.so-vantage-mobile-device .main-navigation li:hover > ul {
 .mobile-nav-icon:before {
   font-size: 14px;
   content: "\f00b";
+}
+.mobilenav-main-link img {
+  max-height: 15px;
+  max-width: 20px;
+  margin-right: 10px;
 }
 #search-icon {
   position: absolute;
@@ -1032,6 +1047,16 @@ body.so-vantage-mobile-device .main-navigation li:hover > ul {
   margin-top: -8px;
   margin-left: -8.5px;
   color: #d1d1d1;
+}
+#search-icon #search-icon-icon img {
+  position: absolute;
+  display: block;
+  max-width: 17px;
+  max-height: 17px;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8.5px;
 }
 #search-icon #search-icon-icon:hover {
   background-color: #00bcff;
@@ -2148,6 +2173,23 @@ body.layout-full {
 :not(.not-default-page).page-layout-full-width-sidebar.layout-full #page-wrapper .full-container {
   max-width: 100%;
 }
+:not(.not-default-page).page-layout-full-width.layout-boxed #primary {
+  width: 100%;
+}
+:not(.not-default-page).page-layout-full-width-sidebar.layout-boxed #page-wrapper,
+:not(.not-default-page).page-layout-full-width.layout-boxed #page-wrapper {
+  width: 100%;
+  max-width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+@media (max-width: 1100px) {
+  :not(.not-default-page).page-layout-full-width-sidebar.layout-boxed #page-wrapper,
+  :not(.not-default-page).page-layout-full-width.layout-boxed #page-wrapper {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
 /* =Sliders
 ----------------------------------------------- */
 /* Resets */
@@ -3033,7 +3075,6 @@ body.layout-full {
   padding: 25px 1000px 25px 1000px;
 }
 .layout-boxed .panel-row-style {
-  margin: 0 -35px;
   padding: 25px 35px;
 }
 .layout-boxed .panel-row-style.panel-row-style-wide-grey {
