@@ -16,13 +16,13 @@ if( !function_exists('vantage_theme_settings') ) :
 function vantage_theme_settings(){
 	$settings = SiteOrigin_Settings::single();
 
-	$settings->add_section( 'logo', __('Logo', 'vantage' ) );
-	$settings->add_section( 'layout', __('Layout', 'vantage' ) );
-	$settings->add_section( 'home', __('Home', 'vantage' ) );
-	$settings->add_section( 'navigation', __('Navigation', 'vantage' ) );
-	$settings->add_section( 'blog', __('Blog', 'vantage' ) );
-	$settings->add_section( 'social', __('Social', 'vantage' ) );
-	$settings->add_section( 'general', __('General', 'vantage' ) );
+	$settings->add_section( 'logo', __( 'Logo', 'vantage' ) );
+	$settings->add_section( 'layout', __( 'Layout', 'vantage' ) );
+	$settings->add_section( 'home', __( 'Home', 'vantage' ) );
+	$settings->add_section( 'navigation', __( 'Navigation', 'vantage' ) );
+	$settings->add_section( 'blog', __( 'Blog', 'vantage' ) );
+	$settings->add_section( 'social', __( 'Social', 'vantage' ) );
+	$settings->add_section( 'general', __( 'General', 'vantage' ) );
 
 	/**
 	 * Logo Settings
