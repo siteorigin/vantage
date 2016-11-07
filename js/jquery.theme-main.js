@@ -10,9 +10,9 @@ jQuery(function($){
     // Initialize the flex slider
     $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider').flexslider( { } );
 
-    /* Setup fitvids for entry content and panels */
+    /* Setup fitvids for entry content, panels woocommerce pages, masthead widget area and the header sidebar */
     if(typeof $.fn.fitVids !== 'undefined') {
-        $('.entry-content, .entry-content .panel, .woocommerce #main' ).fitVids({ ignore: '.tableauViz' });
+        $('.entry-content, .entry-content .panel, .woocommerce #main, #masthead-widgets, #header-sidebar' ).fitVids({ ignore: '.tableauViz' });
     }
 
 	var isMobileDevice = $('body').hasClass('so-vantage-mobile-device'),
