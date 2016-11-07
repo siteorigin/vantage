@@ -114,6 +114,13 @@ function vantage_customizer_init(){
 				'selector' => '#page-title, article.post .entry-header h1.entry-title, article.page .entry-header h1.entry-title',
 				'property' => array('color'),
 			),
+			'post_meta_color' => array(
+				'type' => 'color',
+				'title' => __('Post Meta Color', 'vantage'),
+				'default' => '#8f8f8f',
+				'selector' => 'article.post .entry-header .entry-meta, article.page .entry-header .entry-meta',
+				'property' => array('color'),
+			),			
 			'content_size' => array(
 				'type' => 'measurement',
 				'title' => __('Content Size', 'vantage'),

@@ -1219,7 +1219,7 @@ article.page .entry-header .entry-meta::first-letter {
 article.post .entry-header .entry-meta a,
 article.page .entry-header .entry-meta a {
   font-weight: 500;
-  color: #5e5e5e;
+  color: #646464;
   text-decoration: none;
 }
 article.post:last-child,
