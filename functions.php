@@ -432,10 +432,6 @@ function vantage_render_slider(){
 				$slider = $page_slider;
 			}
 			$slider_stretch = get_post_meta($page_id, 'vantage_metaslider_slider_stretch', true);
-			if( $slider_stretch === '' ) {
-				// We'll default to whatever the home page slider stretch setting is
-				$slider_stretch = siteorigin_setting('home_slider_stretch');
-			}
 		}
 	}
 
