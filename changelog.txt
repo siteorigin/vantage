@@ -2,6 +2,12 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
+= 1.5.7 - 14 November 2016 =
+* Added FitVids support for the header and masthead widget areas.
+* Fixed Logo in Menu logo alignment bug.
+* Fixed Meta Slider page slider stretch bug.
+* Improve Page Template Settings support for WooCommerce shop page.
+
 = 1.5.6 - 24 October 2016 =
 * Added sticky menu fallback.
 * Added Customizer settings for the search and menu icons.

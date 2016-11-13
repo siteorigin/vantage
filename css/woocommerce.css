@@ -403,3 +403,8 @@
   margin: 3px 10px 0 0 ;
   float: left;
 }
+.woocommerce-page.post-type-archive-product.page-layout-no-sidebar #container,
+.woocommerce-page.post-type-archive-product.page-layout-full-width #container {
+  float: none;
+  width: auto;
+}
