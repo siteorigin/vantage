@@ -163,23 +163,3 @@ function vantage_excerpt_length( $length ) {
 }
 endif;
 add_filter( 'excerpt_length', 'vantage_excerpt_length', 10 );
-
-if ( ! function_exists( 'vantage_hentry_filter' ) ) :
-/**
- * Resolves structured data issue in core. See https://core.trac.wordpress.org/ticket/28482
- */
-function vantage_hentry_filter( $classes ) {
-	global $post;
-
-	if( $post->post_type == 'page' ){
-		foreach( $classes as $class_key => $class ){
-			if( $class == 'hentry' ){
-				unset( $classes[ $class_key ] );
-			}
-		}
-	}
-
-	return $classes;
-}
-endif;
-add_filter( 'post_class', 'so_hentry_filter' );
