@@ -464,6 +464,15 @@ function vantage_post_class_filter($classes){
 		$classes[] = 'post-with-thumbnail';
 		$classes[] = 'post-with-thumbnail-' . siteorigin_setting( 'blog_featured_image_type' );
 	}
+	
+	// Resolves structured data issue in core. See https://core.trac.wordpress.org/ticket/28482
+	if( is_page() ){
+		$class_key = array_search( 'hentry', $classes );
+
+		if( $class_key !== false) {
+			unset( $classes[ $class_key ] );
+		}
+	}
 
 	$classes = array_unique($classes);
 	return $classes;
