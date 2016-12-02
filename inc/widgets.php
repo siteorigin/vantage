@@ -92,6 +92,8 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 	 * @return string|void
 	 */
 	public function form( $instance ) {
+		wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_script( 'vantage-color-picker', get_template_directory_uri() . '/js/color-picker.js' , array( 'wp-color-picker' ), false, true );
 
 		$instance = wp_parse_args( $instance, array(
 			'title' => '',
@@ -471,18 +473,3 @@ function vantage_carousel_ajax_handler(){
 endif;
 add_action('wp_ajax_vantage_carousel_load', 'vantage_carousel_ajax_handler');
 add_action('wp_ajax_nopriv_vantage_carousel_load', 'vantage_carousel_ajax_handler');
-
-if( !function_exists('vantage_admin_color_picker') ) :
-/**
- * Handle color picker fields in widgets.
- */
-function vantage_admin_color_picker() {
-	if( is_admin() ) {
-		// Add the color picker css file
-		wp_enqueue_style( 'wp-color-picker' );
-		// Include our custom jQuery file with WordPress Color Picker dependency
-		wp_enqueue_script( 'vantage-color-picker', get_template_directory_uri() . '/js/color-picker.js' , array( 'wp-color-picker' ), false, true );
-	}
-}
-endif;
-add_action( 'admin_enqueue_scripts', 'vantage_admin_color_picker' );

@@ -16,13 +16,14 @@ if( !function_exists('vantage_theme_settings') ) :
 function vantage_theme_settings(){
 	$settings = SiteOrigin_Settings::single();
 
-	$settings->add_section( 'logo', __('Logo', 'vantage' ) );
-	$settings->add_section( 'layout', __('Layout', 'vantage' ) );
-	$settings->add_section( 'home', __('Home', 'vantage' ) );
-	$settings->add_section( 'navigation', __('Navigation', 'vantage' ) );
-	$settings->add_section( 'blog', __('Blog', 'vantage' ) );
-	$settings->add_section( 'social', __('Social', 'vantage' ) );
-	$settings->add_section( 'general', __('General', 'vantage' ) );
+	$settings->add_section( 'logo', __( 'Logo', 'vantage' ) );
+	$settings->add_section( 'layout', __( 'Layout', 'vantage' ) );
+	$settings->add_section( 'home', __( 'Home', 'vantage' ) );
+	$settings->add_section( 'navigation', __( 'Navigation', 'vantage' ) );
+	$settings->add_section( 'icons', __( 'Icons', 'vantage' ) );
+	$settings->add_section( 'blog', __( 'Blog', 'vantage' ) );
+	$settings->add_section( 'social', __( 'Social', 'vantage' ) );
+	$settings->add_section( 'general', __( 'General', 'vantage' ) );
 
 	/**
 	 * Logo Settings
@@ -146,6 +147,25 @@ function vantage_theme_settings(){
 			'description' => __('Display breadcrumbs if you have Yoast SEO or Breadcrumb NavXT installed.', 'vantage')
 		) );
 	}
+
+	/**
+	 * Icons
+	 */
+
+	$settings->add_field( 'icons', 'menu', 'media', __( 'Mobile Menu Icon', 'vantage' ), array(
+ 		'choose' => __( 'Choose Image', 'vantage' ),
+ 		'update' => __( 'Set Logo', 'vantage' )
+ 	) );
+
+	$settings->add_field( 'icons', 'menu_close', 'media', __( 'Mobile Menu Close Icon', 'vantage' ), array(
+ 		'choose' => __( 'Choose Image', 'vantage' ),
+ 		'update' => __( 'Set Logo', 'vantage' )
+ 	) );
+
+	$settings->add_field( 'icons', 'search', 'media', __( 'Search Icon', 'vantage' ), array(
+ 		'choose' => __( 'Choose Image', 'vantage' ),
+ 		'update' => __( 'Set Logo', 'vantage' )
+ 	) );
 
 	/**
 	 * Home Page
@@ -323,6 +343,10 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['navigation_responsive_menu_text']     = '';
 	$defaults['navigation_responsive_menu_search']   = true;
 
+	$defaults['icons_menu']       = false;
+	$defaults['icons_menu_close'] = false;
+	$defaults['icons_search']     = false;
+
 	$defaults['navigation_use_sticky_menu']       = true;
 	$defaults['navigation_mobile_navigation']     = false;
 	$defaults['navigation_menu_search']           = true;
@@ -390,14 +414,14 @@ if( !function_exists('vantage_siteorigin_settings_home_slider_update_post_meta')
 function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $old_value ) {
 	//Update home slider post meta.
 	$home_id = get_option( 'page_on_front' );
-	if ( $home_id != 0 ) {
+	if ( $home_id ) {
 		update_post_meta( $home_id, 'vantage_metaslider_slider', siteorigin_setting( 'home_slider' ) );
 		update_post_meta( $home_id, 'vantage_metaslider_slider_stretch', siteorigin_setting( 'home_slider_stretch' ) );
 	}
 	return $new_value;
 }
 endif;
-add_filter( 'pre_update_option_theme_mods_vantage', 'vantage_siteorigin_settings_home_slider_update_post_meta', 10, 2 );
+add_filter( 'update_option_theme_mods_vantage', 'vantage_siteorigin_settings_home_slider_update_post_meta', 10, 2 );
 
 if( !function_exists('vantage_siteorigin_settings_localize') ) :
 function vantage_siteorigin_settings_localize( $loc ){

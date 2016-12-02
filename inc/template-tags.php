@@ -511,7 +511,8 @@ if( !function_exists( 'vantage_read_more_link' ) ) :
  * Filter the read more link.
  */
 function vantage_read_more_link() {
-	return '<a class="more-link" href="' . get_permalink() . '">' . esc_html( siteorigin_setting('blog_read_more') ) .'<span class="meta-nav">&rarr;</span></a>';
+	$read_more_text = siteorigin_setting( 'blog_read_more' ) ? esc_html( siteorigin_setting( 'blog_read_more' ) ) : __( 'Continue reading', 'vantage' );
+	return '<a class="more-link" href="' . get_permalink() . '">' . $read_more_text .'<span class="meta-nav">&rarr;</span></a>';
 }
 add_filter( 'the_content_more_link', 'vantage_read_more_link' );
 endif;
@@ -527,5 +528,134 @@ function vantage_entry_thumbnail() {
 		$thumb_size = 'vantage-thumbnail-no-sidebar';
 	}
 	the_post_thumbnail( $thumb_size );
+}
+endif;
+
+if ( ! function_exists( 'vantage_display_icon' ) ) :
+/**
+ * Displays icons.
+ */
+function vantage_display_icon( $type ) {
+
+	switch( $type ) {
+
+		case 'mobile-menu' :
+			if ( siteorigin_setting( 'icons_menu' ) ) :
+				return wp_get_attachment_image( siteorigin_setting( 'icons_menu' ), 'full', false, '' );
+			else :
+				return '<span class="mobile-nav-icon"></span>';
+			endif;
+			break;
+
+		case 'mobile-menu-close' :
+			if ( siteorigin_setting( 'icons_menu_close' ) ) :
+				return wp_get_attachment_image( siteorigin_setting( 'icons_menu_close' ), 'full', false, '' );
+			else :
+				return '<i class="fa fa-times"></i>';
+			endif;
+			break;
+
+		case 'search' :
+			if ( siteorigin_setting( 'icons_search' ) ) :
+				return wp_get_attachment_image( siteorigin_setting( 'icons_search' ), 'full', false, '' );
+			else :
+				return '<div class="vantage-icon-search"></div>';
+			endif;
+			break;
+
+	}
+}
+endif;
+if ( ! function_exists( 'vantage_strip_gallery' ) ) :
+/**
+ * Remove gallery.
+ */
+function vantage_strip_gallery( $content ) {
+	preg_match_all( '/' . get_shortcode_regex() . '/s', $content, $matches, PREG_SET_ORDER );
+
+	if ( ! empty( $matches ) ) {
+		foreach ( $matches as $shortcode ) {
+			if ( 'gallery' === $shortcode[2] ) {
+				$pos = strpos( $content, $shortcode[0] );
+				if( false !== $pos ) {
+					return substr_replace( $content, '', $pos, strlen( $shortcode[0] ) );
+				}
+			}
+		}
+	}
+
+	return $content;
+}
+endif;
+
+if ( ! function_exists( 'vantage_get_video' ) ) :
+/**
+ * Get the video from the current post.
+ */
+function vantage_get_video() {
+	$first_url    = '';
+	$first_video  = '';
+
+	$i = 0;
+
+	preg_match_all( '|^\s*https?://[^\s"]+\s*$|im', get_the_content(), $urls );
+
+	foreach ( $urls[0] as $url ) {
+		$i++;
+
+		if ( 1 === $i ) {
+			$first_url = trim( $url );
+		}
+
+		$oembed = wp_oembed_get( esc_url( $url ) );
+
+		if ( ! $oembed ) continue;
+
+		$first_video = $oembed;
+
+		break;
+	}
+
+	return ( '' !== $first_video ) ? $first_video : false;
+}
+endif;
+
+if ( ! function_exists( 'vantage_filter_video' ) ) :
+/**
+ * Removes the video from the page.
+ */
+function vantage_filter_video( $content ) {
+	if ( vantage_get_video() ) {
+		preg_match_all( '|^\s*https?://[^\s"]+\s*$|im', $content, $urls );
+
+		if ( ! empty( $urls[0] ) ) {
+			$content = str_replace( $urls[0], '', $content );
+		}
+
+		return $content;
+	}
+}
+endif;
+
+if ( ! function_exists( 'vantage_get_image' ) ) :
+/**
+ * Removes the first image from the page.
+ */
+function vantage_get_image() {
+	$first_image = '';
+
+	$output = preg_match_all( '/<img[^>]+\>/i', get_the_content(), $images );
+	$first_image = $images[0][0];
+
+	return ( '' !== $first_image ) ? $first_image : false;
+}
+endif;
+
+if ( ! function_exists( 'vantage_strip_image' ) ) :
+/**
+ * Removes the first image from the page.
+ */
+function vantage_strip_image( $content ) {
+	return preg_replace( '/<img[^>]+\>/i', '', $content, 1 );
 }
 endif;

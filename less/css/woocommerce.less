@@ -115,6 +115,7 @@
 
 		&:hover,
 		&:active,
+		&:focus,
 		&.disabled,
 		&:disabled,
 		&:disabled[disabled],
@@ -415,6 +416,16 @@
 		#ship-to-different-address-checkbox {
 			margin: 3px 10px 0 0 ;
 			float: left;
+		}
+	}
+	
+	&.post-type-archive-product {
+		&.page-layout-no-sidebar,
+		&.page-layout-full-width {
+			#container {
+				float: none;
+				width: auto;
+			}
 		}
 	}
 

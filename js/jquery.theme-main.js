@@ -8,11 +8,11 @@ jQuery(function($){
     $('body.no-js').removeClass('no-js');
 
     // Initialize the flex slider
-    $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider').flexslider( { } );
+    $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider, .gallery-format-slider').flexslider( { } );
 
-    /* Setup fitvids for entry content and panels */
+    /* Setup fitvids for entry content, panels woocommerce pages, masthead widget area and the header sidebar */
     if(typeof $.fn.fitVids !== 'undefined') {
-        $('.entry-content, .entry-content .panel, .woocommerce #main' ).fitVids({ ignore: '.tableauViz' });
+        $('.entry-content, .entry-content .panel, .woocommerce #main, #masthead-widgets, #header-sidebar' ).fitVids({ ignore: '.tableauViz' });
     }
 
 	var isMobileDevice = $('body').hasClass('so-vantage-mobile-device'),
@@ -232,17 +232,6 @@ jQuery(function($){
         }
     });
 
-	// Aligning menu elements
-	var mhHeight = $( '.masthead-logo-in-menu' ).height(),
-		menuItemHeight = $( '.masthead-logo-in-menu .menu > .menu-item' ).outerHeight(),
-		logoHeight = $( '.masthead-logo-in-menu .logo' ).outerHeight();
-	if( mhHeight > menuItemHeight ){
-		$( '.masthead-logo-in-menu .menu > .menu-item' ).css( 'margin-top', ( mhHeight - menuItemHeight ) / 2);
-	}
-	if( mhHeight > logoHeight ){
-		$( '.masthead-logo-in-menu .logo' ).css( 'margin-top', ( mhHeight - logoHeight ) / 2);
-	}
-
     $(document)
         .on('click','#search-icon-icon', function(){
             var $$ = $(this).parent();
@@ -412,3 +401,18 @@ jQuery(function($){
 	});
 
 });
+
+( function($) {
+	$(window).load( function() {
+		// Aligning menu elements
+		var mhHeight = $( '.masthead-logo-in-menu' ).height(),
+			menuItemHeight = $( '.masthead-logo-in-menu .menu > .menu-item' ).outerHeight(),
+			logoHeight = $( '.masthead-logo-in-menu .logo' ).outerHeight();
+		if( mhHeight > menuItemHeight ) {
+			$( '.masthead-logo-in-menu .menu > .menu-item' ).css( 'margin-top', ( mhHeight - menuItemHeight ) / 2);
+		}
+		if( mhHeight > logoHeight ) {
+			$( '.masthead-logo-in-menu .logo' ).css( 'margin-top', ( mhHeight - logoHeight ) / 2);
+		}
+	} );
+} )(jQuery);
