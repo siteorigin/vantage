@@ -2378,6 +2378,9 @@ body.layout-full {
   max-width: 100%;
   height: auto;
 }
+.gallery-format-slider img {
+  max-width: 100%;
+}
 /* =Widgets
 ----------------------------------------------- */
 .widget {
