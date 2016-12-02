@@ -6,9 +6,11 @@
  * @since vantage 1.5.8
  * @license GPL 2.0
  */
+
+$post_class = ( is_singular() ) ? 'post' : '';
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( $post_class ); ?>>
 
 	<div class="entry-main">
 
@@ -31,10 +33,14 @@
 						</a>
 					<?php endif; ?>
 				</div>
-			<?php endif; ?>				
+			<?php endif; ?>
 
-				<?php if ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) : ?>
-					<h1 class="entry-title"><?php the_title(); ?></h1>
+				<?php if ( is_singular() ) : ?>
+					<?php if ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) && is_singular() ) : ?>
+						<h1 class="entry-title"><?php the_title(); ?></h1>
+					<?php endif; ?>
+				<?php else : ?>
+					<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'vantage' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 				<?php endif; ?>
 
 				<?php if ( siteorigin_setting( 'blog_post_metadata' ) && get_post_type() == 'post' ) : ?>
