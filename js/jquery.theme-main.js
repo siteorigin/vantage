@@ -8,7 +8,7 @@ jQuery(function($){
     $('body.no-js').removeClass('no-js');
 
     // Initialize the flex slider
-    $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider').flexslider( { } );
+    $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider, .gallery-format-slider').flexslider( { } );
 
     /* Setup fitvids for entry content, panels woocommerce pages, masthead widget area and the header sidebar */
     if(typeof $.fn.fitVids !== 'undefined') {
