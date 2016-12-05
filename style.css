@@ -3070,6 +3070,9 @@ body.layout-full {
   display: table;
   clear: both;
 }
+.panel-row-style .panel-row-style {
+  margin: 0;
+}
 .panel-row-style-wide-grey {
   background: #f6f6f6;
   border-top: 1px solid #dddddd;
