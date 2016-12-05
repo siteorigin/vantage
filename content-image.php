@@ -1,14 +1,16 @@
 <?php
 /**
- * Template part for displaying single posts.
+ * Template part for displaying image format posts.
  *
  * @package vantage
- * @since vantage 1.0
+ * @since vantage 1.5.8
  * @license GPL 2.0
  */
+
+$post_class = ( is_singular() ) ? 'post' : '';
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( $post_class ); ?>>
 
 	<div class="entry-main">
 
@@ -17,12 +19,28 @@
 		<?php if ( ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) || ( has_post_thumbnail() && siteorigin_setting('blog_featured_image') ) || ( siteorigin_setting( 'blog_post_metadata' ) && get_post_type() == 'post' ) ) : ?>
 			<header class="entry-header">
 
-				<?php if( has_post_thumbnail() && siteorigin_setting('blog_featured_image') ): ?>
-					<div class="entry-thumbnail"><?php vantage_entry_thumbnail(); ?></div>
-				<?php endif; ?>
+			<?php if ( vantage_get_image() ) : ?>
+				<div class="entry-thumbnail">
+					<?php echo vantage_get_image(); ?>
+				</div>
+			<?php elseif ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image' ) ) : ?>
+				<div class="entry-thumbnail">
+					<?php if ( is_singular() ) : ?>
+						<?php vantage_entry_thumbnail(); ?>
+					<?php else : ?>
+						<a href="<?php the_permalink() ?>">
+							<?php vantage_entry_thumbnail(); ?>
+						</a>
+					<?php endif; ?>
+				</div>
+			<?php endif; ?>
 
-				<?php if ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) : ?>
-					<h1 class="entry-title"><?php the_title(); ?></h1>
+				<?php if ( is_singular() ) : ?>
+					<?php if ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) && is_singular() ) : ?>
+						<h1 class="entry-title"><?php the_title(); ?></h1>
+					<?php endif; ?>
+				<?php else : ?>
+					<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'vantage' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 				<?php endif; ?>
 
 				<?php if ( siteorigin_setting( 'blog_post_metadata' ) && get_post_type() == 'post' ) : ?>
@@ -35,13 +53,13 @@
 		<?php endif; ?>
 
 		<div class="entry-content">
-			<?php the_content(); ?>
+			<?php echo apply_filters( 'the_content', vantage_strip_image( get_the_content() ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 
-		<?php if( vantage_get_post_categories() && ! is_singular( 'jetpack-testimonial' ) ) : ?>
+		<?php if ( is_singular() && vantage_get_post_categories() && ! is_singular( 'jetpack-testimonial' ) ) : ?>
 			<div class="entry-categories">
-				<?php echo vantage_get_post_categories() ?>
+				<?php echo vantage_get_post_categories(); ?>
 			</div>
 		<?php endif; ?>
 
@@ -63,8 +81,7 @@
 			</div>
 		<?php endif; ?>
 
-
-		<?php do_action('vantage_entry_main_bottom') ?>
+		<?php do_action( 'vantage_entry_main_bottom' ); ?>
 
 	</div>
 

@@ -2,7 +2,7 @@
 
 Contributors: siteorigin
 
-Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
+Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
 
 Requires at least: 4.0
 Tested up to: 4.6.1
@@ -14,7 +14,6 @@ Advanced Multi-Purpose Theme for WordPress.
 == Description ==
 
 Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, Meta Slider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free and premium support on our support <a href="http://siteorigin.com/thread/">forums</a> (http://siteorigin.com/thread/).
-
 
 == Installation ==
 	
@@ -59,10 +58,6 @@ Licensed under public domain.
 
 == Bundled Resources ==
 
-HTML5 Shiv, Copyright 2011 Alexander Farkas
-Released under a dual MIT/GPL2 License
-Source: https://code.google.com/p/html5shiv/
-
 FitVids, Copyright 2013 Chris Coyier
 Released under the WTFPL license - http://sam.zoy.org/wtfpl/
 Source: http://fitvidsjs.com/
@@ -71,18 +66,26 @@ Flex Slider, Copyright 2012 WooThemes
 Free to use under the GPLv2 license.
 Source: http://www.woothemes.com/flexslider/
 
-Selectivizr, Copyright 2011 Keith Clark
-Freely distributable under the terms of the MIT license
+HTML5 Shiv, Copyright 2011 Alexander Farkas
+Released under a dual MIT/GPL2 License
+Source: https://code.google.com/p/html5shiv/
 
 LESS Elements, Copyright 2011 Dmitry Fadeyev
 Dedicated to the public domain and is free for all uses, commercial or otherwise.
 
-FontAwesome Copyright 2012 Dave Gandy
-licensed under SIL OFL 1.1 <http://scripts.sil.org/OFL>
+Selectivizr, Copyright 2011 Keith Clark
+Freely distributable under the terms of the MIT license
+
+Font Awesome by Dave Gandy - http://fontawesome.io
+Font released under the SIL OFL 1.1, CSS released under the MIT License.
 
 Selectivizr, Copyright Keith Clark
 Licensed under the MIT License
 Source: https://github.com/keithclark/selectivizr
+
+TinyColor, Copyright (c), Brian Grinstead
+Licensed under the [MIT License](http://opensource.org/licenses/MIT)
+Source: https://github.com/bgrins/TinyColor
 
 TouchSwipe jQuery Plugin
 Copyright (c) 2010-2015 Matt Bryson
@@ -90,4 +93,4 @@ Dual licensed under the MIT or GPL Version 2 licenses.
 
 == SiteOrigin Settings ==
 
-This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 Greg Priday unless otherwise stated in the file header. 
+This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 Greg Priday unless otherwise stated in the file header.
