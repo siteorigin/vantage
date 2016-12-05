@@ -1189,6 +1189,10 @@ article.post .entry-header .entry-thumbnail a,
 article.page .entry-header .entry-thumbnail a {
   display: inline-block;
 }
+article.post .entry-header .entry-video,
+article.page .entry-header .entry-video {
+  margin-bottom: 20px;
+}
 article.post .entry-header h1.entry-title,
 article.page .entry-header h1.entry-title {
   color: #3b3b3b;
