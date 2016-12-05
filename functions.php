@@ -68,8 +68,18 @@ function vantage_setup() {
 		'primary' => __( 'Primary Menu', 'vantage' ),
 	) );
 
-	// Enable support for Post Formats
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+	/*
+	 * Enable support for Post Formats.
+	 * See https://developer.wordpress.org/themes/functionality/post-formats/
+	 */
+	add_theme_support( 'post-formats', array(
+		'aside',
+		'gallery',
+		'link',
+		'image',
+		'quote',
+		'video',
+	) );	
 
 	// We support WooCommerce
 	add_theme_support('woocommerce');
