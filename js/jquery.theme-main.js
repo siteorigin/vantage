@@ -7,10 +7,10 @@
 jQuery(function($){
     $('body.no-js').removeClass('no-js');
 
-    // Initialize the flex slider
+    // Initialize FlexSlider.
     $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider, .gallery-format-slider').flexslider( { } );
 
-    /* Setup fitvids for entry content, panels woocommerce pages, masthead widget area and the header sidebar */
+    // Setup fitvids for entry content, video post format, panels, woocommerce pages, masthead widget area and the header sidebar.
     if(typeof $.fn.fitVids !== 'undefined') {
         $('.entry-content, .entry-content .panel, .entry-video, .woocommerce #main, #masthead-widgets, #header-sidebar' ).fitVids({ ignore: '.tableauViz' });
     }
