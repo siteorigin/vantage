@@ -2,7 +2,7 @@
 
 Contributors: siteorigin
 
-Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
+Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
 
 Requires at least: 4.0
 Tested up to: 4.6.1
