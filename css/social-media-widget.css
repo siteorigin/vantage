@@ -257,22 +257,25 @@
   border: 1px solid #ff3130;
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-github {
-  background: #387cc9;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #387cc9), color-stop(1, #4484cc));
-  background: -ms-linear-gradient(bottom, #387cc9, #4484cc);
-  background: -moz-linear-gradient(center bottom, #387cc9 0%, #4484cc 100%);
-  background: -o-linear-gradient(#4484cc, #387cc9);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4484cc', endColorstr='#387cc9', GradientType=0);
-  border: 1px solid #3170b6;
+  background: #333333;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #333333), color-stop(1, #3b3b3b));
+  background: -ms-linear-gradient(bottom, #333333, #3b3b3b);
+  background: -moz-linear-gradient(center bottom, #333333 0%, #3b3b3b 100%);
+  background: -o-linear-gradient(#3b3b3b, #333333);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3b3b3b', endColorstr='#333333', GradientType=0);
+  border: 1px solid #262626;
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-github:hover {
-  background: #4887cd;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #4887cd), color-stop(1, #548ed1));
-  background: -ms-linear-gradient(bottom, #4887cd, #548ed1);
-  background: -moz-linear-gradient(center bottom, #4887cd 0%, #548ed1 100%);
-  background: -o-linear-gradient(#548ed1, #4887cd);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#548ed1', endColorstr='#4887cd', GradientType=0);
-  border: 1px solid #3679c6;
+  background: #3d3d3d;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3d3d3d), color-stop(1, #454545));
+  background: -ms-linear-gradient(bottom, #3d3d3d, #454545);
+  background: -moz-linear-gradient(center bottom, #3d3d3d 0%, #454545 100%);
+  background: -o-linear-gradient(#454545, #3d3d3d);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#454545', endColorstr='#3d3d3d', GradientType=0);
+  border: 1px solid #303030;
+}
+.widget_vantage-social-media .social-media-icon.social-media-icon-github [class^="fa fa-"] {
+  color: #f5f5f5;
 }
 .widget_vantage-social-media .social-media-icon.social-media-icon-vimeo {
   background: #42b8ff;
