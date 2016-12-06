@@ -2,9 +2,11 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
-== 1.5.8 - 05 December 2016 ==
+== 1.5.8 - 06 December 2016 ==
 * Removed hentry from pages to assist with SEO and structured data testing.
 * Added post format support for Gallery, Video and Image.
+* Fixed Layout Builder row styling bug.
+* Corrected Vantage Social Icon widget GitHub button color.
 
 = 1.5.7 - 14 November 2016 =
 * Added FitVids support for the header and masthead widget areas.
