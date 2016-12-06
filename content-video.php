@@ -10,7 +10,7 @@
 $post_class = ( is_singular() ) ? 'post' : '';
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( $post ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( $post_class ); ?>>
 
 	<div class="entry-main test">
 
@@ -20,7 +20,7 @@ $post_class = ( is_singular() ) ? 'post' : '';
 			<header class="entry-header">
 
 				<?php if ( vantage_get_video() ) : ?>
-					<div class="entry-thumbnail">
+					<div class="entry-video">
 						<?php echo vantage_get_video(); ?>
 					</div>
 				<?php elseif ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image' ) ) : ?>
