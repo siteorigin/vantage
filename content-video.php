@@ -10,7 +10,7 @@
 $post_class = ( is_singular() ) ? 'post' : '';
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( $post ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( $post_class ); ?>>
 
 	<div class="entry-main test">
 
