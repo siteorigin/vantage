@@ -117,16 +117,17 @@ endif;
 
 if( !function_exists('vantage_metaslider_page_setting_save') ) :
 function vantage_metaslider_page_setting_save($post_id){
-	if( empty($_POST['_vantage_metaslider_nonce']) || !wp_verify_nonce($_POST['_vantage_metaslider_nonce'], 'save') ) return;
-	if( !current_user_can('edit_post', $post_id) ) return;
-	if( defined('DOING_AJAX') ) return;
+	if( empty( $_POST[ '_vantage_metaslider_nonce' ] ) || ! wp_verify_nonce( $_POST[ '_vantage_metaslider_nonce' ], 'save' ) ) return;
+	if( ! current_user_can( 'edit_post', $post_id ) ) return;
+	if( defined( 'DOING_AJAX' ) ) return;
 
-	update_post_meta($post_id, 'vantage_metaslider_slider', $_POST['vantage_page_metaslider']);
-	$slider_stretch = !empty( $_POST['vantage_page_metaslider_stretch'] );
-	update_post_meta($post_id, 'vantage_metaslider_slider_stretch', $slider_stretch );
+	update_post_meta($post_id, 'vantage_metaslider_slider', $_POST[ 'vantage_page_metaslider' ] );
+	$slider_stretch = !empty( $_POST[ 'vantage_page_metaslider_stretch' ] );
+	update_post_meta( $post_id, 'vantage_metaslider_slider_stretch', $slider_stretch );
+
 	// If we're on the home page update the 'home_slider' theme setting as well.
 	if ( $post_id == get_option( 'page_on_front' ) ) {
-		siteorigin_settings_set( 'home_slider', $_POST['vantage_page_metaslider'] );
+		siteorigin_settings_set( 'home_slider', $_POST[ 'vantage_page_metaslider' ] );
 		siteorigin_settings_set( 'home_slider_stretch', $slider_stretch );
 	}
 }

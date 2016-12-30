@@ -355,7 +355,7 @@ function vantage_scripts() {
 	}
 
 	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'vantage-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation' . $js_suffix . '.js', array( 'jquery' ), '20120202', $in_footer );
+		wp_enqueue_script( 'vantage-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), '20120202', $in_footer );
 	}
 
 	wp_enqueue_script( 'vantage-html5', get_template_directory_uri() . '/js/html5' . SITEORIGIN_THEME_JS_PREFIX . '.js', array(), '3.7.3' );
@@ -418,24 +418,22 @@ function vantage_render_slider(){
 		$settings_slider = siteorigin_setting( 'home_slider' );
 		$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
 
-		if(!empty($settings_slider)) {
+		if( ! empty( $settings_slider ) ) {
 			$slider = $settings_slider;
 		}
 	}
-	$page_id = get_the_ID();
-	$is_wc_shop = vantage_is_woocommerce_active() && is_woocommerce() && is_shop();
-	if ( $is_wc_shop ) {
-		$page_id = wc_get_page_id( 'shop' );
-	}
-	if( ( is_page() || $is_wc_shop ) && get_post_meta($page_id, 'vantage_metaslider_slider', true) != 'none' ) {
-		$page_slider = get_post_meta($page_id, 'vantage_metaslider_slider', true);
-		if( !empty($page_slider) ) {
-			$slider = $page_slider;
+	else {
+		$page_id = get_the_ID();
+		$is_wc_shop = vantage_is_woocommerce_active() && is_woocommerce() && is_shop();
+		if ( $is_wc_shop ) {
+			$page_id = wc_get_page_id( 'shop' );
 		}
-		$slider_stretch = get_post_meta($page_id, 'vantage_metaslider_slider_stretch', true);
-		if( $slider_stretch === '' ) {
-			// We'll default to whatever the home page slider stretch setting is
-			$slider_stretch = siteorigin_setting('home_slider_stretch');
+		if( ( is_page() || $is_wc_shop ) && get_post_meta($page_id, 'vantage_metaslider_slider', true) != 'none' ) {
+			$page_slider = get_post_meta($page_id, 'vantage_metaslider_slider', true);
+			if( !empty($page_slider) ) {
+				$slider = $page_slider;
+			}
+			$slider_stretch = get_post_meta($page_id, 'vantage_metaslider_slider_stretch', true);
 		}
 	}
 
@@ -467,6 +465,15 @@ function vantage_post_class_filter($classes){
 	if( has_post_thumbnail() && !is_singular() ) {
 		$classes[] = 'post-with-thumbnail';
 		$classes[] = 'post-with-thumbnail-' . siteorigin_setting( 'blog_featured_image_type' );
+	}
+	
+	// Resolves structured data issue in core. See https://core.trac.wordpress.org/ticket/28482
+	if( is_page() ){
+		$class_key = array_search( 'hentry', $classes );
+
+		if( $class_key !== false) {
+			unset( $classes[ $class_key ] );
+		}
 	}
 
 	$classes = array_unique($classes);

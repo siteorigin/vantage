@@ -21,7 +21,8 @@
 
 				<h3><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
 				<div class="excerpt"><?php the_excerpt() ?></div>
-				<?php echo ( siteorigin_setting( 'blog_read_more_button' ) ? '<a class="more-button" href="' . get_permalink() . '">' . esc_html( siteorigin_setting( 'blog_read_more' ) ) . ' <i></i></a>' : '' ); ?>
+				<?php $read_more_text = siteorigin_setting( 'blog_read_more' ) ? esc_html( siteorigin_setting( 'blog_read_more' ) ) : __( 'Continue reading', 'vantage' ); ?>
+				<?php echo ( siteorigin_setting( 'blog_read_more_button' ) ? '<a class="more-button" href="' . get_permalink() . '">' . $read_more_text . ' <i></i></a>' : '' ); ?>
 			</article>
 			<?php if($i % siteorigin_setting( 'blog_grid_column_count' ) == 0) : ?><div class="clear"></div><?php endif; ?>
 		<?php endwhile; ?>

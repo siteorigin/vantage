@@ -113,7 +113,7 @@ function vantage_customizer_init(){
 				'default' => '#3b3b3b',
 				'selector' => '#page-title, article.post .entry-header h1.entry-title, article.page .entry-header h1.entry-title',
 				'property' => array('color'),
-			),
+			),			
 			'content_size' => array(
 				'type' => 'measurement',
 				'title' => __('Content Size', 'vantage'),
@@ -510,7 +510,7 @@ function vantage_customizer_init(){
 		'vantage_widgets' => array(
 			'masthead' => array(
 				'type' => 'color',
-				'title' => __(' Masthead Sidebar Widget Titles', 'vantage'),
+				'title' => __(' Masthead Widget Titles', 'vantage'),
 				'default' => '#3b3b3b',
 				'selector' => '#masthead-widgets .widget .widget-title',
 				'property' => 'color',
