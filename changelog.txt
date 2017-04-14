@@ -2,6 +2,10 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
+== 1.5.9 - 14 April 2017 ==
+* Added WooCommerce gallery support and fixed thumbnail spacing.
+* Removed legacy Page Builder layout compatibility fix.
+
 == 1.5.8 - 06 December 2016 ==
 * Removed hentry from pages to assist with SEO and structured data testing.
 * Added post format support for Gallery, Video and Image.
