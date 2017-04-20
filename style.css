@@ -3550,3 +3550,8 @@ span.jwcontrols span button {
   z-index: 100000;
   /* Above WP toolbar. */
 }
+/* Prevent iOS Safari from overriding the colors for phone numbers */
+a[href^="tel"] {
+  color: inherit;
+  text-decoration: none;
+}

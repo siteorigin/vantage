@@ -81,10 +81,13 @@ function vantage_setup() {
 		'video',
 	) );	
 
-	// We support WooCommerce
-	add_theme_support('woocommerce');
+	// Add support for WooCommerce
+	add_theme_support( 'woocommerce' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
 
-	set_post_thumbnail_size(720, 380, true );
+	set_post_thumbnail_size( 720, 380, true );
 	add_image_size( 'vantage-thumbnail-no-sidebar', 1080, 380, true );
 	add_image_size( 'vantage-slide', 960, 480, true );
 	add_image_size( 'vantage-carousel', 272, 182, true );

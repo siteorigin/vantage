@@ -1,7 +1,4 @@
 /* This will override anything from WooCommerce core CSS */
-.woocommerce {
-  /* The more generic WooCommerce elements */
-}
 .woocommerce #page-wrapper .button {
   border-top: solid 1px #d2d2d2;
   border-left: solid 1px #c3c3c3;
@@ -22,7 +19,6 @@
   box-shadow: 0 1px 1px rgba(0,0,0,0.125), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   width: auto;
   text-decoration: none;
-  /* Improves usability and consistency of cursor style between image-type 'input' and others */
   cursor: pointer;
   line-height: 1;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -48,6 +44,16 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
+}
+.woocommerce #page-wrapper .product .woocommerce-product-gallery .flex-control-thumbs {
+  margin-top: 15px;
+}
+.woocommerce #page-wrapper .product .woocommerce-product-gallery .flex-control-thumbs li {
+  margin: 0 2.5% 2.5% 0;
+  width: 23.125%;
+}
+.woocommerce #page-wrapper .product .woocommerce-product-gallery .flex-control-thumbs li:nth-child(4n) {
+  margin-right: 0;
 }
 .woocommerce #page-wrapper .product .cart .qty {
   margin-top: 5px;
