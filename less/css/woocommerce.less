@@ -47,10 +47,20 @@
 				}
 			}
 
-			// Gallery.
-			.woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image {
-				margin-bottom: 15px;
-			}			
+			.woocommerce-product-gallery {
+				.flex-control-thumbs {
+					margin-top: 15px;
+					
+						li {
+						margin: 0 2.5% 2.5% 0;
+						width: 23.125%;
+						
+						&:nth-child(4n) {
+							margin-right: 0;
+						}
+					}
+				}
+			}	
 
 			.cart {
 				.qty {
