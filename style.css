@@ -1317,13 +1317,27 @@ article.page .author-box .box-content {
 }
 article.post .author-box .box-content .box-title,
 article.page .author-box .box-content .box-title {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+article.post .author-box .box-content .box-title h3,
+article.page .author-box .box-content .box-title h3 {
   color: #3b3b3b;
   font-size: 1.25em;
   line-height: 1.1em;
   font-weight: 500;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #e0e0e0;
+  margin: .6em 0 0;
+}
+article.post .author-box .box-content .box-title a,
+article.page .author-box .box-content .box-title a {
+  color: #777;
+  font-size: .9em;
+  text-decoration: none;
+}
+article.post .author-box .box-content .box-title a:hover,
+article.page .author-box .box-content .box-title a:hover {
+  color: #248cc8;
 }
 article.post .author-box .box-content .box-description,
 article.page .author-box .box-content .box-description {

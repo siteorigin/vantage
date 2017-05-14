@@ -7,6 +7,41 @@
  * @license GPL 2.0
  */
 
+if ( ! function_exists( 'vantage_author_box' ) ) :
+/**
+ * Display the post author biographical info on single posts.
+ */
+function vantage_author_box() { ?>
+	<div class="author-box">
+		<div class="avatar-box">
+			<div class="avatar-wrapper">
+				<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
+					<?php echo get_avatar( get_the_author_meta( 'user_email' ), 70 ); ?>
+				</a>				
+			</div>
+		</div>
+		<div class="box-content entry-content">
+			<div class="box-title">
+				<h3><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></h3>
+				<span class="author-posts">
+					<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
+						<?php esc_html_e( 'View posts by ', 'vantage' );
+							echo get_the_author(); ?>
+					</a>
+				</span>	
+			</div>			
+			<div class="box-description">
+				<?php if ( get_the_author_meta( 'description' ) ) : ?>
+					<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
+				<?php elseif ( current_user_can( 'edit_users', $post->post_author ) ) : ?>
+					<a href="<?php echo get_edit_user_link( $post->post_author ); ?>"><?php esc_html_e( 'Add author biographical info.', 'vantage' ); ?></a>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>
+<?php }
+endif;
+
 if ( !function_exists( 'vantage_content_nav' ) ) :
 /**
  * Display navigation to next/previous pages when applicable

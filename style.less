@@ -1175,13 +1175,27 @@ article.page{
 			.box-shadow(~"inset 2px 0 2px rgba(0,0,0,0.035)");
 
 			.box-title {
-				color: #3b3b3b;
-				font-size: 1.25em;
-				line-height: 1.1em;
-				font-weight: 500;
 				padding-bottom: 15px;
 				margin-bottom: 15px;
 				border-bottom: 1px solid #e0e0e0;
+				
+				h3 {
+					color: #3b3b3b;
+					font-size: 1.25em;
+					line-height: 1.1em;
+					font-weight: 500;
+					margin: .6em 0 0;
+				}
+
+				a {
+					color: #777;
+					font-size: .9em;
+					text-decoration: none;
+					
+					&:hover {
+						color: #248cc8;
+					}
+				}
 			}
 
 			.box-description {
