@@ -1329,14 +1329,14 @@ article.page .author-box .box-content .box-title h3 {
   font-weight: 500;
   margin: .6em 0 0;
 }
-article.post .author-box .box-content .box-title a,
-article.page .author-box .box-content .box-title a {
+article.post .author-box .box-content .author-posts a,
+article.page .author-box .box-content .author-posts a {
   color: #777;
   font-size: .9em;
   text-decoration: none;
 }
-article.post .author-box .box-content .box-title a:hover,
-article.page .author-box .box-content .box-title a:hover {
+article.post .author-box .box-content .author-posts a:hover,
+article.page .author-box .box-content .author-posts a:hover {
   color: #248cc8;
 }
 article.post .author-box .box-content .box-description,

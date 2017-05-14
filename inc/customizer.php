@@ -203,7 +203,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Content Link Color', 'vantage'),
 				'default' => '#248cc8',
-				'selector' => '.entry-content a, .entry-content a:visited, #secondary a, #secondary a:visited, #masthead .hgroup a, #masthead .hgroup a:visited, .comment-form .logged-in-as a, .comment-form .logged-in-as a:visited',
+				'selector' => '.entry-content a, .entry-content a:visited, article.post .author-box .box-content .author-posts a:hover, #secondary a, #secondary a:visited, #masthead .hgroup a, #masthead .hgroup a:visited, .comment-form .logged-in-as a, .comment-form .logged-in-as a:visited',
 				'property' => 'color',
 				'no_live' => true,
 			),
