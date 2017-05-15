@@ -72,7 +72,7 @@ $post_class = ( is_singular() ) ? 'post' : '';
 			</div>
 		<?php endif; ?>
 
-		<?php if ( is_singular() && siteorigin_setting( 'blog_author_box' ) ) vantage_author_box(); ?>
+		<?php if ( is_singular() && siteorigin_setting( 'blog_author_box' ) ) vantage_author_box( $post ); ?>
 
 		<?php do_action( 'vantage_entry_main_bottom' ); ?>
 

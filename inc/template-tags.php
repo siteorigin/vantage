@@ -11,13 +11,13 @@ if ( ! function_exists( 'vantage_author_box' ) ) :
 /**
  * Display the post author biographical info on single posts.
  */
-function vantage_author_box() { ?>
+function vantage_author_box( $post ) { ?>
 	<div class="author-box">
 		<div class="avatar-box">
 			<div class="avatar-wrapper">
 				<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ), 70 ); ?>
-				</a>				
+				</a>
 			</div>
 		</div>
 		<div class="box-content entry-content">
@@ -28,8 +28,8 @@ function vantage_author_box() { ?>
 						<?php esc_html_e( 'View posts by ', 'vantage' );
 							echo get_the_author(); ?>
 					</a>
-				</span>	
-			</div>			
+				</span>
+			</div>
 			<div class="box-description">
 				<?php if ( get_the_author_meta( 'description' ) ) : ?>
 					<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
