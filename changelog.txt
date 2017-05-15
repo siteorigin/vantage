@@ -2,6 +2,10 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
+== 1.6.1 - 15 May 2017 ==
+* Linked single post author box gravatar to author archive page. Added a text link to view author posts.
+* Resolved link to add author description error.
+
 == 1.6.0 - 21 April 2017 ==
 * Added remaining WooCommerce product gallery types.
 * Improved WooCommerce product gallery styling.
