@@ -18,7 +18,7 @@ jQuery(function($){
 	var isMobileDevice = $('body').hasClass('so-vantage-mobile-device'),
 		isCustomizer = $('body').hasClass('so-vantage-customizer-preview'),
 		isMobileNav = $('nav.site-navigation.primary').hasClass('mobile-navigation');
-    if( ( !isMobileDevice && $('#scroll-to-top').hasClass('scroll-to-top') ) || ( ( isCustomizer || isMobileDevice ) && isMobileNav ) ) {
+    if( ( !isMobileDevice && $('#scroll-to-top').hasClass('scroll-to-top') ) || ( ( isCustomizer || isMobileDevice ) ) ) {
 
         // Everything we need for scrolling up and down.
         $(window).scroll( function(){
