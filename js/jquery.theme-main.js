@@ -241,6 +241,13 @@ jQuery(function($){
             }, 300);
         } );
 
+    $( document )
+        .keyup( function(e) {
+            if ( e.keyCode == 27 ) { // escape key maps to keycode `27`
+                $('#search-icon form').fadeOut(250);
+            }
+        } );
+
     $(document)
         .on('mouseenter', '#search-icon', function(){
             isSearchHover = true;
