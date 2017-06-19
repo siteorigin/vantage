@@ -2,6 +2,9 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
+== 1.6.2 - 19 June 2017 ==
+* Improved main menu search bar keyboard accessibility. Close with escape key added.
+
 == 1.6.1 - 15 May 2017 ==
 * Linked single post author box gravatar to author archive page. Added a text link to view author posts.
 * Resolved link to add author description error.
