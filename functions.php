@@ -149,7 +149,7 @@ function vantage_setup() {
 	) );
 
 	$mega_menu_active = function_exists( 'ubermenu' ) || ( function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( 'primary' ) );
-	if( siteorigin_setting( 'navigation_responsive_menu' ) && !$mega_menu_active ) {
+	if( siteorigin_setting( 'navigation_responsive_menu' ) && siteorigin_setting( 'layout_responsive' ) && !$mega_menu_active ) {
 		include get_template_directory() . '/inc/mobilenav/mobilenav.php';
 	}
 
