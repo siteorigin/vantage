@@ -458,7 +458,7 @@ function vantage_render_slider(){
 
 
 	if($slider == 'demo') get_template_part('slider/demo');
-	elseif( substr($slider, 0, 5) == 'meta:' ) {
+	elseif(substr($slider, 0, 5) == 'meta:' && is_plugin_active('ml-slider/ml-slider.php') ) {
 		list($null, $slider_id) = explode(':', $slider);
 
 		echo do_shortcode( "[metaslider id=" . intval($slider_id) . "]" );
