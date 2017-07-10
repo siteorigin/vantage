@@ -2,6 +2,12 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
+== 1.6.3 - 10 July 2017 ==
+* Updated Settings framework.
+* Fixed boxed layout logo padding bug.
+* Disabled mobile menu if responsive layout is disabled.
+* Disabled Meta Slider shortcode from ouputting if Meta Slider is deactivated.
+
 == 1.6.2 - 19 June 2017 ==
 * Improved main menu search bar keyboard accessibility. Close with escape key added.
 
