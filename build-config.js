@@ -40,8 +40,13 @@ module.exports = {
         }
     },
     less: {
-        src: [],
-        include: [],
+        src: [
+            'style.less',
+            'less/**/css/*.less'
+        ],
+        include:[
+            'less/*.less'
+        ],
         external: {
             src: [
                 'inc/panels-lite/css/**/*.less',
@@ -54,6 +59,9 @@ module.exports = {
     js: {
         src: [
             'js/**/*.js',
+            'inc/customizer/js/**/*.js',
+            'inc/metaslider/js/**/*.js',
+            'inc/mobilenav/js/**/*.js',
             'inc/settings/js/**/*.js',
             'inc/panels-lite/js/**/*.js',
             '!{node_modules,node_modules/**}',  // Ignore node_modules/ and contents
@@ -64,6 +72,7 @@ module.exports = {
     css: {
         src: [
             'style.css',
+            'css/woocommerce.css'
         ],
     },    
     copy: {
