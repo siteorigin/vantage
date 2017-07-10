@@ -624,7 +624,7 @@ body {
   font-weight: 100;
   padding: 7px 15px;
 }
-.layout-boxed #masthead.masthead-logo-in-menu img.logo {
+.layout-boxed #masthead.masthead-logo-in-menu .logo {
   margin-left: 25px;
 }
 body.ie-8 #masthead .hgroup #header-sidebar,

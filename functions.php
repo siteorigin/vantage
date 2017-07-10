@@ -7,8 +7,9 @@
  * @license GPL 2.0
  */
 
-define('SITEORIGIN_THEME_VERSION', 'dev');
-define('SITEORIGIN_THEME_JS_PREFIX', '');
+define( 'SITEORIGIN_THEME_VERSION', 'dev' );
+define( 'SITEORIGIN_THEME_JS_PREFIX', '' );
+define( 'SITEORIGIN_THEME_CSS_PREFIX', '' );
 
 // Load the new settings framework
 include get_template_directory() . '/inc/settings/settings.php';
@@ -148,7 +149,7 @@ function vantage_setup() {
 	) );
 
 	$mega_menu_active = function_exists( 'ubermenu' ) || ( function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( 'primary' ) );
-	if( siteorigin_setting( 'navigation_responsive_menu' ) && !$mega_menu_active ) {
+	if( siteorigin_setting( 'navigation_responsive_menu' ) && siteorigin_setting( 'layout_responsive' ) && !$mega_menu_active ) {
 		include get_template_directory() . '/inc/mobilenav/mobilenav.php';
 	}
 
@@ -457,7 +458,7 @@ function vantage_render_slider(){
 
 
 	if($slider == 'demo') get_template_part('slider/demo');
-	elseif( substr($slider, 0, 5) == 'meta:' ) {
+	elseif(substr($slider, 0, 5) == 'meta:' && defined('METASLIDER_VERSION') ) {
 		list($null, $slider_id) = explode(':', $slider);
 
 		echo do_shortcode( "[metaslider id=" . intval($slider_id) . "]" );
