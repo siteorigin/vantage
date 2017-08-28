@@ -73,9 +73,6 @@ Source: https://code.google.com/p/html5shiv/
 LESS Elements, Copyright 2011 Dmitry Fadeyev
 Dedicated to the public domain and is free for all uses, commercial or otherwise.
 
-Selectivizr, Copyright 2011 Keith Clark
-Freely distributable under the terms of the MIT license
-
 Font Awesome by Dave Gandy - http://fontawesome.io
 Font released under the SIL OFL 1.1, CSS released under the MIT License.
 
