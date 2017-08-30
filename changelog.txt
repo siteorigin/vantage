@@ -2,6 +2,11 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
+== 1.6.4 - 30 August 2017 ==
+* Updated Font Awesome to version 4.7.0.
+* Added support for Jetpack Responsive Videos.
+* Fixed Page Builder bug with Wide Grey rows.
+
 == 1.6.3 - 10 July 2017 ==
 * Updated Settings framework.
 * Fixed boxed layout logo padding bug.
