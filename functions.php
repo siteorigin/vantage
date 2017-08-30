@@ -11,13 +11,13 @@ define( 'SITEORIGIN_THEME_VERSION', 'dev' );
 define( 'SITEORIGIN_THEME_JS_PREFIX', '' );
 define( 'SITEORIGIN_THEME_CSS_PREFIX', '' );
 
-// Load the new settings framework
+// Load the new settings framework.
 include get_template_directory() . '/inc/settings/settings.php';
 include get_template_directory() . '/inc/metaslider/metaslider.php';
 include get_template_directory() . '/inc/plugin-activation/plugin-activation.php';
 include get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 
-// Load the theme specific files
+// Load the theme specific files.
 include get_template_directory() . '/inc/panels.php';
 include get_template_directory() . '/inc/settings.php';
 include get_template_directory() . '/inc/extras.php';
@@ -29,6 +29,7 @@ include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/breadcrumbs.php';
 include get_template_directory() . '/inc/customizer.php';
 include get_template_directory() . '/inc/legacy.php';
+include get_template_directory() . '/inc/jetpack.php';
 
 // include get_template_directory() . '/tour/tour.php';
 
@@ -358,7 +359,7 @@ function vantage_scripts() {
 	wp_enqueue_script( 'jquery-touchswipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . SITEORIGIN_THEME_JS_PREFIX . '.js' , array( 'jquery' ), '1.6.6', $in_footer );
 	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION, $in_footer );
 
-	if( siteorigin_setting( 'layout_fitvids' ) ) {
+	if ( ! class_exists( 'Jetpack' ) && siteorigin_setting( 'layout_fitvids' ) ) {
 		wp_enqueue_script( 'jquery-fitvids' , get_template_directory_uri() . '/js/jquery.fitvids' . SITEORIGIN_THEME_JS_PREFIX . '.js' , array('jquery'), '1.0', $in_footer );
 	}
 
