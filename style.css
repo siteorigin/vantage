@@ -3104,7 +3104,7 @@ body.layout-full {
   padding: 25px 35px;
 }
 .layout-boxed .panel-row-style.panel-row-style-wide-grey,
-.layout-boxed .wide-grey.panel-row-style {
+.layout-boxed .panel-row-style .wide-grey.panel-row-style {
   margin: 0 -20px;
 }
 @media (max-width: 680px) {
@@ -3113,7 +3113,7 @@ body.layout-full {
     padding: 25px 35px;
   }
   body.responsive.layout-boxed .panel-row-style.panel-row-style-wide-grey,
-  body.responsive.layout-boxed .wide-grey.panel-row-style {
+  body.responsive.layout-boxed .panel-row-style .wide-grey.panel-row-style {
     margin: 0 -20px;
   }
 }
