@@ -1,6 +1,6 @@
 <?php
 
-if( !function_exists('siteorigin_mobilenav_enqueue_scripts') ) :
+if ( ! function_exists( 'siteorigin_mobilenav_enqueue_scripts' ) ) :
 /**
  * Enqueue everything for the mobile navigation.
  *
@@ -14,10 +14,10 @@ function siteorigin_mobilenav_enqueue_scripts() {
 		'back' => __( 'Back', 'vantage' ),
 		'close' => __( 'Close', 'vantage' ),
 	);
-	if( siteorigin_setting('navigation_responsive_menu_text') ) {
-		$text['navigate'] = siteorigin_setting('navigation_responsive_menu_text');
+	if ( siteorigin_setting( 'navigation_responsive_menu_text' ) ) {
+		$text['navigate'] = siteorigin_setting( 'navigation_responsive_menu_text' );
 	}
-	$text = apply_filters('siteorigin_mobilenav_text', $text);
+	$text = apply_filters( 'siteorigin_mobilenav_text', $text );
 
 	$search = array( 'url' => get_home_url(), 'placeholder' => __( 'Search', 'vantage' ) );
 	$search = apply_filters('siteorigin_mobilenav_search', $search);
@@ -33,7 +33,7 @@ function siteorigin_mobilenav_enqueue_scripts() {
 endif;
 add_action( 'wp_enqueue_scripts', 'siteorigin_mobilenav_enqueue_scripts' );
 
-if( !function_exists('siteorigin_mobilenav_nav_filter') ) :
+if ( ! function_exists( 'siteorigin_mobilenav_nav_filter' ) ) :
 /**
  * Filter navigation menu to add mobile markers.
  *
@@ -41,19 +41,24 @@ if( !function_exists('siteorigin_mobilenav_nav_filter') ) :
  * @param $args
  * @return string
  */
-function siteorigin_mobilenav_nav_filter($nav_menu, $args){
-	$args = (object) $args;
-	if( empty($args->theme_location) && !apply_filters('siteorigin_mobilenav_is_valid', false, $args) ) return $nav_menu;
+function siteorigin_mobilenav_nav_filter( $nav_menu, $args ) {
+
+	if ( function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( $args->theme_location ) ) { 
+		return $nav_menu; 
+	}
+
+	$args = ( object ) $args;
+	if ( empty( $args->theme_location ) && ! apply_filters( 'siteorigin_mobilenav_is_valid', false, $args) ) return $nav_menu;
 
 	static $mobile_nav_id = 1;
 
-	// Add a marker so we can find this menu later
+	// Add a marker so we can find this menu later.
 	$nav_menu = '<div id="so-mobilenav-standard-'.$mobile_nav_id.'" data-id="'.$mobile_nav_id.'" class="so-mobilenav-standard"></div>'.$nav_menu;
 
-	// Add the mobile navigation marker
+	// Add the mobile navigation marker.
 	$nav_menu .= '<div id="so-mobilenav-mobile-'.$mobile_nav_id.'" data-id="'.$mobile_nav_id.'" class="so-mobilenav-mobile"></div>';
 
-	// Create the mobile navigation
+	// Create the mobile navigation.
 	$class = $args->container_class ? ' class="' . esc_attr( $args->container_class ) . '" menu-mobilenav-container' : ' class="menu-mobilenav-container"';
 	$id = $args->container_id ? ' id="' . esc_attr( $args->container_id ) . '"' : '';
 	$nav_menu .= '<'. $args->container . $id . $class . '>';
@@ -63,7 +68,7 @@ function siteorigin_mobilenav_nav_filter($nav_menu, $args){
 		'back' => __( 'Back', 'vantage' ),
 		'close' => __( 'Close', 'vantage' ),
 	);
-	$text = apply_filters('siteorigin_mobilenav_text', $text);
+	$text = apply_filters( 'siteorigin_mobilenav_text', $text );
 
 	$wrap_class = $args->menu_class ? $args->menu_class : '';
 	$wrap_id = 'mobile-nav-item-wrap-'.$mobile_nav_id;
@@ -78,8 +83,8 @@ function siteorigin_mobilenav_nav_filter($nav_menu, $args){
 	return $nav_menu;
 }
 endif;
-add_filter('wp_nav_menu', 'siteorigin_mobilenav_nav_filter', 10, 2);
-add_filter('wp_page_menu', 'siteorigin_mobilenav_nav_filter', 10, 2);
+add_filter( 'wp_nav_menu', 'siteorigin_mobilenav_nav_filter', 10, 2 );
+add_filter( 'wp_page_menu', 'siteorigin_mobilenav_nav_filter', 10, 2 );
 
 if( !function_exists('siteorigin_mobilenav_nav_menu_css') ) :
 function siteorigin_mobilenav_nav_menu_css(){
