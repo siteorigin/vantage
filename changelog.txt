@@ -2,6 +2,9 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
+== 1.6.5 - 07 September 2017 ==
+* Expanded the Max Mega Menu integration to ensure the mobile menu isn't outputted if MMM is assigned to any theme location.
+
 == 1.6.4 - 30 August 2017 ==
 * Updated Font Awesome to version 4.7.0.
 * Added support for Jetpack Responsive Videos.
