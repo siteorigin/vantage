@@ -135,7 +135,7 @@ function vantage_setup() {
 
 	add_filter( 'infinite_scroll_settings', 'vantage_infinite_scroll_settings' );
 
-	// Allowing use of shortcodes in taxonomy descriptions
+	// Allowing use of shortcodes in taxonomy descriptions.
 	add_filter( 'term_description', 'shortcode_unautop');
 	add_filter( 'term_description', 'do_shortcode' );
 
@@ -150,11 +150,11 @@ function vantage_setup() {
 	) );
 
 	$mega_menu_active = function_exists( 'ubermenu' ) || ( function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( 'primary' ) );
-	if( siteorigin_setting( 'navigation_responsive_menu' ) && siteorigin_setting( 'layout_responsive' ) && !$mega_menu_active ) {
+	if ( siteorigin_setting( 'navigation_responsive_menu' ) && siteorigin_setting( 'layout_responsive' ) && ! $mega_menu_active ) {
 		include get_template_directory() . '/inc/mobilenav/mobilenav.php';
 	}
 
-	// We'll use template settings
+	// We'll use template settings.
 	add_theme_support( 'siteorigin-template-settings' );
 }
 endif; // vantage_setup
@@ -162,7 +162,7 @@ add_action( 'after_setup_theme', 'vantage_setup' );
 
 if ( ! function_exists( 'vantage_premium_setup' ) ) :
 /**
- * Add support for premium theme components
+ * Add support for premium theme components.
  */
 function vantage_premium_setup(){
 	// This theme supports the no attribution addon
