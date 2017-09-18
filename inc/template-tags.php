@@ -82,7 +82,7 @@ function vantage_content_nav( $nav_id ) {
 
 	?>
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
-		<h1 class="assistive-text"><?php _e( 'Post navigation', 'vantage' ); ?></h1>
+		<span class="assistive-text"><?php _e( 'Post navigation', 'vantage' ); ?></span>
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
 
