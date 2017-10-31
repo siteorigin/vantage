@@ -8,7 +8,7 @@ Version: dev
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: vantage
-Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
+Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
 */
 /* =Reset
 -------------------------------------------------------------- */
@@ -624,7 +624,7 @@ body {
   font-weight: 100;
   padding: 7px 15px;
 }
-.layout-boxed #masthead.masthead-logo-in-menu img.logo {
+.layout-boxed #masthead.masthead-logo-in-menu .logo {
   margin-left: 25px;
 }
 body.ie-8 #masthead .hgroup #header-sidebar,
@@ -1189,6 +1189,10 @@ article.post .entry-header .entry-thumbnail a,
 article.page .entry-header .entry-thumbnail a {
   display: inline-block;
 }
+article.post .entry-header .entry-video,
+article.page .entry-header .entry-video {
+  margin-bottom: 20px;
+}
 article.post .entry-header h1.entry-title,
 article.page .entry-header h1.entry-title {
   color: #3b3b3b;
@@ -1313,13 +1317,27 @@ article.page .author-box .box-content {
 }
 article.post .author-box .box-content .box-title,
 article.page .author-box .box-content .box-title {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+article.post .author-box .box-content .box-title h3,
+article.page .author-box .box-content .box-title h3 {
   color: #3b3b3b;
   font-size: 1.25em;
   line-height: 1.1em;
   font-weight: 500;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #e0e0e0;
+  margin: .6em 0 0;
+}
+article.post .author-box .box-content .author-posts a,
+article.page .author-box .box-content .author-posts a {
+  color: #777;
+  font-size: .9em;
+  text-decoration: none;
+}
+article.post .author-box .box-content .author-posts a:hover,
+article.page .author-box .box-content .author-posts a:hover {
+  color: #248cc8;
 }
 article.post .author-box .box-content .box-description,
 article.page .author-box .box-content .box-description {
@@ -2378,6 +2396,9 @@ body.layout-full {
   max-width: 100%;
   height: auto;
 }
+.gallery-format-slider img {
+  max-width: 100%;
+}
 /* =Widgets
 ----------------------------------------------- */
 .widget {
@@ -3063,12 +3084,17 @@ body.layout-full {
   display: table;
   clear: both;
 }
-.panel-row-style-wide-grey {
+.panel-row-style .panel-row-style {
+  margin: 0;
+}
+.panel-row-style-wide-grey,
+.wide-grey.panel-row-style {
   background: #f6f6f6;
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
 }
 .layout-full .panel-row-style.panel-row-style-wide-grey,
+.layout-full .wide-grey.panel-row-style,
 .layout-full .panel-row-style.panel-row-style-full-width,
 .layout-full.panels-style-force-full .panel-row-style {
   margin: 0 -1000px;
@@ -3077,7 +3103,8 @@ body.layout-full {
 .layout-boxed .panel-row-style {
   padding: 25px 35px;
 }
-.layout-boxed .panel-row-style.panel-row-style-wide-grey {
+.layout-boxed .panel-row-style.panel-row-style-wide-grey,
+.layout-boxed .panel-row-style .wide-grey.panel-row-style {
   margin: 0 -20px;
 }
 @media (max-width: 680px) {
@@ -3085,7 +3112,8 @@ body.layout-full {
     margin: 0 -35px;
     padding: 25px 35px;
   }
-  body.responsive.layout-boxed .panel-row-style.panel-row-style-wide-grey {
+  body.responsive.layout-boxed .panel-row-style.panel-row-style-wide-grey,
+  body.responsive.layout-boxed .panel-row-style .wide-grey.panel-row-style {
     margin: 0 -20px;
   }
 }
@@ -3539,4 +3567,9 @@ span.jwcontrols span button {
   width: auto;
   z-index: 100000;
   /* Above WP toolbar. */
+}
+/* Prevent iOS Safari from overriding the colors for phone numbers */
+a[href^="tel"] {
+  color: inherit;
+  text-decoration: none;
 }

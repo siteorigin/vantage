@@ -14,9 +14,15 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php get_template_part( 'content', 'single' ); ?>
+		<?php 
+			if ( has_post_format( array( 'gallery', 'video', 'image' ) ) ) {
+				get_template_part( 'content', get_post_format() );
+			} else {
+				get_template_part( 'content', 'single' );
+			}
+		?>		
 
-		<?php if( siteorigin_setting('navigation_post_nav') ) vantage_content_nav( 'nav-below' ); ?>
+		<?php if ( siteorigin_setting( 'navigation_post_nav' ) ) vantage_content_nav( 'nav-below' ); ?>
 
 		<?php if ( comments_open() || '0' != get_comments_number() ) : ?>
 			<?php comments_template( '', true ); ?>

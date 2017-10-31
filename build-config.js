@@ -3,16 +3,19 @@ module.exports = {
     jsMinSuffix: '.min',
     contributors: {
         src: [
-            '**/*',
+            '{**/*.js,**/*.php,**/*.less,**/*.scss}',
             '!{build,build/**}',                      // Ignore build/ submodule
-            '!{design,design/**}',                    // Ignore design/ and contents
             '!{inc/settings,inc/settings/**}',        // Ignore settings submodule
             '!{inc/panels-lite,inc/panels-lite/**}',  // Ignore panels-lite submodule
             '!{languages,languages/**}',              // Ignore languages
             '!{tests,tests/**}',                      // Ignore tests/ and contents if any
             '!{tmp,tmp/**}'                           // Ignore tmp/ and contents if any
         ],
-        skipCommits: [],
+        format: 'php',
+        skipCommits: [ ],
+        excludeEmails: [
+            '77e88891e4965161953320ec66623cbc',       // Remove greg@siteorigin.com
+        ]
     },
     version: {
         src: [
@@ -21,46 +24,62 @@ module.exports = {
         ]
     },
     sass: {
-        src: [],
-        include: [],
+        src: [
+            'sass/**/*.scss',
+        ],
+        include: [
+            'sass',
+        ],
         external: {
-          src: [
-              'inc/settings/css/**/*.scss',
-          ],
-          include: [],
+            src: [
+                'inc/settings/css/**/*.scss',
+            ],
+            include: [
+                'inc/settings/css'
+            ],
         }
     },
     less: {
         src: [
             'style.less',
-			'less/**/css/*.less'
+            'less/**/css/*.less'
         ],
         include:[
             'less/*.less'
         ],
         external: {
-          src: [
-              'inc/panels-lite/css/**/*.less',
-          ],
-          include: [
-              'inc/panels-lite/css',
-          ],
+            src: [
+                'inc/panels-lite/css/**/*.less',
+            ],
+            include: [
+                'inc/panels-lite/css',
+            ],
         },
     },
     js: {
         src: [
             'js/**/*.js',
-            'inc/*/js/**/*.js',
+            'inc/customizer/js/**/*.js',
+            'inc/metaslider/js/**/*.js',
+            'inc/mobilenav/js/**/*.js',
+            'inc/settings/js/**/*.js',
+            'inc/panels-lite/js/**/*.js',
             '!{node_modules,node_modules/**}',  // Ignore node_modules/ and contents
             '!{tests,tests/**}',                // Ignore tests/ and contents
             '!{tmp,tmp/**}'                     // Ignore tmp/ and contents
         ]
     },
+    css: {
+        src: [
+            'style.css',
+            'css/woocommerce.css'
+        ],
+    },    
     copy: {
         src: [
             '**/!(*.js|*.scss|*.md|style.css|woocommerce.css)',   // Everything except .js and .scss files
             '!{build,build/**}',                                  // Ignore build/ and contents
-            '!{less,less/**}',                                    // Ignore sass/ and contents
+            '!{sass,sass/**}',                                    // Ignore sass/ and contents
             'inc/settings/chosen/*.js',                           // Ensure necessary .js files ignored in the first glob are copied
             '!{inc/settings/bin,inc/settings/bin/**}',            // Ignore settings/bin/ and contents
             '!{inc/settings/README.md}',                          // Ignore settings/README.md
