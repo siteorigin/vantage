@@ -13,7 +13,7 @@ define( 'SITEORIGIN_THEME_CSS_PREFIX', '' );
 
 // Load the new settings framework.
 include get_template_directory() . '/inc/settings/settings.php';
-include get_template_directory() . '/inc/metaslider/metaslider.php';
+include get_template_directory() . '/inc/smartslider/smartslider.php';
 include get_template_directory() . '/inc/plugin-activation/plugin-activation.php';
 include get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 
@@ -81,7 +81,7 @@ function vantage_setup() {
 		'image',
 		'quote',
 		'video',
-	) );	
+	) );
 
 	// Add support for WooCommerce
 	add_theme_support( 'woocommerce' );
@@ -421,13 +421,13 @@ function vantage_get_query_variables(){
 }
 endif;
 
-if( !function_exists('vantage_render_slider') ) :
+if ( ! function_exists( 'vantage_render_slider' ) ) :
 /**
  * Render the slider.
  */
-function vantage_render_slider(){
+function vantage_render_slider() {
 
-	if( is_front_page() && !in_array( siteorigin_setting( 'home_slider' ), array( '', 'none' ) ) ) {
+	if( is_front_page() && ! in_array( siteorigin_setting( 'home_slider' ), array( '', 'none' ) ) ) {
 		$settings_slider = siteorigin_setting( 'home_slider' );
 		$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
 
@@ -479,7 +479,7 @@ function vantage_post_class_filter($classes){
 		$classes[] = 'post-with-thumbnail';
 		$classes[] = 'post-with-thumbnail-' . siteorigin_setting( 'blog_featured_image_type' );
 	}
-	
+
 	// Resolves structured data issue in core. See https://core.trac.wordpress.org/ticket/28482
 	if( is_page() ){
 		$class_key = array_search( 'hentry', $classes );
