@@ -457,19 +457,20 @@ function vantage_render_slider() {
 
 	?><div id="main-slider" <?php if( $slider_stretch ) echo 'data-stretch="true"' ?>><?php
 
-
-	if($slider == 'demo') get_template_part('slider/demo');
-	elseif(substr($slider, 0, 5) == 'meta:' && defined('METASLIDER_VERSION') ) {
-		list($null, $slider_id) = explode(':', $slider);
-
-		echo do_shortcode( "[metaslider id=" . intval($slider_id) . "]" );
+	if ( $slider == 'demo' ) {
+		get_template_part( 'slider/demo' );
+	} elseif ( substr( $slider, 0, 5 ) == 'meta:' && defined( 'METASLIDER_VERSION' ) ) {
+		list( $null, $slider_id ) = explode( ':', $slider );
+		echo do_shortcode( "[metaslider id=" . intval( $slider_id ) . "]" );
+	} elseif ( substr( $slider, 0, 8 ) == 'ss-meta:' && defined( 'NEXTEND_SMARTSLIDER_3' ) ) {
+		list( $null, $slider_id ) = explode( ':', $slider );
+		echo do_shortcode( "[smartslider3 slider=" . intval( $slider_id ) . "]" );
 	}
 
 	?></div><?php
 	$vantage_is_main_slider = false;
 }
 endif;
-
 
 if( !function_exists('vantage_post_class_filter') ) :
 function vantage_post_class_filter($classes){
