@@ -45,12 +45,12 @@ function vantage_smartslider_page_setting_save( $post_id ){
 	if ( ! current_user_can( 'edit_post', $post_id ) ) return;
 	if ( defined( 'DOING_AJAX' ) ) return;
 
-	update_post_meta( $post_id, 'vantage_smartslider_slider', $_POST[ 'vantage_smartslider_slider' ] );
+	update_post_meta( $post_id, 'vantage_smartslider_slider', $_POST[ 'vantage_page_smartslider' ] );
 
 	// If we're on the home page update the 'home_slider' theme setting as well.
-	if ( $post_id == get_option( 'page_on_front' ) ) {
-		siteorigin_settings_set( 'home_slider', $_POST[ 'vantage_page_smartslider' ] );
-	}
+	// if ( $post_id == get_option( 'page_on_front' ) ) {
+	// 	siteorigin_settings_set( 'home_slider', $_POST[ 'vantage_page_smartslider' ] );
+	// }
 }
 endif;
 add_action( 'save_post', 'vantage_smartslider_page_setting_save' );
