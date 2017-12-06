@@ -14,6 +14,7 @@ define( 'SITEORIGIN_THEME_CSS_PREFIX', '' );
 // Load the new settings framework.
 include get_template_directory() . '/inc/settings/settings.php';
 include get_template_directory() . '/inc/smartslider/smartslider.php';
+include get_template_directory() . '/inc/metaslider/metaslider.php';
 include get_template_directory() . '/inc/plugin-activation/plugin-activation.php';
 include get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 
@@ -23,6 +24,7 @@ include get_template_directory() . '/inc/settings.php';
 include get_template_directory() . '/inc/extras.php';
 include get_template_directory() . '/inc/template-tags.php';
 include get_template_directory() . '/inc/gallery.php';
+include get_template_directory() . '/inc/smartslider.php';
 include get_template_directory() . '/inc/metaslider.php';
 include get_template_directory() . '/inc/widgets.php';
 include get_template_directory() . '/inc/menu.php';

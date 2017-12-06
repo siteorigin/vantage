@@ -3,31 +3,17 @@
  * Integration with Smart Slider
  */
 
-if ( ! function_exists( 'siteorigin_metaslider_get_options' ) ) :
-function siteorigin_metaslider_get_options( $has_demo = true ) {
+if ( ! function_exists( 'siteorigin_smartslider_get_options' ) ) :
+function siteorigin_smartslider_get_options() {
 	$options = array( '' => __( 'None', 'vantage' ) );
-
-	if ( $has_demo ) $options['demo'] = __( 'Demo Slider', 'vantage' );
-
-	// Get metaslider sliders
-	if ( class_exists( 'MetaSliderPlugin' ) ) {
-		$ms_sliders = get_posts(array(
-			'post_type' => 'ml-slider',
-			'numberposts' => 200,
-		) );
-
-		foreach( $ms_sliders as $slider ) {
-			$options[ 'meta:' . $slider->ID ] = __( 'Meta Slider: ', 'vantage' ) . $slider->post_title;
-		}
-	}
 
 	// Get smart slider 3 sliders
 	if ( class_exists( 'SmartSlider3' ) ) {
 		global $wpdb;
-		$ss_sliders = $wpdb->get_results( "SELECT id, title FROM " . $wpdb->prefix . "nextend2_smartslider3_sliders" );
+		$sliders = $wpdb->get_results( "SELECT id, title FROM " . $wpdb->prefix . "nextend2_smartslider3_sliders" );
 
-		foreach( $ss_sliders as $slider ) {
-			$options[ 'ss-meta:' . $slider->id ] = __( 'Smart Slider: ', 'vantage' ) . $slider->title;
+		foreach( $sliders as $slider ) {
+			$options[ 'meta:' . $slider->id ] = __( 'Slider: ', 'vantage' ) . $slider->title;
 		}
 	}
 
