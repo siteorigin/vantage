@@ -730,7 +730,8 @@ body.sidebar-position-none #secondary {
 /* =Responsive Layout
 ----------------------------------------------- */
 @media (max-width: 1080px) {
-  body.responsive #masthead .hgroup .logo img {
+  body.responsive #masthead .hgroup .logo img,
+  body.responsive #masthead .hgroup .custom-logo {
     /* Scale down the logo if necessary */
     max-width: 100%;
     height: auto;
