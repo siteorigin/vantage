@@ -33,5 +33,5 @@ function siteorigin_smartslider_install_link(){
 endif;
 
 add_filter( 'smartslider3_hoplink', function( $source ){
-	return 'affliate_identifier';
+	return 'siteorigin';
 });

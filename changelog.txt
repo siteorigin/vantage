@@ -2,6 +2,10 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
+== 1.6.8 - 14 December 2017 ==
+* Updated MetaSlider page slider to work on the posts page.
+* Fixed custom logo responsive issue.
+
 == 1.6.7 - 30 October 2017 ==
 * Updated Panels Lite to resolve PHP 7+ blog page bug.
 

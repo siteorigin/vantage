@@ -447,7 +447,10 @@ function vantage_render_slider() {
 		if ( $is_wc_shop ) {
 			$page_id = wc_get_page_id( 'shop' );
 		}
-		if ( ( is_page() || $is_wc_shop ) && get_post_meta( $page_id, 'vantage_metaslider_slider', true) != 'none' ) {
+		if ( is_home() ) {
+			$page_id = get_queried_object_id();
+		}
+		if( ( is_page() || $is_wc_shop || is_home() ) && get_post_meta( $page_id, 'vantage_metaslider_slider', true ) != 'none' ) {
 			$page_slider = get_post_meta( $page_id, 'vantage_metaslider_slider', true );
 			if ( ! empty( $page_slider ) ) {
 				$slider = $page_slider;
@@ -462,6 +465,7 @@ function vantage_render_slider() {
 			}
 			$slider_stretch = false;
 		}
+
 	}
 
 	if ( empty( $slider ) && empty( $smartslider ) ) return;
