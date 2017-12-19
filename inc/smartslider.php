@@ -47,7 +47,7 @@ function vantage_smartslider_page_setting_save( $post_id ){
 
 	update_post_meta( $post_id, 'vantage_smartslider_slider', $_POST[ 'vantage_page_smartslider' ] );
 
-	// If we're on the home page update the 'home_slider' theme setting as well.
+	// If we're on the home page update the 'home_smartslider' theme setting as well.
 	if ( $post_id == get_option( 'page_on_front' ) ) {
 		siteorigin_settings_set( 'home_smartslider', $_POST[ 'vantage_page_smartslider' ] );
 	}
