@@ -2,6 +2,9 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
+== 1.6.9 - 20 December 2017 ==
+* Fixed MetaSlider blog home page display bug.
+
 == 1.6.8 - 14 December 2017 ==
 * Updated MetaSlider page slider to work on the posts page.
 * Fixed custom logo responsive issue.
