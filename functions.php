@@ -427,7 +427,7 @@ if ( ! function_exists( 'vantage_render_slider' ) ) :
  */
 function vantage_render_slider() {
 
-	if ( is_front_page() &&  in_array( siteorigin_setting( 'home_slider' ), array( '', 'none' ) ) ) {
+	if ( is_front_page() &&  ! in_array( siteorigin_setting( 'home_slider' ), array( '', 'none' ) ) ) {
 		$settings_slider = siteorigin_setting( 'home_slider' );
 		$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
 
