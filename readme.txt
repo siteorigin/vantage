@@ -4,12 +4,12 @@ Contributors: siteorigin
 
 Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
 
-Requires at least: 4.0
-Tested up to: 4.6.1
+Requires at least: 4.7
+Tested up to: 4.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Advanced Multi-Purpose Theme for WordPress.
+An advanced multi-purpose theme for WordPress.
 
 == Description ==
 
@@ -33,9 +33,23 @@ Vantage is a flexible multipurpose theme. Its strength lies in its tight integra
 
 Please note that the WordPress Custom Background feature is only enabled when using the "Boxed" layout bound theme setting. It isn't available when using the default Full Width setting. Layout Bound can be set from Appearance > Customize > Theme Settings > Layout > Layout Bound. Custom Background options can be set from Appearance > Customize > Colors > Background Color and Appearance > Customize > Background Image. [Layout Bound Documentation] (https://siteorigin.com/vantage-documentation/customizing-vantage/theme-settings/layout/)
 
+== Plugin Support ==
+
+Vantage includes integration support for the following plugins:
+
+* [Breadcrumb NavXT](https://wordpress.org/plugins/breadcrumb-navxt/)
+* [Jetpack Infinite Scroll](https://jetpack.com/support/infinite-scroll/)
+* [Jetpack Responsive Videos](https://jetpack.com/support/responsive-videos/)
+* [Max Mega Menu](https://wordpress.org/plugins/megamenu/)
+* [Page Builder by SiteOrigin](https://wordpress.org/plugins/siteorigin-panels/)
+* [SiteOrigin Widgets Bundle](https://wordpress.org/plugins/so-widgets-bundle/)
+* [SiteOrigin CSS](https://wordpress.org/plugins/so-css/)
+* [Yoast Breadcrumbs](https://wordpress.org/plugins/wordpress-seo/)
+* [WooCommerce](https://wordpress.org/plugins/woocommerce/)
+
 == License ==
 
-Vantage WordPress Theme, Copyright 2013 Greg Priday. Vantage is distributed under the terms of the GNU GPL.
+Vantage WordPress Theme, Copyright 2013 SiteOrigin. Vantage is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
@@ -73,9 +87,6 @@ Source: https://code.google.com/p/html5shiv/
 LESS Elements, Copyright 2011 Dmitry Fadeyev
 Dedicated to the public domain and is free for all uses, commercial or otherwise.
 
-Selectivizr, Copyright 2011 Keith Clark
-Freely distributable under the terms of the MIT license
-
 Font Awesome by Dave Gandy - http://fontawesome.io
 Font released under the SIL OFL 1.1, CSS released under the MIT License.
 
@@ -93,4 +104,4 @@ Dual licensed under the MIT or GPL Version 2 licenses.
 
 == SiteOrigin Settings ==
 
-This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 Greg Priday unless otherwise stated in the file header.
+This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 SiteOrigin unless otherwise stated in the file header.

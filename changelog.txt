@@ -2,9 +2,53 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
-== 1.5.8 - 05 December 2016 ==
+== 1.6.9 - 20 December 2017 ==
+* Fixed MetaSlider blog home page display bug.
+
+== 1.6.8 - 14 December 2017 ==
+* Updated MetaSlider page slider to work on the posts page.
+* Fixed custom logo responsive issue.
+
+== 1.6.7 - 30 October 2017 ==
+* Updated Panels Lite to resolve PHP 7+ blog page bug.
+
+== 1.6.6 - 19 September 2017 ==
+* Minor SEO improvements.
+
+== 1.6.5 - 07 September 2017 ==
+* Expanded the Max Mega Menu integration to ensure the mobile menu isn't outputted if MMM is assigned to any theme location.
+
+== 1.6.4 - 30 August 2017 ==
+* Updated Font Awesome to version 4.7.0.
+* Added support for Jetpack Responsive Videos.
+* Fixed Page Builder bug with Wide Grey rows.
+
+== 1.6.3 - 10 July 2017 ==
+* Updated Settings framework.
+* Fixed boxed layout logo padding bug.
+* Disabled mobile menu if responsive layout is disabled.
+* Disabled Meta Slider shortcode from ouputting if Meta Slider is deactivated.
+
+== 1.6.2 - 19 June 2017 ==
+* Improved main menu search bar keyboard accessibility. Close with escape key added.
+
+== 1.6.1 - 15 May 2017 ==
+* Linked single post author box gravatar to author archive page. Added a text link to view author posts.
+* Resolved link to add author description error.
+
+== 1.6.0 - 21 April 2017 ==
+* Added remaining WooCommerce product gallery types.
+* Improved WooCommerce product gallery styling.
+
+== 1.5.9 - 14 April 2017 ==
+* Added WooCommerce gallery support and fixed thumbnail spacing.
+* Removed legacy Page Builder layout compatibility fix.
+
+== 1.5.8 - 06 December 2016 ==
 * Removed hentry from pages to assist with SEO and structured data testing.
 * Added post format support for Gallery, Video and Image.
+* Fixed Layout Builder row styling bug.
+* Corrected Vantage Social Icon widget GitHub button color.
 
 = 1.5.7 - 14 November 2016 =
 * Added FitVids support for the header and masthead widget areas.

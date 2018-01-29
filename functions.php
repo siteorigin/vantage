@@ -7,16 +7,17 @@
  * @license GPL 2.0
  */
 
-define('SITEORIGIN_THEME_VERSION', 'dev');
-define('SITEORIGIN_THEME_JS_PREFIX', '');
+define( 'SITEORIGIN_THEME_VERSION', 'dev' );
+define( 'SITEORIGIN_THEME_JS_PREFIX', '' );
+define( 'SITEORIGIN_THEME_CSS_PREFIX', '' );
 
-// Load the new settings framework
+// Load the new settings framework.
 include get_template_directory() . '/inc/settings/settings.php';
 include get_template_directory() . '/inc/metaslider/metaslider.php';
 include get_template_directory() . '/inc/plugin-activation/plugin-activation.php';
 include get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 
-// Load the theme specific files
+// Load the theme specific files.
 include get_template_directory() . '/inc/panels.php';
 include get_template_directory() . '/inc/settings.php';
 include get_template_directory() . '/inc/extras.php';
@@ -28,6 +29,7 @@ include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/breadcrumbs.php';
 include get_template_directory() . '/inc/customizer.php';
 include get_template_directory() . '/inc/legacy.php';
+include get_template_directory() . '/inc/jetpack.php';
 
 // include get_template_directory() . '/tour/tour.php';
 
@@ -70,13 +72,26 @@ function vantage_setup() {
 		'primary' => __( 'Primary Menu', 'vantage' ),
 	) );
 
-	// Enable support for Post Formats
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+	/*
+	 * Enable support for Post Formats.
+	 * See https://developer.wordpress.org/themes/functionality/post-formats/
+	 */
+	add_theme_support( 'post-formats', array(
+		'aside',
+		'gallery',
+		'link',
+		'image',
+		'quote',
+		'video',
+	) );
 
-	// We support WooCommerce
-	add_theme_support('woocommerce');
+	// Add support for WooCommerce
+	add_theme_support( 'woocommerce' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
 
-	set_post_thumbnail_size(720, 380, true );
+	set_post_thumbnail_size( 720, 380, true );
 	add_image_size( 'vantage-thumbnail-no-sidebar', 1080, 380, true );
 	add_image_size( 'vantage-slide', 960, 480, true );
 	add_image_size( 'vantage-carousel', 272, 182, true );
@@ -122,7 +137,7 @@ function vantage_setup() {
 
 	add_filter( 'infinite_scroll_settings', 'vantage_infinite_scroll_settings' );
 
-	// Allowing use of shortcodes in taxonomy descriptions
+	// Allowing use of shortcodes in taxonomy descriptions.
 	add_filter( 'term_description', 'shortcode_unautop');
 	add_filter( 'term_description', 'do_shortcode' );
 
@@ -137,11 +152,11 @@ function vantage_setup() {
 	) );
 
 	$mega_menu_active = function_exists( 'ubermenu' ) || ( function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( 'primary' ) );
-	if( siteorigin_setting( 'navigation_responsive_menu' ) && !$mega_menu_active ) {
+	if ( siteorigin_setting( 'navigation_responsive_menu' ) && siteorigin_setting( 'layout_responsive' ) && ! $mega_menu_active ) {
 		include get_template_directory() . '/inc/mobilenav/mobilenav.php';
 	}
 
-	// We'll use template settings
+	// We'll use template settings.
 	add_theme_support( 'siteorigin-template-settings' );
 }
 endif; // vantage_setup
@@ -149,7 +164,7 @@ add_action( 'after_setup_theme', 'vantage_setup' );
 
 if ( ! function_exists( 'vantage_premium_setup' ) ) :
 /**
- * Add support for premium theme components
+ * Add support for premium theme components.
  */
 function vantage_premium_setup(){
 	// This theme supports the no attribution addon
@@ -346,7 +361,7 @@ function vantage_scripts() {
 	wp_enqueue_script( 'jquery-touchswipe' , get_template_directory_uri() . '/js/jquery.touchSwipe' . SITEORIGIN_THEME_JS_PREFIX . '.js' , array( 'jquery' ), '1.6.6', $in_footer );
 	wp_enqueue_script( 'vantage-main' , get_template_directory_uri() . '/js/jquery.theme-main' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION, $in_footer );
 
-	if( siteorigin_setting( 'layout_fitvids' ) ) {
+	if ( ! class_exists( 'Jetpack' ) && siteorigin_setting( 'layout_fitvids' ) ) {
 		wp_enqueue_script( 'jquery-fitvids' , get_template_directory_uri() . '/js/jquery.fitvids' . SITEORIGIN_THEME_JS_PREFIX . '.js' , array('jquery'), '1.0', $in_footer );
 	}
 
@@ -408,13 +423,13 @@ function vantage_get_query_variables(){
 }
 endif;
 
-if( !function_exists('vantage_render_slider') ) :
+if ( ! function_exists( 'vantage_render_slider' ) ) :
 /**
  * Render the slider.
  */
-function vantage_render_slider(){
+function vantage_render_slider() {
 
-	if( is_front_page() && !in_array( siteorigin_setting( 'home_slider' ), array( '', 'none' ) ) ) {
+	if ( is_front_page() &&  ! in_array( siteorigin_setting( 'home_slider' ), array( '', 'none' ) ) ) {
 		$settings_slider = siteorigin_setting( 'home_slider' );
 		$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
 
@@ -428,13 +443,17 @@ function vantage_render_slider(){
 		if ( $is_wc_shop ) {
 			$page_id = wc_get_page_id( 'shop' );
 		}
-		if( ( is_page() || $is_wc_shop ) && get_post_meta($page_id, 'vantage_metaslider_slider', true) != 'none' ) {
+		if ( is_home() ) {
+			$page_id = get_queried_object_id();
+		}
+		if( ( is_page() || $is_wc_shop || is_home() ) && get_post_meta($page_id, 'vantage_metaslider_slider', true) != 'none' ) {
 			$page_slider = get_post_meta($page_id, 'vantage_metaslider_slider', true);
 			if( !empty($page_slider) ) {
 				$slider = $page_slider;
 			}
 			$slider_stretch = get_post_meta($page_id, 'vantage_metaslider_slider_stretch', true);
 		}
+
 	}
 
 	if( empty($slider) ) return;
@@ -446,7 +465,7 @@ function vantage_render_slider(){
 
 
 	if($slider == 'demo') get_template_part('slider/demo');
-	elseif( substr($slider, 0, 5) == 'meta:' ) {
+	elseif(substr($slider, 0, 5) == 'meta:' && defined('METASLIDER_VERSION') ) {
 		list($null, $slider_id) = explode(':', $slider);
 
 		echo do_shortcode( "[metaslider id=" . intval($slider_id) . "]" );
@@ -466,7 +485,7 @@ function vantage_post_class_filter($classes){
 		$classes[] = 'post-with-thumbnail';
 		$classes[] = 'post-with-thumbnail-' . siteorigin_setting( 'blog_featured_image_type' );
 	}
-	
+
 	// Resolves structured data issue in core. See https://core.trac.wordpress.org/ticket/28482
 	if( is_page() ){
 		$class_key = array_search( 'hentry', $classes );

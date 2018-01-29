@@ -7,7 +7,42 @@
  * @license GPL 2.0
  */
 
-if ( !function_exists( 'vantage_content_nav' ) ) :
+if ( ! function_exists( 'vantage_author_box' ) ) :
+/**
+ * Display the post author biographical info on single posts.
+ */
+function vantage_author_box( $post ) { ?>
+	<div class="author-box">
+		<div class="avatar-box">
+			<div class="avatar-wrapper">
+				<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
+					<?php echo get_avatar( get_the_author_meta( 'user_email' ), 70 ); ?>
+				</a>
+			</div>
+		</div>
+		<div class="box-content entry-content">
+			<div class="box-title">
+				<h3><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></h3>
+				<span class="author-posts">
+					<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
+						<?php esc_html_e( 'View posts by ', 'vantage' );
+							echo get_the_author(); ?>
+					</a>
+				</span>
+			</div>
+			<div class="box-description">
+				<?php if ( get_the_author_meta( 'description' ) ) : ?>
+					<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
+				<?php elseif ( current_user_can( 'edit_users', $post->post_author ) ) : ?>
+					<a href="<?php echo get_edit_user_link( $post->post_author ); ?>"><?php esc_html_e( 'Add author biographical info.', 'vantage' ); ?></a>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>
+<?php }
+endif;
+
+if ( ! function_exists( 'vantage_content_nav' ) ) :
 /**
  * Display navigation to next/previous pages when applicable
  *
@@ -20,7 +55,7 @@ function vantage_content_nav( $nav_id ) {
 	                                    method_exists( 'SiteOrigin_Panels_Widgets_PostLoop', 'is_rendering_loop' ) &&
 	                                    SiteOrigin_Panels_Widgets_PostLoop::is_rendering_loop();
 
-	if( $jetpack_infinite_scroll_active && ! $is_page_builder_post_loop_widget ) {
+	if ( $jetpack_infinite_scroll_active && ! $is_page_builder_post_loop_widget ) {
 		return;
 	}
 	global $wp_query, $post;
@@ -38,8 +73,8 @@ function vantage_content_nav( $nav_id ) {
 	if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
 		return;
 
-	// Add the shorten title filter
-	add_filter('the_title', 'vantage_content_nav_shorten_title');
+	// Add the shorten title filter.
+	add_filter( 'the_title', 'vantage_content_nav_shorten_title' );
 
 	$nav_class = 'site-navigation paging-navigation';
 	if ( is_single() )
@@ -47,18 +82,18 @@ function vantage_content_nav( $nav_id ) {
 
 	?>
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
-		<h1 class="assistive-text"><?php _e( 'Post navigation', 'vantage' ); ?></h1>
+		<h2 class="assistive-text"><?php _e( 'Post navigation', 'vantage' ); ?></h2>
 
-	<?php if ( is_single() ) : // navigation links for single posts ?>
+	<?php if ( is_single() ) : // Navigation links for single posts. ?>
 
 		<div class="single-nav-wrapper">
 			<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'vantage' ) . '</span> %title' ); ?>
 			<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'vantage' ) . '</span>' ); ?>
 		</div>
 
-	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
+	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // Navigation links for home, archive, and search pages. ?>
 
-		<?php vantage_pagination() ?>
+		<?php vantage_pagination(); ?>
 
 	<?php endif; ?>
 
@@ -66,7 +101,7 @@ function vantage_content_nav( $nav_id ) {
 	<?php
 
 	// Remove the shorten title filter
-	remove_filter('the_title', 'vantage_content_nav_shorten_title');
+	remove_filter( 'the_title', 'vantage_content_nav_shorten_title' );
 }
 endif; // vantage_content_nav
 

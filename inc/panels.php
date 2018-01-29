@@ -286,10 +286,6 @@ function vantage_panels_panels_row_style_attributes($attr, $style) {
 		$attr['class'][] = 'panel-row-style-full-width';
 	}
 
-	if( isset($style['class']) && $style['class'] == 'wide-grey' && siteorigin_setting( 'layout_bound' ) == 'full' ) {
-		$attr['style'] .= 'padding-left: 1000px; padding-right: 1000px;';
-	}
-
 	if( empty($attr['style']) ) unset( $attr['style'] );
 	return $attr;
 }

@@ -10,7 +10,7 @@
 $post_class = ( is_singular() ) ? 'post' : '';
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( $post ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( $post_class ); ?>>
 
 	<div class="entry-main test">
 
@@ -20,7 +20,7 @@ $post_class = ( is_singular() ) ? 'post' : '';
 			<header class="entry-header">
 
 				<?php if ( vantage_get_video() ) : ?>
-					<div class="entry-thumbnail">
+					<div class="entry-video">
 						<?php echo vantage_get_video(); ?>
 					</div>
 				<?php elseif ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image' ) ) : ?>
@@ -64,23 +64,7 @@ $post_class = ( is_singular() ) ? 'post' : '';
 			</div>
 		<?php endif; ?>
 
-		<?php if ( is_singular() && siteorigin_setting( 'blog_author_box' ) ) : ?>
-			<div class="author-box">
-				<div class="avatar-box">
-					<div class="avatar-wrapper"><?php echo get_avatar( get_the_author_meta( 'user_email' ), 70 ) ?></div>
-				</div>
-				<div class="box-content entry-content">
-					<h3 class="box-title"><?php echo esc_html( get_the_author_meta( 'display_name' ) ) ?></h3>
-					<div class="box-description">
-						<?php if ( get_the_author_meta( 'description' ) ) : ?>
-							<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ) ?>
-						<?php elseif ( current_user_can( 'edit_users', $post->post_author ) ) : ?>
-							<a href="<?php echo get_edit_user_link( $post->post_author ); ?>"><?php _e( 'Add author biographical info.', 'vantage' ) ?></a>
-						<?php endif; ?>
-					</div>
-				</div>
-			</div>
-		<?php endif; ?>
+		<?php if ( is_singular() && siteorigin_setting( 'blog_author_box' ) ) vantage_author_box( $post ); ?>
 
 		<?php do_action( 'vantage_entry_main_bottom' ); ?>
 

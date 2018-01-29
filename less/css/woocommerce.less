@@ -13,7 +13,7 @@
 			width: auto;
 			text-decoration: none;
 
-			/* Improves usability and consistency of cursor style between image-type 'input' and others */
+			// Improves usability and consistency of cursor style between image-type 'input' and others.
 			cursor: pointer;
 
 			line-height: 1;
@@ -46,6 +46,21 @@
 					font-size: 20px;
 				}
 			}
+
+			.woocommerce-product-gallery {
+				.flex-control-thumbs {
+					margin-top: 15px;
+					
+						li {
+						margin: 0 2.5% 2.5% 0;
+						width: 23.125%;
+						
+						&:nth-child(4n) {
+							margin-right: 0;
+						}
+					}
+				}
+			}	
 
 			.cart {
 				.qty {
@@ -92,8 +107,7 @@
 
 	}
 
-	/* The more generic WooCommerce elements */
-
+	// The more generic WooCommerce elements.
 	a.remove {
 		padding: 2px;
 		line-height: 0.85em;
@@ -387,7 +401,6 @@
 }
 
 /* Page Layouts */
-
 .woocommerce-page {
 	&.woocommerce-cart,
 	&.woocommerce-checkout {

@@ -7,18 +7,18 @@
 jQuery(function($){
     $('body.no-js').removeClass('no-js');
 
-    // Initialize the flex slider
+    // Initialize FlexSlider.
     $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider, .gallery-format-slider').flexslider( { } );
 
-    /* Setup fitvids for entry content, panels woocommerce pages, masthead widget area and the header sidebar */
+    // Setup fitvids for entry content, video post format, panels, woocommerce pages, masthead widget area and the header sidebar.
     if(typeof $.fn.fitVids !== 'undefined') {
-        $('.entry-content, .entry-content .panel, .woocommerce #main, #masthead-widgets, #header-sidebar' ).fitVids({ ignore: '.tableauViz' });
+        $('.entry-content, .entry-content .panel, .entry-video, .woocommerce #main, #masthead-widgets, #header-sidebar' ).fitVids({ ignore: '.tableauViz' });
     }
 
 	var isMobileDevice = $('body').hasClass('so-vantage-mobile-device'),
 		isCustomizer = $('body').hasClass('so-vantage-customizer-preview'),
 		isMobileNav = $('nav.site-navigation.primary').hasClass('mobile-navigation');
-    if( ( !isMobileDevice && $('#scroll-to-top').hasClass('scroll-to-top') ) || ( ( isCustomizer || isMobileDevice ) && isMobileNav ) ) {
+    if( ( !isMobileDevice && $('#scroll-to-top').hasClass('scroll-to-top') ) || ( ( isCustomizer || isMobileDevice ) ) ) {
 
         // Everything we need for scrolling up and down.
         $(window).scroll( function(){
@@ -239,6 +239,13 @@ jQuery(function($){
             setTimeout(function(){
                 $$.find('input[name=s]').focus();
             }, 300);
+        } );
+
+    $( document )
+        .keyup( function(e) {
+            if ( e.keyCode == 27 ) { // escape key maps to keycode `27`
+                $('#search-icon form').fadeOut(250);
+            }
         } );
 
     $(document)
