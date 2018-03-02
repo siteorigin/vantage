@@ -4,9 +4,8 @@
  */
 
 if ( ! function_exists( 'siteorigin_smartslider_get_options' ) ) :
-function siteorigin_smartslider_get_options( $has_demo = true ) {
+function siteorigin_smartslider_get_options() {
 	$options = array( '' => __( 'None', 'vantage' ) );
-	if( $has_demo ) $options['demo'] = __( 'Demo Slider', 'vantage' );
 
 	// Get smart slider 3 sliders
 	if ( class_exists( 'SmartSlider3' ) ) {
