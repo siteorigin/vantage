@@ -433,13 +433,15 @@ function vantage_render_slider() {
 		$settings_slider = siteorigin_setting( 'home_slider' );
 		$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
 		$smartslider = siteorigin_setting( 'home_smartslider' );
-
-		if ( ! empty( $settings_slider ) && defined( 'METASLIDER_VERSION' ) ) {
-			$slider = $settings_slider;
-		}
-
-		if ( ! empty( $smartslider ) && defined( 'NEXTEND_SMARTSLIDER_3' ) ) {
-			$slider_stretch = '';
+		$slider = false;
+		
+		// Check if we should show demo slider or not.
+		if ( ! defined( 'NEXTEND_SMARTSLIDER_3' ) && ! defined( 'METASLIDER_VERSION' ) && $smartslider == 'demo' ) {
+			$slider = 'demo';
+		} else {
+			if ( ! empty( $settings_slider ) && defined( 'METASLIDER_VERSION' ) ) {
+				$slider = $settings_slider;
+			}
 		}
 	} else {
 		$page_id = get_the_ID();
@@ -473,19 +475,25 @@ function vantage_render_slider() {
 	global $vantage_is_main_slider;
 	$vantage_is_main_slider = true;
 
-	?><div id="main-slider" <?php if( $slider_stretch ) echo 'data-stretch="true"' ?>><?php
-
-	if ( substr( $smartslider, 0, 5 ) == 'meta:' && defined( 'NEXTEND_SMARTSLIDER_3' ) ) {
-		list( $null, $slider_id ) = explode( ':', $smartslider );
-		echo do_shortcode( "[smartslider3 slider=" . intval( $slider_id ) . "]" );
-	} elseif ( $slider == 'demo' ) {
-		get_template_part( 'slider/demo' );
-	} elseif ( substr( $slider, 0, 5 ) == 'meta:' && defined( 'METASLIDER_VERSION' ) ) {
-		list( $null, $slider_id ) = explode( ':', $slider );
-		echo do_shortcode( "[metaslider id=" . intval( $slider_id ) . "]" );
+	if ( $slider == 'demo' ) { ?>
+		<div id="main-slider" data-stretch="true">
+			<?php get_template_part( 'slider/demo' ); ?>
+		</div><?php
+	} else {
+		if ( substr( $smartslider, 0, 5 ) == 'meta:' && defined( 'NEXTEND_SMARTSLIDER_3' ) ) {
+			list( $null, $slider_id ) = explode( ':', $smartslider ); ?>
+			<div id="main-slider">
+				<?php echo do_shortcode( "[smartslider3 slider=" . intval( $slider_id ) . "]" ); ?>
+			</div><?php
+		}
+		if ( substr( $slider, 0, 5 ) == 'meta:' && defined( 'METASLIDER_VERSION' ) ) {
+			list( $null, $slider_id ) = explode( ':', $slider ); ?>
+			<div id="main-slider" <?php if ( $slider_stretch ) echo 'data-stretch="true"' ?>>
+				<?php echo do_shortcode( "[metaslider id=" . intval( $slider_id ) . "]" ); ?>
+			</div><?php
+		}
 	}
-
-	?></div><?php
+	
 	$vantage_is_main_slider = false;
 }
 endif;
