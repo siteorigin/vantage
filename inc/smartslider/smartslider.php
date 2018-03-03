@@ -22,8 +22,8 @@ function siteorigin_smartslider_get_options( $has_demo = true ) {
 }
 endif;
 
-if ( ! function_exists( 'siteorigin_smartslider_install_link' ) ) :
-function siteorigin_smartslider_install_link(){
+if ( ! function_exists( 'vantage_smartslider_install_link' ) ) :
+function vantage_smartslider_install_link(){
 	if ( function_exists( 'siteorigin_plugin_activation_install_url' ) ) {
 		return siteorigin_plugin_activation_install_url( 'smart-slider-3', 'SmartSlider' );
 	}

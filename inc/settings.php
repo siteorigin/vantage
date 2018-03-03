@@ -176,7 +176,7 @@ function vantage_theme_settings(){
 		'description' => sprintf(
 			__('This theme supports <a href="%s" target="_blank">Smart Slider 3</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
 			'https://siteorigin.com/smart-slider-3/',
-			siteorigin_smartslider_install_link(),
+			vantage_smartslider_install_link(),
 			'https://siteorigin.com/vantage-documentation/home-page-slider/'
 		)
 	));
