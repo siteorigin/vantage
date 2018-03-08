@@ -73,12 +73,15 @@ function vantage_metaslider_ensure_height($settings){
 endif;
 add_filter('sanitize_post_meta_ml-slider_settings', 'vantage_metaslider_ensure_height');
 
-if( !function_exists('vantage_metaslider_page_setting_metabox') ) :
-function vantage_metaslider_page_setting_metabox(){
-	add_meta_box('vantage-metaslider-page-slider', __('Page Meta Slider', 'vantage'), 'vantage_metaslider_page_setting_metabox_render', 'page', 'side');
-}
+if ( defined( 'METASLIDER_VERSION' ) ) :
+
+	if ( ! function_exists( 'vantage_metaslider_page_setting_metabox' ) ) :
+	function vantage_metaslider_page_setting_metabox(){
+		add_meta_box('vantage-metaslider-page-slider', __('Page Meta Slider', 'vantage'), 'vantage_metaslider_page_setting_metabox_render', 'page', 'side');
+	}
+	endif;
+	add_action( 'add_meta_boxes', 'vantage_metaslider_page_setting_metabox' );
 endif;
-add_action('add_meta_boxes', 'vantage_metaslider_page_setting_metabox');
 
 if( !function_exists('vantage_metaslider_page_setting_metabox_render') ) :
 function vantage_metaslider_page_setting_metabox_render($post){
