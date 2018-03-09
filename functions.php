@@ -13,8 +13,7 @@ define( 'SITEORIGIN_THEME_CSS_PREFIX', '' );
 
 // Load the new settings framework.
 include get_template_directory() . '/inc/settings/settings.php';
-include get_template_directory() . '/inc/smartslider/smartslider.php';
-include get_template_directory() . '/inc/metaslider/metaslider.php';
+include get_template_directory() . '/inc/sliders/sliders.php';
 include get_template_directory() . '/inc/plugin-activation/plugin-activation.php';
 include get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 
@@ -24,8 +23,7 @@ include get_template_directory() . '/inc/settings.php';
 include get_template_directory() . '/inc/extras.php';
 include get_template_directory() . '/inc/template-tags.php';
 include get_template_directory() . '/inc/gallery.php';
-include get_template_directory() . '/inc/smartslider.php';
-include get_template_directory() . '/inc/metaslider.php';
+include get_template_directory() . '/inc/sliders.php';
 include get_template_directory() . '/inc/widgets.php';
 include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/breadcrumbs.php';
@@ -428,20 +426,16 @@ if ( ! function_exists( 'vantage_render_slider' ) ) :
  * Render the slider.
  */
 function vantage_render_slider() {
-
-	if ( is_front_page() && ( ! in_array( siteorigin_setting( 'home_slider' ), array( '', 'none' ) ) || ! in_array( siteorigin_setting( 'home_smartslider' ), array( '', 'none' ) ) ) ) {
+	if ( is_front_page() && ! in_array( siteorigin_setting( 'home_slider' ), array( '', 'none' ) ) ) {
 		$settings_slider = siteorigin_setting( 'home_slider' );
 		$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
-		$smartslider = siteorigin_setting( 'home_smartslider' );
 		$slider = false;
 		
 		// Check if we should show demo slider or not.
-		if ( ! defined( 'NEXTEND_SMARTSLIDER_3' ) && ! defined( 'METASLIDER_VERSION' ) && $smartslider == 'demo' ) {
+		if ( ! class_exists( 'SmartSlider3' ) && ! class_exists( 'MetaSliderPlugin' ) ) {
 			$slider = 'demo';
-		} else {
-			if ( ! empty( $settings_slider ) && defined( 'METASLIDER_VERSION' ) ) {
-				$slider = $settings_slider;
-			}
+		} else if ( ! empty( $settings_slider ) ) {
+			$slider = $settings_slider;
 		}
 	} else {
 		$page_id = get_the_ID();
@@ -452,25 +446,16 @@ function vantage_render_slider() {
 		if ( is_home() ) {
 			$page_id = get_queried_object_id();
 		}
-		if( ( is_page() || $is_wc_shop || is_home() ) && get_post_meta( $page_id, 'vantage_metaslider_slider', true ) != 'none' && defined( 'METASLIDER_VERSION' ) ) {
+		if( ( is_page() || $is_wc_shop || is_home() ) && get_post_meta( $page_id, 'vantage_metaslider_slider', true ) != 'none' ) {
 			$page_slider = get_post_meta( $page_id, 'vantage_metaslider_slider', true );
 			if ( ! empty( $page_slider ) ) {
 				$slider = $page_slider;
 			}
 			$slider_stretch = get_post_meta($page_id, 'vantage_metaslider_slider_stretch', true);
-			$smartslider = '';
 		}
-		if ( ( is_page() || $is_wc_shop ) && get_post_meta( $page_id, 'vantage_smartslider_slider', true) != '' && defined( 'NEXTEND_SMARTSLIDER_3' ) ) {
-			$page_slider = get_post_meta( $page_id, 'vantage_smartslider_slider', true );
-			if ( ! empty( $page_slider ) ) {
-				$smartslider = $page_slider;
-			}
-			$slider_stretch = false;
-		}
-
 	}
 
-	if ( empty( $slider ) && empty( $smartslider ) ) return;
+	if ( empty( $slider ) ) return;
 
 	global $vantage_is_main_slider;
 	$vantage_is_main_slider = true;
@@ -480,18 +465,13 @@ function vantage_render_slider() {
 			<?php get_template_part( 'slider/demo' ); ?>
 		</div><?php
 	} else {
-		if ( substr( $smartslider, 0, 5 ) == 'meta:' && defined( 'NEXTEND_SMARTSLIDER_3' ) ) {
-			list( $null, $slider_id ) = explode( ':', $smartslider ); ?>
-			<div id="main-slider">
-				<?php echo do_shortcode( "[smartslider3 slider=" . intval( $slider_id ) . "]" ); ?>
-			</div><?php
-		}
-		if ( substr( $slider, 0, 5 ) == 'meta:' && defined( 'METASLIDER_VERSION' ) ) {
-			list( $null, $slider_id ) = explode( ':', $slider ); ?>
-			<div id="main-slider" <?php if ( $slider_stretch ) echo 'data-stretch="true"' ?>>
-				<?php echo do_shortcode( "[metaslider id=" . intval( $slider_id ) . "]" ); ?>
-			</div><?php
-		}
+		
+		list( $type, $slider_id ) = explode( ':', $slider );
+		$shortcode = '[' . ( $type == 'meta' ? 'metaslider id=' : 'smartslider3 slider=' ) . intval( $slider_id ) . ']';
+		?>
+		<div id="main-slider" <?php if ( ! empty( $slider_stretch ) ) echo 'data-stretch="true"' ?>>
+			<?php echo do_shortcode( $shortcode ); ?>
+		</div><?php
 	}
 	
 	$vantage_is_main_slider = false;

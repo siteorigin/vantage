@@ -170,34 +170,27 @@ function vantage_theme_settings(){
 	/**
 	 * Home Page
 	 */
-
-	$settings->add_field('home', 'smartslider', 'select', __('Home Page Smart Slider', 'vantage'), array(
-		'options' => siteorigin_smartslider_get_options(),
-		'description' => sprintf(
-			__('This theme supports <a href="%s" target="_blank">Smart Slider 3</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
+	$metaslider_active = class_exists( 'MetaSliderPlugin' );
+	$description = '';
+	if ( ! $metaslider_active ) {
+		$description = sprintf(
+			__( 'This theme supports <a href="%s" target="_blank">Smart Slider 3</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage' ),
 			'https://siteorigin.com/smart-slider-3/',
 			vantage_smartslider_install_link(),
 			'https://siteorigin.com/vantage-documentation/home-page-slider/'
-		)
+		);
+	}
+	
+	$settings->add_field('home', 'slider', 'select', __('Home Page Slider', 'vantage'), array(
+		'options' => vantage_sliders_get_options( true ),
+		'description' => $description,
 	));
-
-	if ( defined( 'METASLIDER_VERSION' ) ) {
-
-		$settings->add_field('home', 'slider', 'select', __('Home Page Meta Slider', 'vantage'), array(
-			'options' => siteorigin_metaslider_get_options(true),
-			'description' => sprintf(
-				__('This theme supports <a href="%s" target="_blank">MetaSlider</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
-				'https://siteorigin.com/metaslider/',
-				siteorigin_metaslider_install_link(),
-				'https://siteorigin.com/vantage-documentation/home-page-slider/'
-			)
-		));
-
-		$settings->add_field('home', 'slider_stretch', 'checkbox', __('Stretch Home Meta Slider', 'vantage'), array(
-			'label' => __('Stretch', 'vantage'),
-			'description' => __('Stretch the home page meta slider to the width of the screen if using the full width layout.', 'vantage'),
+	
+	if ( $metaslider_active ) {
+		$settings->add_field( 'home', 'slider_stretch', 'checkbox', __( 'Stretch Home Slider', 'vantage' ), array(
+			'label'       => __( 'Stretch', 'vantage' ),
+			'description' => __( 'Stretch the home page slider to the width of the screen if using the full width layout.', 'vantage' ),
 		) );
-
 	}
 
 	/**
@@ -369,11 +362,8 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['navigation_home_icon']             = false;
 	$defaults['navigation_yoast_breadcrumbs']     = true;
 
-	$defaults['home_smartslider']    = 'none';
-	if ( defined( 'METASLIDER_VERSION' ) ) {
-		$defaults['home_slider']         = 'demo';
-		$defaults['home_slider_stretch'] = true;
-	}
+	$defaults['home_slider']         = 'demo';
+	$defaults['home_slider_stretch'] = true;
 
 	$defaults['blog_archive_layout']      = 'blog';
 	$defaults['blog_archive_content']     = 'full';
@@ -432,7 +422,6 @@ function vantage_siteorigin_settings_home_slider_update_post_meta( $new_value, $
 	//Update home slider post meta.
 	$home_id = get_option( 'page_on_front' );
 	if ( $home_id ) {
-		update_post_meta( $home_id, 'vantage_smartslider_slider', siteorigin_setting( 'home_smartslider' ) );
 		update_post_meta( $home_id, 'vantage_metaslider_slider', siteorigin_setting( 'home_slider' ) );
 		update_post_meta( $home_id, 'vantage_metaslider_slider_stretch', siteorigin_setting( 'home_slider_stretch' ) );
 	}
