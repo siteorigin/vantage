@@ -170,21 +170,28 @@ function vantage_theme_settings(){
 	/**
 	 * Home Page
 	 */
-
-	$settings->add_field('home', 'slider', 'select', __('Home Page Slider', 'vantage'), array(
-		'options' => siteorigin_metaslider_get_options(true),
-		'description' => sprintf(
-			__('This theme supports <a href="%s" target="_blank">Meta Slider</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
-			'https://siteorigin.com/metaslider/',
-			siteorigin_metaslider_install_link(),
+	$metaslider_active = class_exists( 'MetaSliderPlugin' );
+	$description = '';
+	if ( ! $metaslider_active ) {
+		$description = sprintf(
+			__( 'This theme supports <a href="%s" target="_blank">Smart Slider 3</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage' ),
+			'https://siteorigin.com/smart-slider-3/',
+			vantage_smartslider_install_link(),
 			'https://siteorigin.com/vantage-documentation/home-page-slider/'
-		)
+		);
+	}
+	
+	$settings->add_field('home', 'slider', 'select', __('Home Page Slider', 'vantage'), array(
+		'options' => vantage_sliders_get_options( true ),
+		'description' => $description,
 	));
-
-	$settings->add_field('home', 'slider_stretch', 'checkbox', __('Stretch Home Slider', 'vantage'), array(
-		'label' => __('Stretch', 'vantage'),
-		'description' => __('Stretch the home page slider to the width of the screen if using the full width layout.', 'vantage'),
-	) );
+	
+	if ( $metaslider_active ) {
+		$settings->add_field( 'home', 'slider_stretch', 'checkbox', __( 'Stretch Home Slider', 'vantage' ), array(
+			'label'       => __( 'Stretch', 'vantage' ),
+			'description' => __( 'Stretch the home page slider to the width of the screen if using the full width layout.', 'vantage' ),
+		) );
+	}
 
 	/**
 	 * Blog Settings
