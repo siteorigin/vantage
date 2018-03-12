@@ -54,8 +54,8 @@ if ( ! defined( 'METASLIDER_AFFILIATE_ID' ) ) {
 	define( 'METASLIDER_AFFILIATE_ID', '3' );
 }
 
-function metaslider_affiliate_link_replace( $url ) {
+function vantage_metaslider_affiliate_link_replace( $url ) {
 	$url = $url . '?afref=' . METASLIDER_AFFILIATE_ID;
 	return $url;
 }
-add_filter( 'metaslider_com_link', 'metaslider_affiliate_link_replace' );
+add_filter( 'metaslider_hoplink', 'vantage_metaslider_affiliate_link_replace' );
