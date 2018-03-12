@@ -3,11 +3,11 @@
  * Integration with sliders.
  */
 
-if( !function_exists( 'vantage_sliders_get_options' ) ) :
+if ( ! function_exists( 'vantage_sliders_get_options' ) ) :
 function vantage_sliders_get_options( $has_demo = true ) {
-	$options = array( '' => __('None', 'vantage') );
+	$options = array( '' => __( 'None', 'vantage' ) );
 
-	if($has_demo) $options['demo'] = __('Demo Slider', 'vantage');
+	if ( $has_demo ) $options['demo'] = __( 'Demo Slider', 'vantage' );
 	
 	
 	if ( class_exists( 'MetaSliderPlugin' ) ) {
@@ -15,10 +15,10 @@ function vantage_sliders_get_options( $has_demo = true ) {
 			'post_type' => 'ml-slider',
 			'numberposts' => 200,
 
-		));
+		) );
 
-		foreach($sliders as $slider) {
-			$options[ 'meta:' . $slider->ID ] = __('MetaSlider: ', 'vantage') . $slider->post_title;
+		foreach ( $sliders as $slider ) {
+			$options[ 'meta:' . $slider->ID ] = __( 'MetaSlider: ', 'vantage' ) . $slider->post_title;
 		}
 	}
 	
@@ -36,19 +36,26 @@ function vantage_sliders_get_options( $has_demo = true ) {
 endif;
 
 if ( ! function_exists( 'vantage_smartslider_install_link' ) ) :
-	function vantage_smartslider_install_link(){
+	function vantage_smartslider_install_link() {
 		if ( function_exists( 'siteorigin_plugin_activation_install_url' ) ) {
 			return siteorigin_plugin_activation_install_url( 'smart-slider-3', 'SmartSlider' );
-		}
-		else {
+		} else {
 			return 'http://downloads.wordpress.org/plugin/smart-slider-3.zip';
 		}
 	}
 endif;
 
-if( !function_exists( 'vantage_smartslider_affiliate' ) ) :
-	function vantage_smartslider_affiliate( $source ){
-		return 'siteorigin';
-	}
-endif;
-add_filter('smartslider3_hoplink', 'vantage_smartslider_affiliate');
+function vantage_smartslider_affiliate( $source ) {
+	return 'siteorigin';
+}
+add_filter( 'smartslider3_hoplink', 'vantage_smartslider_affiliate' );
+
+if ( ! defined( 'METASLIDER_AFFILIATE_ID' ) ) {
+	define( 'METASLIDER_AFFILIATE_ID', '3' );
+}
+
+function metaslider_affiliate_link_replace( $url ) {
+	$url = $url . '?afref=' . METASLIDER_AFFILIATE_ID;
+	return $url;
+}
+add_filter( 'metaslider_com_link', 'metaslider_affiliate_link_replace' );
