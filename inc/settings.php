@@ -170,9 +170,8 @@ function vantage_theme_settings(){
 	/**
 	 * Home Page
 	 */
-	$metaslider_active = class_exists( 'MetaSliderPlugin' );
 	$description = '';
-	if ( ! $metaslider_active ) {
+	if ( ! class_exists( 'MetaSliderPlugin' ) && ! class_exists( 'SmartSlider3' ) ) {
 		$description = sprintf(
 			__( 'This theme supports <a href="%s" target="_blank">Smart Slider 3</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage' ),
 			'https://siteorigin.com/smart-slider-3/',
@@ -186,12 +185,10 @@ function vantage_theme_settings(){
 		'description' => $description,
 	));
 	
-	if ( $metaslider_active ) {
-		$settings->add_field( 'home', 'slider_stretch', 'checkbox', __( 'Stretch Home Slider', 'vantage' ), array(
-			'label'       => __( 'Stretch', 'vantage' ),
-			'description' => __( 'Stretch the home page slider to the width of the screen if using the full width layout.', 'vantage' ),
-		) );
-	}
+	$settings->add_field( 'home', 'slider_stretch', 'checkbox', __( 'Stretch Home Slider', 'vantage' ), array(
+		'label'       => __( 'Stretch', 'vantage' ),
+		'description' => __( 'Stretch the home page slider to the width of the screen if using the full width layout.', 'vantage' ),
+	) );
 
 	/**
 	 * Blog Settings

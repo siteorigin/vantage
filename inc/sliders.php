@@ -93,17 +93,24 @@ function vantage_slider_page_setting_metabox_render($post){
 	if ( $is_home && empty( $slider ) ) {
 		$slider = siteorigin_setting( 'home_slider' );
 	}
-	$metaslider_active = class_exists( 'MetaSliderPlugin' );
-	if ( $metaslider_active ) {
-		// Default stretch setting to theme setting.
-		$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
-		if ( metadata_exists( 'post', $post->ID, 'vantage_metaslider_slider_stretch' ) ) {
-			$slider_stretch = get_post_meta($post->ID, 'vantage_metaslider_slider_stretch', true);
-		}
+	
+	
+	// Default stretch setting to theme setting.
+	$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
+	if ( metadata_exists( 'post', $post->ID, 'vantage_metaslider_slider_stretch' ) ) {
+		$slider_stretch = get_post_meta($post->ID, 'vantage_metaslider_slider_stretch', true);
 	}
-
+	$slider_can_stretch = ! empty( preg_match( '/^(demo|meta:)/', $slider ) );
+	
+	wp_enqueue_script(
+		'siteorigin-vantage-sliders',
+		get_template_directory_uri() . '/inc/sliders/js/sliders' . SITEORIGIN_THEME_JS_PREFIX . '.js',
+		array( 'jquery' ),
+		SITEORIGIN_THEME_VERSION
+	);
+	
 	//Include the demo slider in the options if it's the home page.
-	$options = vantage_sliders_get_options($is_home);
+	$options = vantage_sliders_get_options( $is_home );
 	?>
 	<label><strong><?php _e('Display Page Slider', 'vantage') ?></strong></label>
 	<p>
@@ -113,13 +120,11 @@ function vantage_slider_page_setting_metabox_render($post){
 			<?php endforeach; ?>
 		</select>
 	</p>
-	<?php if ( $metaslider_active ) : ?>
-	<p class="checkbox-wrapper">
+	<p class="checkbox-wrapper" style="display: <?php echo ( $slider_can_stretch ? 'block' : 'none' ) ?>;">
 		<input id="vantage_page_slider_stretch" name="vantage_page_slider_stretch" type="checkbox" <?php checked( $slider_stretch ) ?> />
 		<label for="vantage_page_slider_stretch"><?php _e('Stretch Page Meta Slider', 'vantage') ?></label>
 	</p>
 	<?php
-	endif;
 	wp_nonce_field('save', '_vantage_slider_nonce');
 }
 endif;
