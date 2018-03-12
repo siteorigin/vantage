@@ -54,8 +54,8 @@ if ( ! defined( 'METASLIDER_AFFILIATE_ID' ) ) {
 	define( 'METASLIDER_AFFILIATE_ID', '3' );
 }
 
-function vantage_metaslider_affiliate_link_replace( $url ) {
-	$url = $url . '?afref=' . METASLIDER_AFFILIATE_ID;
+function vantage_metaslider_affiliate_link_replace() {
+	$url = add_query_arg( 'afref', METASLIDER_AFFILIATE_ID, 'https://www.metaslider.com/upgrade/' );
 	return $url;
 }
 add_filter( 'metaslider_hoplink', 'vantage_metaslider_affiliate_link_replace' );
