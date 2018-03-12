@@ -49,13 +49,3 @@ function vantage_smartslider_affiliate( $source ) {
 	return 'siteorigin';
 }
 add_filter( 'smartslider3_hoplink', 'vantage_smartslider_affiliate' );
-
-if ( ! defined( 'METASLIDER_AFFILIATE_ID' ) ) {
-	define( 'METASLIDER_AFFILIATE_ID', '3' );
-}
-
-function metaslider_affiliate_link_replace( $url ) {
-	$url = $url . '?afref=' . METASLIDER_AFFILIATE_ID;
-	return $url;
-}
-add_filter( 'metaslider_com_link', 'metaslider_affiliate_link_replace' );
