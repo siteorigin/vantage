@@ -703,30 +703,6 @@ body.sidebar-position-none #secondary {
   background: #fcfcfc;
   padding: 35px;
 }
-#main-slider {
-  line-height: 0;
-  background: #eeeeee;
-}
-#main-slider .flexslider {
-  margin-bottom: 0;
-}
-#main-slider h1 {
-  font-weight: 100;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-}
-#main-slider .text-em-wrapper {
-  padding: 10px 50px;
-  background: rgba(0, 0, 0, 0.25);
-  border: 3px solid white;
-  font-weight: bold;
-}
-#main-slider .metaslider,
-#main-slider #metaslider-demo {
-  margin: 0 auto;
-}
-#main-slider #metaslider-demo {
-  text-align: center;
-}
 /* =Responsive Layout
 ----------------------------------------------- */
 @media (max-width: 1080px) {
@@ -2257,7 +2233,7 @@ body.layout-full {
   width: auto;
   display: inline-block;
 }
-.flexslider .slides .flex-caption {
+.flexslider .slides .flex-vantage-caption {
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2272,7 +2248,7 @@ body.layout-full {
   color: #FFF;
   text-align: center;
 }
-.flexslider .slides .flex-caption h3 {
+.flexslider .slides .flex-vantage-caption h3 {
   color: inherit;
   margin: 0;
   line-height: 1.25em;
@@ -2290,7 +2266,7 @@ body.layout-full {
   max-width: 100%;
   height: auto !important;
 }
-.flexslider .flex-control-paging {
+.flexslider .flex-vantage-control-paging {
   list-style: none;
   position: absolute;
   bottom: 15px;
@@ -2299,7 +2275,7 @@ body.layout-full {
   padding: 0 30px;
   z-index: 20;
 }
-.flexslider .flex-control-paging li {
+.flexslider .flex-vantage-control-paging li {
   margin: 0;
   padding: 0;
   display: inline-block;
@@ -2309,27 +2285,27 @@ body.layout-full {
   height: 14px;
   margin-right: 2px;
 }
-.flexslider .flex-control-paging li a {
+.flexslider .flex-vantage-control-paging li a {
   display: block;
   width: 14px;
   height: 14px;
   cursor: pointer;
   background: url(images/sprites/slide-indicator-inactive.png);
 }
-.flexslider .flex-control-paging li a.flex-active {
+.flexslider .flex-vantage-control-paging li a.flex-vantage-active {
   background: url(images/sprites/slide-indicator-active.png);
 }
-.flexslider .flex-control-paging li a:hover {
+.flexslider .flex-vantage-control-paging li a:hover {
   background: url(images/sprites/slide-indicator-inactive.png);
 }
-.flexslider .flex-direction-nav {
+.flexslider .flex-vantage-direction-nav {
   list-style: none;
 }
-.flexslider .flex-direction-nav li {
+.flexslider .flex-vantage-direction-nav li {
   margin: 0;
   padding: 0;
 }
-.flexslider .flex-direction-nav li a {
+.flexslider .flex-vantage-direction-nav li a {
   z-index: 200;
   display: block;
   position: absolute;
@@ -2344,24 +2320,24 @@ body.layout-full {
   -o-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
 }
-.flexslider .flex-direction-nav li a.flex-prev {
+.flexslider .flex-vantage-direction-nav li a.flex-vantage-prev {
   left: 0;
 }
-.flexslider .flex-direction-nav li a.flex-next {
+.flexslider .flex-vantage-direction-nav li a.flex-vantage-next {
   right: 0;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2) {
-  .flexslider .flex-direction-nav li a {
+  .flexslider .flex-vantage-direction-nav li a {
     background-size: 32px 85px;
   }
-  .flexslider .flex-direction-nav li a.flex-prev {
+  .flexslider .flex-vantage-direction-nav li a.flex-vantage-prev {
     background-size: cover;
   }
-  .flexslider .flex-direction-nav li a.flex-next {
+  .flexslider .flex-vantage-direction-nav li a.flex-vantage-next {
     background-size: cover;
   }
 }
-.flexslider:hover .flex-direction-nav li a {
+.flexslider:hover .flex-vantage-direction-nav li a {
   opacity: 0.9;
 }
 .entry-content .flexslider:not(.metaslider) .flex-direction-nav li a.flex-prev,

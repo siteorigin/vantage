@@ -1,6 +1,6 @@
 <?php
 
-if ( class_exists( 'MetaSliderPlugin' ) ) : // if metaslider active
+if ( class_exists( 'MetaSliderPlugin' ) ) :
 	/**
 	 * Add in the Vantage theme.
 	 *
@@ -15,6 +15,15 @@ if ( class_exists( 'MetaSliderPlugin' ) ) : // if metaslider active
 	}
 	endif;
 	add_filter('metaslider_get_available_themes', 'vantage_metaslider_themes', 5, 2);
+
+	// Change the Flex name space if the Vantage theme is selected.
+	function vantage_metaslider_flex_params( $options, $slider_id, $settings ) {
+	    if ( ! empty($settings['theme'] ) && $settings['theme'] == 'vantage') { 
+	        $options['namespace'] = '"flex-vantage-"'; 
+	    }
+	    return $options;
+	} 
+	add_filter( 'metaslider_flex_slider_parameters', 'vantage_metaslider_flex_params', 10, 3 );	
 	
 	if( !function_exists('vantage_metaslider_filter_flex_slide') ) :
 	/**
@@ -109,7 +118,7 @@ function vantage_slider_page_setting_metabox_render($post){
 		SITEORIGIN_THEME_VERSION
 	);
 	
-	//Include the demo slider in the options if it's the home page.
+	// Include the demo slider in the options if it's the home page.
 	$options = vantage_sliders_get_options( $is_home );
 	?>
 	<label><strong><?php _e('Display Page Slider', 'vantage') ?></strong></label>
