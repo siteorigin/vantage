@@ -12,10 +12,6 @@
         margin: 0 auto;
         text-align: center;
     }
-
-    .flexslider {
-        margin-bottom: 0;
-    }
 }
 
 // Meta Slider General.
@@ -71,7 +67,7 @@
     padding: 0;
 }
 
-// General Flexslider Styles.
+// General FlexSlider Styles.
 .flexslider:hover .flex-vantage-direction-nav li a {
     opacity: 1;
 }
@@ -112,7 +108,7 @@ html[xmlns] .slides {
     zoom: 1;
 }
 
-// Flexslider Captions.
+// Flexslider captions.
 .flexslider .caption-wrap {
     background: rgba(0, 0, 0, .5);
     color: #fff;
@@ -152,9 +148,14 @@ html[xmlns] .slides {
 }
 
 // Vantage(Flex) Slider Theme Styles.
+.flex-vantage-viewport {
+    margin-bottom: -40px;
+}
+
 .flex-vantage-control-paging {
 	bottom: 15px;
 	list-style: none;
+    margin: 0;
 	padding: 0 30px;
 	position: absolute;
 	right: 0px;
@@ -162,31 +163,29 @@ html[xmlns] .slides {
 	z-index: 20;
 
 	li {
-		margin:0;
-		padding:0;
-		display: inline-block;
+        display: inline-block;
+        height: 14px;
+		margin: 0;
+        margin-right: 2px;
+		padding: 0;
+        text-align: left;
 		text-indent: -99999px;
-		text-align: left;
-		width: 14px;
-		height: 14px;
-		margin-right: 2px;
+        width: 14px;
 	}
 
 	li a {
+        background: url(images/sprites/slide-indicator-inactive.png);
+        cursor:pointer;
 		display: block;
-		width: 14px;
 		height: 14px;
-		cursor:pointer;
-
-
-		background: url(images/sprites/slide-indicator-inactive.png);
+        width: 14px;
 
 		&.flex-vantage-active {
-			background: url(images/sprites/slide-indicator-active.png);
+            background: url(images/sprites/slide-indicator-active.png);
 		}
 
 		&:hover {
-			background: url(images/sprites/slide-indicator-inactive.png);
+            background: url(images/sprites/slide-indicator-inactive.png);
 		}
 	}
 }
@@ -199,28 +198,26 @@ html[xmlns] .slides {
 		padding:0;
 
 		a {
-			z-index: 200;
-			display: block;
-			position: absolute;
-			top: 50%;
-			text-indent: -99999px;
-			width: 32px;
-			height: 85px;
-			margin-top: -52px;
-
-			opacity: 0;
-
-			.transition(0.2s, opacity, ease);
+            display: block;
+            height: 85px;
+            margin-top: -52px;
+            opacity: 0;
+            position: absolute;
+            text-indent: -99999px;
+            transition: .2s opacity ease;
+            top: 50%;
+            width: 32px;
+            z-index: 200;
 		}
 
 		a.flex-vantage-prev {
+            background: url(images/sprites/gallery-prev.png);
 			left: 0;
-			background: url(images/sprites/gallery-prev.png);
 		}
 
-		a.flex-vantage-next{
+		a.flex-vantage-next {
+            background: url(images/sprites/gallery-next.png);
 			right: 0;
-			background: url(images/sprites/gallery-next.png);
 		}
 
 		@media screen and (-webkit-min-device-pixel-ratio: 2) {
@@ -229,14 +226,14 @@ html[xmlns] .slides {
 				background-size: 32px 85px;
 			}
 
-			a.flex-vantage-prev{
+			a.flex-vantage-prev {
+                background-image: url(images/retina/gallery-prev.png);
 				background-size: cover;
-				background-image: url(images/retina/gallery-prev.png);
 			}
 
-			a.flex-vantage-next{
-				background-size: cover;
-				background-image: url(images/retina/gallery-next.png);
+			a.flex-vantage-next {
+                background-image: url(images/retina/gallery-next.png);
+				background-size: cover;	
 			}
 		}
 	}

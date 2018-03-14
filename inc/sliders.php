@@ -67,22 +67,22 @@ if ( class_exists( 'MetaSliderPlugin' ) ) :
 	endif;
 	add_filter('metaslider_image_flex_slider_markup', 'vantage_metaslider_filter_flex_slide', 10, 3);
 	
-	if( !function_exists('vantage_metaslider_ensure_height') ) :
+	if ( ! function_exists( 'vantage_metaslider_ensure_height' ) ) :
 	/**
 	 * Filter Meta Slider settings when Vantage setting is selected.
 	 *
 	 * @param $settings
 	 */
-	function vantage_metaslider_ensure_height($settings){
-		if(!empty($settings['theme']) && $settings['theme'] == 'vantage') {
+	function vantage_metaslider_ensure_height( $settings ) {
+		if ( ! empty( $settings['theme'] ) && $settings['theme'] == 'vantage' ) {
 			$settings['width'] = vantage_get_site_width();
 		}
 	
 		return $settings;
 	}
 	endif;
-	add_filter('sanitize_post_meta_ml-slider_settings', 'vantage_metaslider_ensure_height');
-endif;// endif metaslider active
+	add_filter( 'sanitize_post_meta_ml-slider_settings', 'vantage_metaslider_ensure_height' );
+endif; // endif metaslider active.
 
 if ( ! function_exists( 'vantage_slider_page_setting_metabox' ) ) :
 function vantage_slider_page_setting_metabox(){
