@@ -1,6 +1,6 @@
 <?php
 
-if ( class_exists( 'MetaSliderPlugin' ) ) : // if metaslider active
+if ( class_exists( 'MetaSliderPlugin' ) ) :
 	/**
 	 * Add in the Vantage theme.
 	 *
@@ -15,6 +15,15 @@ if ( class_exists( 'MetaSliderPlugin' ) ) : // if metaslider active
 	}
 	endif;
 	add_filter('metaslider_get_available_themes', 'vantage_metaslider_themes', 5, 2);
+
+	// Change the Flex name space if the Vantage theme is selected.
+	function vantage_metaslider_flex_params( $options, $slider_id, $settings ) {
+	    if ( ! empty($settings['theme'] ) && $settings['theme'] == 'vantage') { 
+	        $options['namespace'] = '"flex-vantage-"'; 
+	    }
+	    return $options;
+	} 
+	add_filter( 'metaslider_flex_slider_parameters', 'vantage_metaslider_flex_params', 10, 3 );	
 	
 	if( !function_exists('vantage_metaslider_filter_flex_slide') ) :
 	/**
@@ -58,22 +67,22 @@ if ( class_exists( 'MetaSliderPlugin' ) ) : // if metaslider active
 	endif;
 	add_filter('metaslider_image_flex_slider_markup', 'vantage_metaslider_filter_flex_slide', 10, 3);
 	
-	if( !function_exists('vantage_metaslider_ensure_height') ) :
+	if ( ! function_exists( 'vantage_metaslider_ensure_height' ) ) :
 	/**
 	 * Filter Meta Slider settings when Vantage setting is selected.
 	 *
 	 * @param $settings
 	 */
-	function vantage_metaslider_ensure_height($settings){
-		if(!empty($settings['theme']) && $settings['theme'] == 'vantage') {
+	function vantage_metaslider_ensure_height( $settings ) {
+		if ( ! empty( $settings['theme'] ) && $settings['theme'] == 'vantage' ) {
 			$settings['width'] = vantage_get_site_width();
 		}
 	
 		return $settings;
 	}
 	endif;
-	add_filter('sanitize_post_meta_ml-slider_settings', 'vantage_metaslider_ensure_height');
-endif;// endif metaslider active
+	add_filter( 'sanitize_post_meta_ml-slider_settings', 'vantage_metaslider_ensure_height' );
+endif; // endif metaslider active.
 
 if ( ! function_exists( 'vantage_slider_page_setting_metabox' ) ) :
 function vantage_slider_page_setting_metabox(){
@@ -109,7 +118,7 @@ function vantage_slider_page_setting_metabox_render($post){
 		SITEORIGIN_THEME_VERSION
 	);
 	
-	//Include the demo slider in the options if it's the home page.
+	// Include the demo slider in the options if it's the home page.
 	$options = vantage_sliders_get_options( $is_home );
 	?>
 	<label><strong><?php _e('Display Page Slider', 'vantage') ?></strong></label>

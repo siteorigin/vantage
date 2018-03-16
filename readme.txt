@@ -77,7 +77,7 @@ FitVids, Copyright 2013 Chris Coyier
 Released under the WTFPL license - http://sam.zoy.org/wtfpl/
 Source: http://fitvidsjs.com/
 
-Flex Slider, Copyright 2012 WooThemes
+FlexSlider, Copyright 2012 WooThemes
 Free to use under the GPLv2 license.
 Source: http://www.woothemes.com/flexslider/
 
