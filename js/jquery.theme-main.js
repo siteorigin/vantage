@@ -8,7 +8,9 @@ jQuery(function($){
     $('body.no-js').removeClass('no-js');
 
     // Initialize FlexSlider.
-    $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider, .gallery-format-slider').flexslider( { } );
+    $('.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider, .gallery-format-slider').flexslider( { 
+        namespace: "flex-vantage-",  
+    } );   
 
     // Setup fitvids for entry content, video post format, panels, woocommerce pages, masthead widget area and the header sidebar.
     if(typeof $.fn.fitVids !== 'undefined') {
