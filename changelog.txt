@@ -2,7 +2,7 @@
 
 View full release information on [Github](https://github.com/siteorigin/vantage/releases).
 
-== 1.7 - 16 March 2018 ==
+== 1.7 - 17 March 2018 ==
 * Added Smart Slider 3 support to the Page Slider setting.
 * Separated the MetaSlider Flex and Vantage (Flex) themes to ensure both render independently.
 * Enhanced mobile menu to open sub menus with empty links or links containing a hash.
