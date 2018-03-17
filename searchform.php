@@ -9,5 +9,6 @@
 ?>
 
 <form method="get" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
-	<input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" placeholder="<?php esc_attr_e( 'Search', 'vantage' ); ?>"/>
+	<label for='s' class='screen-reader-text'><?php esc_html_e( 'Search for:', 'vantage' ); ?></label>
+	<input type="search" name="s" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" placeholder="<?php esc_attr_e( 'Search', 'vantage' ); ?>"/>
 </form>

@@ -226,42 +226,42 @@ jQuery(function($){
             $ul.finish().fadeOut(150);
         } );
 
-    // The search bar
+    // The search bar.
     var isSearchHover = false;
-    $(document).click(function(){
-        if(!isSearchHover) {
-            $('#search-icon form').fadeOut(250);
+    $( document ).click( function() {
+        if ( ! isSearchHover ) {
+            $( '#search-icon form' ).fadeOut( 250 );
         }
-    });
+    } );
 
-    $(document)
-        .on('click','#search-icon-icon', function(){
-            var $$ = $(this).parent();
-            $$.find('form').fadeToggle(250);
-            setTimeout(function(){
-                $$.find('input[name=s]').focus();
+    $( document )
+        .on( 'click','#search-icon-icon', function() {
+            var $$ = $( this ).parent();
+            $$.find( 'form' ).fadeToggle( 250 );
+            setTimeout( function() {
+                $$.find( 'input[type="search"]' ).focus();
             }, 300);
         } );
 
     $( document )
-        .keyup( function(e) {
-            if ( e.keyCode == 27 ) { // escape key maps to keycode `27`
-                $('#search-icon form').fadeOut(250);
+        .keyup( function( e ) {
+            if ( e.keyCode == 27 ) { // Escape key maps to keycode `27`.
+                $( '#search-icon form' ).fadeOut( 250 );
             }
         } );
 
-    $(document)
-        .on('mouseenter', '#search-icon', function(){
-            isSearchHover = true;
-        } )
-        .on('mouseleave', '#search-icon', function(){
-            isSearchHover = false;
-        } );
+    $( document )
+    .on( 'mouseenter', '#search-icon', function() {
+        isSearchHover = true;
+    } )
+    .on( 'mouseleave', '#search-icon', function() {
+        isSearchHover = false;
+    } );
 
-    $(window).resize(function() {
-        $('#search-icon .searchform').each(function(){
-            $(this).width($(this).closest('.full-container').width());
-        });
+    $( window ).resize( function() {
+        $( '#search-icon .searchform' ).each( function() {
+            $( this ).width( $( this ).closest( '.full-container' ).width() );
+        } );
     }).resize();
 
     // The sticky menu
