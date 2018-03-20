@@ -109,7 +109,7 @@ function vantage_slider_page_setting_metabox_render($post){
 	if ( metadata_exists( 'post', $post->ID, 'vantage_metaslider_slider_stretch' ) ) {
 		$slider_stretch = get_post_meta($post->ID, 'vantage_metaslider_slider_stretch', true);
 	}
-	$slider_can_stretch = ! empty( preg_match( '/^(demo|meta:)/', $slider ) );
+	$slider_can_stretch = preg_match( '/^(demo|meta:)/', $slider );
 	
 	wp_enqueue_script(
 		'siteorigin-vantage-sliders',
@@ -129,7 +129,7 @@ function vantage_slider_page_setting_metabox_render($post){
 			<?php endforeach; ?>
 		</select>
 	</p>
-	<p class="checkbox-wrapper" style="display: <?php echo ( $slider_can_stretch ? 'block' : 'none' ) ?>;">
+	<p class="checkbox-wrapper" style="display: <?php echo ( ! empty( $slider_can_stretch ) ? 'block' : 'none' ) ?>;">
 		<input id="vantage_page_slider_stretch" name="vantage_page_slider_stretch" type="checkbox" <?php checked( $slider_stretch ) ?> />
 		<label for="vantage_page_slider_stretch"><?php _e('Stretch Page Meta Slider', 'vantage') ?></label>
 	</p>
