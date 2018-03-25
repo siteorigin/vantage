@@ -34,10 +34,46 @@ $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 			</div>
 		<?php endif; ?>
 
-		<?php if ( $ubermenu_active ): ?>
-			<?php ubermenu( 'main' , array( 'theme_location' => 'primary' ) ); ?>
-		<?php else: ?>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'link_before' => '<span class="icon"></span>' ) ); ?>
+		<?php if ( $ubermenu_active ) : ?>
+
+			<?php 
+			ubermenu( 
+				'main' , 
+				array( 'theme_location' => 'primary' 
+			) ); 
+			?>
+
+		<?php elseif ( function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( 'primary' ) ) : ?>
+
+		<?php
+		wp_nav_menu( array(
+			'theme_location' => 'primary'
+		) );
+		?>
+
+		<?php else : ?>
+
+			<?php $mobile_nav_id = 1; ?>
+			<?php $text = apply_filters( 'siteorigin_mobilenav_text', array( 
+				'navigate' => __( 'Menu', 'vantage' ),
+				'back' => __( 'Back', 'vantage' ),
+				'close' => __( 'Close', 'vantage' ),
+			) ); ?>
+			<div id="so-mobilenav-standard-<?php echo $mobile_nav_id; ?>" data-id="<?php echo $mobile_nav_id; ?>" class="so-mobilenav-standard"></div>
+			<?php 
+			wp_nav_menu( array( 
+				'theme_location' => 'primary', 
+				'link_before' => '<span class="icon"></span>' 
+			) ); 
+			?>
+			<div id="so-mobilenav-mobile-<?php echo $mobile_nav_id; ?>" data-id="<?php echo $mobile_nav_id; ?>" class="so-mobilenav-mobile"></div>
+			<div class="menu-mobilenav-container">
+				<ul id="mobile-nav-item-wrap-<?php echo $mobile_nav_id; ?>" class="menu">
+					<li><a href="#" class="mobilenav-main-link" data-id="<?php echo $mobile_nav_id; ?>">
+						<?php echo vantage_display_icon('mobile-menu'); ?><?php echo $text['navigate']; ?>
+					</a></li>
+				</ul>
+			</div>
 		<?php endif; ?>
 	</div>
 </nav><!-- .site-navigation .main-navigation -->
