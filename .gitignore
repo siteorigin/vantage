@@ -2,3 +2,5 @@
 config.codekit
 dist
 /tmp
+/style.css.map
+/config.codekit3
