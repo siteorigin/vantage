@@ -2307,7 +2307,7 @@ html[xmlns] .slides {
   height: auto;
   max-width: 100%;
 }
-.flexslider ul.flex-vantage-direction-nav {
+#main-slider .flexslider:not(#metaslider-demo) ul.flex-vantage-direction-nav {
   margin-bottom: -40px;
 }
 .flex-vantage-control-paging {
@@ -3560,3 +3560,4 @@ a[href^="tel"] {
   color: inherit;
   text-decoration: none;
 }
+/*# sourceMappingURL=style.css.map */
