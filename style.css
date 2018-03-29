@@ -2307,7 +2307,7 @@ html[xmlns] .slides {
   height: auto;
   max-width: 100%;
 }
-.flex-vantage-viewport {
+.flexslider ul.flex-vantage-direction-nav {
   margin-bottom: -40px;
 }
 .flex-vantage-control-paging {
