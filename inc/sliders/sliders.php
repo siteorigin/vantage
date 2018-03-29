@@ -9,12 +9,10 @@ function vantage_sliders_get_options( $has_demo = true ) {
 
 	if ( $has_demo ) $options['demo'] = __( 'Demo Slider', 'vantage' );
 	
-	
 	if ( class_exists( 'MetaSliderPlugin' ) ) {
 		$sliders = get_posts(array(
 			'post_type' => 'ml-slider',
 			'numberposts' => 200,
-
 		) );
 
 		foreach ( $sliders as $slider ) {

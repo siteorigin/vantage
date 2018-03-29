@@ -82,7 +82,7 @@ if ( class_exists( 'MetaSliderPlugin' ) ) :
 	}
 	endif;
 	add_filter( 'sanitize_post_meta_ml-slider_settings', 'vantage_metaslider_ensure_height' );
-endif; // endif metaslider active.
+endif; // endif MetaSlider active.
 
 if ( ! function_exists( 'vantage_slider_page_setting_metabox' ) ) :
 function vantage_slider_page_setting_metabox(){
@@ -94,8 +94,8 @@ add_action( 'add_meta_boxes', 'vantage_slider_page_setting_metabox' );
 
 if ( ! function_exists( 'vantage_slider_page_setting_metabox_render' ) ) :
 function vantage_slider_page_setting_metabox_render( $post ) {
-	// Key refers to metaslider, but this could be smart slider too.
-	$slider = get_post_meta($post->ID, 'vantage_metaslider_slider', true);
+	// Key refers to MetaSlider, but this could be Smart Slider 3 too.
+	$slider = get_post_meta( $post->ID, 'vantage_metaslider_slider', true );
 
 	$is_home = $post->ID == get_option( 'page_on_front' );
 	// If we're on the home page and the user hasn't explicitly set something here use the 'home_slider' theme setting.
@@ -108,7 +108,7 @@ function vantage_slider_page_setting_metabox_render( $post ) {
 	if ( metadata_exists( 'post', $post->ID, 'vantage_metaslider_slider_stretch' ) ) {
 		$slider_stretch = get_post_meta( $post->ID, 'vantage_metaslider_slider_stretch', true );
 	}
-	$slider_can_stretch = preg_match( '/^(demo|meta:)/', $slider );
+	$slider_can_stretch = preg_match( '/^(meta:)/', $slider );
 	
 	wp_enqueue_script(
 		'siteorigin-vantage-sliders',
