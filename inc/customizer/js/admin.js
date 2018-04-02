@@ -23,7 +23,7 @@ wp.customize.bind( 'ready', function( value ){
 	
 	$( '#accordion-panel-theme_settings' ).one( 'expanded', function () {
 		var toggleSliderStretch = function ( selectedSlider ) {
-			if ( selectedSlider && selectedSlider.search( /^(demo|meta:)/ ) > -1 ) {
+			if ( selectedSlider && selectedSlider.search( /^(meta:)/ ) > -1 ) {
 				$( '#customize-control-theme_settings_home_slider_stretch' ).slideDown( 'fast' );
 			} else {
 				$( '#customize-control-theme_settings_home_slider_stretch' ).slideUp( 'fast' );

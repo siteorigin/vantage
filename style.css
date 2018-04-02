@@ -859,7 +859,8 @@ body.responsive.layout-full #page-wrapper .full-container {
   line-height: 0.5em;
   color: #cccccc;
 }
-.main-navigation a:hover [class^="fa fa-"] {
+.main-navigation a:hover [class^="fa fa-"],
+.main-navigation a.focus [class^="fa fa-"] {
   color: #ffffff;
 }
 .main-navigation ul {
@@ -884,7 +885,8 @@ body.responsive.layout-full #page-wrapper .full-container {
   font-size: 13px;
   position: relative;
 }
-.main-navigation ul li:hover > a {
+.main-navigation ul li:hover > a,
+.main-navigation ul li.focus > a {
   background: #00bcff;
   color: #ffffff;
 }
@@ -907,8 +909,13 @@ body.responsive.layout-full #page-wrapper .full-container {
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
   box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  -o-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
   background: #464646;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
   position: absolute;
   top: 100%;
   left: 0;
@@ -924,7 +931,8 @@ body.responsive.layout-full #page-wrapper .full-container {
   text-align: left;
   /* Hovering over 2nd level items */
 }
-.main-navigation ul ul li:hover > a {
+.main-navigation ul ul li:hover > a,
+.main-navigation ul ul li.focus > a {
   background: #00bcff;
   color: #ffffff;
 }
@@ -933,8 +941,10 @@ body.responsive.layout-full #page-wrapper .full-container {
   top: 0;
   margin-left: 0;
 }
-.main-navigation ul li:hover > ul {
-  display: block;
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+  visibility: visible;
+  opacity: 1;
 }
 .main-navigation a {
   display: block;
@@ -2307,7 +2317,7 @@ html[xmlns] .slides {
   height: auto;
   max-width: 100%;
 }
-.flex-vantage-viewport {
+#main-slider .flexslider:not(#metaslider-demo) ul.flex-vantage-direction-nav {
   margin-bottom: -40px;
 }
 .flex-vantage-control-paging {
