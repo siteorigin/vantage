@@ -190,14 +190,14 @@ jQuery(function($){
     } );
 
     // Add keyboard access to the menu.
-	$( '.menu-item' ).children( 'a' ).focus( function () {
+	$( '.menu-item' ).children( 'a' ).focus( function() {
         $( this ).parents( 'li' ).addClass( 'focus' );
 	} );
 	// Click event fires after focus event.
-	$( '.menu-item' ).children( 'a' ).click( function () {
+	$( '.menu-item' ).children( 'a' ).click( function() {
 		$( this ).parents( 'li' ).removeClass( 'focus' );
 	} );
-	$( '.menu-item' ).children( 'a' ).focusout( function () {
+	$( '.menu-item' ).children( 'a' ).focusout( function() {
 		$( this ).parents( 'li' ).removeClass( 'focus' );
 	} );
 
