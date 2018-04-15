@@ -224,13 +224,21 @@ jQuery(function($){
         }
     } );
 
+    // Check the device that is being used
+    var deviceAgent = navigator.userAgent.toLowerCase();
+
+    // Open and focus the search form
     $( document )
         .on( 'click','#search-icon-icon', function() {
             var $$ = $( this ).parent();
             $$.find( 'form' ).fadeToggle( 250 );
-            setTimeout( function() {
+            if ( deviceAgent.match(/(iPad|iPhone|iPod)/i) ) {
                 $$.find( 'input[type="search"]' ).focus();
-            }, 300);
+            } else {
+                setTimeout( function() {
+                    $$.find( 'input[type="search"]' ).focus();
+                }, 300 );
+            }
         } );
 
     $( document )
@@ -252,7 +260,7 @@ jQuery(function($){
         $( '#search-icon .searchform' ).each( function() {
             $( this ).width( $( this ).closest( '.full-container' ).width() );
         } );
-    }).resize();
+    } ).resize();
 
     // The sticky menu
     if( ( $('nav.site-navigation.primary').hasClass('use-sticky-menu') && !isMobileDevice ) ||
