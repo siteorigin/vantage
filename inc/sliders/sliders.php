@@ -47,21 +47,3 @@ function vantage_smartslider_affiliate( $source ) {
 	return 'siteorigin';
 }
 add_filter( 'smartslider3_hoplink', 'vantage_smartslider_affiliate' );
-
-if ( ! defined( 'METASLIDER_AFFILIATE_ID' ) ) {
-	define( 'METASLIDER_AFFILIATE_ID', '3' );
-}
-
-function vantage_metaslider_affiliate_link_replace() {
-	$url = add_query_arg( 'afref', METASLIDER_AFFILIATE_ID, 'https://www.metaslider.com/upgrade/' );
-	return $url;
-}
-add_filter( 'metaslider_hoplink', 'vantage_metaslider_affiliate_link_replace' );
-
-function vantage_metaslider_affiliate_banner_link_replace( $link ) {
-	if ( strpos( $link, 'metaslider.com' ) ) {
-		$link = add_query_arg( 'afref', METASLIDER_AFFILIATE_ID, $link );
-	}
-	return $link;
-}
-add_filter( 'updraftplus_com_link', 'vantage_metaslider_affiliate_banner_link_replace' );
