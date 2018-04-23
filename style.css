@@ -1841,6 +1841,7 @@ article.page.post-with-thumbnail-icon .entry-main {
     width: 100%;
     margin-bottom: 20px;
     text-align: center;
+    white-space: normal;
   }
 }
 /* =Comments
