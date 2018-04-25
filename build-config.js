@@ -59,6 +59,7 @@ module.exports = {
     js: {
         src: [
             'js/**/*.js',
+            'inc/sliders/js/**/*.js',
             'inc/customizer/js/**/*.js',
             'inc/metaslider/js/**/*.js',
             'inc/mobilenav/js/**/*.js',
