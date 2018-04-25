@@ -1,5 +1,9 @@
 == Changelog ==
 
+== 1.7.5 - 25 April 2018 ==
+* Allow for text to wrap on mobile post navigation.
+* Include sliders JavaScript files.
+
 == 1.7.4 - 18 April 2018 ==
 * Fixed search focus bug on iOS devices.
 
