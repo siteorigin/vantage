@@ -734,7 +734,8 @@ body.responsive {
 		color: #cccccc;
 	}
 
-	a:hover [class^="fa fa-"] {
+	a:hover [class^="fa fa-"],
+	a.focus [class^="fa fa-"] {
 		color: #ffffff;
 	}
 
@@ -750,9 +751,12 @@ body.responsive {
 			font-size: 13px;
 			position: relative;
 
-			&:hover > a {
-				background: #00bcff;
-				color: #ffffff;
+			&:hover,
+			&.focus {
+				> a {
+					background: #00bcff;
+					color: #ffffff;
+				}
 			}
 
 			a {
@@ -769,9 +773,10 @@ body.responsive {
 		/* Second level menu items */
 		ul {
 			.box-shadow(~"0 1px 2px rgba(0,0,0,0.15)");
-
+			.transition( 0.25s, opacity, ease );
 			background: #464646;
-			display: none;
+			visibility: hidden;
+			opacity: 0;
 
 			position: absolute;
 			top: 100%;
@@ -788,7 +793,8 @@ body.responsive {
 				text-align: left;
 
 				/* Hovering over 2nd level items */
-				&:hover > a {
+				&:hover > a,
+				&.focus > a {
 					background: #00bcff;
 					color: #ffffff;
 				}
@@ -803,9 +809,11 @@ body.responsive {
 			}
 		}
 
-		li:hover {
+		li:hover,
+		li.focus {
 			> ul {
-				display: block;
+				visibility: visible;
+				opacity: 1;
 			}
 		}
 	}
@@ -1662,6 +1670,7 @@ article.page{
 				width: 100%;
 				margin-bottom: 20px;
 				text-align: center;
+				white-space: normal;
 			}
 		}
 	}
@@ -2019,7 +2028,7 @@ body.layout-full{
 @import "less/accessibility";
 
 /* Prevent iOS Safari from overriding the colors for phone numbers */
-a[href^="tel"]{
+a[href^="tel"] {
     color:inherit;
     text-decoration:none;
 }

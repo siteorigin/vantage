@@ -2,21 +2,21 @@
 
 if ( class_exists( 'MetaSliderPlugin' ) ) :
 	/**
-	 * Add in the Vantage theme.
+	 * Add in the Vantage (Flex) theme.
 	 *
 	 * @param $themes
 	 * @param $current
 	 * @return string
 	 */
-	if( !function_exists('vantage_metaslider_themes') ) :
-	function vantage_metaslider_themes($themes, $current){
-		$themes .= "<option value='vantage' class='option flex' ".selected('vantage', $current, false).">".__('Vantage (Flex)', 'vantage')."</option>";
+	if ( ! function_exists( 'vantage_metaslider_themes' ) ) :
+	function vantage_metaslider_themes( $themes, $current ) {
+		$themes .= "<option value='vantage' class='option flex' ".selected( 'vantage', $current, false ).">".__( 'Vantage (Flex)', 'vantage' )."</option>";
 		return $themes;
 	}
 	endif;
-	add_filter('metaslider_get_available_themes', 'vantage_metaslider_themes', 5, 2);
+	add_filter( 'metaslider_get_available_themes', 'vantage_metaslider_themes', 5, 2 );
 
-	// Change the Flex name space if the Vantage theme is selected.
+	// Change the FlexSlider name space if the Vantage (Flex) theme is selected.
 	function vantage_metaslider_flex_params( $options, $slider_id, $settings ) {
 	    if ( ! empty($settings['theme'] ) && $settings['theme'] == 'vantage') { 
 	        $options['namespace'] = '"flex-vantage-"'; 
@@ -25,7 +25,7 @@ if ( class_exists( 'MetaSliderPlugin' ) ) :
 	} 
 	add_filter( 'metaslider_flex_slider_parameters', 'vantage_metaslider_flex_params', 10, 3 );	
 	
-	if( !function_exists('vantage_metaslider_filter_flex_slide') ) :
+	if ( ! function_exists( 'vantage_metaslider_filter_flex_slide' ) ) :
 	/**
 	 * Change the HTML for the home page slider.
 	 *
@@ -35,29 +35,29 @@ if ( class_exists( 'MetaSliderPlugin' ) ) :
 	 *
 	 * @return string The new HTML
 	 */
-	function vantage_metaslider_filter_flex_slide($html, $slide, $settings){
-		if( is_admin() && !empty($GLOBALS['vantage_is_main_slider']) ) return $html;
+	function vantage_metaslider_filter_flex_slide( $html, $slide, $settings ) {
+		if ( is_admin() && ! empty( $GLOBALS['vantage_is_main_slider'] ) ) return $html;
 	
-		if(!empty($slide['caption']) && function_exists('filter_var') && filter_var($slide['caption'], FILTER_VALIDATE_URL) !== false) {
+		if ( ! empty( $slide['caption'] ) && function_exists( 'filter_var' ) && filter_var( $slide['caption'], FILTER_VALIDATE_URL ) !== false ) {
 	
 			$settings['height'] = round( $settings['height'] / 1080 * $settings['width'] );
 			$settings['width'] = 1080;
 	
-			$html = sprintf("<img src='%s' class='ms-default-image' width='%d' height='%d' />", $slide['thumb'], intval($settings['width']), intval($settings['height']));
+			$html = sprintf( "<img src='%s' class='ms-default-image' width='%d' height='%d' />", $slide['thumb'], intval( $settings['width'] ), intval( $settings['height'] ) );
 	
-			if (strlen($slide['url'])) {
+			if ( strlen($slide['url'] ) ) {
 				$html = '<a href="' . esc_url( $slide['url'] ) . '" target="' . esc_attr( $slide['target'] ) . '">' . $html . '</a>';
 			}
 	
 			$caption = '<div class="content">';
-			if (strlen($slide['url'])) $caption .= '<a href="' . $slide['url'] . '" target="' . $slide['target'] . '">';
-			$caption .= sprintf('<img src="%s" width="%d" height="%d" />', esc_url($slide['caption']), intval($settings['width']), intval($settings['height']));
-			if (strlen($slide['url'])) $caption .= '</a>';
+			if ( strlen( $slide['url'] ) ) $caption .= '<a href="' . $slide['url'] . '" target="' . $slide['target'] . '">';
+			$caption .= sprintf( '<img src="%s" width="%d" height="%d" />', esc_url( $slide['caption'] ), intval( $settings['width'] ), intval( $settings['height'] ) );
+			if ( strlen( $slide['url'] ) ) $caption .= '</a>';
 			$caption .= '</div>';
 	
 			$html = $caption . $html;
 	
-			$thumb = isset($slide['data-thumb']) && strlen($slide['data-thumb']) ? " data-thumb=\"{$slide['data-thumb']}\"" : "";
+			$thumb = isset( $slide['data-thumb'] ) && strlen( $slide['data-thumb'] ) ? " data-thumb=\"{$slide['data-thumb']}\"" : "";
 	
 			$html = '<li style="display: none;"' . $thumb . ' class="vantage-slide-with-image">' . $html . '</li>';
 		}
@@ -65,11 +65,11 @@ if ( class_exists( 'MetaSliderPlugin' ) ) :
 		return $html;
 	}
 	endif;
-	add_filter('metaslider_image_flex_slider_markup', 'vantage_metaslider_filter_flex_slide', 10, 3);
+	add_filter( 'metaslider_image_flex_slider_markup', 'vantage_metaslider_filter_flex_slide', 10, 3 );
 	
 	if ( ! function_exists( 'vantage_metaslider_ensure_height' ) ) :
 	/**
-	 * Filter Meta Slider settings when Vantage setting is selected.
+	 * Filter Meta Slider settings when the Vantage (Flex) theme is selected.
 	 *
 	 * @param $settings
 	 */
@@ -82,7 +82,7 @@ if ( class_exists( 'MetaSliderPlugin' ) ) :
 	}
 	endif;
 	add_filter( 'sanitize_post_meta_ml-slider_settings', 'vantage_metaslider_ensure_height' );
-endif; // endif metaslider active.
+endif; // endif MetaSlider active.
 
 if ( ! function_exists( 'vantage_slider_page_setting_metabox' ) ) :
 function vantage_slider_page_setting_metabox(){
@@ -92,10 +92,10 @@ endif;
 add_action( 'add_meta_boxes', 'vantage_slider_page_setting_metabox' );
 
 
-if( !function_exists('vantage_slider_page_setting_metabox_render') ) :
-function vantage_slider_page_setting_metabox_render($post){
-	// Key refers to metaslider, but this could be smart slider too.
-	$slider = get_post_meta($post->ID, 'vantage_metaslider_slider', true);
+if ( ! function_exists( 'vantage_slider_page_setting_metabox_render' ) ) :
+function vantage_slider_page_setting_metabox_render( $post ) {
+	// Key refers to MetaSlider, but this could be Smart Slider 3 too.
+	$slider = get_post_meta( $post->ID, 'vantage_metaslider_slider', true );
 
 	$is_home = $post->ID == get_option( 'page_on_front' );
 	// If we're on the home page and the user hasn't explicitly set something here use the 'home_slider' theme setting.
@@ -103,13 +103,12 @@ function vantage_slider_page_setting_metabox_render($post){
 		$slider = siteorigin_setting( 'home_slider' );
 	}
 	
-	
 	// Default stretch setting to theme setting.
 	$slider_stretch = siteorigin_setting( 'home_slider_stretch' );
 	if ( metadata_exists( 'post', $post->ID, 'vantage_metaslider_slider_stretch' ) ) {
-		$slider_stretch = get_post_meta($post->ID, 'vantage_metaslider_slider_stretch', true);
+		$slider_stretch = get_post_meta( $post->ID, 'vantage_metaslider_slider_stretch', true );
 	}
-	$slider_can_stretch = ! empty( preg_match( '/^(demo|meta:)/', $slider ) );
+	$slider_can_stretch = preg_match( '/^(meta:)/', $slider );
 	
 	wp_enqueue_script(
 		'siteorigin-vantage-sliders',
@@ -121,31 +120,31 @@ function vantage_slider_page_setting_metabox_render($post){
 	// Include the demo slider in the options if it's the home page.
 	$options = vantage_sliders_get_options( $is_home );
 	?>
-	<label><strong><?php _e('Display Page Slider', 'vantage') ?></strong></label>
+	<label><strong><?php _e( 'Display Page Slider', 'vantage' ); ?></strong></label>
 	<p>
 		<select name="vantage_page_slider">
-			<?php foreach($options as $id => $name) : ?>
-				<option value="<?php echo esc_attr($id) ?>" <?php selected($slider, $id) ?>><?php echo esc_html($name) ?></option>
+			<?php foreach ( $options as $id => $name ) : ?>
+				<option value="<?php echo esc_attr( $id ) ?>" <?php selected( $slider, $id ) ?>><?php echo esc_html( $name ); ?></option>
 			<?php endforeach; ?>
 		</select>
 	</p>
-	<p class="checkbox-wrapper" style="display: <?php echo ( $slider_can_stretch ? 'block' : 'none' ) ?>;">
-		<input id="vantage_page_slider_stretch" name="vantage_page_slider_stretch" type="checkbox" <?php checked( $slider_stretch ) ?> />
-		<label for="vantage_page_slider_stretch"><?php _e('Stretch Page Meta Slider', 'vantage') ?></label>
+	<p class="checkbox-wrapper" style="display: <?php echo ( ! empty( $slider_can_stretch ) ? 'block' : 'none' ) ?>;">
+		<input id="vantage_page_slider_stretch" name="vantage_page_slider_stretch" type="checkbox" <?php checked( $slider_stretch ); ?> />
+		<label for="vantage_page_slider_stretch"><?php _e( 'Stretch Page Meta Slider', 'vantage' ); ?></label>
 	</p>
 	<?php
-	wp_nonce_field('save', '_vantage_slider_nonce');
+	wp_nonce_field( 'save', '_vantage_slider_nonce' );
 }
 endif;
 
-if( !function_exists('vantage_slider_page_setting_save') ) :
-function vantage_slider_page_setting_save($post_id){
-	if( empty( $_POST[ '_vantage_slider_nonce' ] ) || ! wp_verify_nonce( $_POST[ '_vantage_slider_nonce' ], 'save' ) ) return;
-	if( ! current_user_can( 'edit_post', $post_id ) ) return;
-	if( defined( 'DOING_AJAX' ) ) return;
+if ( ! function_exists( 'vantage_slider_page_setting_save' ) ) :
+function vantage_slider_page_setting_save( $post_id ) {
+	if ( empty( $_POST[ '_vantage_slider_nonce' ] ) || ! wp_verify_nonce( $_POST[ '_vantage_slider_nonce' ], 'save' ) ) return;
+	if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+	if ( defined( 'DOING_AJAX' ) ) return;
 
-	update_post_meta($post_id, 'vantage_metaslider_slider', $_POST[ 'vantage_page_slider' ] );
-	$slider_stretch = !empty( $_POST[ 'vantage_page_slider_stretch' ] );
+	update_post_meta( $post_id, 'vantage_metaslider_slider', $_POST['vantage_page_slider'] );
+	$slider_stretch = ! empty( $_POST['vantage_page_slider_stretch'] );
 	update_post_meta( $post_id, 'vantage_metaslider_slider_stretch', $slider_stretch );
 
 	// If we're on the home page update the 'home_slider' theme setting as well.
@@ -155,4 +154,4 @@ function vantage_slider_page_setting_save($post_id){
 	}
 }
 endif;
-add_action('save_post', 'vantage_slider_page_setting_save');
+add_action( 'save_post', 'vantage_slider_page_setting_save' );

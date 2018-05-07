@@ -189,27 +189,17 @@ jQuery(function($){
         } );
     } );
 
-    // The menu hover effects
-    $('#masthead')
-        .on('mouseenter', '.main-navigation ul li', function(){
-            var $$ = $(this);
-            var $ul = $$.find('> ul');
-            $ul.css({
-                'display' : 'block',
-                'opacity' : 0
-            }).clearQueue().animate({opacity: 1}, 250);
-            $ul.data('final-opacity', 1);
-        } )
-        .on('mouseleave', '.main-navigation ul li', function(){
-            var $$ = $(this);
-            var $ul = $$.find('> ul');
-            $ul.clearQueue().animate( {opacity: 0}, 250, function(){
-                if($ul.data('final-opacity') === 0) {
-                    $ul.css('display', 'none');
-                }
-            });
-            $ul.data('final-opacity', 0);
-        } );
+    // Add keyboard access to the menu.
+	$( '.menu-item' ).children( 'a' ).focus( function() {
+        $( this ).parents( 'li' ).addClass( 'focus' );
+	} );
+	// Click event fires after focus event.
+	$( '.menu-item' ).children( 'a' ).click( function() {
+		$( this ).parents( 'li' ).removeClass( 'focus' );
+	} );
+	$( '.menu-item' ).children( 'a' ).focusout( function() {
+		$( this ).parents( 'li' ).removeClass( 'focus' );
+	} );
 
     // Hover for the menu widget in the header
     $( '#header-sidebar .widget_nav_menu', '#masthead-widgets .widget_nav_menu' )
@@ -226,43 +216,51 @@ jQuery(function($){
             $ul.finish().fadeOut(150);
         } );
 
-    // The search bar
+    // The search bar.
     var isSearchHover = false;
-    $(document).click(function(){
-        if(!isSearchHover) {
-            $('#search-icon form').fadeOut(250);
+    $( document ).click( function() {
+        if ( ! isSearchHover ) {
+            $( '#search-icon form' ).fadeOut( 250 );
         }
-    });
+    } );
 
-    $(document)
-        .on('click','#search-icon-icon', function(){
-            var $$ = $(this).parent();
-            $$.find('form').fadeToggle(250);
-            setTimeout(function(){
-                $$.find('input[name=s]').focus();
-            }, 300);
-        } );
+    // Check the device that is being used
+    var deviceAgent = navigator.userAgent.toLowerCase();
 
+    // Open and focus the search form
     $( document )
-        .keyup( function(e) {
-            if ( e.keyCode == 27 ) { // escape key maps to keycode `27`
-                $('#search-icon form').fadeOut(250);
+        .on( 'click','#search-icon-icon', function() {
+            var $$ = $( this ).parent();
+            $$.find( 'form' ).fadeToggle( 250 );
+            if ( deviceAgent.match(/(iPad|iPhone|iPod)/i) ) {
+                $$.find( 'input[type="search"]' ).focus();
+            } else {
+                setTimeout( function() {
+                    $$.find( 'input[type="search"]' ).focus();
+                }, 300 );
             }
         } );
 
-    $(document)
-        .on('mouseenter', '#search-icon', function(){
-            isSearchHover = true;
-        } )
-        .on('mouseleave', '#search-icon', function(){
-            isSearchHover = false;
+    $( document )
+        .keyup( function( e ) {
+            if ( e.keyCode == 27 ) { // Escape key maps to keycode `27`.
+                $( '#search-icon form' ).fadeOut( 250 );
+            }
         } );
 
-    $(window).resize(function() {
-        $('#search-icon .searchform').each(function(){
-            $(this).width($(this).closest('.full-container').width());
-        });
-    }).resize();
+    $( document )
+    .on( 'mouseenter', '#search-icon', function() {
+        isSearchHover = true;
+    } )
+    .on( 'mouseleave', '#search-icon', function() {
+        isSearchHover = false;
+    } );
+
+    $( window ).resize( function() {
+        $( '#search-icon .searchform' ).each( function() {
+            $( this ).width( $( this ).closest( '.full-container' ).width() );
+        } );
+    } ).resize();
 
     // The sticky menu
     if( ( $('nav.site-navigation.primary').hasClass('use-sticky-menu') && !isMobileDevice ) ||

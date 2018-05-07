@@ -7,14 +7,14 @@
 
 	<div class="hgroup full-container <?php if ( is_active_sidebar( 'sidebar-masthead' ) ) echo 'masthead-sidebar' ?>">
 
-		<?php if ( !is_active_sidebar( 'sidebar-masthead' ) ) : ?>
+		<?php if ( ! is_active_sidebar( 'sidebar-masthead' ) ) : ?>
 
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php vantage_display_logo(); ?></a>
 			<?php if ( is_active_sidebar( 'sidebar-header' ) ) : ?>
 
 				<div id="header-sidebar" <?php if ( siteorigin_setting( 'logo_no_widget_overlay' ) ) echo 'class="no-logo-overlay"' ?>>
 					<?php
-					// Display the header area sidebar, and tell mobile navigation that we can use menus in here
+					// Display the header area sidebar, and tell mobile navigation that we can use menus in here.
 					add_filter( 'siteorigin_mobilenav_is_valid', '__return_true' );
 					dynamic_sidebar( 'sidebar-header' );
 					remove_filter( 'siteorigin_mobilenav_is_valid', '__return_true' );

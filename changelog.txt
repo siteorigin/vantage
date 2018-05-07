@@ -1,8 +1,19 @@
 == Changelog ==
 
-View full release information on [Github](https://github.com/siteorigin/vantage/releases).
+== 1.7.4 - 18 April 2018 ==
+* Fixed search focus bug on iOS devices.
 
-== 1.7 - 16 March 2018 ==
+== 1.7.3 - 02 April 2018 ==
+* Resolved MetaSlider Vantage (Flex) theme bottom margin issue.
+* Added main menu keyboard accessibility.
+
+== 1.7.2 - 20 March 2018 ==
+* Reverted to 1.7. Resolved PHP 5 error.
+
+== 1.7.1 - 18 March 2018 ==
+* Hotfix release. Reverted to 1.6.9 to resolve PHP 5 error.
+
+== 1.7 - 17 March 2018 ==
 * Added Smart Slider 3 support to the Page Slider setting.
 * Separated the MetaSlider Flex and Vantage (Flex) themes to ensure both render independently.
 * Enhanced mobile menu to open sub menus with empty links or links containing a hash.
