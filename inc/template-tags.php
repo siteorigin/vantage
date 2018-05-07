@@ -562,7 +562,15 @@ function vantage_entry_thumbnail() {
 	} else {
 		$thumb_size = 'vantage-thumbnail-no-sidebar';
 	}
-	the_post_thumbnail( $thumb_size );
+	
+	$atts = array();
+	if ( function_exists( 'wp_get_attachment_image_srcset' ) ) {
+		// These two functions require WP 4.4
+		$atts['srcset'] =  wp_get_attachment_image_srcset( get_post_thumbnail_id( get_the_ID() ) );
+		$atts['sizes'] = wp_get_attachment_image_sizes( get_post_thumbnail_id( get_the_ID() ) );
+	}
+
+	the_post_thumbnail( $thumb_size, $atts );
 }
 endif;
 
