@@ -3067,20 +3067,10 @@ html[xmlns] .slides {
 /* =Some row styling for page builder
 ----------------------------------------------- */
 .panel-row-style {
-  zoom: 1;
   margin: 0 -20px;
   padding: 25px 20px;
   background-position: center center;
   background-repeat: no-repeat;
-}
-.panel-row-style:before {
-  content: '';
-  display: block;
-}
-.panel-row-style:after {
-  content: '';
-  display: table;
-  clear: both;
 }
 .panel-row-style .panel-row-style {
   margin: 0;
