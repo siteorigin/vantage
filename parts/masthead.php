@@ -15,9 +15,9 @@
 				<div id="header-sidebar" <?php if ( siteorigin_setting( 'logo_no_widget_overlay' ) ) echo 'class="no-logo-overlay"' ?>>
 					<?php
 					// Display the header area sidebar, and tell mobile navigation that we can use menus in here.
-					// add_filter( 'siteorigin_mobilenav_is_valid', '__return_true' );
+					add_filter( 'siteorigin_mobilenav_is_valid', '__return_true' );
 					dynamic_sidebar( 'sidebar-header' );
-					// remove_filter( 'siteorigin_mobilenav_is_valid', '__return_true' );
+					remove_filter( 'siteorigin_mobilenav_is_valid', '__return_true' );
 					?>
 				</div>
 

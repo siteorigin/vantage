@@ -83,8 +83,8 @@ function siteorigin_mobilenav_nav_filter( $nav_menu, $args ) {
 	return $nav_menu;
 }
 endif;
-// add_filter( 'wp_nav_menu', 'siteorigin_mobilenav_nav_filter', 10, 2 );
-// add_filter( 'wp_page_menu', 'siteorigin_mobilenav_nav_filter', 10, 2 );
+add_filter( 'wp_nav_menu', 'siteorigin_mobilenav_nav_filter', 10, 2 );
+add_filter( 'wp_page_menu', 'siteorigin_mobilenav_nav_filter', 10, 2 );
 
 if( !function_exists('siteorigin_mobilenav_nav_menu_css') ) :
 function siteorigin_mobilenav_nav_menu_css(){
