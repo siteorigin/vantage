@@ -43,8 +43,8 @@ if ( ! function_exists( 'siteorigin_mobilenav_nav_filter' ) ) :
  */
 function siteorigin_mobilenav_nav_filter( $nav_menu, $args ) {
 
-	if ( function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( $args->theme_location ) ) { 
-		return $nav_menu; 
+	if ( function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( $args->theme_location ) ) {
+		return $nav_menu;
 	}
 
 	$args = ( object ) $args;
@@ -53,10 +53,10 @@ function siteorigin_mobilenav_nav_filter( $nav_menu, $args ) {
 	static $mobile_nav_id = 1;
 
 	// Add a marker so we can find this menu later.
-	$nav_menu = '<div id="so-mobilenav-standard-'.$mobile_nav_id.'" data-id="'.$mobile_nav_id.'" class="so-mobilenav-standard"></div>'.$nav_menu;
+	// $nav_menu = '<div id="so-mobilenav-standard-' . $mobile_nav_id . '" data-id="' . $mobile_nav_id . '" class="so-mobilenav-standard"></div>' . $nav_menu;
 
 	// Add the mobile navigation marker.
-	$nav_menu .= '<div id="so-mobilenav-mobile-'.$mobile_nav_id.'" data-id="'.$mobile_nav_id.'" class="so-mobilenav-mobile"></div>';
+	$nav_menu .= '<div id="so-mobilenav-mobile-' . $mobile_nav_id . '" data-id="' . $mobile_nav_id . '" class="so-mobilenav-mobile"></div>';
 
 	// Create the mobile navigation.
 	$class = $args->container_class ? ' class="' . esc_attr( $args->container_class ) . '" menu-mobilenav-container' : ' class="menu-mobilenav-container"';
