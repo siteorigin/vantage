@@ -1,5 +1,10 @@
 == Changelog ==
 
+== 1.7.6 - 21 May 2018 ==
+* Resolved image post format warning.
+* Removed clearfix for full width rows.
+* Resolved header widget area menu drop-down z-index menu issue.
+
 == 1.7.5 - 25 April 2018 ==
 * Allow for text to wrap on mobile post navigation.
 * Include sliders JavaScript files.
