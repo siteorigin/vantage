@@ -3366,6 +3366,9 @@ html[xmlns] .slides {
 .widget_siteorigin-panels-postloop .pagination {
   margin-top: 20px;
 }
+.widget_siteorigin-panels-postloop .flexslider .slides .slide {
+  margin-left: 0;
+}
 @media (max-width: 640px) {
   body.responsive .vantage-grid-loop article,
   body.responsive .vantage-circleicon-loop .widget_circleicon-widget {
