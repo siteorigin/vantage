@@ -3203,13 +3203,13 @@ html[xmlns] .slides {
   background-position: center center;
 }
 .vantage-carousel-wrapper .vantage-carousel li.carousel-entry .thumbnail a,
-.vantage-carousel-wrapper .vantage-carousel li.carousel-entry .thumbnail a span.overlay {
+.vantage-carousel-wrapper .vantage-carousel li.carousel-entry .thumbnail a span.vantage-overlay {
   -webkit-transition: all 0.35s ease;
   -moz-transition: all 0.35s ease;
   -o-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
-.vantage-carousel-wrapper .vantage-carousel li.carousel-entry .thumbnail a span.overlay {
+.vantage-carousel-wrapper .vantage-carousel li.carousel-entry .thumbnail a span.vantage-overlay {
   display: block;
   width: 100%;
   height: 100%;
@@ -3365,6 +3365,9 @@ html[xmlns] .slides {
 }
 .widget_siteorigin-panels-postloop .pagination {
   margin-top: 20px;
+}
+.widget_siteorigin-panels-postloop .flexslider .slides .slide {
+  margin-left: 0;
 }
 @media (max-width: 640px) {
   body.responsive .vantage-grid-loop article,
