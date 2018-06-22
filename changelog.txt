@@ -3,6 +3,8 @@
 == 1.7.7 - 22 June 2018 ==
 * Updated Google Fonts array.
 * Updated .pot file.
+* Fixed overlay class in Ajax output in Loop Carousel.
+* Fixed alignment in slider loop.
 
 == 1.7.6 - 21 May 2018 ==
 * Resolved image post format warning.
