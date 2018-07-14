@@ -99,7 +99,7 @@ function vantage_setup() {
 
 	add_theme_support( 'title-tag' );
 
-	if( !defined('SITEORIGIN_PANELS_VERSION') ){
+	if ( ! defined( 'SITEORIGIN_PANELS_VERSION' ) ) {
 		// Only include panels lite if the panels plugin doesn't exist
 		include get_template_directory() . '/inc/panels-lite/panels-lite.php';
 	}
@@ -164,15 +164,15 @@ if ( ! function_exists( 'vantage_premium_setup' ) ) :
 /**
  * Add support for premium theme components.
  */
-function vantage_premium_setup(){
-	// This theme supports the no attribution addon
+function vantage_premium_setup() {
+	// This theme supports the no attribution addon.
 	add_theme_support( 'siteorigin-premium-no-attribution', array(
 		'filter'  => 'vantage_footer_attribution',
 		'enabled' => siteorigin_setting( 'general_attribution' ),
 		'siteorigin_setting' => 'general_attribution'
 	) );
 
-	// This theme supports the ajax comments addon
+	// This theme supports the ajax comments addon.
 	add_theme_support( 'siteorigin-premium-ajax-comments', array(
 		'enabled' => siteorigin_setting( 'social_ajax_comments' ),
 		'siteorigin_setting' => 'social_ajax_comments'
@@ -187,14 +187,13 @@ function vantage_siteorigin_css_snippets_paths( $paths ){
 }
 add_filter( 'siteorigin_css_snippet_paths', 'vantage_siteorigin_css_snippets_paths' );
 
-if( !function_exists( 'vantage_infinite_scroll_settings' ) ) :
+if ( ! function_exists( 'vantage_infinite_scroll_settings' ) ) :
 // Override Jetpack Infinite Scroll default behaviour of ignoring explicit posts_per_page setting when type is 'click'.
 function vantage_infinite_scroll_settings( $settings ) {
 	if ( $settings['type'] == 'click' ) {
-		if( siteorigin_setting( 'blog_archive_layout' ) == 'circleicon' ) {
+		if ( siteorigin_setting( 'blog_archive_layout' ) == 'circleicon' ) {
 			$settings['posts_per_page'] = 6;
-		}
-		else if ( siteorigin_setting( 'blog_archive_layout' ) == 'grid' ) {
+		} elseif ( siteorigin_setting( 'blog_archive_layout' ) == 'grid' ) {
 			$settings['posts_per_page'] = 8;
 		}
 	}
@@ -235,7 +234,7 @@ if( !function_exists('vantage_register_custom_background') ) :
  */
 function vantage_register_custom_background() {
 
-	if(siteorigin_setting('layout_bound') == 'boxed') {
+	if ( siteorigin_setting( 'layout_bound' ) == 'boxed') {
 		$args = array(
 			'default-color' => 'e8e8e8',
 			'default-image' => '',
@@ -250,7 +249,7 @@ endif;
 add_action( 'after_setup_theme', 'vantage_register_custom_background' );
 
 
-if( !function_exists('vantage_widgets_init') ) :
+if ( ! function_exists('vantage_widgets_init') ) :
 /**
  * Register widgetized area and update sidebar with default widgets
  *
@@ -313,12 +312,12 @@ endif;
 add_action( 'widgets_init', 'vantage_widgets_init' );
 
 
-if( !function_exists('vantage_print_styles') ) :
+if ( ! function_exists( 'vantage_print_styles' ) ) :
 /**
  * Print all the necessary Vantage styles in the header.
  */
-function vantage_print_styles(){
-	if( !siteorigin_setting('layout_responsive') ) return;
+function vantage_print_styles() {
+	if ( ! siteorigin_setting( 'layout_responsive' ) ) return;
 
 	// Create the footer and masthead widget CSS
 	$sidebars_widgets = wp_get_sidebars_widgets();
@@ -335,7 +334,7 @@ function vantage_print_styles(){
 	<?php
 }
 endif;
-add_action('wp_head', 'vantage_print_styles', 11);
+add_action( 'wp_head', 'vantage_print_styles', 11 );
 
 
 if( !function_exists('vantage_scripts') ) :
