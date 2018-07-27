@@ -1,5 +1,8 @@
 == Changelog ==
 
+== 1.7.9 - 27 July 2018 ==
+* Restored the vantage .pot file to it's correct location caused by build script issue.
+
 == 1.7.8 - 14 July 2018 ==
 * Allow for mobile menu fragment links with ID's defined.
 
