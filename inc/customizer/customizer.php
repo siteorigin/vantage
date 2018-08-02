@@ -93,7 +93,7 @@ class SiteOrigin_Customizer_CSS_Builder {
 		}
 		$import = array_unique( $import );
 		if ( !empty( $import ) ) {
-			$return .= '@import url(http' . ( is_ssl() ? 's' : '' ) . '://fonts.googleapis.com/css?family=' . implode( '|', $import ) . '); ';
+			$return .= '@import url(//fonts.googleapis.com/css?family=' . implode( '|', $import ) . '); ';
 		}
 
 		foreach ( $this->css as $selector => $rules ) {
