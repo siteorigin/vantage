@@ -37,6 +37,7 @@ $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 		<?php if ( $ubermenu_active ): ?>
 			<?php ubermenu( 'main' , array( 'theme_location' => 'primary' ) ); ?>
 		<?php else: ?>
+			<div id="so-mobilenav-standard-1" data-id="1" class="so-mobilenav-standard"></div>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'link_before' => '<span class="icon"></span>' ) ); ?>
 		<?php endif; ?>
 	</div>
