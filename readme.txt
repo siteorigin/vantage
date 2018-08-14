@@ -62,14 +62,8 @@ Vantage WordPress Theme is derived from Underscores WordPress Theme, Copyright 2
 
 == Images ==
 
-Cell Phone image sourced from http://www.publicdomainpictures.net/view-image.php?image=15874&picture=woman-showing-a-cell-phone
-Licensed under Public Domain.
-
-Basketball Player image sourced from http://pixabay.com/en/basketball-sports-teams-players-95607/
-Licensed under Public Domain with confirmation of full Public Domain/CC0 license from the author.
-
-Nature Scene photo sourced from http://publicdomainarchive.com/
-Licensed under public domain.
+Miami skyline image sourced from [Pixabay](https://pixabay.com/en/panorama-miami-florida-water-usa-2117310/) by [pixeid](https://pixabay.com/en/users/pixexid-4729217/).
+Licensed under CC0 Creative Commons.
 
 == Bundled Resources ==
 
