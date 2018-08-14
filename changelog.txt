@@ -1,5 +1,9 @@
 == Changelog ==
 
+== 1.7.10 - 14 August 2018 ==
+* Removed http/https from Google Fonts import.
+* Updated screenshot.
+
 == 1.7.9 - 27 July 2018 ==
 * Restored the vantage .pot file to it's correct location caused by build script issue.
 
