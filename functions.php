@@ -426,7 +426,7 @@ if ( ! function_exists( 'vantage_render_slider' ) ) :
  */
 function vantage_render_slider() {
 	if ( is_front_page() && ! in_array( siteorigin_setting( 'home_slider' ), array( '', 'none' ) ) ) {
-		if( is_customize_preview() ){
+		if ( is_customize_preview() ) {
 		    $settings_slider = siteorigin_setting( 'home_slider' );
 		} else {
 		    $page_id = get_the_ID();
@@ -450,12 +450,12 @@ function vantage_render_slider() {
 		if ( is_home() ) {
 			$page_id = get_queried_object_id();
 		}
-		if( ( is_page() || $is_wc_shop || is_home() ) && get_post_meta( $page_id, 'vantage_metaslider_slider', true ) != 'none' ) {
+		if ( ( is_page() || $is_wc_shop || is_home() ) && get_post_meta( $page_id, 'vantage_metaslider_slider', true ) != 'none' ) {
 			$page_slider = get_post_meta( $page_id, 'vantage_metaslider_slider', true );
 			if ( ! empty( $page_slider ) ) {
 				$slider = $page_slider;
 			}
-			$slider_stretch = get_post_meta($page_id, 'vantage_metaslider_slider_stretch', true);
+			$slider_stretch = get_post_meta( $page_id, 'vantage_metaslider_slider_stretch', true );
 		}
 	}
 
