@@ -2036,6 +2036,22 @@ article.page.post-with-thumbnail-icon .entry-main {
 #commentform .required {
   color: #a40802;
 }
+#commentform .comment-form-cookies-consent {
+  align-items: center;
+  clear: both;
+  display: flex;
+}
+#commentform .comment-form-cookies-consent input {
+  line-height: 1;
+  margin-right: 7px;
+  width: auto;
+}
+#commentform .comment-form-cookies-consent label {
+  display: inline-block;
+  font-weight: normal;
+  margin-bottom: 0;
+  width: auto;
+}
 /* Vantage Jetpack Subscription Form */
 #commentform p.comment-subscription-form {
   margin-bottom: 0px;

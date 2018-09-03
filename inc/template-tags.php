@@ -354,14 +354,13 @@ endif;
 add_action( 'edit_category', 'vantage_category_transient_flusher' );
 add_action( 'save_post', 'vantage_category_transient_flusher' );
 
-
-if( !function_exists( 'vantage_get_archive_title' ) ) :
+if ( ! function_exists( 'vantage_get_archive_title' ) ) :
 /**
  * Return the archive title depending on which page is being displayed.
  *
  * @since vantage 1.0
  */
-function vantage_get_archive_title(){
+function vantage_get_archive_title() {
 	$title = '';
 	global $wp_query;
 	if ( is_category() ) {
@@ -390,9 +389,9 @@ function vantage_get_archive_title(){
 		$title = sprintf( __( 'Yearly Archives: %s', 'vantage' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
 
 	}
-	elseif ( !empty($wp_query->query_vars['taxonomy']) ) {
-		$value = get_query_var($wp_query->query_vars['taxonomy']);
-		$term = get_term_by('slug',$value,$wp_query->query_vars['taxonomy']);
+	elseif ( ! empty( $wp_query->query_vars['taxonomy'] ) ) {
+		$value = get_query_var( $wp_query->query_vars['taxonomy'] );
+		$term = get_term_by( 'slug',$value,$wp_query->query_vars['taxonomy'] );
 		$tax = get_taxonomy( $wp_query->query_vars['taxonomy'] );
 		$title = sprintf( __( '%s: %s', 'vantage' ), $tax->label, $term->name );
 	}
@@ -400,18 +399,17 @@ function vantage_get_archive_title(){
 		$title = __( 'Archives', 'vantage' );
 	}
 
-	return apply_filters('vantage_archive_title', $title);
+	return apply_filters( 'vantage_archive_title', $title );
 }
 endif;
 
-
-if ( !function_exists( 'vantage_get_post_categories' ) ) :
+if ( ! function_exists( 'vantage_get_post_categories' ) ) :
 /**
  * Get the post meta.
  *
  * @since vantage 1.0
  */
-function vantage_get_post_categories(){
+function vantage_get_post_categories() {
 	/* translators: used between list items, there is a space after the comma */
 	$category_list = get_the_category_list( __( ', ', 'vantage' ) );
 
@@ -419,17 +417,15 @@ function vantage_get_post_categories(){
 	$tag_list = get_the_tag_list( '', __( ', ', 'vantage' ) );
 
 	if ( ! vantage_categorized_blog() || ! siteorigin_setting( 'blog_post_categories' ) ) {
-		// This blog only has 1 category or so we just need to worry about tags in the meta text
+		// This blog only has 1 category or so we just need to worry about tags in the meta text.
 		if ( '' != $tag_list && siteorigin_setting( 'blog_post_tags' ) ) {
 			$meta_text = __( '<strong>Tagged</strong> %2$s.', 'vantage' );
-		}
-		else {
+		} else {
 			$meta_text = '';
 		}
 
-	}
-	else {
-		// But this blog has loads of categories so we should probably display them here
+	} else {
+		// But this blog has loads of categories so we should probably display them here.
 		if ( '' != $tag_list && siteorigin_setting( 'blog_post_tags' )) {
 			$meta_text = __( 'Posted in %1$s and tagged %2$s.', 'vantage' );
 		}
@@ -437,7 +433,7 @@ function vantage_get_post_categories(){
 			$meta_text = __( 'Posted in %1$s.', 'vantage' );
 		}
 
-	} // end check for categories on this blog
+	} // End check for categories on this blog.
 
 	$meta = sprintf(
 		$meta_text,
@@ -447,10 +443,9 @@ function vantage_get_post_categories(){
 		the_title_attribute( 'echo=0' )
 	);
 
-	return apply_filters('vantage_post_meta', $meta);
+	return apply_filters( 'vantage_post_meta', $meta );
 }
 endif;
-
 
 if ( !function_exists( 'vantage_next_attachment_url' ) ) :
 /**
