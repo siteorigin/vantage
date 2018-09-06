@@ -1,5 +1,9 @@
 == Changelog ==
 
+== 1.7.12 - 06 September 2018 ==
+* Resolved header widget area alignment bug.
+* Reverted multilingual home page slider support. Current solution doesn't support blog home page.
+
 == 1.7.11 - 03 September 2018 ==
 * Added comment form cookie consent styling.
 * Allowed for the Customizer menu settings to override focus background and text color.

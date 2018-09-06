@@ -382,44 +382,25 @@ body {
 		}
 
 		#header-sidebar {
+			box-sizing: border-box;
+			height: 100%;
 			padding-top: 15px;
 			padding-bottom: 15px;
-			height: 100%;
 			position: absolute;
 			right: 0;
 			top: 0;
 
-			.box-sizing(border-box);
-
-			/* Center align layout. Based on old CSS3 spec, so update when new spec is available and supported */
-
-			-ms-flex-pack:center;
-			-ms-flex-align:center;
-			display:-ms-flexbox;
-
-			-moz-box-pack:center;
-			-moz-box-align:center;
-			display:-moz-box;
-
-			-webkit-box-pack:center;
-			-webkit-box-align:center;
-			display:-webkit-box;
-
-			display:box;
-			box-pack:center;
-			box-align:center;
-
 			aside.widget {
-				margin-bottom: 0;
 				float: left;
-				position: relative;
 				margin-right: 25px;
+				margin-bottom: 0;
+				position: relative;
 
 				&:last-child {
 					margin-right: 0;
 				}
 			}
-
+			
 			.widget-title {
 				font-weight: bold;
 				margin-bottom: 5px;
