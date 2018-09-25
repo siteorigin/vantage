@@ -1,6 +1,35 @@
 <?php
 
 if ( class_exists( 'MetaSliderPlugin' ) ) :
+
+	/**
+	 * Dequeue the FlexSlider script if MetaSlider is loading theirs since
+	 * they have a custom version better suited to their plugin.
+	 */
+	if ( ! function_exists( 'vantage_remove_flexslider_if_metaslider' ) ) :
+	function vantage_remove_flexslider_if_metaslider() {
+		global $wp_scripts;
+
+		// Check if the user has FlexSlider set
+		if ( wp_script_is( 'metaslider-flex-slider' ) ) {
+
+			// Attempt to unregister the script (works only in the footer)
+			wp_dequeue_script( 'jquery-flexslider' );
+
+			// Attempt to unload MetaSlider (too late to unload MetaSlider's version)
+			if ( in_array( 'jquery-flexslider', $wp_scripts->done ) ) {
+
+				// Not ideal, but this loads after the head ok to just print the styles anywhere
+				$wp_scripts->print_inline_script( 'metaslider-flex-slider', 'after');
+
+				// Dequeue MetaSlider
+				wp_dequeue_script( 'metaslider-flex-slider' );
+			}
+		}
+	}
+	endif;
+	add_action( 'metaslider_register_public_styles', 'vantage_remove_flexslider_if_metaslider', 99 );
+	
 	/**
 	 * Add in the Vantage (Flex) theme.
 	 *
