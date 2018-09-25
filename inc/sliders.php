@@ -16,7 +16,7 @@ if ( class_exists( 'MetaSliderPlugin' ) ) :
 			// Attempt to unregister the script (works only in the footer)
 			wp_dequeue_script( 'jquery-flexslider' );
 
-			// Attempt to unload MetaSlider (too late to unload MetaSlider's version)
+			// Attempt to unload MetaSlider (too late to unload Vantage's version)
 			if ( in_array( 'jquery-flexslider', $wp_scripts->done ) ) {
 
 				// Not ideal, but this loads after the head ok to just print the styles anywhere
