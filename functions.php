@@ -337,7 +337,7 @@ endif;
 add_action( 'wp_head', 'vantage_print_styles', 11 );
 
 
-if( !function_exists('vantage_scripts') ) :
+if ( ! function_exists('vantage_scripts') ) :
 /**
  * Enqueue scripts and styles
  */
@@ -379,15 +379,15 @@ function vantage_scripts() {
 endif;
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
 
-if( !function_exists('vantage_top_text_area') ) :
+if ( ! function_exists( 'vantage_top_text_area' ) ) :
 /**
  * Display some text in the text area.
  */
 function vantage_top_text_area(){
-	echo wp_kses_post( siteorigin_setting('logo_header_text') );
+	echo wp_kses_post( siteorigin_setting( 'logo_header_text' ) );
 }
 endif;
-add_action('vantage_support_text', 'vantage_top_text_area');
+add_action( 'vantage_support_text', 'vantage_top_text_area' );
 
 if( !function_exists('vantage_back_to_top') ) :
 /**
