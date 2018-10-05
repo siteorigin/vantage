@@ -1,5 +1,11 @@
 == Changelog ==
 
+== 1.7.13 - 05 October 2018 ==
+* Resolved header sidebar Circle Icon alignment bug.
+* Added Catamaran font.
+* Removed Vantage FlexSlider if MetaSlider is loading their version.
+* Added a check to ensure FitVids doesn't load on Gutenberg pages.
+
 == 1.7.12 - 06 September 2018 ==
 * Resolved header widget area alignment bug.
 * Reverted multilingual home page slider support. Current solution doesn't support blog home page.
