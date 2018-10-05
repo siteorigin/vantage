@@ -523,6 +523,18 @@ return array (
 		array (
 			0 => 'regular',
 		),
+	'Catamaran' =>
+		array (
+			0 => '100',
+			1 => '200',
+			2 => '300',
+			3 => 'regular',
+			4 => '500',
+			5 => '600',
+			6 => '700',
+			7 => '800',
+			8 => '900',
+		),
 	'Caudex' =>
 		array (
 			0 => 'regular',

@@ -567,6 +567,9 @@ body {
   margin-bottom: 0;
   position: relative;
 }
+#masthead .hgroup #header-sidebar aside.widget.widget_circleicon-widget {
+  clear: none;
+}
 #masthead .hgroup #header-sidebar aside.widget:last-child {
   margin-right: 0;
 }
