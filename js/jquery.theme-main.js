@@ -278,44 +278,27 @@ jQuery(function($){
                 $initTop = $$.offset().top;
             }
             var threshold = 0;
-            if ( $('body').hasClass('admin-bar') ) {
-                var adminBar = $('#wpadminbar');
-                var adminBarHeight = adminBar.outerHeight();
-                threshold = adminBar.css('position') == "absolute" ? 0 : adminBarHeight;
+            if ( $( 'body' ).hasClass( 'admin-bar' ) ) {
+                var adminBar = $( '#wpadminbar' );
+                threshold = adminBar.css( 'position' ) == 'absolute' ? 0 : adminBar.outerHeight();
             }
-            var scrollTop = $(window).scrollTop();
-            var navTop = parseInt($initTop - scrollTop);//Force truncation of float value.
+            var navTop = parseInt( $initTop - $(window).scrollTop() );//Force truncation of float value.
             if( navTop < threshold ) {
-                if( ! $$.hasClass( 'sticky') ) {
-                    $$.wrapAll( $stickyContainer );
-                    // Work out the current position
-                    $$.css({
-                        'position' : 'fixed',
-                        'width' : $$.parent().width(),
-                        'top' : threshold,
-                        'left' : $$.parent().position().left,
-                        'z-index' : 998
-                    }).addClass('sticky');
-                } else {
-                    $$.css({
-                        'width': $$.parent().width(),
-                        'top': threshold,
-                        'left': $$.parent().position().left
-                    });
-                }
-                $$.parent().css('height', $$.outerHeight());
-            }
-            else {
-                if($$.hasClass('sticky')) {
-                    $$.css({
-                        'position': '',
-                        'width': '',
-                        'top': '',
-                        'left': '',
-                        'z-index': ''
-                    }).removeClass('sticky');
-                    $$.unwrap();
-                    $initTop = null;
+                $$.css({
+                    position: 'fixed',
+                    top: threshold,
+                    right: 0,
+                    left: 0,
+                });
+                $$.addClass( 'sticky' );
+                $( '#masthead' ).css( 'margin-bottom',  $$.outerHeight() );
+            } else {
+                if( $$.hasClass( 'sticky' ) ) {
+                    $$.css( {
+                        position: 'relative',
+                        top: 0,
+                    } );
+                    $( '#masthead' ).css( 'margin-bottom', 0 );
                 }
             }
         };
