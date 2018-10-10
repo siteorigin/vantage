@@ -710,6 +710,11 @@ body.responsive {
 	font-size: 0;
 	z-index: 9999;
 
+	#masthead.masthead-logo-in-menu &.sticky {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
 	/* Font awesome icons */
 	[class^="fa fa-"] {
 		display: inline-block;
@@ -812,7 +817,18 @@ body.responsive {
 	}
 	/* For when the menu becomes a sticky menu */
 	&.sticky {
+		position: fixed;
 		top: 0;
+
+		body:not(.layout-boxed) & {
+			right: 0;
+			left: 0;
+		}
+
+		body.layout-boxed & {
+			width: 100%;
+			max-width: 1080px,
+		}
 	}
 
 	&.sticky:after {

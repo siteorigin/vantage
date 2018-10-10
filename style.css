@@ -839,6 +839,10 @@ body.responsive.layout-full #page-wrapper .full-container {
   /* General menu link styling */
   /* For when the menu becomes a sticky menu */
 }
+#masthead.masthead-logo-in-menu .main-navigation.sticky {
+  margin-right: 0;
+  margin-left: 0;
+}
 .main-navigation [class^="fa fa-"] {
   display: inline-block;
   margin-right: 15px;
@@ -940,7 +944,16 @@ body.responsive.layout-full #page-wrapper .full-container {
   font-weight: bold;
 }
 .main-navigation.sticky {
+  position: fixed;
   top: 0;
+}
+body:not(.layout-boxed) .main-navigation.sticky {
+  right: 0;
+  left: 0;
+}
+body.layout-boxed .main-navigation.sticky {
+  width: 100%;
+  max-width: 1080px;
 }
 .main-navigation.sticky:after {
   bottom: -6px;

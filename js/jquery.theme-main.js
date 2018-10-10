@@ -274,7 +274,7 @@ jQuery(function($){
         $stickyContainer.css('position', $$.css('position'));
         var $initTop;
         var resetStickyMenu = function(){
-            if($initTop == null || typeof $initTop == "undefined") {
+            if( ! $$.hasClass( 'sticky' ) ) {
                 $initTop = $$.offset().top;
             }
             var threshold = 0;
@@ -284,21 +284,16 @@ jQuery(function($){
             }
             var navTop = parseInt( $initTop - $(window).scrollTop() );//Force truncation of float value.
             if( navTop < threshold ) {
-                $$.css({
-                    position: 'fixed',
+                $$.css( {
                     top: threshold,
-                    right: 0,
-                    left: 0,
-                });
+                } );
+
                 $$.addClass( 'sticky' );
                 $( '#masthead' ).css( 'margin-bottom',  $$.outerHeight() );
             } else {
                 if( $$.hasClass( 'sticky' ) ) {
-                    $$.css( {
-                        position: 'relative',
-                        top: 0,
-                    } );
                     $( '#masthead' ).css( 'margin-bottom', 0 );
+                    $$.removeClass( 'sticky' );
                 }
             }
         };
