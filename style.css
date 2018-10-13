@@ -712,9 +712,6 @@ body.sidebar-position-none #secondary {
     padding-left: 20px;
     padding-right: 20px;
   }
-  body.responsive #masthead.masthead-logo-in-menu #search-icon-icon {
-    display: none;
-  }
 }
 #masthead.force-responsive .hgroup {
   text-align: center;
