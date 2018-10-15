@@ -710,11 +710,6 @@ body.responsive {
 	font-size: 0;
 	z-index: 9999;
 
-	#masthead.masthead-logo-in-menu &.sticky {
-		margin-right: 0;
-		margin-left: 0;
-	}
-
 	/* Font awesome icons */
 	[class^="fa fa-"] {
 		display: inline-block;
@@ -815,29 +810,47 @@ body.responsive {
 		color: #e2e2e2;
 		font-weight: bold;
 	}
-	/* For when the menu becomes a sticky menu */
-	&.sticky {
-		position: fixed;
-		top: 0;
 
-		body:not(.layout-boxed) & {
-			right: 0;
-			left: 0;
-		}
+}
 
-		body.layout-boxed & {
-			width: 100%;
-			max-width: 1080px,
+/* For when the menu becomes a sticky menu */
+body.sticky {
+
+	&:not(.layout-boxed) .main-navigation {
+		right: 0;
+		left: 0;
+	}
+
+	&.layout-boxed .main-navigation {
+		width: 100%;
+		max-width: 1080px,
+	}
+
+	@media (max-width: 680px) {
+	
+		#masthead {
+			padding-right: 0;
+			padding-left: 0;
+
+			.main-navigation {
+				margin-right: 0;
+				margin-left: 0;
+			}
 		}
 	}
 
-	&.sticky:after {
-		bottom: -6px;
- 		box-shadow: rgba(0,0,0,0.25) 0 6px 6px -6px inset;
-  		content: "";
-  		height: 6px;
-  		position: absolute;
-  		width: 100%;
+	.main-navigation {
+		position: fixed;
+		top: 0;
+
+		&:after {
+			bottom: -6px;
+	 		box-shadow: rgba(0,0,0,0.25) 0 6px 6px -6px inset;
+	  		content: "";
+	  		height: 6px;
+	  		position: absolute;
+	  		width: 100%;
+		}
 	}
 }
 
