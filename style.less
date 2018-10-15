@@ -814,7 +814,7 @@ body.responsive {
 }
 
 /* For when the menu becomes a sticky menu */
-body.sticky {
+body.sticky-menu {
 
 	&:not(.layout-boxed) .main-navigation {
 		right: 0;
@@ -827,7 +827,6 @@ body.sticky {
 	}
 
 	@media (max-width: 680px) {
-	
 		#masthead {
 			padding-right: 0;
 			padding-left: 0;
@@ -839,18 +838,19 @@ body.sticky {
 		}
 	}
 
-	.main-navigation {
-		position: fixed;
-		top: 0;
+}
 
-		&:after {
-			bottom: -6px;
-	 		box-shadow: rgba(0,0,0,0.25) 0 6px 6px -6px inset;
-	  		content: "";
-	  		height: 6px;
-	  		position: absolute;
-	  		width: 100%;
-		}
+.main-navigation.sticky {
+	position: fixed;
+	top: 0;
+
+	&:after {
+		bottom: -6px;
+ 		box-shadow: rgba(0,0,0,0.25) 0 6px 6px -6px inset;
+  		content: "";
+  		height: 6px;
+  		position: absolute;
+  		width: 100%;
 	}
 }
 

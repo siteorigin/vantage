@@ -263,15 +263,10 @@ jQuery(function($){
     } ).resize();
 
     // The sticky menu
-    if( ( $('nav.site-navigation.primary').hasClass('use-sticky-menu') && !isMobileDevice ) ||
+    if ( ( $( 'nav.site-navigation.primary' ).hasClass( 'use-sticky-menu' ) && !isMobileDevice ) ||
         ( ( isMobileDevice || isCustomizer ) && isMobileNav ) ) {
 
-        var $$ = $('nav.site-navigation.primary');
-        var $stickyContainer = $('<div id="sticky-container"></div>');
-
-        $stickyContainer.css('margin-left', $$.css('margin-left'));
-        $stickyContainer.css('margin-right', $$.css('margin-right'));
-        $stickyContainer.css('position', $$.css('position'));
+        var $$ = $( 'nav.site-navigation.primary' );
         var $initTop;
         var resetStickyMenu = function(){
             if( ! $$.hasClass( 'sticky' ) ) {
@@ -279,8 +274,7 @@ jQuery(function($){
             }
             var threshold = 0;
             if ( $( 'body' ).hasClass( 'admin-bar' ) ) {
-                var adminBar = $( '#wpadminbar' );
-                threshold = adminBar.css( 'position' ) == 'absolute' ? 0 : adminBar.outerHeight();
+                threshold = $( '#wpadminbar' ).css( 'position' ) == 'absolute' ? 0 : $( '#wpadminbar' ).outerHeight();
             }
             var navTop = parseInt( $initTop - $(window).scrollTop() );//Force truncation of float value.
             if( navTop < threshold ) {
@@ -289,11 +283,12 @@ jQuery(function($){
                 } );
 
                 $$.addClass( 'sticky' );
+                $( 'body' ).addClass( 'sticky-menu' );
                 $( '#masthead' ).css( 'margin-bottom',  $$.outerHeight() );
-            } else {
-                if( $$.hasClass( 'sticky' ) ) {
+            } else if( $$.hasClass( 'sticky' ) ) {
                     $( '#masthead' ).css( 'margin-bottom', 0 );
                     $$.removeClass( 'sticky' );
+                    $('body').removeClass( 'sticky-menu' );
                 }
             }
         };
