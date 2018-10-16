@@ -378,7 +378,7 @@ jQuery(function($){
 });
 
 ( function($) {
-	$(window).load( function() {
+	$(window).on( 'load resize', function() {
 		// Aligning menu elements
 		var mhHeight = $( '.masthead-logo-in-menu' ).height(),
 			menuItemHeight = $( '.masthead-logo-in-menu .menu > .menu-item' ).outerHeight(),
