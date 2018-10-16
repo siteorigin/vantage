@@ -286,10 +286,9 @@ jQuery(function($){
                 $( 'body' ).addClass( 'sticky-menu' );
                 $( '#masthead' ).css( 'margin-bottom',  $$.outerHeight() );
             } else if( $$.hasClass( 'sticky' ) ) {
-                    $( '#masthead' ).css( 'margin-bottom', 0 );
-                    $$.removeClass( 'sticky' );
-                    $('body').removeClass( 'sticky-menu' );
-                }
+                $( '#masthead' ).css( 'margin-bottom', 0 );
+                $$.removeClass( 'sticky' );
+                $('body').removeClass( 'sticky-menu' );
             }
         };
         $(window).scroll( resetStickyMenu ).resize( resetStickyMenu );
