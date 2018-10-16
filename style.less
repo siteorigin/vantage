@@ -825,8 +825,10 @@ body.sticky-menu {
 		max-width: 1080px,
 	}
 
-	&.admin-bar .main-navigation.use-sticky-menu {
-		top: 32px;
+	@media (min-width: 601px) {
+		&.admin-bar .main-navigation.use-sticky-menu {
+			top: 32px;
+		}
 	}
 
 	@media (max-width: 680px) {
