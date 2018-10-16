@@ -278,10 +278,6 @@ jQuery(function($){
             }
             var navTop = parseInt( $initTop - $(window).scrollTop() );//Force truncation of float value.
             if( navTop < threshold ) {
-                $$.css( {
-                    top: threshold,
-                } );
-
                 $$.addClass( 'sticky' );
                 $( 'body' ).addClass( 'sticky-menu' );
                 $( '#masthead' ).css( 'margin-bottom',  $$.outerHeight() );
