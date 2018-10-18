@@ -942,6 +942,8 @@ body.responsive.layout-full #page-wrapper .full-container {
 body.sticky-menu:not(.layout-boxed) .main-navigation {
   right: 0;
   left: 0;
+  margin-right: 0;
+  margin-left: 0;
 }
 body.sticky-menu.layout-boxed .main-navigation {
   width: 100%;
@@ -950,16 +952,6 @@ body.sticky-menu.layout-boxed .main-navigation {
 @media (min-width: 601px) {
   body.sticky-menu.admin-bar .main-navigation.use-sticky-menu {
     top: 32px;
-  }
-}
-@media (max-width: 680px) {
-  body.sticky-menu #masthead {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  body.sticky-menu #masthead .main-navigation {
-    margin-right: 0;
-    margin-left: 0;
   }
 }
 body.admin-bar:not(.sticky-menu) .main-navigation.use-sticky-menu {
