@@ -949,9 +949,14 @@ body.sticky-menu.layout-boxed .main-navigation {
   width: 100%;
   max-width: 1080px;
 }
-@media (min-width: 601px) {
+@media (min-width: 783px) {
   body.sticky-menu.admin-bar .main-navigation.use-sticky-menu {
     top: 32px;
+  }
+}
+@media (max-width: 782px) and (min-width: 601px) {
+  body.sticky-menu.admin-bar .main-navigation.use-sticky-menu {
+    top: 42px;
   }
 }
 body.admin-bar:not(.sticky-menu) .main-navigation.use-sticky-menu {
