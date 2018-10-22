@@ -263,60 +263,28 @@ jQuery(function($){
     } ).resize();
 
     // The sticky menu
-    if( ( $('nav.site-navigation.primary').hasClass('use-sticky-menu') && !isMobileDevice ) ||
+    if ( ( $( 'nav.site-navigation.primary' ).hasClass( 'use-sticky-menu' ) && !isMobileDevice ) ||
         ( ( isMobileDevice || isCustomizer ) && isMobileNav ) ) {
 
-        var $$ = $('nav.site-navigation.primary');
-        var $stickyContainer = $('<div id="sticky-container"></div>');
-
-        $stickyContainer.css('margin-left', $$.css('margin-left'));
-        $stickyContainer.css('margin-right', $$.css('margin-right'));
-        $stickyContainer.css('position', $$.css('position'));
+        var $$ = $( 'nav.site-navigation.primary' );
         var $initTop;
         var resetStickyMenu = function(){
-            if($initTop == null || typeof $initTop == "undefined") {
+            if( ! $$.hasClass( 'sticky' ) ) {
                 $initTop = $$.offset().top;
             }
             var threshold = 0;
-            if ( $('body').hasClass('admin-bar') ) {
-                var adminBar = $('#wpadminbar');
-                var adminBarHeight = adminBar.outerHeight();
-                threshold = adminBar.css('position') == "absolute" ? 0 : adminBarHeight;
+            if ( $( 'body' ).hasClass( 'admin-bar' ) ) {
+                threshold = $( '#wpadminbar' ).css( 'position' ) == 'absolute' ? 0 : $( '#wpadminbar' ).outerHeight();
             }
-            var scrollTop = $(window).scrollTop();
-            var navTop = parseInt($initTop - scrollTop);//Force truncation of float value.
+            var navTop = parseInt( $initTop - $(window).scrollTop() );//Force truncation of float value.
             if( navTop < threshold ) {
-                if( ! $$.hasClass( 'sticky') ) {
-                    $$.wrapAll( $stickyContainer );
-                    // Work out the current position
-                    $$.css({
-                        'position' : 'fixed',
-                        'width' : $$.parent().width(),
-                        'top' : threshold,
-                        'left' : $$.parent().position().left,
-                        'z-index' : 998
-                    }).addClass('sticky');
-                } else {
-                    $$.css({
-                        'width': $$.parent().width(),
-                        'top': threshold,
-                        'left': $$.parent().position().left
-                    });
-                }
-                $$.parent().css('height', $$.outerHeight());
-            }
-            else {
-                if($$.hasClass('sticky')) {
-                    $$.css({
-                        'position': '',
-                        'width': '',
-                        'top': '',
-                        'left': '',
-                        'z-index': ''
-                    }).removeClass('sticky');
-                    $$.unwrap();
-                    $initTop = null;
-                }
+                $$.addClass( 'sticky' );
+                $( 'body' ).addClass( 'sticky-menu' );
+                $( '#masthead' ).css( 'margin-bottom',  $$.outerHeight() );
+            } else if( $$.hasClass( 'sticky' ) ) {
+                $( '#masthead' ).css( 'margin-bottom', 0 );
+                $$.removeClass( 'sticky' );
+                $('body').removeClass( 'sticky-menu' );
             }
         };
         $(window).scroll( resetStickyMenu ).resize( resetStickyMenu );
