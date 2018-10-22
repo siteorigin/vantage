@@ -1,7 +1,7 @@
 == Changelog ==
 
 == 1.7.14 - 22 October 2018 ==
-* Refactored sticky menu functionality to resolve noticable delays lower end devices and in IE/Edge.
+* Refactored sticky menu functionality to resolve noticeable delays lower-end devices and in IE/Edge.
 
 == 1.7.13 - 05 October 2018 ==
 * Resolved header sidebar Circle Icon alignment bug.
