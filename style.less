@@ -3,7 +3,7 @@ Theme Name: Vantage
 Author: SiteOrigin
 Author URI: https://siteorigin.com/
 Theme URI: https://siteorigin.com/theme/vantage/
-Description: Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, Smart Slider 3 for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free and premium support on our support <a href="http://siteorigin.com/thread/">forums</a> (http://siteorigin.com/thread/).
+Description: Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, Smart Slider 3 for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free support on our <a href="http://siteorigin.com/thread/">forum</a> (http://siteorigin.com/thread/).
 Version: dev
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -574,10 +574,6 @@ body.sidebar-position-none #secondary {
 
 					}
 				}
-
-				#search-icon-icon {
-					display: none;
-				}
 			}
 		}
 	}
@@ -810,12 +806,43 @@ body.responsive {
 		color: #e2e2e2;
 		font-weight: bold;
 	}
-	/* For when the menu becomes a sticky menu */
-	&.sticky {
-		top: 0;
+
+}
+
+/* For when the menu becomes a sticky menu */
+body.sticky-menu {
+	&:not(.layout-boxed) .main-navigation {
+		right: 0;
+		left: 0;
+		margin-right: 0;
+		margin-left: 0;
 	}
 
-	&.sticky:after {
+	&.layout-boxed .main-navigation {
+		width: 100%;
+		max-width: 1080px,
+	}
+
+		&.admin-bar .main-navigation.use-sticky-menu {
+			@media (min-width: 783px) {
+				top: 32px;
+			}
+			
+			@media (max-width: 782px) and (min-width: 601px) {
+				top: 42px
+			}
+		}
+}
+
+body.admin-bar:not(.sticky-menu) .main-navigation.use-sticky-menu {
+	top: 0;
+}
+
+.main-navigation.sticky {
+	position: fixed;
+	top: 0;
+
+	&:after {
 		bottom: -6px;
  		box-shadow: rgba(0,0,0,0.25) 0 6px 6px -6px inset;
   		content: "";

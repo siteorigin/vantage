@@ -477,67 +477,65 @@ function vantage_render_slider() {
 }
 endif;
 
-if( !function_exists('vantage_post_class_filter') ) :
-function vantage_post_class_filter($classes){
+if ( ! function_exists( 'vantage_post_class_filter' ) ) :
+function vantage_post_class_filter( $classes ) {
 	$classes[] = 'post';
 
-	if( has_post_thumbnail() && !is_singular() ) {
+	if ( has_post_thumbnail() && ! is_singular() ) {
 		$classes[] = 'post-with-thumbnail';
 		$classes[] = 'post-with-thumbnail-' . siteorigin_setting( 'blog_featured_image_type' );
 	}
 
 	// Resolves structured data issue in core. See https://core.trac.wordpress.org/ticket/28482
-	if( is_page() ){
+	if ( is_page() ) {
 		$class_key = array_search( 'hentry', $classes );
 
-		if( $class_key !== false) {
+		if ( $class_key !== false ) {
 			unset( $classes[ $class_key ] );
 		}
 	}
 
-	$classes = array_unique($classes);
+	$classes = array_unique( $classes );
 	return $classes;
 }
 endif;
-add_filter('post_class', 'vantage_post_class_filter');
+add_filter( 'post_class', 'vantage_post_class_filter' );
 
-
-if( !function_exists('vantage_filter_vantage_post_on_parts') ) :
+if ( !function_exists( 'vantage_filter_vantage_post_on_parts' ) ) :
 /**
  * Filter the posted on parts to remove the ones disabled in settings.
  *
  * @param $parts
  * @return mixed
  */
-function vantage_filter_vantage_post_on_parts($parts){
-	if( !siteorigin_setting('blog_post_date') ) $parts['on'] = '';
-	if( !siteorigin_setting('blog_post_author') ) $parts['by'] = '';
-	if( !siteorigin_setting('blog_post_comment_count') ) $parts['with'] = '';
+function vantage_filter_vantage_post_on_parts( $parts ) {
+	if ( !siteorigin_setting('blog_post_date') ) $parts['on'] = '';
+	if ( !siteorigin_setting('blog_post_author') ) $parts['by'] = '';
+	if ( !siteorigin_setting('blog_post_comment_count') ) $parts['with'] = '';
 
 	return $parts;
 }
 endif;
 add_filter('vantage_post_on_parts', 'vantage_filter_vantage_post_on_parts');
 
-
-if( !function_exists('vantage_get_site_width') ) :
+if ( ! function_exists( 'vantage_get_site_width' ) ) :
 /**
  * Get the site width.
  *
  * @return int The site width in pixels.
  */
 function vantage_get_site_width(){
-	return apply_filters('vantage_site_width', !empty($GLOBALS['vantage_site_width']) ? $GLOBALS['vantage_site_width'] : 1080);
+	return apply_filters( 'vantage_site_width', ! empty($GLOBALS['vantage_site_width'] ) ? $GLOBALS['vantage_site_width'] : 1080);
 }
 endif;
 
 
-if( !function_exists('vantage_responsive_header') ) :
+if ( !function_exists( 'vantage_responsive_header' ) ) :
 /**
  * Add the responsive header
  */
-function vantage_responsive_header(){
-	if( siteorigin_setting('layout_responsive') ) {
+function vantage_responsive_header() {
+	if ( siteorigin_setting('layout_responsive') ) {
 		?><meta name="viewport" content="width=device-width, initial-scale=1" /><?php
 	}
 	else {
@@ -545,16 +543,13 @@ function vantage_responsive_header(){
 	}
 }
 endif;
-add_action('wp_head', 'vantage_responsive_header');
+add_action( 'wp_head', 'vantage_responsive_header' );
 
-
-if( !function_exists('vantage_footer_site_info_sub') ) :
+if ( !function_exists( 'vantage_footer_site_info_sub' ) ) :
 /**
-
  * Handles the site title, copyright symbol and year string replace for the Footer Copyright theme option.
-
  */
-function vantage_footer_site_info_sub($copyright){
+function vantage_footer_site_info_sub( $copyright ) {
 
 	return str_replace(
 		array('{site-title}', '{copyright}', '{year}'),
@@ -566,30 +561,28 @@ function vantage_footer_site_info_sub($copyright){
 endif;
 add_filter( 'vantage_site_info', 'vantage_footer_site_info_sub' );
 
-
-if( ! function_exists( 'vantage_filter_mobilenav' ) ) :
+if ( ! function_exists( 'vantage_filter_mobilenav' ) ) :
 function vantage_filter_mobilenav($text){
 
-	if( siteorigin_setting('navigation_responsive_menu_text') ) {
-		$text['navigate'] = siteorigin_setting('navigation_responsive_menu_text');
+	if ( siteorigin_setting( 'navigation_responsive_menu_text' ) ) {
+		$text['navigate'] = siteorigin_setting( 'navigation_responsive_menu_text' );
 	}
 	return $text;
 }
 endif;
-add_filter('siteorigin_mobilenav_text', 'vantage_filter_mobilenav');
+add_filter( 'siteorigin_mobilenav_text', 'vantage_filter_mobilenav' );
 
-
-if( ! function_exists( 'vantage_filter_mobilenav_collapse' ) ) :
-function vantage_filter_mobilenav_collapse($collpase){
-	return siteorigin_setting('navigation_responsive_menu_collapse');
+if ( ! function_exists( 'vantage_filter_mobilenav_collapse' ) ) :
+function vantage_filter_mobilenav_collapse( $collpase ) {
+	return siteorigin_setting( 'navigation_responsive_menu_collapse' );
 }
 endif;
-add_filter('siteorigin_mobilenav_resolution', 'vantage_filter_mobilenav_collapse');
+add_filter( 'siteorigin_mobilenav_resolution', 'vantage_filter_mobilenav_collapse' );
 
 
-if( ! function_exists( 'vantage_filter_mobilenav_search' ) ) :
+if ( ! function_exists( 'vantage_filter_mobilenav_search' ) ) :
 function vantage_filter_mobilenav_search( $search ) {
-	if( siteorigin_setting( 'navigation_responsive_menu_search' ) ) {
+	if ( siteorigin_setting( 'navigation_responsive_menu_search' ) ) {
 		return $search;
 	}
 	return false;
