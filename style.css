@@ -936,7 +936,7 @@ body.responsive.layout-full #page-wrapper .full-container {
   font-weight: bold;
 }
 /* For when the menu becomes a sticky menu */
-body.sticky-menu:not(.layout-boxed) .main-navigation {
+body.sticky-menu.layout-full .site-navigation {
   right: 0;
   left: 0;
   margin-right: 0;
@@ -946,21 +946,31 @@ body.sticky-menu.layout-boxed .main-navigation {
   width: 100%;
   max-width: 1080px;
 }
+body.sticky-menu.mega-menu-primary.layout-boxed .site-navigation {
+  max-width: 1100px;
+}
+body.sticky-menu.mega-menu-primary.layout-full .site-navigation {
+  padding-left: 35px;
+  padding-right: 35px;
+}
+body.sticky-menu.mega-menu-primary .site-navigation {
+  z-index: 9999;
+}
 @media (min-width: 783px) {
-  body.sticky-menu.admin-bar .main-navigation.use-sticky-menu {
+  body.sticky-menu.admin-bar .site-navigation.use-sticky-menu {
     top: 32px;
   }
 }
 @media (max-width: 782px) and (min-width: 601px) {
-  body.sticky-menu.admin-bar .main-navigation.use-sticky-menu {
+  body.sticky-menu.admin-bar .site-navigation.use-sticky-menu {
     top: 42px;
   }
 }
-body.admin-bar:not(.sticky-menu) .main-navigation.use-sticky-menu {
+body.sticky-menu .site-navigation.sticky {
+  position: fixed;
   top: 0;
 }
-.main-navigation.sticky {
-  position: fixed;
+body.admin-bar:not(.sticky-menu) .site-navigation.use-sticky-menu {
   top: 0;
 }
 .main-navigation.sticky:after {
