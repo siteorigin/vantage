@@ -555,7 +555,8 @@ class SiteOrigin_Customizer_Helper {
 				}
 			}
 
-			if ( isset( $setting['callback'] ) && isset( $setting['default'] ) ) {
+			$val = get_theme_mod($id);
+			if ( isset( $setting['callback'] ) && isset( $setting['default'] ) && $val != $setting['default'] ) {
 				$val = get_theme_mod($id);
 				if ( $val != $setting['default'] ) {
 					if ( empty( $val ) ) {
