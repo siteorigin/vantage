@@ -18,7 +18,7 @@
 					echo wp_kses_post( $site_info_text )  . '.&nbsp;';
 				}
 				if ( function_exists( 'the_privacy_policy_link' ) && siteorigin_setting( 'general_privacy_policy_link' ) ) {
-					the_privacy_policy_link( '', '.&nbsp;' );
+					the_privacy_policy_link( '', '.' );
 				}
 			?>
 		</div><!-- #site-info -->
