@@ -262,9 +262,12 @@ jQuery ( function( $ ) {
 
 		var $$ = $( 'nav.site-navigation.primary' );
 		var $initTop;
+		var isBoxedMega = $( 'body.mega-menu-primary.layout-boxed' ).length;
+		var boxedMegaWidth;
 		var resetStickyMenu = function() {
 			if ( ! $$.hasClass( 'sticky' ) ) {
 				$initTop = $$.offset().top;
+				boxedMegaWidth = $$.width();
 			}
 			var threshold = 0;
 			if ( $( 'body' ).hasClass( 'admin-bar' ) ) {
@@ -274,11 +277,19 @@ jQuery ( function( $ ) {
 			if ( navTop < threshold ) {
 				$$.addClass( 'sticky' );
 				$( 'body' ).addClass( 'sticky-menu' );
-				$( '#masthead' ).css( 'margin-bottom',  $$.outerHeight() );
+				$( '#masthead' ).css( 'padding-bottom',  $$.innerHeight() );
+
+				if( isBoxedMega ) {
+					$$.width( boxedMegaWidth );
+				}
 			} else if( $$.hasClass( 'sticky' ) ) {
-				$( '#masthead' ).css( 'margin-bottom', 0 );
+				$( '#masthead' ).css( 'padding-bottom', 0 );
 				$$.removeClass( 'sticky' );
 				$('body').removeClass( 'sticky-menu' );
+
+				if( isBoxedMega ) {
+					$$.width( 'auto' );
+				}
 			}
 		};
 		$( window ).scroll( resetStickyMenu ).resize( resetStickyMenu );

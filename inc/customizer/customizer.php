@@ -555,10 +555,14 @@ class SiteOrigin_Customizer_Helper {
 				}
 			}
 
-			if(isset($setting['callback'])) {
+			$val = get_theme_mod($id);
+			if ( isset( $setting['callback'] ) && isset( $setting['default'] ) && $val != $setting['default'] ) {
 				$val = get_theme_mod($id);
-				if(isset( $setting['default'] ) && $val != $setting['default']) {
-					call_user_func( $setting['callback'], $builder, $val, array_merge( $setting, array('id' => $id) ) );
+				if ( $val != $setting['default'] ) {
+					if ( empty( $val ) ) {
+						$val = $setting['default'];
+					}
+					call_user_func( $setting['callback'], $builder, $val, array_merge( $setting, array( 'id' => $id ) ) );
 				}
 			}
 		}
