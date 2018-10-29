@@ -101,6 +101,12 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.8 - 29 October 2018 ==
+* Resolved the Logo in Menu zero image size bug.
+* Resolved Mega Menu sticky menu not working.
+* Removed search icon when mobile menu is visible.
+* Added a footer Privacy Policy Link setting located at `Customize > Theme Settings > General`.
+
 == 1.7.14 - 22 October 2018 ==
 * Refactored sticky menu functionality to resolve noticeable delays lower-end devices and in IE/Edge.
 
