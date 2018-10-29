@@ -387,7 +387,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['social_ajax_comments']                = true;
 
 	$defaults['general_site_info_text']              = '';
-	$defaults['general_privacy_policy_link']         = true;
+	$defaults['general_privacy_policy_link']         = false;
 	$defaults['general_attribution']                 = true;
 	$defaults['general_js_enqueue_footer']           = false;
 
