@@ -101,6 +101,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.8.1 - 21 November 2018 ==
+* Updated the site title setting to allow an empty value.
+
 == 1.8 - 29 October 2018 ==
 * Resolved the Logo in Menu zero image size bug.
 * Resolved Mega Menu sticky menu not working.

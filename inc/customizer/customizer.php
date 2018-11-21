@@ -559,7 +559,7 @@ class SiteOrigin_Customizer_Helper {
 			if ( isset( $setting['callback'] ) && isset( $setting['default'] ) && $val != $setting['default'] ) {
 				$val = get_theme_mod($id);
 				if ( $val != $setting['default'] ) {
-					if ( empty( $val ) ) {
+					if ( ! is_numeric( $val ) ) {
 						$val = $setting['default'];
 					}
 					call_user_func( $setting['callback'], $builder, $val, array_merge( $setting, array( 'id' => $id ) ) );
