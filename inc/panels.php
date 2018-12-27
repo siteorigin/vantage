@@ -214,9 +214,12 @@ if( !function_exists('vantage_panels_row_style_fields') ) :
 function vantage_panels_row_style_fields($fields) {
 	if(
 		( !empty($_REQUEST['postId']) && get_post_meta( intval( $_REQUEST['postId'] ), 'vantage_panels_no_legacy', true ) === 'true' ) ||
-		( get_the_ID() && get_post_meta( get_the_ID(), 'vantage_panels_no_legacy', true ) === 'true' ) ||
-		( ! empty( $_REQUEST['page'] ) && $_REQUEST['page'] === 'so_panels_home_page' && get_post_meta( intval( get_option('siteorigin_panels_home_page_id') ), 'vantage_panels_no_legacy', true ) === 'true' )
+		( get_the_ID() && get_post_meta( get_the_ID(), 'vantage_panels_no_legacy', true ) === 'true' )
 	) {
+		return $fields;
+	}
+	// Detect if this is a custom home page builder and if has legacy row styles enabled or not
+	if ( ( ! empty( $_REQUEST['page'] ) && $_REQUEST['page'] === 'so_panels_home_page' && get_post_meta( intval( get_option('siteorigin_panels_home_page_id') ), 'vantage_panels_no_legacy', true ) === 'true' ) ) {
 		return $fields;
 	}
 
