@@ -101,6 +101,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.8.3 - 31 December 2018 ==
+* Legacy theme styles: account for Custom Home Page.
+
 == 1.8.2 - 29 November 2018 ==
 * Use the default value for Site Title Font Size Customizer setting.
 * Resolved problem setting color values created in `1.8.1`.
