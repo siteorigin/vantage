@@ -589,7 +589,7 @@ endif;
 add_filter( 'siteorigin_mobilenav_search', 'vantage_filter_mobilenav_search' );
 
 /**
- * Add some plugins to TGM plugin activation
+ * Add some plugins to TGM plugin activation.
  */
 function vantage_recommended_plugins() {
 	$plugins = array(
