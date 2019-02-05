@@ -10,9 +10,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image_type' ) == 'icon' ): ?>
+	<?php if ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image_type' ) !== 'none' && siteorigin_setting( 'blog_featured_image_type' ) == 'icon' ) : ?>
 		<div class="entry-thumbnail">
-			<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'thumbnail' ) ?></a>
+			<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'thumbnail' ); ?></a>
 		</div>
 	<?php endif; ?>
 
@@ -21,7 +21,7 @@
 		<?php do_action('vantage_entry_main_top') ?>
 
 		<header class="entry-header">
-			<?php if ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image_type' ) == 'large' ): ?>
+			<?php if ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image_type' ) !== 'none' && siteorigin_setting( 'blog_featured_image_type' ) == 'large' ) : ?>
 				<div class="entry-thumbnail">
 					<a href="<?php the_permalink() ?>"><?php vantage_entry_thumbnail(); ?></a>
 				</div>

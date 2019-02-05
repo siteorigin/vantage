@@ -216,6 +216,7 @@ function vantage_theme_settings(){
 		'options' => array(
 			'large' => __('Large', 'vantage'),
 			'icon' => __('Small Icon', 'vantage'),
+			'none' => __('None', 'vantage'),
 		),
 		'description' => __('Size of the featured image in the blog post archives when using default blog layout.', 'vantage')
 	) );
