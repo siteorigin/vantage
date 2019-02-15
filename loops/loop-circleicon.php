@@ -16,7 +16,7 @@
 			the_widget(
 				'Vantage_CircleIcon_Widget',
 				array(
-					'circle_icon' => siteorigin_setting( 'blog_featured_image_type' ) == 'none' ? false : true,
+					'in_post_loop' => siteorigin_setting( 'blog_featured_image_type' ) == 'none' ? false : true,
 					'image' => ! empty( $image[0] ) ? $image[0] : false,
 					'title' => get_the_title(),
 					'text' => get_the_excerpt(),

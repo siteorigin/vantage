@@ -26,7 +26,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			'title_color' => '',
 			'text' => '',
 			'text_color' => '',
-			'circle_icon' => true,
+			'in_post_loop' => true,
 			'icon' => '',
 			'icon_color' => '',
 			'image' => '',
@@ -64,7 +64,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		$target = (!empty($instance['more_target']) ? 'target="_blank"' : '');
 		?>
 		<div class="circle-icon-box circle-icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo empty($instance['box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?> circle-icon-size-<?php echo $instance['icon_size'] ?> <?php if ( siteorigin_setting( 'blog_featured_image_type' ) == 'none' ) echo 'no-archive-featured-image' ?>">
-			<?php if ( ! empty( $instance['circle_icon'] ) ) : ?>
+			<?php if ( ! empty( $instance['in_post_loop'] ) ) : ?>
 				<div class="circle-icon-wrapper">
 					<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon" <?php echo $target ?>><?php endif; ?>
 					<div class="circle-icon<?php if(!empty($icon_styles)) echo ' icon-style-set' ?>" <?php if(!empty($icon_styles)) echo 'style="'.implode(';', $icon_styles).'"' ?>>
