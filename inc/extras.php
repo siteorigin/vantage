@@ -24,7 +24,7 @@ endif;
 add_filter( 'wp_page_menu_args', 'vantage_page_menu_args' );
 
 
-if ( !function_exists( 'vantage_body_classes' ) ) :
+if ( ! function_exists( 'vantage_body_classes' ) ) :
 /**
  * Adds custom classes to the array of body classes.
  *
@@ -36,16 +36,16 @@ function vantage_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 
-	if( siteorigin_setting('layout_responsive') ) {
+	if( siteorigin_setting( 'layout_responsive' ) ) {
 		$classes[] = 'responsive';
 	}
-	$classes[] = 'layout-'.siteorigin_setting('layout_bound');
+	$classes[] = 'layout-'.siteorigin_setting( 'layout_bound' );
 	$classes[] = 'no-js';
 
 	$is_full_width_template = is_page_template( 'templates/template-full.php' ) || is_page_template( 'templates/template-full-notitle.php' );
-	if( !$is_full_width_template ) {
+	if ( ! $is_full_width_template ) {
 		$wc_shop_sidebar = vantage_is_woocommerce_active() && is_shop() && is_active_sidebar( 'shop' );
-		if( !is_active_sidebar('sidebar-1') && !$wc_shop_sidebar ) {
+		if ( ! is_active_sidebar('sidebar-1') && ! $wc_shop_sidebar ) {
 			$classes[] = 'no-sidebar';
 		}
 		else {
@@ -53,31 +53,31 @@ function vantage_body_classes( $classes ) {
 		}
 	}
 
-	if( is_customize_preview() ) {
+	if ( is_customize_preview() ) {
 		$classes[] = 'so-vantage-customizer-preview';
 	}
 
-	if( wp_is_mobile() ) {
+	if ( wp_is_mobile() ) {
 		$classes[] = 'so-vantage-mobile-device';
 	}
 	$mega_menu_active = function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( 'primary' );
-	if(siteorigin_setting('navigation_menu_search') && !$mega_menu_active) {
+	if ( siteorigin_setting('navigation_menu_search') && ! $mega_menu_active ) {
 		$classes[] = 'has-menu-search';
 	}
 
-	if( siteorigin_setting('layout_force_panels_full') ) {
+	if ( siteorigin_setting('layout_force_panels_full') ) {
 		$classes[] = 'panels-style-force-full';
 	}
 
 	$page_settings = siteorigin_page_setting();
 
-	if( !empty( $page_settings ) ) {
-		if( !empty( $page_settings['layout'] ) ) $classes[] = 'page-layout-' . $page_settings['layout'];
+	if ( ! empty( $page_settings ) ) {
+		if ( ! empty( $page_settings['layout'] ) ) $classes[] = 'page-layout-' . $page_settings['layout'];
 
-		if( empty( $page_settings['masthead_margin'] ) ) $classes[] = 'page-layout-no-masthead-margin';
-		if( empty( $page_settings['footer_margin'] ) ) $classes[] = 'page-layout-no-footer-margin';
-		if( !empty( $page_settings['hide_masthead'] ) ) $classes[] = 'page-layout-hide-masthead';
-		if( !empty( $page_settings['hide_footer_widgets'] ) ) $classes[] = 'page-layout-hide-footer-widgets';
+		if ( empty( $page_settings['masthead_margin'] ) ) $classes[] = 'page-layout-no-masthead-margin';
+		if ( empty( $page_settings['footer_margin'] ) ) $classes[] = 'page-layout-no-footer-margin';
+		if ( ! empty( $page_settings['hide_masthead'] ) ) $classes[] = 'page-layout-hide-masthead';
+		if ( ! empty( $page_settings['hide_footer_widgets'] ) ) $classes[] = 'page-layout-hide-footer-widgets';
 	}
 
 	if ( is_page() && is_page_template() ) {
