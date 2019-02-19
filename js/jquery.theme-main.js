@@ -223,7 +223,13 @@ jQuery ( function( $ ) {
 
 	// Open and focus the search form
 	$( document )
-		.on( 'click','#search-icon-icon', function() {
+		.on( 'click keydown', '#search-icon-icon', function( e ) {
+			if ( e.type == 'keydown' ) {
+				if ( e.keyCode !== 13 ){
+					return;
+				}
+				e.preventDefault();
+			}
 			var $$ = $( this ).parent();
 			$$.find( 'form' ).fadeToggle( 250 );
 			if ( deviceAgent.match( /(iPad|iPhone|iPod)/i ) ) {
