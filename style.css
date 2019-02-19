@@ -2759,6 +2759,9 @@ html[xmlns] .slides {
 .widget_icon-text .widget-title {
   margin: 15px 0;
 }
+.vantage-circleicon-loop .widget_circleicon-widget .no-archive-featured-image.circle-icon-position-top {
+  padding-top: 0;
+}
 .widget_circleicon-widget {
   clear: both;
   /* A medium sized icon */
