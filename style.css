@@ -1069,6 +1069,10 @@ body.so-vantage-mobile-device .main-navigation li:hover > ul {
 #search-icon #search-icon-icon:hover .vantage-icon-search {
   color: #ffffff;
 }
+#search-icon #search-icon-icon:focus {
+  outline: 1px dotted #666;
+  outline: auto 5px -webkit-focus-ring-color;
+}
 #search-icon .searchform {
   display: none;
   position: absolute;
