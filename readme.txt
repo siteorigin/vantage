@@ -100,8 +100,12 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
-== 1.9 - 19 February 2018 ==
-* Added an option to remove the blog archive featured image. The new option can be found at Customize > Theme Settings > Blog > Featured Image Type > None.
+== 1.9.1 - 04 March 2019 ==
+* Added a filter to allow users to disable the importing of Google Fonts.
+* Accessibility improvements to the main menu search form.
+
+== 1.9 - 19 February 2019 ==
+* Added an option to remove the blog archive featured image. The new option can be found at `Customize > Theme Settings > Blog > Featured Image Type > None`.
 * Removed Jetpack Responsive Videos support in favour of FitVids. 
 
 == 1.8.3 - 31 December 2018 ==

@@ -87,13 +87,15 @@ class SiteOrigin_Customizer_CSS_Builder {
 		// Start by importing Google web fonts
 		$return = '<style type="text/css" id="customizer-css">';
 
-		$import = array();
-		foreach ( $this->google_fonts as $font ) {
-			$import[ ] = urlencode( $font[ 0 ] ) . ':' . $font[ 1 ];
-		}
-		$import = array_unique( $import );
-		if ( !empty( $import ) ) {
-			$return .= '@import url(//fonts.googleapis.com/css?family=' . implode( '|', $import ) . '); ';
+		if ( apply_filters( 'vanage_import_google_fonts', true ) ) {
+			$import = array();
+			foreach ( $this->google_fonts as $font ) {
+				$import[ ] = urlencode( $font[ 0 ] ) . ':' . $font[ 1 ];
+			}
+			$import = array_unique( $import );
+			if ( !empty( $import ) ) {
+				$return .= '@import url(//fonts.googleapis.com/css?family=' . implode( '|', $import ) . '); ';
+			}
 		}
 
 		foreach ( $this->css as $selector => $rules ) {

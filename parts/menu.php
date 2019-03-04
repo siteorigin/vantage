@@ -29,7 +29,7 @@ $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 		<?php endif; ?>
 		<?php if ( siteorigin_setting('navigation_menu_search') && ! $max_mega_menu_active ) : ?>
 			<div id="search-icon">
-				<div id="search-icon-icon"><?php echo vantage_display_icon( 'search' ); ?></div>
+				<div id="search-icon-icon" tabindex="0" aria-label="<?php _e( 'Open the search', 'vantage' ); ?>"><?php echo vantage_display_icon( 'search' ); ?></div>
 				<?php get_search_form(); ?>
 			</div>
 		<?php endif; ?>

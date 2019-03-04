@@ -1063,10 +1063,12 @@ body.so-vantage-mobile-device .main-navigation li:hover > ul {
   margin-top: -8px;
   margin-left: -8.5px;
 }
-#search-icon #search-icon-icon:hover {
+#search-icon #search-icon-icon:hover,
+#search-icon #search-icon-icon:focus {
   background-color: #00bcff;
 }
-#search-icon #search-icon-icon:hover .vantage-icon-search {
+#search-icon #search-icon-icon:hover .vantage-icon-search,
+#search-icon #search-icon-icon:focus .vantage-icon-search {
   color: #ffffff;
 }
 #search-icon .searchform {
