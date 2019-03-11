@@ -119,45 +119,45 @@ jQuery( function ( $ ) {
                     var slide = $( '<div class="slide"><ul class="mobile"></ul></div>' ).appendTo( frame.find( '.slides-container' ) );
 
                     root.find( '> li' ).each( function () {
-						var $$ = $( this ),
-							standardMenuItem = $$.find( '> a' ).html();
+                        var $$ = $( this ),
+                            standardMenuItem = $$.find( '> a' ).html();
 
-                    	if ( standardMenuItem ) {
-	                    	var ln = $( '<a></a>' )
-	                            .html( $$.find( '> a' ).html() )
-	                            .attr( 'href', $$.find( '> a' ).attr( 'href' ) )
-	                            .addClass( 'link' );
-	                    } else {
-	                    	var ln = $$.html();
-	                    }
+                        if ( standardMenuItem ) {
+                            var ln = $( '<a></a>' )
+                                .html( $$.find( '> a' ).html() )
+                                .attr( 'href', $$.find( '> a' ).attr( 'href' ) )
+                                .addClass( 'link' );
+                        } else {
+                            var ln = $$.html();
+                        }
                         var li = $( '<li></li>' ).append( ln );
 
                         // Account for menu items with sub menus and menu items set to close links
                         if ( standardMenuItem ) {
-	                        li.find('a').not('.next').click( 
-	                            function (e) {
-	                                if ( $( this ).attr( 'href' ) === 'undefined' ) {
-	                                    frame.mnHideFrame();
-	                                }
-	                            }
-	                        );
+                            li.find('a').not('.next').click( 
+                                function (e) {
+                                    if ( $( this ).attr( 'href' ) === 'undefined' ) {
+                                        frame.mnHideFrame();
+                                    }
+                                }
+                            );
 
 
-	                        if ( $$.find( '> ul' ).length > 0 ) {
-	                            var next = $( '<a href="#" class="next"><i class="fa fa-chevron-right"></i></a>' );
-	                            li.prepend( next );
+                            if ( $$.find( '> ul' ).length > 0 ) {
+                                var next = $( '<a href="#" class="next"><i class="fa fa-chevron-right"></i></a>' );
+                                li.prepend( next );
 
-	                            var child = $$.find( '> ul' ).eq( 0 );
-	                            var childSlide = createMenu( child );
+                                var child = $$.find( '> ul' ).eq( 0 );
+                                var childSlide = createMenu( child );
 
-	                            childSlide.data( 'parent-slide', slide.index() );
-	                            childSlide.data( 'title', ln.html() );
+                                childSlide.data( 'parent-slide', slide.index() );
+                                childSlide.data( 'title', ln.html() );
 
-	                            li.find( 'a.next' ).click( function () {
-	                                showSlide( childSlide.index() );
-	                                return false;
-	                            } );
-	                        }
+                                li.find( 'a.next' ).click( function () {
+                                    showSlide( childSlide.index() );
+                                    return false;
+                                } );
+                            }
                         }
 
                         slide.find( 'ul' ).append( li );
