@@ -457,6 +457,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => ! empty( $setting['description'] ) ? $setting['description'] : '',
 					) ) );
 					break;
 
@@ -466,6 +467,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => ! empty( $setting['description'] ) ? $setting['description'] : '',
 					) ) );
 					if ( empty( $setting['no_live'] ) ) $wp_customize->get_setting( $id )->transport = 'postMessage';
 					break;
@@ -476,6 +478,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'type'    => 'text',
 						'priority' => $priority++,
+						'description' => ! empty( $setting['description'] ) ? $setting['description'] : '',
 					) );
 					if( empty( $setting['no_live'] ) ) $wp_customize->get_setting( $id )->transport = 'postMessage';
 					break;
@@ -486,6 +489,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => ! empty( $setting['description'] ) ? $setting['description'] : '',
 					) ) );
 					break;
 
@@ -495,6 +499,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => ! empty( $setting['description'] ) ? $setting['description'] : '',
 					) ) );
 					break;
 
@@ -505,6 +510,7 @@ class SiteOrigin_Customizer_Helper {
 						'type'    => $setting['type'],
 						'priority' => $priority++,
 						'choices' => isset($setting['choices']) ? $setting['choices'] : null,
+						'description' => ! empty( $setting['description'] ) ? $setting['description'] : '',
 					) );
 					break;
 			}
