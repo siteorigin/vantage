@@ -89,14 +89,14 @@ function vantage_customizer_init(){
 				'title' => __('Header Text Size', 'vantage'),
 				'default' => 13,
 				'unit' => 'px',
-				'selector' => '#masthead .hgroup .support-text',
+				'selector' => '#masthead .hgroup .support-text, #masthead .hgroup .site-description',
 				'property' => array('font-size'),
 			),
 			'header_text_color' => array(
 				'type' => 'color',
 				'title' => __('Header Text Color', 'vantage'),
 				'default' => '#4b4b4b',
-				'selector' => '#masthead .hgroup .support-text',
+				'selector' => '#masthead .hgroup .support-text, #masthead .hgroup .site-description',
 				'property' => array('color'),
 			),
 			'page_title_size' => array(
