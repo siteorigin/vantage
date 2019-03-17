@@ -40,7 +40,7 @@ function vantage_theme_settings(){
 		'description' => __('When using the "logo in menu" masthead layout, constrain the logo size to fit the menu height.', 'vantage'),
 	) );
 
-	$settings->add_field('logo', 'with_text', 'checkbox', __('Display site title alongside logo', 'vantage'), array(
+	$settings->add_field('logo', 'with_text', 'checkbox', __('Display Site Title Alongside Logo', 'vantage'), array(
 		'description' => __("Only applicable if a Logo Image has been set.", 'vantage')
 	));
 
