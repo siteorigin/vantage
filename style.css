@@ -533,6 +533,7 @@ body {
   font-weight: 100;
   font-size: 36px;
   line-height: 1em;
+  vertical-align: middle;
 }
 #masthead .hgroup .logo {
   display: block;
@@ -540,7 +541,7 @@ body {
   max-width: 100%;
 }
 #masthead .hgroup .logo img {
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 #masthead .hgroup .site-description {
   clear: both;
