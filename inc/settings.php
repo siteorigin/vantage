@@ -50,6 +50,10 @@ function vantage_theme_settings(){
 		'description' => __('A double sized version of your logo for retina displays. Must be used in addition to standard logo.', 'vantage'),
 	) );
 
+	$settings->add_field('logo', 'site_description', 'checkbox', __('Tagline', 'vantage'), array(
+		'description' => __('Display the website tagline below the logo or site title.', 'vantage'),
+	) );
+
 	$settings->add_field('logo', 'header_text', 'text', __('Header Text', 'vantage'), array(
 		'description' => __('Text that appears to the right of your logo. It will be hidden if widgets are placed in the header.', 'vantage'),
 		'sanitize_callback' => 'wp_kses_post'
@@ -337,6 +341,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['logo_image_retina']                   = false;
 	$defaults['logo_in_menu_constrain']              = true;
 	$defaults['logo_with_text']                      = false;
+	$defaults['logo_site_description']               = false;
 	$defaults['logo_header_text']                    = __('Call me! Maybe?', 'vantage');
 	$defaults['logo_no_widget_overlay']              = false;
 

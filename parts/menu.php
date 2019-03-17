@@ -25,7 +25,12 @@ $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 
 	<div class="full-container">
 		<?php if($logo_in_menu) : ?>
+			<div class="logo-in-menu-wrapper">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php vantage_display_logo(); ?></a>
+				<?php if ( siteorigin_setting( 'logo_site_description' ) ) : ?>
+					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
+				<?php endif; ?>
+			</div>
 		<?php endif; ?>
 		<?php if ( siteorigin_setting('navigation_menu_search') && ! $max_mega_menu_active ) : ?>
 			<div id="search-icon">

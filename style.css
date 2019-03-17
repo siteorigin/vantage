@@ -542,6 +542,14 @@ body {
 #masthead .hgroup .logo img {
   vertical-align: bottom;
 }
+#masthead .hgroup .site-description {
+  clear: both;
+  color: #4b4b4b;
+  font-style: italic;
+  font-size: 13px;
+  margin-bottom: 0;
+  padding-top: 5px;
+}
 #masthead .hgroup .support-text {
   line-height: 1.2em;
   position: absolute;
@@ -589,8 +597,10 @@ body {
   display: table;
   clear: both;
 }
-#masthead.masthead-logo-in-menu .logo {
+#masthead.masthead-logo-in-menu .logo-in-menu-wrapper {
   float: left;
+}
+#masthead.masthead-logo-in-menu .logo {
   padding: 10px 0;
   margin-right: 15px;
 }
@@ -610,6 +620,15 @@ body {
   font-size: 20px;
   font-weight: 100;
   padding: 7px 15px;
+}
+#masthead.masthead-logo-in-menu .site-description {
+  clear: both;
+  color: #e2e2e2;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: -5px;
+  margin-bottom: 0;
+  padding-bottom: 10px;
 }
 .layout-boxed #masthead.masthead-logo-in-menu .logo {
   margin-left: 25px;
