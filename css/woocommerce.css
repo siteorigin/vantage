@@ -387,24 +387,6 @@
   padding-bottom: 7px;
 }
 /* Page Layouts */
-.woocommerce-page.woocommerce-cart #primary,
-.woocommerce-page.woocommerce-checkout #primary {
-  float: left;
-  width: 71.287%;
-}
-.woocommerce-page.woocommerce-cart.no-sidebar #primary,
-.woocommerce-page.woocommerce-checkout.no-sidebar #primary {
-  float: none;
-  width: auto;
-}
-.woocommerce-page.woocommerce-cart.sidebar-position-left #primary,
-.woocommerce-page.woocommerce-checkout.sidebar-position-left #primary {
-  float: right;
-}
-.woocommerce-page.woocommerce-cart.sidebar-position-none #primary,
-.woocommerce-page.woocommerce-checkout.sidebar-position-none #primary {
-  width: 100%;
-}
 .woocommerce-page.woocommerce-checkout #ship-to-different-address-checkbox {
   margin: 3px 10px 0 0 ;
   float: left;
