@@ -449,6 +449,11 @@ class SiteOrigin_Customizer_Helper {
 			// Can't use live changes with a callback
 			if( !empty($setting['callback']) ) $setting['no_live'] = true;
 
+			// Set $setting['description' ] if this setting doesn't have a description
+			if ( ! isset( $setting['description' ] ) ) {
+				$setting['description'] = '';
+			}
+
 			// Now lets add a control for this setting
 			switch($setting['type']) {
 				case 'font' :
@@ -457,7 +462,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
-						'description' => ! empty( $setting['description'] ) ? $setting['description'] : '',
+						'description' => $setting['description'],
 					) ) );
 					break;
 
@@ -467,7 +472,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
-						'description' => ! empty( $setting['description'] ) ? $setting['description'] : '',
+						'description' => $setting['description'],
 					) ) );
 					if ( empty( $setting['no_live'] ) ) $wp_customize->get_setting( $id )->transport = 'postMessage';
 					break;
@@ -478,7 +483,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'type'    => 'text',
 						'priority' => $priority++,
-						'description' => ! empty( $setting['description'] ) ? $setting['description'] : '',
+						'description' => $setting['description'],
 					) );
 					if( empty( $setting['no_live'] ) ) $wp_customize->get_setting( $id )->transport = 'postMessage';
 					break;
@@ -489,7 +494,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
-						'description' => ! empty( $setting['description'] ) ? $setting['description'] : '',
+						'description' => $setting['description'],
 					) ) );
 					break;
 
@@ -499,7 +504,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
-						'description' => ! empty( $setting['description'] ) ? $setting['description'] : '',
+						'description' => $setting['description'],
 					) ) );
 					break;
 
@@ -510,7 +515,7 @@ class SiteOrigin_Customizer_Helper {
 						'type'    => $setting['type'],
 						'priority' => $priority++,
 						'choices' => isset($setting['choices']) ? $setting['choices'] : null,
-						'description' => ! empty( $setting['description'] ) ? $setting['description'] : '',
+						'description' => $setting['description'],
 					) );
 					break;
 			}
