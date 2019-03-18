@@ -100,6 +100,12 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.10 - 18 March 2019 ==
+* Mobile Menu: Added support for non-standard menu items added via plugins.
+* WooCommerce: Fixed issue with Page Settings: Layout on cart and checkout pages.
+* Added a new setting to `Customize > Theme Settings > Logo: Tagline`.
+* Vertically aligned the contents of the logo container to accomodate larger logos with the site title displayed.
+
 == 1.9.1 - 04 March 2019 ==
 * Added a filter to allow users to disable the importing of Google Fonts.
 * Accessibility improvements to the main menu search form.

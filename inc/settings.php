@@ -40,7 +40,7 @@ function vantage_theme_settings(){
 		'description' => __('When using the "logo in menu" masthead layout, constrain the logo size to fit the menu height.', 'vantage'),
 	) );
 
-	$settings->add_field('logo', 'with_text', 'checkbox', __('Display site title alongside logo', 'vantage'), array(
+	$settings->add_field('logo', 'with_text', 'checkbox', __('Display Site Title Alongside Logo', 'vantage'), array(
 		'description' => __("Only applicable if a Logo Image has been set.", 'vantage')
 	));
 
@@ -48,6 +48,10 @@ function vantage_theme_settings(){
 		'choose' => __('Choose Image', 'vantage'),
 		'update' => __('Set Logo', 'vantage'),
 		'description' => __('A double sized version of your logo for retina displays. Must be used in addition to standard logo.', 'vantage'),
+	) );
+
+	$settings->add_field('logo', 'site_description', 'checkbox', __('Tagline', 'vantage'), array(
+		'description' => __('Display the website tagline below the logo or site title.', 'vantage'),
 	) );
 
 	$settings->add_field('logo', 'header_text', 'text', __('Header Text', 'vantage'), array(
@@ -337,6 +341,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['logo_image_retina']                   = false;
 	$defaults['logo_in_menu_constrain']              = true;
 	$defaults['logo_with_text']                      = false;
+	$defaults['logo_site_description']               = false;
 	$defaults['logo_header_text']                    = __('Call me! Maybe?', 'vantage');
 	$defaults['logo_no_widget_overlay']              = false;
 
