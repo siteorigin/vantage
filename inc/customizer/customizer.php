@@ -53,7 +53,7 @@ class SiteOrigin_Customize_Fonts_Control extends WP_Customize_Control {
 }
 endif;
 
-if(!class_exists('SiteOrigin_Customizer_CSS_Builder ')) :
+if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) :
 /**
  * This is used for building custom CSS.
  */
