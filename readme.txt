@@ -3,7 +3,7 @@
 Contributors: siteorigin
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce
 Requires at least: 4.7
-Tested up to: 5.0.3
+Tested up to: 5.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,10 @@ Dual licensed under the MIT or GPL Version 2 licenses.
 This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 SiteOrigin unless otherwise stated in the file header.
 
 == Changelog ==
+
+== 1.11 - 22 April 2019 ==
+* Updated Customizer settings to allow for descriptions.
+* Corrected `SiteOrigin_Customizer_CSS_Builder` formatting error.
 
 == 1.10 - 18 March 2019 ==
 * Mobile Menu: Added support for non-standard menu items added via plugins.
