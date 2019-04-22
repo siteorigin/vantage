@@ -53,7 +53,7 @@ class SiteOrigin_Customize_Fonts_Control extends WP_Customize_Control {
 }
 endif;
 
-if(!class_exists('SiteOrigin_Customizer_CSS_Builder ')) :
+if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) :
 /**
  * This is used for building custom CSS.
  */
@@ -449,6 +449,11 @@ class SiteOrigin_Customizer_Helper {
 			// Can't use live changes with a callback
 			if( !empty($setting['callback']) ) $setting['no_live'] = true;
 
+			// Set $setting['description' ] if this setting doesn't have a description
+			if ( ! isset( $setting['description' ] ) ) {
+				$setting['description'] = '';
+			}
+
 			// Now lets add a control for this setting
 			switch($setting['type']) {
 				case 'font' :
@@ -457,6 +462,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) ) );
 					break;
 
@@ -466,6 +472,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) ) );
 					if ( empty( $setting['no_live'] ) ) $wp_customize->get_setting( $id )->transport = 'postMessage';
 					break;
@@ -476,6 +483,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'type'    => 'text',
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) );
 					if( empty( $setting['no_live'] ) ) $wp_customize->get_setting( $id )->transport = 'postMessage';
 					break;
@@ -486,6 +494,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) ) );
 					break;
 
@@ -495,6 +504,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) ) );
 					break;
 
@@ -505,6 +515,7 @@ class SiteOrigin_Customizer_Helper {
 						'type'    => $setting['type'],
 						'priority' => $priority++,
 						'choices' => isset($setting['choices']) ? $setting['choices'] : null,
+						'description' => esc_html( $setting['description'] ),
 					) );
 					break;
 			}
