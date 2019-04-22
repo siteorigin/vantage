@@ -100,7 +100,7 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
-== 1.11 - 22 April 2019 ==
+== 1.10.1 - 22 April 2019 ==
 * Updated Customizer settings to allow for descriptions.
 * Corrected `SiteOrigin_Customizer_CSS_Builder` formatting error.
 
