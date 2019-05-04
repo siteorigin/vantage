@@ -230,13 +230,12 @@ if ( ! function_exists( 'vantage_display_logo' ) ) :
  */
 function vantage_display_logo() {
 	$logo = siteorigin_setting( 'logo_image' );
+	if ( empty( $logo ) && function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
+		$logo = get_theme_mod( 'custom_logo' );
+	}
 	$logo = apply_filters('vantage_logo_image_id', $logo);
 
 	if ( empty($logo) ) {
-		if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
-			the_custom_logo();
-			return;
-		}
 
 		// Just display the site title.
 		$logo_html = '<h1 class="site-title">'.get_bloginfo( 'name' ).'</h1>';
