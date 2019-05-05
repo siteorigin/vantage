@@ -100,6 +100,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.10.2 - 05 May 2019 ==
+* Removed duplicate logo link when the Site Identity logo is in use.
+
 == 1.10.1 - 22 April 2019 ==
 * Updated Customizer settings to allow for descriptions.
 * Corrected `SiteOrigin_Customizer_CSS_Builder` formatting error.
