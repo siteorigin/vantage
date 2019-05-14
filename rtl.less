@@ -1,0 +1,517 @@
+/*
+Theme Name: Vantage
+Description: Adds support for languages written in a Right To Left (RTL) direction.
+*/
+
+@import "less/mixins";
+
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
+ul,
+ol {
+	margin: 0 3em 1.5em 0;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+	margin-right: 1.5em;
+	margin-left: 0;
+}
+
+dd {
+	margin: 0 0 1.5em 1.5em;
+}
+
+#masthead {
+
+	h1 {
+
+		&.logo-title {
+			margin-right: 20px;
+			margin-left: 0;
+		}
+	}
+
+	.hgroup {
+
+		.logo {
+			float: right;
+
+			img {
+				vertical-align: middle;
+			}
+		}
+
+		.support-text {
+			right: auto;
+			left: 0;
+		}
+
+		#header-sidebar {
+			right: auto;
+			left: 0;
+
+			aside.widget {
+				float: right;
+				margin-right: 0;
+				margin-left: 25px;
+
+				&:last-child {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+
+	&.masthead-logo-in-menu {
+
+		.logo-in-menu-wrapper {
+			float: right;
+		}
+
+		.logo {
+			margin-right: 0;
+			margin-left: 15px;
+		}
+	}
+}
+
+.layout-boxed #masthead.masthead-logo-in-menu {
+	.logo {
+		margin-right: 25px;
+		margin-left: 0;
+	}
+}
+
+#primary {
+	float: right;
+}
+
+body.sidebar-position-left #primary {
+	float: left;
+}
+
+.vantage-layout-width-normal #primary {
+	float: right;
+}
+
+#secondary {
+	float: left;
+}
+
+body.sidebar-position-left #secondary {
+	float: right;
+}
+
+.page-template-default #primary {
+	float: right;
+}
+
+@media (max-width:1080px) {
+	body.responsive {
+		#masthead {
+
+			&.masthead-logo-in-menu {
+
+				.logo {
+					margin-right: 20px;
+					margin-left: 0;
+				}
+
+				.main-navigation .menu-mobilenav-container ul {
+					margin-left: 0;
+
+					li {
+						float: left;
+					}
+				}
+			}
+		}
+	}
+}
+
+.main-navigation {
+
+	ul {
+		text-align: right;
+		padding-right: 0;
+		padding-left: 0;
+
+		ul {
+			left: auto;
+			right: 0;
+
+			li {
+				text-align: right;
+			}
+
+			ul {
+				right: 100%;
+				left: auto;
+				margin-right: 0;
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+body.has-menu-search .main-navigation ul {
+	margin-right: 0;
+	margin-left: 59px;
+}
+
+.mobile-nav-frame {
+
+	img {
+		margin-right: 0;
+		margin-left: 10px;
+	}
+}
+
+.mobile-nav-icon {
+	margin-right: 0;
+	margin-left: 10px;
+}
+
+.mobilenav-main-link {
+	img {
+		margin-right: 0;
+		margin-left: 10px;
+	}
+}
+
+#search-icon {
+	right: auto;
+	left: 0;
+
+	#search-icon-icon {
+
+		.vantage-icon-search {
+			right: 50%;
+			left: auto;
+			margin-right: -8.5px;
+			margin-left: 0;
+		}
+
+		img {
+			right: 50%;
+			left: auto;
+			margin-right: -8.5px;
+			margin-left: 0;
+		}
+	}
+
+	.searchform {
+		right: auto;
+		left: 0;
+	}
+}
+
+#page-title {
+	color: #3b3b3b;
+	margin-bottom: 25px;
+	font-size: 1.8em;
+	font-weight: 500;
+
+	a {
+		color: inherit;
+		text-decoration: none;
+		font-weight: bold;
+	}
+}
+
+.taxonomy-description {
+	margin-top: -15px;
+	color: #666;
+	font-style: italic;
+}
+
+article.post ,
+article.page{
+
+	footer {
+		float: right;
+
+		.tags {
+
+			a {
+				margin-right: 0;
+				margin-left: 4px;
+			}
+		}
+	}
+
+	.entry-header {
+
+		.entry-thumbnail {
+
+			img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+
+			a {
+				display: inline-block;
+			}
+		}
+	}
+
+	.more-link {
+		float: left;
+	}
+
+	.author-box {
+
+		.box-content {
+			margin-right: 132px;
+			margin-left: 0;
+		}
+	}
+
+	.share-buttons {
+
+		li {
+			float: right;
+		}
+	}
+
+	&.post-with-thumbnail-icon {
+
+		.entry-thumbnail {
+			float: right;
+		}
+
+		.entry-main {
+			float: left;
+		}
+	}
+}
+
+.post-navigation,
+#image-navigation {
+
+	.nav-previous {
+		.meta-nav {
+			margin-right: 0;
+			margin-left: 7px;
+		}
+	}
+
+	.nav-next {
+		.meta-nav {
+			margin-right: 7px;
+			margin-left: 0;
+		}
+	}
+}
+
+.entry-content {
+
+	blockquote {
+		border-right: 1px solid #aaaaaa;
+		border-left: none;
+		margin-right: 1em;
+		margin-left: 0;
+		padding-right: 1em;
+		padding-left: 0;
+	}
+
+	ul li,
+	ol li{
+		margin-right: 1.5em;
+		margin-left: 0;
+	}
+
+	dl dd {
+		padding-right: 20px;
+		padding-left: 0;
+	}
+}
+
+.pagination, .entry-content .pagination {
+	text-align: left;
+
+	span, a {
+		margin: 2px 0 2px 2px;
+
+		&:last-child {
+			margin-left: 0;
+		}
+	}
+}
+
+// Not sure.
+// .site-content {
+
+// 	.nav-previous {
+// 		float: left;
+// 	}
+
+// 	.nav-next {
+// 		float: right;
+// 		text-align: right;
+// 	}
+// }
+
+#comments {
+
+	.commentlist {
+
+		.children {
+			margin-right: 75px;
+			margin-left: 0;
+		}
+
+		article {
+
+			.avatar {
+				float: right;
+			}
+
+			.comment-author, .awaiting-moderation, .comment-meta, .comment-content {
+				margin-right: 75px;
+				margin-left: 0;
+			}
+
+			.comment-meta {
+				font-size: 11.5px;
+				color: #747474;
+				line-height: 1em;
+				margin-bottom: 15px;
+
+				.support {
+					margin-right: 15px;
+					margin-left: 0;
+
+					.comment-edit-link {
+						margin-right: 15px;
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+#commentform {
+
+	label {
+		float: right;
+	}
+
+	input, textarea {
+		float: right;
+	}
+
+	.logged-in-as{
+		text-align: left;
+	}
+
+	.comment-form-cookies-consent {
+
+		input {
+			margin-right: 0;
+			margin-left: 7px;
+		}
+	}
+}
+
+#commentform {
+
+	p.comment-subscription-form {
+		margin-bottom: 0px;
+
+		input[type="checkbox"] {
+			float: none;
+			font-size: 1em;
+			line-height: 1.92857em;
+			vertical-align: middle;
+		}
+
+		label.subscribe-label {
+			padding-right: 10px;
+			padding-left: 0;
+		}
+	}
+}
+
+#scroll-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: auto;
+	left: 20px;
+}
+
+#secondary, #footer-widgets, #masthead-widgets {
+
+	.widget {
+
+		ul, ol {
+
+			ul, ol {
+				margin-right: 1em;
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+#footer-widgets {
+
+	.widget {
+		float: right;
+	}
+}
+
+#masthead-widgets {
+
+	.widget {
+		float: right;
+		padding-right: 0;
+		padding-left: 25px;
+
+		&:last-child {
+			padding-left: 0;
+		}
+	}
+}
+
+#header-sidebar,
+#masthead-widgets {
+	.widget_nav_menu {
+		ul.menu {
+
+			> li {
+				margin-right: 0;
+				margin-left: 20px;
+
+				&:last-child {
+					margin-left: 0;
+				}
+
+				ul.sub-menu {
+					right: -10px;
+					left: auto;
+
+					ul {
+						right: 160px;
+						left: auto;
+					}
+				}
+			}	
+		}
+	}
+}
+
+.vantage-circleicon-loop {
+
+	.widget_circleicon-widget {
+		float: right;
+	}
+}
