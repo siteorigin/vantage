@@ -100,6 +100,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.11 - 14 May 2019 ==
+* Added initial RTL language support.
+
 == 1.10.2 - 05 May 2019 ==
 * Removed duplicate logo link when the Site Identity logo is in use.
 
