@@ -1,7 +1,7 @@
 === SiteOrigin Vantage ===
 
 Contributors: siteorigin
-Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce
+Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce
 Requires at least: 4.7
 Tested up to: 5.1.1
 License: GPLv2 or later
