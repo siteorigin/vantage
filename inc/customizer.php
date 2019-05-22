@@ -122,6 +122,20 @@ function vantage_customizer_init(){
 				'selector' => '.entry-content',
 				'property' => array('font-size'),
 			),
+			'meta_text_color' => array(
+				'type' => 'color',
+				'title' => __('Meta Text Color', 'vantage'),
+				'default' => '#8f8f8f',
+				'selector' => 'article.post .entry-header .entry-meta, article.post .entry-categories, article.page .entry-categories',
+				'property' => array('color'),
+			),
+			'meta_text_link_color' => array(
+				'type' => 'color',
+				'title' => __('Meta Text Link Color', 'vantage'),
+				'default' => '#5e5e5e',
+				'selector' => 'article.post .entry-header .entry-meta a, article.post .entry-categories a, article.page .entry-categories a',
+				'property' => array('color'),
+			),
 			'content_color' => array(
 				'type' => 'color',
 				'title' => __('Content Color', 'vantage'),
