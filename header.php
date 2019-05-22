@@ -19,6 +19,12 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php
+if ( ! function_exists( 'wp_body_open' ) ) {
+	function wp_body_open() {
+		do_action( 'wp_body_open' );
+	}
+} ?>
 
 <?php do_action('vantage_before_page_wrapper') ?>
 
