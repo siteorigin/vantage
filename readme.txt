@@ -100,6 +100,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.11.1 - 27 May 2019 ==
+* Added the new `wp_body_open` core theme action hook.
+* Added a Meta Text and Meta Text Link Color setting to `Customize > Theme Design Fonts`.
+* Updated the Google Fonts array.
+
 == 1.11 - 14 May 2019 ==
 * Added initial RTL language support.
 
