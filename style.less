@@ -1990,6 +1990,25 @@ article.page{
 	margin-bottom: 20px;
 	background: #2f3033;
 	padding: 30px;
+	
+	#site-info {
+		
+		span {
+			
+			&:after {
+				content: "\002d";
+				display: inline-block;
+				padding: 0 5px;
+			}
+
+			&:last-of-type {
+				
+				&:after {
+					content: none;
+				}
+			}
+		}		
+	}
 
 	#theme-attribution, #site-info {
 		text-align: center;

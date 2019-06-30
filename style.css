@@ -2132,6 +2132,14 @@ article.page.post-with-thumbnail-icon .entry-main {
   background: #2f3033;
   padding: 30px;
 }
+#colophon #site-info span:after {
+  content: "\002d";
+  display: inline-block;
+  padding: 0 5px;
+}
+#colophon #site-info span:last-of-type:after {
+  content: none;
+}
 #colophon #theme-attribution,
 #colophon #site-info {
   text-align: center;
