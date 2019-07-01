@@ -15,10 +15,10 @@
 		<div id="site-info">
 			<?php
 				if ( ! empty( $site_info_text ) ) {
-					echo wp_kses_post( $site_info_text )  . '.&nbsp;';
+					echo '<span>' . wp_kses_post( $site_info_text ) . '</span>';
 				}
 				if ( function_exists( 'the_privacy_policy_link' ) && siteorigin_setting( 'general_privacy_policy_link' ) ) {
-					the_privacy_policy_link( '', '.' );
+					the_privacy_policy_link( '<span>', '</span>' );
 				}
 			?>
 		</div><!-- #site-info -->
