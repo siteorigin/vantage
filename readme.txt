@@ -3,7 +3,7 @@
 Contributors: siteorigin
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce
 Requires at least: 4.7
-Tested up to: 5.2.1
+Tested up to: 5.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,12 @@ Dual licensed under the MIT or GPL Version 2 licenses.
 This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 SiteOrigin unless otherwise stated in the file header.
 
 == Changelog ==
+
+== 1.11.2 - 01 July 2019 ==
+* Better aligned the logo in menu tagline.
+* Reduced the main navigation z-index to avoid conflicts.
+* Prevented the blog sidebar dropping below the primary container when Page Builder isn’t activated.
+* Changed the footer separator from a period to a hyphen.
 
 == 1.11.1 - 27 May 2019 ==
 * Added the new `wp_body_open` core theme action hook.
