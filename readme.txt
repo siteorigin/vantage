@@ -100,6 +100,12 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.11.2 - 01 July 2019 ==
+* Better aligned the logo in menu tagline.
+* Reduced the main navigation z-index to avoid conflicts.
+* Prevented the blog sidebar dropping below the primary container when Page Builder isn’t activated.
+* Changed the footer separator from a period to a hyphen.
+
 == 1.11.1 - 27 May 2019 ==
 * Added the new `wp_body_open` core theme action hook.
 * Added a Meta Text and Meta Text Link Color setting to `Customize > Theme Design Fonts`.
