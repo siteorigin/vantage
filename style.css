@@ -671,7 +671,7 @@ body.no-sidebar #primary {
   width: auto;
 }
 /* Full Width Primary blocks */
-body.siteorigin-panels-lite-home:not(.blog) #primary,
+body.siteorigin-panels-lite-home #primary,
 body.vantage-layout-width-full-width #primary,
 body.vantage-layout-width-full-width-stretched #primary {
   width: auto;
@@ -694,14 +694,15 @@ body.sidebar-position-left #secondary {
 body.sidebar-position-none #secondary {
   display: none;
 }
-.siteorigin-panels-home:not(.blog) #primary,
+.siteorigin-panels-home #primary,
 .page-template-templatestemplate-full-php #primary,
 .page-template-home-panels-php #primary,
 .page-template-templatestemplate-full-notitle-php #primary {
   width: auto;
   float: none;
 }
-.page-template-default #primary {
+.page-template-default #primary,
+.siteorigin-panels-lite-home.blog.has-sidebar:not(.home) #primary {
   float: left;
   width: 71.287%;
 }
