@@ -100,6 +100,10 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.11.3 - 09 July 2019 ==
+* Updated the SiteOrigin Settings framework.
+* Corrected a container width/sidebar issue caused by the related fix in version 1.11.2.
+
 == 1.11.2 - 01 July 2019 ==
 * Better aligned the logo in menu tagline.
 * Reduced the main navigation z-index to avoid conflicts.
