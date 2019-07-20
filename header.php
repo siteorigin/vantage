@@ -27,6 +27,8 @@
 
 <div id="page-wrapper">
 
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'vantage' ); ?></a>
+
 	<?php do_action( 'vantage_before_masthead' ); ?>
 
 	<?php if( ! siteorigin_page_setting( 'hide_masthead', false ) ) : ?>
