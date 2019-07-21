@@ -88,7 +88,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Site Tagline Color', 'vantage'),
 				'default' => '#4b4b4b',
-				'selector' => '#masthead .hgroup .site-description',
+				'selector' => '#masthead .hgroup .site-description, #masthead.masthead-logo-in-menu .site-description',
 				'property' => array('color'),
 			),			
 			'header_text_size' => array(
