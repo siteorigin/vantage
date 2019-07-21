@@ -1,4 +1,7 @@
 /* This will override anything from WooCommerce core CSS */
+.woocommerce #page-wrapper #main #primary #main {
+  padding: 0;
+}
 .woocommerce #page-wrapper .button {
   border-top: solid 1px #d2d2d2;
   border-left: solid 1px #c3c3c3;
