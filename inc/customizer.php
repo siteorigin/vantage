@@ -84,6 +84,13 @@ function vantage_customizer_init(){
 				'selector' => '#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1',
 				'property' => array('color'),
 			),
+			'site_tagline_color' => array(
+				'type' => 'color',
+				'title' => __('Site Tagline Color', 'vantage'),
+				'default' => '#4b4b4b',
+				'selector' => '#masthead .hgroup .site-description, #masthead.masthead-logo-in-menu .site-description',
+				'property' => array('color'),
+			),			
 			'header_text_size' => array(
 				'type' => 'measurement',
 				'title' => __('Header Text Size', 'vantage'),
