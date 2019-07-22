@@ -98,6 +98,11 @@ function vantage_theme_settings(){
 		'description' => __("Change which footer area layout you're using.", 'vantage')
 	) );
 
+	$settings->add_field('layout', 'search', 'select', __('Search Results Layout', 'vantage'), array(
+		'options' => vantage_blog_layout_options(),
+		'description' => __("Choose the layout to be used on the search results page.", 'vantage')
+	) );
+
 	$settings->add_field('layout', 'force_panels_full', 'checkbox', __('Force Page Builder Styles Full Width', 'vantage'), array(
 		'description' => __('Force Page Builder rows with styles to be full width. Only necessary for legacy reasons.', 'vantage')
 	));
@@ -350,6 +355,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['layout_bound']                        = 'full';
 	$defaults['layout_masthead']                     = '';
 	$defaults['layout_footer']                       = '';
+	$defaults['layout_search']                       = 'blog';
 	$defaults['layout_force_panels_full']            = false;
 
 	$defaults['navigation_responsive_menu']          = true;

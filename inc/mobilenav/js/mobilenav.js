@@ -130,7 +130,7 @@ jQuery( function ( $ ) {
                         } else {
                             var ln = $$.html();
                         }
-                        var li = $( '<li></li>' ).append( ln );
+                        var li = $( '<li></li>' ).append( ln ).addClass( $$.attr( 'class' ) );
 
                         // Account for menu items with sub menus and menu items set to close links
                         if ( standardMenuItem ) {
