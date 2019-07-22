@@ -100,6 +100,14 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.12 - 22 July 2019 ==
+* Added a skip to content link.
+* Removed duplicate WooCommerce main container padding.
+* Updated TGM to the latest development version.
+* Added a site tagline color setting located at `Customize > Theme Design > Fonts > Site Tagline Color`.
+* Added a search results layout setting located at `Customize > Theme Settings > Layout > Search Results Layout`.
+* Added menu classes to the mobile menu.
+
 == 1.11.3 - 09 July 2019 ==
 * Updated the SiteOrigin Settings framework.
 * Corrected a container width/sidebar issue caused by the related fix in version 1.11.2.
