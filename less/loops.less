@@ -78,11 +78,11 @@
 					background-size: 242px 162px;
 					background-position: center center;
 
-					&, span.overlay {
+					&, span.vantage-overlay {
 						.transition(0.35s);
 					}
 
-					span.overlay {
+					span.vantage-overlay {
 						display: block;
 						width: 100%;
 						height: 100%;
@@ -239,13 +239,19 @@
 	}
 }
 
-.widget_siteorigin-panels-postloop h1.entry-title {
-	margin-top: 0;
-	margin-bottom: 0;
-}
+.widget_siteorigin-panels-postloop {
+	h1.entry-title {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 
-.widget_siteorigin-panels-postloop .pagination {
-	margin-top: 20px;
+	.pagination {
+		margin-top: 20px;
+	}
+
+	.flexslider .slides .slide {
+		margin-left: 0;
+	}
 }
 
 @media (max-width:640px) {

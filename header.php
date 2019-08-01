@@ -19,10 +19,15 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php if ( function_exists( 'wp_body_open' ) ) {
+	wp_body_open();
+} ?>
 
 <?php do_action('vantage_before_page_wrapper') ?>
 
 <div id="page-wrapper">
+
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'vantage' ); ?></a>
 
 	<?php do_action( 'vantage_before_masthead' ); ?>
 

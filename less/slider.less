@@ -1,226 +1,247 @@
 /* =Sliders
 ----------------------------------------------- */
+#main-slider {
+    background: #eee;
+    
+    .container {
+        padding: 0;
+    }
+    
+    #metaslider-demo, 
+    .metaslider {
+        margin: 0 auto;
+        text-align: center;
+    }
+}
 
-/* Resets */
+// Meta Slider General.
+.metaslider,
+.entry-content .metaslider {
+
+    a,
+    a:hover,
+    ul a,
+    ul a:hover {
+        border-bottom: none;
+    }
+}
+
+.metaslider.metaslider-flex {
+    overflow: hidden;
+}
+
+// Flexslider Resets.
 .flex-container a:active,
 .flexslider a:active,
 .flex-container a:focus,
-.flexslider a:focus  {
-	outline: none;
+.flexslider a:focus  { 
+    outline: none; 
 }
 
 .slides,
 .flex-control-nav,
 .flex-direction-nav {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-/* Necessary Styles */
+.flexslider a img { 
+    border: none;
+    outline: none;
+}
 
 .flexslider {
-	margin: 0;
-	padding: 0;
-	zoom: 1;
-	position: relative;
+    margin: 0;
+    padding: 0;
+}
 
-	.slides {
-		list-style:none;
-		zoom: 1;
-		.clearfix();
+.flexslider ul {
+    border: 0;
+    max-height: none;
+    max-width: none;
+    line-height: normal;
+    list-style-type: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-		> img {
-			width: 100%;
-			height: auto;
-			display: block;
-			.box-shadow( 0 2px 2px rgba(0,0,0,0.15) );
-		}
+// General FlexSlider Styles.
+.flexslider:hover .flex-vantage-direction-nav li a {
+    opacity: 1;
+}
 
-		p img {
-			width: auto;
-			display: inline-block;
-		}
+.flexslider .slides > li {
+    background-position: center;  
+    background-size: cover;  
+    -webkit-backface-visibility: hidden;  
+    display: none;         
+    line-height: 0;
+}
 
-		.flex-caption {
-			.box-sizing(border-box);
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			padding: 20px;
-			text-decoration: none;
-			background: rgba(0,0,0,0.5);
-			color: #FFF;
-			text-align: center;
+.flexslider .slides li > img {
+    display: block;
+    width: 100%;
+}
 
-			h3 {
-				color: inherit;
-				margin: 0;
-				line-height: 1.25em;
-				font-size: 15px;
-			}
-		}
+.slides:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;  
+}
 
+html[xmlns] .slides { 
+    display: block; 
+}
+
+* html .slides { 
+    height: 1%; 
+}
+
+.flexslider,
+.flexslider .slides {
+    position: relative;
+    zoom: 1;
+}
+
+// Flexslider captions.
+.flexslider .caption-wrap {
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.25em;
+    text-align: center;
+ 
+    .caption {
+        line-height: normal;
+        padding: 8px 14px 9px;
+    }   
+}
+
+.flexslider .slides > li .content img {
+    height: auto !important;
+    max-width: 100%;
+}
+
+#metaslider-demo .content,
+.vantage-slide-with-image .content {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#metaslider-demo .content img,
+.vantage-slide-with-image .content img {
+    height: auto;
+    max-width: 100%;
+}
+
+#metaslider-demo .ms-default-image,
+.vantage-slide-with-image .ms-default-image {
+    height: auto;
+    max-width: 100%;
+}
+
+// Vantage(Flex) Slider Theme Styles.
+#main-slider .flexslider:not(#metaslider-demo) ul.flex-vantage-direction-nav {
+    margin-bottom: -40px;
+}
+
+.flex-vantage-control-paging {
+	bottom: 15px;
+	list-style: none;
+    margin: 0;
+	padding: 0 30px;
+	position: absolute;
+	right: 0px;
+	text-align: right;
+	z-index: 20;
+
+	li {
+        display: inline-block;
+        height: 14px;
+		margin: 0;
+        margin-right: 2px;
+		padding: 0;
+        text-align: left;
+		text-indent: -99999px;
+        width: 14px;
 	}
 
-	.slides > li {
-		margin-left: 0;
-		display: none;
-		-webkit-backface-visibility: hidden;
+	li a {
+        background: url(images/sprites/slide-indicator-inactive.png);
+        cursor:pointer;
+		display: block;
+		height: 14px;
+        width: 14px;
 
-		background-size: cover;
-		background-position: center center;
-
-		/* Stuff specific to metaslider */
-
-		.content {
-			img {
-				max-width: 100%;
-				height: auto !important;
-			}
-		}
-	}
-
-	.flex-control-paging {
-		list-style:none;
-		position: absolute;
-		bottom: 15px;
-		right: 0px;
-		text-align: right;
-		padding: 0 30px;
-		z-index: 20;
-
-		li {
-			margin:0;
-			padding:0;
-			display: inline-block;
-			text-indent: -99999px;
-			text-align: left;
-			width: 14px;
-			height: 14px;
-			margin-right: 2px;
+		&.flex-vantage-active {
+            background: url(images/sprites/slide-indicator-active.png);
 		}
 
-		li a{
-			display: block;
-			width: 14px;
-			height: 14px;
-			cursor:pointer;
-
-
-			background: url(images/sprites/slide-indicator-inactive.png);
-
-			&.flex-active {
-				background: url(images/sprites/slide-indicator-active.png);
-			}
-
-			&:hover {
-				background: url(images/sprites/slide-indicator-inactive.png);
-			}
-		}
-	}
-
-	.flex-direction-nav {
-		list-style:none;
-
-		li {
-			margin:0;
-			padding:0;
-
-			a {
-				z-index: 200;
-				display: block;
-				position: absolute;
-				top: 50%;
-				text-indent: -99999px;
-				width: 32px;
-				height: 85px;
-				margin-top: -52px;
-
-				opacity: 0;
-
-				.transition(0.2s, opacity, ease);
-			}
-
-			a.flex-prev{
-				left: 0;
-				background: url(images/sprites/gallery-prev.png);
-			}
-
-			a.flex-next{
-				right: 0;
-				background: url(images/sprites/gallery-next.png);
-			}
-
-			@media screen and (-webkit-min-device-pixel-ratio: 2) {
-
-				a {
-					background-size: 32px 85px;
-				}
-
-				a.flex-prev{
-					background-size: cover;
-					background-image: url(images/retina/gallery-prev.png);
-				}
-
-				a.flex-next{
-					background-size: cover;
-					background-image: url(images/retina/gallery-next.png);
-				}
-			}
-		}
-	}
-
-	&:hover {
-		.flex-direction-nav li a {
-			opacity: 0.9;
+		&:hover {
+            background: url(images/sprites/slide-indicator-inactive.png);
 		}
 	}
 }
 
-/* Styles for Metaslider Prebuilt */
+.flex-vantage-direction-nav {
+	list-style:none;
 
-.metaslider .msHtmlOverlay .layer {
-
-	.siteorigin-slider-action-button {
-		display: inline-block;
-	    padding: 8px 46px 8px 0;
-		font-weight: bold;
-	    background: url(slider/action.png) right center no-repeat;
+	li {
+		margin:0;
+		padding:0;
 
 		a {
-			font-size: 16px;
-	        color: #ffffff;
-			text-decoration: none;
+            display: block;
+            height: 85px;
+            margin-top: -52px;
+            opacity: 0;
+            position: absolute;
+            text-indent: -99999px;
+            transition: .2s opacity ease;
+            top: 50%;
+            width: 32px;
+            z-index: 200;
+		}
+
+		a.flex-vantage-prev {
+            background: url(images/sprites/gallery-prev.png);
+			left: 0;
+		}
+
+		a.flex-vantage-next {
+            background: url(images/sprites/gallery-next.png);
+			right: 0;
+		}
+
+		@media screen and (-webkit-min-device-pixel-ratio: 2) {
+
+			a {
+				background-size: 32px 85px;
+			}
+
+			a.flex-vantage-prev {
+                background-image: url(images/retina/gallery-prev.png);
+				background-size: cover;
+			}
+
+			a.flex-vantage-next {
+                background-image: url(images/retina/gallery-next.png);
+				background-size: cover;	
+			}
 		}
 	}
-
 }
 
-#metaslider-demo, .vantage-slide-with-image {
+&:hover {
 
-	.content {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-
-		img {
-			max-width: 100%;
-			height: auto;
-		}
-	}
-
-	.ms-default-image {
-		max-width: 100%;
-		height: auto;
-	}
-
-}
-
-.gallery-format-slider {
-	img {
-		max-width: 100%;
+	.flex-vantage-direction-nav li a {
+		opacity: 0.9;
 	}
 }

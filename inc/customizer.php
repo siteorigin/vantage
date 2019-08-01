@@ -84,19 +84,26 @@ function vantage_customizer_init(){
 				'selector' => '#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1',
 				'property' => array('color'),
 			),
+			'site_tagline_color' => array(
+				'type' => 'color',
+				'title' => __('Site Tagline Color', 'vantage'),
+				'default' => '#4b4b4b',
+				'selector' => '#masthead .hgroup .site-description, #masthead.masthead-logo-in-menu .site-description',
+				'property' => array('color'),
+			),			
 			'header_text_size' => array(
 				'type' => 'measurement',
 				'title' => __('Header Text Size', 'vantage'),
 				'default' => 13,
 				'unit' => 'px',
-				'selector' => '#masthead .hgroup .support-text',
+				'selector' => '#masthead .hgroup .support-text, #masthead .hgroup .site-description',
 				'property' => array('font-size'),
 			),
 			'header_text_color' => array(
 				'type' => 'color',
 				'title' => __('Header Text Color', 'vantage'),
 				'default' => '#4b4b4b',
-				'selector' => '#masthead .hgroup .support-text',
+				'selector' => '#masthead .hgroup .support-text, #masthead .hgroup .site-description',
 				'property' => array('color'),
 			),
 			'page_title_size' => array(
@@ -121,6 +128,20 @@ function vantage_customizer_init(){
 				'unit' => 'px',
 				'selector' => '.entry-content',
 				'property' => array('font-size'),
+			),
+			'meta_text_color' => array(
+				'type' => 'color',
+				'title' => __('Meta Text Color', 'vantage'),
+				'default' => '#8f8f8f',
+				'selector' => 'article.post .entry-header .entry-meta, article.post .entry-categories, article.page .entry-categories',
+				'property' => array('color'),
+			),
+			'meta_text_link_color' => array(
+				'type' => 'color',
+				'title' => __('Meta Text Link Color', 'vantage'),
+				'default' => '#5e5e5e',
+				'selector' => 'article.post .entry-header .entry-meta a, article.post .entry-categories a, article.page .entry-categories a',
+				'property' => array('color'),
 			),
 			'content_color' => array(
 				'type' => 'color',
@@ -274,7 +295,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Hover Background', 'vantage'),
 				'default' => '#00bcff',
-				'selector' => '.main-navigation ul li:hover > a, #search-icon #search-icon-icon:hover',
+				'selector' => '.main-navigation ul li:hover > a, .main-navigation ul li:focus > a, #search-icon #search-icon-icon:hover,  #search-icon #search-icon-icon:focus',
 				'property' => 'background-color',
 				'no_live' => true,
 			),
@@ -282,7 +303,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Hover Text', 'vantage'),
 				'default' => '#ffffff',
-				'selector' => '.main-navigation ul li:hover > a, .main-navigation ul li:hover > a [class^="fa fa-"]',
+				'selector' => '.main-navigation ul li:hover > a,  .main-navigation ul li:focus > a, .main-navigation ul li:hover > a [class^="fa fa-"]',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -351,7 +372,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Search Icon Hover Color', 'vantage'),
 				'default' => '#ffffff',
-				'selector' => '#search-icon #search-icon-icon:hover .vantage-icon-search',
+				'selector' => '#search-icon #search-icon-icon:hover .vantage-icon-search, #search-icon #search-icon-icon:focus .vantage-icon-search',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -728,6 +749,7 @@ add_action('wp_head', 'vantage_customizer_style', 20);
  */
 function vantage_customizer_callback_site_title_size($builder, $val, $setting){
 	$mh_layout = siteorigin_setting( 'layout_masthead' );
+	$val = $val === false ? $setting['default'] : $val;
 	if ( $mh_layout == 'logo-in-menu' ) {
 		$builder->add_css('#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1', 'font-size', $val*0.6 . 'px');
 	} else {

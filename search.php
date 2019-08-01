@@ -20,20 +20,9 @@ get_header(); ?>
 			<?php endif; ?>
 		</header><!-- .page-header -->
 
-		<?php /* Start the Loop */ ?>
-		<?php while ( have_posts() ) : the_post(); ?>
-
-			<?php get_template_part( 'content' ); ?>
-
-		<?php endwhile; ?>
-
-		<?php vantage_content_nav( 'nav-below' ); ?>
-
-	<?php else : ?>
-
-		<?php get_template_part( 'no-results', 'search' ); ?>
-
 	<?php endif; ?>
+
+		<?php get_template_part( 'loops/loop', siteorigin_setting( 'layout_search' ) ); ?>
 
 	</div><!-- #content .site-content -->
 </section><!-- #primary .content-area -->

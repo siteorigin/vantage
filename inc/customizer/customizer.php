@@ -53,7 +53,7 @@ class SiteOrigin_Customize_Fonts_Control extends WP_Customize_Control {
 }
 endif;
 
-if(!class_exists('SiteOrigin_Customizer_CSS_Builder ')) :
+if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) :
 /**
  * This is used for building custom CSS.
  */
@@ -87,13 +87,15 @@ class SiteOrigin_Customizer_CSS_Builder {
 		// Start by importing Google web fonts
 		$return = '<style type="text/css" id="customizer-css">';
 
-		$import = array();
-		foreach ( $this->google_fonts as $font ) {
-			$import[ ] = urlencode( $font[ 0 ] ) . ':' . $font[ 1 ];
-		}
-		$import = array_unique( $import );
-		if ( !empty( $import ) ) {
-			$return .= '@import url(http' . ( is_ssl() ? 's' : '' ) . '://fonts.googleapis.com/css?family=' . implode( '|', $import ) . '); ';
+		if ( apply_filters( 'vanage_import_google_fonts', true ) ) {
+			$import = array();
+			foreach ( $this->google_fonts as $font ) {
+				$import[ ] = urlencode( $font[ 0 ] ) . ':' . $font[ 1 ];
+			}
+			$import = array_unique( $import );
+			if ( !empty( $import ) ) {
+				$return .= '@import url(//fonts.googleapis.com/css?family=' . implode( '|', $import ) . '); ';
+			}
 		}
 
 		foreach ( $this->css as $selector => $rules ) {
@@ -447,6 +449,11 @@ class SiteOrigin_Customizer_Helper {
 			// Can't use live changes with a callback
 			if( !empty($setting['callback']) ) $setting['no_live'] = true;
 
+			// Set $setting['description' ] if this setting doesn't have a description
+			if ( ! isset( $setting['description' ] ) ) {
+				$setting['description'] = '';
+			}
+
 			// Now lets add a control for this setting
 			switch($setting['type']) {
 				case 'font' :
@@ -455,6 +462,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) ) );
 					break;
 
@@ -464,6 +472,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) ) );
 					if ( empty( $setting['no_live'] ) ) $wp_customize->get_setting( $id )->transport = 'postMessage';
 					break;
@@ -474,6 +483,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'type'    => 'text',
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) );
 					if( empty( $setting['no_live'] ) ) $wp_customize->get_setting( $id )->transport = 'postMessage';
 					break;
@@ -484,6 +494,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) ) );
 					break;
 
@@ -493,6 +504,7 @@ class SiteOrigin_Customizer_Helper {
 						'section' => $setting['section'],
 						'settings' => $id,
 						'priority' => $priority++,
+						'description' => esc_html( $setting['description'] ),
 					) ) );
 					break;
 
@@ -503,6 +515,7 @@ class SiteOrigin_Customizer_Helper {
 						'type'    => $setting['type'],
 						'priority' => $priority++,
 						'choices' => isset($setting['choices']) ? $setting['choices'] : null,
+						'description' => esc_html( $setting['description'] ),
 					) );
 					break;
 			}
@@ -554,11 +567,11 @@ class SiteOrigin_Customizer_Helper {
 					}
 				}
 			}
-
-			if(isset($setting['callback'])) {
-				$val = get_theme_mod($id);
-				if(isset( $setting['default'] ) && $val != $setting['default']) {
-					call_user_func( $setting['callback'], $builder, $val, array_merge( $setting, array('id' => $id) ) );
+			
+			if ( isset( $setting['callback'] ) ) {
+				$val = get_theme_mod( $id );
+				if ( isset( $setting['default'] ) && $val != $setting['default'] ) {
+					call_user_func( $setting['callback'], $builder, $val, array_merge( $setting, array( 'id' => $id ) ) );
 				}
 			}
 		}

@@ -3,12 +3,12 @@ Theme Name: Vantage
 Author: SiteOrigin
 Author URI: https://siteorigin.com/
 Theme URI: https://siteorigin.com/theme/vantage/
-Description: Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, Meta Slider for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free and premium support on our support <a href="http://siteorigin.com/thread/">forums</a> (http://siteorigin.com/thread/).
+Description: Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, Smart Slider 3 for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free support on our <a href="http://siteorigin.com/thread/">forum</a> (http://siteorigin.com/thread/).
 Version: dev
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: vantage
-Tags: one-column, two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
+Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce
 */
 
 @import "less/mixins";
@@ -358,6 +358,7 @@ body {
 			font-weight: 100;
 			font-size: 36px;
 			line-height: 1em;
+			vertical-align: middle;
 		}
 
 		.logo {
@@ -366,8 +367,17 @@ body {
 			max-width: 100%;
 
 			img {
-				vertical-align:bottom;
+				vertical-align: middle;
 			}
+		}
+
+		.site-description {
+			clear: both;
+			color: #4b4b4b;
+			font-style: italic;
+			font-size: 13px;
+			margin-bottom: 0;
+			padding-top: 5px;
 		}
 
 		.support-text {
@@ -382,44 +392,29 @@ body {
 		}
 
 		#header-sidebar {
+			box-sizing: border-box;
+			height: 100%;
 			padding-top: 15px;
 			padding-bottom: 15px;
-			height: 100%;
 			position: absolute;
 			right: 0;
 			top: 0;
 
-			.box-sizing(border-box);
-
-			/* Center align layout. Based on old CSS3 spec, so update when new spec is available and supported */
-
-			-ms-flex-pack:center;
-			-ms-flex-align:center;
-			display:-ms-flexbox;
-
-			-moz-box-pack:center;
-			-moz-box-align:center;
-			display:-moz-box;
-
-			-webkit-box-pack:center;
-			-webkit-box-align:center;
-			display:-webkit-box;
-
-			display:box;
-			box-pack:center;
-			box-align:center;
-
 			aside.widget {
-				margin-bottom: 0;
 				float: left;
-				position: relative;
 				margin-right: 25px;
+				margin-bottom: 0;
+				position: relative;
+				
+				&.widget_circleicon-widget {
+					clear: none;
+				}
 
 				&:last-child {
 					margin-right: 0;
 				}
 			}
-
+			
 			.widget-title {
 				font-weight: bold;
 				margin-bottom: 5px;
@@ -433,8 +428,11 @@ body {
 			.clearfix();
 		}
 
-		.logo {
+		.logo-in-menu-wrapper {
 			float: left;
+		}
+
+		.logo {
 			padding: 10px 0;
 			margin-right: 15px;
 
@@ -459,7 +457,15 @@ body {
 				font-weight: 100;
 				padding: 7px 15px;
 			}
+		}
 
+		.site-description {
+			clear: both;
+			color: #e2e2e2;
+			font-size: 12px;
+			font-style: italic;
+			margin: -10px 0 0;
+			padding: 0 15px 15px;
 		}
 	}
 }
@@ -556,36 +562,6 @@ body.sidebar-position-none #secondary {
 	padding: 35px;
 }
 
-#main-slider {
-	line-height: 0;
-	background: #eeeeee;
-
-	.flexslider {
-		margin-bottom: 0;
-	}
-
-	h1 {
-		font-weight: 100;
-		text-shadow: 0 1px 1px rgba(0,0,0,0.5);
-	}
-
-	.text-em-wrapper {
-		padding: 10px 50px;
-		background: rgba(0,0,0,0.25);
-		border: 3px solid white;
-		font-weight: bold;
-	}
-
-	.metaslider, #metaslider-demo {
-		margin: 0 auto;
-	}
-
-	#metaslider-demo {
-		text-align: center;
-	}
-}
-
-
 /* =Responsive Layout
 ----------------------------------------------- */
 
@@ -593,7 +569,8 @@ body.sidebar-position-none #secondary {
 	body.responsive {
 		#masthead {
 			.hgroup {
-				.logo img {
+				.logo img,
+				.custom-logo {
 					/* Scale down the logo if necessary */
 					max-width: 100%;
 					height: auto;
@@ -617,10 +594,6 @@ body.sidebar-position-none #secondary {
 						}
 
 					}
-				}
-
-				#search-icon-icon {
-					display: none;
 				}
 			}
 		}
@@ -746,13 +719,13 @@ body.responsive {
 
 /* =Menu
 ----------------------------------------------- */
-
+	
 .main-navigation {
 	margin: 0 -35px;
 	background: #343538;
 	position: relative;
 	font-size: 0;
-	z-index: 9999;
+	z-index: 1499;
 
 	/* Font awesome icons */
 	[class^="fa fa-"] {
@@ -763,7 +736,8 @@ body.responsive {
 		color: #cccccc;
 	}
 
-	a:hover [class^="fa fa-"] {
+	a:hover [class^="fa fa-"],
+	a.focus [class^="fa fa-"] {
 		color: #ffffff;
 	}
 
@@ -779,9 +753,12 @@ body.responsive {
 			font-size: 13px;
 			position: relative;
 
-			&:hover > a {
-				background: #00bcff;
-				color: #ffffff;
+			&:hover,
+			&.focus {
+				> a {
+					background: #00bcff;
+					color: #ffffff;
+				}
 			}
 
 			a {
@@ -798,9 +775,10 @@ body.responsive {
 		/* Second level menu items */
 		ul {
 			.box-shadow(~"0 1px 2px rgba(0,0,0,0.15)");
-
+			.transition( 0.25s, opacity, ease );
 			background: #464646;
-			display: none;
+			visibility: hidden;
+			opacity: 0;
 
 			position: absolute;
 			top: 100%;
@@ -817,7 +795,8 @@ body.responsive {
 				text-align: left;
 
 				/* Hovering over 2nd level items */
-				&:hover > a {
+				&:hover > a,
+				&.focus > a {
 					background: #00bcff;
 					color: #ffffff;
 				}
@@ -832,9 +811,11 @@ body.responsive {
 			}
 		}
 
-		li:hover {
+		li:hover,
+		li.focus {
 			> ul {
-				display: block;
+				visibility: visible;
+				opacity: 1;
 			}
 		}
 	}
@@ -846,19 +827,65 @@ body.responsive {
 		color: #e2e2e2;
 		font-weight: bold;
 	}
-	/* For when the menu becomes a sticky menu */
-	&.sticky {
-		top: 0;
+
+}
+
+/* For when the menu becomes a sticky menu */
+body.sticky-menu {
+	&.layout-full .site-navigation {
+		right: 0;
+		left: 0;
+		margin-right: 0;
+		margin-left: 0;
 	}
 
-	&.sticky:after {
-		bottom: -6px;
- 		box-shadow: rgba(0,0,0,0.25) 0 6px 6px -6px inset;
-  		content: "";
-  		height: 6px;
-  		position: absolute;
-  		width: 100%;
+	&.layout-boxed .main-navigation {
+		width: 100%;
+		max-width: 1080px,
 	}
+
+	&.mega-menu-primary {
+		&.layout-boxed .site-navigation {
+			max-width: 1100px;
+		}
+
+		&.layout-full .site-navigation {
+			padding-left: 35px;
+			padding-right: 35px;
+		}
+
+		.site-navigation {
+			z-index: 9999;
+		}
+	}
+
+	&.admin-bar .site-navigation.use-sticky-menu {
+		@media (min-width: 783px) {
+			top: 32px;
+		}
+		
+		@media (max-width: 782px) and (min-width: 601px) {
+			top: 42px
+		}
+	}
+
+	.site-navigation.sticky {
+		position: fixed;
+		top: 0;
+	}
+}
+
+body.admin-bar:not(.sticky-menu) .site-navigation.use-sticky-menu {
+	top: 0;
+}
+
+.main-navigation.sticky:after {
+	bottom: -6px;
+	box-shadow: rgba(0,0,0,0.25) 0 6px 6px -6px inset;
+	content: "";
+	height: 6px;
+	position: absolute;
+	width: 100%;
 }
 
 body.has-menu-search .main-navigation ul {
@@ -959,13 +986,12 @@ body.so-vantage-mobile-device {
 			margin-left: -8.5px;
 		}
 
-		&:hover {
+		&:hover, &:focus {
 			.vantage-icon-search {
 				color: #ffffff;
 			}
 			background-color: #00bcff;
 		}
-
 	}
 
 	.searchform {
@@ -1178,7 +1204,7 @@ article.page{
 				padding-bottom: 15px;
 				margin-bottom: 15px;
 				border-bottom: 1px solid #e0e0e0;
-				
+
 				h3 {
 					color: #3b3b3b;
 					font-size: 1.25em;
@@ -1192,11 +1218,11 @@ article.page{
 				color: #777;
 				font-size: .9em;
 				text-decoration: none;
-				
+
 				&:hover {
 					color: #248cc8;
 				}
-			}			
+			}
 
 			.box-description {
 				min-height: 0;
@@ -1691,6 +1717,7 @@ article.page{
 				width: 100%;
 				margin-bottom: 20px;
 				text-align: center;
+				white-space: normal;
 			}
 		}
 	}
@@ -1824,7 +1851,7 @@ article.page{
 	}
 }
 
-#commentform{
+#commentform {
 
 	label {
 		margin-top: 2px;
@@ -1889,6 +1916,24 @@ article.page{
 		color: #a40802;
 	}
 
+	.comment-form-cookies-consent {
+		align-items: center;
+		clear: both;
+		display: flex;
+		
+		input {
+			line-height: 1;
+			margin-right: 7px;
+			width: auto;
+		}
+		
+		label {
+			display: inline-block;
+			font-weight: normal;
+			margin-bottom: 0;
+			width: auto;
+		}
+	}		
 }
 
 /* Vantage Jetpack Subscription Form */
@@ -1945,6 +1990,25 @@ article.page{
 	margin-bottom: 20px;
 	background: #2f3033;
 	padding: 30px;
+	
+	#site-info {
+		
+		span {
+			
+			&:after {
+				content: "\002d";
+				display: inline-block;
+				padding: 0 5px;
+			}
+
+			&:last-of-type {
+				
+				&:after {
+					content: none;
+				}
+			}
+		}		
+	}
 
 	#theme-attribution, #site-info {
 		text-align: center;
@@ -2048,7 +2112,7 @@ body.layout-full{
 @import "less/accessibility";
 
 /* Prevent iOS Safari from overriding the colors for phone numbers */
-a[href^="tel"]{
+a[href^="tel"] {
     color:inherit;
     text-decoration:none;
 }

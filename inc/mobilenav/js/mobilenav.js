@@ -119,41 +119,48 @@ jQuery( function ( $ ) {
                     var slide = $( '<div class="slide"><ul class="mobile"></ul></div>' ).appendTo( frame.find( '.slides-container' ) );
 
                     root.find( '> li' ).each( function () {
-                        var $$ = $( this );
-                        var ln = $( '<a></a>' )
-                            .html( $$.find( '> a' ).html() )
-                            .attr( 'href', $$.find( '> a' ).attr( 'href' ) )
-                            .addClass( 'link' );
-                        var li = $( '<li></li>' ).append( ln );
-                        li.find('a[href!="#"]').click(
-                            function (e) {
-                                frame.mnHideFrame();
+                        var $$ = $( this ),
+                            standardMenuItem = $$.find( '> a' ).html();
+
+                        if ( standardMenuItem ) {
+                            var ln = $( '<a></a>' )
+                                .html( $$.find( '> a' ).html() )
+                                .attr( 'href', $$.find( '> a' ).attr( 'href' ) )
+                                .addClass( 'link' );
+                        } else {
+                            var ln = $$.html();
+                        }
+                        var li = $( '<li></li>' ).append( ln ).addClass( $$.attr( 'class' ) );
+
+                        // Account for menu items with sub menus and menu items set to close links
+                        if ( standardMenuItem ) {
+                            li.find('a').not('.next').click( 
+                                function (e) {
+                                    if ( $( this ).attr( 'href' ) === 'undefined' ) {
+                                        frame.mnHideFrame();
+                                    }
+                                }
+                            );
+
+
+                            if ( $$.find( '> ul' ).length > 0 ) {
+                                var next = $( '<a href="#" class="next"><i class="fa fa-chevron-right"></i></a>' );
+                                li.prepend( next );
+
+                                var child = $$.find( '> ul' ).eq( 0 );
+                                var childSlide = createMenu( child );
+
+                                childSlide.data( 'parent-slide', slide.index() );
+                                childSlide.data( 'title', ln.html() );
+
+                                li.find( 'a.next' ).click( function () {
+                                    showSlide( childSlide.index() );
+                                    return false;
+                                } );
                             }
-                        );
+                        }
 
                         slide.find( 'ul' ).append( li );
-
-                        if ( $$.find( '> ul' ).length > 0 ) {
-                            var next = $( '<a href="#" class="next"><i class="fa fa-chevron-right"></i></a>' );
-                            li.prepend( next );
-
-                            var child = $$.find( '> ul' ).eq( 0 );
-                            var childSlide = createMenu( child );
-
-                            childSlide.data( 'parent-slide', slide.index() );
-                            childSlide.data( 'title', ln.html() );
-
-                            li.find( 'a.next' ).click( function () {
-                                showSlide( childSlide.index() );
-                                return false;
-                            } );
-
-                            // For # links, treat this as a click on next.
-                            li.find('a[href="#"]').not('.next').click(function(){
-                                next.click();
-                                return false;
-                            });
-                        }
                     } );
 
                     return slide;
@@ -162,6 +169,17 @@ jQuery( function ( $ ) {
                 createMenu( $nav.find( 'ul' ).eq( 0 ) );
                 showSlide( 0 );
             }
+            
+            // Attach .click All non link menu items and hash links (#, #example).
+            $( '.mobile-nav-frame .mobile a[href*="#"].link, .mobile-nav-frame .mobile a:not([href])' ).click( function() {
+                // Check for .next and if there is one, open the sub menu
+                if( $( this ).prev( '.next' ).length ) {
+                    $( this ).prev( '.next' ).click();
+                } else {
+                    // Close Mobile Menu
+                    frame.mnHideFrame();
+                }
+            } );
 
             $( window ).resize();
             frame.mnShowFrame();

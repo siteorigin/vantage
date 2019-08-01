@@ -40,7 +40,7 @@ function vantage_theme_settings(){
 		'description' => __('When using the "logo in menu" masthead layout, constrain the logo size to fit the menu height.', 'vantage'),
 	) );
 
-	$settings->add_field('logo', 'with_text', 'checkbox', __('Display site title alongside logo', 'vantage'), array(
+	$settings->add_field('logo', 'with_text', 'checkbox', __('Display Site Title Alongside Logo', 'vantage'), array(
 		'description' => __("Only applicable if a Logo Image has been set.", 'vantage')
 	));
 
@@ -48,6 +48,10 @@ function vantage_theme_settings(){
 		'choose' => __('Choose Image', 'vantage'),
 		'update' => __('Set Logo', 'vantage'),
 		'description' => __('A double sized version of your logo for retina displays. Must be used in addition to standard logo.', 'vantage'),
+	) );
+
+	$settings->add_field('logo', 'site_description', 'checkbox', __('Tagline', 'vantage'), array(
+		'description' => __('Display the website tagline below the logo or site title.', 'vantage'),
 	) );
 
 	$settings->add_field('logo', 'header_text', 'text', __('Header Text', 'vantage'), array(
@@ -92,6 +96,11 @@ function vantage_theme_settings(){
 	$settings->add_field('layout', 'footer', 'select', __('Footer Layout', 'vantage'), array(
 		'options' => $settings->template_part_names('parts/footer', 'Part Name'),
 		'description' => __("Change which footer area layout you're using.", 'vantage')
+	) );
+
+	$settings->add_field('layout', 'search', 'select', __('Search Results Layout', 'vantage'), array(
+		'options' => vantage_blog_layout_options(),
+		'description' => __("Choose the layout to be used on the search results page.", 'vantage')
 	) );
 
 	$settings->add_field('layout', 'force_panels_full', 'checkbox', __('Force Page Builder Styles Full Width', 'vantage'), array(
@@ -170,20 +179,24 @@ function vantage_theme_settings(){
 	/**
 	 * Home Page
 	 */
-
-	$settings->add_field('home', 'slider', 'select', __('Home Page Slider', 'vantage'), array(
-		'options' => siteorigin_metaslider_get_options(true),
-		'description' => sprintf(
-			__('This theme supports <a href="%s" target="_blank">Meta Slider</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage'),
-			'https://siteorigin.com/metaslider/',
-			siteorigin_metaslider_install_link(),
+	$description = '';
+	if ( ! class_exists( 'MetaSliderPlugin' ) && ! class_exists( 'SmartSlider3' ) ) {
+		$description = sprintf(
+			__( 'This theme supports <a href="%s" target="_blank">Smart Slider 3</a>. <a href="%s">Install it</a> for free to create beautiful responsive sliders - <a href="%s" target="_blank">More Info</a>', 'vantage' ),
+			'https://siteorigin.com/smart-slider-3/',
+			vantage_smartslider_install_link(),
 			'https://siteorigin.com/vantage-documentation/home-page-slider/'
-		)
+		);
+	}
+	
+	$settings->add_field('home', 'slider', 'select', __('Home Page Slider', 'vantage'), array(
+		'options' => vantage_sliders_get_options( true ),
+		'description' => $description,
 	));
-
-	$settings->add_field('home', 'slider_stretch', 'checkbox', __('Stretch Home Slider', 'vantage'), array(
-		'label' => __('Stretch', 'vantage'),
-		'description' => __('Stretch the home page slider to the width of the screen if using the full width layout.', 'vantage'),
+	
+	$settings->add_field( 'home', 'slider_stretch', 'checkbox', __( 'Stretch Home Slider', 'vantage' ), array(
+		'label'       => __( 'Stretch', 'vantage' ),
+		'description' => __( 'Stretch the home page slider to the width of the screen if using the full width layout.', 'vantage' ),
 	) );
 
 	/**
@@ -212,6 +225,7 @@ function vantage_theme_settings(){
 		'options' => array(
 			'large' => __('Large', 'vantage'),
 			'icon' => __('Small Icon', 'vantage'),
+			'none' => __('None', 'vantage'),
 		),
 		'description' => __('Size of the featured image in the blog post archives when using default blog layout.', 'vantage')
 	) );
@@ -300,12 +314,16 @@ function vantage_theme_settings(){
 	$settings->add_field( 'general', 'site_info_text', 'text', __( 'Site Information Text', 'vantage' ), array(
 		'description' => __( "Text displayed in your footer. {site-title}, {copyright} and {year} will be replaced with your website title, a copyright symbol and the current year.", 'vantage' ),
 		'sanitize_callback' => 'wp_kses_post'
-	) );
+	));
+
+	$settings->add_field('general', 'privacy_policy_link', 'checkbox', __('Privacy Policy Link', 'vantage'), array(
+		'description' => __('Display the Privacy Policy page link in the footer.', 'vantage'),
+	));	
 
 	$settings->add_teaser( 'general', 'attribution', 'checkbox', __( 'SiteOrigin Attribution', 'vantage' ), array(
 		'description' => __( "Add or remove a link to SiteOrigin in your footer.", 'vantage' ),
 		'featured' => 'theme/no-attribution',
-	) );
+	));
 
 	$settings->add_field('general', 'js_enqueue_footer', 'checkbox', __('Enqueue JavaScript in Footer', 'vantage'), array(
 		'description' => __('Enqueue JavaScript files in the footer, if possible.', 'vantage'),
@@ -324,63 +342,66 @@ if( !function_exists('vantage_theme_setting_defaults') ) :
  * @since vantage 1.0
  */
 function vantage_theme_setting_defaults($defaults){
-	$defaults['logo_image']             = false;
-	$defaults['logo_image_retina']      = false;
-	$defaults['logo_in_menu_constrain'] = true;
-	$defaults['logo_with_text']         = false;
-	$defaults['logo_header_text']       = __('Call me! Maybe?', 'vantage');
-	$defaults['logo_no_widget_overlay'] = false;
+	$defaults['logo_image']                          = false;
+	$defaults['logo_image_retina']                   = false;
+	$defaults['logo_in_menu_constrain']              = true;
+	$defaults['logo_with_text']                      = false;
+	$defaults['logo_site_description']               = false;
+	$defaults['logo_header_text']                    = __('Call me! Maybe?', 'vantage');
+	$defaults['logo_no_widget_overlay']              = false;
 
-	$defaults['layout_responsive']        = true;
-	$defaults['layout_fitvids']           = true;
-	$defaults['layout_bound']             = 'full';
-	$defaults['layout_masthead']          = '';
-	$defaults['layout_footer']            = '';
-	$defaults['layout_force_panels_full'] = false;
+	$defaults['layout_responsive']                   = true;
+	$defaults['layout_fitvids']                      = true;
+	$defaults['layout_bound']                        = 'full';
+	$defaults['layout_masthead']                     = '';
+	$defaults['layout_footer']                       = '';
+	$defaults['layout_search']                       = 'blog';
+	$defaults['layout_force_panels_full']            = false;
 
 	$defaults['navigation_responsive_menu']          = true;
 	$defaults['navigation_responsive_menu_collapse'] = 480;
 	$defaults['navigation_responsive_menu_text']     = '';
 	$defaults['navigation_responsive_menu_search']   = true;
 
-	$defaults['icons_menu']       = false;
-	$defaults['icons_menu_close'] = false;
-	$defaults['icons_search']     = false;
+	$defaults['icons_menu']                          = false;
+	$defaults['icons_menu_close']                    = false;
+	$defaults['icons_search']                        = false;
 
-	$defaults['navigation_use_sticky_menu']       = true;
-	$defaults['navigation_mobile_navigation']     = false;
-	$defaults['navigation_menu_search']           = true;
-	$defaults['navigation_display_scroll_to_top'] = true;
-	$defaults['navigation_post_nav']              = true;
-	$defaults['navigation_home_icon']             = false;
-	$defaults['navigation_yoast_breadcrumbs']     = true;
+	$defaults['navigation_use_sticky_menu']          = true;
+	$defaults['navigation_mobile_navigation']        = false;
+	$defaults['navigation_menu_search']              = true;
+	$defaults['navigation_display_scroll_to_top']    = true;
+	$defaults['navigation_post_nav']                 = true;
+	$defaults['navigation_home_icon']                = false;
+	$defaults['navigation_yoast_breadcrumbs']        = true;
 
-	$defaults['home_slider']         = 'demo';
-	$defaults['home_slider_stretch'] = true;
+	$defaults['home_slider']                         = 'demo';
+	$defaults['home_slider_stretch']                 = true;
 
-	$defaults['blog_archive_layout']      = 'blog';
-	$defaults['blog_archive_content']     = 'full';
-	$defaults['blog_excerpt_length']      = 55;
-	$defaults['blog_featured_image']      = true;
-	$defaults['blog_featured_image_type'] = 'large';
-	$defaults['blog_post_metadata']       = true;
-	$defaults['blog_post_date']           = true;
-	$defaults['blog_post_author']         = true;
-	$defaults['blog_post_comment_count']  = false;
-	$defaults['blog_post_categories']     = true;
-	$defaults['blog_post_tags']           = true;
-	$defaults['blog_author_box']          = false;
-	$defaults['blog_comment_author']      = '';
-	$defaults['blog_read_more_button']    = false;
-	$defaults['blog_read_more']           = __('Continue reading', 'vantage');
-	$defaults['blog_circle_column_count'] = 3;
-	$defaults['blog_grid_column_count']   = 4;
+	$defaults['blog_archive_layout']                 = 'blog';
+	$defaults['blog_archive_content']                = 'full';
+	$defaults['blog_excerpt_length']                 = 55;
+	$defaults['blog_featured_image']                 = true;
+	$defaults['blog_featured_image_type']            = 'large';
+	$defaults['blog_post_metadata']                  = true;
+	$defaults['blog_post_date']                      = true;
+	$defaults['blog_post_author']                    = true;
+	$defaults['blog_post_comment_count']             = false;
+	$defaults['blog_post_categories']                = true;
+	$defaults['blog_post_tags']                      = true;
+	$defaults['blog_author_box']                     = false;
+	$defaults['blog_comment_author']                 = '';
+	$defaults['blog_read_more_button']               = false;
+	$defaults['blog_read_more']                      = __('Continue reading', 'vantage');
+	$defaults['blog_circle_column_count']            = 3;
+	$defaults['blog_grid_column_count']              = 4;
 
-	$defaults['social_ajax_comments'] = true;
+	$defaults['social_ajax_comments']                = true;
 
-	$defaults['general_site_info_text']    = '';
-	$defaults['general_attribution']       = true;
-	$defaults['general_js_enqueue_footer'] = false;
+	$defaults['general_site_info_text']              = '';
+	$defaults['general_privacy_policy_link']         = false;
+	$defaults['general_attribution']                 = true;
+	$defaults['general_js_enqueue_footer']           = false;
 
 	return $defaults;
 }

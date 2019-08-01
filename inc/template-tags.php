@@ -50,7 +50,7 @@ if ( ! function_exists( 'vantage_content_nav' ) ) :
  */
 function vantage_content_nav( $nav_id ) {
 	$jetpack_infinite_scroll_active = class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' );
-	//Check if we're in the Page Builder Post Loop widget.
+	// Check if we're in the Page Builder Post Loop widget.
 	$is_page_builder_post_loop_widget = class_exists( 'SiteOrigin_Panels_Widgets_PostLoop' ) &&
 	                                    method_exists( 'SiteOrigin_Panels_Widgets_PostLoop', 'is_rendering_loop' ) &&
 	                                    SiteOrigin_Panels_Widgets_PostLoop::is_rendering_loop();
@@ -105,23 +105,21 @@ function vantage_content_nav( $nav_id ) {
 }
 endif; // vantage_content_nav
 
-
-if ( !function_exists( 'vantage_content_nav_shorten_title' ) ) :
+if ( ! function_exists( 'vantage_content_nav_shorten_title' ) ) :
 /**
  * Filter the title to shorten it. This is used by vantage_content_nav function.
  *
  * @param $title
  * @return string
  */
-function vantage_content_nav_shorten_title($title){
-	if(strlen($title) > 40) {
-		$title = wp_trim_words($title, 5);
+function vantage_content_nav_shorten_title( $title ) {
+	if ( strlen( $title ) > 40 ) {
+		$title = wp_trim_words( $title, 5 );
 	}
 
 	return $title;
 }
 endif;
-
 
 if ( ! function_exists( 'vantage_comment' ) ) :
 /**
@@ -183,7 +181,6 @@ function vantage_comment( $comment, $args, $depth, $post_id = null ) {
 }
 endif; // ends check for vantage_comment()
 
-
 if ( ! function_exists( 'vantage_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
@@ -207,9 +204,9 @@ function vantage_posted_on() {
 		get_the_author()
 	);
 
-	if( ( comments_open() || get_comments_number() ) && !siteorigin_setting('blog_post_date') && !siteorigin_setting('blog_post_author') ) {
+	if ( ( comments_open() || get_comments_number() ) && !siteorigin_setting('blog_post_date') && !siteorigin_setting('blog_post_author') ) {
 		$comments_link = '<span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text() . '</a></span>';
-	} elseif( comments_open() || get_comments_number() ) {
+	} elseif ( comments_open() || get_comments_number() ) {
 		$comments_link = ' | <span class="comments-link"><a href="' . get_comments_link() . '">' . get_comments_number_text() . '</a></span>';
 	} else {
 		$comments_link = '';
@@ -227,28 +224,26 @@ function vantage_posted_on() {
 }
 endif;
 
-
-if(!function_exists('vantage_display_logo')):
+if ( ! function_exists( 'vantage_display_logo' ) ) :
 /**
- * Display the logo
+ * Display the logo.
  */
-function vantage_display_logo(){
+function vantage_display_logo() {
 	$logo = siteorigin_setting( 'logo_image' );
+	if ( empty( $logo ) && function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
+		$logo = get_theme_mod( 'custom_logo' );
+	}
 	$logo = apply_filters('vantage_logo_image_id', $logo);
 
-	if( empty($logo) ) {
-		if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
-			the_custom_logo();
-			return;
-		}
+	if ( empty($logo) ) {
 
-		// Just display the site title
+		// Just display the site title.
 		$logo_html = '<h1 class="site-title">'.get_bloginfo( 'name' ).'</h1>';
 		$logo_html = apply_filters('vantage_logo_text', $logo_html);
 	}
 	else {
-		// load the logo image
-		if( is_array($logo) ) {
+		// Load the logo image.
+		if ( is_array($logo) ) {
 			list ($src, $height, $width) = $logo;
 		}
 		else {
@@ -258,7 +253,7 @@ function vantage_display_logo(){
 			$width = $image[1];
 		}
 
-		// Add all the logo attributes
+		// Add all the logo attributes.
 		$logo_attributes = apply_filters('vantage_logo_image_attributes', array(
 			'src' => $src,
 			'class' => siteorigin_setting('logo_in_menu_constrain') ? 'logo-height-constrain' : 'logo-no-height-constrain',
@@ -267,17 +262,17 @@ function vantage_display_logo(){
 			'alt' => sprintf( __('%s Logo', 'vantage'), get_bloginfo('name') ),
 		) );
 
-		// Try adding the retina logo
+		// Try adding the retina logo.
 		$retina_logo = siteorigin_setting( 'logo_image_retina' );
-		if( !empty($retina_logo) ) {
-			$retina_logo = apply_filters('vantage_logo_retina_image_id', $retina_logo);
+		if ( ! empty( $retina_logo ) ) {
+			$retina_logo = apply_filters( 'vantage_logo_retina_image_id', $retina_logo );
 			$retina_logo_image = wp_get_attachment_image_src($retina_logo, 'full');
-			if( !empty($retina_logo_image[0]) ) {
+			if ( !empty($retina_logo_image[0]) ) {
 				$logo_attributes['srcset'] = $retina_logo_image[0] . ' 2x';
 			}
 		}
 
-		if( $logo_attributes['width'] > vantage_get_site_width() ) {
+		if ( $logo_attributes['width'] > vantage_get_site_width() ) {
 			// Don't let the width be more than the site width.
 			$width = vantage_get_site_width();
 			$logo_attributes['height'] = round($logo_attributes['height'] / ($logo_attributes['width'] / $width));
@@ -285,29 +280,29 @@ function vantage_display_logo(){
 		}
 
 		$logo_attributes_str = array();
-		if( !empty( $logo_attributes ) ) {
-			foreach($logo_attributes as $name => $val) {
-				if( empty($val) ) continue;
+		if ( ! empty( $logo_attributes ) ) {
+			foreach( $logo_attributes as $name => $val ) {
+				if ( empty( $val ) ) continue;
 				$logo_attributes_str[] = $name.'="'.esc_attr($val).'" ';
 			}
 		}
 
-		$logo_html = apply_filters('vantage_logo_image', '<img '.implode( ' ', $logo_attributes_str ).' />');
+		$logo_html = apply_filters( 'vantage_logo_image', '<img '.implode( ' ', $logo_attributes_str ).' />' );
 	}
 
-	// Echo the image
-	echo apply_filters('vantage_logo_html', $logo_html);
+	// Echo the image.
+	echo apply_filters( 'vantage_logo_html', $logo_html );
 }
 endif;
 
-if( !function_exists('vantage_display_logo_text') ) :
+if ( ! function_exists( 'vantage_display_logo_text' ) ) :
 /**
  * Display text next to the logo
  */
 function vantage_display_logo_text( $logo ) {
 	$allow_text = siteorigin_setting( 'logo_with_text' );
 
-	if( $allow_text ) {
+	if ( $allow_text ) {
 		$logo = $logo . '<h1 class="site-title logo-title">' . get_bloginfo( 'name' ) . '</h1>';
 	}
 
@@ -317,8 +312,7 @@ function vantage_display_logo_text( $logo ) {
 endif;
 add_filter( 'vantage_logo_image', 'vantage_display_logo_text', 10, 1 );
 
-
-if ( !function_exists( 'vantage_categorized_blog' ) ) :
+if ( ! function_exists( 'vantage_categorized_blog' ) ) :
 /**
  * Returns true if a blog has more than 1 category
  *
@@ -340,8 +334,7 @@ function vantage_categorized_blog() {
 }
 endif;
 
-
-if ( !function_exists( 'vantage_category_transient_flusher' ) ) :
+if ( ! function_exists( 'vantage_category_transient_flusher' ) ) :
 /**
  * Flush out the transients used in vantage_categorized_blog
  *
@@ -354,14 +347,13 @@ endif;
 add_action( 'edit_category', 'vantage_category_transient_flusher' );
 add_action( 'save_post', 'vantage_category_transient_flusher' );
 
-
-if( !function_exists( 'vantage_get_archive_title' ) ) :
+if ( ! function_exists( 'vantage_get_archive_title' ) ) :
 /**
  * Return the archive title depending on which page is being displayed.
  *
  * @since vantage 1.0
  */
-function vantage_get_archive_title(){
+function vantage_get_archive_title() {
 	$title = '';
 	global $wp_query;
 	if ( is_category() ) {
@@ -390,9 +382,9 @@ function vantage_get_archive_title(){
 		$title = sprintf( __( 'Yearly Archives: %s', 'vantage' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
 
 	}
-	elseif ( !empty($wp_query->query_vars['taxonomy']) ) {
-		$value = get_query_var($wp_query->query_vars['taxonomy']);
-		$term = get_term_by('slug',$value,$wp_query->query_vars['taxonomy']);
+	elseif ( ! empty( $wp_query->query_vars['taxonomy'] ) ) {
+		$value = get_query_var( $wp_query->query_vars['taxonomy'] );
+		$term = get_term_by( 'slug',$value,$wp_query->query_vars['taxonomy'] );
 		$tax = get_taxonomy( $wp_query->query_vars['taxonomy'] );
 		$title = sprintf( __( '%s: %s', 'vantage' ), $tax->label, $term->name );
 	}
@@ -400,18 +392,17 @@ function vantage_get_archive_title(){
 		$title = __( 'Archives', 'vantage' );
 	}
 
-	return apply_filters('vantage_archive_title', $title);
+	return apply_filters( 'vantage_archive_title', $title );
 }
 endif;
 
-
-if ( !function_exists( 'vantage_get_post_categories' ) ) :
+if ( ! function_exists( 'vantage_get_post_categories' ) ) :
 /**
  * Get the post meta.
  *
  * @since vantage 1.0
  */
-function vantage_get_post_categories(){
+function vantage_get_post_categories() {
 	/* translators: used between list items, there is a space after the comma */
 	$category_list = get_the_category_list( __( ', ', 'vantage' ) );
 
@@ -419,17 +410,15 @@ function vantage_get_post_categories(){
 	$tag_list = get_the_tag_list( '', __( ', ', 'vantage' ) );
 
 	if ( ! vantage_categorized_blog() || ! siteorigin_setting( 'blog_post_categories' ) ) {
-		// This blog only has 1 category or so we just need to worry about tags in the meta text
+		// This blog only has 1 category or so we just need to worry about tags in the meta text.
 		if ( '' != $tag_list && siteorigin_setting( 'blog_post_tags' ) ) {
 			$meta_text = __( '<strong>Tagged</strong> %2$s.', 'vantage' );
-		}
-		else {
+		} else {
 			$meta_text = '';
 		}
 
-	}
-	else {
-		// But this blog has loads of categories so we should probably display them here
+	} else {
+		// But this blog has loads of categories so we should probably display them here.
 		if ( '' != $tag_list && siteorigin_setting( 'blog_post_tags' )) {
 			$meta_text = __( 'Posted in %1$s and tagged %2$s.', 'vantage' );
 		}
@@ -437,7 +426,7 @@ function vantage_get_post_categories(){
 			$meta_text = __( 'Posted in %1$s.', 'vantage' );
 		}
 
-	} // end check for categories on this blog
+	} // End check for categories on this blog.
 
 	$meta = sprintf(
 		$meta_text,
@@ -447,20 +436,19 @@ function vantage_get_post_categories(){
 		the_title_attribute( 'echo=0' )
 	);
 
-	return apply_filters('vantage_post_meta', $meta);
+	return apply_filters( 'vantage_post_meta', $meta );
 }
 endif;
 
-
-if ( !function_exists( 'vantage_next_attachment_url' ) ) :
+if ( ! function_exists( 'vantage_next_attachment_url' ) ) :
 /**
  * Gets the URL that should be displayed when clicking on an image in the view image page.
  *
  * @param null $post
  * @return string
  */
-function vantage_next_attachment_url($post = null){
-	if(empty($post)){
+function vantage_next_attachment_url( $post = null ) {
+	if ( empty( $post ) ){
 		global $post;
 	}
 
@@ -502,29 +490,28 @@ function vantage_next_attachment_url($post = null){
 }
 endif;
 
-
-if( !function_exists( 'vantage_pagination' ) ) :
+if ( ! function_exists( 'vantage_pagination' ) ) :
 /**
  * Display the pagination
  *
  * @param string $pages
  * @param int $range
  */
-function vantage_pagination($pages = '', $range = 2) {
+function vantage_pagination( $pages = '', $range = 2 ) {
 
 	$showitems = ($range * 2)+1;
 
 	global $wp_query, $wp_rewrite;
-	$paged = $wp_query->get('paged');
-	if(empty($paged)) $paged = 1;
+	$paged = $wp_query->get( 'paged' );
+	if ( empty( $paged ) ) $paged = 1;
 
-	if($pages == '') {
+	if ( $pages == '' ) {
 		global $wp_query;
 		$pages = $wp_query->max_num_pages;
-		if(!$pages) $pages = 1;
+		if ( ! $pages ) $pages = 1;
 	}
 
-	if(1 != $pages) {
+	if ( 1 != $pages ) {
 		$format_permalink = substr( get_pagenum_link(false), -1, 1 ) == '/' ? 'page/%#%/' : '/page/%#%/';
 		$format_query_string = strpos(get_pagenum_link(false), '?') === false ? '?paged=%#%' : '&paged=%#%';
 
@@ -541,7 +528,7 @@ function vantage_pagination($pages = '', $range = 2) {
 }
 endif;
 
-if( !function_exists( 'vantage_read_more_link' ) ) :
+if ( ! function_exists( 'vantage_read_more_link' ) ) :
 /**
  * Filter the read more link.
  */
@@ -552,7 +539,7 @@ function vantage_read_more_link() {
 add_filter( 'the_content_more_link', 'vantage_read_more_link' );
 endif;
 
-if( !function_exists( 'vantage_entry_thumbnail' ) ) :
+if ( ! function_exists( 'vantage_entry_thumbnail' ) ) :
 /**
  * Display the post/page thumbnail.
  */
@@ -612,7 +599,7 @@ function vantage_strip_gallery( $content ) {
 		foreach ( $matches as $shortcode ) {
 			if ( 'gallery' === $shortcode[2] ) {
 				$pos = strpos( $content, $shortcode[0] );
-				if( false !== $pos ) {
+				if ( false !== $pos ) {
 					return substr_replace( $content, '', $pos, strlen( $shortcode[0] ) );
 				}
 			}
@@ -680,6 +667,9 @@ function vantage_get_image() {
 	$first_image = '';
 
 	$output = preg_match_all( '/<img[^>]+\>/i', get_the_content(), $images );
+
+	if ( empty( $images[0] ) ) return false;
+
 	$first_image = $images[0][0];
 
 	return ( '' !== $first_image ) ? $first_image : false;
