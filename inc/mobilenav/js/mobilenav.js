@@ -1,8 +1,8 @@
 /**
  * A jQuery mobile navigation.
  *
- * @author Greg Priday <greg@siteorigin.com>
- * @copyright Greg Priday 2012
+ * @author SiteOrigin <support@siteorigin.com>
+ * @copyright SiteOrigin 2012-2019
  * @license Dual GPL, MIT - Which ever works for you.
  */
 jQuery( function ( $ ) {
