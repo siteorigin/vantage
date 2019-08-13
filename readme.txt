@@ -102,7 +102,7 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == 1.13 - 13 August 2019 ==
 * Resolved Customizer preview duplicate menu bug.
-* Added a sidebar content size setting, Appearance > Theme Design > Fonts > Sidebar Content Size.
+* Added a sidebar content size setting, `Appearance > Theme Design > Fonts > Sidebar Content Size`.
 * Switched `body` tag to unitless line height.
 
 == 1.12 - 22 July 2019 ==
