@@ -129,6 +129,14 @@ function vantage_customizer_init(){
 				'selector' => '.entry-content',
 				'property' => array('font-size'),
 			),
+			'sidebar_content_size' => array(
+				'type' => 'measurement',
+				'title' => __('Sidebar Content Size', 'vantage'),
+				'default' => 13,
+				'unit' => 'px',
+				'selector' => '#secondary .widget',
+				'property' => array('font-size'),
+			),
 			'meta_text_color' => array(
 				'type' => 'color',
 				'title' => __('Meta Text Color', 'vantage'),

@@ -79,7 +79,11 @@ function siteorigin_mobilenav_nav_filter( $nav_menu, $args ) {
 	$nav_menu .= '</' . $args->container . '>';
 
 	$mobile_nav_id++;
-
+	
+	if( is_customize_preview() ) {
+		$nav_menu = '<div class="mobile-nav-customize-wrapper">' . $nav_menu . '</div>';
+	}
+	
 	return $nav_menu;
 }
 endif;

@@ -14,7 +14,7 @@ An advanced multi-purpose theme for WordPress.
 Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, Smart Slider 3 for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free support on our <a href="http://siteorigin.com/thread/">forum</a> (http://siteorigin.com/thread/).
 
 == Installation ==
-	
+
 1. Login to your WordPress installation, go to Appearance > Themes and click the Add New button.
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
@@ -99,6 +99,11 @@ Dual licensed under the MIT or GPL Version 2 licenses.
 This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 SiteOrigin unless otherwise stated in the file header.
 
 == Changelog ==
+
+== 1.13 - 13 August 2019 ==
+* Resolved Customizer preview duplicate menu bug.
+* Added a sidebar content size setting, Appearance > Theme Design > Fonts > Sidebar Content Size.
+* Switched `body` tag to unitless line height.
 
 == 1.12 - 22 July 2019 ==
 * Added a skip to content link.

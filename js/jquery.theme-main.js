@@ -1,5 +1,5 @@
 /**
- * Main theme Javascript - (c) Greg Priday, freely distributable under the terms of the GPL 2.0 license.
+ * Main theme Javascript - (c) SiteOrigin, freely distributable under the terms of the GPL 2.0 license.
  */
 
 /* global jQuery */
