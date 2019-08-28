@@ -105,41 +105,18 @@ function vantage_setup() {
 	if ( ! isset( $vantage_site_width ) ) {
 		$vantage_site_width = siteorigin_setting('layout_bound') == 'full' ? 1080 : 1010;
 	}
-
-	$container = 'content';
-	$render_function = '';
-	$wrapper = true;
-	// The posts_per_page setting only works when type is 'scroll'.
-	// When type is set to 'click' either explicitly or automatically,
-	// due to there being footer widgets, it uses the "Blog pages show at most X posts" setting
-	// under Settings > Reading instead. :(
-	// https://wordpress.org/support/topic/posts_per_page-not-having-any-effect
-	$posts_per_page = 7;
-	if ( siteorigin_setting( 'blog_archive_layout' ) == 'circleicon' ) {
-		$container = 'vantage-circleicon-loop';
-		$render_function = 'vantage_infinite_scroll_render';
-		$wrapper = false;
-		$posts_per_page = 6;
-	}
-	else if ( siteorigin_setting( 'blog_archive_layout' ) == 'grid' ) {
-		$container = 'vantage-grid-loop';
-		$render_function = 'vantage_infinite_scroll_render';
-		$wrapper = false;
-		$posts_per_page = 8;
-	}
-
-	add_filter( 'infinite_scroll_settings', 'vantage_infinite_scroll_settings' );
-
+	
 	// Allowing use of shortcodes in taxonomy descriptions.
 	add_filter( 'term_description', 'shortcode_unautop');
 	add_filter( 'term_description', 'do_shortcode' );
 
+	add_filter( 'infinite_scroll_settings', 'vantage_infinite_scroll_settings' );
 	add_theme_support( 'infinite-scroll', array(
-		'container' => $container,
+		'container' => 'content',
 		'footer' => 'page',
-		'render' => $render_function,
-		'wrapper' => $wrapper,
-		'posts_per_page' => $posts_per_page,
+		'render' => '',
+		'wrapper' => true,
+		'posts_per_page' => 7,
 		'type' => 'click',
 		// 'footer_widgets' => 'sidebar-footer',
 	) );
@@ -185,13 +162,32 @@ add_filter( 'siteorigin_css_snippet_paths', 'vantage_siteorigin_css_snippets_pat
 if ( ! function_exists( 'vantage_infinite_scroll_settings' ) ) :
 // Override Jetpack Infinite Scroll default behaviour of ignoring explicit posts_per_page setting when type is 'click'.
 function vantage_infinite_scroll_settings( $settings ) {
-	if ( $settings['type'] == 'click' ) {
-		if ( siteorigin_setting( 'blog_archive_layout' ) == 'circleicon' ) {
+ 
+	// The posts_per_page setting only works when type is 'scroll'.
+	// When type is set to 'click' either explicitly or automatically,
+	// due to there being footer widgets, it uses the "Blog pages show at most X posts" setting
+	// under Settings > Reading instead. :(
+	// https://wordpress.org/support/topic/posts_per_page-not-having-any-effect
+	$blog_archive_layout = siteorigin_setting( 'blog_archive_layout' );
+	if ( class_exists( 'WooCommerce' ) && is_shop() ) {
+		$settings['container'] = 'main';
+		$settings['render_function'] = 'vantage_woocommerce_infinite_scroll_render';
+		$settings['posts_per_page'] = 8;
+	} else if ( $blog_archive_layout == 'circleicon' ) {
+		$settings['container'] = 'vantage-circleicon-loop';
+		$settings['render_function'] = 'vantage_infinite_scroll_render';
+		if ( $settings['type'] == 'click' ) {
 			$settings['posts_per_page'] = 6;
-		} elseif ( siteorigin_setting( 'blog_archive_layout' ) == 'grid' ) {
+		}
+	}
+	else if ( $blog_archive_layout == 'grid' ) {
+		$settings['container'] = 'vantage-grid-loop';
+		$settings['render_function'] = 'vantage_infinite_scroll_render';
+		if ( $settings['type'] == 'click' ) {
 			$settings['posts_per_page'] = 8;
 		}
 	}
+ 
 	return $settings;
 }
 endif;
@@ -207,6 +203,20 @@ function vantage_infinite_scroll_render() {
 	$var = preg_replace( '/^<div.+>/', '', $var );
 	$var = preg_replace( '/<\/div>$/', '', $var );
 	echo $var;
+}
+endif;
+
+if ( ! function_exists( 'vantage_woocommerce_infinite_scroll_render' ) ) :
+function vantage_woocommerce_infinite_scroll_render() {
+	
+	woocommerce_product_loop_start();
+	
+    while ( have_posts() ) {
+        the_post();
+        wc_get_template_part( 'content', 'product' );
+    }
+	
+	woocommerce_product_loop_end();
 }
 endif;
 
