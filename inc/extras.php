@@ -9,7 +9,6 @@
  * @license GPL 2.0
  */
 
-
 if ( ! function_exists( 'vantage_page_menu_args' ) ) :
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
@@ -36,7 +35,7 @@ function vantage_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 
-	if( siteorigin_setting( 'layout_responsive' ) ) {
+	if ( siteorigin_setting( 'layout_responsive' ) ) {
 		$classes[] = 'responsive';
 	}
 	$classes[] = 'layout-'.siteorigin_setting( 'layout_bound' );
