@@ -1518,7 +1518,7 @@ article.page.post-with-thumbnail-icon .entry-main {
 .related-posts-section ol li img {
   display: block;
   height: auto;
-  margin: 0 auto 15px;
+  margin: 0 auto 10px;
   max-width: 100%;
 }
 .related-posts-section ol li .related-post-title {
