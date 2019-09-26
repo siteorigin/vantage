@@ -20,9 +20,13 @@ get_header(); ?>
 			} else {
 				get_template_part( 'content', 'single' );
 			}
-		?>		
+		?>
 
 		<?php if ( siteorigin_setting( 'navigation_post_nav' ) ) vantage_content_nav( 'nav-below' ); ?>
+
+		<?php if ( ! is_attachment() && siteorigin_setting( 'blog_related_posts' ) ) {
+			vantage_related_posts( $post->ID );
+		} ?>
 
 		<?php if ( comments_open() || '0' != get_comments_number() ) : ?>
 			<?php comments_template( '', true ); ?>

@@ -270,6 +270,11 @@ function vantage_theme_settings(){
 		'description' => __('Show an author box below each blog post.', 'vantage')
 	) );
 
+	$settings->add_field( 'blog', 'related_posts', 'checkbox', __( 'Related Posts', 'vantage' ), array(
+		'label' => __( 'Display', 'vantage' ),
+		'description' => __( 'Display related posts on single post pages.', 'vantage' )
+	) );
+
 	$settings->add_field('blog', 'comment_author', 'text', __("Post Author's Comments", 'vantage'), array(
 		'description' => __("Text displayed as a label next to the post author's comments.", 'vantage'),
 		'sanitize_callback' => 'wp_kses_post',
@@ -390,6 +395,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['blog_post_categories']                = true;
 	$defaults['blog_post_tags']                      = true;
 	$defaults['blog_author_box']                     = false;
+	$defaults['blog_related_posts']                  = false;
 	$defaults['blog_comment_author']                 = '';
 	$defaults['blog_read_more_button']               = false;
 	$defaults['blog_read_more']                      = __('Continue reading', 'vantage');
