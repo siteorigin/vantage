@@ -1,6 +1,6 @@
 <?php
 /**
- * Displays
+ * Template part for displaying posts.
  *
  * @package vantage
  * @since vantage 1.0
