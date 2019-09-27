@@ -684,3 +684,60 @@ function vantage_strip_image( $content ) {
 	return preg_replace( '/<img[^>]+\>/i', '', $content, 1 );
 }
 endif;
+
+if ( ! function_exists( 'vantage_jetpack_remove_rp' ) ) :
+/**
+ * Remove Jetpack Related Posts from the bottom of posts.
+ */
+function vantage_jetpack_remove_rp() {
+	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'related-posts' ) ) {
+		$jprp = Jetpack_RelatedPosts::init();
+		$callback = array( $jprp, 'filter_add_target_to_dom' );
+		remove_filter( 'the_content', $callback, 40 );
+	}
+}
+endif;
+add_filter( 'wp', 'vantage_jetpack_remove_rp', 20 );
+
+if ( ! function_exists( 'vantage_related_posts' ) ) :
+/**
+ * Display related posts on single posts.
+ */
+function vantage_related_posts( $post_id ) {
+	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'related-posts' ) ) {
+		echo do_shortcode( '[jetpack-related-posts]' );
+	} else {
+		$categories = get_the_category( $post_id );
+		$first_cat = $categories[0]->cat_ID;
+		$args=array(
+			'category__in' => array( $first_cat ),
+			'post__not_in' => array( $post_id ),
+			'posts_per_page' => 3,
+			'ignore_sticky_posts' => -1
+		);
+		$related_posts = new WP_Query( $args ); ?>
+
+		<div class="related-posts-section">
+			<h3 class="related-posts"><?php esc_html_e( 'Related Posts', 'vantage' ); ?></h3>
+			<?php if ( $related_posts->have_posts() ) : ?>
+				<ol>
+					<?php while ( $related_posts->have_posts() ) : $related_posts->the_post(); ?>
+						<li>
+							<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+								<?php the_post_thumbnail(); ?>
+								<div>
+									<h3 class="related-post-title"><?php the_title(); ?></h3>
+									<p class="related-post-date"><?php echo get_the_date(); ?></p>
+								</div>
+							</a>
+						</li>
+					<?php endwhile; ?>
+				</ol>
+			<?php else : ?>
+				<br /><p><?php esc_html_e( 'No related posts.', 'vantage' ); ?></p>
+			<?php endif; ?>
+		</div>
+		<?php wp_reset_query();
+	}
+}
+endif;
