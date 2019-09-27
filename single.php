@@ -14,13 +14,13 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php 
+		<?php
 			if ( has_post_format( array( 'gallery', 'video', 'image' ) ) ) {
 				get_template_part( 'content', get_post_format() );
 			} else {
 				get_template_part( 'content', 'single' );
 			}
-		?>		
+		?>
 
 		<?php if ( siteorigin_setting( 'navigation_post_nav' ) ) vantage_content_nav( 'nav-below' ); ?>
 

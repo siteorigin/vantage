@@ -30,10 +30,10 @@
 		</h2>
 		
 		<?php
-	        $args = array(
-	        	'prev_text'	=> esc_html__( '&larr; Older Comments', 'vantage' ),
-	        	'next_text'	=> esc_html__( 'Newer Comments &rarr;', 'vantage' )
-	        );
+			$args = array(
+				'prev_text'	=> esc_html__( '&larr; Older Comments', 'vantage' ),
+				'next_text'	=> esc_html__( 'Newer Comments &rarr;', 'vantage' )
+			);
 			the_comments_navigation( $args ); 
 		?>
 		
@@ -42,10 +42,10 @@
 		</ol><!-- .commentlist -->
 
 		<?php
-	        $args = array(
-	        	'prev_text'	=> esc_html__( '&larr; Older Comments', 'vantage' ),
-	        	'next_text'	=> esc_html__( 'Newer Comments &rarr;', 'vantage' )
-	        );
+			$args = array(
+				'prev_text'	=> esc_html__( '&larr; Older Comments', 'vantage' ),
+				'next_text'	=> esc_html__( 'Newer Comments &rarr;', 'vantage' )
+			);
 			the_comments_navigation( $args ); 
 		?>
 

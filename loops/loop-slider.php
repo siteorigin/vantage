@@ -19,7 +19,7 @@
 				<?php if( has_post_thumbnail() ) : ?>
 					<li class="slide">
 						<a href="<?php the_permalink() ?>">
-							<?php the_post_thumbnail('vantage-slide'); ?>
+							<?php the_post_thumbnail( 'vantage-slide' ); ?>
 							<div class="flex-caption">
 								<h3><?php the_title() ?></h3>
 							</div>

@@ -14,9 +14,9 @@ $post_class = ( is_singular() ) ? 'post' : '';
 
 	<div class="entry-main">
 
-		<?php do_action('vantage_entry_main_top') ?>
+		<?php do_action( 'vantage_entry_main_top' ) ?>
 
-		<?php if ( ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) || ( has_post_thumbnail() && siteorigin_setting('blog_featured_image') ) || ( siteorigin_setting( 'blog_post_metadata' ) && get_post_type() == 'post' ) ) : ?>
+		<?php if ( ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) || ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image' ) ) || ( siteorigin_setting( 'blog_post_metadata' ) && get_post_type() == 'post' ) ) : ?>
 			<header class="entry-header">
 
 			<?php if ( vantage_get_image() ) : ?>
