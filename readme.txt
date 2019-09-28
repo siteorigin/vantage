@@ -101,11 +101,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 == Changelog ==
 
 == 1.14 - 28 September 2019 ==
-* Added a related posts section.
+* Added a related posts section. The setting can be found at `Apperance > Theme Settings > Blog > Related Posts`.
 
 == 1.13 - 13 August 2019 ==
 * Resolved Customizer preview duplicate menu bug.
-* Added a sidebar content size setting, `Appearance > Theme Design > Fonts > Sidebar Content Size`.
+* Added a sidebar content size setting, `Appearance > Customize > Theme Design > Fonts > Sidebar Content Size`.
 * Switched `body` tag to unitless line height.
 
 == 1.12 - 22 July 2019 ==
