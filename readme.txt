@@ -100,6 +100,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.14 - 28 September 2019 ==
+* Added a related posts section.
+
 == 1.13 - 13 August 2019 ==
 * Resolved Customizer preview duplicate menu bug.
 * Added a sidebar content size setting, `Appearance > Theme Design > Fonts > Sidebar Content Size`.
