@@ -19,7 +19,7 @@ get_header(); ?>
 
 	<div id="content" class="site-content" role="main">
 
-		<?php get_template_part( 'loops/loop', siteorigin_setting('blog_archive_layout') ) ?>
+		<?php get_template_part( 'loops/loop', siteorigin_setting( 'blog_archive_layout' ) ) ?>
 
 	</div><!-- #content .site-content -->
 

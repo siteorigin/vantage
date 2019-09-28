@@ -23,7 +23,7 @@
 	wp_body_open();
 } ?>
 
-<?php do_action('vantage_before_page_wrapper') ?>
+<?php do_action( 'vantage_before_page_wrapper' ) ?>
 
 <div id="page-wrapper">
 
@@ -31,7 +31,7 @@
 
 	<?php do_action( 'vantage_before_masthead' ); ?>
 
-	<?php if( ! siteorigin_page_setting( 'hide_masthead', false ) ) : ?>
+	<?php if ( ! siteorigin_page_setting( 'hide_masthead', false ) ) : ?>
 
 		<?php get_template_part( 'parts/masthead', apply_filters( 'vantage_masthead_type', siteorigin_setting( 'layout_masthead' ) ) ); ?>
 

@@ -5,7 +5,7 @@
 ?>
 <footer id="colophon" class="site-footer" role="contentinfo">
 
-	<?php if( ! siteorigin_page_setting( 'hide_footer_widgets', false ) ) : ?>
+	<?php if ( ! siteorigin_page_setting( 'hide_footer_widgets', false ) ) : ?>
 		<div id="footer-widgets" class="full-container">
 			<?php dynamic_sidebar( 'sidebar-footer' ) ?>
 		</div><!-- #footer-widgets -->
@@ -24,6 +24,6 @@
 		</div><!-- #site-info -->
 	<?php endif; ?>
 
-	<?php echo apply_filters( 'vantage_footer_attribution', '<div id="theme-attribution">' . sprintf( __('A <a href="%s">SiteOrigin</a> Theme', 'vantage'), 'https://siteorigin.com') . '</div>' ) ?>
+	<?php echo apply_filters( 'vantage_footer_attribution', '<div id="theme-attribution">' . sprintf( __( 'A <a href="%s">SiteOrigin</a> Theme', 'vantage' ), 'https://siteorigin.com' ) . '</div>' ) ?>
 
 </footer><!-- #colophon .site-footer -->

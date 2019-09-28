@@ -3,7 +3,7 @@
 Contributors: siteorigin
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce
 Requires at least: 4.7
-Tested up to: 5.2.2
+Tested up to: 5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,9 +100,12 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.14 - 28 September 2019 ==
+* Added a related posts section. The setting can be found at `Apperance > Theme Settings > Blog > Related Posts`.
+
 == 1.13 - 13 August 2019 ==
 * Resolved Customizer preview duplicate menu bug.
-* Added a sidebar content size setting, Appearance > Theme Design > Fonts > Sidebar Content Size.
+* Added a sidebar content size setting, `Appearance > Customize > Theme Design > Fonts > Sidebar Content Size`.
 * Switched `body` tag to unitless line height.
 
 == 1.12 - 22 July 2019 ==

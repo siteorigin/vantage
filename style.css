@@ -1460,6 +1460,84 @@ article.page.post-with-thumbnail-icon .entry-main {
   /* 650px in standard width */
   float: right;
 }
+.related-posts-section {
+  margin-bottom: 15px;
+  overflow: auto;
+}
+.related-posts-section .related-posts {
+  border-bottom: 2px solid #555;
+  color: #444;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1em;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+}
+.related-posts-section ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.related-posts-section ol li {
+  display: block;
+  float: left;
+  margin: 0 0 25px 0;
+  width: 31%;
+}
+@media (max-width: 768px) {
+  .related-posts-section ol li {
+    width: 100%;
+  }
+}
+.related-posts-section ol li:nth-child(3n+1) {
+  margin-right: 3.5%;
+}
+@media (max-width: 768px) {
+  .related-posts-section ol li:nth-child(3n+1) {
+    margin-right: 0;
+  }
+}
+.related-posts-section ol li:nth-child(3n+3) {
+  margin-left: 3.5%;
+}
+@media (max-width: 768px) {
+  .related-posts-section ol li:nth-child(3n+3) {
+    margin-left: 0;
+  }
+}
+.related-posts-section ol li:only-child {
+  margin: 0;
+}
+.related-posts-section ol li a {
+  display: block;
+  line-height: 0;
+  text-decoration: none;
+}
+.related-posts-section ol li img {
+  display: block;
+  height: auto;
+  margin: 0 auto 10px;
+  max-width: 100%;
+}
+.related-posts-section ol li .related-post-title {
+  color: #474747;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0 0 3px;
+}
+.related-posts-section ol li .related-post-date {
+  color: #747474;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0;
+}
+.related-posts-section p {
+  margin-bottom: 25px;
+}
 .post-navigation,
 #image-navigation {
   margin-top: -20px;

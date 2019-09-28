@@ -9,8 +9,7 @@
  * @license GPL 2.0
  */
 
-
-if ( !function_exists( 'vantage_page_menu_args' ) ) :
+if ( ! function_exists( 'vantage_page_menu_args' ) ) :
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  *
@@ -36,7 +35,7 @@ function vantage_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 
-	if( siteorigin_setting( 'layout_responsive' ) ) {
+	if ( siteorigin_setting( 'layout_responsive' ) ) {
 		$classes[] = 'responsive';
 	}
 	$classes[] = 'layout-'.siteorigin_setting( 'layout_bound' );
@@ -90,7 +89,7 @@ endif;
 add_filter( 'body_class', 'vantage_body_classes' );
 
 
-if ( !function_exists( 'vantage_enhanced_image_navigation' ) ) :
+if ( ! function_exists( 'vantage_enhanced_image_navigation' ) ) :
 /**
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
  *
@@ -110,7 +109,7 @@ endif;
 add_filter( 'attachment_link', 'vantage_enhanced_image_navigation', 10, 2 );
 
 
-if ( !function_exists( 'vantage_wp_title' ) ) :
+if ( ! function_exists( 'vantage_wp_title' ) ) :
 /**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
  *
@@ -140,19 +139,19 @@ endif;
 add_filter( 'wp_title', 'vantage_wp_title', 10, 2 );
 
 
-if ( !function_exists( 'vantage_footer_widget_style' ) ) :
+if ( ! function_exists( 'vantage_footer_widget_style' ) ) :
 /**
  * Add the styles to set the size of the footer widgets
  */
-function vantage_footer_widget_style(){
+function vantage_footer_widget_style() {
 	$widgets = wp_get_sidebars_widgets();
-	if(empty($widgets['sidebar-footer'])) return;
+	if ( empty( $widgets['sidebar-footer'] ) ) return;
 
-	$count = count($widgets['sidebar-footer']);
-	?><style type="text/css" id="vantage-footer-widgets">#footer-widgets aside { width : <?php echo round(100/$count,3) ?>%; } </style> <?php
+	$count = count( $widgets['sidebar-footer'] );
+	?><style type="text/css" id="vantage-footer-widgets">#footer-widgets aside { width : <?php echo round(100/$count,3) ?>%; }</style> <?php
 }
 endif;
-add_action('wp_head', 'vantage_footer_widget_style', 15);
+add_action( 'wp_head', 'vantage_footer_widget_style', 15 );
 
 if ( ! function_exists( 'vantage_excerpt_length' ) ) :
 /*
