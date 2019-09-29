@@ -1508,7 +1508,8 @@ article.page.post-with-thumbnail-icon .entry-main {
   }
 }
 .related-posts-section ol li:only-child {
-  margin: 0;
+  margin-right: 0;
+  margin-left: 0;
 }
 .related-posts-section ol li a {
   display: block;
