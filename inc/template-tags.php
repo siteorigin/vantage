@@ -690,7 +690,7 @@ if ( ! function_exists( 'vantage_jetpack_remove_rp' ) ) :
  * Remove Jetpack Related Posts from the bottom of posts.
  */
 function vantage_jetpack_remove_rp() {
-	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'related-posts' ) ) {
+	if ( class_exists( 'Jetpack' ) && class_exists( 'Jetpack_RelatedPosts' ) ) {
 		$jprp = Jetpack_RelatedPosts::init();
 		$callback = array( $jprp, 'filter_add_target_to_dom' );
 		remove_filter( 'the_content', $callback, 40 );
@@ -704,7 +704,7 @@ if ( ! function_exists( 'vantage_related_posts' ) ) :
  * Display related posts on single posts.
  */
 function vantage_related_posts( $post_id ) {
-	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'related-posts' ) ) {
+	if ( class_exists( 'Jetpack' ) && class_exists( 'Jetpack_RelatedPosts' ) ) {
 		echo do_shortcode( '[jetpack-related-posts]' );
 	} else {
 		$categories = get_the_category( $post_id );
