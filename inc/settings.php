@@ -326,7 +326,7 @@ function vantage_theme_settings(){
 	));	
 
 	$settings->add_teaser( 'general', 'attribution', 'checkbox', __( 'SiteOrigin Attribution', 'vantage' ), array(
-		'description' => __( "Add or remove a link to SiteOrigin in your footer.", 'vantage' ),
+		'description' => __( "Remove the theme attribution link from your footer.", 'vantage' ),
 		'featured' => 'theme/no-attribution',
 	));
 
