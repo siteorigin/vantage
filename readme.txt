@@ -100,6 +100,10 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.14.1 - 28 September 2019 ==
+* Fixed related posts bottom margin when only one post present.
+* Improved the Jetpack Related Posts conditional to avoid edge case error.
+
 == 1.14 - 28 September 2019 ==
 * Added a related posts section. The setting can be found at `Apperance > Theme Settings > Blog > Related Posts`.
 
