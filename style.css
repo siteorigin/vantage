@@ -3707,6 +3707,20 @@ span.jwcontrols span button {
 #content[tabindex="-1"]:focus {
   outline: 0;
 }
+@media (min-width: 750px) {
+  .alignfull {
+    max-width: 1000%;
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+    width: auto;
+  }
+  .alignwide {
+    max-width: 1000%;
+    margin-right: calc(25% - 25vw);
+    margin-left: calc(25% - 25vw);
+    width: auto;
+  }
+}
 /* Prevent iOS Safari from overriding the colors for phone numbers */
 a[href^="tel"] {
   color: inherit;

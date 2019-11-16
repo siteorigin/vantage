@@ -94,6 +94,8 @@ function vantage_setup() {
 
 	add_theme_support( 'title-tag' );
 
+	add_theme_support( 'align-wide' );
+
 	if ( ! defined( 'SITEORIGIN_PANELS_VERSION' ) ) {
 		// Only include panels lite if the panels plugin doesn't exist
 		include get_template_directory() . '/inc/panels-lite/panels-lite.php';
@@ -370,6 +372,14 @@ function vantage_scripts() {
 }
 endif;
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
+
+/**
+ * Enqueue Block Editor styles.
+ */
+function vantage_block_editor_styles() {
+	wp_enqueue_style( 'vantage-block-editor-styles', get_template_directory_uri() . '/style-editor.css', SITEORIGIN_THEME_VERSION );
+}
+add_action( 'enqueue_block_editor_assets', 'vantage_block_editor_styles' );
 
 if ( ! function_exists( 'vantage_top_text_area' ) ) :
 /**
