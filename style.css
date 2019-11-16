@@ -1638,7 +1638,7 @@ article.page.post-with-thumbnail-icon .entry-main {
 }
 .entry-content {
   zoom: 1;
-  line-height: 1.6em;
+  line-height: 1.6;
   color: #666666;
   /* WordPress Images */
 }
