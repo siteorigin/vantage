@@ -599,6 +599,7 @@ body {
   clear: both;
 }
 #masthead.masthead-logo-in-menu .main-navigation .full-container {
+  align-items: center;
   display: flex;
 }
 #masthead.masthead-logo-in-menu .so-mobilenav-mobile {
