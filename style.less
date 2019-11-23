@@ -1847,7 +1847,10 @@ article.page{
 
 		.children {
 			list-style: none;
-			margin-left: 75px;
+
+			@media (min-width: 1025px) {
+				margin-left: 75px;
+			}
 		}
 
 		article {

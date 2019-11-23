@@ -2002,7 +2002,11 @@ article.page.post-with-thumbnail-icon .entry-main {
 }
 #comments .commentlist .children {
   list-style: none;
-  margin-left: 75px;
+}
+@media (min-width: 1025px) {
+  #comments .commentlist .children {
+    margin-left: 75px;
+  }
 }
 #comments .commentlist article {
   margin-bottom: 35px;
