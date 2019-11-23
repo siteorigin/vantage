@@ -627,7 +627,7 @@ body {
   font-size: 12px;
   font-style: italic;
   margin: -10px 0 0;
-  padding: 0 15px 15px;
+  padding: 0 0 15px;
 }
 .layout-boxed #masthead.masthead-logo-in-menu .logo {
   margin-left: 25px;
