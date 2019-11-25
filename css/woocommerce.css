@@ -371,7 +371,7 @@
   border-radius: 3px;
   border: 1px solid #ccc;
 }
-.widget.woocommerce.widget_product_search input[type="submit"] {
+.widget.woocommerce.widget_product_search button {
   display: none;
 }
 .widget.woocommerce .total {

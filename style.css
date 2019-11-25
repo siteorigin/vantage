@@ -99,7 +99,6 @@ figcaption,
 figure,
 footer,
 header,
-hgroup,
 nav,
 section {
   display: block;
@@ -598,8 +597,16 @@ body {
   display: table;
   clear: both;
 }
+#masthead.masthead-logo-in-menu .main-navigation .full-container {
+  align-items: center;
+  display: flex;
+}
+#masthead.masthead-logo-in-menu .so-mobilenav-mobile {
+  margin-left: auto;
+}
 #masthead.masthead-logo-in-menu .logo-in-menu-wrapper {
-  float: left;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 #masthead.masthead-logo-in-menu .logo {
   padding: 10px 0;
@@ -628,7 +635,7 @@ body {
   font-size: 12px;
   font-style: italic;
   margin: -10px 0 0;
-  padding: 0 15px 15px;
+  padding: 0 0 15px;
 }
 .layout-boxed #masthead.masthead-logo-in-menu .logo {
   margin-left: 25px;
@@ -2003,7 +2010,11 @@ article.page.post-with-thumbnail-icon .entry-main {
 }
 #comments .commentlist .children {
   list-style: none;
-  margin-left: 75px;
+}
+@media (min-width: 1025px) {
+  #comments .commentlist .children {
+    margin-left: 75px;
+  }
 }
 #comments .commentlist article {
   margin-bottom: 35px;

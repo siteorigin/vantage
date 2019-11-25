@@ -426,10 +426,20 @@ body {
 
 		.main-navigation {
 			.clearfix();
+
+			.full-container {
+				align-items: center;
+				display: flex;
+			}
+		}
+
+		.so-mobilenav-mobile {
+			margin-left: auto;
 		}
 
 		.logo-in-menu-wrapper {
-			float: left;
+			margin-top: auto;
+			margin-bottom: auto;
 		}
 
 		.logo {
@@ -465,7 +475,7 @@ body {
 			font-size: 12px;
 			font-style: italic;
 			margin: -10px 0 0;
-			padding: 0 15px 15px;
+			padding: 0 0 15px;
 		}
 	}
 }
@@ -1847,7 +1857,10 @@ article.page{
 
 		.children {
 			list-style: none;
-			margin-left: 75px;
+
+			@media (min-width: 1025px) {
+				margin-left: 75px;
+			}
 		}
 
 		article {
