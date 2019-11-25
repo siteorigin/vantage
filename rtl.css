@@ -46,9 +46,6 @@ dd {
 #masthead .hgroup #header-sidebar aside.widget:last-child {
   margin-left: 0;
 }
-#masthead.masthead-logo-in-menu .logo-in-menu-wrapper {
-  float: right;
-}
 #masthead.masthead-logo-in-menu .logo {
   margin-right: 0;
   margin-left: 15px;
