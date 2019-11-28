@@ -601,7 +601,8 @@ body {
   align-items: center;
   display: flex;
 }
-#masthead.masthead-logo-in-menu .so-mobilenav-mobile {
+#masthead.masthead-logo-in-menu .menu-mobilenav-container {
+  margin-right: 0;
   margin-left: auto;
 }
 #masthead.masthead-logo-in-menu .logo-in-menu-wrapper {
@@ -725,7 +726,8 @@ body.sidebar-position-none #secondary {
     max-width: 100%;
     height: auto;
   }
-  body.responsive #masthead.masthead-logo-in-menu .logo {
+  body.responsive #masthead.masthead-logo-in-menu .logo,
+  body.responsive #masthead.masthead-logo-in-menu .site-description {
     margin-left: 20px;
   }
   body.responsive #masthead.masthead-logo-in-menu .main-navigation .menu-mobilenav-container ul {

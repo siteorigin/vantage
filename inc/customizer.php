@@ -263,13 +263,12 @@ function vantage_customizer_init(){
 				'type' => 'select',
 				'title' => __('Menu Alignment', 'vantage'),
 				'default' => 'left',
-				'selector' => '.main-navigation ul',
-				'property' => 'text-align',
 				'choices' => array(
 					'left' => __( 'Left', 'vantage' ),
 					'right' => __( 'Right', 'vantage' ),
 					'center' => __( 'Center', 'vantage' ),
 				),
+				'callback' => 'vantage_customizer_callback_menu_alignment',
 			),
 			'background' => array(
 				'type' => 'color',
@@ -757,7 +756,6 @@ add_action('wp_head', 'vantage_customizer_style', 20);
  */
 function vantage_customizer_callback_site_title_size($builder, $val, $setting){
 	$mh_layout = siteorigin_setting( 'layout_masthead' );
-	$val = $val === false ? $setting['default'] : $val;
 	if ( $mh_layout == 'logo-in-menu' ) {
 		$builder->add_css('#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1', 'font-size', $val*0.6 . 'px');
 	} else {
@@ -822,6 +820,26 @@ function vantage_customizer_callback_link_underline($builder, $val, $setting){
 function vantage_customizer_callback_link_hover_underline($builder, $val, $setting){
 	if( $val ) {
 		$builder->add_css('.entry-content a:hover, .textwidget a:hover', 'text-decoration', 'underline');
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_menu_alignment( $builder, $val, $setting ) {
+	$val = $val === false ? $setting['default'] : $val;
+	$mh_layout = siteorigin_setting( 'layout_masthead' );
+	if ( $mh_layout == 'logo-in-menu' ) {
+		if ( $val == 'center' ) {
+			$builder->add_css( 'div[class^="menu-"][class$="-container"]', 'margin-right', 'auto' );
+			$builder->add_css( 'div[class^="menu-"][class$="-container"]', 'margin-left', 'auto' );
+		} elseif ( $val == 'right' ) {
+			$builder->add_css( 'div[class^="menu-"][class$="-container"]',  'margin-left', 'auto' );
+		}
 	}
 	return $builder;
 }
