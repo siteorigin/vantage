@@ -731,9 +731,6 @@ body.sidebar-position-none #secondary {
   body.responsive #masthead.masthead-logo-in-menu .site-description {
     margin-left: 20px;
   }
-  body.responsive #masthead.masthead-logo-in-menu .main-navigation .menu-mobilenav-container ul {
-    margin-right: 0;
-  }
   body.responsive #masthead.masthead-logo-in-menu .main-navigation .menu-mobilenav-container ul li {
     float: right;
   }
@@ -1010,7 +1007,7 @@ body.admin-bar:not(.sticky-menu) .site-navigation.use-sticky-menu {
   position: absolute;
   width: 100%;
 }
-body.has-menu-search .main-navigation ul {
+.has-menu-search .main-navigation ul:not([id*='mobile-nav-item-wrap']) {
   margin-right: 59px;
 }
 /* Handle the navigation slightly differently on mobile devices */

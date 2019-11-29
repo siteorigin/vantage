@@ -831,14 +831,28 @@ function vantage_customizer_callback_link_hover_underline($builder, $val, $setti
  * @return SiteOrigin_Customizer_CSS_Builder
  */
 function vantage_customizer_callback_menu_alignment( $builder, $val, $setting ) {
-	$val = $val === false ? $setting['default'] : $val;
 	$mh_layout = siteorigin_setting( 'layout_masthead' );
 	if ( $mh_layout == 'logo-in-menu' ) {
 		if ( $val == 'center' ) {
-			$builder->add_css( 'div[class^="menu-"][class$="-container"]', 'margin-right', 'auto' );
-			$builder->add_css( 'div[class^="menu-"][class$="-container"]', 'margin-left', 'auto' );
+			if ( is_customize_preview() ) {
+				$builder->add_css( 'div[data-customize-partial-type="nav_menu_instance"]', 'margin-right', 'auto' );
+				$builder->add_css( 'div[data-customize-partial-type="nav_menu_instance"]', 'margin-left', 'auto' );
+			} else {
+				$builder->add_css( 'div[class^="menu-"][class$="-container"]', 'margin-right', 'auto' );
+				$builder->add_css( 'div[class^="menu-"][class$="-container"]', 'margin-left', 'auto' );				
+			}
 		} elseif ( $val == 'right' ) {
-			$builder->add_css( 'div[class^="menu-"][class$="-container"]',  'margin-left', 'auto' );
+			if ( is_customize_preview() ) {
+				$builder->add_css( 'div[data-customize-partial-type="nav_menu_instance"]', 'margin-left', 'auto' );
+			} else {
+				$builder->add_css( 'div[class^="menu-"][class$="-container"]',  'margin-left', 'auto' );
+			}			
+		}
+	} else {
+		if ( $val == 'center' ) {
+			$builder->add_css( '.main-navigation ul', 'text-align', 'center' );
+		} elseif ( $val == 'right' ) {
+			$builder->add_css( '.main-navigation ul', 'text-align', 'right' );
 		}
 	}
 	return $builder;
@@ -974,7 +988,7 @@ function vantage_customizer_change_body_class($classes){
 	$sidebar_position = get_theme_mod('vantage_sidebar_position');
 	if( !empty($sidebar_position) ) {
 		$classes[] = 'sidebar-position-' . sanitize_html_class($sidebar_position);
-	}
+	}	
 	return $classes;
 }
 add_filter('body_class', 'vantage_customizer_change_body_class');
