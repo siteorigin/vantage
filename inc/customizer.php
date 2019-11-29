@@ -988,7 +988,7 @@ function vantage_customizer_change_body_class($classes){
 	$sidebar_position = get_theme_mod('vantage_sidebar_position');
 	if( !empty($sidebar_position) ) {
 		$classes[] = 'sidebar-position-' . sanitize_html_class($sidebar_position);
-	}	
+	}
 	return $classes;
 }
 add_filter('body_class', 'vantage_customizer_change_body_class');
