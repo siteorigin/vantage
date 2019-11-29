@@ -638,7 +638,8 @@ body {
   margin: -10px 0 0;
   padding: 0 0 15px;
 }
-.layout-boxed #masthead.masthead-logo-in-menu .logo {
+.layout-boxed #masthead.masthead-logo-in-menu .logo,
+.layout-boxed #masthead.masthead-logo-in-menu .site-description {
   margin-left: 25px;
 }
 body.ie-8 #masthead .hgroup #header-sidebar,
