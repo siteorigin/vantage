@@ -756,6 +756,7 @@ add_action('wp_head', 'vantage_customizer_style', 20);
  */
 function vantage_customizer_callback_site_title_size($builder, $val, $setting){
 	$mh_layout = siteorigin_setting( 'layout_masthead' );
+	$val = $val === false ? $setting['default'] : $val;
 	if ( $mh_layout == 'logo-in-menu' ) {
 		$builder->add_css('#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1', 'font-size', $val*0.6 . 'px');
 	} else {
