@@ -100,6 +100,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.14.3 - 02 December 2019 ==
+* Fixed menu alignment setting.
+
 == 1.14.2 - 25 November 2019 ==
 * Updated Selectivizr to v1.0.3b.
 * Switched Logo in Menu logo vertical alignment to Flexbox.
