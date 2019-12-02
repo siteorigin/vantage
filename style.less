@@ -433,7 +433,8 @@ body {
 			}
 		}
 
-		.so-mobilenav-mobile {
+		.menu-mobilenav-container {
+			margin-right: 0;
 			margin-left: auto;
 		}
 
@@ -481,7 +482,8 @@ body {
 }
 
 .layout-boxed #masthead.masthead-logo-in-menu {
-	.logo {
+	.logo,
+	.site-description {
 		margin-left: 25px;
 	}
 }
@@ -589,12 +591,13 @@ body.sidebar-position-none #secondary {
 
 			&.masthead-logo-in-menu {
 
-				.logo {
+				.logo,
+				.site-description {
 					margin-left: 20px;
 				}
 
 				.main-navigation .menu-mobilenav-container ul {
-					margin-right: 0;
+
 					li {
 						float: right;
 
@@ -898,7 +901,7 @@ body.admin-bar:not(.sticky-menu) .site-navigation.use-sticky-menu {
 	width: 100%;
 }
 
-body.has-menu-search .main-navigation ul {
+.has-menu-search .main-navigation ul:not([id*='mobile-nav-item-wrap']) {
 	margin-right: 59px;
 }
 

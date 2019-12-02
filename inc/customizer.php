@@ -263,13 +263,12 @@ function vantage_customizer_init(){
 				'type' => 'select',
 				'title' => __('Menu Alignment', 'vantage'),
 				'default' => 'left',
-				'selector' => '.main-navigation ul',
-				'property' => 'text-align',
 				'choices' => array(
 					'left' => __( 'Left', 'vantage' ),
 					'right' => __( 'Right', 'vantage' ),
 					'center' => __( 'Center', 'vantage' ),
 				),
+				'callback' => 'vantage_customizer_callback_menu_alignment',
 			),
 			'background' => array(
 				'type' => 'color',
@@ -822,6 +821,40 @@ function vantage_customizer_callback_link_underline($builder, $val, $setting){
 function vantage_customizer_callback_link_hover_underline($builder, $val, $setting){
 	if( $val ) {
 		$builder->add_css('.entry-content a:hover, .textwidget a:hover', 'text-decoration', 'underline');
+	}
+	return $builder;
+}
+/**
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_callback_menu_alignment( $builder, $val, $setting ) {
+	$mh_layout = siteorigin_setting( 'layout_masthead' );
+	if ( $mh_layout == 'logo-in-menu' ) {
+		if ( $val == 'center' ) {
+			if ( is_customize_preview() ) {
+				$builder->add_css( 'div[data-customize-partial-type="nav_menu_instance"]', 'margin-right', 'auto' );
+				$builder->add_css( 'div[data-customize-partial-type="nav_menu_instance"]', 'margin-left', 'auto' );
+			} else {
+				$builder->add_css( 'div[class^="menu-"][class$="-container"]', 'margin-right', 'auto' );
+				$builder->add_css( 'div[class^="menu-"][class$="-container"]', 'margin-left', 'auto' );				
+			}
+		} elseif ( $val == 'right' ) {
+			if ( is_customize_preview() ) {
+				$builder->add_css( 'div[data-customize-partial-type="nav_menu_instance"]', 'margin-left', 'auto' );
+			} else {
+				$builder->add_css( 'div[class^="menu-"][class$="-container"]',  'margin-left', 'auto' );
+			}			
+		}
+	} else {
+		if ( $val == 'center' ) {
+			$builder->add_css( '.main-navigation ul', 'text-align', 'center' );
+		} elseif ( $val == 'right' ) {
+			$builder->add_css( '.main-navigation ul', 'text-align', 'right' );
+		}
 	}
 	return $builder;
 }
