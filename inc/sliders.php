@@ -47,10 +47,10 @@ if ( class_exists( 'MetaSliderPlugin' ) ) :
 
 	// Change the FlexSlider name space if the Vantage (Flex) theme is selected.
 	function vantage_metaslider_flex_params( $options, $slider_id, $settings ) {
-	    if ( ! empty($settings['theme'] ) && $settings['theme'] == 'vantage') { 
-	        $options['namespace'] = '"flex-vantage-"'; 
-	    }
-	    return $options;
+		if ( ! empty($settings['theme'] ) && $settings['theme'] == 'vantage') { 
+			$options['namespace'] = '"flex-vantage-"'; 
+		}
+		return $options;
 	} 
 	add_filter( 'metaslider_flex_slider_parameters', 'vantage_metaslider_flex_params', 10, 3 );	
 	
