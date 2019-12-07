@@ -238,8 +238,8 @@ function vantage_display_logo() {
 	if ( empty($logo) ) {
 
 		// Just display the site title.
-		$logo_html = '<h1 class="site-title">'.get_bloginfo( 'name' ).'</h1>';
-		$logo_html = apply_filters('vantage_logo_text', $logo_html);
+		$logo_html = '<h1 class="site-title">' . get_bloginfo( 'name' ) . '</h1>';
+		$logo_html = apply_filters( 'vantage_logo_text', $logo_html );
 	}
 	else {
 		// Load the logo image.
@@ -247,19 +247,19 @@ function vantage_display_logo() {
 			list ($src, $height, $width) = $logo;
 		}
 		else {
-			$image = wp_get_attachment_image_src($logo, 'full');
+			$image = wp_get_attachment_image_src( $logo, 'full' );
 			$src = $image[0];
 			$height = $image[2];
 			$width = $image[1];
 		}
 
 		// Add all the logo attributes.
-		$logo_attributes = apply_filters('vantage_logo_image_attributes', array(
+		$logo_attributes = apply_filters( 'vantage_logo_image_attributes', array(
 			'src' => $src,
-			'class' => siteorigin_setting('logo_in_menu_constrain') ? 'logo-height-constrain' : 'logo-no-height-constrain',
-			'width' => round($width),
-			'height' => round($height),
-			'alt' => sprintf( __('%s Logo', 'vantage'), get_bloginfo('name') ),
+			'class' => siteorigin_setting( 'logo_in_menu_constrain' ) ? 'logo-height-constrain' : 'logo-no-height-constrain',
+			'width' => round( $width ),
+			'height' => round( $height ),
+			'alt' => sprintf( __( '%s Logo', 'vantage' ), get_bloginfo( 'name' ) ),
 		) );
 
 		// Try adding the retina logo.
@@ -287,7 +287,7 @@ function vantage_display_logo() {
 			}
 		}
 
-		$logo_html = apply_filters( 'vantage_logo_image', '<img '.implode( ' ', $logo_attributes_str ).' />' );
+		$logo_html = apply_filters( 'vantage_logo_image', '<img ' . implode( ' ', $logo_attributes_str ) . ' />' );
 	}
 
 	// Echo the image.
@@ -419,7 +419,7 @@ function vantage_get_post_categories() {
 
 	} else {
 		// But this blog has loads of categories so we should probably display them here.
-		if ( '' != $tag_list && siteorigin_setting( 'blog_post_tags' )) {
+		if ( '' != $tag_list && siteorigin_setting( 'blog_post_tags' ) ) {
 			$meta_text = __( 'Posted in %1$s and tagged %2$s.', 'vantage' );
 		}
 		else {
@@ -512,8 +512,8 @@ function vantage_pagination( $pages = '', $range = 2 ) {
 	}
 
 	if ( 1 != $pages ) {
-		$format_permalink = substr( get_pagenum_link(false), -1, 1 ) == '/' ? 'page/%#%/' : '/page/%#%/';
-		$format_query_string = strpos(get_pagenum_link(false), '?') === false ? '?paged=%#%' : '&paged=%#%';
+		$format_permalink = substr( get_pagenum_link( false ), -1, 1 ) == '/' ? 'page/%#%/' : '/page/%#%/';
+		$format_query_string = strpos( get_pagenum_link( false ), '?' ) === false ? '?paged=%#%' : '&paged=%#%';
 
 		echo "<div class='pagination'>";
 		echo paginate_links( array(
@@ -561,7 +561,7 @@ function vantage_display_icon( $type ) {
 
 	switch( $type ) {
 
-		case 'mobile-menu' :
+		case 'mobile-menu':
 			if ( siteorigin_setting( 'icons_menu' ) ) :
 				return wp_get_attachment_image( siteorigin_setting( 'icons_menu' ), 'full', false, '' );
 			else :
@@ -569,7 +569,7 @@ function vantage_display_icon( $type ) {
 			endif;
 			break;
 
-		case 'mobile-menu-close' :
+		case 'mobile-menu-close':
 			if ( siteorigin_setting( 'icons_menu_close' ) ) :
 				return wp_get_attachment_image( siteorigin_setting( 'icons_menu_close' ), 'full', false, '' );
 			else :
@@ -577,7 +577,7 @@ function vantage_display_icon( $type ) {
 			endif;
 			break;
 
-		case 'search' :
+		case 'search':
 			if ( siteorigin_setting( 'icons_search' ) ) :
 				return wp_get_attachment_image( siteorigin_setting( 'icons_search' ), 'full', false, '' );
 			else :
