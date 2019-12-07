@@ -425,7 +425,7 @@ function vantage_render_slider() {
 		// Check if we should show demo slider or not.
 		if ( ! class_exists( 'SmartSlider3' ) && ! class_exists( 'MetaSliderPlugin' ) ) {
 			$slider = 'demo';
-		} else if ( ! empty( $settings_slider ) ) {
+		} elseif ( ! empty( $settings_slider ) ) {
 			$slider = $settings_slider;
 		}
 	} else {
