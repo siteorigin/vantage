@@ -233,9 +233,9 @@ function vantage_display_logo() {
 	if ( empty( $logo ) && function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
 		$logo = get_theme_mod( 'custom_logo' );
 	}
-	$logo = apply_filters('vantage_logo_image_id', $logo);
+	$logo = apply_filters( 'vantage_logo_image_id', $logo );
 
-	if ( empty($logo) ) {
+	if ( empty( $logo ) ) {
 
 		// Just display the site title.
 		$logo_html = '<h1 class="site-title">' . get_bloginfo( 'name' ) . '</h1>';
@@ -244,7 +244,7 @@ function vantage_display_logo() {
 	else {
 		// Load the logo image.
 		if ( is_array($logo) ) {
-			list ($src, $height, $width) = $logo;
+			list ( $src, $height, $width ) = $logo;
 		}
 		else {
 			$image = wp_get_attachment_image_src( $logo, 'full' );
