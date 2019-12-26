@@ -104,6 +104,21 @@ function siteorigin_mobilenav_nav_menu_css(){
 			.so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; }
 		</style>
 	<?php endif;
+	if ( is_customize_preview() && siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu' ) :
+		if ( has_nav_menu( 'primary' ) ) : ?>
+			<style type="text/css">
+				@media screen and (max-width: <?php echo intval($mobile_resolution) ?>px) {
+					.site-header div[data-customize-partial-type="nav_menu_instance"] { margin-right: 0; margin-left: auto; }
+				}
+			</style>
+		<?php else : ?>
+			<style type="text/css">
+				@media screen and (max-width: <?php echo intval($mobile_resolution) ?>px) {
+					.site-header .mobile-nav-customize-wrapper { margin-right: 0; margin-left: auto; }
+				}
+			</style>
+		<?php endif;
+	endif;
 }
 endif;
 add_action('wp_head', 'siteorigin_mobilenav_nav_menu_css');
