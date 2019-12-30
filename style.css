@@ -610,6 +610,7 @@ body {
   margin-bottom: auto;
 }
 #masthead.masthead-logo-in-menu .logo {
+  display: flex;
   padding: 10px 0;
   margin-right: 15px;
 }
