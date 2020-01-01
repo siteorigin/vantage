@@ -632,6 +632,11 @@ body {
   font-weight: 100;
   padding: 7px 15px;
 }
+@media (max-width: 680px) {
+  #masthead.masthead-logo-in-menu.unconstrained-logo .logo {
+    flex-direction: column;
+  }
+}
 #masthead.masthead-logo-in-menu .site-description {
   clear: both;
   color: #e2e2e2;
