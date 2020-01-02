@@ -83,11 +83,11 @@ Font Awesome by Dave Gandy - http://fontawesome.io
 Font released under the SIL OFL 1.1, CSS released under the MIT License.
 
 Selectivizr, Copyright Keith Clark
-Licensed under the MIT License
+Released under the [MIT License](http://opensource.org/licenses/MIT)
 Source: https://github.com/keithclark/selectivizr
 
 TinyColor, Copyright (c), Brian Grinstead
-Licensed under the [MIT License](http://opensource.org/licenses/MIT)
+Released under the [MIT License](http://opensource.org/licenses/MIT)
 Source: https://github.com/bgrins/TinyColor
 
 TouchSwipe jQuery Plugin
