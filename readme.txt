@@ -83,11 +83,11 @@ Font Awesome by Dave Gandy - http://fontawesome.io
 Font released under the SIL OFL 1.1, CSS released under the MIT License.
 
 Selectivizr, Copyright Keith Clark
-Licensed under the MIT License
+Released under the [MIT License](http://opensource.org/licenses/MIT)
 Source: https://github.com/keithclark/selectivizr
 
 TinyColor, Copyright (c), Brian Grinstead
-Licensed under the [MIT License](http://opensource.org/licenses/MIT)
+Released under the [MIT License](http://opensource.org/licenses/MIT)
 Source: https://github.com/bgrins/TinyColor
 
 TouchSwipe jQuery Plugin
@@ -99,6 +99,11 @@ Dual licensed under the MIT or GPL Version 2 licenses.
 This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 SiteOrigin unless otherwise stated in the file header.
 
 == Changelog ==
+
+== 1.14.4 - 02 January 2019 ==
+* Page Slider: Prevented shortcode from outputting if slider plugin not activated.
+* Logo in Menu: Fixed the menu aligment preview in the Customizer.
+* Logo in Menu: Fixed the logo image and site title alignment if both are in use.
 
 == 1.14.3 - 02 December 2019 ==
 * Fixed menu alignment setting.

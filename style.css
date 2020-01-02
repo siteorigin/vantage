@@ -610,6 +610,8 @@ body {
   margin-bottom: auto;
 }
 #masthead.masthead-logo-in-menu .logo {
+  align-items: center;
+  display: flex;
   padding: 10px 0;
   margin-right: 15px;
 }
@@ -629,6 +631,11 @@ body {
   font-size: 20px;
   font-weight: 100;
   padding: 7px 15px;
+}
+@media (max-width: 680px) {
+  #masthead.masthead-logo-in-menu.unconstrained-logo .logo {
+    flex-direction: column;
+  }
 }
 #masthead.masthead-logo-in-menu .site-description {
   clear: both;

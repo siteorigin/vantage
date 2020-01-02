@@ -835,19 +835,37 @@ function vantage_customizer_callback_menu_alignment( $builder, $val, $setting ) 
 	$mh_layout = siteorigin_setting( 'layout_masthead' );
 	if ( $mh_layout == 'logo-in-menu' ) {
 		if ( $val == 'center' ) {
-			if ( is_customize_preview() ) {
-				$builder->add_css( 'div[data-customize-partial-type="nav_menu_instance"]', 'margin-right', 'auto' );
-				$builder->add_css( 'div[data-customize-partial-type="nav_menu_instance"]', 'margin-left', 'auto' );
+			if ( has_nav_menu( 'primary' ) ) {
+				if ( is_customize_preview() ) {
+					$builder->add_css( 'div[data-customize-partial-type="nav_menu_instance"]', 'margin-right', 'auto' );
+					$builder->add_css( 'div[data-customize-partial-type="nav_menu_instance"]', 'margin-left', 'auto' );
+				} else {
+					$builder->add_css( 'div[class^="menu-"][class$="-container"]', 'margin-right', 'auto' );
+					$builder->add_css( 'div[class^="menu-"][class$="-container"]', 'margin-left', 'auto' );
+				}
 			} else {
-				$builder->add_css( 'div[class^="menu-"][class$="-container"]', 'margin-right', 'auto' );
-				$builder->add_css( 'div[class^="menu-"][class$="-container"]', 'margin-left', 'auto' );				
+				if ( is_customize_preview() ) {
+					$builder->add_css( '.mobile-nav-customize-wrapper', 'margin-right', 'auto' );
+					$builder->add_css( '.mobile-nav-customize-wrapper', 'margin-left', 'auto' );
+				} else {
+					$builder->add_css( '.main-navigation .menu', 'margin-right', 'auto' );
+					$builder->add_css( '.main-navigation .menu', 'margin-left', 'auto' );
+				}
 			}
 		} elseif ( $val == 'right' ) {
-			if ( is_customize_preview() ) {
-				$builder->add_css( 'div[data-customize-partial-type="nav_menu_instance"]', 'margin-left', 'auto' );
+			if ( has_nav_menu( 'primary' ) ) {
+				if ( is_customize_preview() ) {
+					$builder->add_css( 'div[data-customize-partial-type="nav_menu_instance"]', 'margin-left', 'auto' );
+				} else {
+					$builder->add_css( 'div[class^="menu-"][class$="-container"]',  'margin-left', 'auto' );
+				}
 			} else {
-				$builder->add_css( 'div[class^="menu-"][class$="-container"]',  'margin-left', 'auto' );
-			}			
+				if ( is_customize_preview() ) {
+					$builder->add_css( '.mobile-nav-customize-wrapper', 'margin-left', 'auto' );
+				} else {
+					$builder->add_css( '.main-navigation .menu', 'margin-left', 'auto' );
+				}
+			}
 		}
 	} else {
 		if ( $val == 'center' ) {

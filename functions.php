@@ -423,9 +423,9 @@ function vantage_render_slider() {
 		$slider = false;
 
 		// Check if we should show demo slider or not.
-		if ( ! class_exists( 'SmartSlider3' ) && ! class_exists( 'MetaSliderPlugin' ) ) {
+		if ( siteorigin_setting( 'home_slider' ) == 'demo' ) {
 			$slider = 'demo';
-		} else if ( ! empty( $settings_slider ) ) {
+		} elseif ( ! empty( $settings_slider ) ) {
 			$slider = $settings_slider;
 		}
 	} else {
@@ -458,6 +458,9 @@ function vantage_render_slider() {
 	} else {
 
 		list( $type, $slider_id ) = explode( ':', $slider );
+		if ( $type == 'meta' && ! class_exists( 'MetaSliderPlugin' ) || $type == 'smart' && ! class_exists( 'SmartSlider3' ) ) {
+			return;
+		}
 		$shortcode = '[' . ( $type == 'meta' ? 'metaslider id=' : 'smartslider3 slider=' ) . intval( $slider_id ) . ']';
 		?>
 		<div id="main-slider" <?php if ( ! empty( $slider_stretch ) ) echo 'data-stretch="true"' ?>>
