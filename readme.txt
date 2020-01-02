@@ -100,6 +100,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.14.4 - 02 January 2019 ==
+* Page Slider: Prevented shortcode from outputting if slider plugin not activated.
+* Logo in Menu: Fixed the menu aligment preview in the Customizer.
+* Logo in Menu: Fixed the logo image and site title alignment if both are in use.
+
 == 1.14.3 - 02 December 2019 ==
 * Fixed menu alignment setting.
 
