@@ -197,58 +197,70 @@ input[type="submit"]{
 input[type="checkbox"],
 input[type="radio"] {
 	.box-sizing(border-box);
-	padding: 0;
-	/* Addresses excess padding in IE8/9 */
+	padding: 0; // Addresses excess padding in IE8/9.
 }
 
 input[type="search"] {
-	/* Addresses appearance set to searchfield in S5, Chrome */
-	-webkit-appearance: textfield;
-
-	/* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
-	.box-sizing(border-box);
+	.box-sizing(border-box); // Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof).
+	-webkit-appearance: textfield; // Addresses appearance set to searchfield in S5, Chrome.
 }
 
 input[type="search"]::-webkit-search-decoration {
-	/* Corrects inner padding displayed oddly in S5, Chrome on OSX */
-	-webkit-appearance: none;
+	-webkit-appearance: none; // Corrects inner padding displayed oddly in S5, Chrome on OSX.
 }
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-	/* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+	// Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/.
 	border: 0;
 	padding: 0;
 }
 
-input[type=text],
-input[type=email],
-input[type=password],
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
 textarea {
-	.box-sizing(border-box);
-	color: #666;
 	border: 1px solid #ccc;
 	border-radius: 3px;
+	box-sizing: border-box;
+	color: #666;
+	font-weight: normal; 
+	line-height: normal;
+	outline: none;
+	padding: 9px 12px;
+	max-width: 100%;
+	-webkit-appearance: none;
+
+	&:focus {
+		color: #111;
+	}
 }
 
-input[type=text]:focus,
-input[type=email]:focus,
-input[type=password]:focus,
-textarea:focus {
-	color: #111;
+input[type="checkbox"] {
+	margin-right: 2px; 
 }
 
-input[type=text],
-input[type=email],
-input[type=password] {
-	padding: 3px;
+select {
+	border: 1px solid #ccc;
+	max-width: 100%;
 }
 
 textarea {
-	/* Removes default vertical scrollbar in IE6/7/8/9 */
-	overflow: auto;
-	/* Improves readability and alignment in all browsers */
-	vertical-align: top;
+	overflow: auto; // Removes default vertical scrollbar in IE6/7/8/9.
+	vertical-align: top; // Improves readability and alignment in all browsers.
+	width: 100%;
 }
 
 /* Alignment */
