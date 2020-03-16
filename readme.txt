@@ -100,7 +100,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
-== 1.14.4 - 02 January 2019 ==
+== 1.14.5 - 16 March 2020 ==
+* Small input field styling improvements.
+* Added Block Editor admin editor width.
+
+== 1.14.4 - 02 January 2020 ==
 * Page Slider: Prevented shortcode from outputting if slider plugin not activated.
 * Logo in Menu: Fixed the menu aligment preview in the Customizer.
 * Logo in Menu: Fixed the logo image and site title alignment if both are in use.
