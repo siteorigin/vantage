@@ -1,0 +1,9 @@
+.block-editor-page .wp-block {
+  max-width: 720px;
+}
+.block-editor-page .wp-block[data-align="wide"] {
+  max-width: 1080px;
+}
+.block-editor-page .wp-block[data-align="full"] {
+  max-width: none;
+}

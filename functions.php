@@ -371,6 +371,14 @@ function vantage_scripts() {
 endif;
 add_action( 'wp_enqueue_scripts', 'vantage_scripts' );
 
+/**
+ * Enqueue Block Editor styles.
+ */
+function vantage_block_editor_styles() {
+	wp_enqueue_style( 'vantage-block-editor-styles', get_template_directory_uri() . '/style-editor.css', SITEORIGIN_THEME_VERSION );
+}
+add_action( 'enqueue_block_editor_assets', 'vantage_block_editor_styles' );
+
 if ( ! function_exists( 'vantage_top_text_area' ) ) :
 /**
  * Display some text in the text area.

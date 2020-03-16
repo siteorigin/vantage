@@ -43,7 +43,8 @@ module.exports = {
         src: [
             'style.less',
             'rtl.less',
-            'less/**/css/*.less'
+            'less/**/css/*.less',
+            'less/style-editor.less',
         ],
         include:[
             'less/*.less'

@@ -265,6 +265,11 @@ textarea {
 
 /* Alignment */
 
+.alignnone, 
+.aligncenter {
+	margin-bottom: 1.6em;
+}
+
 .alignleft {
 	display: inline;
 	float: left;
@@ -278,7 +283,8 @@ textarea {
 .aligncenter {
 	clear: both;
 	display: block;
-	margin: 0 auto;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 /* Text meant only for screen readers */
@@ -1500,7 +1506,7 @@ article.page{
 .entry-content{
 	.clearfix();
 
-	line-height: 1.6em;
+	line-height: 1.6;
 	color: #666666;
 
 	a{
@@ -2234,6 +2240,7 @@ body.layout-full{
 @import "less/icons";
 @import "less/jwplayer";
 @import "less/accessibility";
+@import "less/block-editor";
 
 /* Prevent iOS Safari from overriding the colors for phone numbers */
 a[href^="tel"] {
