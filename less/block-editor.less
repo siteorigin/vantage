@@ -1,38 +1,21 @@
-.alignfull,
-.alignwide {
-	margin-bottom: 1.6em;
-}
+/*!
+Version: dev
+*/
 
-@media (min-width: 750px) {
+.block-editor-page {
 
-	.alignfull {
-		margin-right: ~"calc(50% - 50vw)";
-		margin-left: ~"calc(50% - 50vw)";
-		width: auto;
-	}
+	// Main column width.
+	.wp-block {
+		max-width: 770px;
 
-	.alignwide {
-		margin-right: ~"calc(25% - 25vw)";
-		margin-left: ~"calc(25% - 25vw)";
-		width: auto;
-	}
-
-	.has-sidebar:not(.page-layout-no-sidebar):not(.page-layout-full-width):not(.sidebar-position-none) {
-
-		&.sidebar-position-right {
-
-			.alignfull,
-			.alignwide {
-				margin-right: 0;
-			}
+		// Width of "wide" blocks.
+		&[data-align="wide"] {
+			max-width: 1080px;
 		}
 
-		&.sidebar-position-left {
-
-			.alignfull,
-			.alignwide {
-				margin-left: 0;
-			}
+		// Width of "full-wide" blocks.
+		&[data-align="full"] {
+			max-width: none;
 		}
 	}
 }
