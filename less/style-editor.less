@@ -1,0 +1,17 @@
+.block-editor-page {
+
+	// Main column width.
+	.wp-block {
+		max-width: 720px;
+
+		// Width of "wide" blocks.
+		&[data-align="wide"] {
+			max-width: 1080px;
+		}
+
+		// Width of "full-wide" blocks.
+		&[data-align="full"] {
+			max-width: none;
+		}
+	}
+}
