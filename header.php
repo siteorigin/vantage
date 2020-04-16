@@ -39,7 +39,7 @@
 
 	<?php do_action( 'vantage_after_masthead' ); ?>
 
-	<?php vantage_render_slider() ?>
+	<?php vantage_render_slider(); ?>
 
 	<?php do_action( 'vantage_before_main_container' ); ?>
 
