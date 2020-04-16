@@ -22,7 +22,6 @@ function vantage_page_menu_args( $args ) {
 endif;
 add_filter( 'wp_page_menu_args', 'vantage_page_menu_args' );
 
-
 if ( ! function_exists( 'vantage_body_classes' ) ) :
 /**
  * Adds custom classes to the array of body classes.
@@ -108,7 +107,6 @@ function vantage_enhanced_image_navigation( $url, $id ) {
 endif;
 add_filter( 'attachment_link', 'vantage_enhanced_image_navigation', 10, 2 );
 
-
 if ( ! function_exists( 'vantage_wp_title' ) ) :
 /**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
@@ -137,7 +135,6 @@ function vantage_wp_title( $title, $sep ) {
 }
 endif;
 add_filter( 'wp_title', 'vantage_wp_title', 10, 2 );
-
 
 if ( ! function_exists( 'vantage_footer_widget_style' ) ) :
 /**
