@@ -7,3 +7,12 @@
 .block-editor-page .wp-block[data-align="full"] {
   max-width: none;
 }
+.block-editor-page #vantage-slider-page-slider p {
+  margin-top: 1em !important;
+}
+.block-editor-page #vantage-slider-page-slider select {
+  box-sizing: border-box;
+}
+.block-editor-page #vantage-menu-icon-metabox select {
+  box-sizing: border-box;
+}
