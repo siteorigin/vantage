@@ -42,7 +42,8 @@ function vantage_body_classes( $classes ) {
 
 	$is_full_width_template = is_page_template( 'templates/template-full.php' ) || is_page_template( 'templates/template-full-notitle.php' );
 	if ( ! $is_full_width_template ) {
-		$wc_shop_sidebar = vantage_is_woocommerce_active() && is_shop() && is_active_sidebar( 'shop' );
+		// Is WooCommerce active, is the Shop sidebar populated, are we viewing a WooCommerce page?
+		$wc_shop_sidebar = vantage_is_woocommerce_active() && is_active_sidebar( 'shop' ) && is_woocommerce();
 		if ( ! is_active_sidebar( 'sidebar-1' ) && ! $wc_shop_sidebar ) {
 			$classes[] = 'no-sidebar';
 		}
