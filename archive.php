@@ -38,7 +38,7 @@ get_header(); ?>
 			?>
 		</header><!-- .page-header -->
 
-		<?php get_template_part( 'loops/loop', siteorigin_setting('blog_archive_layout') ) ?>
+		<?php get_template_part( 'loops/loop', siteorigin_setting( 'blog_archive_layout' ) ) ?>
 
 	</div><!-- #content .site-content -->
 </section><!-- #primary .content-area -->

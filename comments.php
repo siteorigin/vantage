@@ -31,8 +31,8 @@
 		
 		<?php
 			$args = array(
-				'prev_text'	=> esc_html__( '&larr; Older Comments', 'vantage' ),
-				'next_text'	=> esc_html__( 'Newer Comments &rarr;', 'vantage' )
+				'prev_text' => esc_html__( '&larr; Older Comments', 'vantage' ),
+				'next_text' => esc_html__( 'Newer Comments &rarr;', 'vantage' )
 			);
 			the_comments_navigation( $args ); 
 		?>
@@ -43,8 +43,8 @@
 
 		<?php
 			$args = array(
-				'prev_text'	=> esc_html__( '&larr; Older Comments', 'vantage' ),
-				'next_text'	=> esc_html__( 'Newer Comments &rarr;', 'vantage' )
+				'prev_text' => esc_html__( '&larr; Older Comments', 'vantage' ),
+				'next_text' => esc_html__( 'Newer Comments &rarr;', 'vantage' )
 			);
 			the_comments_navigation( $args ); 
 		?>
