@@ -8,16 +8,16 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
 
 	<div class="entry-main">
 
-		<?php do_action('vantage_entry_main_top') ?>
+		<?php do_action( 'vantage_entry_main_top' ); ?>
 
 		<?php if ( ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) || ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image' ) ) || ( siteorigin_setting( 'blog_post_metadata' ) && get_post_type() == 'post' ) ) : ?>
 			<header class="entry-header">
 
-				<?php if( has_post_thumbnail() && siteorigin_setting('blog_featured_image') ): ?>
+				<?php if ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image' ) ) : ?>
 					<div class="entry-thumbnail"><?php vantage_entry_thumbnail(); ?></div>
 				<?php endif; ?>
 
@@ -39,9 +39,9 @@
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 
-		<?php if( vantage_get_post_categories() && ! is_singular( 'jetpack-testimonial' ) ) : ?>
+		<?php if ( vantage_get_post_categories() && ! is_singular( 'jetpack-testimonial' ) ) : ?>
 			<div class="entry-categories">
-				<?php echo vantage_get_post_categories() ?>
+				<?php echo vantage_get_post_categories(); ?>
 			</div>
 		<?php endif; ?>
 
