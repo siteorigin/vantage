@@ -13,7 +13,6 @@
 .block-editor-page #vantage-slider-page-slider select {
   box-sizing: border-box;
 }
-.block-editor-page #vantage-menu-icon-metabox select,
-.block-editor-page #vantage-slider-page-slider select {
+.block-editor-page #vantage-menu-icon-metabox select {
   box-sizing: border-box;
 }
