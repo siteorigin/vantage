@@ -297,7 +297,7 @@ endif;
 
 if ( ! function_exists( 'vantage_display_logo_text' ) ) :
 /**
- * Display text next to the logo
+ * Display the Site Title next to the logo.
  */
 function vantage_display_logo_text( $logo ) {
 	$allow_text = siteorigin_setting( 'logo_with_text' );
