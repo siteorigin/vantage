@@ -4,8 +4,8 @@ Contributors: siteorigin
 
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce
 
-Requires at least: 4.7
 Tested up to: 5.5
+Requires at least: 4.7
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -62,8 +62,7 @@ Vantage WordPress Theme is derived from Underscores WordPress Theme, Copyright 2
 
 == Images ==
 
-Miami skyline image sourced from [Pixabay](https://pixabay.com/en/panorama-miami-florida-water-usa-2117310/) by [pixeid](https://pixabay.com/en/users/pixexid-4729217/).
-Licensed under CC0 Creative Commons.
+Miami panorama image sourced from [PxHere](https://pxhere.com/en/photo/1285416) by [Ralph Nas](https://www.behance.net/pixexid) licensed under [CC0 1.0 Universal (CC0 1.0)](http://creativecommons.org/publicdomain/zero/1.0/).
 
 == Bundled Resources ==
 
