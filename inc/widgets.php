@@ -53,7 +53,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			$text_color = 'color: '.$instance['text_color'];
 		}
 		if( !empty($instance['icon_color']) && preg_match('/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_color']) ) {
-			$icon_color = 'color: '.$instance['icon_color'];
+			$icon_color = 'style="color: ' . $instance['icon_color'] . '"';
 		}
 
 		$icon = $instance['icon'];
@@ -61,24 +61,41 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			$icon = apply_filters('vantage_fontawesome_icon_name', $icon );
 		}
 
+		$icon_styles = ! empty( $icon_styles ) ? 'style="' . implode( ';', $icon_styles ) . '"' : '';
+		$icon_class = ! empty( $icon_styles ) ? ' icon-style-set' : '';
 		$target = (!empty($instance['more_target']) ? 'target="_blank"' : '');
 		?>
 		<div class="circle-icon-box circle-icon-position-<?php echo esc_attr($instance['icon_position']) ?> <?php echo empty($instance['box']) ? 'circle-icon-hide-box' : 'circle-icon-show-box' ?> circle-icon-size-<?php echo $instance['icon_size'] ?> <?php if ( siteorigin_setting( 'blog_featured_image_type' ) == 'none' ) echo 'no-archive-featured-image' ?>">
 			<?php if ( ! empty( $instance['in_post_loop'] ) ) : ?>
 				<div class="circle-icon-wrapper">
-					<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon" <?php echo $target ?>><?php endif; ?>
-					<div class="circle-icon<?php if(!empty($icon_styles)) echo ' icon-style-set' ?>" <?php if(!empty($icon_styles)) echo 'style="'.implode(';', $icon_styles).'"' ?>>
-						<?php if(!empty($icon)) : ?><div class="<?php echo esc_attr($icon); if(!empty($icon_styles)) echo ' icon-color-set' ?>" <?php if(!empty($icon_color)) echo 'style="'.$icon_color.'"' ?>></div><?php endif; ?>
-					</div>
+					<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?>
+					<a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon" <?php echo $target ?>><?php endif; ?>
+					<div class="circle-icon<?php esc_attr_e( $icon_class ); ?>" <?php esc_attr_e( $icon_styles ); ?>>
+						<?php if ( ! empty( $icon ) ): ?>
+							<div class="<?php echo esc_attr( $icon ); esc_attr( $icon_class ); ?>" <?php esc_attr( $icon_color ); ?>></div>
+						<?php endif; ?>
+					</div> 
 					<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
 				</div>
 			<?php endif; ?>
 
-			<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?><a href="<?php echo esc_url($instance['more_url']) ?>" class="link-title" <?php echo $target ?>><?php endif; ?>
-			<?php if(!empty($instance['title'])) : ?><h4 <?php if(!empty($title_color)) echo 'style="'.$title_color.'"' ?>><?php echo wp_kses_post( apply_filters('widget_title', $instance['title'] ) ) ?></h4><?php endif; ?>
-			<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
+			<?php if( ! empty( $instance['more_url'] ) && ! empty( $instance['all_linkable'] ) ) : ?>
+				<a href="<?php echo esc_url( $instance['more_url'] ) ?>" class="link-title" <?php echo $target ?>>
+			<?php endif; ?>
+			<?php if( ! empty( $instance['title'] ) ) : ?>
+				<?php $title_color = ! empty( $title_color ) ? 'style="' . $title_color . '"' : ''; ?>
+				<h4 <?php esc_attr_e( $title_color ); ?>>
+					<?php echo wp_kses_post( apply_filters('widget_title', $instance['title'] ) ) ?>
+				</h4>
+			<?php endif; ?>
+			<?php if( ! empty( $instance['more_url'] ) && ! empty( $instance['all_linkable'] ) ) : ?>
+				</a>
+			<?php endif; ?>
 
-			<?php if(!empty($instance['text'])) : ?><p class="text" <?php if(!empty($text_color)) echo 'style="'.$text_color.'"' ?>><?php echo wp_kses_post($instance['text']) ?></p><?php endif; ?>
+			<?php if( ! empty( $instance['text'] ) ) : ?>
+				<?php $title_color = ! empty( $text_color ) ? 'style="' . $text_color . '"' : ''; ?>
+				<p class="text" <?php esc_attr_e( $text_color ); ?>><?php echo wp_kses_post($instance['text']) ?></p>
+			<?php endif; ?>
 			<?php if(!empty($instance['more_url'])) : ?>
 				<a href="<?php echo esc_url($instance['more_url']) ?>" class="more-button" <?php echo $target ?>><?php echo !empty($instance['more']) ? esc_html($instance['more']) : __('More Info', 'vantage') ?> <i></i></a>
 			<?php endif; ?>
@@ -328,8 +345,11 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 				?><a class="social-media-icon social-media-icon-<?php echo $id ?> social-media-icon-size-<?php echo esc_attr($instance['size']) ?>" href="<?php echo esc_url( $instance[$id], array('http', 'https', 'mailto', 'skype', 'callto', 'tel', 'sms') ) ?>" title="<?php echo esc_html( get_bloginfo('name') . ' ' . $name ) ?>" <?php if(!empty($instance['new_window'])) echo 'target="_blank"'; ?>><?php
 
 				$icon = apply_filters('vantage_social_widget_icon_'.$id, '');
-				if(!empty($icon)) echo $icon;
-				else echo '<span class="fa fa-' . $id . '"></span>';
+				if( ! empty( $icon ) ) {
+					echo $icon;
+				} else {
+					echo '<span class="fa fa-' . $id . '"></span>';
+				}
 
 				?></a><?php
 			}
