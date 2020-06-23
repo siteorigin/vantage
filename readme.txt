@@ -68,33 +68,36 @@ Miami panorama image sourced from [PxHere](https://pxhere.com/en/photo/1285416) 
 
 FitVids, Copyright 2013 Chris Coyier
 Released under the WTFPL license - http://sam.zoy.org/wtfpl/
-Source: http://fitvidsjs.com/
+[Source](http://fitvidsjs.com/)
 
 FlexSlider, Copyright 2012 WooThemes
 Free to use under the GPLv2 license.
-Source: http://www.woothemes.com/flexslider/
+[Source](http://www.woothemes.com/flexslider/)
 
 HTML5 Shiv, Copyright 2011 Alexander Farkas
 Released under a dual MIT/GPL2 License
-Source: https://code.google.com/p/html5shiv/
+[Source](https://code.google.com/p/html5shiv/)
 
 LESS Elements, Copyright 2011 Dmitry Fadeyev
 Dedicated to the public domain and is free for all uses, commercial or otherwise.
+[Source](https://lesselements.com/)
 
 Font Awesome by Dave Gandy - http://fontawesome.io
 Font released under the SIL OFL 1.1, CSS released under the MIT License.
+[Source](https://github.com/FortAwesome/Font-Awesome)
 
 Selectivizr, Copyright Keith Clark
 Released under the [MIT License](http://opensource.org/licenses/MIT)
-Source: https://github.com/keithclark/selectivizr
+[Source](https://github.com/keithclark/selectivizr)
 
 TinyColor, Copyright (c), Brian Grinstead
 Released under the [MIT License](http://opensource.org/licenses/MIT)
-Source: https://github.com/bgrins/TinyColor
+[Source](https://github.com/bgrins/TinyColor)
 
 TouchSwipe jQuery Plugin
 Copyright (c) 2010-2015 Matt Bryson
 Dual licensed under the MIT or GPL Version 2 licenses.
+[Source](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin)
 
 == SiteOrigin Settings ==
 
