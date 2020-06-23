@@ -6,7 +6,7 @@ Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, 
 
 Tested up to: 5.5
 Requires at least: 4.7
-Requires PHP: 7.3
+Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
