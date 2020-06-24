@@ -70,9 +70,9 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 				<div class="circle-icon-wrapper">
 					<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?>
 					<a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon" <?php echo $target ?>><?php endif; ?>
-					<div class="circle-icon<?php esc_attr_e( $icon_class ); ?>" <?php esc_attr_e( $icon_styles ); ?>>
+					<div class="circle-icon<?php esc_attr_e( $icon_class ); ?>" <?php echo $icon_styles; ?>>
 						<?php if ( ! empty( $icon ) ): ?>
-							<div class="<?php echo esc_attr( $icon ); esc_attr( $icon_class ); ?>" <?php esc_attr( $icon_color ); ?>></div>
+							<div class="<?php echo esc_attr( $icon ); esc_attr( $icon_class ); ?>" <?php echo $icon_color; ?>></div>
 						<?php endif; ?>
 					</div> 
 					<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?></a><?php endif; ?>
@@ -83,8 +83,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 				<a href="<?php echo esc_url( $instance['more_url'] ) ?>" class="link-title" <?php echo $target ?>>
 			<?php endif; ?>
 			<?php if( ! empty( $instance['title'] ) ) : ?>
-				<?php $title_color = ! empty( $title_color ) ? 'style="' . $title_color . '"' : ''; ?>
-				<h4 <?php esc_attr_e( $title_color ); ?>>
+				<h4 <?php echo ! empty( $title_color ) ? 'style="' . esc_attr( $title_color ) . '"' : ''; ?>>
 					<?php echo wp_kses_post( apply_filters('widget_title', $instance['title'] ) ) ?>
 				</h4>
 			<?php endif; ?>
@@ -93,8 +92,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<?php endif; ?>
 
 			<?php if( ! empty( $instance['text'] ) ) : ?>
-				<?php $title_color = ! empty( $text_color ) ? 'style="' . $text_color . '"' : ''; ?>
-				<p class="text" <?php esc_attr_e( $text_color ); ?>><?php echo wp_kses_post($instance['text']) ?></p>
+				<p class="text" <?php echo ! empty( $text_color ) ? 'style="' . $text_color . '"' : ''; ?>><?php echo wp_kses_post( $instance['text'] ) ?></p>
 			<?php endif; ?>
 			<?php if(!empty($instance['more_url'])) : ?>
 				<a href="<?php echo esc_url($instance['more_url']) ?>" class="more-button" <?php echo $target ?>><?php echo !empty($instance['more']) ? esc_html($instance['more']) : __('More Info', 'vantage') ?> <i></i></a>
