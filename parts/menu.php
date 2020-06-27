@@ -24,7 +24,7 @@ $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 <nav role="navigation" class="<?php echo implode( ' ', $nav_classes) ?>">
 
 	<div class="full-container">
-		<?php if($logo_in_menu) : ?>
+		<?php if ( $logo_in_menu ) : ?>
 			<div class="logo-in-menu-wrapper">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php vantage_display_logo(); ?></a>
 				<?php if ( siteorigin_setting( 'logo_site_description' ) ) : ?>
