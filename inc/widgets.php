@@ -343,11 +343,7 @@ class Vantage_Social_Media_Widget extends WP_Widget{
 				?><a class="social-media-icon social-media-icon-<?php echo $id ?> social-media-icon-size-<?php echo esc_attr($instance['size']) ?>" href="<?php echo esc_url( $instance[$id], array('http', 'https', 'mailto', 'skype', 'callto', 'tel', 'sms') ) ?>" title="<?php echo esc_html( get_bloginfo('name') . ' ' . $name ) ?>" <?php if(!empty($instance['new_window'])) echo 'target="_blank"'; ?>><?php
 
 				$icon = apply_filters('vantage_social_widget_icon_'.$id, '');
-				echo ! empty( $icon ) ? $icon : '<span class="fa fa-' . $id . '"></span>'
-					echo $icon;
-				} else {
-					echo '<span class="fa fa-' . $id . '"></span>';
-				}
+				echo ! empty( $icon ) ? $icon : '<span class="fa fa-' . $id . '"></span>';
 
 				?></a><?php
 			}
