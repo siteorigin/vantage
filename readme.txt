@@ -105,6 +105,15 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.15.0 - 06 July 2020 ==
+* Updated TouchSwipe.
+* Resolved general lightbox plugin disable scroll bug. Removed `overflow-y` scroll.
+* Minor code formatting improvements.
+* WooCommerce: Single product styling improvements.
+* Updated Settings submodule.
+* Updated the Google Fonts array.
+* Refactored PHP to ensure Vantage passes the WP Engine PHP Compaitiblity Checker.
+
 == 1.14.5 - 16 March 2020 ==
 * Small input field styling improvements.
 * Added Block Editor admin editor width.
