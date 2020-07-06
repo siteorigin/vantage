@@ -63,8 +63,28 @@
   display: flex;
 }
 .woocommerce #page-wrapper .product .cart .qty {
+  text-align: left;
+  max-width: 60px;
   margin-top: 4px;
   margin-right: 5px;
+  width: auto;
+}
+.woocommerce #page-wrapper .product .variations_form td {
+  padding-bottom: 10px;
+}
+.woocommerce #page-wrapper .product .variations_form select {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.woocommerce #page-wrapper .product .variations_form,
+.woocommerce #page-wrapper .product .grouped_form {
+  flex-direction: column;
+}
+.woocommerce #page-wrapper .product .variations_form .single_variation_wrap,
+.woocommerce #page-wrapper .product .grouped_form .single_variation_wrap,
+.woocommerce #page-wrapper .product .variations_form .single_add_to_cart_button,
+.woocommerce #page-wrapper .product .grouped_form .single_add_to_cart_button {
+  margin-right: auto;
 }
 .woocommerce #page-wrapper .upsells.products h2,
 .woocommerce #page-wrapper .related.products h2 {
@@ -192,6 +212,7 @@
   background: -moz-linear-gradient(center bottom, #00b5fa 0%, #0fc0ff 100%);
   background: -o-linear-gradient(#0fc0ff, #00b5fa);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0fc0ff', endColorstr='#00b5fa', GradientType=0);
+  padding: 12px 20px;
 }
 .woocommerce .shop_table .actions .button {
   padding-top: 7px;
