@@ -1,9 +1,12 @@
 === SiteOrigin Vantage ===
 
 Contributors: siteorigin
+
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce
+
+Tested up to: 5.5
 Requires at least: 4.7
-Tested up to: 5.3
+Requires PHP: 5.6.20
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,46 +62,57 @@ Vantage WordPress Theme is derived from Underscores WordPress Theme, Copyright 2
 
 == Images ==
 
-Miami skyline image sourced from [Pixabay](https://pixabay.com/en/panorama-miami-florida-water-usa-2117310/) by [pixeid](https://pixabay.com/en/users/pixexid-4729217/).
-Licensed under CC0 Creative Commons.
+Miami panorama image sourced from [PxHere](https://pxhere.com/en/photo/1285416) by [Ralph Nas](https://www.behance.net/pixexid) licensed under [CC0 1.0 Universal (CC0 1.0)](http://creativecommons.org/publicdomain/zero/1.0/).
 
 == Bundled Resources ==
 
 FitVids, Copyright 2013 Chris Coyier
 Released under the WTFPL license - http://sam.zoy.org/wtfpl/
-Source: http://fitvidsjs.com/
+[Source](http://fitvidsjs.com/)
 
 FlexSlider, Copyright 2012 WooThemes
 Free to use under the GPLv2 license.
-Source: http://www.woothemes.com/flexslider/
+[Source](http://www.woothemes.com/flexslider/)
 
 HTML5 Shiv, Copyright 2011 Alexander Farkas
 Released under a dual MIT/GPL2 License
-Source: https://code.google.com/p/html5shiv/
+[Source](https://code.google.com/p/html5shiv/)
 
 LESS Elements, Copyright 2011 Dmitry Fadeyev
 Dedicated to the public domain and is free for all uses, commercial or otherwise.
+[Source](https://lesselements.com/)
 
 Font Awesome by Dave Gandy - http://fontawesome.io
 Font released under the SIL OFL 1.1, CSS released under the MIT License.
+[Source](https://github.com/FortAwesome/Font-Awesome)
 
 Selectivizr, Copyright Keith Clark
 Released under the [MIT License](http://opensource.org/licenses/MIT)
-Source: https://github.com/keithclark/selectivizr
+[Source](https://github.com/keithclark/selectivizr)
 
 TinyColor, Copyright (c), Brian Grinstead
 Released under the [MIT License](http://opensource.org/licenses/MIT)
-Source: https://github.com/bgrins/TinyColor
+[Source](https://github.com/bgrins/TinyColor)
 
 TouchSwipe jQuery Plugin
 Copyright (c) 2010-2015 Matt Bryson
 Dual licensed under the MIT or GPL Version 2 licenses.
+[Source](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin)
 
 == SiteOrigin Settings ==
 
 This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 SiteOrigin unless otherwise stated in the file header.
 
 == Changelog ==
+
+== 1.15.0 - 06 July 2020 ==
+* Updated TouchSwipe.
+* Resolved general lightbox plugin disable scroll bug. Removed `overflow-y` scroll.
+* Minor code formatting improvements.
+* WooCommerce: Single product styling improvements.
+* Updated Settings submodule.
+* Updated the Google Fonts array.
+* Refactored PHP to ensure Vantage passes the WP Engine PHP Compaitiblity Checker.
 
 == 1.14.5 - 16 March 2020 ==
 * Small input field styling improvements.

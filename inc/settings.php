@@ -28,7 +28,6 @@ function vantage_theme_settings(){
 	/**
 	 * Logo Settings
 	 */
-
 	$settings->add_field('logo', 'image', 'media', __('Logo Image', 'vantage'), array(
 		'choose' => __('Choose Image', 'vantage'),
 		'update' => __('Set Logo', 'vantage'),
@@ -66,46 +65,45 @@ function vantage_theme_settings(){
 	/**
 	 * Layout Settings
 	 */
+	$settings->add_field( 'layout', 'responsive', 'checkbox', __( 'Responsive Layout', 'vantage' ), array(
+		'description' => __( 'Scale your layout for small screen devices.', 'vantage' ),
+	) );
 
-	$settings->add_field('layout', 'responsive', 'checkbox', __('Responsive Layout', 'vantage'), array(
-		'description' => __('Scale your layout for small screen devices.', 'vantage')
+	$settings->add_field( 'layout', 'fitvids', 'checkbox', __( 'Enable FitVids.js', 'vantage' ), array(
+		'description' => __( 'Include FitVids.js fluid embedded video layouts.', 'vantage' ),
 	));
 
-	$settings->add_field('layout', 'fitvids', 'checkbox', __('Enable FitVids.js', 'vantage'), array(
-		'description' => __('Include FitVids.js fluid embedded video layouts.', 'vantage')
-	));
-
-	$settings->add_field('layout', 'bound', 'select', __('Layout Bound', 'vantage'), array(
+	$settings->add_field( 'layout', 'bound', 'select', __( 'Layout Bound', 'vantage' ), array(
 		'options' => array(
-			'boxed' => __('Boxed', 'vantage'),
-			'full' => __('Full Width', 'vantage'),
+			'boxed' => __( 'Boxed', 'vantage' ),
+			'full' => __( 'Full Width', 'vantage' ),
 		),
-		'description' => __('Change the width of the bounding box.', 'vantage')
+		'description' => __( 'Change the width of the bounding box.', 'vantage' ),
 	) );
 
-	$settings->add_field('layout', 'masthead', 'select', __('Masthead Layout', 'vantage'), array(
-		'options' => $settings->template_part_names('parts/masthead', 'Part Name'),
-		'description' => __("Change which header area layout you're using.", 'vantage')
+	$settings->add_field( 'layout', 'masthead', 'select', __( 'Masthead Layout', 'vantage' ), array(
+		'options' => $settings->template_part_names('parts/masthead', 'Part Name' ),
+		'description' => __( "Change which header area layout you're using.", 'vantage' ),
 	) );
 
-	$settings->add_field('layout', 'menu', 'select', __('Masthead Menu', 'vantage'), array(
-		'options' => $settings->template_part_names('parts/menu', 'Part Name'),
-		'description' => __("Choose how the masthead menu is displayed.", 'vantage')
+	$settings->add_field( 'layout', 'menu', 'select', __( 'Masthead Menu', 'vantage' ), array(
+		'options' => $settings->template_part_names('parts/menu', 'Part Name' ),
+		'description' => __( "Choose how the masthead menu is displayed.", 'vantage' ),
 	) );
 
-	$settings->add_field('layout', 'footer', 'select', __('Footer Layout', 'vantage'), array(
-		'options' => $settings->template_part_names('parts/footer', 'Part Name'),
-		'description' => __("Change which footer area layout you're using.", 'vantage')
+	$settings->add_field( 'layout', 'footer', 'select', __('Footer Layout', 'vantage' ), array(
+		'options' => $settings->template_part_names('parts/footer', 'Part Name' ),
+		'description' => __( "Change which footer area layout you're using.", 'vantage' ),
 	) );
 
-	$settings->add_field('layout', 'search', 'select', __('Search Results Layout', 'vantage'), array(
+	$settings->add_field( 'layout', 'search', 'select', __('Search Results Layout', 'vantage' ), array(
 		'options' => vantage_blog_layout_options(),
-		'description' => __("Choose the layout to be used on the search results page.", 'vantage')
+		'description' => __( "Choose the layout to be used on the search results page.", 'vantage' ),
 	) );
 
-	$settings->add_field('layout', 'force_panels_full', 'checkbox', __('Force Page Builder Styles Full Width', 'vantage'), array(
-		'description' => __('Force Page Builder rows with styles to be full width. Only necessary for legacy reasons.', 'vantage')
-	));
+	$settings->add_field( 'layout', 'force_panels_full', 'checkbox', __( 'Force Page Builder Styles Full Width', 'vantage' ), array(
+		'description' => __( 'Force Page Builder rows with styles to be full width. Only necessary for legacy reasons.', 'vantage' ),
+	) );
 
 	/**
 	 * Navigation settings

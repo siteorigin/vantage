@@ -16,10 +16,10 @@ get_header(); ?>
 
 			<div class="entry-main">
 
-				<?php do_action('vantage_entry_main_top') ?>
+				<?php do_action( 'vantage_entry_main_top' ); ?>
 
 				<header class="entry-header">
-					<?php if( siteorigin_page_setting( 'page_title' ) ) : ?>
+					<?php if ( siteorigin_page_setting( 'page_title' ) ) : ?>
 						<h1 class="entry-title"><?php echo apply_filters( 'vantage_404_title', __( "That page can't be found.", 'vantage' ) ); ?></h1>
 					<?php endif; ?>
 				</header><!-- .entry-header -->
@@ -47,7 +47,7 @@ get_header(); ?>
 
 				</div><!-- .entry-content -->
 
-				<?php do_action('vantage_entry_main_bottom') ?>
+				<?php do_action( 'vantage_entry_main_bottom' ); ?>
 
 			</div><!-- .entry-main -->
 

@@ -5,6 +5,9 @@ Author URI: https://siteorigin.com/
 Theme URI: https://siteorigin.com/theme/vantage/
 Description: Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, Smart Slider 3 for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free support on our <a href="https://siteorigin.com/thread/">forum</a> (https://siteorigin.com/thread/).
 Version: dev
+Tested up to: 5.5
+Requires at least: 4.7
+Requires PHP: 5.6.20
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: vantage
@@ -82,8 +85,6 @@ td {
 html {
   font-size: 62.5%;
   /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
-  overflow-y: scroll;
-  /* Keeps page centred in all browsers regardless of content height */
   -webkit-text-size-adjust: 100%;
   /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
   -ms-text-size-adjust: 100%;
@@ -3012,7 +3013,7 @@ html[xmlns] .slides {
 .widget_circleicon-widget .circle-icon-box.circle-icon-position-top .circle-icon {
   top: 0;
   left: 50%;
-  margin-left: -65px/2;
+  margin-left: -32.5px;
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-position-bottom {
   padding-bottom: 75px;
@@ -3020,7 +3021,7 @@ html[xmlns] .slides {
 .widget_circleicon-widget .circle-icon-box.circle-icon-position-bottom .circle-icon {
   bottom: 0;
   left: 50%;
-  margin-left: -65px/2;
+  margin-left: -32.5px;
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-position-left {
   text-align: left;
@@ -3029,7 +3030,7 @@ html[xmlns] .slides {
 .widget_circleicon-widget .circle-icon-box.circle-icon-position-left .circle-icon {
   left: 0;
   top: 50%;
-  margin-top: -65px/2;
+  margin-top: -32.5px;
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-position-right {
   text-align: left;
@@ -3038,7 +3039,7 @@ html[xmlns] .slides {
 .widget_circleicon-widget .circle-icon-box.circle-icon-position-right .circle-icon {
   right: 0;
   top: 50%;
-  margin-top: -65px/2;
+  margin-top: -32.5px;
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-medium {
   /* The different icon positions */
@@ -3064,7 +3065,7 @@ html[xmlns] .slides {
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.circle-icon-position-top .circle-icon {
   top: 0;
   left: 50%;
-  margin-left: -81.25px/2;
+  margin-left: -40.625px;
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.circle-icon-position-bottom {
   padding-bottom: 91.25px;
@@ -3072,7 +3073,7 @@ html[xmlns] .slides {
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.circle-icon-position-bottom .circle-icon {
   bottom: 0;
   left: 50%;
-  margin-left: -81.25px/2;
+  margin-left: -40.625px;
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.circle-icon-position-left {
   text-align: left;
@@ -3081,7 +3082,7 @@ html[xmlns] .slides {
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.circle-icon-position-left .circle-icon {
   left: 0;
   top: 50%;
-  margin-top: -81.25px/2;
+  margin-top: -40.625px;
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.circle-icon-position-right {
   text-align: left;
@@ -3090,7 +3091,7 @@ html[xmlns] .slides {
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-medium.circle-icon-position-right .circle-icon {
   right: 0;
   top: 50%;
-  margin-top: -81.25px/2;
+  margin-top: -40.625px;
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-large {
   /* The different icon positions */
@@ -3116,7 +3117,7 @@ html[xmlns] .slides {
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-large.circle-icon-position-top .circle-icon {
   top: 0;
   left: 50%;
-  margin-left: -100px/2;
+  margin-left: -50px;
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-large.circle-icon-position-bottom {
   padding-bottom: 110px;
@@ -3124,7 +3125,7 @@ html[xmlns] .slides {
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-large.circle-icon-position-bottom .circle-icon {
   bottom: 0;
   left: 50%;
-  margin-left: -100px/2;
+  margin-left: -50px;
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-large.circle-icon-position-left {
   text-align: left;
@@ -3133,7 +3134,7 @@ html[xmlns] .slides {
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-large.circle-icon-position-left .circle-icon {
   left: 0;
   top: 50%;
-  margin-top: -100px/2;
+  margin-top: -50px;
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-large.circle-icon-position-right {
   text-align: left;
@@ -3142,7 +3143,7 @@ html[xmlns] .slides {
 .widget_circleicon-widget .circle-icon-box.circle-icon-size-large.circle-icon-position-right .circle-icon {
   right: 0;
   top: 50%;
-  margin-top: -100px/2;
+  margin-top: -50px;
 }
 .widget_headline-widget {
   text-align: center;
@@ -3752,33 +3753,20 @@ span.jwcontrols span button {
 #content[tabindex="-1"]:focus {
   outline: 0;
 }
-.alignfull,
-.alignwide {
-  margin-bottom: 1.6em;
+/*!
+Version: dev
+*/
+.block-editor-page .wp-block {
+  max-width: 770px;
 }
-@media (min-width: 750px) {
-  .alignfull {
-    margin-right: calc(50% - 50vw);
-    margin-left: calc(50% - 50vw);
-    width: auto;
-  }
-  .alignwide {
-    margin-right: calc(25% - 25vw);
-    margin-left: calc(25% - 25vw);
-    width: auto;
-  }
-  .has-sidebar:not(.page-layout-no-sidebar):not(.page-layout-full-width):not(.sidebar-position-none).sidebar-position-right .alignfull,
-  .has-sidebar:not(.page-layout-no-sidebar):not(.page-layout-full-width):not(.sidebar-position-none).sidebar-position-right .alignwide {
-    margin-right: 0;
-  }
-  .has-sidebar:not(.page-layout-no-sidebar):not(.page-layout-full-width):not(.sidebar-position-none).sidebar-position-left .alignfull,
-  .has-sidebar:not(.page-layout-no-sidebar):not(.page-layout-full-width):not(.sidebar-position-none).sidebar-position-left .alignwide {
-    margin-left: 0;
-  }
+.block-editor-page .wp-block[data-align="wide"] {
+  max-width: 1080px;
+}
+.block-editor-page .wp-block[data-align="full"] {
+  max-width: none;
 }
 /* Prevent iOS Safari from overriding the colors for phone numbers */
 a[href^="tel"] {
   color: inherit;
   text-decoration: none;
 }
-/*# sourceMappingURL=style.css.map */

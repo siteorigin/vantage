@@ -12,7 +12,7 @@
 
 	<div class="entry-main">
 
-		<?php do_action('vantage_entry_main_top') ?>
+		<?php do_action( 'vantage_entry_main_top' ); ?>
 
 		<?php if ( ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) || ( has_post_thumbnail() && siteorigin_page_setting( 'featured_image' ) ) ) : ?>
 			<header class="entry-header">
@@ -30,7 +30,7 @@
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 
-		<?php do_action('vantage_entry_main_bottom') ?>
+		<?php do_action( 'vantage_entry_main_bottom' ); ?>
 
 	</div>
 
