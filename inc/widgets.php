@@ -70,7 +70,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 				<div class="circle-icon-wrapper">
 					<?php if(!empty($instance['more_url']) && !empty($instance['all_linkable'])) : ?>
 					<a href="<?php echo esc_url($instance['more_url']) ?>" class="link-icon" <?php echo $target ?>><?php endif; ?>
-					<div class="circle-icon<?php esc_attr_e( $icon_class ); ?>" <?php echo $icon_styles; ?>>
+					<div class="circle-icon<?php echo esc_attr( $icon_class ); ?>" <?php echo $icon_styles; ?>>
 						<?php if ( ! empty( $icon ) ): ?>
 							<div class="<?php echo esc_attr( $icon ); esc_attr( $icon_class ); ?>" <?php echo $icon_color; ?>></div>
 						<?php endif; ?>
