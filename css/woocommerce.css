@@ -58,10 +58,6 @@
 .woocommerce #page-wrapper .product .woocommerce-product-gallery .flex-control-thumbs li:nth-child(4n) {
   margin-right: 0;
 }
-.woocommerce #page-wrapper .product .cart {
-  align-items: flex-end;
-  display: flex;
-}
 .woocommerce #page-wrapper .product .cart .qty {
   text-align: left;
   max-width: 60px;
@@ -75,10 +71,6 @@
 .woocommerce #page-wrapper .product .variations_form select {
   padding-top: 5px;
   padding-bottom: 5px;
-}
-.woocommerce #page-wrapper .product .variations_form,
-.woocommerce #page-wrapper .product .grouped_form {
-  flex-direction: column;
 }
 .woocommerce #page-wrapper .product .variations_form .single_variation_wrap,
 .woocommerce #page-wrapper .product .grouped_form .single_variation_wrap,
