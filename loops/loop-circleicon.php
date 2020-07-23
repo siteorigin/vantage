@@ -36,6 +36,6 @@
 
 <?php else : ?>
 
-	<?php get_template_part( 'no-results', 'index' ); ?>
+	<?php get_template_part( 'no-results' ); ?>
 
 <?php endif; ?>
