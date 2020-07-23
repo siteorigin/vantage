@@ -105,6 +105,12 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.15.1 - 23 July 2020 ==
+* Updated Settings submodule.
+* WooCommerce: Removed single product cart form flexbox alignment.
+* Updated Panels Lite submodule.
+* Added the No Results template to the Grid and Circle Icon loops.
+
 == 1.15.0 - 06 July 2020 ==
 * Updated TouchSwipe.
 * Resolved general lightbox plugin disable scroll bug. Removed `overflow-y` scroll.
