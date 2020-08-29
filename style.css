@@ -513,6 +513,24 @@ body {
     margin-bottom: 0;
   }
 }
+.alignfull {
+  margin-left: calc(50% - 50vw);
+  width: 100vw;
+}
+@media (min-width: calc(1080px + 200px)) {
+  .alignwide {
+    left: -100px;
+    position: relative;
+    width: calc(100% + 20vw);
+  }
+}
+.alignfull .wp-block-group__inner-container {
+  margin: auto;
+  max-width: 1080px;
+}
+.entry-content > div[class^='wp-block-'] {
+  margin-bottom: 25px;
+}
 #masthead {
   background: #fcfcfc;
   padding: 0 35px 0 35px;
@@ -1904,6 +1922,15 @@ article.page.post-with-thumbnail-icon .entry-main {
 .entry-content .tags a {
   color: #999999;
   text-decoration: none;
+}
+/* =Block Styles
+----------------------------------------------- */
+.wp-block-group.has-background {
+  padding: 25px;
+}
+.wp-block-group.has-background.alignfull {
+  padding-right: 0;
+  padding-left: 0;
 }
 /* =Navigation
 ----------------------------------------------- */

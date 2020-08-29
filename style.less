@@ -348,6 +348,32 @@ body {
 	}
 }
 
+// Block Editor Wide and Full widths.
+.alignfull {
+	margin-left: calc(50% - 50vw);
+	width: 100vw;
+}
+
+@media (min-width: calc(1080px + 200px)) {
+
+	.alignwide {
+		left: -100px;
+		position: relative;
+		width: calc(100% + 20vw);
+	}
+}
+
+.alignfull .wp-block-group__inner-container {
+	margin: auto;
+	max-width: 1080px;
+}
+
+// Apply 25px bottom margin to top level blocks.
+.entry-content > div[class^='wp-block-'] {
+	margin-bottom: 25px;
+}
+
+// Header.
 #masthead {
 	background: #fcfcfc;
 	padding: 0 35px 0 35px;
@@ -1769,6 +1795,21 @@ article.page{
 		}
 	}
 
+}
+
+/* =Block Styles
+----------------------------------------------- */
+
+.wp-block-group {
+
+	&.has-background {
+		padding: 25px;
+		
+		&.alignfull {
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
 }
 
 /* =Navigation
