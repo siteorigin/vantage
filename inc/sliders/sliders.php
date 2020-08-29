@@ -42,8 +42,3 @@ if ( ! function_exists( 'vantage_smartslider_install_link' ) ) :
 		}
 	}
 endif;
-
-function vantage_smartslider_affiliate( $source ) {
-	return 'siteorigin';
-}
-add_filter( 'smartslider3_hoplink', 'vantage_smartslider_affiliate' );
