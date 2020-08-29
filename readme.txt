@@ -105,6 +105,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.15.2 - 29 August 2020 ==
+* Updated Settings submodule.
+* Re-added WPML config file, previously removed.
+* Added initial Block Editor support for wide and full alignment.
+
 == 1.15.1 - 23 July 2020 ==
 * Updated Settings submodule.
 * WooCommerce: Removed single product cart form flexbox alignment.
