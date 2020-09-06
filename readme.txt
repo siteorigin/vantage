@@ -105,6 +105,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.15.3 - 06 September 2020 ==
+* Block Editor: Prevented align wide from applying. Ensured align wide stays within the boxed container.
+
 == 1.15.2 - 29 August 2020 ==
 * Updated Settings submodule.
 * Re-added WPML config file, previously removed.
