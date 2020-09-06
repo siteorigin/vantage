@@ -3784,18 +3784,6 @@ span.jwcontrols span button {
 #content[tabindex="-1"]:focus {
   outline: 0;
 }
-/*!
-Version: dev
-*/
-.block-editor-page .wp-block {
-  max-width: 770px;
-}
-.block-editor-page .wp-block[data-align="wide"] {
-  max-width: 1080px;
-}
-.block-editor-page .wp-block[data-align="full"] {
-  max-width: none;
-}
 /* Prevent iOS Safari from overriding the colors for phone numbers */
 a[href^="tel"] {
   color: inherit;
