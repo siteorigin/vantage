@@ -513,20 +513,24 @@ body {
     margin-bottom: 0;
   }
 }
-.alignfull {
+.layout-full .alignfull {
   margin-left: calc(50% - 50vw);
   width: 100vw;
 }
 @media (min-width: calc(1080px + 200px)) {
-  .alignwide {
+  .layout-full .alignwide {
     left: -100px;
     position: relative;
     width: calc(100% + 20vw);
   }
 }
-.alignfull .wp-block-group__inner-container {
+.layout-full .alignfull .wp-block-group__inner-container {
   margin: auto;
   max-width: 1080px;
+}
+.layout-boxed .alignfull {
+  margin-right: -35px;
+  margin-left: -35px;
 }
 .entry-content > div[class^='wp-block-'] {
   margin-bottom: 25px;
@@ -3779,18 +3783,6 @@ span.jwcontrols span button {
 /* Do not show the outline on the skip link target. */
 #content[tabindex="-1"]:focus {
   outline: 0;
-}
-/*!
-Version: dev
-*/
-.block-editor-page .wp-block {
-  max-width: 770px;
-}
-.block-editor-page .wp-block[data-align="wide"] {
-  max-width: 1080px;
-}
-.block-editor-page .wp-block[data-align="full"] {
-  max-width: none;
 }
 /* Prevent iOS Safari from overriding the colors for phone numbers */
 a[href^="tel"] {

@@ -349,23 +349,34 @@ body {
 }
 
 // Block Editor Wide and Full widths.
-.alignfull {
-	margin-left: calc(50% - 50vw);
-	width: 100vw;
-}
+.layout-full {
 
-@media (min-width: calc(1080px + 200px)) {
+	.alignfull {
+		margin-left: calc(50% - 50vw);
+		width: 100vw;
+	}
 
-	.alignwide {
-		left: -100px;
-		position: relative;
-		width: calc(100% + 20vw);
+	@media (min-width: calc(1080px + 200px)) {
+
+		.alignwide {
+			left: -100px;
+			position: relative;
+			width: calc(100% + 20vw);
+		}
+	}
+
+	.alignfull .wp-block-group__inner-container {
+		margin: auto;
+		max-width: 1080px;
 	}
 }
 
-.alignfull .wp-block-group__inner-container {
-	margin: auto;
-	max-width: 1080px;
+.layout-boxed {
+
+	.alignfull {
+		margin-right: -35px;
+		margin-left: -35px;
+	}
 }
 
 // Apply 25px bottom margin to top level blocks.
@@ -2284,7 +2295,6 @@ body.layout-full{
 @import "less/icons";
 @import "less/jwplayer";
 @import "less/accessibility";
-@import "less/block-editor";
 
 /* Prevent iOS Safari from overriding the colors for phone numbers */
 a[href^="tel"] {
