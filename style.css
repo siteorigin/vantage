@@ -513,22 +513,34 @@ body {
     margin-bottom: 0;
   }
 }
-.layout-full .alignfull {
+.layout-full.page-layout-no-sidebar .alignfull,
+.layout-full.page-template-home-panels .alignfull,
+.layout-full.page-template-template-full-notitle .alignfull,
+.layout-full.page-template-template-full .alignfull {
   margin-left: calc(50% - 50vw);
   width: 100vw;
 }
 @media (min-width: calc(1080px + 200px)) {
-  .layout-full .alignwide {
+  .layout-full.page-layout-no-sidebar .alignwide,
+  .layout-full.page-template-home-panels .alignwide,
+  .layout-full.page-template-template-full-notitle .alignwide,
+  .layout-full.page-template-template-full .alignwide {
     left: -100px;
     position: relative;
     width: calc(100% + 20vw);
   }
 }
-.layout-full .alignfull .wp-block-group__inner-container {
+.layout-full.page-layout-no-sidebar .alignfull .wp-block-group__inner-container,
+.layout-full.page-template-home-panels .alignfull .wp-block-group__inner-container,
+.layout-full.page-template-template-full-notitle .alignfull .wp-block-group__inner-container,
+.layout-full.page-template-template-full .alignfull .wp-block-group__inner-container {
   margin: auto;
   max-width: 1080px;
 }
-.layout-boxed .alignfull {
+.layout-boxed.page-layout-no-sidebar .alignfull,
+.layout-boxed.page-template-home-panels .alignfull,
+.layout-boxed.page-template-template-full-notitle .alignfull,
+.layout-boxed.page-template-template-full .alignfull {
   margin-right: -35px;
   margin-left: -35px;
 }
