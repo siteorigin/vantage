@@ -204,7 +204,6 @@
   background: -moz-linear-gradient(center bottom, #00b5fa 0%, #0fc0ff 100%);
   background: -o-linear-gradient(#0fc0ff, #00b5fa);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0fc0ff', endColorstr='#00b5fa', GradientType=0);
-  padding: 12px 20px;
 }
 .woocommerce .shop_table .actions .button {
   padding-top: 7px;
