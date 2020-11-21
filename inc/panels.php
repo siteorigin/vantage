@@ -218,8 +218,20 @@ function vantage_panels_row_style_fields($fields) {
 	) {
 		return $fields;
 	}
+
 	// Detect if this is a custom home page builder and if has legacy row styles enabled or not
 	if ( ( ! empty( $_REQUEST['page'] ) && $_REQUEST['page'] === 'so_panels_home_page' && get_post_meta( intval( get_option('siteorigin_panels_home_page_id') ), 'vantage_panels_no_legacy', true ) === 'true' ) ) {
+		return $fields;
+	}
+
+	// Are we trying to generate a block preview?
+	if (
+		! empty( $_POST['action'] ) &&
+		(
+			$_POST['action'] == 'so_panels_layout_block_preview' ||
+			$_POST['action'] == 'so_panels_builder_content_json'
+		)
+	) {
 		return $fields;
 	}
 
