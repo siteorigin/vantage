@@ -105,6 +105,10 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.15.5 - 22 November 2020 ==
+* Block Editor: Resolved Page Builder row background saving issue.
+* Updated Settings submodule.
+
 == 1.15.4 - 24 October 2020 ==
 * Updated WooCommerce checkout button hover padding size.
 * Prevented Block Editor full-widths being applied when a sidebar is present.
