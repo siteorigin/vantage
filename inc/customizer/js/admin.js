@@ -1,7 +1,7 @@
 
 /* globals jQuery, wp, soCustomizeAdmin, confirm */
 
-wp.customize.bind( 'ready', function( value ){
+wp.customize.on( 'ready', function( value ){
     var $ = jQuery;
 
     var button = null;
