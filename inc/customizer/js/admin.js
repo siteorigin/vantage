@@ -14,7 +14,7 @@ wp.customize.bind( 'ready', function( value ){
                     .attr( 'href', soCustomizeAdmin.action )
             );
 
-        buttonWrapper.find('a.reset-customizations').click(function(e){
+        buttonWrapper.find( 'a.reset-customizations' ).on( 'click', function( e ) {
             if( !confirm( soCustomizeAdmin.confirm ) ) {
                 e.preventDefault();
             }
@@ -30,7 +30,7 @@ wp.customize.bind( 'ready', function( value ){
 			}
 		};
 		var $sliderDropdown = $( '#_customize-input-theme_settings_home_slider' );
-		$sliderDropdown.change( function () {
+		$sliderDropdown.on( 'change', function () {
 			toggleSliderStretch( $sliderDropdown.val() );
 		} );
 		toggleSliderStretch( $sliderDropdown.val() );

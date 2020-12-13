@@ -23,7 +23,7 @@ jQuery ( function( $ ) {
 	if ( ( ! isMobileDevice && $( '#scroll-to-top' ).hasClass( 'scroll-to-top' ) ) || ( ( isCustomizer || isMobileDevice ) ) ) {
 
 		// Everything we need for scrolling up and down.
-		$( window ).scroll( function() {
+		$( window ).on( 'scroll', function() {
 			if ( $( window ).scrollTop() > 150 ) {
 				$( '#scroll-to-top' ).addClass( 'displayed' );
 			} else {
@@ -31,7 +31,7 @@ jQuery ( function( $ ) {
 			}
 		} );
 
-		$( '#scroll-to-top' ).click( function() {
+		$( '#scroll-to-top' ).on( 'click', function() {
 			$( "html, body" ).animate( { scrollTop: "0px" } );
 			return false;
 		} );
@@ -88,13 +88,13 @@ jQuery ( function( $ ) {
 			$$.css( 'margin-left', -( itemWidth * position) + 'px' );
 		};
 
-		title.find( 'a.previous' ).click( function(){
+		title.find( 'a.previous' ).on( 'click', function(){
 			position -= 1;
 			updatePosition();
 			return false;
 		} );
 
-		title.find( 'a.next' ).click( function() {
+		title.find( 'a.next' ).on( 'click', function() {
 			position += 1;
 			updatePosition();
 			return false;
@@ -184,14 +184,14 @@ jQuery ( function( $ ) {
 	} );
 
 	// Add keyboard access to the menu.
-	$( '.menu-item' ).children( 'a' ).focus( function() {
+	$( '.menu-item' ).children( 'a' ).on( 'mouseenter', function() {
 		$( this ).parents( 'li' ).addClass( 'focus' );
 	} );
 	// Click event fires after focus event.
-	$( '.menu-item' ).children( 'a' ).click( function() {
+	$( '.menu-item' ).children( 'a' ).on( 'click', function() {
 		$( this ).parents( 'li' ).removeClass( 'focus' );
 	} );
-	$( '.menu-item' ).children( 'a' ).focusout( function() {
+	$( '.menu-item' ).children( 'a' ).on( 'mouseout', function() {
 		$( this ).parents( 'li' ).removeClass( 'focus' );
 	} );
 
@@ -212,7 +212,7 @@ jQuery ( function( $ ) {
 
 	// The search bar.
 	var isSearchHover = false;
-	$( document ).click( function() {
+	$( document ).on( 'click', function() {
 		if ( ! isSearchHover ) {
 			$( '#search-icon form' ).fadeOut( 250 );
 		}
@@ -233,20 +233,19 @@ jQuery ( function( $ ) {
 			var $$ = $( this ).parent();
 			$$.find( 'form' ).fadeToggle( 250 );
 			if ( deviceAgent.match( /(iPad|iPhone|iPod)/i ) ) {
-				$$.find( 'input[type="search"]' ).focus();
+				$$.find( 'input[type="search"]' ).trigger( 'focus' );
 			} else {
 				setTimeout( function() {
-					$$.find( 'input[type="search"]' ).focus();
+					$$.find( 'input[type="search"]' ).trigger( 'focus' );
 				}, 300 );
 			}
 		} );
 
-	$( document )
-		.keyup( function( e ) {
-			if ( e.keyCode == 27 ) { // Escape key maps to keycode `27`.
-				$( '#search-icon form' ).fadeOut( 250 );
-			}
-		} );
+	$( document ).on( 'keyup', function( e ) {
+		if ( e.keyCode == 27 ) { // Escape key maps to keycode `27`.
+			$( '#search-icon form' ).fadeOut( 250 );
+		}
+	} );
 
 	$( document )
 	.on( 'mouseenter', '#search-icon', function() {
@@ -256,11 +255,11 @@ jQuery ( function( $ ) {
 		isSearchHover = false;
 	} );
 
-	$( window ).resize( function() {
+	$( window ).on( 'resize', function() {
 		$( '#search-icon .searchform' ).each( function() {
 			$( this ).width( $( this ).closest( '.full-container' ).width() );
 		} );
-	} ).resize();
+	} ).trigger( 'resize' );
 
 	// The sticky menu.
 	if ( ( $( 'nav.site-navigation.primary' ).hasClass( 'use-sticky-menu' ) && !isMobileDevice ) ||
@@ -298,7 +297,7 @@ jQuery ( function( $ ) {
 				}
 			}
 		};
-		$( window ).scroll( resetStickyMenu ).resize( resetStickyMenu );
+		$( window ).on( 'scroll resize', resetStickyMenu );
 		resetStickyMenu();
 	}
 
@@ -322,13 +321,13 @@ jQuery ( function( $ ) {
 			// This is because IE doesn't detect links correctly when we stretch slider images.
 			var link = $s.find( 'a' );
 			if ( link.length ) {
-				$s.mouseover( function() {
+				$s.on( 'mouseenter', function() {
 					$s.css('cursor', 'hand');
 				} );
-				$s.mouseout( function() {
+				$s.on( 'mouseout', function() {
 					$s.css( 'cursor', 'pointer' );
 				} );
-				$s.click( function( event ) {
+				$s.on( 'click', function( event ) {
 					event.preventDefault();
 					var clickTarget = $(event.target);
 					var navTarget = clickTarget.is( 'a' ) ? clickTarget : link;
@@ -371,7 +370,7 @@ jQuery ( function( $ ) {
 					$$.closest( '#masthead' ).addClass( 'force-responsive' );
 				}
 			};
-			$( window ).resize( autoResponsive );
+			$( window ).on( 'resize', autoResponsive );
 			autoResponsive();
 		}
 
