@@ -184,14 +184,14 @@ jQuery ( function( $ ) {
 	} );
 
 	// Add keyboard access to the menu.
-	$( '.menu-item' ).children( 'a' ).on( 'mouseenter', function() {
+	$( '.menu-item' ).children( 'a' ).on( 'focusin', function() {
 		$( this ).parents( 'li' ).addClass( 'focus' );
 	} );
 	// Click event fires after focus event.
 	$( '.menu-item' ).children( 'a' ).on( 'click', function() {
 		$( this ).parents( 'li' ).removeClass( 'focus' );
 	} );
-	$( '.menu-item' ).children( 'a' ).on( 'mouseout', function() {
+	$( '.menu-item' ).children( 'a' ).on( 'focusout', function() {
 		$( this ).parents( 'li' ).removeClass( 'focus' );
 	} );
 
