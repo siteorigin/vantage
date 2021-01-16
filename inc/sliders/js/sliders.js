@@ -8,7 +8,7 @@ jQuery( function ( $ ) {
 		}
 	};
 	var $sliderDropdown = $sliderMetabox.find( 'select[name="vantage_page_slider"]' );
-	$sliderDropdown.change( function() {
+	$sliderDropdown.on( 'change', function() {
 		toggleSliderStretch( $sliderDropdown.val() );
 	} );
 	toggleSliderStretch( $sliderDropdown.val() );

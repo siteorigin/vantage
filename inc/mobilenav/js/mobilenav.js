@@ -16,7 +16,7 @@ jQuery( function ( $ ) {
                 {right: 0},
                 'fast',
                 function(){
-                    $( window ).resize();
+                    $( window ).trigger( 'resize' );
                 }
             );
 
@@ -34,7 +34,7 @@ jQuery( function ( $ ) {
             'fast',
             function(){
                 $(this).hide();
-                $( window ).resize();
+                $( window ).trigger( 'resize' );
             }
         );
 
@@ -72,12 +72,12 @@ jQuery( function ( $ ) {
                     ).insertAfter(frame.find('.title'));
                 }
 
-                frame.find( '.close' ).click( function (event) {
+                frame.find( '.close' ).on( 'click', function(event) {
                     event.preventDefault();
                     frame.mnHideFrame();
                 } );
 
-                $( window ).resize( function () {
+                $( window ).on( 'resize', function () {
                     if ( !frame.is( ':visible' ) ) return;
 
                     frame.hide();
@@ -85,8 +85,8 @@ jQuery( function ( $ ) {
                     frame.show();
                 } );
 
-                $( 'body' ).bind( 'orientationchange', function () {
-                    $( window ).resize();
+                $( 'body' ).on( 'orientationchange', function () {
+                    $( window ).trigger( 'resize' );
                 } );
 
                 activeSlide = null;
@@ -106,7 +106,7 @@ jQuery( function ( $ ) {
                     }
                 }
 
-                frame.find( 'a.back' ).click( function () {
+                frame.find( 'a.back' ).on( 'click', function() {
                     var parent = activeSlide.data( 'parent-slide' );
                     if ( parent != undefined ) {
                         showSlide( parent );
@@ -134,8 +134,8 @@ jQuery( function ( $ ) {
 
                         // Account for menu items with sub menus and menu items set to close links
                         if ( standardMenuItem ) {
-                            li.find('a').not('.next').click( 
-                                function (e) {
+                            li.find( 'a' ).not( '.next' ).on( 'click', 
+                                function( e ) {
                                     if ( $( this ).attr( 'href' ) === 'undefined' ) {
                                         frame.mnHideFrame();
                                     }
@@ -153,7 +153,7 @@ jQuery( function ( $ ) {
                                 childSlide.data( 'parent-slide', slide.index() );
                                 childSlide.data( 'title', ln.html() );
 
-                                li.find( 'a.next' ).click( function () {
+                                li.find( 'a.next' ).on( 'click', function () {
                                     showSlide( childSlide.index() );
                                     return false;
                                 } );
@@ -171,17 +171,17 @@ jQuery( function ( $ ) {
             }
             
             // Attach .click All non link menu items and hash links (#, #example).
-            $( '.mobile-nav-frame .mobile a[href*="#"].link, .mobile-nav-frame .mobile a:not([href])' ).click( function() {
+            $( '.mobile-nav-frame .mobile a[href*="#"].link, .mobile-nav-frame .mobile a:not([href])' ).on( 'click', function() {
                 // Check for .next and if there is one, open the sub menu
                 if( $( this ).prev( '.next' ).length ) {
-                    $( this ).prev( '.next' ).click();
+                    $( this ).prev( '.next' ).trigger( 'click' );
                 } else {
                     // Close Mobile Menu
                     frame.mnHideFrame();
                 }
             } );
 
-            $( window ).resize();
+            $( window ).trigger( 'resize' );
             frame.mnShowFrame();
 
             showSlide( 0 );
