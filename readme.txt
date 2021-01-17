@@ -105,6 +105,10 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.15.7 - 17 January 2021 ==
+* Fixed Customizer settings live update for colors and measurements.
+* Fixed `Slider` post loop template caption styling.
+
 == 1.15.6 - 16 January 2021 ==
 * Developer: Added theme wide support for jQuery 3.5.
 * Updated Settings submodule.
