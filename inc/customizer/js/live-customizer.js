@@ -22,7 +22,7 @@ jQuery(function($){
             switch( el.type ) {
                 case 'color' :
                     wp.customize( id, function( value ) {
-                        value.on( function( newval ) {
+                        value.bind( function( newval ) {
                             if(typeof el.property === 'string') {
                                 el.property = [el.property];
                             }
@@ -36,7 +36,7 @@ jQuery(function($){
 
                 case 'measurement' :
                     wp.customize( id, function( value ) {
-                        value.on( function( newval ) {
+                        value.bind( function( newval ) {
                             var val = newval;
                             if(typeof el.unit !== 'undefined') {
                                 val = val + el.unit;
