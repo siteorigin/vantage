@@ -109,17 +109,24 @@ html[xmlns] .slides {
 }
 
 // Flexslider captions.
-.flexslider .caption-wrap {
-    background: rgba(0, 0, 0, .5);
-    color: #fff;
-    font-size: 15px;
-    line-height: 1.25em;
+.flexslider .flex-caption {
+    .box-sizing(border-box);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    text-decoration: none;
+    background: rgba(0,0,0,0.5);
+    color: #FFF;
     text-align: center;
- 
-    .caption {
-        line-height: normal;
-        padding: 8px 14px 9px;
-    }   
+
+    h3 {
+        color: inherit;
+        margin: 0;
+        line-height: 1.25em;
+        font-size: 15px;
+    }
 }
 
 .flexslider .slides > li .content img {
