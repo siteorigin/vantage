@@ -2518,16 +2518,26 @@ html[xmlns] .slides {
   position: relative;
   zoom: 1;
 }
-.flexslider .caption-wrap {
+.flexslider .flex-caption {
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  text-decoration: none;
   background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 15px;
-  line-height: 1.25em;
+  color: #FFF;
   text-align: center;
 }
-.flexslider .caption-wrap .caption {
-  line-height: normal;
-  padding: 8px 14px 9px;
+.flexslider .flex-caption h3 {
+  color: inherit;
+  margin: 0;
+  line-height: 1.25em;
+  font-size: 15px;
 }
 .flexslider .slides > li .content img {
   height: auto !important;
