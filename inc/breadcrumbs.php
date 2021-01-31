@@ -11,6 +11,12 @@ function vantage_display_breadcrumbs() {
 			</div><?php
 		} elseif ( function_exists('yoast_breadcrumb') ) {
 			yoast_breadcrumb('<div id="yoast-breadcrumbs"><div class="full-container">','</div></div>');
+		} elseif ( function_exists( 'rank_math_the_breadcrumbs' ) ) {
+			?>
+			<div class="full-container">
+				<?php rank_math_the_breadcrumbs(); ?>
+			</div>
+			<?php
 		}
 	}
 }
