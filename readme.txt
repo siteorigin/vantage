@@ -42,6 +42,7 @@ Vantage includes integration support for the following plugins:
 * [Jetpack Infinite Scroll](https://jetpack.com/support/infinite-scroll/)
 * [Max Mega Menu](https://wordpress.org/plugins/megamenu/)
 * [Page Builder by SiteOrigin](https://wordpress.org/plugins/siteorigin-panels/)
+* [Rank Math Breadcrumbs](https://wordpress.org/plugins/seo-by-rank-math/)
 * [SiteOrigin Widgets Bundle](https://wordpress.org/plugins/so-widgets-bundle/)
 * [SiteOrigin CSS](https://wordpress.org/plugins/so-css/)
 * [Smart Slider 3](https://wordpress.org/plugins/smart-slider-3/)
