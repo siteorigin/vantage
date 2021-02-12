@@ -1,16 +1,24 @@
 <?php
 
-if( !function_exists('vantage_display_breadcrumbs') ) :
+if ( ! function_exists( 'vantage_display_breadcrumbs' ) ) :
 function vantage_display_breadcrumbs() {
-	if ( !is_front_page() && siteorigin_setting('navigation_yoast_breadcrumbs') ) {
-		if ( function_exists('bcn_display') ) {
-			?><div id="navxt-breadcrumbs">
+	if ( ! is_front_page() && siteorigin_setting( 'navigation_yoast_breadcrumbs' ) ) {
+		if ( function_exists( 'bcn_display' ) ) {
+			?>
+			<div id="navxt-breadcrumbs">
 				<div class="full-container">
 					<?php bcn_display(); ?>
 				</div>
-			</div><?php
-		} elseif ( function_exists('yoast_breadcrumb') ) {
-			yoast_breadcrumb('<div id="yoast-breadcrumbs"><div class="full-container">','</div></div>');
+			</div>
+			<?php
+		} elseif ( function_exists( 'yoast_breadcrumb' ) ) {
+			yoast_breadcrumb( '<div id="yoast-breadcrumbs"><div class="full-container">', '</div></div>' );
+		} elseif ( function_exists( 'rank_math_the_breadcrumbs' ) ) {
+			?>
+			<div class="full-container">
+				<?php rank_math_the_breadcrumbs(); ?>
+			</div>
+			<?php
 		}
 	}
 }

@@ -327,7 +327,7 @@ class SiteOrigin_Customizer_Helper {
 	private $sections;
 	private $defaults;
 
-	function __construct($settings = array(), $sections = array(), $theme, $root_url = false, $make_single = true){
+	function __construct($settings = array(), $sections = array(), $theme = 'generic', $root_url = false, $make_single = true){
 		// Give child themes a chance to filter this.
 		$this->theme = $theme;
 		$this->defaults = array();

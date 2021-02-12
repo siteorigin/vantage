@@ -42,6 +42,7 @@ Vantage includes integration support for the following plugins:
 * [Jetpack Infinite Scroll](https://jetpack.com/support/infinite-scroll/)
 * [Max Mega Menu](https://wordpress.org/plugins/megamenu/)
 * [Page Builder by SiteOrigin](https://wordpress.org/plugins/siteorigin-panels/)
+* [Rank Math Breadcrumbs](https://wordpress.org/plugins/seo-by-rank-math/)
 * [SiteOrigin Widgets Bundle](https://wordpress.org/plugins/so-widgets-bundle/)
 * [SiteOrigin CSS](https://wordpress.org/plugins/so-css/)
 * [Smart Slider 3](https://wordpress.org/plugins/smart-slider-3/)
@@ -104,6 +105,11 @@ Dual licensed under the MIT or GPL Version 2 licenses.
 This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 SiteOrigin unless otherwise stated in the file header.
 
 == Changelog ==
+
+== 1.16.0 - 11 February 2021 ==
+* Added RankMath breadcrumb support.
+* Resolved a PHP 8 deprecated notice.
+* Updated Settings submodule.
 
 == 1.15.7 - 17 January 2021 ==
 * Fixed Customizer settings live update for colors and measurements.
