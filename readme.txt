@@ -106,6 +106,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.16.0 - 11 February 2021 ==
+* Added RankMath breadcrumb support.
+* Resolved a PHP 8 deprecated notice.
+* Updated Settings submodule.
+
 == 1.15.7 - 17 January 2021 ==
 * Fixed Customizer settings live update for colors and measurements.
 * Fixed `Slider` post loop template caption styling.
