@@ -354,41 +354,46 @@ if ( ! function_exists( 'vantage_get_archive_title' ) ) :
  * @since vantage 1.0
  */
 function vantage_get_archive_title() {
-	$title = '';
 	global $wp_query;
+	$prefix = '';
+	$title = '';
+
 	if ( is_category() ) {
-		$title = sprintf( __( 'Category Archives: %s', 'vantage' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+		$prefix = __( 'Category Archives:', 'vantage' );
+		$title = '<span>' . single_cat_title( '', false ) . '</span>';
 
-	}
-	elseif ( is_tag() ) {
-		$title = sprintf( __( 'Tag Archives: %s', 'vantage' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+	} elseif ( is_tag() ) {
+		$prefix = __( 'Tag Archives:', 'vantage' );
+		$title = '<span>' . single_tag_title( '', false ) . '</span>';
 
-	}
-	elseif ( is_author() ) {
+	} elseif ( is_author() ) {
 		the_post();
-		$title = sprintf( __( 'Author Archives: %s', 'vantage' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' );
+		$prefix = __( 'Author Archive:', 'vantage' );
+		$title = '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>';
 		rewind_posts();
+	} elseif ( is_day() ) {
+		$prefix = __( 'Daily Archives:', 'vantage' );
+		$title = '<span>' . get_the_date() . '</span>';
 
-	}
-	elseif ( is_day() ) {
-		$title = sprintf( __( 'Daily Archives: %s', 'vantage' ), '<span>' . get_the_date() . '</span>' );
+	} elseif ( is_month() ) {
+		$prefix = __( 'Monthly Archives:', 'vantage' );
+		$title = '<span>' . get_the_date( 'F Y' ) . '</span>';
 
-	}
-	elseif ( is_month() ) {
-		$title = sprintf( __( 'Monthly Archives: %s', 'vantage' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
+	} elseif ( is_year() ) {
+		$prefix = __( 'Yearly Archives:', 'vantage' );
+		$title = '<span>' . get_the_date( 'Y' ) . '</span>';
 
-	}
-	elseif ( is_year() ) {
-		$title = sprintf( __( 'Yearly Archives: %s', 'vantage' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
-
-	}
-	elseif ( ! empty( $wp_query->query_vars['taxonomy'] ) ) {
+	} elseif ( ! empty( $wp_query->query_vars['taxonomy'] ) ) {
 		$value = get_query_var( $wp_query->query_vars['taxonomy'] );
 		$term = get_term_by( 'slug',$value,$wp_query->query_vars['taxonomy'] );
 		$tax = get_taxonomy( $wp_query->query_vars['taxonomy'] );
-		$title = sprintf( __( '%s: %s', 'vantage' ), $tax->label, $term->name );
+		$prefix = $tax->label . ':';
+		$title = $term->name;
 	}
-	else {
+
+	if ( ! empty( $title ) ) {
+		$title = sprintf( __( '%s %s', 'vantage' ), siteorigin_setting( 'blog_archive_prefix_title' ) ? $prefix : '', $title );
+	} else {
 		$title = __( 'Archives', 'vantage' );
 	}
 

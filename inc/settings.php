@@ -205,6 +205,10 @@ function vantage_theme_settings(){
 		'description' => __('Choose the layout to be used on blog and archive pages.', 'vantage')
 	) );
 
+	$settings->add_field('blog', 'archive_prefix_title', 'checkbox', __( 'Blog Archive Title Prefix', 'vantage' ), array(
+		'description' => __(' Display the archive page title prefix, e.g., Category Archives.', 'vantage')
+	) );
+
 	$settings->add_field('blog', 'archive_content', 'select', __('Post Content', 'vantage'), array(
 		'options' => array(
 			'full' => __('Full Post', 'vantage'),
@@ -381,6 +385,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['home_slider_stretch']                 = true;
 
 	$defaults['blog_archive_layout']                 = 'blog';
+	$defaults['blog_archive_prefix_title']           = true;
 	$defaults['blog_archive_content']                = 'full';
 	$defaults['blog_excerpt_length']                 = 55;
 	$defaults['blog_featured_image']                 = true;
