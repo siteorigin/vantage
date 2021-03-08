@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.17.0 - 08 March 2021 ==
+* Added a Blog Archive Title Prefix setting at `Customize > Theme Settings > Blog`.
+
 == 1.16.0 - 11 February 2021 ==
 * Added RankMath breadcrumb support.
 * Resolved a PHP 8 deprecated notice.
