@@ -385,7 +385,7 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['home_slider_stretch']                 = true;
 
 	$defaults['blog_archive_layout']                 = 'blog';
-	$defaults['blog_archive_prefix_title']          = true;
+	$defaults['blog_archive_prefix_title']           = true;
 	$defaults['blog_archive_content']                = 'full';
 	$defaults['blog_excerpt_length']                 = 55;
 	$defaults['blog_featured_image']                 = true;
