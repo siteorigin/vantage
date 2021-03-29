@@ -94,7 +94,7 @@ class SiteOrigin_Customizer_CSS_Builder {
 			}
 			$import = array_unique( $import );
 			if ( !empty( $import ) ) {
-				$return .= '@import url(//fonts.googleapis.com/css?family=' . implode( '|', $import ) . ')&display=block; ';
+				$return .= '@import url(//fonts.googleapis.com/css?family=' . implode( '|', $import ) . '&display=block); ';
 			}
 		}
 
