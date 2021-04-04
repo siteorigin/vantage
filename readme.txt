@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+== 1.17.1 - 04 April 2021 ==
+* Set Google font display to block.
+
 == 1.17.0 - 08 March 2021 ==
 * Added a Blog Archive Title Prefix setting at `Customize > Theme Settings > Blog`.
 
