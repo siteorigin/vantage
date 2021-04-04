@@ -12,7 +12,7 @@
 			<li class="carousel-entry">
 				<div class="thumbnail">
 					<?php $img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'vantage-carousel' ); ?>
-					<?php if( $img[0] ) : ?>
+					<?php if ( ! empty( $img ) ) : ?>
 						<a href="<?php the_permalink() ?>" style="background-image: url(<?php echo $img[0] ?>)">
 						</a>
 					<?php else : ?>
