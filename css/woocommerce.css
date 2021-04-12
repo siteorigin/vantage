@@ -205,7 +205,7 @@
   background: -o-linear-gradient(#0fc0ff, #00b5fa);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0fc0ff', endColorstr='#00b5fa', GradientType=0);
 }
-.woocommerce .cart .quantity .qty {
+.woocommerce .shop_table .quantity .qty {
   width: 4.5em;
 }
 .woocommerce .shop_table .actions .button {
