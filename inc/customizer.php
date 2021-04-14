@@ -55,13 +55,13 @@ function vantage_customizer_init(){
 				'type' => 'font',
 				'title' => __('Site Title Font', 'vantage'),
 				'default' => 'Helvetica Neue',
-				'selector' => '#masthead h1',
+				'selector' => '#masthead.site-header .hgroup h1',
 			),
 			'heading_font' => array(
 				'type' => 'font',
 				'title' => __('Heading Font', 'vantage'),
 				'default' => 'Helvetica Neue',
-				'selector' => 'h1,h2,h3,h4,h5,h6',
+				'selector' => '#page-wrapper h1,#page-wrapper h2,#page-wrapper h3,#page-wrapper h4,#page-wrapper h5,#page-wrapper h6',
 			),
 			'menu_font' => array(
 				'type' => 'font',
