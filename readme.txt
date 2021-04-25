@@ -106,49 +106,49 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
-== 1.17.1 - 04 April 2021 ==
+= 1.17.1 - 04 April 2021 =
 * Set Google font display to block.
 
-== 1.17.0 - 08 March 2021 ==
+= 1.17.0 - 08 March 2021 =
 * Added a Blog Archive Title Prefix setting at `Customize > Theme Settings > Blog`.
 
-== 1.16.0 - 11 February 2021 ==
+= 1.16.0 - 11 February 2021 =
 * Added RankMath breadcrumb support.
 * Resolved a PHP 8 deprecated notice.
 * Updated Settings submodule.
 
-== 1.15.7 - 17 January 2021 ==
+= 1.15.7 - 17 January 2021 =
 * Fixed Customizer settings live update for colors and measurements.
 * Fixed `Slider` post loop template caption styling.
 
-== 1.15.6 - 16 January 2021 ==
+= 1.15.6 - 16 January 2021 =
 * Developer: Added theme wide support for jQuery 3.5.
 * Updated Settings submodule.
 
-== 1.15.5 - 22 November 2020 ==
+= 1.15.5 - 22 November 2020 =
 * Block Editor: Resolved Page Builder row background saving issue.
 * Updated Settings submodule.
 
-== 1.15.4 - 24 October 2020 ==
+= 1.15.4 - 24 October 2020 =
 * Updated WooCommerce checkout button hover padding size.
 * Prevented Block Editor full-widths being applied when a sidebar is present.
 * Updated SiteOrigin Settings.
 
-== 1.15.3 - 06 September 2020 ==
+= 1.15.3 - 06 September 2020 =
 * Block Editor: Prevented align wide from applying. Ensured align wide stays within the boxed container.
 
-== 1.15.2 - 29 August 2020 ==
+= 1.15.2 - 29 August 2020 =
 * Updated Settings submodule.
 * Re-added WPML config file, previously removed.
 * Added initial Block Editor support for wide and full alignment.
 
-== 1.15.1 - 23 July 2020 ==
+= 1.15.1 - 23 July 2020 =
 * Updated Settings submodule.
 * WooCommerce: Removed single product cart form flexbox alignment.
 * Updated Panels Lite submodule.
 * Added the No Results template to the Grid and Circle Icon loops.
 
-== 1.15.0 - 06 July 2020 ==
+= 1.15.0 - 06 July 2020 =
 * Updated TouchSwipe.
 * Resolved general lightbox plugin disable scroll bug. Removed `overflow-y` scroll.
 * Minor code formatting improvements.
@@ -157,38 +157,38 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 * Updated the Google Fonts array.
 * Refactored PHP to ensure Vantage passes the WP Engine PHP Compaitiblity Checker.
 
-== 1.14.5 - 16 March 2020 ==
+= 1.14.5 - 16 March 2020 =
 * Small input field styling improvements.
 * Added Block Editor admin editor width.
 
-== 1.14.4 - 02 January 2020 ==
+= 1.14.4 - 02 January 2020 =
 * Page Slider: Prevented shortcode from outputting if slider plugin not activated.
 * Logo in Menu: Fixed the menu aligment preview in the Customizer.
 * Logo in Menu: Fixed the logo image and site title alignment if both are in use.
 
-== 1.14.3 - 02 December 2019 ==
+= 1.14.3 - 02 December 2019 =
 * Fixed menu alignment setting.
 
-== 1.14.2 - 25 November 2019 ==
+= 1.14.2 - 25 November 2019 =
 * Updated Selectivizr to v1.0.3b.
 * Switched Logo in Menu logo vertical alignment to Flexbox.
 * Improved Logo in Menu tagline alignment.
 * Reduced threaded comments margin for mobile.
 * Fixed WooCommerce search widget display.
 
-== 1.14.1 - 13 October 2019 ==
+= 1.14.1 - 13 October 2019 =
 * Fixed related posts bottom margin when only one post present.
 * Improved the Jetpack Related Posts conditional to avoid edge case error.
 
-== 1.14 - 28 September 2019 ==
+= 1.14 - 28 September 2019 =
 * Added a related posts section. The setting can be found at `Apperance > Theme Settings > Blog > Related Posts`.
 
-== 1.13 - 13 August 2019 ==
+= 1.13 - 13 August 2019 =
 * Resolved Customizer preview duplicate menu bug.
 * Added a sidebar content size setting, `Appearance > Customize > Theme Design > Fonts > Sidebar Content Size`.
 * Switched `body` tag to unitless line height.
 
-== 1.12 - 22 July 2019 ==
+= 1.12 - 22 July 2019 =
 * Added a skip to content link.
 * Removed duplicate WooCommerce main container padding.
 * Updated TGM to the latest development version.
@@ -196,165 +196,165 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 * Added a search results layout setting located at `Customize > Theme Settings > Layout > Search Results Layout`.
 * Added menu classes to the mobile menu.
 
-== 1.11.3 - 09 July 2019 ==
+= 1.11.3 - 09 July 2019 =
 * Updated the SiteOrigin Settings framework.
 * Corrected a container width/sidebar issue caused by the related fix in version 1.11.2.
 
-== 1.11.2 - 01 July 2019 ==
+= 1.11.2 - 01 July 2019 =
 * Better aligned the logo in menu tagline.
 * Reduced the main navigation z-index to avoid conflicts.
 * Prevented the blog sidebar dropping below the primary container when Page Builder isn’t activated.
 * Changed the footer separator from a period to a hyphen.
 
-== 1.11.1 - 27 May 2019 ==
+= 1.11.1 - 27 May 2019 =
 * Added the new `wp_body_open` core theme action hook.
 * Added a Meta Text and Meta Text Link Color setting to `Customize > Theme Design Fonts`.
 * Updated the Google Fonts array.
 
-== 1.11 - 14 May 2019 ==
+= 1.11 - 14 May 2019 =
 * Added initial RTL language support.
 
-== 1.10.2 - 05 May 2019 ==
+= 1.10.2 - 05 May 2019 =
 * Removed duplicate logo link when the Site Identity logo is in use.
 
-== 1.10.1 - 22 April 2019 ==
+= 1.10.1 - 22 April 2019 =
 * Updated Customizer settings to allow for descriptions.
 * Corrected `SiteOrigin_Customizer_CSS_Builder` formatting error.
 
-== 1.10 - 18 March 2019 ==
+= 1.10 - 18 March 2019 =
 * Mobile Menu: Added support for non-standard menu items added via plugins.
 * WooCommerce: Fixed issue with Page Settings: Layout on cart and checkout pages.
 * Added a new setting to `Customize > Theme Settings > Logo: Tagline`.
 * Vertically aligned the contents of the logo container to accomodate larger logos with the site title displayed.
 
-== 1.9.1 - 04 March 2019 ==
+= 1.9.1 - 04 March 2019 =
 * Added a filter to allow users to disable the importing of Google Fonts.
 * Accessibility improvements to the main menu search form.
 
-== 1.9 - 19 February 2019 ==
+= 1.9 - 19 February 2019 =
 * Added an option to remove the blog archive featured image. The new option can be found at `Customize > Theme Settings > Blog > Featured Image Type > None`.
 * Removed Jetpack Responsive Videos support in favour of FitVids. 
 
-== 1.8.3 - 31 December 2018 ==
+= 1.8.3 - 31 December 2018 =
 * Legacy theme styles: account for Custom Home Page.
 
-== 1.8.2 - 29 November 2018 ==
+= 1.8.2 - 29 November 2018 =
 * Use the default value for Site Title Font Size Customizer setting.
 * Resolved problem setting color values created in `1.8.1`.
 
-== 1.8.1 - 21 November 2018 ==
+= 1.8.1 - 21 November 2018 =
 * Updated the site title setting to allow an empty value.
 
-== 1.8 - 29 October 2018 ==
+= 1.8 - 29 October 2018 =
 * Resolved the Logo in Menu zero image size bug.
 * Resolved Mega Menu sticky menu not working.
 * Removed search icon when mobile menu is visible.
 * Added a footer Privacy Policy Link setting located at `Customize > Theme Settings > General`.
 
-== 1.7.14 - 22 October 2018 ==
+= 1.7.14 - 22 October 2018 =
 * Refactored sticky menu functionality to resolve noticeable delays lower-end devices and in IE/Edge.
 
-== 1.7.13 - 05 October 2018 ==
+= 1.7.13 - 05 October 2018 =
 * Resolved header sidebar Circle Icon alignment bug.
 * Added Catamaran font.
 * Removed Vantage FlexSlider if MetaSlider is loading their version.
 * Added a check to ensure FitVids doesn't load on Gutenberg pages.
 
-== 1.7.12 - 06 September 2018 ==
+= 1.7.12 - 06 September 2018 =
 * Resolved header widget area alignment bug.
 * Reverted multilingual home page slider support. Current solution doesn't support blog home page.
 
-== 1.7.11 - 03 September 2018 ==
+= 1.7.11 - 03 September 2018 =
 * Added comment form cookie consent styling.
 * Allowed for the Customizer menu settings to override focus background and text color.
 * Added multilingual home page slider support.
 
-== 1.7.10 - 14 August 2018 ==
+= 1.7.10 - 14 August 2018 =
 * Removed http/https from Google Fonts import.
 * Updated screenshot.
 
-== 1.7.9 - 27 July 2018 ==
+= 1.7.9 - 27 July 2018 =
 * Restored the vantage .pot file to it's correct location caused by build script issue.
 
-== 1.7.8 - 14 July 2018 ==
+= 1.7.8 - 14 July 2018 =
 * Allow for mobile menu fragment links with ID's defined.
 
-== 1.7.7 - 22 June 2018 ==
+= 1.7.7 - 22 June 2018 =
 * Updated Google Fonts array.
 * Updated .pot file.
 * Fixed overlay class in Ajax output in Loop Carousel.
 * Fixed alignment in slider loop.
 
-== 1.7.6 - 21 May 2018 ==
+= 1.7.6 - 21 May 2018 =
 * Resolved image post format warning.
 * Removed clearfix for full width rows.
 * Resolved header widget area menu drop-down z-index menu issue.
 
-== 1.7.5 - 25 April 2018 ==
+= 1.7.5 - 25 April 2018 =
 * Allow for text to wrap on mobile post navigation.
 * Include sliders JavaScript files.
 
-== 1.7.4 - 18 April 2018 ==
+= 1.7.4 - 18 April 2018 =
 * Fixed search focus bug on iOS devices.
 
-== 1.7.3 - 02 April 2018 ==
+= 1.7.3 - 02 April 2018 =
 * Resolved MetaSlider Vantage (Flex) theme bottom margin issue.
 * Added main menu keyboard accessibility.
 
-== 1.7.2 - 20 March 2018 ==
+= 1.7.2 - 20 March 2018 =
 * Reverted to 1.7. Resolved PHP 5 error.
 
-== 1.7.1 - 18 March 2018 ==
+= 1.7.1 - 18 March 2018 =
 * Hotfix release. Reverted to 1.6.9 to resolve PHP 5 error.
 
-== 1.7 - 17 March 2018 ==
+= 1.7 - 17 March 2018 =
 * Added Smart Slider 3 support to the Page Slider setting.
 * Separated the MetaSlider Flex and Vantage (Flex) themes to ensure both render independently.
 * Enhanced mobile menu to open sub menus with empty links or links containing a hash.
 
-== 1.6.9 - 20 December 2017 ==
+= 1.6.9 - 20 December 2017 =
 * Fixed MetaSlider blog home page display bug.
 
-== 1.6.8 - 14 December 2017 ==
+= 1.6.8 - 14 December 2017 =
 * Updated MetaSlider page slider to work on the posts page.
 * Fixed custom logo responsive issue.
 
-== 1.6.7 - 30 October 2017 ==
+= 1.6.7 - 30 October 2017 =
 * Updated Panels Lite to resolve PHP 7+ blog page bug.
 
-== 1.6.6 - 19 September 2017 ==
+= 1.6.6 - 19 September 2017 =
 * Minor SEO improvements.
 
-== 1.6.5 - 07 September 2017 ==
+= 1.6.5 - 07 September 2017 =
 * Expanded the Max Mega Menu integration to ensure the mobile menu isn't outputted if MMM is assigned to any theme location.
 
-== 1.6.4 - 30 August 2017 ==
+= 1.6.4 - 30 August 2017 =
 * Updated Font Awesome to version 4.7.0.
 * Added support for Jetpack Responsive Videos.
 * Fixed Page Builder bug with Wide Grey rows.
 
-== 1.6.3 - 10 July 2017 ==
+= 1.6.3 - 10 July 2017 =
 * Updated Settings framework.
 * Fixed boxed layout logo padding bug.
 * Disabled mobile menu if responsive layout is disabled.
 * Disabled Meta Slider shortcode from outputting if Meta Slider is deactivated.
 
-== 1.6.2 - 19 June 2017 ==
+= 1.6.2 - 19 June 2017 =
 * Improved main menu search bar keyboard accessibility. Close with escape key added.
 
-== 1.6.1 - 15 May 2017 ==
+= 1.6.1 - 15 May 2017 =
 * Linked single post author box gravatar to author archive page. Added a text link to view author posts.
 * Resolved link to add author description error.
 
-== 1.6.0 - 21 April 2017 ==
+= 1.6.0 - 21 April 2017 =
 * Added remaining WooCommerce product gallery types.
 * Improved WooCommerce product gallery styling.
 
-== 1.5.9 - 14 April 2017 ==
+= 1.5.9 - 14 April 2017 =
 * Added WooCommerce gallery support and fixed thumbnail spacing.
 * Removed legacy Page Builder layout compatibility fix.
 
-== 1.5.8 - 06 December 2016 ==
+= 1.5.8 - 06 December 2016 =
 * Removed hentry from pages to assist with SEO and structured data testing.
 * Added post format support for Gallery, Video and Image.
 * Fixed Layout Builder row styling bug.
