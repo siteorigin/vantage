@@ -106,6 +106,14 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.17.2 - 25 April 2021 =
+* Resolved Post Carousel post loop template notice.
+* WooCommerce: Increased the cart quantity field width.
+* Customize Theme Design: Used more specific selectors for the Site Title and Header Font settings.
+* Customizer Theme Design: Prevented invalid font property and duplicates.
+* Block Editor: Removed exclusion preventing FitVids from loading in the Block Editor.
+* Updated SiteOrigin Settings submodule.
+
 = 1.17.1 - 04 April 2021 =
 * Set Google font display to block.
 
