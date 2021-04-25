@@ -177,13 +177,16 @@ class SiteOrigin_Customizer_CSS_Builder {
 		}
 
 		$this->add_css( $selector, 'font-family', $family );
-		if ( $variant != 400 ) $this->add_css( $selector, 'font-weight', $variant );
-
-		$this->fonts[ ] = $font;
-
-		if ( !empty( $variant ) ) {
-			if ( $variant == 'regular' ) $variant = '400';
-			$this->css[ $selector ][ ] = 'font-weight: ' . $variant;
+		if ( ! empty( $variant ) ) {
+			if ( $variant != 400 && $variant != 'regular' ) {
+				if ( ! is_numeric( $variant ) ) {
+					$variant = filter_var( $variant, FILTER_SANITIZE_NUMBER_INT );
+					$this->add_css( $selector, 'font-style', 'italic' );
+				}
+				$this->add_css( $selector, 'font-weight', $variant );
+			} else {
+				$this->add_css( $selector, 'font-weight', 400 );
+			}
 		}
 	}
 
