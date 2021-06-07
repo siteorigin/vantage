@@ -13,7 +13,7 @@ jQuery ( function( $ ) {
 	} );
 
 	// Setup FitVids for entry content, video post format, Panels, WooCommerce pages, masthead widget area and the header sidebar.
-	if ( typeof $.fn.fitVids !== 'undefined' ) {
+	if ( typeof $.fn.fitVids !== 'undefined' && typeof vantage !== 'undefined' && typeof vantage.fitvids ) {
 		$( '.entry-content, .entry-content .panel, .entry-video, .woocommerce #main, #masthead-widgets, #header-sidebar' ).fitVids( { ignore: '.tableauViz' } );
 	}
 
