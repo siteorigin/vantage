@@ -87,7 +87,7 @@ class SiteOrigin_Customizer_CSS_Builder {
 		// Start by importing Google web fonts
 		$return = '<style type="text/css" id="customizer-css">';
 
-		if ( apply_filters( 'vanage_import_google_fonts', true ) ) {
+		if ( apply_filters( 'vantage_import_google_fonts', true ) ) {
 			$import = array();
 			foreach ( $this->google_fonts as $font ) {
 				$import[ ] = urlencode( $font[ 0 ] ) . ':' . $font[ 1 ];

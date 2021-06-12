@@ -354,6 +354,12 @@ function vantage_scripts() {
 
 	if ( siteorigin_setting( 'layout_fitvids' ) ) {
 		wp_enqueue_script( 'jquery-fitvids' , get_template_directory_uri() . '/js/jquery.fitvids' . SITEORIGIN_THEME_JS_PREFIX . '.js' , array('jquery'), '1.0', $in_footer );
+		wp_localize_script(
+			'vantage-main',
+			'vantage', array(
+				'fitvids' => true,
+			)
+		);
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
