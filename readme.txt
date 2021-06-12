@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.17.3 - 12 June 2021 =
+* Only setup FitVids if enabled in Theme Settings. Ensures better compatibility with other plugins loading FitVids for fluid width video embeds.
+
 = 1.17.2 - 25 April 2021 =
 * Resolved Post Carousel post loop template notice.
 * WooCommerce: Increased the cart quantity field width.
