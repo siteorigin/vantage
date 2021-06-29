@@ -418,3 +418,7 @@
   float: none;
   width: auto;
 }
+/* WooCommerce Blocks */
+.entry-content ul .wc-block-grid__product {
+  margin-left: 0;
+}
