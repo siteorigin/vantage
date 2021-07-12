@@ -106,6 +106,10 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.17.4 - 12 July 2021 =
+* WooCommerce: Ensured theme list styles don't take priority over WooCommerce block list styles.
+* Removed `vantage_wp_title`. Due to the way Theme Check is broadly checking for any instance of `wp_title` we don't see a way of deprecating this function.
+
 = 1.17.3 - 12 June 2021 =
 * Only setup FitVids if enabled in Theme Settings. Ensures better compatibility with other plugins loading FitVids for fluid width video embeds.
 
