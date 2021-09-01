@@ -55,7 +55,7 @@ function vantage_customizer_init(){
 				'type' => 'font',
 				'title' => __('Site Title Font', 'vantage'),
 				'default' => 'Helvetica Neue',
-				'selector' => '#masthead.site-header .hgroup h1, #masthead.site-header .hgroup .site-title',
+				'selector' => '#masthead.site-header .hgroup .site-title',
 			),
 			'heading_font' => array(
 				'type' => 'font',
@@ -81,7 +81,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Site Title Color', 'vantage'),
 				'default' => '#666666',
-				'selector' => '#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1',
+				'selector' => '#masthead.site-header .hgroup .site-title, #masthead.site-header.masthead-logo-in-menu .logo > .site-title',
 				'property' => array('color'),
 			),
 			'site_tagline_color' => array(
@@ -758,9 +758,9 @@ function vantage_customizer_callback_site_title_size($builder, $val, $setting){
 	$mh_layout = siteorigin_setting( 'layout_masthead' );
 	$val = $val === false ? $setting['default'] : $val;
 	if ( $mh_layout == 'logo-in-menu' ) {
-		$builder->add_css('#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1', 'font-size', $val*0.6 . 'px');
+		$builder->add_css('#masthead.site-header .hgroup .site-title, #masthead.site-header.masthead-logo-in-menu .logo > .site-title', 'font-size', $val*0.6 . 'px');
 	} else {
-		$builder->add_css('#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1', 'font-size', $val . 'px');
+		$builder->add_css('#masthead.site-header .hgroup .site-title, #masthead.masthead-logo-in-menu .logo > .site-title', 'font-size', $val . 'px');
 	}
 	return $builder;
 }
