@@ -237,8 +237,10 @@ function vantage_display_logo() {
 
 	if ( empty( $logo ) ) {
 
+
+		$title_tag = is_front_page() ? 'h1' : 'p';
 		// Just display the site title.
-		$logo_html = '<h1 class="site-title">' . get_bloginfo( 'name' ) . '</h1>';
+		$logo_html = '<' . $title_tag . ' class="site-title">' . get_bloginfo( 'name' ) . '</' . $title_tag . '>';
 		$logo_html = apply_filters( 'vantage_logo_text', $logo_html );
 	}
 	else {
@@ -303,7 +305,8 @@ function vantage_display_logo_text( $logo ) {
 	$allow_text = siteorigin_setting( 'logo_with_text' );
 
 	if ( $allow_text ) {
-		$logo = $logo . '<h1 class="site-title logo-title">' . get_bloginfo( 'name' ) . '</h1>';
+		$title_tag = is_front_page() ? 'h1' : 'p';
+		$logo = $logo . '<' . $title_tag . ' class="site-title logo-title">' . get_bloginfo( 'name' ) . '</' . $title_tag . '>';
 	}
 
 	return $logo;

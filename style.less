@@ -397,8 +397,10 @@ body {
 	.box-sizing(border-box);
 	.clearfix();
 
-	h1 {
+	h1,
+	.site-title {
 		font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		margin: 0;
 
 		&.logo-title {
 			display: inline-block;
@@ -417,7 +419,8 @@ body {
 			text-decoration: none;
 		}
 
-		h1 {
+		h1,
+		.site-title {
 			color: #666666;
 			font-weight: 100;
 			font-size: 36px;
@@ -529,7 +532,8 @@ body {
 				max-height: none;
 			}
 
-			> h1 {
+			> h1,
+			> .site-title {
 				font-size: 20px;
 				font-weight: 100;
 				padding: 7px 15px;

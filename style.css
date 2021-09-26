@@ -565,10 +565,13 @@ body {
   display: table;
   clear: both;
 }
-#masthead h1 {
+#masthead h1,
+#masthead .site-title {
+  margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
-#masthead h1.logo-title {
+#masthead h1.logo-title,
+#masthead .site-title.logo-title {
   display: inline-block;
   margin-left: 20px;
 }
@@ -590,7 +593,8 @@ body {
 #masthead .hgroup a {
   text-decoration: none;
 }
-#masthead .hgroup h1 {
+#masthead .hgroup h1,
+#masthead .hgroup .site-title {
   color: #666666;
   font-weight: 100;
   font-size: 36px;
@@ -690,7 +694,8 @@ body {
 #masthead.masthead-logo-in-menu .logo > img.logo-no-height-constrain {
   max-height: none;
 }
-#masthead.masthead-logo-in-menu .logo > h1 {
+#masthead.masthead-logo-in-menu .logo > h1,
+#masthead.masthead-logo-in-menu .logo > .site-title {
   font-size: 20px;
   font-weight: 100;
   padding: 7px 15px;
