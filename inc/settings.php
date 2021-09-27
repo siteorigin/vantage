@@ -518,12 +518,14 @@ function vantage_page_settings( $settings, $type, $id ){
 		);
 	}
 
-	$settings['page_title'] = array(
-		'type'           => 'checkbox',
-		'label'          => __( 'Page Title', 'vantage' ),
-		'checkbox_label' => __( 'display', 'vantage' ),
-		'description'    => __( 'Display the page title on this page.', 'vantage' )
-	);
+	if ( $type != 'product' ) {
+		$settings['page_title'] = array(
+			'type'           => 'checkbox',
+			'label'          => __( 'Page Title', 'vantage' ),
+			'checkbox_label' => __( 'display', 'vantage' ),
+			'description'    => __( 'Display the page title on this page.', 'vantage' )
+		);
+	}
 
 	$settings['masthead_margin'] = array(
 		'type'           => 'checkbox',
@@ -565,11 +567,15 @@ if ( ! function_exists( 'vantage_setup_page_setting_defaults' ) ) :
 function vantage_setup_page_setting_defaults( $defaults, $type, $id ){
 	// All the basic default settings
 	$defaults['layout']              = 'default';
-	$defaults['page_title']          = true;
 	$defaults['masthead_margin']     = true;
 	$defaults['footer_margin']       = true;
 	$defaults['hide_masthead']       = false;
 	$defaults['hide_footer_widgets'] = false;
+
+	// Certain basic defaults don't apply for WooCommerce product pages.
+	if ( $type != 'product' ) {
+		$defaults['page_title'] = true;
+	}
 
 	// Defaults for page only settings
 	if( $type == 'post' ) $post = get_post( $id );
