@@ -132,8 +132,8 @@ jQuery( function ( $ ) {
                                 // If enabled, open menu item in new window.
                                 if ( link.attr( 'target' ) ) {
                                     ln.attr( {
-                                        link: link.attr( 'target' ),
-                                        target: link.attr( 'target' )
+                                        target: link.attr( 'target' ),
+                                        rel: link.attr( 'rel' )
                                     } );
                                 }
                         } else {
