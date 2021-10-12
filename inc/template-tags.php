@@ -247,12 +247,12 @@ function vantage_display_logo() {
 		// Load the logo image.
 		if ( is_array($logo) ) {
 			list ( $src, $height, $width ) = $logo;
-		}
-		else {
+		} else {
 			$image = wp_get_attachment_image_src( $logo, 'full' );
 			$src = $image[0];
 			$height = $image[2];
 			$width = $image[1];
+			$alt = get_post_meta( $logo, '_wp_attachment_image_alt', true );
 		}
 
 		// Add all the logo attributes.
@@ -261,7 +261,7 @@ function vantage_display_logo() {
 			'class' => siteorigin_setting( 'logo_in_menu_constrain' ) ? 'logo-height-constrain' : 'logo-no-height-constrain',
 			'width' => round( $width ),
 			'height' => round( $height ),
-			'alt' => sprintf( __( '%s Logo', 'vantage' ), get_bloginfo( 'name' ) ),
+			'alt' => ! empty( $alt ) ? $alt : sprintf( __( '%s Logo', 'vantage' ), get_bloginfo( 'name' ) ),
 		) );
 
 		// Try adding the retina logo.
