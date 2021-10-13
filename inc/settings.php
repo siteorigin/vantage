@@ -518,14 +518,12 @@ function vantage_page_settings( $settings, $type, $id ){
 		);
 	}
 
-	if ( $type != 'product' ) {
-		$settings['page_title'] = array(
-			'type'           => 'checkbox',
-			'label'          => __( 'Page Title', 'vantage' ),
-			'checkbox_label' => __( 'display', 'vantage' ),
-			'description'    => __( 'Display the page title on this page.', 'vantage' )
-		);
-	}
+	$settings['page_title'] = array(
+		'type'           => 'checkbox',
+		'label'          => __( 'Page Title', 'vantage' ),
+		'checkbox_label' => __( 'display', 'vantage' ),
+		'description'    => __( 'Display the page title on this page.', 'vantage' )
+	);
 
 	$settings['masthead_margin'] = array(
 		'type'           => 'checkbox',
@@ -567,15 +565,11 @@ if ( ! function_exists( 'vantage_setup_page_setting_defaults' ) ) :
 function vantage_setup_page_setting_defaults( $defaults, $type, $id ){
 	// All the basic default settings
 	$defaults['layout']              = 'default';
+	$defaults['page_title']          = true;
 	$defaults['masthead_margin']     = true;
 	$defaults['footer_margin']       = true;
 	$defaults['hide_masthead']       = false;
 	$defaults['hide_footer_widgets'] = false;
-
-	// Certain basic defaults don't apply for WooCommerce product pages.
-	if ( $type != 'product' ) {
-		$defaults['page_title'] = true;
-	}
 
 	// Defaults for page only settings
 	if( $type == 'post' ) $post = get_post( $id );
@@ -592,6 +586,20 @@ function vantage_setup_page_setting_defaults( $defaults, $type, $id ){
 }
 endif;
 add_filter( 'siteorigin_page_settings_defaults', 'vantage_setup_page_setting_defaults', 10, 3 );
+
+/*
+ * Remove WooCommerce Product title based on Page Settings.
+ */
+if ( class_exists( 'woocommerce' ) ) {
+	if ( ! function_exists( 'vantage_woocommerce_page_setting_title' ) ){
+		function vantage_woocommerce_page_setting_title( $show ) {
+			if ( is_product() && ! siteorigin_page_setting( 'page_title' ) ) {
+				remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+			}
+		}
+	}
+	add_action( 'woocommerce_single_product_summary', 'vantage_woocommerce_page_setting_title', 1 );
+}
 
 function vantage_page_settings_message( $post ){
 	if( $post->post_type == 'page' ) {
