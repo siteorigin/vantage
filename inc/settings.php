@@ -588,7 +588,7 @@ endif;
 add_filter( 'siteorigin_page_settings_defaults', 'vantage_setup_page_setting_defaults', 10, 3 );
 
 /*
- * Remove WooCommerce Product title based on Page Settings.
+ * Remove WooCommerce Product Title Based on Page Settings.
  */
 if ( class_exists( 'woocommerce' ) ) {
 	if ( ! function_exists( 'vantage_woocommerce_page_setting_title' ) ){
