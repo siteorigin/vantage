@@ -106,6 +106,12 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.0 - 17 October 2021 =
+* WooCommerce: Added product Page Settings support.
+* Logo: Use the image `alt` tag value if set in the Media Library.
+* Mobile Menu: Added "Open link in a new tab" support.
+* Boxed Layout: Resolved sticky navigation width when using Full Width page layout.
+
 = 1.18.1 - 26 September 2021 =
 * Changed the site title to a paragraph tag if not on the home page.
 
