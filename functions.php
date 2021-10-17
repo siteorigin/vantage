@@ -84,6 +84,11 @@ function vantage_setup() {
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
 
+	// Add Page Settings support for WooCommerce Product pages.
+	if ( vantage_is_woocommerce_active() ) {
+		add_post_type_support( 'product', 'so-page-settings' );
+	}
+
 	set_post_thumbnail_size( 720, 380, true );
 	add_image_size( 'vantage-thumbnail-no-sidebar', 1080, 380, true );
 	add_image_size( 'vantage-slide', 960, 480, true );
