@@ -117,16 +117,25 @@ jQuery( function ( $ ) {
 
                 var createMenu = function ( root ) {
                     var slide = $( '<div class="slide"><ul class="mobile"></ul></div>' ).appendTo( frame.find( '.slides-container' ) );
-
+                    var link;
                     root.find( '> li' ).each( function () {
                         var $$ = $( this ),
                             standardMenuItem = $$.find( '> a' ).html();
 
                         if ( standardMenuItem ) {
+                            link = $$.find( '> a' );
                             var ln = $( '<a></a>' )
-                                .html( $$.find( '> a' ).html() )
-                                .attr( 'href', $$.find( '> a' ).attr( 'href' ) )
+                                .html( link.html() )
+                                .attr( 'href', link.attr( 'href' ) )
                                 .addClass( 'link' );
+
+                                // If enabled, open menu item in new window.
+                                if ( link.attr( 'target' ) ) {
+                                    ln.attr( {
+                                        target: link.attr( 'target' ),
+                                        rel: link.attr( 'rel' )
+                                    } );
+                                }
                         } else {
                             var ln = $$.html();
                         }
