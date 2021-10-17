@@ -591,7 +591,7 @@ add_filter( 'siteorigin_page_settings_defaults', 'vantage_setup_page_setting_def
  * Remove WooCommerce Product Title Based on Page Settings.
  */
 if ( class_exists( 'woocommerce' ) ) {
-	if ( ! function_exists( 'vantage_woocommerce_page_setting_title' ) ){
+	if ( ! function_exists( 'vantage_woocommerce_page_setting_title' ) ) {
 		function vantage_woocommerce_page_setting_title( $show ) {
 			if ( is_product() && ! siteorigin_page_setting( 'page_title' ) ) {
 				remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
