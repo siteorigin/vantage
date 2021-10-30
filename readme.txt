@@ -106,6 +106,10 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.1 - 30 October 2021 =
+* Page Template Settings: Restored WooCommerce page title setting functionality.
+* Updated SiteOrigin Settings framework.
+
 = 1.19.0 - 17 October 2021 =
 * WooCommerce: Added product Page Settings support.
 * Logo: Use the image `alt` tag value if set in the Media Library.
