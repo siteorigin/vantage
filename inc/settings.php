@@ -656,3 +656,13 @@ function vantage_about_page_sections( $about ){
 	return $about;
 }
 add_filter( 'siteorigin_about_page', 'vantage_about_page_sections' );
+
+/**
+ * Allow the Page Title setting to affect the WooCommerce archives and shop page.
+ */
+if ( class_exists( 'woocommerce' ) ) {
+	function vantage_woocommerce_archive_title() {
+		if ( siteorigin_page_setting( 'page_title' ) ) return true;
+	}
+	add_filter( 'woocommerce_show_page_title', 'vantage_woocommerce_archive_title' );
+}
