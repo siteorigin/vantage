@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.2 - 07 November 2021 =
+* Updated SiteOrigin Settings framework: Restored Page Template settings for templates (Search, 404) and taxonomies.
+
 = 1.19.1 - 30 October 2021 =
 * Page Template Settings: Restored WooCommerce page title setting functionality.
 * Updated SiteOrigin Settings framework.
