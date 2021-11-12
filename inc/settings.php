@@ -508,8 +508,7 @@ function vantage_page_settings( $settings, $type, $id ){
 		),
 	);
 
-	if( $type == 'post' ) $post = get_post( $id );
-	if( ! empty( $post ) && $post->post_type == 'page' ) {
+	if ( $type == 'page' ) {
 		$settings['featured_image'] = array(
 			'type'           => 'checkbox',
 			'label'          => __( 'Page Featured Image', 'vantage' ),
@@ -572,8 +571,7 @@ function vantage_setup_page_setting_defaults( $defaults, $type, $id ){
 	$defaults['hide_footer_widgets'] = false;
 
 	// Defaults for page only settings
-	if( $type == 'post' ) $post = get_post( $id );
-	if( ! empty( $post ) && $post->post_type == 'page' ) {
+	if ( $type == 'page' ) {
 		$defaults['featured_image'] = false;
 	}
 
