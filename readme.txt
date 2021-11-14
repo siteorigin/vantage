@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.3 - 14 November 2021 =
+* Restored `Page Featured Image` setting.
+
 = 1.19.2 - 07 November 2021 =
 * Updated SiteOrigin Settings framework: Restored Page Template settings for templates (Search, 404) and taxonomies.
 
