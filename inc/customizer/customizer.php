@@ -11,12 +11,14 @@ class SiteOrigin_Customize_Fonts_Control extends WP_Customize_Control {
 
 		// Add the default fonts
 		$choices = array(
+			'Arial' => 'Arial',
+			'Courier New' => 'Courier New',
+			'Georgia' => 'Georgia',
 			'Helvetica Neue' => 'Helvetica Neue',
 			'Lucida Grande' => 'Lucida Grande',
-			'Arial' => 'Arial',
+			'Tahoma' => 'Tahoma',
+			'Trebuchet MS' => 'Trebuchet MS',
 			'Verdana' => 'Verdana',
-			'Georgia' => 'Georgia',
-			'Courier New' => 'Courier New',
 		);
 
 		foreach ( $google_web_fonts as $font => $variants ) {
@@ -65,12 +67,14 @@ class SiteOrigin_Customizer_CSS_Builder {
 
 	// These are web safe fonts
 	static $web_safe = array(
+		'Arial' => 'Arial, Helvetica, sans-serif',
+		'Courier New' => 'Courier, mono',
+		'Georgia' => '"Times New Roman", Times, serif',
 		'Helvetica Neue' => 'Arial, Helvetica, Geneva, sans-serif',
 		'Lucida Grande' => 'Lucida, Verdana, sans-serif',
-		'Arial' => 'Arial, Helvetica, sans-serif',
+		'Tahoma' => 'Tahoma, Verdana, Segoe, sans-serif',
+		'Trebuchet MS' => 'Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif',
 		'Verdana' => 'Verdana, Geneva, sans-serif',
-		'Georgia' => '"Times New Roman", Times, serif',
-		'Courier New' => 'Courier, mono',
 	);
 
 	function __construct($defaults) {
@@ -273,12 +277,14 @@ function siteorigin_customizer_sanitize_google_font($font){
 
 	// Check the default fonts too.
 	$default_fonts = array(
+		'Arial' => 'Arial',
+		'Courier New' => 'Courier New',
+		'Georgia' => 'Georgia',
 		'Helvetica Neue' => 'Helvetica Neue',
 		'Lucida Grande' => 'Lucida Grande',
-		'Arial' => 'Arial',
+		'Tahoma' => 'Tahoma',
+		'Trebuchet MS' => 'Trebuchet MS',
 		'Verdana' => 'Verdana',
-		'Georgia' => 'Georgia',
-		'Courier New' => 'Courier New',
 	);
 
 	$google_fonts = include( dirname(__FILE__).'/google-fonts.php' );
