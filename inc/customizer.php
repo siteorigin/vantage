@@ -155,7 +155,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Content Color', 'vantage'),
 				'default' => '#666666',
-				'selector' => '.entry-content, #comments .commentlist article .comment-meta a',
+				'selector' => '.entry-content, .entry-summary, #comments .commentlist article .comment-meta a',
 				'property' => array('color'),
 			),
 			'content_heading_color' => array(
