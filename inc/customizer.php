@@ -55,7 +55,7 @@ function vantage_customizer_init(){
 				'type' => 'font',
 				'title' => __('Site Title Font', 'vantage'),
 				'default' => 'Helvetica Neue',
-				'selector' => '#masthead.site-header .hgroup .site-title',
+				'selector' => '#masthead.site-header .hgroup .site-title, #masthead.site-header.masthead-logo-in-menu .logo > .site-title',
 			),
 			'heading_font' => array(
 				'type' => 'font',
@@ -155,7 +155,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Content Color', 'vantage'),
 				'default' => '#666666',
-				'selector' => '.entry-content, #comments .commentlist article .comment-meta a',
+				'selector' => '.entry-content, .entry-summary, #comments .commentlist article .comment-meta a',
 				'property' => array('color'),
 			),
 			'content_heading_color' => array(
