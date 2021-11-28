@@ -106,6 +106,12 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.4 - 28 November 2021 =
+* Fixed Site Title Font setting.
+* Applied Content Color setting to search results.
+* Updated SiteOrigin Settings: Ensured WPML translated theme strings aren't overridden.
+* Updated SiteOrigin Settings: Added additional web-safe fonts.
+
 = 1.19.3 - 14 November 2021 =
 * Restored `Page Featured Image` setting.
 
