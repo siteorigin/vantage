@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.5 - 03 January 2022 =
+* Added `vantage_before_nav` and `vantage_after_nav` action hooks.
+
 = 1.19.4 - 28 November 2021 =
 * Fixed Site Title Font setting.
 * Applied Content Color setting to search results.

@@ -24,6 +24,7 @@ $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 <nav role="navigation" class="<?php echo implode( ' ', $nav_classes) ?>">
 
 	<div class="full-container">
+		<?php do_action( 'vantage_before_nav' ); ?>
 		<?php if ( $logo_in_menu ) : ?>
 			<div class="logo-in-menu-wrapper">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php vantage_display_logo(); ?></a>
@@ -35,7 +36,7 @@ $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 
 		<?php if ( $ubermenu_active ): ?>
 			<?php ubermenu( 'main' , array( 'theme_location' => 'primary' ) ); ?>
-		<?php else: ?>
+		<?php else : ?>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'link_before' => '<span class="icon"></span>' ) ); ?>
 		<?php endif; ?>
 
@@ -45,5 +46,6 @@ $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 				<?php get_search_form(); ?>
 			</div>
 		<?php endif; ?>
+		<?php do_action( 'vantage_after_nav' ); ?>
 	</div>
 </nav><!-- .site-navigation .main-navigation -->
