@@ -81,7 +81,7 @@ function vantage_content_nav( $nav_id ) {
 		$nav_class = 'site-navigation post-navigation';
 
 	?>
-	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
+	<nav id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
 		<h2 class="assistive-text"><?php _e( 'Post navigation', 'vantage' ); ?></h2>
 
 	<?php if ( is_single() ) : // Navigation links for single posts. ?>
