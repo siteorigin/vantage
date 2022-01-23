@@ -106,6 +106,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.6 - 23 January 2022 =
+* Fixed menu focus background colors for `Hover Background` and `Second Level Hover`.
+* Related Posts: Resolved a notice when no categories are found.
+* Developer: Removed `role="navigation"` in `nav` tags.
+
 = 1.19.5 - 03 January 2022 =
 * Added `vantage_before_nav` and `vantage_after_nav` action hooks.
 
