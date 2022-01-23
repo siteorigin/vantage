@@ -4,7 +4,7 @@ Contributors: siteorigin
 
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce
 
-Tested up to: 5.8
+Tested up to: 5.9
 Requires at least: 4.7
 Requires PHP: 5.6.20
 License: GPLv2 or later
@@ -105,6 +105,11 @@ Dual licensed under the MIT or GPL Version 2 licenses.
 This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 SiteOrigin unless otherwise stated in the file header.
 
 == Changelog ==
+
+= 1.19.6 - 23 January 2022 =
+* Fixed menu focus background colors for `Hover Background` and `Second Level Hover`.
+* Related Posts: Resolved a notice when no categories are found.
+* Developer: Removed `role="navigation"` in `nav` tags.
 
 = 1.19.5 - 03 January 2022 =
 * Added `vantage_before_nav` and `vantage_after_nav` action hooks.

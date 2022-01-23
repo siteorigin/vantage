@@ -81,7 +81,7 @@ function vantage_content_nav( $nav_id ) {
 		$nav_class = 'site-navigation post-navigation';
 
 	?>
-	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
+	<nav id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
 		<h2 class="assistive-text"><?php _e( 'Post navigation', 'vantage' ); ?></h2>
 
 	<?php if ( is_single() ) : // Navigation links for single posts. ?>
@@ -716,6 +716,7 @@ function vantage_related_posts( $post_id ) {
 		echo do_shortcode( '[jetpack-related-posts]' );
 	} else {
 		$categories = get_the_category( $post_id );
+		if ( empty( $categories ) ) return;
 		$first_cat = $categories[0]->cat_ID;
 		$args=array(
 			'category__in' => array( $first_cat ),

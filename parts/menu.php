@@ -21,7 +21,7 @@ if ( siteorigin_setting( 'navigation_mobile_navigation' ) ) {
 $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 ?>
 
-<nav role="navigation" class="<?php echo implode( ' ', $nav_classes) ?>">
+<nav class="<?php echo implode( ' ', $nav_classes) ?>">
 
 	<div class="full-container">
 		<?php do_action( 'vantage_before_nav' ); ?>
