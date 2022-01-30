@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.7 - 30 January 2022 =
+* Updated `Tested up to` tag to `5.9`.
+
 = 1.19.6 - 23 January 2022 =
 * Fixed menu focus background colors for `Hover Background` and `Second Level Hover`.
 * Related Posts: Resolved a notice when no categories are found.
