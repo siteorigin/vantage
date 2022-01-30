@@ -567,8 +567,8 @@ body {
 }
 #masthead h1,
 #masthead .site-title {
-  margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  margin: 0;
 }
 #masthead h1.logo-title,
 #masthead .site-title.logo-title {
