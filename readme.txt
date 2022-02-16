@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.8 - 16 February 2022 =
+* Updated SiteOrigin Settings: Excluded websafe fonts from Google Fonts enqueue.
+
 = 1.19.7 - 30 January 2022 =
 * Updated `Tested up to` tag to `5.9`.
 
