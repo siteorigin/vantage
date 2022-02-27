@@ -118,7 +118,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Page Title Color', 'vantage'),
 				'default' => '#3b3b3b',
-				'selector' => '#page-title, article.post .entry-header h1.entry-title, article.page .entry-header h1.entry-title',
+				'selector' => '#page-title, article.post .entry-header h1.entry-title, article.page .entry-header h1.entry-title, .woocommerce #page-wrapper .product h1.entry-title',
 				'property' => array('color'),
 			),			
 			'content_size' => array(
