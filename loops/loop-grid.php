@@ -7,7 +7,7 @@
 
 	<div id="vantage-grid-loop" class="vantage-grid-loop grid-loop-columns-<?php echo siteorigin_setting( 'blog_grid_column_count' ) ?>">
 		<?php while ( have_posts() ) : the_post(); $i++; ?>
-			<article <?php post_class(array('grid-post')) ?>>
+			<article <?php post_class( array( 'grid-post' ) ) ?>>
 
 				<?php if ( has_post_thumbnail() && siteorigin_setting( 'blog_featured_image_type' ) !== 'none' ) : ?>
 					<a class="grid-thumbnail" href="<?php the_permalink() ?>">

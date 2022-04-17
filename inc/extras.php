@@ -29,7 +29,7 @@ if ( ! function_exists( 'vantage_body_classes' ) ) :
  * @since vantage 1.0
  */
 function vantage_body_classes( $classes ) {
-	// Adds a class of group-blog to blogs with more than 1 published author
+	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
@@ -109,7 +109,7 @@ add_filter( 'attachment_link', 'vantage_enhanced_image_navigation', 10, 2 );
 
 if ( ! function_exists( 'vantage_footer_widget_style' ) ) :
 /**
- * Add the styles to set the size of the footer widgets
+ * Add the styles to set the size of the footer widgets.
  */
 function vantage_footer_widget_style() {
 	$widgets = wp_get_sidebars_widgets();
@@ -123,7 +123,7 @@ add_action( 'wp_head', 'vantage_footer_widget_style', 15 );
 
 if ( ! function_exists( 'vantage_excerpt_length' ) ) :
 /*
- * Filter the except length
+ * Filter the except length.
  */
 function vantage_excerpt_length( $length ) {
 	return siteorigin_setting( 'blog_excerpt_length' );

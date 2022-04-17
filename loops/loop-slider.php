@@ -1,6 +1,6 @@
 <?php
 /**
- * Just displays a slider loop. Intended to be included in child themes using get_template_part('loop', 'slider'). Also works with SiteOrigin page builder loop widget.
+ * Just displays a slider loop. Intended to be included in child themes using get_template_part( 'loop', 'slider' ). Also works with SiteOrigin Page Builder Post Loop Widget.
  *
  * Loop Name: Slider
  *
@@ -25,7 +25,7 @@
 							</div>
 						</a>
 					</li>
-				<?php elseif( 'attachment' == get_post_type() && wp_get_attachment_image_src(get_post_thumbnail_id(), 'vantage-slide') ) : ?>
+				<?php elseif( 'attachment' == get_post_type() && wp_get_attachment_image_src( get_post_thumbnail_id(), 'vantage-slide') ) : ?>
 					<li class="slide">
 						<a href="<?php the_permalink() ?>">
 							<?php echo wp_get_attachment_image( get_the_ID(), 'vantage-slide' ); ?>
