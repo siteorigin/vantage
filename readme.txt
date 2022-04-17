@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.10 - 17 April 2022 =
+* Updated Google Fonts list.
+
 = 1.19.9 - 27 February 2022 =
 * WooCommerce: Link the single product title color to `Customize > Theme Design > Fonts > Page Title Color`.
 
