@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.11 - 30 April 2022 =
+* Circle Icon Widget: Resolved icon color notice.
+
 = 1.19.10 - 17 April 2022 =
 * Updated Google Fonts list.
 
