@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.12 - 23 May 2022 =
+* Updated Calendar Widget styling for new markup.
+
 = 1.19.11 - 30 April 2022 =
 * Circle Icon Widget: Resolved icon color notice.
 

@@ -2914,13 +2914,6 @@ html[xmlns] .slides {
   border-bottom: none !important;
   text-decoration: none;
 }
-#wp-calendar tfoot #prev,
-#wp-calendar tfoot #next {
-  padding-top: 0.4286em !important;
-}
-#wp-calendar tfoot #next {
-  text-align: right;
-}
 /* Footer Calendar styling: colors assume the original theme footer background color. */
 .site-footer #wp-calendar tbody td {
   background: #434447;
@@ -2935,6 +2928,16 @@ html[xmlns] .slides {
 .site-footer #wp-calendar tfoot #prev a:hover,
 .site-footer #wp-calendar tfoot #next a:hover {
   color: #fff;
+}
+.calendar_wrap .wp-calendar-nav {
+  padding-top: 0.4286em !important;
+}
+.calendar_wrap .wp-calendar-nav .wp-calendar-nav-prev {
+  float: left;
+}
+.calendar_wrap .wp-calendar-nav .wp-calendar-nav-next {
+  float: right;
+  text-align: right;
 }
 .widget_call-to-action {
   position: relative;

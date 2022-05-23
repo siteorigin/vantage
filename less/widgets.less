@@ -235,18 +235,6 @@
 			}
 		}
 	}
-
-	tfoot {
-
-		#prev,
-		#next {
-			padding-top: 0.4286em !important;
-		}
-
-		#next {
-			text-align: right;
-		}
-	}
 }
 
 /* Footer Calendar styling: colors assume the original theme footer background color. */
@@ -271,6 +259,19 @@
 		a:hover {
 			color: #fff;
 		}
+	}
+}
+
+.calendar_wrap .wp-calendar-nav {
+	padding-top: 0.4286em !important;
+
+	.wp-calendar-nav-prev {
+		float: left;
+	}
+
+	.wp-calendar-nav-next {
+		float: right;
+		text-align: right;
 	}
 }
 
