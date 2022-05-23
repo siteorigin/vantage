@@ -593,6 +593,18 @@ function vantage_display_icon( $type ) {
 			endif;
 			break;
 
+		case 'mini_cart':
+			if ( siteorigin_setting( 'woocommerce_mini_cart_icon' ) ) :
+				echo wp_get_attachment_image( siteorigin_setting( 'woocommerce_mini_cart_icon' ), 'full', false, '' );
+			else :
+				?>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16.97" height="16" viewBox="0 0 16.97 16">
+						<path id="cart" class="cls-1" d="M1313.9,36.289l-2.01,6a0.994,0.994,0,0,1-.95.711h-7.35a0.962,0.962,0,0,1-.35-0.072c-0.04-.015-0.07-0.037-0.11-0.056a0.969,0.969,0,0,1-.19-0.131,0.644,0.644,0,0,1-.1-0.1c-0.04-.056-0.08-0.117-0.12-0.184-0.02-.043-0.04-0.084-0.06-0.13-0.01-.024-0.02-0.043-0.03-0.068l-2.09-7.07A1.779,1.779,0,0,0,1298.98,34h-0.99a1,1,0,0,1,0-2h0.99a3.773,3.773,0,0,1,3.49,2.669l0.1,0.332h10.38a1,1,0,0,1,.8.4A0.969,0.969,0,0,1,1313.9,36.289Zm-10.74.71,1.18,4h5.85l1.41-4h-8.44Zm0.81,7a2,2,0,1,1-2,2A2,2,0,0,1,1303.97,44Zm6.99,0a2,2,0,1,1-2,2A2,2,0,0,1,1310.96,44Z" transform="translate(-1297 -32)"/>
+					</svg>
+				<?php
+			endif;
+			break;
+
 	}
 }
 endif;

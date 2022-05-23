@@ -274,7 +274,7 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Background', 'vantage'),
 				'default' => '#343538',
-				'selector' => '.main-navigation',
+				'selector' => '.main-navigation, .site-header .shopping-cart-dropdown',
 				'property' => 'background-color',
 			),
 			'text' => array(

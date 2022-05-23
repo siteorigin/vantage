@@ -228,6 +228,40 @@ function vantage_is_woocommerce_active() {
 }
 endif;
 
+if ( ! function_exists( 'vantage_woocommerce_mini_cart' ) ) :
+/**
+ * Display the WooCommerce mini cart.
+ */
+function vantage_woocommerce_mini_cart() {
+	if (
+		apply_filters( 'vantage_display_mini_cart', ! ( is_cart() || is_checkout() ) )
+	) :
+		global $woocommerce;
+		?>
+		<ul class="shopping-cart">
+			<li>
+				<a class="shopping-cart-link" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View shopping cart', 'vantage' ); ?>">
+					<span class="screen-reader-text"><?php esc_html_e( 'View shopping cart', 'vantage' ); ?></span>
+					<?php vantage_display_icon( 'mini_cart' ); ?>
+					<span class="shopping-cart-text"><?php esc_html_e( 'View Cart', 'vantage' ); ?></span>
+					<span class="shopping-cart-count"><?php echo WC()->cart->cart_contents_count; ?></span>
+				</a>
+				<ul class="shopping-cart-dropdown" id="cart-drop">
+					<?php 
+					$instance = array(
+						'title' => '',
+					);
+
+					the_widget( 'WC_Widget_Cart', $instance );
+					?>
+				</ul>
+			</li>
+		</ul>
+	<?php endif; ?>
+<?php
+}
+endif;
+
 if ( ! function_exists( 'vantage_register_custom_background' ) ) :
 /**
  * Setup the WordPress core custom background feature.

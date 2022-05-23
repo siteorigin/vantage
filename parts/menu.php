@@ -40,6 +40,10 @@ $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'link_before' => '<span class="icon"></span>' ) ); ?>
 		<?php endif; ?>
 
+		<?php if ( siteorigin_setting ( 'woocommerce_mini_cart' ) && vantage_is_woocommerce_active() ) : ?>
+			<?php vantage_woocommerce_mini_cart(); ?>
+		<?php endif; ?>
+
 		<?php if ( siteorigin_setting('navigation_menu_search') && ! $max_mega_menu_active ) : ?>
 			<div id="search-icon">
 				<div id="search-icon-icon" tabindex="0" aria-label="<?php _e( 'Open the search', 'vantage' ); ?>"><?php echo vantage_display_icon( 'search' ); ?></div>

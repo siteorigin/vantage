@@ -23,6 +23,7 @@ function vantage_theme_settings(){
 	$settings->add_section( 'icons', __( 'Icons', 'vantage' ) );
 	$settings->add_section( 'blog', __( 'Blog', 'vantage' ) );
 	$settings->add_section( 'social', __( 'Social', 'vantage' ) );
+	$settings->add_section( 'woocommerce', __( 'WooCommerce', 'vantage' ) );
 	$settings->add_section( 'general', __( 'General', 'vantage' ) );
 
 	/**
@@ -314,6 +315,19 @@ function vantage_theme_settings(){
 	));
 
 	/**
+	 * WooCommerce Settings
+	 */
+	if ( vantage_is_woocommerce_active() ) {
+		$settings->add_field( 'woocommerce', 'mini_cart', 'checkbox', __( 'Mini Cart in Menu', 'vantage' ), array(
+			'description' => __( 'Display a mini cart in the main menu.', 'vantage' )
+		) );
+
+		$settings->add_field( 'woocommerce', 'mini_cart_icon', 'media', __( 'Mini Cart Icon', 'vantage' ), array(
+	 		'choose' => __( 'Choose Image', 'vantage' ),
+	 		'update' => __( 'Set Logo', 'vantage' )
+	 	) );
+	}
+	/**
 	 * General Settings
 	 */
 
@@ -405,6 +419,9 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['blog_grid_column_count']              = 4;
 
 	$defaults['social_ajax_comments']                = true;
+
+	$defaults['woocommerce_mini_cart']               = false;
+	$defaults['woocommerce_mini_cart_icon']          = false;
 
 	$defaults['general_site_info_text']              = '';
 	$defaults['general_privacy_policy_link']         = false;
