@@ -97,7 +97,7 @@ function siteorigin_mobilenav_nav_menu_css(){
 	if ( $mobile_resolution != 0 ) : ?>
 		<style type="text/css">
 			.so-mobilenav-mobile + * { display: none; }
-			@media screen and (max-width: <?php echo intval($mobile_resolution) ?>px) { .so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; } .site-navigation #search-icon { display: none; } }
+			@media screen and (max-width: <?php echo intval($mobile_resolution) ?>px) { .so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; } .site-header .shopping-cart, .site-navigation #search-icon { display: none; } }
 		</style>
 	<?php else : ?>
 		<style type="text/css">
