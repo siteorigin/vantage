@@ -446,19 +446,17 @@
   height: 100%;
   justify-content: center;
 }
+.site-header .shopping-cart .shopping-cart-link {
+  padding-left: 21px;
+  padding-right: 21px;
+}
 .site-header .shopping-cart-text {
   display: none;
 }
-.site-header .shopping-cart-link {
-  padding: 0 19px;
-}
-.site-header .shopping-cart-link svg {
-  display: inline-block;
-  fill: #fff;
-  height: 18.84px;
-  position: relative;
-  vertical-align: text-bottom;
-  width: 20px;
+.site-header .shopping-cart-link [class^="fa fa-"] {
+  color: #fff;
+  line-height: normal;
+  margin-right: 0;
 }
 .site-header .shopping-cart-link .shopping-cart-count {
   background: #f14e4e;

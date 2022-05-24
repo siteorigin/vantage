@@ -489,21 +489,21 @@
 		justify-content: center;
 	}
 
+	.shopping-cart-link {
+		padding-left: 21px;
+		padding-right: 21px;
+	}
 
 	&-text {
 		display: none;
 	}
 
 	&-link {
-		padding: 0 19px;
 
-		svg {
-			display: inline-block;
-			fill: #fff;
-			height: 18.84px;
-			position: relative;
-			vertical-align: text-bottom;
-			width: 20px;
+		[class^="fa fa-"] {
+			color: #fff;
+			line-height: normal;
+			margin-right: 0;
 		}
 
 		.shopping-cart-count {
@@ -527,6 +527,7 @@
 			.shopping-cart-count {
 				background: rgba(241, 78, 78, 0.8);
 			}
+
 			.shopping-cart-text {
 				color: #626262;
 			}
