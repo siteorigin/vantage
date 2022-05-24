@@ -1085,6 +1085,9 @@ body.admin-bar:not(.sticky-menu) .site-navigation.use-sticky-menu {
 .has-menu-search .main-navigation ul:not([id*='mobile-nav-item-wrap']) {
   margin-right: 59px;
 }
+.has-menu-search.has-mini-cart .main-navigation ul:not([class*='shopping-cart']):not([id*='mobile-nav-item-wrap']) {
+  margin-right: 118px;
+}
 /* Handle the navigation slightly differently on mobile devices */
 body.so-vantage-mobile-device .main-navigation ul ul {
   display: none;
