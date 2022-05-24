@@ -542,8 +542,8 @@
   margin: 20px;
 }
 .site-header .shopping-cart-dropdown .widget .woocommerce-mini-cart__buttons {
-  transition: none;
   margin-bottom: 0;
+  transition: none;
 }
 @media (max-width: 1447px) {
   .site-header .shopping-cart:hover .shopping-cart-dropdown {
