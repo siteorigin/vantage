@@ -28,7 +28,7 @@
 				);
 			?>
 		</h2>
-		
+
 		<?php
 			$args = array(
 				'prev_text' => esc_html__( '&larr; Older Comments', 'vantage' ),
@@ -36,7 +36,7 @@
 			);
 			the_comments_navigation( $args ); 
 		?>
-		
+
 		<ol class="commentlist">
 			<?php wp_list_comments( array( 'callback' => 'vantage_comment' ) ); ?>
 		</ol><!-- .commentlist -->

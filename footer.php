@@ -12,7 +12,7 @@
 
 </div><!-- #page-wrapper -->
 
-<?php do_action('vantage_after_page_wrapper') ?>
+<?php do_action( 'vantage_after_page_wrapper' ) ?>
 
 <?php wp_footer(); ?>
 
