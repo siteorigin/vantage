@@ -120,7 +120,6 @@ class SiteOrigin_Customizer_CSS_Builder {
 	 */
 	function add_css( $selector, $property, $value ) {
 		if ( empty( $value ) ) return;
-
 		$selector = preg_replace( '/\s+/m', ' ', $selector );
 
 		if ( $property == 'font' ) {
@@ -130,8 +129,9 @@ class SiteOrigin_Customizer_CSS_Builder {
 				$variant = 400;
 			}
 
-			if ( !empty( self::$web_safe[ $family ] ) ) $family = '"' . $family . '", ' . self::$web_safe[ $family ];
-			else {
+			if ( ! empty( $this->web_safe[ $family ] ) ) {
+				$family = '"' . $family . '", ' . $this->web_safe[ $family ];
+			} else {
 				$this->google_fonts[ ] = array( $family, $variant );
 				$family = '"' . $family . '"';
 			}
@@ -174,8 +174,9 @@ class SiteOrigin_Customizer_CSS_Builder {
 			$family = $font;
 		}
 
-		if ( !empty( self::$web_safe[ $family ] ) ) $family = '"' . $family . '", ' . self::$web_safe[ $family ];
-		else {
+		if ( ! empty( $this->web_safe[ $family ] ) ) {
+			$family = '"' . $family . '", ' . $this->web_safe[ $family ];
+		} else {
 			$this->google_fonts[ ] = array( $family, $variant );
 			$family = '"' . $family . '"';
 		}
