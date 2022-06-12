@@ -6,11 +6,10 @@ if ( class_exists( 'WP_Customize_Control' ) && !class_exists('SiteOrigin_Customi
  */
 class SiteOrigin_Customize_Fonts_Control extends WP_Customize_Control {
 	function __construct( $manager, $id, $args = array() ) {
-		// Let other themes and plugins process the web fonts array
 		$google_web_fonts = include ( dirname(__FILE__) . '/google-fonts.php' );
 
 		// Add the default fonts
-		$choices = array(
+		$choices = apply_filters( 'vantage_websafe', array(
 			'Arial' => 'Arial',
 			'Courier New' => 'Courier New',
 			'Georgia' => 'Georgia',
@@ -19,7 +18,7 @@ class SiteOrigin_Customize_Fonts_Control extends WP_Customize_Control {
 			'Tahoma' => 'Tahoma',
 			'Trebuchet MS' => 'Trebuchet MS',
 			'Verdana' => 'Verdana',
-		);
+		) );
 
 		foreach ( $google_web_fonts as $font => $variants ) {
 			foreach ( $variants as $variant ) {
@@ -64,23 +63,24 @@ class SiteOrigin_Customizer_CSS_Builder {
 	private $raw_css;
 	private $fonts;
 	private $defaults;
+	private $web_safe;
 
 	// These are web safe fonts
-	static $web_safe = array(
-		'Arial' => 'Arial, Helvetica, sans-serif',
-		'Courier New' => 'Courier, mono',
-		'Georgia' => '"Times New Roman", Times, serif',
-		'Helvetica Neue' => 'Arial, Helvetica, Geneva, sans-serif',
-		'Lucida Grande' => 'Lucida, Verdana, sans-serif',
-		'Tahoma' => 'Tahoma, Verdana, Segoe, sans-serif',
-		'Trebuchet MS' => 'Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif',
-		'Verdana' => 'Verdana, Geneva, sans-serif',
-	);
 
 	function __construct($defaults) {
 		$this->css = array();
 		$this->raw_css = '';
 		$this->google_fonts = array();
+		$this->web_safe = apply_filters( 'vantage_websafe_fallback', array(
+			'Arial' => 'Arial, Helvetica, sans-serif',
+			'Courier New' => 'Courier, mono',
+			'Georgia' => '"Times New Roman", Times, serif',
+			'Helvetica Neue' => 'Arial, Helvetica, Geneva, sans-serif',
+			'Lucida Grande' => 'Lucida, Verdana, sans-serif',
+			'Tahoma' => 'Tahoma, Verdana, Segoe, sans-serif',
+			'Trebuchet MS' => 'Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif',
+			'Verdana' => 'Verdana, Geneva, sans-serif',
+		) );
 		$this->defaults = $defaults;
 	}
 
@@ -120,7 +120,6 @@ class SiteOrigin_Customizer_CSS_Builder {
 	 */
 	function add_css( $selector, $property, $value ) {
 		if ( empty( $value ) ) return;
-
 		$selector = preg_replace( '/\s+/m', ' ', $selector );
 
 		if ( $property == 'font' ) {
@@ -130,8 +129,9 @@ class SiteOrigin_Customizer_CSS_Builder {
 				$variant = 400;
 			}
 
-			if ( !empty( self::$web_safe[ $family ] ) ) $family = '"' . $family . '", ' . self::$web_safe[ $family ];
-			else {
+			if ( ! empty( $this->web_safe[ $family ] ) ) {
+				$family = '"' . $family . '", ' . $this->web_safe[ $family ];
+			} else {
 				$this->google_fonts[ ] = array( $family, $variant );
 				$family = '"' . $family . '"';
 			}
@@ -174,8 +174,9 @@ class SiteOrigin_Customizer_CSS_Builder {
 			$family = $font;
 		}
 
-		if ( !empty( self::$web_safe[ $family ] ) ) $family = '"' . $family . '", ' . self::$web_safe[ $family ];
-		else {
+		if ( ! empty( $this->web_safe[ $family ] ) ) {
+			$family = '"' . $family . '", ' . $this->web_safe[ $family ];
+		} else {
 			$this->google_fonts[ ] = array( $family, $variant );
 			$family = '"' . $family . '"';
 		}
@@ -276,7 +277,7 @@ endif;
 function siteorigin_customizer_sanitize_google_font($font){
 
 	// Check the default fonts too.
-	$default_fonts = array(
+	$default_fonts = apply_filters( 'vantage_websafe', array(
 		'Arial' => 'Arial',
 		'Courier New' => 'Courier New',
 		'Georgia' => 'Georgia',
@@ -285,7 +286,7 @@ function siteorigin_customizer_sanitize_google_font($font){
 		'Tahoma' => 'Tahoma',
 		'Trebuchet MS' => 'Trebuchet MS',
 		'Verdana' => 'Verdana',
-	);
+	) );
 
 	$google_fonts = include( dirname(__FILE__).'/google-fonts.php' );
 	$font_name_parts = explode( ':', $font, 2 );
