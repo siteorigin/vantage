@@ -4,7 +4,8 @@ Description: Set opacity for the main menu drop down background and hover. In ea
 
 .main-navigation ul ul { 
 	background: rgba(52, 53, 56, 0.8);
-} 
+}
+
 .main-navigation ul ul li:hover > a { 
 	background: rgba(0, 188, 255, 0.8);  
 }
