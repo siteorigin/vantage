@@ -1953,6 +1953,11 @@ article.page.post-with-thumbnail-icon .entry-main {
   padding-right: 0;
   padding-left: 0;
 }
+.wp-block-query ul.wp-block-post-template {
+  list-style: none;
+  margin-left: 0;
+  text-align: center;
+}
 /* =Navigation
 ----------------------------------------------- */
 .pagination,
