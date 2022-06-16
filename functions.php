@@ -128,7 +128,7 @@ function vantage_setup() {
 		$wrapper = false;
 		$posts_per_page = 6;
 	}
-	else if ( siteorigin_setting( 'blog_archive_layout' ) == 'grid' ) {
+	elseif ( siteorigin_setting( 'blog_archive_layout' ) == 'grid' ) {
 		$container = 'vantage-grid-loop';
 		$render_function = 'vantage_infinite_scroll_render';
 		$wrapper = false;
@@ -267,7 +267,7 @@ function vantage_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	if( vantage_is_woocommerce_active() ) {
+	if ( vantage_is_woocommerce_active() ) {
 		register_sidebar( array(
 			'name' => __( 'Shop', 'vantage' ),
 			'id' => 'shop',
@@ -407,7 +407,7 @@ if ( ! function_exists( 'vantage_back_to_top' ) ) :
  * Display the scroll to top link.
  */
 function vantage_back_to_top() {
-	if ( ! siteorigin_setting('navigation_display_scroll_to_top' ) && ! siteorigin_setting( 'navigation_mobile_navigation' ) ) return;
+	if ( ! siteorigin_setting( 'navigation_display_scroll_to_top' ) && ! siteorigin_setting( 'navigation_mobile_navigation' ) ) return;
 	$scroll_to_top = siteorigin_setting( 'navigation_display_scroll_to_top' ) ? 'scroll-to-top' : '';
 	?><a href="#" id="scroll-to-top" class="<?php echo $scroll_to_top; ?>" title="<?php esc_attr_e( 'Back To Top', 'vantage' ) ?>"><span class="vantage-icon-arrow-up"></span></a><?php
 }
@@ -421,8 +421,8 @@ if ( ! function_exists( 'vantage_get_query_variables' ) ) :
 function vantage_get_query_variables() {
 	global $wp_query;
 	$vars = $wp_query->query_vars;
-	foreach( $vars as $k => $v ) {
-		if(empty($vars[$k])) unset ($vars[$k]);
+	foreach ( $vars as $k => $v ) {
+		if ( empty( $vars[ $k ] ) ) unset( $vars[ $k ]);
 	}
 	unset( $vars['update_post_term_cache'] );
 	unset( $vars['update_post_meta_cache'] );
