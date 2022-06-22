@@ -24,7 +24,7 @@ function vantage_display_breadcrumbs() {
 }
 endif;
 
-// Support for deprecated function vantage_display_yoast_seo_breadcrumbs
+// Support for deprecated function vantage_display_yoast_seo_breadcrumbs.
 if ( !function_exists('vantage_display_yoast_seo_breadcrumbs') ) {
 	add_filter('vantage_main_top', 'vantage_display_breadcrumbs');
 } else {

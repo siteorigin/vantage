@@ -21,7 +21,7 @@ get_header();
 				the_post();
 				the_content();
 			}
-			else if ( function_exists( 'siteorigin_panels_render' ) ) echo siteorigin_panels_render( 'home' );
+			elseif ( function_exists( 'siteorigin_panels_render' ) ) echo siteorigin_panels_render( 'home' );
 			else echo siteorigin_panels_lite_home_render();
 			?>
 		</div>

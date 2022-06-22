@@ -17,7 +17,7 @@ if ( !function_exists( 'vantage_gallery' ) ) :
  * @return string
  */
 function vantage_gallery($contents, $attr){
-	if(empty($attr['type']) || $attr['type'] != 'slider') return $contents;
+	if ( empty( $attr['type']) || $attr['type'] != 'slider' ) return $contents;
 
 	global $post;
 
@@ -57,16 +57,16 @@ function vantage_gallery($contents, $attr){
 		'exclude'    => '',
 		'wp_default'    => false,
 		'target_blank' => false,
-	), $attr));
+	), $attr) );
 
-	// This gallery has requested to use the WordPress default gallery
+	// This gallery has requested to use the WordPress default gallery.
 	if($wp_default) return $contents;
 
 	$id = intval($id);
 	if ( 'RAND' == $order )
 		$orderby = 'none';
 
-	if ( !empty($include) ) {
+	if ( ! empty($include) ) {
 		$include = preg_replace( '/[^0-9,]+/', '', $include );
 		$_attachments = get_posts( array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
 
@@ -83,7 +83,7 @@ function vantage_gallery($contents, $attr){
 		$attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
 	}
 
-	if ( empty($attachments) ) return '';
+	if ( empty( $attachments ) ) return '';
 
 	// This is the custom stuff
 
@@ -92,11 +92,11 @@ function vantage_gallery($contents, $attr){
 	$return .= '<div class="flexslider-wrapper">';
 	$return .= '<div class="flexslider">';
 	$return .= '<ul class="slides">';
-	foreach($attachments as $attachment){
+	foreach ( $attachments as $attachment ) {
 		$return .= '<li>';
-		$return .= apply_filters('vantage_slide_before', '', $attachment);
-		$return .= wp_get_attachment_image($attachment->ID, $size, false, array('class' => 'slide-image'));
-		if($attachment->post_excerpt){
+		$return .= apply_filters( 'vantage_slide_before', '', $attachment );
+		$return .= wp_get_attachment_image($attachment->ID, $size, false, array( 'class' => 'slide-image' ) );
+		if ( $attachment->post_excerpt ) {
 			$return .= '<div class="flex-caption">' . $attachment->post_excerpt . '</div>';
 		}
 		$return .= apply_filters('vantage_slide_after', '', $attachment);
@@ -109,10 +109,9 @@ function vantage_gallery($contents, $attr){
 	return $return;
 }
 endif;
-add_filter('post_gallery', 'vantage_gallery', 10, 2);
+add_filter( 'post_gallery', 'vantage_gallery', 10, 2 );
 
-
-if ( !function_exists( 'vantage_gallery_types' ) ) :
+if ( ! function_exists( 'vantage_gallery_types' ) ) :
 /**
  * Add our fancy slider gallery to the list of gallery types.
  *

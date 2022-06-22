@@ -59,10 +59,11 @@
   margin-right: 0;
 }
 .woocommerce #page-wrapper .product .cart .qty {
-  text-align: left;
-  max-width: 60px;
-  margin-top: 4px;
   margin-right: 5px;
+  margin-top: 0;
+  max-width: 60px;
+  padding: 11px 12px 10px;
+  text-align: left;
   width: auto;
 }
 .woocommerce #page-wrapper .product .variations_form td {
@@ -204,6 +205,9 @@
   background: -moz-linear-gradient(center bottom, #00b5fa 0%, #0fc0ff 100%);
   background: -o-linear-gradient(#0fc0ff, #00b5fa);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0fc0ff', endColorstr='#00b5fa', GradientType=0);
+}
+.woocommerce a.added_to_cart {
+  margin-left: 10px;
 }
 .woocommerce .shop_table .quantity .qty {
   width: 4.5em;

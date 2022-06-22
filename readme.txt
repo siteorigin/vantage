@@ -106,6 +106,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.19.13 - 22 June 2022 =
+* Block Editor: Added Query Block styling for lists.
+* WooCommerce: Minor styling updates.
+* Developer: Added `vantage_websafe` and `vantage_websafe_fallback` filters.
+
 = 1.19.12 - 23 May 2022 =
 * Updated Calendar Widget styling for new markup.
 
