@@ -314,10 +314,10 @@
 
 
 .widget.woocommerce {
-
 	.clearfix();
 
 	.product_list_widget {
+
 		li {
 			display: block;
 			width: auto;
@@ -337,6 +337,7 @@
 			}
 
 			.quantity {
+
 				.amount {
 					display: inline;
 				}
@@ -362,6 +363,7 @@
 	}
 
 	&.widget_shopping_cart {
+
 		.product_list_widget li{
 			padding-left: 75px;
 		}
@@ -369,8 +371,8 @@
 		.cart_list {
 
 			.mini_cart_item {
-				margin-bottom: 10px;
 				.clearfix();
+				margin-bottom: 10px;
 
 				a {
 					text-decoration: none;
@@ -379,9 +381,9 @@
 
 			.mini_cart_img {
 				display: inline-block;
-				width: 55px;
-				margin-right: 8px;
 				float: left;
+				margin-right: 8px;
+				width: 55px;
 			}
 
 			.mini_cart_details {
@@ -471,12 +473,27 @@
 		display: block;
 	}
 
+	ul {
+		box-shadow: none !important;
+	}
+
 	li {
 		font-size: initial;
 		text-transform: none;
 
 		&:first-of-type {
 			padding: 0;
+		}
+
+		&:hover {
+
+			> a {
+				background: none;
+			}
+
+			[class^="fa fa-"] {
+				color: #fff;
+			}
 		}
 	}
 
@@ -491,8 +508,6 @@
 
 	.shopping-cart-link {
 		max-width: 59px;
-		padding-left: 21px;
-		padding-right: 21px;
 	}
 
 	&-text {
@@ -501,49 +516,48 @@
 
 	&-link {
 
-		[class^="fa fa-"] {
-			color: #fff;
-			line-height: normal;
-			margin-right: 0;
+		.shopping-cart-icon-wrapper {
+			position: relative;
 		}
 
-		.shopping-cart-count {
-			background: #f14e4e;
-			border-radius: 50%;
-			color: #fff;
-			font-size: 9px;
-			height: 18px;
-			line-height: 18px;
-			min-width: 18px;
-			padding-left: 1px;
-			position: absolute;
-			right: 27%;
-			text-align: center;
-			top: 4px;
+		[class^="fa fa-"] {
+			color: #e2e2e2;
+			font-size: 1.05em;
+			line-height: normal;
+			margin-right: 0;
 			transition: .3s;
 		}
 
-		&:hover {
-
-			.shopping-cart-count {
-				background: rgba(241, 78, 78, 0.8);
-			}
-
-			.shopping-cart-text {
-				color: #626262;
-			}
+		.shopping-cart-count {
+			background: #00bcff;
+			border-radius: 50%;
+			color: #fff;
+			font-size: 8px;
+			height: 16px;
+			line-height: 16px;
+			min-width: 16px;
+			position: absolute;
+			right: -12px;
+			text-align: center;
+			top: -9px;
+			transition: .3s;
 		}
 	}
 
 	&-dropdown {
 		background: #343538;
 		box-shadow: 0 0 12px rgba(0, 0, 0, 0.16);
+		color: #e2e2e2;
 		display: none;
+		left: auto;
+		right: 0;
 		width: 300px;
 		z-index: 99999;
 
 		.widget {
 			color: #fff;
+			margin: 20px;
+			padding: 0;
 			max-height: 70vh;
 			overflow-y: auto;
 
@@ -552,18 +566,23 @@
 
 				&:hover > a {
 					background: transparent;
-					color: #fff;
 				}
 			}
+
 			.product_list_widget {
 				background: transparent;
-				margin-right: 0;
+				margin: 0;
 				opacity: 1;
+				padding: 0;
 				position: static;
 				visibility: visible;
 
-				li {
-					padding: 20px;
+				li.mini_cart_item {
+					color: #e2e2e2;
+					font-size: 13px;
+					margin: 0 0 20px;
+					padding: 0;
+					position: relative;
 
 					img {
 						margin: 0;
@@ -572,14 +591,27 @@
 					}
 
 					a {
-						padding-left: 0;
+						font-weight: bold;
+						font-weight: 600;
+						padding: 0;
 						width: auto;
 
 						&.remove {
+							color: #e2e2e2 !important;
 							left: initial;
-							right: 20px;
-							top: 40%;
+							position: absolute;
+							right: 0;
+							top: 0;
+
+							&:hover {
+								color: #fff !important;
+							}
 						}
+					}
+
+					.quantity {
+						display: block;
+						margin-top: 12px;
 					}
 				}
 			}
@@ -589,36 +621,44 @@
 			}
 
 			.blockOverlay[style] {
-				background-color: #fff !important;
+				background-color: transparent !important;
 			}
 
 			.woocommerce-mini-cart__empty-message {
+				color: #e2e2e2;
 				display: block;
-				font-size: 14px;
+				font-size: 13px;
 				font-weight: 600;
 				margin: 0;
+				padding: 0;
 				text-transform: none;
 			}
 
-			.woocommerce-mini-cart__total,
-			.woocommerce-mini-cart__buttons {
-				margin: 20px;
+			.total {
+				border-color: #b9b9b9;
+				color: #e2e2e2;
+				font-size: 13px;
+				margin: 0 0 17px;
+				padding-top: 20px;
 			}
 
 			.woocommerce-mini-cart__buttons {
-				margin-bottom: 0;
-				transition: none;
+				float: none;
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				width: 100%;
+
+				a {
+					display: inline-block;
+					margin: 0;
+					transition: none;
+
+					&:first-of-type {
+						margin-right: 10px;
+					}
+				}
 			}
 		}
-	}
-}
-
-@media (max-width: 1447px) {
-	.site-header .shopping-cart:hover .shopping-cart-dropdown {
-	  left: -240.5px;
-	}
-
-	.has-menu-search .main-navigation ul.shopping-cart-dropdown {
-	  left: -183.5px;
 	}
 }
