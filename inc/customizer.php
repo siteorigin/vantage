@@ -274,14 +274,14 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Background', 'vantage'),
 				'default' => '#343538',
-				'selector' => '.main-navigation',
+				'selector' => '.main-navigation, .site-header .shopping-cart-dropdown',
 				'property' => 'background-color',
 			),
 			'text' => array(
 				'type' => 'color',
 				'title' => __('Text Color', 'vantage'),
 				'default' => '#e2e2e2',
-				'selector' => '.main-navigation a',
+				'selector' => '.main-navigation a, .site-header .shopping-cart-link [class^="fa fa-"], .site-header .shopping-cart-dropdown .widget .product_list_widget li.mini_cart_item, .site-header .shopping-cart-dropdown .widget .total',
 				'property' => 'color',
 			),
 			'second_background' => array(
@@ -302,8 +302,8 @@ function vantage_customizer_init(){
 				'type' => 'color',
 				'title' => __('Hover Background', 'vantage'),
 				'default' => '#00bcff',
-				'selector' => '.main-navigation ul li:hover > a, .main-navigation ul li.focus > a, #search-icon #search-icon-icon:hover,  #search-icon #search-icon-icon:focus',
-				'property' => 'background-color',
+				'selector' => '.main-navigation ul li:hover > a, .main-navigation ul li.focus > a, #search-icon #search-icon-icon:hover, #search-icon #search-icon-icon:focus, .site-header .shopping-cart-link .shopping-cart-count',
+								'property' => 'background-color',
 				'no_live' => true,
 			),
 			'hover_text' => array(
@@ -876,6 +876,7 @@ function vantage_customizer_callback_menu_alignment( $builder, $val, $setting ) 
 	}
 	return $builder;
 }
+
 /**
  * @param SiteOrigin_Customizer_CSS_Builder $builder
  * @param mixed $val

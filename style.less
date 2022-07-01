@@ -978,8 +978,12 @@ body.admin-bar:not(.sticky-menu) .site-navigation.use-sticky-menu {
 	width: 100%;
 }
 
-.has-menu-search .main-navigation ul:not([id*='mobile-nav-item-wrap']) {
+.has-menu-search .main-navigation div > ul:not([id*='mobile-nav-item-wrap']):not([class*='product_list_widget']) {
 	margin-right: 59px;
+}
+
+.has-menu-search.has-mini-cart .main-navigation ul:not([id*='mobile-nav-item-wrap']):not([class*='shopping-cart']):not([class*='shopping-cart-dropdown']):not([class*='product_list_widget']) {
+	margin-right: 118px;
 }
 
 /* Handle the navigation slightly differently on mobile devices */
