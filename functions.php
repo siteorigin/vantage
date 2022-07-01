@@ -264,6 +264,22 @@ function vantage_woocommerce_mini_cart() {
 }
 endif;
 
+if ( ! function_exists( 'vantage_woocommerce_update_cart_count' ) ) :
+/**
+ * Update cart count with the masthead cart icon.
+ */
+function vantage_woocommerce_update_cart_count( $fragments ) {
+	ob_start();
+	?>
+	<span class="shopping-cart-count"><?php echo WC()->cart->cart_contents_count; ?></span>
+	<?php
+	$fragments['span.shopping-cart-count'] = ob_get_clean();
+
+	return $fragments;
+}
+endif;
+add_filter( 'woocommerce_add_to_cart_fragments', 'vantage_woocommerce_update_cart_count', 20 );
+
 if ( ! function_exists( 'vantage_register_custom_background' ) ) :
 /**
  * Setup the WordPress core custom background feature.
