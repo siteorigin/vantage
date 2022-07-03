@@ -593,6 +593,10 @@ function vantage_display_icon( $type ) {
 			endif;
 			break;
 
+		case 'mini_cart': ?>
+			<i class="fa fa-shopping-cart"></i>
+		<?php break;
+
 	}
 }
 endif;

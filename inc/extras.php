@@ -83,6 +83,13 @@ function vantage_body_classes( $classes ) {
 		$classes[] = 'not-default-page';
 	}
 
+	// WooCommerce.
+	if ( vantage_is_woocommerce_active() ) {
+		if ( siteorigin_setting( 'woocommerce_mini_cart' ) && ! ( is_cart() || is_checkout() ) ) {
+			$classes[] = 'has-mini-cart';
+		}
+	}
+
 	return $classes;
 }
 endif;

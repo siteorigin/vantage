@@ -24,6 +24,7 @@ function vantage_theme_settings(){
 	$settings->add_section( 'blog', __( 'Blog', 'vantage' ) );
 	$settings->add_section( 'social', __( 'Social', 'vantage' ) );
 	$settings->add_section( 'general', __( 'General', 'vantage' ) );
+	$settings->add_section( 'woocommerce', __( 'WooCommerce', 'vantage' ) );
 
 	/**
 	 * Logo Settings
@@ -335,6 +336,16 @@ function vantage_theme_settings(){
 		'description' => __('Enqueue JavaScript files in the footer, if possible.', 'vantage'),
 	));
 
+	/**
+	 * WooCommerce Settings
+	 */
+
+	if ( vantage_is_woocommerce_active() ) {
+		$settings->add_field( 'woocommerce', 'mini_cart', 'checkbox', __( 'Mini Cart in Menu', 'vantage' ), array(
+			'description' => __( 'Display a mini cart in the main menu.', 'vantage' )
+		) );
+	}
+
 }
 endif;
 add_action('siteorigin_settings_init', 'vantage_theme_settings');
@@ -410,6 +421,8 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['general_privacy_policy_link']         = false;
 	$defaults['general_attribution']                 = true;
 	$defaults['general_js_enqueue_footer']           = false;
+
+	$defaults['woocommerce_mini_cart']               = false;
 
 	return $defaults;
 }
