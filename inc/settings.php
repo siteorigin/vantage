@@ -344,11 +344,6 @@ function vantage_theme_settings(){
 		$settings->add_field( 'woocommerce', 'mini_cart', 'checkbox', __( 'Mini Cart in Menu', 'vantage' ), array(
 			'description' => __( 'Display a mini cart in the main menu.', 'vantage' )
 		) );
-
-		$settings->add_field( 'woocommerce', 'mini_cart_icon', 'media', __( 'Mini Cart Icon', 'vantage' ), array(
-			'choose' => __( 'Choose Image', 'vantage' ),
-			'update' => __( 'Set Image', 'vantage' )
-		) );
 	}
 
 }
@@ -428,7 +423,6 @@ function vantage_theme_setting_defaults($defaults){
 	$defaults['general_js_enqueue_footer']           = false;
 
 	$defaults['woocommerce_mini_cart']               = false;
-	$defaults['woocommerce_mini_cart_icon']          = false;
 
 	return $defaults;
 }

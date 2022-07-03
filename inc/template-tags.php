@@ -593,15 +593,9 @@ function vantage_display_icon( $type ) {
 			endif;
 			break;
 
-		case 'mini_cart':
-			if ( siteorigin_setting( 'woocommerce_mini_cart_icon' ) ) :
-				echo wp_get_attachment_image( siteorigin_setting( 'woocommerce_mini_cart_icon' ), 'full', false, '' );
-			else :
-				?>
-					<i class="fa fa-shopping-cart"></i>
-				<?php
-			endif;
-			break;
+		case 'mini_cart': ?>
+			<i class="fa fa-shopping-cart"></i>
+		<?php break;
 
 	}
 }
