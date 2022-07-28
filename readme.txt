@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.1 - 28 July 2022 =
+* Updated SiteOrigin Settings.
+
 = 1.20.0 - 03 July 2022 =
 * WooCommerce: Added a menu mini-cart. Setting located at Appearance > Customize > Theme Settings > WooCommerce: Mini Cart in Menu.
 
