@@ -63,7 +63,7 @@ Vantage WordPress Theme is derived from Underscores WordPress Theme, Copyright 2
 
 == Images ==
 
-Miami panorama image sourced from [PxHere](https://pxhere.com/en/photo/1285416) by [Ralph Nas](https://www.behance.net/pixexid) licensed under [CC0 1.0 Universal (CC0 1.0)](http://creativecommons.org/publicdomain/zero/1.0/).
+Whiteboard Meeting image sourced from [PxHere](https://pxhere.com/en/photo/1450067) by [rawpixel.com](https://pxhere.com/en/photographer/795663) licensed under [CC0 1.0 Universal (CC0 1.0)](http://creativecommons.org/publicdomain/zero/1.0/).
 
 == Bundled Resources ==
 
