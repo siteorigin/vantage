@@ -63,7 +63,7 @@ Vantage WordPress Theme is derived from Underscores WordPress Theme, Copyright 2
 
 == Images ==
 
-Miami panorama image sourced from [PxHere](https://pxhere.com/en/photo/1285416) by [Ralph Nas](https://www.behance.net/pixexid) licensed under [CC0 1.0 Universal (CC0 1.0)](http://creativecommons.org/publicdomain/zero/1.0/).
+Whiteboard Meeting image sourced from [PxHere](https://pxhere.com/en/photo/1450067) by [rawpixel.com](https://pxhere.com/en/photographer/795663) licensed under [CC0 1.0 Universal (CC0 1.0)](http://creativecommons.org/publicdomain/zero/1.0/).
 
 == Bundled Resources ==
 
@@ -105,6 +105,9 @@ Dual licensed under the MIT or GPL Version 2 licenses.
 This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 SiteOrigin unless otherwise stated in the file header.
 
 == Changelog ==
+
+= 1.20.1 - 28 July 2022 =
+* Updated SiteOrigin Settings.
 
 = 1.20.0 - 03 July 2022 =
 * WooCommerce: Added a menu mini-cart. Setting located at Appearance > Customize > Theme Settings > WooCommerce: Mini Cart in Menu.
