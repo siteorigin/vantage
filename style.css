@@ -2790,7 +2790,7 @@ html[xmlns] .slides {
   padding: 0;
 }
 #footer-widgets .widget a {
-  color: #cccccc;
+  color: #ccc;
 }
 #footer-widgets .widget .widget-title {
   color: #e2e2e2;
@@ -3005,7 +3005,7 @@ html[xmlns] .slides {
   /* The different icon positions */
 }
 .widget_circleicon-widget .circle-icon-box.circle-icon-show-box {
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   background: #f6f6f6;
   -webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.05);
   -moz-box-shadow: 0 2px 2px rgba(0,0,0,0.05);
@@ -3043,7 +3043,7 @@ html[xmlns] .slides {
   width: 100%;
   height: 1em;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   line-height: 1.1em;
   position: absolute;
   top: 50%;
@@ -3240,7 +3240,7 @@ html[xmlns] .slides {
   padding-bottom: 20px;
   margin: 0;
   font-size: 14px;
-  color: #666666;
+  color: #666;
   font-weight: 200;
 }
 .widget_headline-widget .decoration {
@@ -3270,7 +3270,7 @@ html[xmlns] .slides {
 #masthead-widgets .widget_nav_menu ul.menu > li > a {
   display: block;
   text-decoration: none;
-  color: #555555;
+  color: #555;
   font-weight: 500;
   padding: 0.75em 0;
   line-height: 1em;
@@ -3304,7 +3304,7 @@ html[xmlns] .slides {
 #masthead-widgets .widget_nav_menu ul.menu > li ul.sub-menu li a {
   display: block;
   text-decoration: none;
-  color: #777777;
+  color: #777;
 }
 #header-sidebar .widget_nav_menu ul.menu > li ul.sub-menu ul,
 #masthead-widgets .widget_nav_menu ul.menu > li ul.sub-menu ul {
@@ -3348,12 +3348,12 @@ html[xmlns] .slides {
 .panel-row-style-wide-grey,
 .wide-grey.panel-row-style {
   background: #f6f6f6;
-  border-top: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 .layout-full .panel-row-style.panel-row-style-wide-grey,
 .layout-full .wide-grey.panel-row-style,
-.layout-full .panel-row-style.panel-row-style-full-width,
+.layout-full .panel-row-style.panel-row-style-full-width[data-stretch-type="full-stretched"],
 .layout-full.panels-style-force-full .panel-row-style {
   margin: 0 -1000px;
   padding: 25px 1000px 25px 1000px;
