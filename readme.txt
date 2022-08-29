@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.2 - 29 August 2022 =
+* Fixed Page Builder Full Width Stretched Padded row display.
+
 = 1.20.1 - 28 July 2022 =
 * Updated SiteOrigin Settings.
 
