@@ -98,7 +98,7 @@ class SiteOrigin_Customizer_CSS_Builder {
 			}
 			$import = array_unique( $import );
 			if ( !empty( $import ) ) {
-				$return .= '@import url(//fonts.googleapis.com/css?family=' . implode( '|', $import ) . '&display=block); ';
+				$return .= '@import url(' . esc_url( apply_filters( 'siteorigin_web_font_url', 'https://fonts.googleapis.com/css' ) . '?family=' . implode( '|', $import ) . '&display=block ' ) . ');';
 			}
 		}
 
