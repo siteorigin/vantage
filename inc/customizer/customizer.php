@@ -6,7 +6,7 @@ if ( class_exists( 'WP_Customize_Control' ) && !class_exists('SiteOrigin_Customi
  */
 class SiteOrigin_Customize_Fonts_Control extends WP_Customize_Control {
 	function __construct( $manager, $id, $args = array() ) {
-		$google_web_fonts = include ( dirname(__FILE__) . '/google-fonts.php' );
+		$google_web_fonts = include get_template_directory() . '/inc/settings/data/fonts.php';
 
 		// Add the default fonts
 		$choices = apply_filters( 'vantage_websafe', array(
@@ -21,7 +21,7 @@ class SiteOrigin_Customize_Fonts_Control extends WP_Customize_Control {
 		) );
 
 		foreach ( $google_web_fonts as $font => $variants ) {
-			foreach ( $variants as $variant ) {
+			foreach ( $variants['variants'] as $variant ) {
 				if ( $variant == 'regular' || $variant == 400 ) {
 					$choices[ $font ] = $font;
 				}
@@ -98,7 +98,7 @@ class SiteOrigin_Customizer_CSS_Builder {
 			}
 			$import = array_unique( $import );
 			if ( !empty( $import ) ) {
-				$return .= '@import url(//fonts.googleapis.com/css?family=' . implode( '|', $import ) . '&display=block); ';
+				$return .= '@import url(' . esc_url( apply_filters( 'siteorigin_web_font_url', 'https://fonts.googleapis.com/css' ) . '?family=' . implode( '|', $import ) . '&display=block ' ) . ');';
 			}
 		}
 

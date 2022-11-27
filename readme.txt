@@ -106,6 +106,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.4 - 27 November 2022 =
+* Page Builder: Reset Vantage values for stretched padded rows.
+* Added `siteorigin_web_font_url` support.
+* Fonts: Changed to using SiteOrigin Settings fonts array.
+
 = 1.20.3 - 02 September 2022 =
 * Reverted previous `Page Builder Full Width Stretched Padded` display fix.
 
