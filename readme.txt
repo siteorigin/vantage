@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.5 - 10 December 2022 =
+* Updated SiteOrigin Settings.
+
 = 1.20.4 - 27 November 2022 =
 * Page Builder: Reset Vantage values for stretched padded rows.
 * Added `siteorigin_web_font_url` support.
