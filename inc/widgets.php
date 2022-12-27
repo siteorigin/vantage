@@ -489,3 +489,17 @@ function vantage_carousel_ajax_handler(){
 endif;
 add_action('wp_ajax_vantage_carousel_load', 'vantage_carousel_ajax_handler');
 add_action('wp_ajax_nopriv_vantage_carousel_load', 'vantage_carousel_ajax_handler');
+
+function vantage_lazy_load_exclude_header( $index ) {
+	if ( $index == 'sidebar-header' ) {
+		add_filter( 'siteorigin_widgets_image_lazy_load', '__return_false', 15 );
+	}
+}
+add_action( 'dynamic_sidebar_before', 'vantage_lazy_load_exclude_header' );
+
+function vantage_restore_lazy_load( $index ) {
+	if ( $index == 'sidebar-header' ) {
+		remove_filter( 'siteorigin_widgets_image_lazy_load', '__return_false', 15 );
+	}
+}
+add_action( 'dynamic_sidebar_after', 'vantage_restore_lazy_load' );
