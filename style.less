@@ -409,8 +409,8 @@ body {
 	}
 
 	.hgroup {
-		.clearfix();
-
+		display: flex;
+		justify-content: space-between;
 		position: relative;
 		padding-top: 45px;
 		padding-bottom: 45px;
@@ -459,13 +459,11 @@ body {
 		}
 
 		#header-sidebar {
+			align-self: center;
 			box-sizing: border-box;
 			height: 100%;
 			padding-top: 15px;
 			padding-bottom: 15px;
-			position: absolute;
-			right: 0;
-			top: 0;
 
 			aside.widget {
 				float: left;
@@ -657,6 +655,7 @@ body.sidebar-position-none #secondary {
 	body.responsive {
 		#masthead {
 			.hgroup {
+				display: block;
 				.logo img,
 				.custom-logo {
 					/* Scale down the logo if necessary */
