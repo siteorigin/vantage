@@ -713,6 +713,13 @@ body {
   margin: -10px 0 0;
   padding: 0 0 15px;
 }
+.sticky-menu #masthead.masthead-logo-in-menu img.alt-logo,
+#masthead.masthead-logo-in-menu img.alt-logo-scroll {
+  display: none;
+}
+.sticky-menu #masthead.masthead-logo-in-menu img.alt-logo-scroll {
+  display: block;
+}
 .layout-boxed #masthead.masthead-logo-in-menu .logo,
 .layout-boxed #masthead.masthead-logo-in-menu .site-description {
   margin-left: 25px;

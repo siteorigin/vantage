@@ -526,10 +526,10 @@ body {
 
 				height: auto;
 				max-width: 100%;
-			}
 
-			> img.logo-no-height-constrain {
-				max-height: none;
+				&.logo-no-height-constrain {
+					max-height: none;
+				}
 			}
 
 			> h1,
@@ -555,6 +555,15 @@ body {
 			padding: 0 0 15px;
 		}
 	}
+}
+
+.sticky-menu #masthead.masthead-logo-in-menu img.alt-logo,
+#masthead.masthead-logo-in-menu img.alt-logo-scroll {
+	display: none;
+}
+
+.sticky-menu #masthead.masthead-logo-in-menu img.alt-logo-scroll {
+	display: block;
 }
 
 .layout-boxed #masthead.masthead-logo-in-menu {
