@@ -278,22 +278,27 @@ jQuery ( function( $ ) {
 			if ( $( 'body' ).hasClass( 'admin-bar' ) ) {
 				threshold = $( '#wpadminbar' ).css( 'position' ) == 'absolute' ? 0 : $( '#wpadminbar' ).outerHeight();
 			}
-			var navTop = parseInt( $initTop - $(window).scrollTop() ); //Force truncation of float value.
-			if ( navTop < threshold ) {
+
+			var $body = $( 'body' );
+			var navTop = parseInt( $initTop - $( window ).scrollTop() ); //Force truncation of float value.
+			if ( window.scrollY > threshold ) {
 				$$.addClass( 'sticky' );
+				$$.css( 'top', threshold + 'px' );
 				$( 'body' ).addClass( 'sticky-menu' );
 				$( '#masthead' ).css( 'padding-bottom',  $$.innerHeight() );
 
 				if( isBoxedMega ) {
 					$$.width( boxedMegaWidth );
 				}
-			} else if( $$.hasClass( 'sticky' ) ) {
-				$( '#masthead' ).css( 'padding-bottom', 0 );
-				$$.removeClass( 'sticky' );
-				$('body').removeClass( 'sticky-menu' );
+			} else if ( $body.hasClass( 'sticky-menu' ) ) {
+				if ( window.scrollY < threshold ) {
+					$( '#masthead' ).css( 'padding-bottom', 0 );
+					$$.removeClass( 'sticky' );
+					$('body').removeClass( 'sticky-menu' );
 
-				if( isBoxedMega ) {
-					$$.width( 'auto' );
+					if( isBoxedMega ) {
+						$$.width( 'auto' );
+					}
 				}
 			}
 		};
