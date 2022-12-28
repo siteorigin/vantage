@@ -340,26 +340,6 @@ jQuery ( function( $ ) {
 	// Resize the header widget area.
 	$( '#header-sidebar' ).each( function() {
 		var $$ = $( this );
-		var padding = 0;
-		$$.find( '> aside' ).each( function() {
-			var thisPadding = ( $$.outerHeight() - $$.find( '> aside' ).outerHeight() ) / 2;
-			if ( thisPadding > padding ) {
-				padding = thisPadding;
-			}
-		} );
-
-		if ( padding > 15 ) {
-			$$.css( {
-				'padding-top' : padding,
-				'padding-bottom' : padding
-			} );
-		} else {
-			padding = -padding + 15;
-			$( '#masthead .logo > *' ).css( {
-				'padding-top' : padding,
-				'padding-bottom' : padding
-			} );
-		}
 
 		if ( $$.hasClass( 'no-logo-overlay' ) ) {
 			// This will prevent the widgets from overlaying the logo.

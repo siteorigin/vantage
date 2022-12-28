@@ -576,19 +576,11 @@ body {
   margin-left: 20px;
 }
 #masthead .hgroup {
-  zoom: 1;
+  display: flex;
+  justify-content: space-between;
   position: relative;
   padding-top: 45px;
   padding-bottom: 45px;
-}
-#masthead .hgroup:before {
-  content: '';
-  display: block;
-}
-#masthead .hgroup:after {
-  content: '';
-  display: table;
-  clear: both;
 }
 #masthead .hgroup a {
   text-decoration: none;
@@ -628,13 +620,11 @@ body {
   max-width: 50%;
 }
 #masthead .hgroup #header-sidebar {
+  align-self: center;
   box-sizing: border-box;
   height: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 #masthead .hgroup #header-sidebar aside.widget {
   float: left;
@@ -796,6 +786,9 @@ body.sidebar-position-none #secondary {
 /* =Responsive Layout
 ----------------------------------------------- */
 @media (max-width: 1080px) {
+  body.responsive #masthead .hgroup {
+    display: block;
+  }
   body.responsive #masthead .hgroup .logo img,
   body.responsive #masthead .hgroup .custom-logo {
     /* Scale down the logo if necessary */
