@@ -315,7 +315,7 @@ function siteorigin_customizer_sanitize_google_font($font){
 		'Verdana' => 'Verdana',
 	) );
 
-	$google_fonts = include( dirname(__FILE__).'/google-fonts.php' );
+	$google_fonts = include get_template_directory() . '/inc/settings/data/fonts.php';
 	$font_name_parts = explode( ':', $font, 2 );
 	$font_name = $font_name_parts[0];
 
