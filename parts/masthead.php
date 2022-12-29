@@ -9,14 +9,16 @@
 
 		<?php if ( ! is_active_sidebar( 'sidebar-masthead' ) ) : ?>
 
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo">
-				<?php vantage_display_logo(); ?>
-			</a>
-			<?php if ( siteorigin_setting( 'logo_site_description' ) ) : ?>
-				<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-			<?php endif;
+			<div class="logo-wrapper">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo">
+					<?php vantage_display_logo(); ?>
+				</a>
+				<?php if ( siteorigin_setting( 'logo_site_description' ) ) : ?>
+					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
+				<?php endif; ?>
+			</div>
 
-			if ( is_active_sidebar( 'sidebar-header' ) ) : ?>
+			<?php if ( is_active_sidebar( 'sidebar-header' ) ) : ?>
 
 				<div id="header-sidebar" <?php if ( siteorigin_setting( 'logo_no_widget_overlay' ) ) echo 'class="no-logo-overlay"' ?>>
 					<?php
