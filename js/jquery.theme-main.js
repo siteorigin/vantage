@@ -161,7 +161,7 @@ jQuery ( function( $ ) {
 		} );
 
 		var setNewPosition = function( newPosition ) {
-			if ( newPosition < 50 && newPosition >  -( itemWidth * numItems ) ) {
+			if ( newPosition < 50 && newPosition > -( itemWidth * numItems ) ) {
 				$$.css( 'transition-duration', "0s" );
 				$$.css( 'margin-left', newPosition + 'px' );
 				return true;
@@ -280,12 +280,12 @@ jQuery ( function( $ ) {
 			}
 
 			var $body = $( 'body' );
-			var navTop = parseInt( $initTop - $( window ).scrollTop() ); //Force truncation of float value.
+			var navTop = parseInt( $initTop - $( window ).scrollTop() ); // Force truncation of float value.
 			if ( window.scrollY > threshold ) {
 				$$.addClass( 'sticky' );
 				$$.css( 'top', threshold + 'px' );
 				$( 'body' ).addClass( 'sticky-menu' );
-				$( '#masthead' ).css( 'padding-bottom',  $$.innerHeight() );
+				$( '#masthead' ).css( 'padding-bottom', $$.innerHeight() );
 
 				if( isBoxedMega ) {
 					$$.width( boxedMegaWidth );
