@@ -623,8 +623,6 @@ body {
   align-self: center;
   box-sizing: border-box;
   height: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
 }
 #masthead .hgroup #header-sidebar aside.widget {
   float: left;
