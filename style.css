@@ -576,11 +576,13 @@ body {
   margin-left: 20px;
 }
 #masthead .hgroup {
-  display: flex;
-  justify-content: space-between;
   position: relative;
   padding-top: 45px;
   padding-bottom: 45px;
+}
+#masthead .hgroup:not(.masthead-sidebar) {
+  display: flex;
+  justify-content: space-between;
 }
 #masthead .hgroup a {
   text-decoration: none;

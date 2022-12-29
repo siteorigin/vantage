@@ -409,11 +409,14 @@ body {
 	}
 
 	.hgroup {
-		display: flex;
-		justify-content: space-between;
 		position: relative;
 		padding-top: 45px;
 		padding-bottom: 45px;
+		
+		&:not(.masthead-sidebar) {
+			display: flex;
+			justify-content: space-between;
+		}
 
 		a {
 			text-decoration: none;
