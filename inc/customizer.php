@@ -772,11 +772,12 @@ function vantage_customizer_callback_site_title_size($builder, $val, $setting){
  * @return SiteOrigin_Customizer_CSS_Builder
  */
 function vantage_customizer_callback_logo_center($builder, $val, $setting){
-	if( $val ) {
-		$builder->add_css('#masthead .hgroup .logo', 'text-align', 'center');
-		$builder->add_css('#masthead .hgroup .logo, #masthead .hgroup .site-logo-link', 'float', 'none');
-		$builder->add_css('#masthead .hgroup .logo img, #masthead .hgroup .site-logo-link img', 'display', 'block');
-		$builder->add_css('#masthead .hgroup .logo img, #masthead .hgroup .site-logo-link img', 'margin', '0 auto');
+	if ( $val ) {
+		$builder->add_css( '#masthead .hgroup .logo-wrapper', 'flex', 1 );
+		$builder->add_css( '#masthead .hgroup .logo', 'text-align', 'center' );
+		$builder->add_css( '#masthead .hgroup .logo, #masthead .hgroup .site-logo-link', 'float', 'none' );
+		$builder->add_css( '#masthead .hgroup .logo img, #masthead .hgroup .site-logo-link img', 'display', 'block' );
+		$builder->add_css( '#masthead .hgroup .logo img, #masthead .hgroup .site-logo-link img', 'margin', '0 auto' );
 	}
 	return $builder;
 }
