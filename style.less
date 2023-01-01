@@ -409,11 +409,14 @@ body {
 	}
 
 	.hgroup {
-		display: flex;
-		justify-content: space-between;
 		position: relative;
 		padding-top: 45px;
 		padding-bottom: 45px;
+		
+		&:not(.masthead-sidebar) {
+			display: flex;
+			justify-content: space-between;
+		}
 
 		a {
 			text-decoration: none;
@@ -448,13 +451,11 @@ body {
 		}
 
 		.support-text {
-			line-height: 1.2em;
-			position: absolute;
-			right: 0;
-			top: 50%;
-			margin-top: -0.6em;
+			align-self: center;
 			color: #4b4b4b;
 			font-style: italic;
+			line-height: 1.2em;
+			margin-top: -0.6em;
 			max-width: 50%;
 		}
 
@@ -462,8 +463,6 @@ body {
 			align-self: center;
 			box-sizing: border-box;
 			height: 100%;
-			padding-top: 15px;
-			padding-bottom: 15px;
 
 			aside.widget {
 				float: left;
