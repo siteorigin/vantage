@@ -838,6 +838,9 @@ body.sidebar-position-none #secondary {
   margin: 0 auto;
   float: none;
 }
+#masthead.force-responsive .hgroup #header-sidebar > .widget {
+  margin-bottom: 1.25em;
+}
 /* We consider 680px to be mobile resolution */
 @media (max-width: 680px) {
   body.responsive #masthead .hgroup {
@@ -872,6 +875,9 @@ body.sidebar-position-none #secondary {
     display: block;
     margin: 0 auto;
     float: none;
+  }
+  body.responsive #masthead .hgroup #header-sidebar > .widget {
+    margin-bottom: 1.25em;
   }
   body.responsive #primary,
   body.responsive #secondary {
