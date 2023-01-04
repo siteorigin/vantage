@@ -579,6 +579,16 @@ body {
   position: relative;
   padding-top: 45px;
   padding-bottom: 45px;
+  zoom: 1;
+}
+#masthead .hgroup:before {
+  content: '';
+  display: block;
+}
+#masthead .hgroup:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 #masthead .hgroup:not(.masthead-sidebar) {
   display: flex;
