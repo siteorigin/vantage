@@ -720,10 +720,18 @@ body.sidebar-position-none #secondary {
 			padding-bottom: 0 !important;
 			height: auto;
 
-			.widget{
+			.widget {
 				display: block;
 				margin: 0 auto;
 				float: none;
+			}
+
+			> .widget {
+				margin-bottom: 1.25em;
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
 			}
 		}
 	}
