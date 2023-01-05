@@ -412,7 +412,6 @@ body {
 		position: relative;
 		padding-top: 45px;
 		padding-bottom: 45px;
-		.clearfix();
 		
 		&:not(.masthead-sidebar) {
 			display: flex;
@@ -809,10 +808,11 @@ body.responsive {
 ----------------------------------------------- */
 	
 .main-navigation {
-	margin: 0 -35px;
 	background: #343538;
-	position: relative;
+	clear: both;
 	font-size: 0;
+	margin: 0 -35px;
+	position: relative;
 	z-index: 1499;
 
 	/* Font awesome icons */

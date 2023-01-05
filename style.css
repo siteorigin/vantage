@@ -579,16 +579,6 @@ body {
   position: relative;
   padding-top: 45px;
   padding-bottom: 45px;
-  zoom: 1;
-}
-#masthead .hgroup:before {
-  content: '';
-  display: block;
-}
-#masthead .hgroup:after {
-  content: '';
-  display: table;
-  clear: both;
 }
 #masthead .hgroup:not(.masthead-sidebar) {
   display: flex;
@@ -929,10 +919,11 @@ body.responsive.layout-full #page-wrapper .full-container {
 /* =Menu
 ----------------------------------------------- */
 .main-navigation {
-  margin: 0 -35px;
   background: #343538;
-  position: relative;
+  clear: both;
   font-size: 0;
+  margin: 0 -35px;
+  position: relative;
   z-index: 1499;
   /* Font awesome icons */
   /* General menu link styling */
