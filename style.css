@@ -784,9 +784,6 @@ body.sidebar-position-none #secondary {
 /* =Responsive Layout
 ----------------------------------------------- */
 @media (max-width: 1080px) {
-  body.responsive #masthead .hgroup {
-    display: block;
-  }
   body.responsive #masthead .hgroup .logo img,
   body.responsive #masthead .hgroup .custom-logo {
     /* Scale down the logo if necessary */
@@ -806,6 +803,7 @@ body.sidebar-position-none #secondary {
   }
 }
 #masthead.force-responsive .hgroup {
+  display: block;
   text-align: center;
 }
 #masthead.force-responsive .hgroup .logo {
@@ -841,6 +839,7 @@ body.sidebar-position-none #secondary {
 /* We consider 680px to be mobile resolution */
 @media (max-width: 680px) {
   body.responsive #masthead .hgroup {
+    display: block;
     text-align: center;
   }
   body.responsive #masthead .hgroup .logo {
