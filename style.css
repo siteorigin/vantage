@@ -579,16 +579,6 @@ body {
   position: relative;
   padding-top: 45px;
   padding-bottom: 45px;
-  zoom: 1;
-}
-#masthead .hgroup:before {
-  content: '';
-  display: block;
-}
-#masthead .hgroup:after {
-  content: '';
-  display: table;
-  clear: both;
 }
 #masthead .hgroup:not(.masthead-sidebar) {
   display: flex;
@@ -794,9 +784,6 @@ body.sidebar-position-none #secondary {
 /* =Responsive Layout
 ----------------------------------------------- */
 @media (max-width: 1080px) {
-  body.responsive #masthead .hgroup {
-    display: block;
-  }
   body.responsive #masthead .hgroup .logo img,
   body.responsive #masthead .hgroup .custom-logo {
     /* Scale down the logo if necessary */
@@ -816,6 +803,7 @@ body.sidebar-position-none #secondary {
   }
 }
 #masthead.force-responsive .hgroup {
+  display: block;
   text-align: center;
 }
 #masthead.force-responsive .hgroup .logo {
@@ -857,6 +845,7 @@ body.sidebar-position-none #secondary {
 /* We consider 680px to be mobile resolution */
 @media (max-width: 680px) {
   body.responsive #masthead .hgroup {
+    display: block;
     text-align: center;
   }
   body.responsive #masthead .hgroup .logo {
@@ -941,10 +930,11 @@ body.responsive.layout-full #page-wrapper .full-container {
 /* =Menu
 ----------------------------------------------- */
 .main-navigation {
-  margin: 0 -35px;
   background: #343538;
-  position: relative;
+  clear: both;
   font-size: 0;
+  margin: 0 -35px;
+  position: relative;
   z-index: 1499;
   /* Font awesome icons */
   /* General menu link styling */
