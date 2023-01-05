@@ -841,6 +841,9 @@ body.sidebar-position-none #secondary {
 #masthead.force-responsive .hgroup #header-sidebar > .widget {
   margin-bottom: 1.25em;
 }
+#masthead.force-responsive .hgroup #header-sidebar > .widget:last-of-type {
+  margin-bottom: 0;
+}
 /* We consider 680px to be mobile resolution */
 @media (max-width: 680px) {
   body.responsive #masthead .hgroup {
@@ -878,6 +881,9 @@ body.sidebar-position-none #secondary {
   }
   body.responsive #masthead .hgroup #header-sidebar > .widget {
     margin-bottom: 1.25em;
+  }
+  body.responsive #masthead .hgroup #header-sidebar > .widget:last-of-type {
+    margin-bottom: 0;
   }
   body.responsive #primary,
   body.responsive #secondary {
