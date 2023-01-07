@@ -90,38 +90,46 @@ endif;
 add_filter( 'wp_nav_menu', 'siteorigin_mobilenav_nav_filter', 10, 2 );
 add_filter( 'wp_page_menu', 'siteorigin_mobilenav_nav_filter', 10, 2 );
 
-if( !function_exists('siteorigin_mobilenav_nav_menu_css') ) :
-function siteorigin_mobilenav_nav_menu_css(){
-	$mobile_resolution = apply_filters('siteorigin_mobilenav_resolution', 480);
+if ( ! function_exists('siteorigin_mobilenav_nav_menu_css' ) ) :
+function siteorigin_mobilenav_nav_menu_css() {
+	$mobile_resolution = apply_filters( 'siteorigin_mobilenav_resolution', 480 );
 
-	if ( $mobile_resolution != 0 ) : ?>
+	if ( $mobile_resolution != 0 ) { ?>
+		asd
 		<style type="text/css">
 			.so-mobilenav-mobile + * { display: none; }
-			@media screen and (max-width: <?php echo intval($mobile_resolution) ?>px) { .so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; } .site-navigation #search-icon { display: none; } .has-menu-search .main-navigation ul { margin-right: 0 !important; } }
+			@media screen and (max-width: <?php echo intval( $mobile_resolution ); ?>px) { .so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; } .site-navigation #search-icon { display: none; } .has-menu-search .main-navigation ul { margin-right: 0 !important; }
+				<?php if ( class_exists( 'WooCommerce' ) && siteorigin_setting( 'woocommerce_mini_cart' ) ) { ?>
+					.site-header .shopping-cart { position: relative; }
+				<?php } ?>
+			}
 		</style>
-	<?php else : ?>
+	<?php } else { ?>
 		<style type="text/css">
 			.so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; }
 		</style>
-	<?php endif;
-	if ( is_customize_preview() && siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu' ) :
-		if ( has_nav_menu( 'primary' ) ) : ?>
+		<?php
+	}
+
+	if ( is_customize_preview() && siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu' ) {
+		if ( has_nav_menu( 'primary' ) ) { ?>
 			<style type="text/css">
-				@media screen and (max-width: <?php echo intval($mobile_resolution) ?>px) {
+				@media screen and (max-width: <?php echo intval( $mobile_resolution ); ?>px) {
 					.site-header div[data-customize-partial-type="nav_menu_instance"] { margin-right: 0; margin-left: auto; }
 				}
 			</style>
-		<?php else : ?>
+		<?php } else { ?>
 			<style type="text/css">
-				@media screen and (max-width: <?php echo intval($mobile_resolution) ?>px) {
+				@media screen and (max-width: <?php echo intval( $mobile_resolution ); ?>px) {
 					.site-header .mobile-nav-customize-wrapper { margin-right: 0; margin-left: auto; }
 				}
 			</style>
-		<?php endif;
-	endif;
+		<?php
+		}
+	}
 }
 endif;
-add_action('wp_head', 'siteorigin_mobilenav_nav_menu_css');
+add_action( 'wp_head', 'siteorigin_mobilenav_nav_menu_css' );
 
 if( !function_exists('siteorigin_mobilenav_body_class') ) :
 /**
