@@ -282,11 +282,10 @@ jQuery ( function( $ ) {
 			var navTop = parseInt( $initTop - $( window ).scrollTop() ); // Force truncation of float value.
 			if ( navTop < threshold ) {
 				$$.addClass( 'sticky' );
-				$$.css( 'top', threshold + 'px' );
 				$body.addClass( 'sticky-menu' );
-				$( '#masthead' ).css( 'padding-bottom', $$.innerHeight() );
+				$( '#masthead' ).css( 'padding-bottom', $$.innerHeight() + 'px' );
 
-				if( isBoxedMega ) {
+				if ( isBoxedMega ) {
 					$$.width( boxedMegaWidth );
 				}
 			} else if ( $body.hasClass( 'sticky-menu' ) ) {
