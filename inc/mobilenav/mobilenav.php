@@ -95,7 +95,6 @@ function siteorigin_mobilenav_nav_menu_css() {
 	$mobile_resolution = apply_filters( 'siteorigin_mobilenav_resolution', 480 );
 
 	if ( $mobile_resolution != 0 ) { ?>
-		asd
 		<style type="text/css">
 			.so-mobilenav-mobile + * { display: none; }
 			@media screen and (max-width: <?php echo intval( $mobile_resolution ); ?>px) { .so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; } .site-navigation #search-icon { display: none; } .has-menu-search .main-navigation ul { margin-right: 0 !important; }
