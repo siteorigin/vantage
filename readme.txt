@@ -106,6 +106,12 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.7 - 21 January 2023 =
+* Header: Added spacing after widgets on mobile.
+* Header: Improved Flexbox responsive behaviour.
+* Header: Collapsed Header Widget Area on mobile rather than tablet.
+* WooCommerce: Resolved `Logo in Menu` mini-cart and mobile menu overlap on mobile.
+
 = 1.20.6 - 01 January 2023 =
 * Header: Replaced JavaScript center alignment with Flexbox.
 * Header Widget Area: Excluded SiteOrigin Image Widgets from Lazy Loading.
