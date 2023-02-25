@@ -161,7 +161,7 @@ jQuery ( function( $ ) {
 		} );
 
 		var setNewPosition = function( newPosition ) {
-			if ( newPosition < 50 && newPosition >  -( itemWidth * numItems ) ) {
+			if ( newPosition < 50 && newPosition > -( itemWidth * numItems ) ) {
 				$$.css( 'transition-duration', "0s" );
 				$$.css( 'margin-left', newPosition + 'px' );
 				return true;
@@ -275,24 +275,25 @@ jQuery ( function( $ ) {
 				boxedMegaWidth = $$.width();
 			}
 			var threshold = 0;
-			if ( $( 'body' ).hasClass( 'admin-bar' ) ) {
+			var $body = $( 'body' );
+			if ( $body.hasClass( 'admin-bar' ) ) {
 				threshold = $( '#wpadminbar' ).css( 'position' ) == 'absolute' ? 0 : $( '#wpadminbar' ).outerHeight();
 			}
-			var navTop = parseInt( $initTop - $(window).scrollTop() ); //Force truncation of float value.
+			var navTop = parseInt( $initTop - $( window ).scrollTop() ); // Force truncation of float value.
 			if ( navTop < threshold ) {
 				$$.addClass( 'sticky' );
-				$( 'body' ).addClass( 'sticky-menu' );
-				$( '#masthead' ).css( 'padding-bottom',  $$.innerHeight() );
+				$body.addClass( 'sticky-menu' );
+				$( '#masthead' ).css( 'padding-bottom', $$.innerHeight() + 'px' );
 
-				if( isBoxedMega ) {
+				if ( isBoxedMega ) {
 					$$.width( boxedMegaWidth );
 				}
-			} else if( $$.hasClass( 'sticky' ) ) {
+			} else if ( $body.hasClass( 'sticky-menu' ) ) {
 				$( '#masthead' ).css( 'padding-bottom', 0 );
 				$$.removeClass( 'sticky' );
-				$('body').removeClass( 'sticky-menu' );
+				$body.removeClass( 'sticky-menu' );
 
-				if( isBoxedMega ) {
+				if ( isBoxedMega ) {
 					$$.width( 'auto' );
 				}
 			}
