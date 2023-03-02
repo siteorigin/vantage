@@ -179,6 +179,9 @@ function vantage_premium_setup() {
 		'enabled' => siteorigin_setting( 'social_ajax_comments' ),
 		'siteorigin_setting' => 'social_ajax_comments'
 	) );
+
+	// Logo Booster.
+	add_theme_support( 'siteorigin-premium-logo-booster' );
 }
 endif;
 add_action( 'after_setup_theme', 'vantage_premium_setup' );
