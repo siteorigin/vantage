@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.8 - 02 March 2023 =
+* Added compatibility for the SiteOrigin Premium Logo Booster Addon.
+
 = 1.20.7 - 21 January 2023 =
 * Header: Added spacing after widgets on mobile.
 * Header: Improved Flexbox responsive behaviour.
