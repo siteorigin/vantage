@@ -2,10 +2,10 @@
 /**
  * Part Name: Default Menu
  */
-
 $ubermenu_active = function_exists( 'ubermenu' );
 $max_mega_menu_active = function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( 'primary' );
 $nav_classes = array( 'site-navigation' );
+
 if ( ! $ubermenu_active && ! $max_mega_menu_active ) {
 	$nav_classes[] = 'main-navigation';
 }
@@ -21,35 +21,35 @@ if ( siteorigin_setting( 'navigation_mobile_navigation' ) ) {
 $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 ?>
 
-<nav class="<?php echo implode( ' ', $nav_classes) ?>">
+<nav class="<?php echo implode( ' ', $nav_classes ); ?>">
 
 	<div class="full-container">
 		<?php do_action( 'vantage_before_nav' ); ?>
-		<?php if ( $logo_in_menu ) : ?>
+		<?php if ( $logo_in_menu ) { ?>
 			<div class="logo-in-menu-wrapper">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php vantage_display_logo(); ?></a>
-				<?php if ( siteorigin_setting( 'logo_site_description' ) ) : ?>
+				<?php if ( siteorigin_setting( 'logo_site_description' ) ) { ?>
 					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-				<?php endif; ?>
+				<?php } ?>
 			</div>
-		<?php endif; ?>
+		<?php } ?>
 
-		<?php if ( $ubermenu_active ): ?>
-			<?php ubermenu( 'main' , array( 'theme_location' => 'primary' ) ); ?>
-		<?php else : ?>
+		<?php if ( $ubermenu_active ) { ?>
+			<?php ubermenu( 'main', array( 'theme_location' => 'primary' ) ); ?>
+		<?php } else { ?>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'link_before' => '<span class="icon"></span>' ) ); ?>
-		<?php endif; ?>
+		<?php } ?>
 
-		<?php if ( siteorigin_setting ( 'woocommerce_mini_cart' ) && vantage_is_woocommerce_active() ) : ?>
+		<?php if ( siteorigin_setting( 'woocommerce_mini_cart' ) && vantage_is_woocommerce_active() ) { ?>
 			<?php vantage_woocommerce_mini_cart(); ?>
-		<?php endif; ?>
+		<?php } ?>
 
-		<?php if ( siteorigin_setting('navigation_menu_search') && ! $max_mega_menu_active ) : ?>
+		<?php if ( siteorigin_setting( 'navigation_menu_search' ) && ! $max_mega_menu_active ) { ?>
 			<div id="search-icon">
 				<div id="search-icon-icon" tabindex="0" aria-label="<?php _e( 'Open the search', 'vantage' ); ?>"><?php echo vantage_display_icon( 'search' ); ?></div>
 				<?php get_search_form(); ?>
 			</div>
-		<?php endif; ?>
+		<?php } ?>
 		<?php do_action( 'vantage_after_nav' ); ?>
 	</div>
 </nav><!-- .site-navigation .main-navigation -->

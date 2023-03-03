@@ -2,8 +2,8 @@
 /**
  * The template used for displaying page content in page.php
  *
- * @package vantage
  * @since vantage 1.0
+ *
  * @license GPL 2.0
  */
 ?>
@@ -14,16 +14,16 @@
 
 		<?php do_action( 'vantage_entry_main_top' ); ?>
 
-		<?php if ( ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) || ( has_post_thumbnail() && siteorigin_page_setting( 'featured_image' ) ) ) : ?>
+		<?php if ( ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) || ( has_post_thumbnail() && siteorigin_page_setting( 'featured_image' ) ) ) { ?>
 			<header class="entry-header">
-				<?php if ( has_post_thumbnail() && siteorigin_page_setting( 'featured_image' ) ) : ?>
+				<?php if ( has_post_thumbnail() && siteorigin_page_setting( 'featured_image' ) ) { ?>
 					<div class="entry-thumbnail"><?php vantage_entry_thumbnail(); ?></div>
-				<?php endif; ?>
-				<?php if ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) : ?>
+				<?php } ?>
+				<?php if ( the_title( '', '', false ) && siteorigin_page_setting( 'page_title' ) ) { ?>
 					<h1 class="entry-title"><?php the_title(); ?></h1>
-				<?php endif; ?>
+				<?php } ?>
 			</header><!-- .entry-header -->
-		<?php endif; ?>
+		<?php } ?>
 
 		<div class="entry-content">
 			<?php the_content(); ?>

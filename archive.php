@@ -4,36 +4,40 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package vantage
  * @since vantage 1.0
+ *
  * @license GPL 2.0
  */
-
 get_header(); ?>
 
 <section id="primary" class="content-area">
 	<div id="content" class="site-content" role="main">
 
 		<header class="page-header">
-			<h1 id="page-title"><?php if ( siteorigin_page_setting( 'page_title' ) ) { echo vantage_get_archive_title(); } ?></h1>
+			<h1 id="page-title"><?php if ( siteorigin_page_setting( 'page_title' ) ) {
+				echo vantage_get_archive_title();
+			} ?></h1>
 			<?php
 			if ( is_category() ) {
 				// Show an optional category description.
 				$category_description = category_description();
-				if ( ! empty( $category_description ) )
-					echo apply_filters( 'vantage_category_archive_meta', '<div class="taxonomy-description">' . $category_description . '</div>' );
 
-			}
-			elseif ( is_tag() ) {
+				if ( ! empty( $category_description ) ) {
+					echo apply_filters( 'vantage_category_archive_meta', '<div class="taxonomy-description">' . $category_description . '</div>' );
+				}
+			} elseif ( is_tag() ) {
 				// Show an optional tag description.
 				$tag_description = tag_description();
-				if ( ! empty( $tag_description ) )
+
+				if ( ! empty( $tag_description ) ) {
 					echo apply_filters( 'vantage_tag_archive_meta', '<div class="taxonomy-description">' . $tag_description . '</div>' );
-			}
-			else {
+				}
+			} else {
 				$description = term_description();
-				if ( ! empty( $description ) )
+
+				if ( ! empty( $description ) ) {
 					echo apply_filters( 'vantage_taxonomy_archive_meta', '<div class="taxonomy-description">' . $description . '</div>' );
+				}
 			}
 			?>
 		</header><!-- .page-header -->

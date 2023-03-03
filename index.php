@@ -8,18 +8,17 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package vantage
  * @since vantage 1.0
+ *
  * @license GPL 2.0
  */
-
 get_header(); ?>
 
 <div id="primary" class="content-area">
 
 	<div id="content" class="site-content" role="main">
 
-		<?php get_template_part( 'loops/loop', siteorigin_setting( 'blog_archive_layout' ) ) ?>
+		<?php get_template_part( 'loops/loop', siteorigin_setting( 'blog_archive_layout' ) ); ?>
 
 	</div><!-- #content .site-content -->
 
