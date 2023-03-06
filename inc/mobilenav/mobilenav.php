@@ -72,7 +72,7 @@ function siteorigin_mobilenav_nav_filter( $nav_menu, $args ) {
 
 	$wrap_class = $args->menu_class ? $args->menu_class : '';
 	$wrap_id = 'mobile-nav-item-wrap-'.$mobile_nav_id;
-	$items = '<li><a href="#" class="mobilenav-main-link" data-id="'.$mobile_nav_id.'">'. vantage_display_icon('mobile-menu') .$text['navigate'].'</a></li>';
+	$items = '<li><a href="#" class="mobilenav-main-link" data-id="' . $mobile_nav_id . '">'. vantage_display_icon( 'mobile-menu' ) . '<span class="mobilenav-main-link-text">' . $text['navigate'] . '</span></a></li>';
 
 	$nav_menu .= sprintf( $args->items_wrap, esc_attr( $wrap_id ), esc_attr( $wrap_class ), $items );
 
