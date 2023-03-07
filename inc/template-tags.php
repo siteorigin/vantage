@@ -265,52 +265,56 @@ if ( ! function_exists( 'vantage_display_logo' ) ) {
 				list( $src, $height, $width ) = $logo;
 			} else {
 				$image = wp_get_attachment_image_src( $logo, 'full' );
-				$src = $image[0];
-				$height = $image[2];
-				$width = $image[1];
+				if ( ! empty( $image ) ) {
+					$src = $image[0];
+					$height = $image[2];
+					$width = $image[1];
+				}
+			}
+
+			if ( ! empty( $src ) ) {
 				$alt = get_post_meta( $logo, '_wp_attachment_image_alt', true );
-			}
 
-			// Add all the logo attributes.
-			$logo_attributes = apply_filters( 'vantage_logo_image_attributes', array(
-				'src' => $src,
-				'class' => siteorigin_setting( 'logo_in_menu_constrain' ) ? 'logo-height-constrain' : 'logo-no-height-constrain',
-				'width' => round( $width ),
-				'height' => round( $height ),
-				'alt' => ! empty( $alt ) ? $alt : sprintf( __( '%s Logo', 'vantage' ), get_bloginfo( 'name' ) ),
-			) );
+				// Add all the logo attributes.
+				$logo_attributes = apply_filters( 'vantage_logo_image_attributes', array(
+					'src' => $src,
+					'class' => siteorigin_setting( 'logo_in_menu_constrain' ) ? 'logo-height-constrain' : 'logo-no-height-constrain',
+					'width' => round( $width ),
+					'height' => round( $height ),
+					'alt' => ! empty( $alt ) ? $alt : sprintf( __( '%s Logo', 'vantage' ), get_bloginfo( 'name' ) ),
+				) );
 
-			// Try adding the retina logo.
-			$retina_logo = siteorigin_setting( 'logo_image_retina' );
+				$logo_attributes = apply_filters( 'vantage_logo_image_attributes', $logo_attributes );
 
-			if ( ! empty( $retina_logo ) ) {
-				$retina_logo = apply_filters( 'vantage_logo_retina_image_id', $retina_logo );
-				$retina_logo_image = wp_get_attachment_image_src( $retina_logo, 'full' );
-
-				if ( ! empty( $retina_logo_image[0] ) ) {
-					$logo_attributes['srcset'] = $retina_logo_image[0] . ' 2x';
-				}
-			}
-
-			if ( $logo_attributes['width'] > vantage_get_site_width() ) {
-				// Don't let the width be more than the site width.
-				$width = vantage_get_site_width();
-				$logo_attributes['height'] = round( $logo_attributes['height'] / ( $logo_attributes['width'] / $width ) );
-				$logo_attributes['width'] = $width;
-			}
-
-			$logo_attributes_str = array();
-
-			if ( ! empty( $logo_attributes ) ) {
-				foreach ( $logo_attributes as $name => $val ) {
-					if ( empty( $val ) ) {
-						continue;
+				// Try adding the retina logo.
+				$retina_logo = siteorigin_setting( 'logo_image_retina' );
+				if ( ! empty( $retina_logo ) ) {
+					$retina_logo = apply_filters( 'vantage_logo_retina_image_id', $retina_logo );
+					$retina_logo_image = wp_get_attachment_image_src( $retina_logo, 'full' );
+					if ( ! empty( $retina_logo_image[0] ) ) {
+						$logo_attributes['srcset'] = $retina_logo_image[0] . ' 2x';
 					}
-					$logo_attributes_str[] = $name . '="' . esc_attr( $val ) . '" ';
+				}
+
+				if ( $logo_attributes['width'] > vantage_get_site_width() ) {
+					// Don't let the width be more than the site width.
+					$width = vantage_get_site_width();
+					$logo_attributes['height'] = round( $logo_attributes['height'] / ( $logo_attributes['width'] / $width ) );
+					$logo_attributes['width'] = $width;
+				}
+
+				$logo_attributes_str = array();
+				if ( ! empty( $logo_attributes ) ) {
+					foreach( $logo_attributes as $name => $val ) {
+						if ( empty( $val ) ) continue;
+						$logo_attributes_str[] = $name.'="' . esc_attr( $val ) . '" ';
+					}
 				}
 			}
 
-			$logo_html = apply_filters( 'vantage_logo_image', '<img ' . implode( ' ', $logo_attributes_str ) . ' />' );
+			$logo_html = apply_filters( 'vantage_logo_image',
+				! empty( $logo_attributes_str ) ? '<img ' . implode( ' ', $logo_attributes_str ) . ' />' : ''
+			);
 		}
 
 		// Echo the image.
