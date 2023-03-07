@@ -39,23 +39,23 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 
 		$icon_styles = array();
 
-		if ( !empty( $instance['image'] ) ) {
+		if ( ! empty( $instance['image'] ) ) {
 			$icon_styles[] = 'background-image: url(' . esc_url( $instance['image'] ) . ')';
 		}
 
-		if ( !empty( $instance['icon_background_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_background_color'] ) ) {
+		if ( ! empty( $instance['icon_background_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_background_color'] ) ) {
 			$icon_styles[] = 'background-color: ' . $instance['icon_background_color'];
 		}
 
-		if ( !empty( $instance['title_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['title_color'] ) ) {
+		if ( ! empty( $instance['title_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['title_color'] ) ) {
 			$title_color = 'color: ' . $instance['title_color'];
 		}
 
-		if ( !empty( $instance['text_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['text_color'] ) ) {
+		if ( ! empty( $instance['text_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['text_color'] ) ) {
 			$text_color = 'color: ' . $instance['text_color'];
 		}
 
-		if ( !empty( $instance['icon_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_color'] ) ) {
+		if ( ! empty( $instance['icon_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_color'] ) ) {
 			$icon_color = 'style="color: ' . $instance['icon_color'] . '"';
 		}
 
@@ -67,14 +67,14 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 
 		$icon_styles = ! empty( $icon_styles ) ? 'style="' . implode( ';', $icon_styles ) . '"' : '';
 		$icon_class = ! empty( $icon_styles ) ? ' icon-style-set' : '';
-		$target = ( !empty( $instance['more_target'] ) ? 'target="_blank"' : '' );
+		$target = ( ! empty( $instance['more_target'] ) ? 'target="_blank"' : '' );
 		?>
 		<div class="circle-icon-box circle-icon-position-<?php echo esc_attr( $instance['icon_position'] ); ?> <?php echo empty( $instance['box'] ) ? 'circle-icon-hide-box' : 'circle-icon-show-box'; ?> circle-icon-size-<?php echo $instance['icon_size']; ?> <?php if ( siteorigin_setting( 'blog_featured_image_type' ) == 'none' ) {
 			echo 'no-archive-featured-image';
 		} ?>">
 			<?php if ( ! empty( $instance['in_post_loop'] ) ) { ?>
 				<div class="circle-icon-wrapper">
-					<?php if ( !empty( $instance['more_url'] ) && !empty( $instance['all_linkable'] ) ) { ?>
+					<?php if ( ! empty( $instance['more_url'] ) && ! empty( $instance['all_linkable'] ) ) { ?>
 					<a href="<?php echo esc_url( $instance['more_url'] ); ?>" class="link-icon" <?php echo $target; ?>><?php } ?>
 					<div class="circle-icon<?php echo esc_attr( $icon_class ); ?>" <?php echo $icon_styles; ?>>
 						<?php if ( ! empty( $icon ) ) { ?>
@@ -82,7 +82,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 							esc_attr( $icon_class ); ?>" <?php echo ! empty( $icon_color ) ? $icon_color : ''; ?>></div>
 						<?php } ?>
 					</div> 
-					<?php if ( !empty( $instance['more_url'] ) && !empty( $instance['all_linkable'] ) ) { ?></a><?php } ?>
+					<?php if ( ! empty( $instance['more_url'] ) && ! empty( $instance['all_linkable'] ) ) { ?></a><?php } ?>
 				</div>
 			<?php } ?>
 
@@ -101,8 +101,8 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<?php if ( ! empty( $instance['text'] ) ) { ?>
 				<p class="text" <?php echo ! empty( $text_color ) ? 'style="' . $text_color . '"' : ''; ?>><?php echo wp_kses_post( $instance['text'] ); ?></p>
 			<?php } ?>
-			<?php if ( !empty( $instance['more_url'] ) ) { ?>
-				<a href="<?php echo esc_url( $instance['more_url'] ); ?>" class="more-button" <?php echo $target; ?>><?php echo !empty( $instance['more'] ) ? esc_html( $instance['more'] ) : __( 'More Info', 'vantage' ); ?> <i></i></a>
+			<?php if ( ! empty( $instance['more_url'] ) ) { ?>
+				<a href="<?php echo esc_url( $instance['more_url'] ); ?>" class="more-button" <?php echo $target; ?>><?php echo ! empty( $instance['more'] ) ? esc_html( $instance['more'] ) : __( 'More Info', 'vantage' ); ?> <i></i></a>
 			<?php } ?>
 		</div>
 		<?php
@@ -175,9 +175,9 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'icon' ); ?>"><?php _e( 'Icon', 'vantage' ); ?></label><br>
 			<select id="<?php echo $this->get_field_id( 'icon' ); ?>" name="<?php echo $this->get_field_name( 'icon' ); ?>">
-				<option value="" <?php selected( !empty( $instance['icon'] ) ); ?>><?php esc_html_e( 'None', 'vantage' ); ?></option>
+				<option value="" <?php selected( ! empty( $instance['icon'] ) ); ?>><?php esc_html_e( 'None', 'vantage' ); ?></option>
 				<?php foreach ( $icons as $section => $s_icons ) { ?>
-					<?php if ( isset( $sections[$section] ) ) { ?><optgroup label="<?php echo esc_attr( $sections[$section] ); ?>"><?php } ?>
+					<?php if ( isset( $sections[ $section ] ) ) { ?><optgroup label="<?php echo esc_attr( $sections[ $section ] ); ?>"><?php } ?>
 						<?php foreach ( $s_icons as $icon ) { ?>
 							<option value="<?php echo esc_attr( $icon ); ?>" <?php selected( $instance['icon'], $icon ); ?>><?php echo esc_html( vantage_icon_get_name( $icon ) ); ?></option>
 						<?php } ?>
@@ -255,9 +255,9 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 	}
 
 	public function update( $new_instance, $old_instance ) {
-		$new_instance['box'] = !empty( $new_instance['box'] );
-		$new_instance['all_linkable'] = !empty( $new_instance['all_linkable'] );
-		$new_instance['more_target'] = !empty( $new_instance['more_target'] );
+		$new_instance['box'] = ! empty( $new_instance['box'] );
+		$new_instance['all_linkable'] = ! empty( $new_instance['all_linkable'] );
+		$new_instance['more_target'] = ! empty( $new_instance['more_target'] );
 
 		return $new_instance;
 	}
@@ -359,16 +359,16 @@ class Vantage_Social_Media_Widget extends WP_Widget {
 		// outputs the content of the widget
 		echo $args['before_widget'];
 
-		if ( !empty( $instance['title'] ) ) {
+		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . $instance['title'] . $args['after_title'];
 		}
 
 		foreach ( $this->networks as $id => $name ) {
-			if ( !empty( $instance[$id] ) ) {
-				$instance[$id] = ( $id == 'envelope' && filter_var( $instance[$id], FILTER_VALIDATE_EMAIL ) ? 'mailto:' . $instance[$id] : $instance[$id] );
-				$instance[$id] = ( $id == 'phone' && !filter_var( $instance[$id], FILTER_VALIDATE_URL ) && strpos( $instance[$id], 'tel:' ) === false && strpos( $instance[$id], 'sms:' ) === false ? 'tel:' . $instance[$id] : $instance[$id] );
-				$instance[$id] = ( $id == 'skype' && strpos( $instance[$id], 'skype:' ) === false && strpos( $instance[$id], 'callto:' ) === false ? 'skype:' . $instance[$id] : $instance[$id] );
-				?><a class="social-media-icon social-media-icon-<?php echo $id; ?> social-media-icon-size-<?php echo esc_attr( $instance['size'] ); ?>" href="<?php echo esc_url( $instance[$id], array( 'http', 'https', 'mailto', 'skype', 'callto', 'tel', 'sms' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) . ' ' . $name ); ?>" <?php if ( !empty( $instance['new_window'] ) ) {
+			if ( ! empty( $instance[ $id ] ) ) {
+				$instance[ $id ] = ( $id == 'envelope' && filter_var( $instance[ $id ], FILTER_VALIDATE_EMAIL ) ? 'mailto:' . $instance[ $id ] : $instance[ $id ] );
+				$instance[ $id ] = ( $id == 'phone' && ! filter_var( $instance[ $id ], FILTER_VALIDATE_URL ) && strpos( $instance[ $id ], 'tel:' ) === false && strpos( $instance[ $id ], 'sms:' ) === false ? 'tel:' . $instance[ $id ] : $instance[ $id ] );
+				$instance[ $id ] = ( $id == 'skype' && strpos( $instance[ $id ], 'skype:' ) === false && strpos( $instance[ $id ], 'callto:' ) === false ? 'skype:' . $instance[ $id ] : $instance[ $id ] );
+				?><a class="social-media-icon social-media-icon-<?php echo $id; ?> social-media-icon-size-<?php echo esc_attr( $instance['size'] ); ?>" href="<?php echo esc_url( $instance[ $id ], array( 'http', 'https', 'mailto', 'skype', 'callto', 'tel', 'sms' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) . ' ' . $name ); ?>" <?php if ( ! empty( $instance['new_window'] ) ) {
 					echo 'target="_blank"';
 				} ?>><?php
 
@@ -415,7 +415,7 @@ class Vantage_Social_Media_Widget extends WP_Widget {
 			?>
 			<p>
 				<label for="<?php echo $this->get_field_id( $id ); ?>"><?php echo $name; ?></label>
-				<input type="text" id="<?php echo $this->get_field_id( $id ); ?>" name="<?php echo $this->get_field_name( $id ); ?>" value="<?php echo esc_attr( !empty( $instance[$id] ) ? $instance[$id] : '' ); ?>" class="widefat"/>
+				<input type="text" id="<?php echo $this->get_field_id( $id ); ?>" name="<?php echo $this->get_field_name( $id ); ?>" value="<?php echo esc_attr( ! empty( $instance[ $id ] ) ? $instance[ $id ] : '' ); ?>" class="widefat"/>
 			</p>
 			<?php
 		}
@@ -429,7 +429,7 @@ class Vantage_Social_Media_Widget extends WP_Widget {
 	}
 
 	public function update( $new_instance, $old_instance ) {
-		$new_instance['new_window'] = !empty( $new_instance['new_window'] );
+		$new_instance['new_window'] = ! empty( $new_instance['new_window'] );
 
 		return $new_instance;
 	}

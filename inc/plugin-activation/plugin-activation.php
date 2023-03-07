@@ -2,7 +2,7 @@
 
 if ( ! function_exists( 'siteorigin_plugin_activation_page' ) ) {
 	function siteorigin_plugin_activation_page() {
-		if ( !isset( $_GET[sanitize_key( 'siteorigin-pa-install' )] ) ) {
+		if ( ! isset( $_GET[sanitize_key( 'siteorigin-pa-install' )] ) ) {
 			return;
 		}
 
@@ -42,7 +42,7 @@ if ( ! function_exists( 'siteorigin_plugin_activation_do_plugin_install' ) ) {
 			$plugin['name'] = $_GET['plugin_name']; // Plugin name
 			$plugin['slug'] = $_GET['plugin']; // Plugin slug
 
-			if ( !empty( $_GET['plugin_source'] ) ) {
+			if ( ! empty( $_GET['plugin_source'] ) ) {
 				$plugin['source'] = urlencode( $_GET['plugin_source'] );
 			} else {
 				$plugin['source'] = false;
@@ -89,7 +89,7 @@ if ( ! function_exists( 'siteorigin_plugin_activation_do_plugin_install' ) ) {
 			$nonce = 'install-plugin_' . $plugin['slug'];
 
 			// Find the source of the plugin
-			$source = !empty( $plugin['source'] ) ? $plugin['source'] : 'http://downloads.wordpress.org/plugin/' . urlencode( $plugin['slug'] ) . '.zip';
+			$source = ! empty( $plugin['source'] ) ? $plugin['source'] : 'http://downloads.wordpress.org/plugin/' . urlencode( $plugin['slug'] ) . '.zip';
 
 			/** Create a new instance of Plugin_Upgrader */
 			$upgrader = new Plugin_Upgrader( $skin = new Plugin_Installer_Skin( compact( 'type', 'title', 'url', 'nonce', 'plugin', 'api' ) ) );

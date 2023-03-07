@@ -182,7 +182,7 @@ add_action( 'save_post', 'vantage_panels_save_post', 5, 2 );
 if ( ! function_exists( 'vantage_panels_row_style_fields' ) ) {
 	function vantage_panels_row_style_fields( $fields ) {
 		if (
-			( !empty( $_REQUEST['postId'] ) && get_post_meta( intval( $_REQUEST['postId'] ), 'vantage_panels_no_legacy', true ) === 'true' ) ||
+			( ! empty( $_REQUEST['postId'] ) && get_post_meta( intval( $_REQUEST['postId'] ), 'vantage_panels_no_legacy', true ) === 'true' ) ||
 			( get_the_ID() && get_post_meta( get_the_ID(), 'vantage_panels_no_legacy', true ) === 'true' )
 		) {
 			return $fields;

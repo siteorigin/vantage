@@ -433,8 +433,8 @@ if ( ! function_exists( 'vantage_blog_layout_options' ) ) {
 
 			preg_match( '/loop\-(.*?)\.php/', basename( $template ), $matches );
 
-			if ( !empty( $matches[1] ) ) {
-				$layouts[$matches[1]] = $headers['loop_name'];
+			if ( ! empty( $matches[1] ) ) {
+				$layouts[ $matches[1] ] = $headers['loop_name'];
 			}
 		}
 
@@ -443,7 +443,7 @@ if ( ! function_exists( 'vantage_blog_layout_options' ) ) {
 		);
 
 		foreach ( $exclude as $e ) {
-			unset( $layouts[$e] );
+			unset( $layouts[ $e ] );
 		}
 
 		return $layouts;

@@ -79,9 +79,9 @@ if ( !function_exists( 'vantage_gallery' ) ) {
 			$attachments = array();
 
 			foreach ( $_attachments as $key => $val ) {
-				$attachments[$val->ID] = $_attachments[$key];
+				$attachments[ $val->ID ] = $_attachments[ $key ];
 			}
-		} elseif ( !empty( $exclude ) ) {
+		} elseif ( ! empty( $exclude ) ) {
 			$exclude = preg_replace( '/[^0-9,]+/', '', $exclude );
 			$attachments = get_children( array( 'post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby ) );
 		} else {

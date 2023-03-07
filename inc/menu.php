@@ -61,7 +61,7 @@ if ( ! function_exists( 'vantage_menu_icon_metabox_render' ) ) {
 		<select name="vantage_menu_icon">
 			<option value="" <?php selected( $current ); ?>><?php esc_html_e( 'None', 'vantage' ); ?></option>
 			<?php foreach ( $icons as $section => $s_icons ) { ?>
-				<?php if ( isset( $sections[$section] ) ) { ?><optgroup label="<?php echo esc_attr( $sections[$section] ); ?>"><?php } ?>
+				<?php if ( isset( $sections[ $section ] ) ) { ?><optgroup label="<?php echo esc_attr( $sections[ $section ] ); ?>"><?php } ?>
 					<?php foreach ( $s_icons as $icon ) { ?>
 						<option value="<?php echo esc_attr( $icon ); ?>" <?php selected( $current, $icon ); ?>><?php echo esc_html( vantage_icon_get_name( $icon ) ); ?></option>
 					<?php } ?>

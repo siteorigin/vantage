@@ -98,7 +98,7 @@ if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 				}
 				$import = array_unique( $import );
 
-				if ( !empty( $import ) ) {
+				if ( ! empty( $import ) ) {
 					$return .= '@import url(' . esc_url( apply_filters( 'siteorigin_web_font_url', 'https://fonts.googleapis.com/css' ) . '?family=' . implode( '|', $import ) . '&display=block ' ) . ');';
 				}
 			}
@@ -107,7 +107,7 @@ if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 				$return .= $selector . ' { ' . implode( '; ', $rules ) . ' } ';
 			}
 
-			if ( !empty( $this->raw_css ) ) {
+			if ( ! empty( $this->raw_css ) ) {
 				$return .= $this->raw_css;
 			}
 
@@ -174,7 +174,7 @@ if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 		public function add_web_font( $selector, $mod ) {
 			$font = get_theme_mod( $mod );
 
-			if ( empty( $font ) || empty( $this->defaults[$mod] ) || $font == $this->defaults[$mod] ) {
+			if ( empty( $font ) || empty( $this->defaults[ $mod ] ) || $font == $this->defaults[ $mod ] ) {
 				return;
 			}
 
@@ -217,7 +217,7 @@ if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 		public function add_color( $selector, $property, $mod ) {
 			$color = get_theme_mod( $mod );
 
-			if ( empty( $color ) || empty( $this->defaults[$mod] ) || $color == $this->defaults[$mod] ) {
+			if ( empty( $color ) || empty( $this->defaults[ $mod ] ) || $color == $this->defaults[ $mod ] ) {
 				return;
 			}
 
@@ -230,7 +230,7 @@ if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 		public function add_image( $selector, $property, $mod ) {
 			$image = get_theme_mod( $mod );
 
-			if ( !empty( $image ) ) {
+			if ( ! empty( $image ) ) {
 				$this->add_css( $selector, $property, 'url("' . esc_url( $image ) . '")' );
 			}
 		}
@@ -244,7 +244,7 @@ if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 			$value = get_theme_mod( $mod );
 			$measurement = floatval( $value );
 
-			if ( !is_float( $value ) || empty( $this->defaults[$mod] ) || $measurement == $this->defaults[$mod] ) {
+			if ( ! is_float( $value ) || empty( $this->defaults[ $mod ] ) || $measurement == $this->defaults[ $mod ] ) {
 				return;
 			}
 
@@ -326,7 +326,7 @@ function siteorigin_customizer_sanitize_google_font( $font ) {
 	$font_name_parts = explode( ':', $font, 2 );
 	$font_name = $font_name_parts[0];
 
-	if ( empty( $google_fonts[$font_name] ) && empty( $default_fonts[$font_name] ) ) {
+	if ( empty( $google_fonts[ $font_name ] ) && empty( $default_fonts[ $font_name ] ) ) {
 		$font = '';
 	}
 
@@ -422,10 +422,10 @@ if ( !class_exists( 'SiteOrigin_Customizer_Helper' ) ) {
 			foreach ( $settings as $section_id => $section_settings ) {
 				foreach ( $section_settings as $id => $setting ) {
 					$setting['section'] = $section_id;
-					$this->settings[$section_id . '_' . $id] = $setting;
+					$this->settings[ $section_id . '_' . $id ] = $setting;
 
-					if ( !empty( $setting['default'] ) ) {
-						$this->defaults[$section_id . '_' . $id] = $setting['default'];
+					if ( ! empty( $setting['default'] ) ) {
+						$this->defaults[ $section_id . '_' . $id ] = $setting['default'];
 					}
 				}
 			}
@@ -481,12 +481,12 @@ if ( !class_exists( 'SiteOrigin_Customizer_Helper' ) ) {
 				}
 
 				$wp_customize->add_setting( $id, array(
-					'default' => !empty( $setting['default'] ) ? $setting['default'] : '',
+					'default' => ! empty( $setting['default'] ) ? $setting['default'] : '',
 					'sanitize_callback' => $sanitize_callback,
 				) );
 
 				// Can't use live changes with a callback
-				if ( !empty( $setting['callback'] ) ) {
+				if ( ! empty( $setting['callback'] ) ) {
 					$setting['no_live'] = true;
 				}
 
@@ -578,7 +578,7 @@ if ( !class_exists( 'SiteOrigin_Customizer_Helper' ) ) {
 			$builder = new SiteOrigin_Customizer_CSS_Builder( $this->defaults );
 
 			foreach ( $this->settings as $id => $setting ) {
-				if ( !empty( $setting['selector'] ) ) {
+				if ( ! empty( $setting['selector'] ) ) {
 					foreach ( (array) $setting['selector'] as $selector ) {
 						switch( $setting['type'] ) {
 							case 'font':

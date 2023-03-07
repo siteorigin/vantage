@@ -287,7 +287,7 @@ if ( ! function_exists( 'vantage_display_logo' ) ) {
 				$retina_logo = apply_filters( 'vantage_logo_retina_image_id', $retina_logo );
 				$retina_logo_image = wp_get_attachment_image_src( $retina_logo, 'full' );
 
-				if ( !empty( $retina_logo_image[0] ) ) {
+				if ( ! empty( $retina_logo_image[0] ) ) {
 					$logo_attributes['srcset'] = $retina_logo_image[0] . ' 2x';
 				}
 			}
