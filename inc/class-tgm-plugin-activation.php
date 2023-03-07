@@ -3404,7 +3404,7 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 							[TGMPA - ]
 							$this->skin->plugin_info = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin, false, true);
 
-							if ( !isset( $current->response[ $plugin ] ) ) {
+							if ( ! isset( $current->response[ $plugin ] ) ) {
 								$this->skin->set_result('up_to_date');
 								$this->skin->before();
 								$this->skin->feedback('up_to_date');

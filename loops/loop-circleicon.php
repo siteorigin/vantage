@@ -4,8 +4,10 @@
  */
 ?>
 
-<?php if ( have_posts() ) : $i = 0; ?>
-	<div id="vantage-circleicon-loop" class="vantage-circleicon-loop circleicon-loop-columns-<?php echo siteorigin_setting( 'blog_circle_column_count' ) ?>">
+<?php
+if ( have_posts() ) {
+	$i = 0; ?>
+	<div id="vantage-circleicon-loop" class="vantage-circleicon-loop circleicon-loop-columns-<?php echo siteorigin_setting( 'blog_circle_column_count' ); ?>">
 
 		<?php
 		while ( have_posts() ) {
@@ -27,15 +29,16 @@
 				)
 			);
 
-			if ( $i % siteorigin_setting( 'blog_circle_column_count' ) == 0 ) : ?><div class="clear"></div><?php endif;
-
+			if ( $i % siteorigin_setting( 'blog_circle_column_count' ) == 0 ) {
+				?>
+				<div class="clear"></div>
+				<?php
+			}
 		}
 		?>
 	</div>
-	<?php vantage_content_nav( 'nav-below' ); ?>
-
-<?php else : ?>
-
-	<?php get_template_part( 'no-results' ); ?>
-
-<?php endif; ?>
+	<?php
+	vantage_content_nav( 'nav-below' );
+} else {
+	get_template_part( 'no-results' );
+}

@@ -4,12 +4,11 @@
  *
  * Template Name: Page Builder Home
  *
- * @package vantage
  * @since vantage 1.0
  * @see http://siteorigin.com/page-builder/
+ *
  * @license GPL 2.0
  */
-
 get_header();
 ?>
 
@@ -20,9 +19,11 @@ get_header();
 			if ( is_page() ) {
 				the_post();
 				the_content();
+			} elseif ( function_exists( 'siteorigin_panels_render' ) ) {
+				echo siteorigin_panels_render( 'home' );
+			} else {
+				echo siteorigin_panels_lite_home_render();
 			}
-			elseif ( function_exists( 'siteorigin_panels_render' ) ) echo siteorigin_panels_render( 'home' );
-			else echo siteorigin_panels_lite_home_render();
 			?>
 		</div>
 	</div><!-- #content .site-content -->

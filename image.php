@@ -2,11 +2,10 @@
 /**
  * The template for displaying image attachments.
  *
- * @package vantage
  * @since vantage 1.0
+ *
  * @license GPL 2.0
  */
-
 get_header();
 ?>
 
@@ -14,16 +13,17 @@ get_header();
 
 	<div id="content" class="site-content" role="main">
 
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php while ( have_posts() ) {
+			the_post(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
 					<h1 class="entry-title"><?php the_title(); ?></h1>
-					<?php if ( siteorigin_setting( 'blog_post_metadata' ) ) : ?>
+					<?php if ( siteorigin_setting( 'blog_post_metadata' ) ) { ?>
 					<div class="entry-meta">
-						<?php echo vantage_posted_on() ?>
+						<?php echo vantage_posted_on(); ?>
 					</div><!-- .entry-meta -->
-					<?php endif; ?>
+					<?php } ?>
 
 					<nav id="image-navigation" class="site-navigation">
 						<span class="previous-image"><?php previous_image_link( false, __( '&larr; Previous', 'vantage' ) ); ?></span>
@@ -45,11 +45,11 @@ get_header();
 							</a>
 						</div><!-- .attachment -->
 
-						<?php if ( ! empty( $post->post_excerpt ) ) : ?>
+						<?php if ( ! empty( $post->post_excerpt ) ) { ?>
 							<div class="entry-caption">
 								<?php the_excerpt(); ?>
 							</div><!-- .entry-caption -->
-						<?php endif; ?>
+						<?php } ?>
 					</div><!-- .entry-attachment -->
 
 				</div><!-- .entry-content -->
@@ -58,7 +58,7 @@ get_header();
 
 			<?php comments_template(); ?>
 
-		<?php endwhile; // end of the loop. ?>
+		<?php } // end of the loop.?>
 
 	</div><!-- #content .site-content -->
 
