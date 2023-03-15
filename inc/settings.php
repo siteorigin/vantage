@@ -155,7 +155,7 @@ if ( ! function_exists( 'vantage_theme_settings' ) ) {
 			function_exists( 'rank_math_the_breadcrumbs' )
 		) {
 			$settings->add_field( 'navigation', 'yoast_breadcrumbs', 'checkbox', __( 'Breadcrumbs', 'vantage' ), array(
-				'description' => __( 'Display breadcrumbs if you have Yoast SEO or Breadcrumb NavXT installed.', 'vantage' ),
+				'description' => __( 'Displays breadcrumbs using your SEO or Breadcrumb plugin', 'vantage' )
 			) );
 		}
 
