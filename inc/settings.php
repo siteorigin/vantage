@@ -47,13 +47,15 @@ if ( ! function_exists( 'vantage_theme_settings' ) ) {
 			'choose' => __( 'Choose Image', 'vantage' ),
 			'update' => __( 'Set Logo', 'vantage' ),
 			'description' => __( 'A double sized version of your logo for retina displays. Must be used in addition to standard logo.', 'vantage' ),
-			'teaser' => __(
-			sprintf(
-					'Enhance your SiteOrigin theme logo functionality with the %sLogo Booster addon%s. Add an alternative logo on any page; upload a sticky logo to display on scroll.',
-					'<a href="https://siteorigin.com/downloads/premium/?featured_addon=theme/logo-booster" target="_blank" rel="noopener noreferrer">',
-					'</a>'
+			'teaser' => array(
+				'text' => __(
+					sprintf(
+						'Enhance your SiteOrigin theme logo functionality with the %sLogo Booster addon%s. Add an alternative logo on any page; upload a sticky logo to display on scroll.',
+						'<a href="https://siteorigin.com/downloads/premium/?featured_addon=theme/logo-booster" target="_blank" rel="noopener noreferrer">',
+						'</a>'
+					),
+					'vantage'
 				),
-				'vantage'
 			),
 		) );
 
