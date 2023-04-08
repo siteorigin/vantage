@@ -34,6 +34,28 @@ if ( ! function_exists( 'vantage_theme_settings' ) ) {
 			'description' => __( 'Your own custom logo.', 'vantage' ),
 		) );
 
+		$settings->add_teaser(
+			'logo',
+			'image_teaser',
+			'teaser',
+			'',
+			array(
+				'teaser' => array(
+					'text' => __(
+						sprintf(
+							'Enhance your SiteOrigin theme logo functionality with the %sLogo Booster addon%s. Add an alternative logo on any page; upload a sticky logo to display on scroll.',
+							'<a href="https://siteorigin.com/downloads/premium/?featured_addon=theme/logo-booster" target="_blank" rel="noopener noreferrer">',
+							'</a>'
+						),
+						'vantage'
+					),
+				)
+			),
+			false,
+			false
+		);
+
+
 		$settings->add_field( 'logo', 'in_menu_constrain', 'checkbox', __( 'Constrain Logo Height', 'vantage' ), array(
 			'label' => __( 'Yes', 'vantage' ),
 			'description' => __( 'When using the "logo in menu" masthead layout, constrain the logo size to fit the menu height.', 'vantage' ),
@@ -47,16 +69,6 @@ if ( ! function_exists( 'vantage_theme_settings' ) ) {
 			'choose' => __( 'Choose Image', 'vantage' ),
 			'update' => __( 'Set Logo', 'vantage' ),
 			'description' => __( 'A double sized version of your logo for retina displays. Must be used in addition to standard logo.', 'vantage' ),
-			'teaser' => array(
-				'text' => __(
-					sprintf(
-						'Enhance your SiteOrigin theme logo functionality with the %sLogo Booster addon%s. Add an alternative logo on any page; upload a sticky logo to display on scroll.',
-						'<a href="https://siteorigin.com/downloads/premium/?featured_addon=theme/logo-booster" target="_blank" rel="noopener noreferrer">',
-						'</a>'
-					),
-					'vantage'
-				),
-			),
 		) );
 
 		$settings->add_field( 'logo', 'site_description', 'checkbox', __( 'Tagline', 'vantage' ), array(
