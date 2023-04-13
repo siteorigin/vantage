@@ -2,8 +2,8 @@
 /**
  * The template for displaying search forms in vantage
  *
- * @package vantage
  * @since vantage 1.0
+ *
  * @license GPL 2.0
  */
 ?>
