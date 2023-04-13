@@ -34,6 +34,28 @@ if ( ! function_exists( 'vantage_theme_settings' ) ) {
 			'description' => __( 'Your own custom logo.', 'vantage' ),
 		) );
 
+		$settings->add_teaser(
+			'logo',
+			'image_teaser',
+			'teaser',
+			'',
+			array(
+				'teaser' => array(
+					'text' => __(
+						sprintf(
+							'Enhance your SiteOrigin theme logo functionality with the %sLogo Booster addon%s. Add an alternative logo on any page; upload a sticky logo to display on scroll.',
+							'<a href="https://siteorigin.com/downloads/premium/?featured_addon=theme/logo-booster" target="_blank" rel="noopener noreferrer">',
+							'</a>'
+						),
+						'vantage'
+					),
+				)
+			),
+			false,
+			false
+		);
+
+
 		$settings->add_field( 'logo', 'in_menu_constrain', 'checkbox', __( 'Constrain Logo Height', 'vantage' ), array(
 			'label' => __( 'Yes', 'vantage' ),
 			'description' => __( 'When using the "logo in menu" masthead layout, constrain the logo size to fit the menu height.', 'vantage' ),
