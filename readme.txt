@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.10 - 25 April 2023 =
+* Resolved Settings missing text domain.
+
 = 1.20.9 - 13 April 2023 =
 * Nested the mobile menu text for easier customization.
 * Resolved a potential PHP notice relating to the logo.
