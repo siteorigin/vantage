@@ -51,7 +51,7 @@
 				}
 				?>
 				<?php $read_more_text = siteorigin_setting( 'blog_read_more' ) ? esc_html( siteorigin_setting( 'blog_read_more' ) ) : __( 'Continue reading', 'vantage' ); ?>
-				<?php echo  ( siteorigin_setting( 'blog_read_more_button' ) && siteorigin_setting( 'blog_archive_content' ) == 'excerpt' ) ? '<a class="more-link" href="' . get_permalink() . '">' . $read_more_text . '<span class="meta-nav">&rarr;</span></a>' : ''; ?>
+				<?php echo ( siteorigin_setting( 'blog_read_more_button' ) && siteorigin_setting( 'blog_archive_content' ) == 'excerpt' ) ? '<a class="more-link" href="' . get_permalink() . '">' . $read_more_text . '<span class="meta-nav">&rarr;</span></a>' : ''; ?>
 				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
 		<?php } ?>
