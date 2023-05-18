@@ -3851,3 +3851,10 @@ a[href^="tel"] {
   color: inherit;
   text-decoration: none;
 }
+@media (min-width: 680px) {
+  .mega-menu-primary .masthead-logo-in-menu .site-navigation > .full-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
