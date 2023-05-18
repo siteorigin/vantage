@@ -106,6 +106,10 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.11 - 18 May 2023 =
+* Logo in Menu: Aligned logo and Max Mega Menu.
+* Updated SiteOrigin Settings.
+
 = 1.20.10 - 25 April 2023 =
 * Resolved Settings missing text domain.
 
