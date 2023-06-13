@@ -533,19 +533,19 @@ if ( ! function_exists( 'vantage_page_settings' ) ) {
 	function vantage_page_settings( $settings, $type, $id ) {
 		$settings['layout'] = array(
 			'type'    => 'select',
-			'label'   => __( 'Page Layout', 'vantage' ),
+			'label'   => __( 'Page layout', 'vantage' ),
 			'options' => array(
 				'default'            => __( 'Default', 'vantage' ),
-				'no-sidebar'         => __( 'No Sidebar', 'vantage' ),
-				'full-width'         => __( 'Full Width', 'vantage' ),
-				'full-width-sidebar' => __( 'Full Width, With Sidebar', 'vantage' ),
+				'no-sidebar'         => __( 'No sidebar', 'vantage' ),
+				'full-width'         => __( 'Full width', 'vantage' ),
+				'full-width-sidebar' => __( 'Full width, with sidebar', 'vantage' ),
 			),
 		);
 
 		if ( $type == 'page' ) {
 			$settings['featured_image'] = array(
 				'type'           => 'checkbox',
-				'label'          => __( 'Page Featured Image', 'vantage' ),
+				'label'          => __( 'Page featured image', 'vantage' ),
 				'checkbox_label' => __( 'display', 'vantage' ),
 				'description'    => __( 'Display the page featured image on this page.', 'vantage' ),
 			);
@@ -553,35 +553,35 @@ if ( ! function_exists( 'vantage_page_settings' ) ) {
 
 		$settings['page_title'] = array(
 			'type'           => 'checkbox',
-			'label'          => __( 'Page Title', 'vantage' ),
+			'label'          => __( 'Page title', 'vantage' ),
 			'checkbox_label' => __( 'display', 'vantage' ),
 			'description'    => __( 'Display the page title on this page.', 'vantage' ),
 		);
 
 		$settings['masthead_margin'] = array(
 			'type'           => 'checkbox',
-			'label'          => __( 'Masthead Bottom Margin', 'vantage' ),
+			'label'          => __( 'Masthead bottom margin', 'vantage' ),
 			'checkbox_label' => __( 'enable', 'vantage' ),
 			'description'    => __( 'Include the margin below the masthead (top area) of your site.', 'vantage' ),
 		);
 
 		$settings['footer_margin'] = array(
 			'type'           => 'checkbox',
-			'label'          => __( 'Footer Top Margin', 'vantage' ),
+			'label'          => __( 'Footer top margin', 'vantage' ),
 			'checkbox_label' => __( 'enable', 'vantage' ),
 			'description'    => __( 'Include the margin above your footer.', 'vantage' ),
 		);
 
 		$settings['hide_masthead'] = array(
 			'type'           => 'checkbox',
-			'label'          => __( 'Hide Masthead', 'vantage' ),
+			'label'          => __( 'Hide masthead', 'vantage' ),
 			'checkbox_label' => __( 'hide', 'vantage' ),
 			'description'    => __( 'Hide the masthead on this page.', 'vantage' ),
 		);
 
 		$settings['hide_footer_widgets'] = array(
 			'type'           => 'checkbox',
-			'label'          => __( 'Hide Footer Widgets', 'vantage' ),
+			'label'          => __( 'Hide footer widgets', 'vantage' ),
 			'checkbox_label' => __( 'hide', 'vantage' ),
 			'description'    => __( 'Hide the footer widgets on this page.', 'vantage' ),
 		);
