@@ -21,7 +21,7 @@ if ( class_exists( 'WP_Customize_Control' ) && !class_exists( 'SiteOrigin_Custom
 			) );
 
 			foreach ( $google_web_fonts as $font => $variants ) {
-				foreach ( $variants['variants'] as $variant ) {
+				foreach ( $variants as $variant ) {
 					if ( $variant == 'regular' || $variant == 400 ) {
 						$choices[ $font ] = $font;
 					} else {
