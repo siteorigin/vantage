@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.13 - 24 June 2023 =
+* SiteOrigin Settings: Corrected Google Fonts array formatting.
+
 = 1.20.12 - 22 June 2023 =
 * Updated SiteOrigin Settings.
 
