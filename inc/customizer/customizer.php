@@ -1,6 +1,6 @@
 <?php
 
-if ( class_exists( 'WP_Customize_Control' ) && !class_exists( 'SiteOrigin_Customize_Fonts_Control' ) ) {
+if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'SiteOrigin_Customize_Fonts_Control' ) ) {
 	/**
 	 * A customizer control for choosing web fonts
 	 */
@@ -35,25 +35,25 @@ if ( class_exists( 'WP_Customize_Control' ) && !class_exists( 'SiteOrigin_Custom
 				'choices' => $choices,
 			) );
 			parent::__construct( $manager, $id, $args );
-	}
+		}
 
-	/**
-	 * Render the control. Renders the control wrapper, then calls $this->render_content().
-	 */
-	protected function render() {
-		$id = 'customize-control-' . str_replace( '[', '-', str_replace( ']', '', $this->id ) );
-		$class = 'customize-control customize-control-' . $this->type . ' customize-control-font';
+		/**
+		 * Render the control. Renders the control wrapper, then calls $this->render_content().
+		 */
+		protected function render() {
+			$id = 'customize-control-' . str_replace( '[', '-', str_replace( ']', '', $this->id ) );
+			$class = 'customize-control customize-control-' . $this->type . ' customize-control-font';
 
-		?>
-		<li id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>">
-			<?php $this->render_content(); ?>
-		</li>
-		<?php
-										}
+			?>
+			<li id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>">
+				<?php $this->render_content(); ?>
+			</li>
+			<?php
+		}
 	}
 }
 
-if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
+if ( ! class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 	/**
 	 * This is used for building custom CSS.
 	 */
@@ -361,7 +361,7 @@ function siteorigin_customizer_sanitize_image( $image ) {
 	return esc_url_raw( $image );
 }
 
-if ( !class_exists( 'SiteOrigin_Customizer_Helper' ) ) {
+if ( ! class_exists( 'SiteOrigin_Customizer_Helper' ) ) {
 	class SiteOrigin_Customizer_Helper {
 		private $theme;
 		private $settings;
