@@ -60,9 +60,10 @@ if ( !class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 	class SiteOrigin_Customizer_CSS_Builder {
 		private $css;
 		private $raw_css;
-		private $fonts;
-		private $defaults;
+		private $google_fonts;
 		private $web_safe;
+		private $defaults;
+		private $fonts;
 
 		// These are web safe fonts
 
