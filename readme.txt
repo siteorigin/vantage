@@ -106,6 +106,12 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.14 - 08 July 2023 =
+* Resolved deprecated notice related to Google Fonts in the customizer.
+* Added `role` attribute to the search button for improved accessibility.
+* Fixed formatting and spacing in the customizer.php file for better code readability.
+* Updated the property name in the `SiteOrigin_Customizer_CSS_Builder` class to resolve a deprecated notice.
+
 = 1.20.13 - 24 June 2023 =
 * SiteOrigin Settings: Corrected Google Fonts array formatting.
 
