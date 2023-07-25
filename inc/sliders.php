@@ -17,7 +17,7 @@ if ( class_exists( 'MetaSliderPlugin' ) ) {
 				// Attempt to unload MetaSlider (too late to unload Vantage's version)
 				if ( in_array( 'jquery-flexslider', $wp_scripts->done ) ) {
 					// Not ideal, but this loads after the head ok to just print the styles anywhere
-					$wp_scripts->print_inline_script( 'metaslider-flex-slider', 'after' );
+					$wp_scripts->get_inline_script_data( 'metaslider-flex-slider' );
 
 					// Dequeue MetaSlider
 					wp_dequeue_script( 'metaslider-flex-slider' );
