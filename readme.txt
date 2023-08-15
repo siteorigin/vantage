@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.15 - 15 August 2023 =
+* Updated the code to use `WP_Scripts::get_inline_script_data` or `WP_Scripts::get_inline_script_tag` instead of the deprecated `WP_Scripts::print_inline_script`.
+
 = 1.20.14 - 08 July 2023 =
 * Resolved deprecated notice related to Google Fonts in the customizer.
 * Added `role` attribute to the search button for improved accessibility.
