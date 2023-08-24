@@ -18,7 +18,7 @@ if ( class_exists( 'MetaSliderPlugin' ) ) {
 				if ( in_array( 'jquery-flexslider', $wp_scripts->done ) ) {
 					// Not ideal, but this loads after the head ok to just print the styles anywhere
 					if ( method_exists( $wp_scripts, 'get_inline_script_data' ) ) {
-						$wp_scripts->get_inline_script_data( 'metaslider-flex-slider' );
+						echo $wp_scripts->get_inline_script_tag( 'metaslider-flex-slider', 'after' );
 					} else {
 						$wp_scripts->print_inline_script( 'metaslider-flex-slider', 'after' );
 					}
