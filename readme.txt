@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.16 - 25 August 2023 =
+* Fixed a display issue in MetaSlider by using a different method of rendering.
+
 = 1.20.15 - 15 August 2023 =
 * Updated the code to use `WP_Scripts::get_inline_script_data` or `WP_Scripts::get_inline_script_tag` instead of the deprecated `WP_Scripts::print_inline_script`.
 
