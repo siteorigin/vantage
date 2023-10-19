@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.17 - 16 October 2023 =
+* Updated SiteOrigin Settings submodule.
+
 = 1.20.16 - 25 August 2023 =
 * Fixed a display issue in MetaSlider by using a different method of rendering.
 
