@@ -326,7 +326,7 @@ class Vantage_Social_Media_Widget extends WP_Widget {
 
 		$this->networks = apply_filters( 'vantage_social_widget_networks', array(
 			'facebook' => __( 'Facebook', 'vantage' ),
-			'twitter' => __( 'Twitter', 'vantage' ),
+			'twitter' => __( 'X (Twitter)', 'vantage' ),
 			'google-plus' => __( 'Google Plus', 'vantage' ),
 			'linkedin' => __( 'LinkedIn', 'vantage' ),
 			'dribbble' => __( 'Dribbble', 'vantage' ),
