@@ -106,6 +106,10 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.18 - 29 November 2023 =
+* Networks: Updated Twitter name.
+* Prevented potential error when checking for WooCommerce.
+
 = 1.20.17 - 16 October 2023 =
 * Updated SiteOrigin Settings submodule.
 
