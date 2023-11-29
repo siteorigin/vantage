@@ -231,7 +231,7 @@ if ( ! function_exists( 'vantage_is_woocommerce_active' ) ) {
 	 * @return bool
 	 */
 	function vantage_is_woocommerce_active() {
-		return in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
+		return class_exists( 'woocommerce' );
 	}
 }
 
