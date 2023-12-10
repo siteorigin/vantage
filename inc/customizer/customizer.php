@@ -63,7 +63,6 @@ if ( ! class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 		private $google_fonts;
 		private $web_safe;
 		private $defaults;
-		private $fonts;
 
 		// These are web safe fonts
 
@@ -72,14 +71,14 @@ if ( ! class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 			$this->raw_css = '';
 			$this->google_fonts = array();
 			$this->web_safe = apply_filters( 'vantage_websafe_fallback', array(
-				'Arial' => 'Arial, Helvetica, sans-serif',
+				'Arial' => 'Helvetica, sans-serif',
 				'Courier New' => 'Courier, mono',
 				'Georgia' => '"Times New Roman", Times, serif',
 				'Helvetica Neue' => 'Arial, Helvetica, Geneva, sans-serif',
-				'Lucida Grande' => 'Lucida, Verdana, sans-serif',
-				'Tahoma' => 'Tahoma, Verdana, Segoe, sans-serif',
-				'Trebuchet MS' => 'Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif',
-				'Verdana' => 'Verdana, Geneva, sans-serif',
+				'Lucida Grande' => 'Verdana, sans-serif',
+				'Tahoma' => 'Verdana, Segoe, sans-serif',
+				'Trebuchet MS' => 'Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif',
+				'Verdana' => 'Geneva, sans-serif',
 			) );
 			$this->defaults = $defaults;
 		}
