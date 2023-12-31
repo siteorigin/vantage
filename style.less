@@ -414,6 +414,7 @@ body {
 		padding-bottom: 45px;
 		
 		&:not(.masthead-sidebar) {
+			gap: 25px;
 			display: flex;
 			justify-content: space-between;
 		}
@@ -464,10 +465,15 @@ body {
 			box-sizing: border-box;
 			height: 100%;
 
+			@media (min-width: 680px) {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: 25px;
+			}
+
 			aside.widget {
-				float: left;
-				margin-right: 25px;
-				margin-bottom: 0;
+				margin: 0;
 				position: relative;
 
 				&.widget_circleicon-widget {
@@ -731,7 +737,6 @@ body.sidebar-position-none #secondary {
 			.widget {
 				display: block;
 				margin: 0 auto;
-				float: none;
 			}
 
 			> .widget {
