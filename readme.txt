@@ -106,6 +106,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.19 - 21 January 2023 =
+* Prevented duplicate output of websafe fonts.
+* Center Logo: Position Header widget area below the logo.
+* Header Widget Scenarios: Improved spacing.
+
 = 1.20.18 - 29 November 2023 =
 * Networks: Updated Twitter name.
 * Prevented potential error when checking for WooCommerce.

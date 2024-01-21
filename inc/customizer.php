@@ -785,6 +785,7 @@ function vantage_customizer_callback_logo_center( $builder, $val, $setting ) {
 		$builder->add_css( '#masthead .hgroup .logo, #masthead .hgroup .site-logo-link', 'float', 'none' );
 		$builder->add_css( '#masthead .hgroup .logo img, #masthead .hgroup .site-logo-link img', 'display', 'block' );
 		$builder->add_css( '#masthead .hgroup .logo img, #masthead .hgroup .site-logo-link img', 'margin', '0 auto' );
+		$builder->add_css( '#masthead .hgroup:not(.masthead-sidebar)', 'flex-direction', 'column' );
 	}
 
 	return $builder;
