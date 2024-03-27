@@ -150,6 +150,84 @@ if ( ! function_exists( 'vantage_prebuilt_page_layouts' ) ) {
 }
 add_filter( 'siteorigin_panels_prebuilt_layouts', 'vantage_prebuilt_page_layouts' );
 
+if ( ! function_exists( 'vantage_panels_add_widget_groups' ) ) {
+	/**
+	 * Set the groups for all Vantage registered Widgets
+	 *
+	 * @return mixed
+	 */
+	function vantage_panels_add_widget_groups( $widgets ) {
+		$widgets['Vantage_CircleIcon_Widget']['groups'] = array( 'vantage' );
+		$widgets['Vantage_Headline_Widget']['groups'] = array( 'vantage' );
+		$widgets['Vantage_Social_Media_Widget']['groups'] = array( 'vantage' );
+
+		return $widgets;
+	}
+}
+add_filter( 'siteorigin_panels_widgets', 'vantage_panels_add_widget_groups' );
+
+if ( ! function_exists( 'vantage_panels_add_widgets_dialog_tabs' ) ) {
+	function vantage_panels_add_widgets_dialog_tabs( $tabs ) {
+		$tabs[] = array(
+			'title' => __( 'Vantage Widgets', 'vantage' ),
+			'filter' => array(
+				'installed' => true,
+				'groups' => array( 'vantage' ),
+			),
+		);
+
+		return $tabs;
+	}
+}
+add_filter( 'siteorigin_panels_widget_dialog_tabs', 'vantage_panels_add_widgets_dialog_tabs' );
+
+if ( ! function_exists( 'vantage_panels_add_full_width_container' ) ) {
+	function vantage_panels_add_full_width_container() {
+		return '#main';
+	}
+}
+add_filter( 'siteorigin_panels_full_width_container', 'vantage_panels_add_full_width_container' );
+
+$vantage_classic_editor_setup = false;
+if ( ! function_exists( 'vantage_setup_classic_editor' ) ) {
+	function vantage_setup_classic_editor() {
+		global $vantage_classic_editor_setup;
+		if ( $vantage_classic_editor_setup ) {
+			return;
+		}
+		$vantage_classic_editor_setup = true;
+
+		// Check if this page is powered by the Block Editor.
+		if ( ! is_admin() ) {
+			global $post;
+			if (
+				! empty( $post ) &&
+				! has_blocks( $post->post_content )
+			) {
+				return false;
+			}
+		} else {
+			$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+
+			if (
+				! empty( $current_screen ) &&
+				method_exists( $current_screen, 'is_block_editor' )
+			) {
+				if ( $current_screen->is_block_editor() ) {
+					return;
+				}
+			}
+		}
+
+		add_filter( 'siteorigin_panels_row_styles', 'vantage_panels_row_styles' );
+		add_action( 'save_post', 'vantage_panels_save_post', 5, 2 );
+		add_filter( 'siteorigin_panels_row_style_fields', 'vantage_panels_row_style_fields', 11 );
+		add_filter( 'siteorigin_panels_row_style_attributes', 'vantage_panels_panels_row_style_attributes', 10, 2 );
+		add_filter( 'siteorigin_panels_row_attributes', 'vantage_panels_panels_row_attributes', 10, 2 );
+	}
+}
+add_action( 'wp', 'vantage_setup_classic_editor' );
+
 if ( ! function_exists( 'vantage_panels_row_styles' ) ) {
 	/**
 	 * Add row styles.
@@ -162,7 +240,6 @@ if ( ! function_exists( 'vantage_panels_row_styles' ) ) {
 		return $styles;
 	}
 }
-add_filter( 'siteorigin_panels_row_styles', 'vantage_panels_row_styles' );
 
 if ( ! function_exists( 'vantage_panels_save_post' ) ) {
 	function vantage_panels_save_post( $post_id, $post ) {
@@ -177,7 +254,6 @@ if ( ! function_exists( 'vantage_panels_save_post' ) ) {
 		}
 	}
 }
-add_action( 'save_post', 'vantage_panels_save_post', 5, 2 );
 
 if ( ! function_exists( 'vantage_panels_row_style_fields' ) ) {
 	function vantage_panels_row_style_fields( $fields ) {
@@ -254,7 +330,6 @@ if ( ! function_exists( 'vantage_panels_row_style_fields' ) ) {
 		return $fields;
 	}
 }
-add_filter( 'siteorigin_panels_row_style_fields', 'vantage_panels_row_style_fields', 11 );
 
 if ( ! function_exists( 'vantage_panels_panels_row_style_attributes' ) ) {
 	function vantage_panels_panels_row_style_attributes( $attr, $style ) {
@@ -294,7 +369,6 @@ if ( ! function_exists( 'vantage_panels_panels_row_style_attributes' ) ) {
 		return $attr;
 	}
 }
-add_filter( 'siteorigin_panels_row_style_attributes', 'vantage_panels_panels_row_style_attributes', 10, 2 );
 
 if ( ! function_exists( 'vantage_panels_panels_row_attributes' ) ) {
 	function vantage_panels_panels_row_attributes( $attr, $row ) {
@@ -308,42 +382,3 @@ if ( ! function_exists( 'vantage_panels_panels_row_attributes' ) ) {
 		return $attr;
 	}
 }
-add_filter( 'siteorigin_panels_row_attributes', 'vantage_panels_panels_row_attributes', 10, 2 );
-
-if ( ! function_exists( 'vantage_panels_add_widget_groups' ) ) {
-	/**
-	 * Set the groups for all Vantage registered Widgets
-	 *
-	 * @return mixed
-	 */
-	function vantage_panels_add_widget_groups( $widgets ) {
-		$widgets['Vantage_CircleIcon_Widget']['groups'] = array( 'vantage' );
-		$widgets['Vantage_Headline_Widget']['groups'] = array( 'vantage' );
-		$widgets['Vantage_Social_Media_Widget']['groups'] = array( 'vantage' );
-
-		return $widgets;
-	}
-}
-add_filter( 'siteorigin_panels_widgets', 'vantage_panels_add_widget_groups' );
-
-if ( !function_exists( 'vantage_panels_add_widgets_dialog_tabs' ) ) {
-	function vantage_panels_add_widgets_dialog_tabs( $tabs ) {
-		$tabs[] = array(
-			'title' => __( 'Vantage Widgets', 'vantage' ),
-			'filter' => array(
-				'installed' => true,
-				'groups' => array( 'vantage' ),
-			),
-		);
-
-		return $tabs;
-	}
-}
-add_filter( 'siteorigin_panels_widget_dialog_tabs', 'vantage_panels_add_widgets_dialog_tabs' );
-
-if ( ! function_exists( 'vantage_panels_add_full_width_container' ) ) {
-	function vantage_panels_add_full_width_container() {
-		return '#main';
-	}
-}
-add_filter( 'siteorigin_panels_full_width_container', 'vantage_panels_add_full_width_container' );
