@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.21 - 11 February 2024 =
+* Plugin Support: Resolved a potential Page Builder issue on save.
+
 = 1.20.20 - 11 February 2024 =
 * Updated SiteOrigin Settings framework.
 
