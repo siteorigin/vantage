@@ -10,9 +10,9 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 	public function __construct() {
 		// widget actual processes
 		parent::__construct(
-			'circleicon-widget', // Base ID
-			__( 'Circle Icon', 'vantage' ), // Name
-			array( 'description' => __( 'An icon in a circle with some text beneath it', 'vantage' ) ) // Args
+			'circleicon-widget',
+			__( 'Vantage Circle Icon', 'vantage' ),
+			array( 'description' => __( 'An icon in a circle with some text beneath it', 'vantage' ) )
 		);
 	}
 
