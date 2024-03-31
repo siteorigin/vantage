@@ -10,9 +10,9 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 	public function __construct() {
 		// widget actual processes
 		parent::__construct(
-			'circleicon-widget', // Base ID
-			__( 'Circle Icon', 'vantage' ), // Name
-			array( 'description' => __( 'An icon in a circle with some text beneath it', 'vantage' ) ) // Args
+			'circleicon-widget',
+			__( 'Vantage Circle Icon', 'vantage' ),
+			array( 'description' => __( 'An icon in a circle with some text beneath it', 'vantage' ) )
 		);
 	}
 
@@ -43,20 +43,20 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			$icon_styles[] = 'background-image: url(' . esc_url( $instance['image'] ) . ')';
 		}
 
-		if ( ! empty( $instance['icon_background_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_background_color'] ) ) {
-			$icon_styles[] = 'background-color: ' . $instance['icon_background_color'];
+		if ( ! empty( $instance['icon_background_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', esc_attr( $instance['icon_background_color'] ) ) ) {
+			$icon_styles[] = 'background-color: ' . esc_attr( $instance['icon_background_color'] );
 		}
 
 		if ( ! empty( $instance['title_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['title_color'] ) ) {
-			$title_color = 'color: ' . $instance['title_color'];
+			$title_color = 'color: ' . esc_attr( $instance['title_color'] );
 		}
 
 		if ( ! empty( $instance['text_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['text_color'] ) ) {
-			$text_color = 'color: ' . $instance['text_color'];
+			$text_color = 'color: ' . esc_attr( $instance['text_color'] );
 		}
 
 		if ( ! empty( $instance['icon_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_color'] ) ) {
-			$icon_color = 'style="color: ' . $instance['icon_color'] . '"';
+			$icon_color = 'style="color: ' . esc_attr( $instance['icon_color'] ) . '"';
 		}
 
 		$icon = $instance['icon'];
@@ -102,7 +102,14 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 				<p class="text" <?php echo ! empty( $text_color ) ? 'style="' . esc_attr( $text_color ) . '"' : ''; ?>><?php echo wp_kses_post( $instance['text'] ); ?></p>
 			<?php } ?>
 			<?php if ( ! empty( $instance['more_url'] ) ) { ?>
-				<a href="<?php echo esc_url( $instance['more_url'] ); ?>" class="more-button" <?php echo $target; ?>><?php echo ! empty( $instance['more'] ) ? esc_html( $instance['more'] ) : esc_html__( 'More Info', 'vantage' ); ?> <i></i></a>
+				<a
+					href="<?php echo esc_url( $instance['more_url'] ); ?>"
+					class="more-button"
+					<?php echo $target; ?>
+					<?php echo ! empty( $text_color ) ? 'style="' . esc_attr( $text_color ) . '"' : ''; ?>
+				>
+					<?php echo ! empty( $instance['more'] ) ? esc_html( $instance['more'] ) : esc_html__( 'More Info', 'vantage' ); ?> <i></i>
+				</a>
 			<?php } ?>
 		</div>
 		<?php
