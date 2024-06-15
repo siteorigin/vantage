@@ -339,22 +339,28 @@ jQuery ( function( $ ) {
 	} );
 
 	// Resize the header widget area.
+	var $l = $( '#masthead .logo' ).find( 'h1, p, img' );
 	$( '#header-sidebar' ).each( function() {
 		var $$ = $( this );
 
-		if ( $$.hasClass( 'no-logo-overlay' ) ) {
-			// This will prevent the widgets from overlaying the logo.
-			var autoResponsive = function() {
-				$$.closest('#masthead').removeClass( 'force-responsive' );
-				var $l = $( '#masthead .logo' ).find( 'h1, img' );
-				if ( $$.offset().left < $l.offset().left + $l.outerWidth() ) {
-					$$.closest( '#masthead' ).addClass( 'force-responsive' );
-				}
-			};
-			$( window ).on( 'resize', autoResponsive );
-			autoResponsive();
+		// Don't resize the header widget area if it's not needed.
+		if (
+			$$.hasClass( 'no-logo-overlay' ) ||
+			$l.length === 0
+		) {
+			return;
 		}
 
+		// This will prevent the widgets from overlaying the logo.
+		var autoResponsive = function() {
+			$$.closest('#masthead').removeClass( 'force-responsive' );
+			if ( $$.offset().left < $l.offset().left + $l.outerWidth() ) {
+				$$.closest( '#masthead' ).addClass( 'force-responsive' );
+			}
+		};
+
+		$( window ).on( 'resize', autoResponsive );
+		autoResponsive();
 	} );
 
 	$( '#colophon #footer-widgets .widget_nav_menu a' ).each( function() {
