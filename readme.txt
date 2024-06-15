@@ -4,7 +4,7 @@ Contributors: siteorigin
 
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce
 
-Tested up to: 6.4
+Tested up to: 6.5
 Requires at least: 4.7
 Requires PHP: 5.6.20
 License: GPLv2 or later
@@ -106,7 +106,13 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
-= 1.20.21 - 11 February 2024 =
+= 1.20.22 - 15 June 2024 =
+* Updated `Tested up to` tag.
+* Resolved a potential sticky header offset error.
+* Vantage Circle Icon: Improve style data handling.
+* Updated SiteOrigin Settings.
+
+= 1.20.21 - 29 March 2024 =
 * Plugin Support: Resolved a potential Page Builder issue on save.
 
 = 1.20.20 - 11 February 2024 =

@@ -10,9 +10,9 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 	public function __construct() {
 		// widget actual processes
 		parent::__construct(
-			'circleicon-widget', // Base ID
-			__( 'Circle Icon', 'vantage' ), // Name
-			array( 'description' => __( 'An icon in a circle with some text beneath it', 'vantage' ) ) // Args
+			'circleicon-widget',
+			__( 'Vantage Circle Icon', 'vantage' ),
+			array( 'description' => __( 'An icon in a circle with some text beneath it', 'vantage' ) )
 		);
 	}
 
@@ -43,20 +43,20 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			$icon_styles[] = 'background-image: url(' . esc_url( $instance['image'] ) . ')';
 		}
 
-		if ( ! empty( $instance['icon_background_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_background_color'] ) ) {
-			$icon_styles[] = 'background-color: ' . $instance['icon_background_color'];
+		if ( ! empty( $instance['icon_background_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', esc_attr( $instance['icon_background_color'] ) ) ) {
+			$icon_styles[] = 'background-color: ' . esc_attr( $instance['icon_background_color'] );
 		}
 
 		if ( ! empty( $instance['title_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['title_color'] ) ) {
-			$title_color = 'color: ' . $instance['title_color'];
+			$title_color = 'color: ' . esc_attr( $instance['title_color'] );
 		}
 
 		if ( ! empty( $instance['text_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['text_color'] ) ) {
-			$text_color = 'color: ' . $instance['text_color'];
+			$text_color = 'color: ' . esc_attr( $instance['text_color'] );
 		}
 
 		if ( ! empty( $instance['icon_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_color'] ) ) {
-			$icon_color = 'style="color: ' . $instance['icon_color'] . '"';
+			$icon_color = 'style="color: ' . esc_attr( $instance['icon_color'] ) . '"';
 		}
 
 		$icon = $instance['icon'];
@@ -69,7 +69,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		$icon_class = ! empty( $icon_styles ) ? ' icon-style-set' : '';
 		$target = ( ! empty( $instance['more_target'] ) ? 'target="_blank"' : '' );
 		?>
-		<div class="circle-icon-box circle-icon-position-<?php echo esc_attr( $instance['icon_position'] ); ?> <?php echo empty( $instance['box'] ) ? 'circle-icon-hide-box' : 'circle-icon-show-box'; ?> circle-icon-size-<?php echo $instance['icon_size']; ?> <?php if ( siteorigin_setting( 'blog_featured_image_type' ) == 'none' ) {
+		<div class="circle-icon-box circle-icon-position-<?php echo esc_attr( $instance['icon_position'] ); ?> <?php echo empty( $instance['box'] ) ? 'circle-icon-hide-box' : 'circle-icon-show-box'; ?> circle-icon-size-<?php echo esc_attr( $instance['icon_size'] ); ?> <?php if ( siteorigin_setting( 'blog_featured_image_type' ) == 'none' ) {
 			echo 'no-archive-featured-image';
 		} ?>">
 			<?php if ( ! empty( $instance['in_post_loop'] ) ) { ?>
@@ -81,7 +81,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 							<div class="<?php echo esc_attr( $icon );
 							esc_attr( $icon_class ); ?>" <?php echo ! empty( $icon_color ) ? $icon_color : ''; ?>></div>
 						<?php } ?>
-					</div> 
+					</div>
 					<?php if ( ! empty( $instance['more_url'] ) && ! empty( $instance['all_linkable'] ) ) { ?></a><?php } ?>
 				</div>
 			<?php } ?>
@@ -99,10 +99,17 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<?php } ?>
 
 			<?php if ( ! empty( $instance['text'] ) ) { ?>
-				<p class="text" <?php echo ! empty( $text_color ) ? 'style="' . $text_color . '"' : ''; ?>><?php echo wp_kses_post( $instance['text'] ); ?></p>
+				<p class="text" <?php echo ! empty( $text_color ) ? 'style="' . esc_attr( $text_color ) . '"' : ''; ?>><?php echo wp_kses_post( $instance['text'] ); ?></p>
 			<?php } ?>
 			<?php if ( ! empty( $instance['more_url'] ) ) { ?>
-				<a href="<?php echo esc_url( $instance['more_url'] ); ?>" class="more-button" <?php echo $target; ?>><?php echo ! empty( $instance['more'] ) ? esc_html( $instance['more'] ) : __( 'More Info', 'vantage' ); ?> <i></i></a>
+				<a
+					href="<?php echo esc_url( $instance['more_url'] ); ?>"
+					class="more-button"
+					<?php echo $target; ?>
+					<?php echo ! empty( $text_color ) ? 'style="' . esc_attr( $text_color ) . '"' : ''; ?>
+				>
+					<?php echo ! empty( $instance['more'] ) ? esc_html( $instance['more'] ) : esc_html__( 'More Info', 'vantage' ); ?> <i></i>
+				</a>
 			<?php } ?>
 		</div>
 		<?php
@@ -153,28 +160,32 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		}
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'vantage' ); ?></label>
-			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'vantage' ); ?></label>
+			<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title_color' ); ?>"><?php _e( 'Title Color', 'vantage' ); ?></label><br>
-			<input class="widefat vantage-color-field" id="<?php echo $this->get_field_id( 'title_color' ); ?>" name="<?php echo $this->get_field_name( 'title_color' ); ?>" type="text" value="<?php echo esc_attr( $instance['title_color'] ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title_color' ) ); ?>">
+				<?php esc_html_e( 'Title Color', 'vantage' ); ?>
+			</label><br>
+			<input class="widefat vantage-color-field" id="<?php echo esc_attr( $this->get_field_id( 'title_color' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title_color' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title_color'] ); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Text', 'vantage' ); ?></label>
-			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'text' ); ?>" name="<?php echo $this->get_field_name( 'text' ); ?>" value="<?php echo esc_attr( $instance['text'] ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php esc_html_e( 'Text', 'vantage' ); ?></label>
+			<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>" value="<?php echo esc_attr( $instance['text'] ); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'text_color' ); ?>"><?php _e( 'Text Color', 'vantage' ); ?></label><br>
-			<input class="widefat vantage-color-field" id="<?php echo $this->get_field_id( 'text_color' ); ?>" name="<?php echo $this->get_field_name( 'text_color' ); ?>" type="text" value="<?php echo esc_attr( $instance['text_color'] ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'text_color' ) ); ?>">
+				<?php esc_html_e( 'Text Color', 'vantage' ); ?>
+			</label><br>
+			<input class="widefat vantage-color-field" id="<?php echo esc_attr( $this->get_field_id( 'text_color' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text_color' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['text_color'] ); ?>" />
 		</p>
 
-		<p>
-			<label for="<?php echo $this->get_field_id( 'icon' ); ?>"><?php _e( 'Icon', 'vantage' ); ?></label><br>
-			<select id="<?php echo $this->get_field_id( 'icon' ); ?>" name="<?php echo $this->get_field_name( 'icon' ); ?>">
+		<p>x
+			<label for="<?php echo esc_attr( $this->get_field_id( 'icon' ) ); ?>"><?php esc_html_e( 'Icon', 'vantage' ); ?></label><br>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'icon' ) ); ?>" name="<?php echo $this->get_field_name( 'icon' ); ?>">
 				<option value="" <?php selected( ! empty( $instance['icon'] ) ); ?>><?php esc_html_e( 'None', 'vantage' ); ?></option>
 				<?php foreach ( $icons as $section => $s_icons ) { ?>
 					<?php if ( isset( $sections[ $section ] ) ) { ?><optgroup label="<?php echo esc_attr( $sections[ $section ] ); ?>"><?php } ?>
@@ -187,23 +198,23 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'icon_color' ); ?>"><?php _e( 'Icon Color', 'vantage' ); ?></label><br>
-			<input class="widefat vantage-color-field" id="<?php echo $this->get_field_id( 'icon_color' ); ?>" name="<?php echo $this->get_field_name( 'icon_color' ); ?>" type="text" value="<?php echo esc_attr( $instance['icon_color'] ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'icon_color' ) ); ?>"><?php esc_html_e( 'Icon Color', 'vantage' ); ?></label><br>
+			<input class="widefat vantage-color-field" id="<?php echo esc_attr( $this->get_field_id( 'icon_color' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'icon_color' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['icon_color'] ); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'icon_background_color' ); ?>"><?php _e( 'Icon Background Color', 'vantage' ); ?></label><br>
-			<input class="widefat vantage-color-field" id="<?php echo $this->get_field_id( 'icon_background_color' ); ?>" name="<?php echo $this->get_field_name( 'icon_background_color' ); ?>" type="text" value="<?php echo esc_attr( $instance['icon_background_color'] ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'icon_background_color' ) ); ?>"><?php esc_html_e( 'Icon Background Color', 'vantage' ); ?></label><br>
+			<input class="widefat vantage-color-field" id="<?php echo esc_attr( $this->get_field_id( 'icon_background_color' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'icon_background_color' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['icon_background_color'] ); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php _e( 'Circle Background Image URL', 'vantage' ); ?></label>
-			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>" value="<?php echo esc_attr( $instance['image'] ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>"><?php esc_html_e( 'Circle Background Image URL', 'vantage' ); ?></label>
+			<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" value="<?php echo esc_attr( $instance['image'] ); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'icon_position' ); ?>"><?php _e( 'Icon Position', 'vantage' ); ?></label><br>
-			<select id="<?php echo $this->get_field_id( 'icon_position' ); ?>" name="<?php echo $this->get_field_name( 'icon_position' ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'icon_position' ) ); ?>"><?php esc_html_e( 'Icon Position', 'vantage' ); ?></label><br>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'icon_position' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'icon_position' ) ); ?>">
 				<option value="top" <?php selected( 'top', $instance['icon_position'] ); ?>><?php esc_html_e( 'Top', 'vantage' ); ?></option>
 				<option value="bottom" <?php selected( 'bottom', $instance['icon_position'] ); ?>><?php esc_html_e( 'Bottom', 'vantage' ); ?></option>
 				<option value="left" <?php selected( 'left', $instance['icon_position'] ); ?>><?php esc_html_e( 'Left', 'vantage' ); ?></option>
@@ -212,8 +223,10 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'icon_size' ); ?>"><?php _e( 'Icon Size', 'vantage' ); ?></label><br>
-			<select id="<?php echo $this->get_field_id( 'icon_size' ); ?>" name="<?php echo $this->get_field_name( 'icon_size' ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'icon_size' ) ); ?>">
+				<?php esc_html_e( 'Icon Size', 'vantage' ); ?>
+			</label><br>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'icon_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'icon_size' ) ); ?>">
 				<option value="small" <?php selected( 'small', $instance['icon_size'] ); ?>><?php esc_html_e( 'Small', 'vantage' ); ?></option>
 				<option value="medium" <?php selected( 'medium', $instance['icon_size'] ); ?>><?php esc_html_e( 'Medium', 'vantage' ); ?></option>
 				<option value="large" <?php selected( 'large', $instance['icon_size'] ); ?>><?php esc_html_e( 'Large', 'vantage' ); ?></option>
@@ -221,36 +234,32 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'more' ); ?>"><?php _e( 'More Text', 'vantage' ); ?></label>
-			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'more' ); ?>" name="<?php echo $this->get_field_name( 'more' ); ?>" value="<?php echo esc_attr( $instance['more'] ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'more' ) ); ?>">
+				<?php esc_html_e( 'More Text', 'vantage' ); ?>
+			</label>
+			<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'more' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'more' ) ); ?>" value="<?php echo esc_attr( $instance['more'] ); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'more_url' ); ?>"><?php _e( 'More URL', 'vantage' ); ?></label>
-			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'more_url' ); ?>" name="<?php echo $this->get_field_name( 'more_url' ); ?>" value="<?php echo esc_attr( $instance['more_url'] ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'more_url' ) ); ?>">
+				<?php esc_html_e( 'More URL', 'vantage' ); ?>
+			</label>
+			<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'more_url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'more_url' ) ); ?>" value="<?php echo esc_attr( $instance['more_url'] ); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'all_linkable' ); ?>">
-				<input type="checkbox" id="<?php echo $this->get_field_id( 'all_linkable' ); ?>" name="<?php echo $this->get_field_name( 'all_linkable' ); ?>" <?php checked( $instance['all_linkable'] ); ?> />
-				<?php _e( 'Link title and icon to "More URL"', 'vantage' ); ?>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'all_linkable' ) ); ?>">
+				<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'all_linkable' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'all_linkable' ) ); ?>" <?php checked( $instance['all_linkable'] ); ?> />
+				<?php esc_html_e( 'Link title and icon to "More URL"', 'vantage' ); ?>
 			</label>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'more_target' ); ?>">
-				<input type="checkbox" id="<?php echo $this->get_field_id( 'more_target' ); ?>" name="<?php echo $this->get_field_name( 'more_target' ); ?>" <?php checked( $instance['more_target'] ); ?> />
-				<?php _e( 'Open link in a new tab', 'vantage' ); ?>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'more_target' ) ); ?>">
+				<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'more_target' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'more_target' ) ); ?>" <?php checked( $instance['more_target'] ); ?> />
+				<?php esc_html_e( 'Open link in a new tab', 'vantage' ); ?>
 			</label>
 		</p>
-		<!--
-		<p>
-			<label for="<?php echo $this->get_field_id( 'box' ); ?>">
-				<input type="checkbox" id="<?php echo $this->get_field_id( 'box' ); ?>" name="<?php echo $this->get_field_name( 'box' ); ?>" <?php checked( $instance['box'] ); ?> />
-				<?php _e( 'Show Box Container', 'vantage' ); ?>
-			</label>
-		</p>
-		-->
 		<?php
 	}
 
@@ -292,13 +301,17 @@ class Vantage_Headline_Widget extends WP_Widget {
 
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'headline' ); ?>"><?php _e( 'Headline', 'vantage' ); ?></label>
-			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'headline' ); ?>" name="<?php echo $this->get_field_name( 'headline' ); ?>" value="<?php echo esc_attr( $instance['headline'] ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'headline' ) ); ?>">
+				<?php esc_html_e( 'Headline', 'vantage' ); ?>
+			</label>
+			<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'headline' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'headline' ) ); ?>" value="<?php echo esc_attr( $instance['headline'] ); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'sub_headline' ); ?>"><?php _e( 'Sub Headline', 'vantage' ); ?></label>
-			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'sub_headline' ); ?>" name="<?php echo $this->get_field_name( 'sub_headline' ); ?>" value="<?php echo esc_attr( $instance['sub_headline'] ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'sub_headline' ) ); ?>">
+				<?php esc_html_e( 'Sub Headline', 'vantage' ); ?>
+			</label>
+			<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'sub_headline' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'sub_headline' ) ); ?>" value="<?php echo esc_attr( $instance['sub_headline'] ); ?>" />
 		</p>
 		<?php
 	}
@@ -397,13 +410,17 @@ class Vantage_Social_Media_Widget extends WP_Widget {
 
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'vantage' ); ?></label><br/>
-			<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" id="<?php echo $this->get_field_id( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">
+				<?php esc_html_e( 'Title', 'vantage' ); ?>
+			</label><br/>
+			<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'size' ); ?>"><?php _e( 'Icon Size', 'vantage' ); ?></label><br/>
-			<select id="<?php echo $this->get_field_id( 'size' ); ?>" name="<?php echo $this->get_field_name( 'size' ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'size' ) ); ?>">
+				<?php esc_html_e( 'Icon Size', 'vantage' ); ?>
+			</label><br/>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'size' ) ); ?>" name="<?php echo $this->get_field_name( 'size' ); ?>">
 				<?php foreach ( $sizes as $id => $name ) { ?>
 					<option value="<?php echo esc_attr( $id ); ?>" <?php selected( $instance['size'], $id ); ?>><?php echo esc_html( $name ); ?></option>
 				<?php } ?>
@@ -414,16 +431,19 @@ class Vantage_Social_Media_Widget extends WP_Widget {
 		foreach ( $this->networks as $id => $name ) {
 			?>
 			<p>
-				<label for="<?php echo $this->get_field_id( $id ); ?>"><?php echo $name; ?></label>
-				<input type="text" id="<?php echo $this->get_field_id( $id ); ?>" name="<?php echo $this->get_field_name( $id ); ?>" value="<?php echo esc_attr( ! empty( $instance[ $id ] ) ? $instance[ $id ] : '' ); ?>" class="widefat"/>
+				<label for="<?php echo esc_attr( $this->get_field_id( $id ) ); ?>">
+					<?php echo esc_html( $name ); ?>
+				</label>
+				<input type="text" id="<?php echo esc_attr( $this->get_field_id( $id ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $id ) ); ?>" value="<?php echo esc_attr( ! empty( $instance[ $id ] ) ? $instance[ $id ] : '' ); ?>" class="widefat"/>
 			</p>
 			<?php
 		}
 		?>
 		<p>
-			<input type="checkbox" name="<?php echo $this->get_field_name( 'new_window' ); ?>" id="<?php echo $this->get_field_id( 'new_window' ); ?>" <?php checked( $instance['new_window'] ); ?> />
-			<label for="<?php echo $this->get_field_id( 'new_window' ); ?>"><?php _e( 'Open in New Window', 'vantage' ); ?></label>
-
+			<input type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'new_window' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'new_window' ) ); ?>" <?php checked( $instance['new_window'] ); ?> />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'new_window' ) ); ?>">
+				<?php esc_html_e( 'Open in New Window', 'vantage' ); ?>
+			</label>
 		</p>
 		<?php
 	}
@@ -502,9 +522,9 @@ if ( ! function_exists( 'vantage_carousel_ajax_handler' ) ) {
 						$title = get_the_title();
 
 					if ( empty( $title ) ) {
-						$title = _e( 'Post ', 'vantage' ) . get_the_ID();
+						$title = __( 'Post ', 'vantage' ) . get_the_ID();
 					} ?>
-						<h3><a href="<?php the_permalink(); ?>"><?php echo $title; ?></a></h3>
+						<h3><a href="<?php esc_url( get_the_permalink() ); ?>"><?php echo esc_html( $title ); ?></a></h3>
 					</li>
 				<?php } ?>
 			</ul>
@@ -515,7 +535,7 @@ if ( ! function_exists( 'vantage_carousel_ajax_handler' ) ) {
 		wp_reset_postdata();
 
 		header( 'content-type:application/json' );
-		echo json_encode( array(
+		echo wp_json_encode( array(
 			'html' => ob_get_clean(),
 			'count' => $query->post_count,
 		) );
