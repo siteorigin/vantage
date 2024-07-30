@@ -282,7 +282,7 @@ jQuery ( function( $ ) {
 			var navTop = parseInt( $initTop - $( window ).scrollTop() ); // Force truncation of float value.
 			if ( navTop < threshold ) {
 				$$.addClass( 'sticky' );
-				$body.addClass( 'vantage-sticky-menu' );
+				$body.addClass( 'vantage-sticky-menu sticky-menu' );
 				$( '#masthead' ).css( 'padding-bottom', $$.innerHeight() + 'px' );
 
 				if ( isBoxedMega ) {
@@ -291,7 +291,7 @@ jQuery ( function( $ ) {
 			} else if ( $body.hasClass( 'vantage-sticky-menu' ) ) {
 				$( '#masthead' ).css( 'padding-bottom', 0 );
 				$$.removeClass( 'sticky' );
-				$body.removeClass( 'vantage-sticky-menu' );
+				$body.removeClass( 'vantage-sticky-menu sticky-menu' );
 
 				if ( isBoxedMega ) {
 					$$.width( 'auto' );
