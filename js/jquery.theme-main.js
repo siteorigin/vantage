@@ -8,7 +8,7 @@ jQuery ( function( $ ) {
 	$( 'body.no-js' ).removeClass( 'no-js' );
 
 	// Initialize FlexSlider.
-	$( '.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider, .gallery-format-slider' ).flexslider( { 
+	$( '.entry-content .flexslider:not(.metaslider .flexslider), #metaslider-demo.flexslider, .gallery-format-slider' ).flexslider( {
 		namespace: "flex-vantage-",
 	} );
 
@@ -262,7 +262,7 @@ jQuery ( function( $ ) {
 	} ).trigger( 'resize' );
 
 	// The sticky menu.
-	if ( ( $( 'nav.site-navigation.primary' ).hasClass( 'use-sticky-menu' ) && !isMobileDevice ) ||
+	if ( ( $( 'nav.site-navigation.primary' ).hasClass( 'use-vantage-sticky-menu' ) && !isMobileDevice ) ||
 		( ( isMobileDevice || isCustomizer ) && isMobileNav ) ) {
 
 		var $$ = $( 'nav.site-navigation.primary' );
@@ -282,16 +282,16 @@ jQuery ( function( $ ) {
 			var navTop = parseInt( $initTop - $( window ).scrollTop() ); // Force truncation of float value.
 			if ( navTop < threshold ) {
 				$$.addClass( 'sticky' );
-				$body.addClass( 'sticky-menu' );
+				$body.addClass( 'vantage-sticky-menu sticky-menu' );
 				$( '#masthead' ).css( 'padding-bottom', $$.innerHeight() + 'px' );
 
 				if ( isBoxedMega ) {
 					$$.width( boxedMegaWidth );
 				}
-			} else if ( $body.hasClass( 'sticky-menu' ) ) {
+			} else if ( $body.hasClass( 'vantage-sticky-menu' ) ) {
 				$( '#masthead' ).css( 'padding-bottom', 0 );
 				$$.removeClass( 'sticky' );
-				$body.removeClass( 'sticky-menu' );
+				$body.removeClass( 'vantage-sticky-menu sticky-menu' );
 
 				if ( isBoxedMega ) {
 					$$.width( 'auto' );
