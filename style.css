@@ -708,11 +708,11 @@ body {
   margin: -10px 0 0;
   padding: 0 0 15px;
 }
-.sticky-menu #masthead.masthead-logo-in-menu img.alt-logo,
+.vantage-sticky-menu #masthead.masthead-logo-in-menu img.alt-logo,
 #masthead.masthead-logo-in-menu img.alt-logo-scroll {
   display: none;
 }
-.sticky-menu #masthead.masthead-logo-in-menu img.alt-logo-scroll {
+.vantage-sticky-menu #masthead.masthead-logo-in-menu img.alt-logo-scroll {
   display: block;
 }
 .layout-boxed #masthead.masthead-logo-in-menu .logo,
@@ -1052,41 +1052,41 @@ body.responsive.layout-full #page-wrapper .full-container {
   font-weight: bold;
 }
 /* For when the menu becomes a sticky menu */
-body.sticky-menu.layout-full .site-navigation {
+body.vantage-sticky-menu.layout-full .site-navigation {
   right: 0;
   left: 0;
   margin-right: 0;
   margin-left: 0;
 }
-body.sticky-menu.layout-boxed .main-navigation {
+body.vantage-sticky-menu.layout-boxed .main-navigation {
   width: 100%;
   max-width: 1080px;
 }
-body.sticky-menu.mega-menu-primary.layout-boxed .site-navigation {
+body.vantage-sticky-menu.mega-menu-primary.layout-boxed .site-navigation {
   max-width: 1100px;
 }
-body.sticky-menu.mega-menu-primary.layout-full .site-navigation {
+body.vantage-sticky-menu.mega-menu-primary.layout-full .site-navigation {
   padding-left: 35px;
   padding-right: 35px;
 }
-body.sticky-menu.mega-menu-primary .site-navigation {
+body.vantage-sticky-menu.mega-menu-primary .site-navigation {
   z-index: 9999;
 }
 @media (min-width: 783px) {
-  body.sticky-menu.admin-bar .site-navigation.use-sticky-menu {
+  body.vantage-sticky-menu.admin-bar .site-navigation.use-vantage-sticky-menu {
     top: 32px;
   }
 }
 @media (max-width: 782px) and (min-width: 601px) {
-  body.sticky-menu.admin-bar .site-navigation.use-sticky-menu {
+  body.vantage-sticky-menu.admin-bar .site-navigation.use-vantage-sticky-menu {
     top: 42px;
   }
 }
-body.sticky-menu .site-navigation.sticky {
+body.vantage-sticky-menu .site-navigation.sticky {
   position: fixed;
   top: 0;
 }
-body.admin-bar:not(.sticky-menu) .site-navigation.use-sticky-menu {
+body.admin-bar:not(.vantage-sticky-menu) .site-navigation.use-vantage-sticky-menu {
   top: 0;
 }
 .main-navigation.sticky:after {
@@ -2457,8 +2457,8 @@ body.layout-full {
   }
 }
 @media (min-width: 1100px) {
-  :not(.not-default-page).page-layout-full-width-sidebar.layout-boxed .main-navigation.use-sticky-menu.sticky,
-  :not(.not-default-page).page-layout-full-width.layout-boxed .main-navigation.use-sticky-menu.sticky {
+  :not(.not-default-page).page-layout-full-width-sidebar.layout-boxed .main-navigation.use-vantage-sticky-menu.sticky,
+  :not(.not-default-page).page-layout-full-width.layout-boxed .main-navigation.use-vantage-sticky-menu.sticky {
     left: 0;
     margin: 0 auto;
     max-width: calc(100% - 40px);
