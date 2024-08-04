@@ -47,7 +47,6 @@ module.exports = {
             'js/**/*.js',
             'inc/sliders/js/**/*.js',
             'inc/customizer/js/**/*.js',
-            'inc/metaslider/js/**/*.js',
             'inc/mobilenav/js/**/*.js',
             'inc/settings/js/**/*.js',
             'inc/settings/chosen/*.js',

@@ -4,7 +4,7 @@ Contributors: siteorigin
 
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-background, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce
 
-Tested up to: 6.5
+Tested up to: 6.6
 Requires at least: 4.7
 Requires PHP: 5.6.20
 License: GPLv2 or later
@@ -105,6 +105,10 @@ Dual licensed under the MIT or GPL Version 2 licenses.
 This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 SiteOrigin unless otherwise stated in the file header.
 
 == Changelog ==
+
+= 1.20.23 - 04 August 2024 =
+* Updated `Tested up to` tag.
+* Prefixed `sticky-menu` class to prevent a possible core Editor JavaScript conflict.
 
 = 1.20.22 - 15 June 2024 =
 * Updated `Tested up to` tag.

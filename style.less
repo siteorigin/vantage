@@ -5,7 +5,7 @@ Author URI: https://siteorigin.com/
 Theme URI: https://siteorigin.com/theme/vantage/
 Description: Vantage is a flexible multipurpose theme. Its strength lies in its tight integration with some powerful plugins like Page Builder for responsive page layouts, Smart Slider 3 for big beautiful sliders and WooCommerce to help you sell online. Vantage is fully responsive and retina ready. Use it to start a business site, portfolio or online store. We offer free support on our <a href="https://siteorigin.com/thread/">forum</a> (https://siteorigin.com/thread/).
 Version: dev
-Tested up to: 6.5
+Tested up to: 6.6
 Requires at least: 4.7
 Requires PHP: 5.6.20
 License: GNU General Public License v2 or later
@@ -239,7 +239,7 @@ textarea {
 	border-radius: 3px;
 	box-sizing: border-box;
 	color: #666;
-	font-weight: normal; 
+	font-weight: normal;
 	line-height: normal;
 	outline: none;
 	padding: 9px 12px;
@@ -252,7 +252,7 @@ textarea {
 }
 
 input[type="checkbox"] {
-	margin-right: 2px; 
+	margin-right: 2px;
 }
 
 select {
@@ -268,7 +268,7 @@ textarea {
 
 /* Alignment */
 
-.alignnone, 
+.alignnone,
 .aligncenter {
 	margin-bottom: 1.6em;
 }
@@ -412,7 +412,7 @@ body {
 		position: relative;
 		padding-top: 45px;
 		padding-bottom: 45px;
-		
+
 		&:not(.masthead-sidebar) {
 			gap: 25px;
 			display: flex;
@@ -560,12 +560,12 @@ body {
 	}
 }
 
-.sticky-menu #masthead.masthead-logo-in-menu img.alt-logo,
+.vantage-sticky-menu #masthead.masthead-logo-in-menu img.alt-logo,
 #masthead.masthead-logo-in-menu img.alt-logo-scroll {
 	display: none;
 }
 
-.sticky-menu #masthead.masthead-logo-in-menu img.alt-logo-scroll {
+.vantage-sticky-menu #masthead.masthead-logo-in-menu img.alt-logo-scroll {
 	display: block;
 }
 
@@ -828,7 +828,7 @@ body.responsive {
 
 /* =Menu
 ----------------------------------------------- */
-	
+
 .main-navigation {
 	background: #343538;
 	clear: both;
@@ -942,7 +942,7 @@ body.responsive {
 }
 
 /* For when the menu becomes a sticky menu */
-body.sticky-menu {
+body.vantage-sticky-menu {
 	&.layout-full .site-navigation {
 		right: 0;
 		left: 0;
@@ -970,7 +970,7 @@ body.sticky-menu {
 		}
 	}
 
-	&.admin-bar .site-navigation.use-sticky-menu {
+	&.admin-bar .site-navigation.use-vantage-sticky-menu {
 		@media (min-width: 783px) {
 			top: 32px;
 		}
@@ -986,7 +986,7 @@ body.sticky-menu {
 	}
 }
 
-body.admin-bar:not(.sticky-menu) .site-navigation.use-sticky-menu {
+body.admin-bar:not(.vantage-sticky-menu) .site-navigation.use-vantage-sticky-menu {
 	top: 0;
 }
 
@@ -2151,13 +2151,13 @@ article.page{
 		align-items: center;
 		clear: both;
 		display: flex;
-		
+
 		input {
 			line-height: 1;
 			margin-right: 7px;
 			width: auto;
 		}
-		
+
 		label {
 			display: inline-block;
 			font-weight: normal;
@@ -2225,7 +2225,7 @@ article.page{
 	#site-info {
 
 		span {
-			
+
 			&:after {
 				content: "\002d";
 				display: inline-block;
@@ -2233,7 +2233,7 @@ article.page{
 			}
 
 			&:last-of-type {
-				
+
 				&:after {
 					content: none;
 				}
