@@ -35,15 +35,25 @@ $logo_in_menu = siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu';
 			</div>
 		<?php } ?>
 
-		<?php if ( $ubermenu_active ) { ?>
-			<?php ubermenu( 'main', array( 'theme_location' => 'primary' ) ); ?>
-		<?php } else { ?>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'link_before' => '<span class="icon"></span>' ) ); ?>
-		<?php } ?>
+		<div class="main-navigation-container">
+			<?php
+			if ( $ubermenu_active ) {
+				ubermenu( 'main', array( 'theme_location' => 'primary' ) );
+			} else {
+				wp_nav_menu( array(
+						'theme_location' => 'primary',
+						'link_before' => '<span class="icon"></span>'
+				) );
+			}
 
-		<?php if ( siteorigin_setting( 'woocommerce_mini_cart' ) && vantage_is_woocommerce_active() ) { ?>
-			<?php vantage_woocommerce_mini_cart(); ?>
-		<?php } ?>
+			if (
+				siteorigin_setting( 'woocommerce_mini_cart' ) &&
+				vantage_is_woocommerce_active()
+			) {
+				vantage_woocommerce_mini_cart();
+			}
+			?>
+		</div>
 
 		<?php if ( siteorigin_setting( 'navigation_menu_search' ) && ! $max_mega_menu_active ) { ?>
 			<div id="search-icon">
