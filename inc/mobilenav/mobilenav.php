@@ -110,9 +110,15 @@ if ( ! function_exists( 'siteorigin_mobilenav_nav_menu_css' ) ) {
 			<style type="text/css">
 				.so-mobilenav-mobile + * { display: none; }
 				@media screen and (max-width: <?php echo intval( $mobile_resolution ); ?>px) { .so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; } .site-navigation #search-icon { display: none; } .has-menu-search .main-navigation ul { margin-right: 0 !important; }
-					<?php if ( class_exists( 'WooCommerce' ) && siteorigin_setting( 'woocommerce_mini_cart' ) ) { ?>
-						.site-header .shopping-cart { position: relative; }
-					<?php } ?>
+				<?php if ( class_exists( 'WooCommerce' ) && siteorigin_setting( 'woocommerce_mini_cart' ) ) { ?>
+					.site-header .shopping-cart { position: relative; }
+					.main-navigation-container { justify-content: space-between }
+					.main-navigation-container > div:not(.menu-mobilenav-container):not(.shopping-cart) {display: none;}
+				<?php } ?>
+
+				<?php if ( siteorigin_setting( 'layout_masthead' ) == 'logo-in-menu' ) { ?>
+					.masthead-logo-in-menu .full-container { display: flex; justify-content: space-between; }
+				<?php } ?>
 				}
 			</style>
 		<?php } else { ?>
