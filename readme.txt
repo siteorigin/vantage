@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.24 - 18 August 2024 =
+* Improved WooCommerce mini-cart mobile alignment.
+
 = 1.20.23 - 04 August 2024 =
 * Updated `Tested up to` tag.
 * Prefixed `sticky-menu` class to prevent a possible core Editor JavaScript conflict.
