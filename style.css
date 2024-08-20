@@ -710,6 +710,7 @@ body {
 }
 #masthead .main-navigation-container {
   display: flex;
+  flex: 2;
 }
 .vantage-sticky-menu #masthead.masthead-logo-in-menu img.alt-logo,
 #masthead.masthead-logo-in-menu img.alt-logo-scroll {
