@@ -711,7 +711,7 @@ body {
 #masthead .main-navigation-container {
   display: flex;
 }
-#masthead:not(.masthead-logo-in-menu) .menu-short-container,
+#masthead:not(.masthead-logo-in-menu) .main-navigation-container > div[class^="menu-"],
 #masthead.masthead-logo-in-menu .main-navigation-container {
   flex: 2;
 }
