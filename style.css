@@ -711,6 +711,11 @@ body {
 #masthead .main-navigation-container {
   display: flex;
 }
+#masthead:not(.masthead-logo-in-menu) .main-navigation-container .mobile-nav-customize-wrapper,
+#masthead:not(.masthead-logo-in-menu) .main-navigation-container > div[class^="menu-"],
+#masthead.masthead-logo-in-menu .main-navigation-container {
+  flex: 2;
+}
 .vantage-sticky-menu #masthead.masthead-logo-in-menu img.alt-logo,
 #masthead.masthead-logo-in-menu img.alt-logo-scroll {
   display: none;

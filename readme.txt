@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.25 - 23 August 2024 =
+* Resolved Menu Alignment setting output.
+
 = 1.20.24 - 18 August 2024 =
 * Improved WooCommerce mini-cart mobile alignment.
 

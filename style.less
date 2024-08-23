@@ -562,6 +562,12 @@ body {
 	.main-navigation-container {
 		display: flex;
 	}
+
+	&:not(.masthead-logo-in-menu) .main-navigation-container .mobile-nav-customize-wrapper,
+	&:not(.masthead-logo-in-menu) .main-navigation-container > div[class^="menu-"],
+	&.masthead-logo-in-menu .main-navigation-container {
+		flex: 2;
+	}
 }
 
 .vantage-sticky-menu #masthead.masthead-logo-in-menu img.alt-logo,
