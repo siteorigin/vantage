@@ -3871,3 +3871,7 @@ a[href^="tel"] {
     align-items: center;
   }
 }
+/* Fix Max Mega Menu display issue related to flex being used. */
+.mega-menu-primary .site-header .mega-menu-wrap {
+  flex: 1;
+}
