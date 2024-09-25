@@ -589,3 +589,11 @@
 .site-header .shopping-cart-dropdown .widget .woocommerce-mini-cart__buttons a:first-of-type {
   margin-right: 10px;
 }
+.mega-menu-primary .site-header .shopping-cart {
+  right: 16px;
+}
+.mega-menu-primary .site-header .shopping-cart .shopping-cart-dropdown {
+  position: absolute;
+  right: -16px;
+  top: 100%;
+}

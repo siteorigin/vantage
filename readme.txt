@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.26 - 25 September 2024 =
+* Max Mega Menu: Improved full-width display.
+
 = 1.20.25 - 23 August 2024 =
 * Resolved Menu Alignment setting output.
 
