@@ -647,10 +647,6 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
 }
-#masthead.masthead-logo-in-menu {
-  padding: 10px 0;
-  margin-right: 15px;
-}
 #masthead.masthead-logo-in-menu .main-navigation {
   zoom: 1;
 }
@@ -672,8 +668,10 @@ body {
   margin-left: auto;
 }
 #masthead.masthead-logo-in-menu .logo-in-menu-wrapper {
-  margin-top: auto;
   margin-bottom: auto;
+  margin-right: 15px;
+  margin-top: auto;
+  padding: 10px 0;
 }
 #masthead.masthead-logo-in-menu .logo {
   align-items: center;
