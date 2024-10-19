@@ -668,14 +668,14 @@ body {
   margin-left: auto;
 }
 #masthead.masthead-logo-in-menu .logo-in-menu-wrapper {
-  margin-top: auto;
   margin-bottom: auto;
+  margin-right: 15px;
+  margin-top: auto;
+  padding: 10px 0;
 }
 #masthead.masthead-logo-in-menu .logo {
   align-items: center;
   display: flex;
-  padding: 10px 0;
-  margin-right: 15px;
 }
 #masthead.masthead-logo-in-menu .logo > * {
   display: block;
@@ -712,7 +712,7 @@ body {
   display: flex;
 }
 #masthead:not(.masthead-logo-in-menu) .main-navigation-container .mobile-nav-customize-wrapper,
-#masthead:not(.masthead-logo-in-menu) .main-navigation-container > div[class^="menu-"],
+#masthead:not(.masthead-logo-in-menu) .main-navigation-container > div[class^="menu"],
 #masthead.masthead-logo-in-menu .main-navigation-container {
   flex: 2;
 }
