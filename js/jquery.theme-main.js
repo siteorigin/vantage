@@ -279,7 +279,9 @@ jQuery ( function( $ ) {
 			if ( $body.hasClass( 'admin-bar' ) ) {
 				threshold = $( '#wpadminbar' ).css( 'position' ) == 'absolute' ? 0 : $( '#wpadminbar' ).outerHeight();
 			}
-			var navTop = parseInt( $initTop - $( window ).scrollTop() ); // Force truncation of float value.
+
+			// Round up to the nearest pixel.
+			var navTop = Math.ceil( $initTop - $( window ).scrollTop() );
 			if ( navTop < threshold ) {
 				$$.addClass( 'sticky' );
 				$body.addClass( 'vantage-sticky-menu sticky-menu' );
