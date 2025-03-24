@@ -188,35 +188,20 @@ if ( ! function_exists( 'vantage_panels_add_full_width_container' ) ) {
 }
 add_filter( 'siteorigin_panels_full_width_container', 'vantage_panels_add_full_width_container' );
 
-$vantage_classic_editor_setup = false;
 if ( ! function_exists( 'vantage_setup_classic_editor' ) ) {
 	function vantage_setup_classic_editor() {
-		global $vantage_classic_editor_setup;
+		static $vantage_classic_editor_setup;
+
 		if ( $vantage_classic_editor_setup ) {
 			return;
 		}
+
 		$vantage_classic_editor_setup = true;
 
-		// Check if this page is powered by the Block Editor.
-		if ( ! is_admin() ) {
-			global $post;
-			if (
-				! empty( $post ) &&
-				! has_blocks( $post->post_content )
-			) {
-				return false;
-			}
-		} else {
-			$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
-
-			if (
-				! empty( $current_screen ) &&
-				method_exists( $current_screen, 'is_block_editor' )
-			) {
-				if ( $current_screen->is_block_editor() ) {
-					return;
-				}
-			}
+		// If the current page doesn't have postmeta, don't set up the Classic Editor hooks.
+		$has_postmeta = get_post_meta( get_the_ID(), 'panels_data', true );
+		if ( ! $has_postmeta && ! is_admin() ) {
+			return false;
 		}
 
 		add_filter( 'siteorigin_panels_row_styles', 'vantage_panels_row_styles' );
