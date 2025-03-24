@@ -106,6 +106,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.28 - 24 March 2025 =
+* Updated `Tested up to` tag.
+* Updated SiteOrigin Settings.
+* Improved Classic Editor detection: Prevented background images removed in SO Layout Block.
+
 = 1.20.27 - 20 October 2024 =
 * Restored menu alignment setting when a menu has not been assigned to the theme's primary menu location.
 * Logo in Menu: Moved the spacing CSS to the logo wrapper container.
