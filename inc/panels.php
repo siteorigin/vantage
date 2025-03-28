@@ -318,6 +318,8 @@ if ( ! function_exists( 'vantage_panels_row_style_fields' ) ) {
 
 if ( ! function_exists( 'vantage_panels_panels_row_style_attributes' ) ) {
 	function vantage_panels_panels_row_style_attributes( $attr, $style ) {
+		static $pb_css_container_breaker;
+
 		if ( empty( $attr['style'] ) ) {
 			$attr['style'] = '';
 		}
@@ -342,13 +344,29 @@ if ( ! function_exists( 'vantage_panels_panels_row_style_attributes' ) ) {
 			$attr['style'] .= 'background-repeat: repeat; ';
 		}
 
-		if ( isset( $style['row_stretch'] ) && strpos( $style['row_stretch'], 'full' ) !== false ) {
-			// We'll use this to prevent the jump when loading.
-			$attr['class'][] = 'panel-row-style-full-width';
-		}
-
 		if ( empty( $attr['style'] ) ) {
 			unset( $attr['style'] );
+		}
+
+		if (
+			isset( $style['row_stretch'] ) &&
+			strpos( $style['row_stretch'], 'full' ) !== false
+		) {
+
+			if ( empty( $pb_css_container_breaker ) ) {
+				$pb_css_container_breaker = method_exists( 'SiteOrigin_Panels', 'container_settings' ) ? SiteOrigin_Panels::container_settings() : null;
+			}
+
+			// If the CSS Container Breaker is enabled, it'll prevent the jump for us.
+			if (
+				is_array( $pb_css_container_breaker ) &&
+				$pb_css_container_breaker['css_override']
+			) {
+				return $attr;
+			}
+
+			// We'll use this to prevent the jump when loading.
+			$attr['class'][] = 'panel-row-style-full-width';
 		}
 
 		return $attr;
