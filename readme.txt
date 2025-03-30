@@ -106,6 +106,9 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.29 - 30 March 2025 =
+* Page Builder: Accounted for CSS Container Breaker Before adding `panel-row-style-full-width`.
+
 = 1.20.28 - 24 March 2025 =
 * Updated `Tested up to` tag.
 * Updated SiteOrigin Settings.
