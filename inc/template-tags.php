@@ -107,9 +107,7 @@ if ( ! function_exists( 'vantage_content_nav' ) ) {
 				)
 			) {
 				// Navigation links for home, archive, and search pages.
-				echo paginate_links( array(
-					'mid_size' => 5,
-				) );
+				vantage_pagination();
 			}
 			?>
 
