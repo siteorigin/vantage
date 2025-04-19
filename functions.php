@@ -28,7 +28,6 @@ include get_template_directory() . '/inc/menu.php';
 include get_template_directory() . '/inc/breadcrumbs.php';
 include get_template_directory() . '/inc/customizer.php';
 include get_template_directory() . '/inc/legacy.php';
-require get_template_directory() . '/inc/deprecated.php';
 include get_template_directory() . '/fontawesome/icon-migration.php';
 
 if ( ! function_exists( 'vantage_setup' ) ) {

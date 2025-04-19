@@ -514,6 +514,23 @@ if ( ! function_exists( 'vantage_next_attachment_url' ) ) {
 	}
 }
 
+if ( ! function_exists( 'vantage_pagination' ) ) {
+	/**
+	 * Display the pagination
+	 *
+	 * @param string $pages
+	 * @param int    $range
+	 */
+	function vantage_pagination( $pages = '', $range = 2 ) {
+		$showitems = ( $range * 2 ) + 1;
+		echo "<div class='pagination'>";
+		echo paginate_links( array(
+			'mid_size' => $showitems,
+		) );
+		echo "</div>\n";
+	}
+}
+
 if ( ! function_exists( 'vantage_read_more_link' ) ) {
 	/**
 	 * Filter the read more link.
