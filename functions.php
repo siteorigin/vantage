@@ -414,14 +414,12 @@ if ( ! function_exists( 'vantage_scripts' ) ) {
 			'4.6.2'
 		);
 
-		if ( is_active_widget( false, false, 'vantage-social-media' ) ) {
-			wp_enqueue_style(
-				'social-media-widget',
-				get_template_directory_uri() . '/css/social-media-widget.css',
-				array(),
-				SITEORIGIN_THEME_VERSION
-			);
-		}
+		wp_register_style(
+			'social-media-widget',
+			get_template_directory_uri() . '/css/social-media-widget.css',
+			array(),
+			SITEORIGIN_THEME_VERSION
+		);
 
 		if ( class_exists( 'woocommerce' ) ) {
 			wp_enqueue_style(

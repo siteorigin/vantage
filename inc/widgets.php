@@ -68,6 +68,8 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		$icon_styles = ! empty( $icon_styles ) ? 'style="' . implode( ';', $icon_styles ) . '"' : '';
 		$icon_class = ! empty( $icon_styles ) ? ' icon-style-set' : '';
 		$target = ( ! empty( $instance['more_target'] ) ? 'target="_blank"' : '' );
+
+		wp_enqueue_style( 'social-media-widget' );
 		?>
 		<div class="circle-icon-box circle-icon-position-<?php echo esc_attr( $instance['icon_position'] ); ?> <?php echo empty( $instance['box'] ) ? 'circle-icon-hide-box' : 'circle-icon-show-box'; ?> circle-icon-size-<?php echo esc_attr( $instance['icon_size'] ); ?> <?php if ( siteorigin_setting( 'blog_featured_image_type' ) == 'none' ) {
 			echo 'no-archive-featured-image';
