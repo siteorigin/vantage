@@ -106,6 +106,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.30 - 28 May 2025 =
+* Circle Icon: Resolved issue where widget CSS was not consistently loading.
+* Font Awesome: Removed SVG format.
+* Developer: Deprecated `vantage_pagination` and refactored its implementation.
+
 = 1.20.29 - 30 March 2025 =
 * Page Builder: Accounted for CSS Container Breaker Before adding `panel-row-style-full-width`.
 
