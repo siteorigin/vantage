@@ -106,6 +106,10 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.31 - 13 June 2025 =
+* Social Media Widget: Moved CSS to main stylesheet and updated styling.
+* Developer: Converted Less to CSS.
+
 = 1.20.30 - 28 May 2025 =
 * Circle Icon: Resolved issue where widget CSS was not consistently loading.
 * Font Awesome: Removed SVG format.
