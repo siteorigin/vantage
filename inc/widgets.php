@@ -87,11 +87,14 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<?php } ?>
 
 			<?php if ( ! empty( $instance['more_url'] ) && ! empty( $instance['all_linkable'] ) ) { ?>
-				<a href="<?php echo esc_url( $instance['more_url'] ); ?>" class="link-title" <?php echo $target; ?>>
+				<a
+					href="<?php echo esc_url( $instance['more_url'] ); ?>"
+					class="link-title" <?php echo esc_attr( $target ); ?>
+				>
 			<?php } ?>
 			<?php if ( ! empty( $instance['title'] ) ) { ?>
 				<h4 <?php echo ! empty( $title_color ) ? 'style="' . esc_attr( $title_color ) . '"' : ''; ?>>
-					<?php echo wp_kses_post( apply_filters( 'widget_title', $instance['title'] ) ); ?>
+					<?php echo vantage_wp_kses( $instance['title'] ); ?>
 				</h4>
 			<?php } ?>
 			<?php if ( ! empty( $instance['more_url'] ) && ! empty( $instance['all_linkable'] ) ) { ?>
@@ -99,16 +102,28 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<?php } ?>
 
 			<?php if ( ! empty( $instance['text'] ) ) { ?>
-				<p class="text" <?php echo ! empty( $text_color ) ? 'style="' . esc_attr( $text_color ) . '"' : ''; ?>><?php echo wp_kses_post( $instance['text'] ); ?></p>
+				<p class="text" <?php echo ! empty( $text_color ) ? 'style="' . esc_attr( $text_color ) . '"' : ''; ?>>
+				<?php echo vantage_wp_kses( $instance['text'] ); ?>
+			</p>
 			<?php } ?>
 			<?php if ( ! empty( $instance['more_url'] ) ) { ?>
 				<a
 					href="<?php echo esc_url( $instance['more_url'] ); ?>"
 					class="more-button"
-					<?php echo $target; ?>
-					<?php echo ! empty( $text_color ) ? 'style="' . esc_attr( $text_color ) . '"' : ''; ?>
+					<?php
+					echo esc_attr( $target );
+
+					echo ! empty( $text_color ) ?
+						'style="' . esc_attr( $text_color ) . '"'
+						: '';
+					?>
 				>
-					<?php echo ! empty( $instance['more'] ) ? esc_html( $instance['more'] ) : esc_html__( 'More Info', 'vantage' ); ?> <i></i>
+					<?php
+					echo ! empty( $instance['more'] ) ?
+					esc_html( $instance['more'] ) :
+					esc_html__( 'More Info', 'vantage' );
+					?>
+					<i></i>
 				</a>
 			<?php } ?>
 		</div>
@@ -268,6 +283,11 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 		$new_instance['all_linkable'] = ! empty( $new_instance['all_linkable'] );
 		$new_instance['more_target'] = ! empty( $new_instance['more_target'] );
 
+		$new_instance['title'] = sanitize_text_field( $new_instance['title'] );
+		$new_instance['text'] = sanitize_text_field( $new_instance['text'] );
+		$new_instance['more'] = sanitize_text_field( $new_instance['more'] );
+		$new_instance['more_url'] = esc_url_raw( $new_instance['more_url'] );
+
 		return $new_instance;
 	}
 }
@@ -286,9 +306,9 @@ class Vantage_Headline_Widget extends WP_Widget {
 		echo $args['before_widget'];
 
 		?>
-		<h1><?php echo wp_kses_post( $instance['headline'] ); ?></h1>
+		<h1><?php echo vantage_wp_kses ( $instance['headline'] ); ?></h1>
 		<div class="decoration"><div class="decoration-inside"></div></div>
-		<h3><?php echo wp_kses_post( $instance['sub_headline'] ); ?></h3>
+		<h3><?php echo vantage_wp_kses ( $instance['sub_headline'] ); ?></h3>
 		<?php
 		echo $args['after_widget'];
 	}
@@ -373,7 +393,9 @@ class Vantage_Social_Media_Widget extends WP_Widget {
 		echo $args['before_widget'];
 
 		if ( ! empty( $instance['title'] ) ) {
-			echo $args['before_title'] . $instance['title'] . $args['after_title'];
+			echo $args['before_title'] .
+				vantage_wp_kses( $instance['title'] ) .
+				$args['after_title'];
 		}
 
 		foreach ( $this->networks as $id => $name ) {
@@ -381,14 +403,23 @@ class Vantage_Social_Media_Widget extends WP_Widget {
 				$instance[ $id ] = ( $id == 'envelope' && filter_var( $instance[ $id ], FILTER_VALIDATE_EMAIL ) ? 'mailto:' . $instance[ $id ] : $instance[ $id ] );
 				$instance[ $id ] = ( $id == 'phone' && ! filter_var( $instance[ $id ], FILTER_VALIDATE_URL ) && strpos( $instance[ $id ], 'tel:' ) === false && strpos( $instance[ $id ], 'sms:' ) === false ? 'tel:' . $instance[ $id ] : $instance[ $id ] );
 				$instance[ $id ] = ( $id == 'skype' && strpos( $instance[ $id ], 'skype:' ) === false && strpos( $instance[ $id ], 'callto:' ) === false ? 'skype:' . $instance[ $id ] : $instance[ $id ] );
-				?><a class="social-media-icon social-media-icon-<?php echo $id; ?> social-media-icon-size-<?php echo esc_attr( $instance['size'] ); ?>" href="<?php echo esc_url( $instance[ $id ], array( 'http', 'https', 'mailto', 'skype', 'callto', 'tel', 'sms' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) . ' ' . $name ); ?>" <?php if ( ! empty( $instance['new_window'] ) ) {
-					echo 'target="_blank"';
-				} ?>><?php
-
-				$icon = apply_filters( 'vantage_social_widget_icon_' . $id, '' );
-				echo ! empty( $icon ) ? $icon : '<span class="fa fa-' . $id . '"></span>';
-
-				?></a><?php
+				?>
+				<a
+					class="social-media-icon social-media-icon-<?php echo esc_attr( $id ); ?> social-media-icon-size-<?php echo esc_attr( $instance['size'] ); ?>"
+					href="<?php echo esc_url( $instance[ $id ], array( 'http', 'https', 'mailto', 'skype', 'callto', 'tel', 'sms' ) ); ?>"
+					title="<?php echo esc_attr( get_bloginfo( 'name' ) . ' ' . $name ); ?>"
+					<?php
+					if ( ! empty( $instance['new_window'] ) ) {
+						echo 'target="_blank"';
+					} ?>
+				>
+					<?php
+					echo ! empty( $icon ) ?
+						$icon :
+						'<span class="fa fa-' . esc_attr( $id ) . '"></span>';
+					?>
+				</a>
+				<?php
 			}
 		}
 
@@ -559,3 +590,43 @@ function vantage_restore_lazy_load( $index ) {
 	}
 }
 add_action( 'dynamic_sidebar_after', 'vantage_restore_lazy_load' );
+
+/**
+ * Sanitize content using a predefined set of allowed HTML tags and attributes.
+ *
+ * This function ensures that only safe HTML elements and attributes are allowed
+ * in the provided content.
+ *
+ * @param string $content The content to sanitize.
+ *
+ * @return string The sanitized content.
+ */
+function vantage_wp_kses( $content ) {
+	return wp_kses( $content, array(
+		'a' => array(
+			'href' => array(),
+			'title' => array(),
+			'target' => array(),
+			'rel' => array(),
+			'class' => array(),
+			'id' => array(),
+		),
+		'br' => array(),
+		'em' => array(),
+		'strong' => array(),
+		'span' => array(
+			'style' => array(),
+			'class' => array(),
+			'id' => array(),
+		),
+		'img' => array(
+			'src' => array(),
+			'alt' => array(),
+			'title' => array(),
+			'width' => array(),
+			'height' => array(),
+			'class' => array(),
+			'id' => array(),
+		),
+	) );
+}
