@@ -516,29 +516,71 @@ if ( ! function_exists( 'vantage_filter_carousel_loop' ) ) {
 }
 add_filter( 'widget_title', 'vantage_filter_carousel_loop', 10, 3 );
 
+function vantage_carousel_query_variables( $vars, $query = array() ) {
+	$allowed_fields = array(
+		'post_type',
+		'posts_per_page',
+		'cat',
+		'orderby',
+		'order',
+		'meta_key',
+		'meta_value',
+		'author',
+		'tag',
+		's'
+	);
+
+	foreach ( $vars as $key => $val ) {
+		if ( in_array( $key, $allowed_fields, true ) ) {
+			$query[ $key ] = sanitize_text_field( $val );
+		}
+	}
+
+	return $query;
+}
+
 if ( ! function_exists( 'vantage_carousel_ajax_handler' ) ) {
 	/**
 	 * Handle ajax requests for the carousel.
 	 */
 	function vantage_carousel_ajax_handler() {
-		if ( empty( $_GET['query'] ) ) {
-			return;
+		if (
+			empty( $_GET['vantage_carousel_nonce'] ) ||
+			! wp_verify_nonce( $_GET['vantage_carousel_nonce'], 'vantage_carousel_action' )
+		) {
+			exit();
 		}
 
-		$query = $_GET['query'];
-		$query['paged'] = $_GET['paged'];
+		if ( empty( $_GET['query'] ) || ! is_array( $_GET['query'] ) ) {
+			exit();
+		}
+
+		$query = array();
+		$query = vantage_carousel_query_variables( $_GET['query'], $query );
+		$query['paged'] = isset( $_GET['paged'] ) ? intval( $_GET['paged'] ) : 1;
 		$query['post_status'] = 'publish';
 
-		$query = new WP_Query( $query );
+		$wp_query = new WP_Query( $query );
 
 		ob_start();
 		?>
 		<div class="vantage-carousel-wrapper">
-			<?php $vars = vantage_get_query_variables(); ?>
+			<?php
+			$vars = vantage_get_query_variables();
+			$ajax_url = add_query_arg(
+				array(
+					'vantage_carousel_nonce' => wp_create_nonce( 'vantage_carousel_action' ),
+				),
+				admin_url( 'admin-ajax.php' )
+			);
+			?>
 
-			<ul class="vantage-carousel" data-query="<?php echo esc_attr( json_encode( $vars ) ); ?>" data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>">
-				<?php while ( $query->have_posts() ) {
-					$query->the_post(); ?>
+			<ul class="vantage-carousel"
+				data-query="<?php echo esc_attr( json_encode( $vars ) ); ?>"
+				data-ajax-url="<?php echo esc_url( $ajax_url ); ?>"
+			>
+				<?php while ( $wp_query->have_posts() ) {
+					$wp_query->the_post(); ?>
 					<li class="carousel-entry">
 						<div class="thumbnail">
 							<?php if ( has_post_thumbnail() ) {
@@ -568,7 +610,7 @@ if ( ! function_exists( 'vantage_carousel_ajax_handler' ) ) {
 		header( 'content-type:application/json' );
 		echo wp_json_encode( array(
 			'html' => ob_get_clean(),
-			'count' => $query->post_count,
+			'count' => $wp_query->post_count,
 		) );
 
 		exit();
