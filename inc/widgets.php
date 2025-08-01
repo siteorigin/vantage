@@ -43,20 +43,32 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			$icon_styles[] = 'background-image: url(' . esc_url( $instance['image'] ) . ')';
 		}
 
-		if ( ! empty( $instance['icon_background_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', esc_attr( $instance['icon_background_color'] ) ) ) {
-			$icon_styles[] = 'background-color: ' . esc_attr( $instance['icon_background_color'] );
+		if ( ! empty( $instance['icon_background_color'] ) ) {
+			$sanitized_bg = sanitize_hex_color( $instance['icon_background_color'] );
+			if ( $sanitized_bg ) {
+				$icon_styles[] = 'background-color: ' . esc_attr( $sanitized_bg );
+			}
 		}
 
-		if ( ! empty( $instance['title_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['title_color'] ) ) {
-			$title_color = 'color: ' . esc_attr( $instance['title_color'] );
+		if ( ! empty( $instance['title_color'] ) ) {
+			$sanitized_title = sanitize_hex_color( $instance['title_color'] );
+			if ( $sanitized_title ) {
+				$title_color = 'color: ' . esc_attr( $sanitized_title );
+			}
 		}
 
-		if ( ! empty( $instance['text_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['text_color'] ) ) {
-			$text_color = 'color: ' . esc_attr( $instance['text_color'] );
+		if ( ! empty( $instance['text_color'] ) ) {
+			$sanitized_text = sanitize_hex_color( $instance['text_color'] );
+			if ( $sanitized_text ) {
+				$text_color = 'color: ' . esc_attr( $sanitized_text );
+			}
 		}
 
-		if ( ! empty( $instance['icon_color'] ) && preg_match( '/^#?+[0-9a-f]{3}(?:[0-9a-f]{3})?$/i', $instance['icon_color'] ) ) {
-			$icon_color = 'style="color: ' . esc_attr( $instance['icon_color'] ) . '"';
+		if ( ! empty( $instance['icon_color'] ) ) {
+			$sanitized_icon = sanitize_hex_color( $instance['icon_color'] );
+			if ( $sanitized_icon ) {
+				$icon_color = 'style="color: ' . esc_attr( $sanitized_icon ) . '"';
+			}
 		}
 
 		$icon = $instance['icon'];
