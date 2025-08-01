@@ -555,7 +555,7 @@ if ( ! function_exists( 'vantage_carousel_ajax_handler' ) ) {
 					if ( empty( $title ) ) {
 						$title = __( 'Post ', 'vantage' ) . get_the_ID();
 					} ?>
-						<h3><a href="<?php esc_url( get_the_permalink() ); ?>"><?php echo esc_html( $title ); ?></a></h3>
+						<h3><a href="<?php echo esc_url( get_the_permalink() ); ?>"><?php echo esc_html( $title ); ?></a></h3>
 					</li>
 				<?php } ?>
 			</ul>
