@@ -198,7 +198,7 @@ class Vantage_CircleIcon_Widget extends WP_Widget {
 			<input class="widefat vantage-color-field" id="<?php echo esc_attr( $this->get_field_id( 'text_color' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text_color' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['text_color'] ); ?>" />
 		</p>
 
-		<p>x
+		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'icon' ) ); ?>"><?php esc_html_e( 'Icon', 'vantage' ); ?></label><br>
 			<select id="<?php echo esc_attr( $this->get_field_id( 'icon' ) ); ?>" name="<?php echo $this->get_field_name( 'icon' ); ?>">
 				<option value="" <?php selected( ! empty( $instance['icon'] ) ); ?>><?php esc_html_e( 'None', 'vantage' ); ?></option>
