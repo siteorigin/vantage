@@ -317,6 +317,12 @@ class Vantage_Headline_Widget extends WP_Widget {
 		);
 	}
 
+	public function update( $new_instance, $old_instance ) {
+		$new_instance['headline'] = sanitize_text_field( $new_instance['headline'] );
+		$new_instance['sub_headline'] = sanitize_text_field( $new_instance['sub_headline'] );
+		return $new_instance;
+	}
+
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 
