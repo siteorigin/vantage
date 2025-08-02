@@ -502,6 +502,13 @@ class Vantage_Social_Media_Widget extends WP_Widget {
 
 	public function update( $new_instance, $old_instance ) {
 		$new_instance['new_window'] = ! empty( $new_instance['new_window'] );
+		$new_instance['title'] = sanitize_text_field( $new_instance['title'] );
+
+		foreach ( $this->networks as $id => $name ) {
+			if ( isset( $new_instance[ $id ] ) ) {
+				$new_instance[ $id ] = esc_url_raw( $new_instance[ $id ] );
+			}
+		}
 
 		return $new_instance;
 	}
