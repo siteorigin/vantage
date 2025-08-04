@@ -106,6 +106,10 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.32 - 04 August 2025 =
+* Widgets: Improved handling and updates for Circle Icon, Carousel, Headline, and Social Media widgets.
+* Updated SiteOrigin Settings.
+
 = 1.20.31 - 13 June 2025 =
 * Social Media Widget: Moved CSS to main stylesheet and updated styling.
 * Developer: Converted Less to CSS.
