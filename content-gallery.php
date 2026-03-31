@@ -26,7 +26,7 @@ $post_class = ( is_singular() ) ? 'post' : '';
 					<ul class="slides gallery-format-slides">
 						<?php foreach ( $gallery['src'] as $image ) { ?>
 							<li class="gallery-format-slide">
-								<img src="<?php echo $image; ?>">
+								<img src="<?php echo esc_url( $image ); ?>">
 							</li>
 						<?php } ?>
 					<ul>
