@@ -106,6 +106,11 @@ This theme makes use of the SiteOrigin Settings Framework contained in the /inc 
 
 == Changelog ==
 
+= 1.20.33 - 02 April 2026 =
+* Fonts: Fixed Vantage Icon Font line gap metadata.
+* Footer: Updated attribution display and credit copy.
+* Fixed stored XSS vulnerability in gallery template.
+
 = 1.20.32 - 04 August 2025 =
 * Widgets: Improved handling and updates for Circle Icon, Carousel, Headline, and Social Media widgets.
 * Updated SiteOrigin Settings.
