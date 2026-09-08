@@ -232,7 +232,7 @@ function vantage_customizer_init() {
 				'type' => 'color',
 				'title' => __( 'Content Link Color', 'vantage' ),
 				'default' => '#248cc8',
-				'selector' => '.entry-content a, .entry-content a:visited, article.post .author-box .box-content .author-posts a:hover, #secondary a, #secondary a:visited, #masthead .hgroup a, #masthead .hgroup a:visited, .comment-form .logged-in-as a, .comment-form .logged-in-as a:visited',
+				'selector' => '.entry-content a:not(.wp-element-button):not(.wp-block-button__link), .entry-content a:not(.wp-element-button):not(.wp-block-button__link):visited, article.post .author-box .box-content .author-posts a:not(.wp-element-button):not(.wp-block-button__link):hover, #secondary a:not(.wp-element-button):not(.wp-block-button__link), #secondary a:not(.wp-element-button):not(.wp-block-button__link):visited, #masthead .hgroup a:not(.wp-element-button):not(.wp-block-button__link), #masthead .hgroup a:not(.wp-element-button):not(.wp-block-button__link):visited, .comment-form .logged-in-as a:not(.wp-element-button):not(.wp-block-button__link), .comment-form .logged-in-as a:not(.wp-element-button):not(.wp-block-button__link):visited',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -246,7 +246,7 @@ function vantage_customizer_init() {
 				'type' => 'color',
 				'title' => __( 'Content Link Hover Color', 'vantage' ),
 				'default' => '#f47e3c',
-				'selector' => '.entry-content a:hover, .entry-content a:focus, .entry-content a:active, #secondary a:hover, #masthead .hgroup a:hover, #masthead .hgroup a:focus, #masthead .hgroup a:active, .comment-form .logged-in-as a:hover, .comment-form .logged-in-as a:focus, .comment-form .logged-in-as a:active',
+				'selector' => '.entry-content a:not(.wp-element-button):not(.wp-block-button__link):hover, .entry-content a:not(.wp-element-button):not(.wp-block-button__link):focus, .entry-content a:not(.wp-element-button):not(.wp-block-button__link):active, #secondary a:not(.wp-element-button):not(.wp-block-button__link):hover, #masthead .hgroup a:not(.wp-element-button):not(.wp-block-button__link):hover, #masthead .hgroup a:not(.wp-element-button):not(.wp-block-button__link):focus, #masthead .hgroup a:not(.wp-element-button):not(.wp-block-button__link):active, .comment-form .logged-in-as a:not(.wp-element-button):not(.wp-block-button__link):hover, .comment-form .logged-in-as a:not(.wp-element-button):not(.wp-block-button__link):focus, .comment-form .logged-in-as a:not(.wp-element-button):not(.wp-block-button__link):active',
 				'property' => 'color',
 				'no_live' => true,
 			),
@@ -920,7 +920,7 @@ function vantage_customizer_callback_image_shadow( $builder, $val, $setting ) {
  */
 function vantage_customizer_callback_link_underline( $builder, $val, $setting ) {
 	if ( $val ) {
-		$builder->add_css( '.entry-content a, .textwidget a', 'text-decoration', 'none' );
+		$builder->add_css( '.entry-content a:not(.wp-element-button):not(.wp-block-button__link), .textwidget a:not(.wp-element-button):not(.wp-block-button__link)', 'text-decoration', 'none' );
 	}
 
 	return $builder;
@@ -935,7 +935,7 @@ function vantage_customizer_callback_link_underline( $builder, $val, $setting ) 
  */
 function vantage_customizer_callback_link_hover_underline( $builder, $val, $setting ) {
 	if ( $val ) {
-		$builder->add_css( '.entry-content a:hover, .textwidget a:hover', 'text-decoration', 'underline' );
+		$builder->add_css( '.entry-content a:not(.wp-element-button):not(.wp-block-button__link):hover, .textwidget a:not(.wp-element-button):not(.wp-block-button__link):hover', 'text-decoration', 'underline' );
 	}
 
 	return $builder;

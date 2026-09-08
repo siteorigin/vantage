@@ -1759,14 +1759,14 @@ article.page.post-with-thumbnail-icon .entry-main {
   display: table;
   clear: both;
 }
-.entry-content a {
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link) {
   color: #248cc8;
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-.entry-content a:hover {
+.entry-content a:not(.wp-element-button):not(.wp-block-button__link):hover {
   color: #f47e3c;
 }
 .entry-content p,
