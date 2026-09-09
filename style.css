@@ -496,7 +496,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: clip;
 }
 .layout-full #page-wrapper .full-container {
   max-width: 1080px;
@@ -924,7 +924,7 @@ body.sidebar-position-none #secondary {
 body.responsive #page-wrapper {
   max-width: 1080px;
   width: auto;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 body.responsive.layout-full #page-wrapper {
   max-width: 100%;
