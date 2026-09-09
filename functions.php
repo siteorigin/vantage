@@ -517,6 +517,7 @@ function vantage_block_editor_styles() {
 	wp_enqueue_style(
 		'vantage-block-editor-styles',
 		get_template_directory_uri() . '/style-editor.css',
+		array(),
 		SITEORIGIN_THEME_VERSION
 	);
 }
