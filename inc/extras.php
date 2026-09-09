@@ -132,18 +132,79 @@ if ( ! function_exists( 'vantage_enhanced_image_navigation' ) ) {
 }
 add_filter( 'attachment_link', 'vantage_enhanced_image_navigation', 10, 2 );
 
+if ( ! function_exists( 'vantage_visible_widget_count' ) ) {
+	/**
+	 * Count the widgets in a sidebar that will actually be displayed.
+	 *
+	 * Multilingual plugins hide widgets by returning false from
+	 * widget_display_callback, which leaves the raw sidebar count higher than the
+	 * number of widgets on the page and the columns sized too narrow. Mirror the
+	 * check WP_Widget::display_callback() makes so hidden widgets are left out.
+	 *
+	 * @param string $sidebar_id
+	 *
+	 * @return int
+	 */
+	function vantage_visible_widget_count( $sidebar_id ) {
+		global $wp_registered_widgets;
+
+		$sidebars_widgets = wp_get_sidebars_widgets();
+
+		if ( empty( $sidebars_widgets[ $sidebar_id ] ) ) {
+			return 0;
+		}
+
+		$widget_ids = (array) $sidebars_widgets[ $sidebar_id ];
+
+		if ( ! has_filter( 'widget_display_callback' ) ) {
+			return count( $widget_ids );
+		}
+
+		$count = 0;
+
+		foreach ( $widget_ids as $widget_id ) {
+			if ( empty( $wp_registered_widgets[ $widget_id ]['callback'][0] ) ) {
+				continue;
+			}
+
+			$widget = $wp_registered_widgets[ $widget_id ]['callback'][0];
+
+			if ( ! $widget instanceof WP_Widget ) {
+				// Not a WP_Widget, so there is no instance to filter.
+				$count++;
+				continue;
+			}
+
+			$number = isset( $wp_registered_widgets[ $widget_id ]['params'][0]['number'] ) ? $wp_registered_widgets[ $widget_id ]['params'][0]['number'] : -1;
+
+			// Point the widget at this instance before filtering, as WP_Widget::display_callback() does.
+			$widget->_set( $number );
+			$instances = $widget->get_settings();
+
+			if ( ! isset( $instances[ $widget->number ] ) ) {
+				continue;
+			}
+
+			if ( false !== apply_filters( 'widget_display_callback', $instances[ $widget->number ], $widget, array() ) ) {
+				$count++;
+			}
+		}
+
+		return $count;
+	}
+}
+
 if ( ! function_exists( 'vantage_footer_widget_style' ) ) {
 	/**
 	 * Add the styles to set the size of the footer widgets.
 	 */
 	function vantage_footer_widget_style() {
-		$widgets = wp_get_sidebars_widgets();
+		$count = vantage_visible_widget_count( 'sidebar-footer' );
 
-		if ( empty( $widgets['sidebar-footer'] ) ) {
+		if ( empty( $count ) ) {
 			return;
 		}
 
-		$count = count( $widgets['sidebar-footer'] );
 		?><style type="text/css" id="vantage-footer-widgets">#footer-widgets aside { width : <?php echo round( 100 / $count, 3 ); ?>%; }</style> <?php
 	}
 }

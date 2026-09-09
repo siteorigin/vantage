@@ -379,11 +379,8 @@ if ( ! function_exists( 'vantage_print_styles' ) ) {
 		}
 
 		// Create the footer and masthead widget CSS
-		$sidebars_widgets = wp_get_sidebars_widgets();
-		$footer_count = isset( $sidebars_widgets['sidebar-footer'] ) ? count( $sidebars_widgets['sidebar-footer'] ) : 1;
-		$footer_count = max( $footer_count, 1 );
-		$masthead_count = isset( $sidebars_widgets['sidebar-masthead'] ) ? count( $sidebars_widgets['sidebar-masthead'] ) : 1;
-		$masthead_count = max( $masthead_count, 1 );
+		$footer_count = max( vantage_visible_widget_count( 'sidebar-footer' ), 1 );
+		$masthead_count = max( vantage_visible_widget_count( 'sidebar-masthead' ), 1 );
 
 		?>
 		<style type="text/css" media="screen">
