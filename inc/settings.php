@@ -78,7 +78,7 @@ if ( ! function_exists( 'vantage_theme_settings' ) ) {
 		) );
 
 		$settings->add_field( 'logo', 'no_widget_overlay', 'checkbox', __( 'No Widget Overlay', 'vantage' ), array(
-			'description' => __( "If enabled, header widgets won't overlap main logo image.", 'vantage' ),
+			'description' => __( 'If enabled, header widgets and the header text are displayed below the logo, not beside it.', 'vantage' ),
 		) );
 
 		/*

@@ -2,8 +2,16 @@
 /**
  * Part Name: Default Masthead
  */
+
+// When widget overlay prevention is enabled, the header always uses the stacked
+// layout so header widgets and the support text sit below the logo, not beside it.
+$vantage_masthead_classes = 'site-header';
+
+if ( siteorigin_setting( 'logo_no_widget_overlay' ) ) {
+	$vantage_masthead_classes .= ' force-responsive';
+}
 ?>
-<header id="masthead" class="site-header" role="banner">
+<header id="masthead" class="<?php echo esc_attr( $vantage_masthead_classes ); ?>" role="banner">
 
 	<div class="hgroup full-container <?php if ( is_active_sidebar( 'sidebar-masthead' ) ) {
 		echo 'masthead-sidebar';
@@ -22,9 +30,7 @@
 
 			<?php if ( is_active_sidebar( 'sidebar-header' ) ) { ?>
 
-				<div id="header-sidebar" <?php if ( siteorigin_setting( 'logo_no_widget_overlay' ) ) {
-					echo 'class="no-logo-overlay"';
-				} ?>>
+				<div id="header-sidebar">
 					<?php
 					// Display the header area sidebar, and tell mobile navigation that we can use menus in here.
 					add_filter( 'siteorigin_mobilenav_is_valid', '__return_true' );
