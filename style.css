@@ -855,6 +855,7 @@ body.sidebar-position-none #secondary {
 }
 #masthead.force-responsive .hgroup #header-sidebar .widget {
   display: block;
+  float: none;
   margin: 0 auto;
 }
 #masthead.force-responsive .hgroup #header-sidebar > .widget {
@@ -896,6 +897,7 @@ body.sidebar-position-none #secondary {
   }
   body.responsive #masthead .hgroup #header-sidebar .widget {
     display: block;
+    float: none;
     margin: 0 auto;
   }
   body.responsive #masthead .hgroup #header-sidebar > .widget {
