@@ -552,7 +552,7 @@ return array(
 		'fa fa-square-binary',
 		'fa fa-terminal',
 		'fa fa-user-secret',
-		'fa fa-web-awesome',
+		'fa fa-brands fa-web-awesome',
 		'fa fa-window-maximize',
 		'fa fa-window-minimize',
 		'fa fa-window-restore',
@@ -2027,6 +2027,8 @@ return array(
 		'fa fa-brands fa-zhihu',
 	),
 	'font_awesome_4' => array(
+		'fa fa-credit-card-alt',
+		'fa fa-transgender-alt',
 		'fa fa-address-book-o',
 		'fa fa-address-card-o',
 		'fa fa-arrow-circle-o-down',

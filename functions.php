@@ -408,7 +408,7 @@ if ( ! function_exists( 'vantage_scripts' ) ) {
 
 		wp_enqueue_style(
 			'font-awesome',
-			get_template_directory_uri() . '/fontawesome/css/all.css',
+			get_template_directory_uri() . '/fontawesome/css/all.min.css',
 			array(),
 			SITEORIGIN_THEME_FONTAWESOME_VERSION
 		);
@@ -417,7 +417,7 @@ if ( ! function_exists( 'vantage_scripts' ) ) {
 		// version 6. Keeps icons saved before the upgrade working.
 		wp_enqueue_style(
 			'font-awesome-v4-shims',
-			get_template_directory_uri() . '/fontawesome/css/v4-shims.css',
+			get_template_directory_uri() . '/fontawesome/css/v4-shims.min.css',
 			array( 'font-awesome' ),
 			SITEORIGIN_THEME_FONTAWESOME_VERSION
 		);
