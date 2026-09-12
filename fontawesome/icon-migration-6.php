@@ -8,6 +8,10 @@
  *
  * Every pair was checked in a browser to confirm both names resolve to the
  * same glyph, font family and weight, so no saved icon changes appearance.
+ *
+ * The two entries below the stand-in comment are the exception. Font Awesome
+ * removed those icons, so each is mapped to the nearest icon that still
+ * exists, in the same way the version 3 to 4 map sends beaker to flask.
  */
 
 if ( ! function_exists( 'vantage_fontawesome_6_aliases' ) ) {
@@ -61,6 +65,10 @@ if ( ! function_exists( 'vantage_fontawesome_6_aliases' ) ) {
 			'fa fa-warning' => 'fa fa-exclamation-triangle',
 			'fa fa-won' => 'fa fa-krw',
 			'fa fa-yen' => 'fa fa-cny',
+
+			// Stand-ins for icons Font Awesome removed.
+			'fa fa-meanpath' => 'fa fa-search',
+			'fa fa-tripadvisor' => 'fa fa-suitcase',
 		);
 
 		return $aliases;
