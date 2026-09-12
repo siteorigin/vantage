@@ -421,14 +421,6 @@ if ( ! function_exists( 'vantage_scripts' ) ) {
 			SITEORIGIN_THEME_FONTAWESOME_VERSION
 		);
 
-		// Restores the FontAwesome font family name used by version 4, which the
-		// theme and child themes reference directly in CSS.
-		wp_enqueue_style(
-			'font-awesome-v4-font-face',
-			get_template_directory_uri() . '/fontawesome/css/v4-font-face.css',
-			array( 'font-awesome' ),
-			SITEORIGIN_THEME_FONTAWESOME_VERSION
-		);
 
 		if ( class_exists( 'woocommerce' ) ) {
 			wp_enqueue_style(
