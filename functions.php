@@ -7,6 +7,7 @@
  * @license GPL 2.0
  */
 define( 'SITEORIGIN_THEME_VERSION', 'dev' );
+define( 'SITEORIGIN_THEME_FONTAWESOME_VERSION', '6.7.2' );
 define( 'SITEORIGIN_THEME_JS_PREFIX', '' );
 define( 'SITEORIGIN_THEME_CSS_PREFIX', '' );
 
@@ -406,9 +407,27 @@ if ( ! function_exists( 'vantage_scripts' ) ) {
 
 		wp_enqueue_style(
 			'font-awesome',
-			get_template_directory_uri() . '/fontawesome/css/font-awesome.css',
+			get_template_directory_uri() . '/fontawesome/css/all.css',
 			array(),
-			'4.6.2'
+			SITEORIGIN_THEME_FONTAWESOME_VERSION
+		);
+
+		// Font Awesome 4 class names, such as fa-star-o, that were renamed in
+		// version 6. Keeps icons saved before the upgrade working.
+		wp_enqueue_style(
+			'font-awesome-v4-shims',
+			get_template_directory_uri() . '/fontawesome/css/v4-shims.css',
+			array( 'font-awesome' ),
+			SITEORIGIN_THEME_FONTAWESOME_VERSION
+		);
+
+		// Restores the FontAwesome font family name used by version 4, which the
+		// theme and child themes reference directly in CSS.
+		wp_enqueue_style(
+			'font-awesome-v4-font-face',
+			get_template_directory_uri() . '/fontawesome/css/v4-font-face.css',
+			array( 'font-awesome' ),
+			SITEORIGIN_THEME_FONTAWESOME_VERSION
 		);
 
 		if ( class_exists( 'woocommerce' ) ) {
