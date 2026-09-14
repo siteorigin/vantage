@@ -299,12 +299,22 @@ jQuery ( function( $ ) {
 		};
 
 		$( window ).on( 'scroll resize', resetStickyHeader );
+
+		/*
+		 * A logo or a widget image can arrive after this runs and change the
+		 * height of the header, which would leave the spacer holding the wrong
+		 * amount of space.
+		 */
+		$( window ).on( 'load', resetStickyHeader );
+		$stickyHeader.find( 'img' ).on( 'load', resetStickyHeader );
+
 		resetStickyHeader();
 	}
 
-	// The sticky menu.
-	if ( ( $( 'nav.site-navigation.primary' ).hasClass( 'use-vantage-sticky-menu' ) && !isMobileDevice ) ||
-		( ( isMobileDevice || isCustomizer ) && isMobileNav ) ) {
+	// The sticky menu. Skipped when the whole header is the one sticking.
+	if ( ! $stickyHeader.length && (
+		( $( 'nav.site-navigation.primary' ).hasClass( 'use-vantage-sticky-menu' ) && !isMobileDevice ) ||
+		( ( isMobileDevice || isCustomizer ) && isMobileNav ) ) ) {
 
 		var $$ = $( 'nav.site-navigation.primary' );
 		var $initTop;
