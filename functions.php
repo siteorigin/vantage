@@ -215,24 +215,6 @@ if ( ! function_exists( 'vantage_is_product_archive' ) ) {
 	}
 }
 
-if ( ! function_exists( 'vantage_infinite_scroll_supports_products' ) ) {
-	/**
-	 * Let Jetpack run on a shop that is served as a page.
-	 *
-	 * Jetpack only offers Infinite Scroll on the posts page, an archive or a
-	 * search. WooCommerce usually turns the shop into a product archive, but it
-	 * stays a page when the theme has not declared WooCommerce support, and
-	 * nothing loads there without this.
-	 *
-	 * @param bool $supported Whether Jetpack supports this request.
-	 * @return bool
-	 */
-	function vantage_infinite_scroll_supports_products( $supported ) {
-		return $supported || vantage_is_product_archive();
-	}
-}
-add_filter( 'infinite_scroll_archive_supported', 'vantage_infinite_scroll_supports_products' );
-
 if ( ! function_exists( 'vantage_woocommerce_products_per_page' ) ) {
 	/**
 	 * How many products WooCommerce shows on one page.
@@ -252,8 +234,13 @@ if ( ! function_exists( 'vantage_query_is_product_archive' ) ) {
 	 * Is this query a product listing?
 	 *
 	 * Conditional tags are not ready during pre_get_posts, so the query object
-	 * is asked instead. The shop can be a post type archive or the page set as
-	 * the shop, which is how WooCommerce itself decides in is_shop().
+	 * is asked instead.
+	 *
+	 * WooCommerce also counts the page set as the shop as a product listing,
+	 * but only when a theme has not declared WooCommerce support. Vantage has,
+	 * so the shop here is always a product archive. That page form is left out
+	 * because Jetpack cannot serve it anyway: it draws products from a separate
+	 * shortcode query rather than the query on the page.
 	 *
 	 * @param WP_Query $query The query being prepared.
 	 * @return bool
@@ -263,31 +250,7 @@ if ( ! function_exists( 'vantage_query_is_product_archive' ) ) {
 			return false;
 		}
 
-		if ( $query->is_post_type_archive( 'product' ) || $query->is_tax( get_object_taxonomies( 'product' ) ) ) {
-			return true;
-		}
-
-		$shop = wc_get_page_id( 'shop' );
-
-		if ( $shop < 1 ) {
-			return false;
-		}
-
-		/*
-		 * WordPress treats a page requested by id as the posts page when it is
-		 * also set as the posts page, so that has to be ruled out first. Asking
-		 * without an id is safe here, since only a match by id reads the queried
-		 * object, which WordPress has not set yet.
-		 */
-		if ( ! $query->is_page() ) {
-			return false;
-		}
-
-		if ( (int) $query->get( 'page_id' ) === (int) $shop ) {
-			return true;
-		}
-
-		return $query->is_page( $shop );
+		return $query->is_post_type_archive( 'product' ) || $query->is_tax( get_object_taxonomies( 'product' ) );
 	}
 }
 
