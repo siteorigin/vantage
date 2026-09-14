@@ -203,6 +203,8 @@ if ( ! function_exists( 'vantage_is_product_archive' ) ) {
 	 *
 	 * Jetpack reads its settings once before the query is set up, so the query
 	 * has to be confirmed as ready before any conditional tag is called.
+	 *
+	 * @return bool
 	 */
 	function vantage_is_product_archive() {
 		if ( ! did_action( 'wp' ) || ! function_exists( 'is_shop' ) || is_feed() ) {
@@ -213,9 +215,29 @@ if ( ! function_exists( 'vantage_is_product_archive' ) ) {
 	}
 }
 
+if ( ! function_exists( 'vantage_infinite_scroll_supports_products' ) ) {
+	/**
+	 * Let Jetpack run on a shop that is served as a page.
+	 *
+	 * Jetpack only offers Infinite Scroll on the posts page, an archive or a
+	 * search. WooCommerce usually turns the shop into a product archive, but it
+	 * stays a page when the theme has not declared WooCommerce support, and
+	 * nothing loads there without this.
+	 *
+	 * @param bool $supported Whether Jetpack supports this request.
+	 * @return bool
+	 */
+	function vantage_infinite_scroll_supports_products( $supported ) {
+		return $supported || vantage_is_product_archive();
+	}
+}
+add_filter( 'infinite_scroll_archive_supported', 'vantage_infinite_scroll_supports_products' );
+
 if ( ! function_exists( 'vantage_woocommerce_products_per_page' ) ) {
 	/**
 	 * How many products WooCommerce shows on one page.
+	 *
+	 * @return int
 	 */
 	function vantage_woocommerce_products_per_page() {
 		return (int) apply_filters(
@@ -232,6 +254,9 @@ if ( ! function_exists( 'vantage_query_is_product_archive' ) ) {
 	 * Conditional tags are not ready during pre_get_posts, so the query object
 	 * is asked instead. The shop can be a post type archive or the page set as
 	 * the shop, which is how WooCommerce itself decides in is_shop().
+	 *
+	 * @param WP_Query $query The query being prepared.
+	 * @return bool
 	 */
 	function vantage_query_is_product_archive( $query ) {
 		if ( $query->is_feed() ) {
@@ -273,6 +298,9 @@ if ( ! function_exists( 'vantage_infinite_scroll_products_per_page' ) ) {
 	 * Jetpack replaces posts per page on the main query with the blog setting,
 	 * which leaves the last row of the product grid part filled. This runs after
 	 * Jetpack and puts the WooCommerce setting back.
+	 *
+	 * @param WP_Query $query The query being prepared.
+	 * @return void
 	 */
 	function vantage_infinite_scroll_products_per_page( $query ) {
 		if (
@@ -296,6 +324,9 @@ if ( ! function_exists( 'vantage_infinite_scroll_products_batch_size' ) ) {
 	 * Jetpack ignores its own posts per page setting when the type is click and
 	 * uses the blog setting instead. That count also decides when Jetpack stops
 	 * offering more products, so both are corrected here.
+	 *
+	 * @param int $posts_per_page The count Jetpack arrived at.
+	 * @return int
 	 */
 	function vantage_infinite_scroll_products_batch_size( $posts_per_page ) {
 		if ( ! function_exists( 'wc_get_default_products_per_row' ) || ! vantage_is_product_archive() ) {
@@ -343,6 +374,8 @@ if ( ! function_exists( 'vantage_infinite_scroll_render_products' ) ) {
 	 *
 	 * Each batch opens and closes its own product list, so the markup stays
 	 * valid. The stylesheet closes the gap between one list and the next.
+	 *
+	 * @return void
 	 */
 	function vantage_infinite_scroll_render_products() {
 		woocommerce_product_loop_start();
