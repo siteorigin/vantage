@@ -184,6 +184,10 @@ if ( ! function_exists( 'vantage_flush_portfolio_permalinks' ) ) {
 	 * already active does none of those, so the archive would stay missing on
 	 * a site that updates to this version.
 	 *
+	 * This runs on wp_loaded, where the rules are written during the call. A
+	 * soft flush asked for any earlier is held back until wp_loaded, so the
+	 * request could end with the work recorded but never done.
+	 *
 	 * @return void
 	 */
 	function vantage_flush_portfolio_permalinks() {
@@ -191,13 +195,12 @@ if ( ! function_exists( 'vantage_flush_portfolio_permalinks' ) ) {
 			return;
 		}
 
-		// Recorded first, so a failure here is not repeated on every request.
-		update_option( 'vantage_portfolio_permalinks', 1 );
-
 		flush_rewrite_rules( false );
+
+		update_option( 'vantage_portfolio_permalinks', 1 );
 	}
 }
-add_action( 'init', 'vantage_flush_portfolio_permalinks', 20 );
+add_action( 'wp_loaded', 'vantage_flush_portfolio_permalinks' );
 
 if ( ! function_exists( 'vantage_premium_setup' ) ) {
 	/**
