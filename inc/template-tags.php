@@ -405,6 +405,9 @@ if ( ! function_exists( 'vantage_get_archive_title' ) ) {
 		} elseif ( is_year() ) {
 			$prefix = __( 'Yearly Archives:', 'vantage' );
 			$title = '<span>' . get_the_date( 'Y' ) . '</span>';
+		} elseif ( is_post_type_archive() ) {
+			// The post type label reads as a title on its own, so it takes no prefix.
+			$title = '<span>' . post_type_archive_title( '', false ) . '</span>';
 		} elseif ( ! empty( $wp_query->query_vars['taxonomy'] ) ) {
 			$value = get_query_var( $wp_query->query_vars['taxonomy'] );
 			$term = get_term_by( 'slug', $value, $wp_query->query_vars['taxonomy'] );

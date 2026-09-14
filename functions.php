@@ -78,6 +78,15 @@ if ( ! function_exists( 'vantage_setup' ) ) {
 			'video',
 		) );
 
+		/*
+		 * Add support for the Jetpack Portfolio post type.
+		 * https://jetpack.com/support/custom-content-types/
+		 *
+		 * Portfolio archives are drawn by the blog archive loops, which do not
+		 * depend on the post type, so no template of their own is needed.
+		 */
+		add_theme_support( 'jetpack-portfolio' );
+
 		// Add support for WooCommerce
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'wc-product-gallery-zoom' );
