@@ -1049,6 +1049,26 @@ body.so-vantage-mobile-device {
 	}
 }
 
+/*
+ * Brand and regular icons carry their style alongside the fa class, as in
+ * fa fa-brands fa-tiktok. Font Awesome relies on source order to resolve that,
+ * so state it here where it outranks any rule setting a family on .fa alone.
+ *
+ * These are the only two places the theme names a Font Awesome family. The
+ * names carry the major version, so a future upgrade has to change them here
+ * as well as swapping the files in fontawesome/. Miss this and brand icons
+ * fall back to the solid font and draw the wrong glyph.
+ */
+.fa.fa-brands {
+	font-family: 'Font Awesome 6 Brands';
+	font-weight: 400;
+}
+
+.fa.fa-regular {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 400;
+}
+
 .mobile-nav-icon {
 	font-family: 'FontAwesome';
 	display: inline-block;

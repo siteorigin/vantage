@@ -7,6 +7,7 @@
  * @license GPL 2.0
  */
 define( 'SITEORIGIN_THEME_VERSION', 'dev' );
+define( 'SITEORIGIN_THEME_FONTAWESOME_VERSION', '6.7.2' );
 define( 'SITEORIGIN_THEME_JS_PREFIX', '' );
 define( 'SITEORIGIN_THEME_CSS_PREFIX', '' );
 
@@ -29,6 +30,7 @@ include get_template_directory() . '/inc/breadcrumbs.php';
 include get_template_directory() . '/inc/customizer.php';
 include get_template_directory() . '/inc/legacy.php';
 include get_template_directory() . '/fontawesome/icon-migration.php';
+include get_template_directory() . '/fontawesome/icon-migration-6.php';
 
 if ( ! function_exists( 'vantage_setup' ) ) {
 	/**
@@ -406,10 +408,20 @@ if ( ! function_exists( 'vantage_scripts' ) ) {
 
 		wp_enqueue_style(
 			'font-awesome',
-			get_template_directory_uri() . '/fontawesome/css/font-awesome.css',
+			get_template_directory_uri() . '/fontawesome/css/all.min.css',
 			array(),
-			'4.6.2'
+			SITEORIGIN_THEME_FONTAWESOME_VERSION
 		);
+
+		// Font Awesome 4 class names, such as fa-star-o, that were renamed in
+		// version 6. Keeps icons saved before the upgrade working.
+		wp_enqueue_style(
+			'font-awesome-v4-shims',
+			get_template_directory_uri() . '/fontawesome/css/v4-shims.min.css',
+			array( 'font-awesome' ),
+			SITEORIGIN_THEME_FONTAWESOME_VERSION
+		);
+
 
 		if ( class_exists( 'woocommerce' ) ) {
 			wp_enqueue_style(

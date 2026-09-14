@@ -79,6 +79,7 @@ if ( ! function_exists( 'vantage_icon_get_name' ) ) {
 	 */
 	function vantage_icon_get_name( $icon ) {
 		$name = preg_replace( '/^icon-/', '', $icon );
+		$name = preg_replace( '/^fa fa-(regular|brands) fa-/', '', $name );
 		$name = preg_replace( '/^fa fa-/', '', $name );
 		$name = str_replace( '-', ' ', $name );
 		$name = ucwords( $name );

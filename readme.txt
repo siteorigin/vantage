@@ -83,8 +83,8 @@ LESS Elements, Copyright 2011 Dmitry Fadeyev
 Dedicated to the public domain and is free for all uses, commercial or otherwise.
 [Source](https://lesselements.com/)
 
-Font Awesome by Dave Gandy - http://fontawesome.io
-Font released under the SIL OFL 1.1, CSS released under the MIT License.
+Font Awesome Free 6.7.2 by Fonticons, Inc. - https://fontawesome.com
+Icons released under CC BY 4.0, fonts under SIL OFL 1.1, code under the MIT License.
 [Source](https://github.com/FortAwesome/Font-Awesome)
 
 Selectivizr, Copyright Keith Clark
