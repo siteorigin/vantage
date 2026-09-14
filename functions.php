@@ -205,7 +205,7 @@ if ( ! function_exists( 'vantage_is_product_archive' ) ) {
 	 * has to be confirmed as ready before any conditional tag is called.
 	 */
 	function vantage_is_product_archive() {
-		if ( ! did_action( 'wp' ) || ! function_exists( 'is_shop' ) ) {
+		if ( ! did_action( 'wp' ) || ! function_exists( 'is_shop' ) || is_feed() ) {
 			return false;
 		}
 
@@ -244,7 +244,19 @@ if ( ! function_exists( 'vantage_query_is_product_archive' ) ) {
 
 		$shop = wc_get_page_id( 'shop' );
 
-		return $shop > 0 && $query->is_page( $shop );
+		if ( $shop < 1 ) {
+			return false;
+		}
+
+		/*
+		 * is_page() reads the queried object, which WordPress has not set yet
+		 * when the shop is requested by id, so the id is compared directly.
+		 */
+		if ( (int) $query->get( 'page_id' ) === (int) $shop ) {
+			return true;
+		}
+
+		return $query->is_page( $shop );
 	}
 }
 
