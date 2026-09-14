@@ -175,6 +175,30 @@ if ( ! function_exists( 'vantage_setup' ) ) {
 } // vantage_setup
 add_action( 'after_setup_theme', 'vantage_setup' );
 
+if ( ! function_exists( 'vantage_flush_portfolio_permalinks' ) ) {
+	/**
+	 * Refresh permalinks once so the Portfolio archive is reachable.
+	 *
+	 * Jetpack refreshes them when a theme is switched, when its setting is
+	 * changed, or when a first project is published. Updating a theme that is
+	 * already active does none of those, so the archive would stay missing on
+	 * a site that updates to this version.
+	 *
+	 * @return void
+	 */
+	function vantage_flush_portfolio_permalinks() {
+		if ( get_option( 'vantage_portfolio_permalinks' ) || ! post_type_exists( 'jetpack-portfolio' ) ) {
+			return;
+		}
+
+		// Recorded first, so a failure here is not repeated on every request.
+		update_option( 'vantage_portfolio_permalinks', 1 );
+
+		flush_rewrite_rules( false );
+	}
+}
+add_action( 'init', 'vantage_flush_portfolio_permalinks', 20 );
+
 if ( ! function_exists( 'vantage_premium_setup' ) ) {
 	/**
 	 * Add support for premium theme components.
