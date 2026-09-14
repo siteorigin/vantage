@@ -78,6 +78,15 @@ if ( ! function_exists( 'vantage_setup' ) ) {
 			'video',
 		) );
 
+		/*
+		 * Add support for the Jetpack Portfolio post type.
+		 * https://jetpack.com/support/custom-content-types/
+		 *
+		 * Portfolio archives are drawn by the blog archive loops, which do not
+		 * depend on the post type, so no template of their own is needed.
+		 */
+		add_theme_support( 'jetpack-portfolio' );
+
 		// Add support for WooCommerce
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'wc-product-gallery-zoom' );
@@ -165,6 +174,33 @@ if ( ! function_exists( 'vantage_setup' ) ) {
 	}
 } // vantage_setup
 add_action( 'after_setup_theme', 'vantage_setup' );
+
+if ( ! function_exists( 'vantage_flush_portfolio_permalinks' ) ) {
+	/**
+	 * Refresh permalinks once so the Portfolio archive is reachable.
+	 *
+	 * Jetpack refreshes them when a theme is switched, when its setting is
+	 * changed, or when a first project is published. Updating a theme that is
+	 * already active does none of those, so the archive would stay missing on
+	 * a site that updates to this version.
+	 *
+	 * This runs on wp_loaded, where the rules are written during the call. A
+	 * soft flush asked for any earlier is held back until wp_loaded, so the
+	 * request could end with the work recorded but never done.
+	 *
+	 * @return void
+	 */
+	function vantage_flush_portfolio_permalinks() {
+		if ( get_option( 'vantage_portfolio_permalinks' ) || ! post_type_exists( 'jetpack-portfolio' ) ) {
+			return;
+		}
+
+		flush_rewrite_rules( false );
+
+		update_option( 'vantage_portfolio_permalinks', 1 );
+	}
+}
+add_action( 'wp_loaded', 'vantage_flush_portfolio_permalinks' );
 
 if ( ! function_exists( 'vantage_premium_setup' ) ) {
 	/**
