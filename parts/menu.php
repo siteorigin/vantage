@@ -11,7 +11,8 @@ if ( ! $ubermenu_active && ! $max_mega_menu_active ) {
 }
 $nav_classes[] = 'primary';
 
-if ( siteorigin_setting( 'navigation_use_sticky_menu' ) ) {
+// The whole header sticking is handled by the header, not the menu.
+if ( 'menu' === vantage_sticky_mode() ) {
 	$nav_classes[] = 'use-vantage-sticky-menu';
 	$nav_classes[] = 'use-sticky-menu';
 }

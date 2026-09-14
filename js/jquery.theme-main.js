@@ -261,6 +261,47 @@ jQuery ( function( $ ) {
 		} );
 	} ).trigger( 'resize' );
 
+	// The sticky header. The menu sticking on its own is handled separately below.
+	var $stickyHeader = $( '#masthead.use-vantage-sticky-header' );
+	if (
+		$stickyHeader.length &&
+		( ! isMobileDevice || ( ( isMobileDevice || isCustomizer ) && isMobileNav ) )
+	) {
+		var $spacer = $( '.masthead-spacer' );
+		var $headerBody = $( 'body' );
+		var headerInitTop;
+		var resetStickyHeader = function() {
+			if ( ! $stickyHeader.hasClass( 'sticky' ) ) {
+				headerInitTop = $stickyHeader.offset().top;
+			}
+
+			var headerThreshold = 0;
+			if ( $headerBody.hasClass( 'admin-bar' ) ) {
+				headerThreshold = $( '#wpadminbar' ).css( 'position' ) == 'absolute' ? 0 : $( '#wpadminbar' ).outerHeight();
+			}
+
+			// Round up to the nearest pixel.
+			var headerTop = Math.ceil( headerInitTop - $( window ).scrollTop() );
+			if ( headerTop < headerThreshold ) {
+				/*
+				 * The header leaves the flow of the page when it is fixed, so the
+				 * spacer has to hold the space it used to take up. Without it
+				 * everything below, the slider included, jumps up.
+				 */
+				$spacer.height( $stickyHeader.outerHeight() );
+				$stickyHeader.addClass( 'sticky' );
+				$headerBody.addClass( 'vantage-sticky-header' );
+			} else if ( $headerBody.hasClass( 'vantage-sticky-header' ) ) {
+				$stickyHeader.removeClass( 'sticky' );
+				$headerBody.removeClass( 'vantage-sticky-header' );
+				$spacer.height( 0 );
+			}
+		};
+
+		$( window ).on( 'scroll resize', resetStickyHeader );
+		resetStickyHeader();
+	}
+
 	// The sticky menu.
 	if ( ( $( 'nav.site-navigation.primary' ).hasClass( 'use-vantage-sticky-menu' ) && !isMobileDevice ) ||
 		( ( isMobileDevice || isCustomizer ) && isMobileNav ) ) {
