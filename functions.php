@@ -213,38 +213,81 @@ if ( ! function_exists( 'vantage_is_product_archive' ) ) {
 	}
 }
 
+if ( ! function_exists( 'vantage_woocommerce_products_per_page' ) ) {
+	/**
+	 * How many products WooCommerce shows on one page.
+	 */
+	function vantage_woocommerce_products_per_page() {
+		return (int) apply_filters(
+			'loop_shop_per_page',
+			wc_get_default_products_per_row() * wc_get_default_product_rows_per_page()
+		);
+	}
+}
+
+if ( ! function_exists( 'vantage_query_is_product_archive' ) ) {
+	/**
+	 * Is this query a product listing?
+	 *
+	 * Conditional tags are not ready during pre_get_posts, so the query object
+	 * is asked instead. The shop can be a post type archive or the page set as
+	 * the shop, which is how WooCommerce itself decides in is_shop().
+	 */
+	function vantage_query_is_product_archive( $query ) {
+		if ( $query->is_feed() ) {
+			return false;
+		}
+
+		if ( $query->is_post_type_archive( 'product' ) || $query->is_tax( get_object_taxonomies( 'product' ) ) ) {
+			return true;
+		}
+
+		$shop = wc_get_page_id( 'shop' );
+
+		return $shop > 0 && $query->is_page( $shop );
+	}
+}
+
 if ( ! function_exists( 'vantage_infinite_scroll_products_per_page' ) ) {
 	/**
-	 * Keep the WooCommerce products per page setting.
+	 * Keep the WooCommerce products per page setting on the first page.
 	 *
 	 * Jetpack replaces posts per page on the main query with the blog setting,
 	 * which leaves the last row of the product grid part filled. This runs after
-	 * Jetpack and puts the WooCommerce setting back. Conditional tags are not
-	 * ready this early, so the query object is asked instead.
+	 * Jetpack and puts the WooCommerce setting back.
 	 */
 	function vantage_infinite_scroll_products_per_page( $query ) {
 		if (
 			is_admin() ||
 			! $query->is_main_query() ||
-			! function_exists( 'wc_get_default_products_per_row' )
+			! function_exists( 'wc_get_default_products_per_row' ) ||
+			! vantage_query_is_product_archive( $query )
 		) {
 			return;
 		}
 
-		if ( ! $query->is_post_type_archive( 'product' ) && ! $query->is_tax( get_object_taxonomies( 'product' ) ) ) {
-			return;
-		}
-
-		$query->set(
-			'posts_per_page',
-			apply_filters(
-				'loop_shop_per_page',
-				wc_get_default_products_per_row() * wc_get_default_product_rows_per_page()
-			)
-		);
+		$query->set( 'posts_per_page', vantage_woocommerce_products_per_page() );
 	}
 }
 add_action( 'pre_get_posts', 'vantage_infinite_scroll_products_per_page', 20 );
+
+if ( ! function_exists( 'vantage_infinite_scroll_products_batch_size' ) ) {
+	/**
+	 * Use the same count for each batch Jetpack appends.
+	 *
+	 * Jetpack ignores its own posts per page setting when the type is click and
+	 * uses the blog setting instead. That count also decides when Jetpack stops
+	 * offering more products, so both are corrected here.
+	 */
+	function vantage_infinite_scroll_products_batch_size( $posts_per_page ) {
+		if ( ! function_exists( 'wc_get_default_products_per_row' ) || ! vantage_is_product_archive() ) {
+			return $posts_per_page;
+		}
+
+		return vantage_woocommerce_products_per_page();
+	}
+}
+add_filter( 'infinite_scroll_posts_per_page', 'vantage_infinite_scroll_products_batch_size' );
 
 if ( ! function_exists( 'vantage_infinite_scroll_settings' ) ) {
 	// Override Jetpack Infinite Scroll default behaviour of ignoring explicit posts_per_page setting when type is 'click'.
@@ -288,6 +331,10 @@ if ( ! function_exists( 'vantage_infinite_scroll_render_products' ) ) {
 
 		while ( have_posts() ) {
 			the_post();
+
+			// Fired for each product by the WooCommerce product archive template.
+			do_action( 'woocommerce_shop_loop' );
+
 			wc_get_template_part( 'content', 'product' );
 		}
 
@@ -887,4 +934,3 @@ function vantage_recommended_plugins() {
 	tgmpa( $plugins, $config );
 }
 add_action( 'tgmpa_register', 'vantage_recommended_plugins' );
-
