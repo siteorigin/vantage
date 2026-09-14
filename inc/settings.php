@@ -144,8 +144,10 @@ if ( ! function_exists( 'vantage_theme_settings' ) ) {
 			'description' => __( 'Enable search in the mobile menu.', 'vantage' ),
 		) );
 
-		$settings->add_field( 'navigation', 'use_sticky_menu', 'checkbox', __( 'Sticky Menu', 'vantage' ), array(
-			'description' => __( 'Sticks the menu to the top of the screen when a user scrolls down.', 'vantage' ),
+		$settings->add_field( 'navigation', 'use_sticky_menu', 'select', __( 'Sticky Menu', 'vantage' ), array(
+			'options' => vantage_sticky_menu_options(),
+			'description' => __( 'Keep the menu, or the whole header, on screen when a visitor scrolls down.', 'vantage' ),
+			'sanitize_callback' => 'vantage_sanitize_sticky_menu',
 		) );
 
 		$settings->add_field( 'navigation', 'menu_search', 'checkbox', __( 'Search in Menu', 'vantage' ), array(
@@ -400,7 +402,7 @@ if ( ! function_exists( 'vantage_theme_setting_defaults' ) ) {
 		$defaults['icons_menu_close'] = false;
 		$defaults['icons_search'] = false;
 
-		$defaults['navigation_use_sticky_menu'] = true;
+		$defaults['navigation_use_sticky_menu'] = '1';
 		$defaults['navigation_mobile_navigation'] = false;
 		$defaults['navigation_menu_search'] = true;
 		$defaults['navigation_display_scroll_to_top'] = true;
@@ -444,6 +446,42 @@ if ( ! function_exists( 'vantage_theme_setting_defaults' ) ) {
 	}
 }
 add_filter( 'siteorigin_settings_defaults', 'vantage_theme_setting_defaults' );
+
+if ( ! function_exists( 'vantage_sticky_menu_options' ) ) {
+	/**
+	 * What the Sticky Menu setting offers.
+	 *
+	 * The values are the ones the setting has always stored. It was a checkbox
+	 * before this became a choice of three, so an empty value and 1 have to keep
+	 * meaning what they did, or every site that has set it would change on update.
+	 *
+	 * @return array
+	 */
+	function vantage_sticky_menu_options() {
+		return array(
+			'' => __( 'None', 'vantage' ),
+			'1' => __( 'Menu', 'vantage' ),
+			'header' => __( 'Entire Header', 'vantage' ),
+		);
+	}
+}
+
+if ( ! function_exists( 'vantage_sanitize_sticky_menu' ) ) {
+	/**
+	 * Keep the Sticky Menu setting to the values it offers.
+	 *
+	 * @param mixed $value The value to check.
+	 * @return string
+	 */
+	function vantage_sanitize_sticky_menu( $value ) {
+		// A checkbox stored a boolean, which still means the menu.
+		if ( is_bool( $value ) ) {
+			return $value ? '1' : '';
+		}
+
+		return array_key_exists( (string) $value, vantage_sticky_menu_options() ) ? (string) $value : '';
+	}
+}
 
 if ( ! function_exists( 'vantage_blog_layout_options' ) ) {
 	function vantage_blog_layout_options() {

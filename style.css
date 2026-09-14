@@ -717,10 +717,12 @@ body {
   flex: 2;
 }
 .vantage-sticky-menu #masthead.masthead-logo-in-menu img.alt-logo,
+.vantage-sticky-header #masthead.masthead-logo-in-menu img.alt-logo,
 #masthead.masthead-logo-in-menu img.alt-logo-scroll {
   display: none;
 }
-.vantage-sticky-menu #masthead.masthead-logo-in-menu img.alt-logo-scroll {
+.vantage-sticky-menu #masthead.masthead-logo-in-menu img.alt-logo-scroll,
+.vantage-sticky-header #masthead.masthead-logo-in-menu img.alt-logo-scroll {
   display: block;
 }
 .layout-boxed #masthead.masthead-logo-in-menu .logo,
@@ -1095,6 +1097,39 @@ body.vantage-sticky-menu.mega-menu-primary .site-navigation {
 body.vantage-sticky-menu .site-navigation.sticky {
   position: fixed;
   top: 0;
+}
+/* For when the whole header becomes sticky */
+body.vantage-sticky-header #masthead.sticky {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+}
+body.vantage-sticky-header.layout-boxed #masthead.sticky {
+  margin: 0 auto;
+  max-width: 1080px;
+}
+body.vantage-sticky-header.mega-menu-primary.layout-boxed #masthead.sticky {
+  max-width: 1100px;
+}
+@media (min-width: 783px) {
+  body.vantage-sticky-header.admin-bar #masthead.sticky {
+    top: 32px;
+  }
+}
+@media (max-width: 782px) and (min-width: 601px) {
+  body.vantage-sticky-header.admin-bar #masthead.sticky {
+    top: 42px;
+  }
+}
+#masthead.sticky:after {
+  bottom: -6px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 6px 6px -6px inset;
+  content: "";
+  height: 6px;
+  position: absolute;
+  width: 100%;
 }
 body.admin-bar:not(.vantage-sticky-menu) .site-navigation.use-vantage-sticky-menu {
   top: 0;
@@ -2488,7 +2523,9 @@ body.layout-full {
 }
 @media (min-width: 1100px) {
   :not(.not-default-page).page-layout-full-width-sidebar.layout-boxed .main-navigation.use-vantage-sticky-menu.sticky,
-  :not(.not-default-page).page-layout-full-width.layout-boxed .main-navigation.use-vantage-sticky-menu.sticky {
+  :not(.not-default-page).page-layout-full-width.layout-boxed .main-navigation.use-vantage-sticky-menu.sticky,
+  :not(.not-default-page).page-layout-full-width-sidebar.layout-boxed #masthead.use-vantage-sticky-header.sticky,
+  :not(.not-default-page).page-layout-full-width.layout-boxed #masthead.use-vantage-sticky-header.sticky {
     left: 0;
     margin: 0 auto;
     max-width: calc(100% - 40px);

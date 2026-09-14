@@ -8,6 +8,10 @@
 // The masthead widget area replaces the logo entirely, so it has nothing to stack.
 $vantage_masthead_classes = 'site-header';
 
+if ( 'header' === vantage_sticky_mode() ) {
+	$vantage_masthead_classes .= ' use-vantage-sticky-header';
+}
+
 if (
 	siteorigin_setting( 'logo_no_widget_overlay' ) &&
 	! is_active_sidebar( 'sidebar-masthead' )

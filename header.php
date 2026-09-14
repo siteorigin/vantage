@@ -35,6 +35,11 @@
 
 		<?php get_template_part( 'parts/masthead', apply_filters( 'vantage_masthead_type', siteorigin_setting( 'layout_masthead' ) ) ); ?>
 
+		<?php if ( 'header' === vantage_sticky_mode() ) { ?>
+			<?php /* Holds the space the header leaves behind once it is fixed. */ ?>
+			<div class="masthead-spacer"></div>
+		<?php } ?>
+
 	<?php } ?>
 
 	<?php do_action( 'vantage_after_masthead' ); ?>

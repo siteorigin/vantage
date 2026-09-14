@@ -175,6 +175,27 @@ if ( ! function_exists( 'vantage_setup' ) ) {
 } // vantage_setup
 add_action( 'after_setup_theme', 'vantage_setup' );
 
+if ( ! function_exists( 'vantage_sticky_mode' ) ) {
+	/**
+	 * What the Sticky Menu setting is asking for.
+	 *
+	 * The setting was a checkbox before it became a choice of three, so a stored
+	 * boolean still has to mean what it did. Anything true that is not the header
+	 * value means the menu, which is what a ticked checkbox meant.
+	 *
+	 * @return string One of header, menu or an empty string for none.
+	 */
+	function vantage_sticky_mode() {
+		$setting = siteorigin_setting( 'navigation_use_sticky_menu' );
+
+		if ( 'header' === $setting ) {
+			return 'header';
+		}
+
+		return empty( $setting ) ? '' : 'menu';
+	}
+}
+
 if ( ! function_exists( 'vantage_flush_portfolio_permalinks' ) ) {
 	/**
 	 * Refresh permalinks once so the Portfolio archive is reachable.
