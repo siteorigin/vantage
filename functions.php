@@ -249,9 +249,15 @@ if ( ! function_exists( 'vantage_query_is_product_archive' ) ) {
 		}
 
 		/*
-		 * is_page() reads the queried object, which WordPress has not set yet
-		 * when the shop is requested by id, so the id is compared directly.
+		 * WordPress treats a page requested by id as the posts page when it is
+		 * also set as the posts page, so that has to be ruled out first. Asking
+		 * without an id is safe here, since only a match by id reads the queried
+		 * object, which WordPress has not set yet.
 		 */
+		if ( ! $query->is_page() ) {
+			return false;
+		}
+
 		if ( (int) $query->get( 'page_id' ) === (int) $shop ) {
 			return true;
 		}
