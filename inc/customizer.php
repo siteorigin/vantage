@@ -63,7 +63,7 @@ function vantage_customizer_init() {
 				'title' => __( 'Heading Font', 'vantage' ),
 				'default' => 'Helvetica Neue',
 				'selector' => '#page-wrapper h1,#page-wrapper h2,#page-wrapper h3,#page-wrapper h4,#page-wrapper h5,#page-wrapper h6',
-				'editor_selector' => '.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6',
+				'editor_selector' => '.editor-styles-wrapper h1:not(.editor-post-title__input):not(.wp-block-post-title), .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6',
 			),
 			'menu_font' => array(
 				'type' => 'font',
@@ -167,7 +167,7 @@ function vantage_customizer_init() {
 				'title' => __( 'Content Heading Color', 'vantage' ),
 				'default' => '#444444',
 				'callback' => 'vantage_customizer_callback_heading_color',
-				'editor_selector' => '.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6',
+				'editor_selector' => '.editor-styles-wrapper h1:not(.editor-post-title__input):not(.wp-block-post-title), .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6',
 				'property' => array( 'color' ),
 			),
 			'content_heading_one_size' => array(
@@ -176,7 +176,7 @@ function vantage_customizer_init() {
 				'default' => 22,
 				'unit' => 'px',
 				'selector' => '.entry-content h1',
-				'editor_selector' => '.editor-styles-wrapper h1',
+				'editor_selector' => '.editor-styles-wrapper h1:not(.editor-post-title__input):not(.wp-block-post-title)',
 				'property' => array( 'font-size' ),
 			),
 			'content_heading_two_size' => array(

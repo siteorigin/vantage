@@ -34,14 +34,18 @@ body {
 	line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/*
+ * The post title is an h1 in the canvas as well, but it is not content, and the
+ * front end styles it on its own, so it is left out of the heading rules.
+ */
+h1:not(.editor-post-title__input):not(.wp-block-post-title), h2, h3, h4, h5, h6 {
 	color: #444;
 	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 500;
 }
 
 // Sized in em, as the front end is, so they follow the content size.
-h1 { font-size: 1.7em; }
+h1:not(.editor-post-title__input):not(.wp-block-post-title) { font-size: 1.7em; }
 h2 { font-size: 1.6em; }
 h3 { font-size: 1.5em; }
 h4 { font-size: 1.4em; }
