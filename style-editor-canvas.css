@@ -1,0 +1,16 @@
+/*
+ * Styling for the block editor canvas.
+ *
+ * The canvas is an iframe, so these rules are loaded with add_editor_style()
+ * rather than enqueued like an admin stylesheet. WordPress puts them inside the
+ * canvas and scopes them there, so they are written without a wrapper.
+ */
+.wp-block {
+  max-width: 720px;
+}
+.wp-block[data-align="wide"] {
+  max-width: 1080px;
+}
+.wp-block[data-align="full"] {
+  max-width: none;
+}

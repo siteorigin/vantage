@@ -87,6 +87,16 @@ if ( ! function_exists( 'vantage_setup' ) ) {
 		 */
 		add_theme_support( 'jetpack-portfolio' );
 
+		/*
+		 * Style the block editor canvas like the front end.
+		 *
+		 * The canvas is an iframe, so a stylesheet enqueued for the editor screen
+		 * does not reach it. add_editor_style() does, and WordPress scopes what it
+		 * loads to the canvas.
+		 */
+		add_theme_support( 'editor-styles' );
+		add_editor_style( 'style-editor-canvas.css' );
+
 		// Add support for WooCommerce
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'wc-product-gallery-zoom' );

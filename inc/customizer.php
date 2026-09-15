@@ -50,6 +50,7 @@ function vantage_customizer_init() {
 				'title' => __( 'Body Font', 'vantage' ),
 				'default' => 'Helvetica Neue',
 				'selector' => 'body,button,input,select,textarea',
+				'editor_selector' => '.editor-styles-wrapper',
 			),
 			'title_font' => array(
 				'type' => 'font',
@@ -62,6 +63,7 @@ function vantage_customizer_init() {
 				'title' => __( 'Heading Font', 'vantage' ),
 				'default' => 'Helvetica Neue',
 				'selector' => '#page-wrapper h1,#page-wrapper h2,#page-wrapper h3,#page-wrapper h4,#page-wrapper h5,#page-wrapper h6',
+				'editor_selector' => '.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6',
 			),
 			'menu_font' => array(
 				'type' => 'font',
@@ -127,6 +129,7 @@ function vantage_customizer_init() {
 				'default' => 13,
 				'unit' => 'px',
 				'selector' => '.entry-content',
+				'editor_selector' => '.editor-styles-wrapper',
 				'property' => array( 'font-size' ),
 			),
 			'sidebar_content_size' => array(
@@ -156,6 +159,7 @@ function vantage_customizer_init() {
 				'title' => __( 'Content Color', 'vantage' ),
 				'default' => '#666666',
 				'selector' => '.entry-content, .entry-summary, #comments .commentlist article .comment-meta a',
+				'editor_selector' => '.editor-styles-wrapper',
 				'property' => array( 'color' ),
 			),
 			'content_heading_color' => array(
@@ -163,6 +167,8 @@ function vantage_customizer_init() {
 				'title' => __( 'Content Heading Color', 'vantage' ),
 				'default' => '#444444',
 				'callback' => 'vantage_customizer_callback_heading_color',
+				'editor_selector' => '.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6',
+				'property' => array( 'color' ),
 			),
 			'content_heading_one_size' => array(
 				'type' => 'measurement',
@@ -170,6 +176,7 @@ function vantage_customizer_init() {
 				'default' => 22,
 				'unit' => 'px',
 				'selector' => '.entry-content h1',
+				'editor_selector' => '.editor-styles-wrapper h1',
 				'property' => array( 'font-size' ),
 			),
 			'content_heading_two_size' => array(
@@ -178,6 +185,7 @@ function vantage_customizer_init() {
 				'default' => 21,
 				'unit' => 'px',
 				'selector' => '.entry-content h2',
+				'editor_selector' => '.editor-styles-wrapper h2',
 				'property' => array( 'font-size' ),
 			),
 			'content_heading_three_size' => array(
@@ -186,6 +194,7 @@ function vantage_customizer_init() {
 				'default' => 20,
 				'unit' => 'px',
 				'selector' => '.entry-content h3',
+				'editor_selector' => '.editor-styles-wrapper h3',
 				'property' => array( 'font-size' ),
 			),
 			'content_heading_four_size' => array(
@@ -194,6 +203,7 @@ function vantage_customizer_init() {
 				'default' => 18,
 				'unit' => 'px',
 				'selector' => '.entry-content h4',
+				'editor_selector' => '.editor-styles-wrapper h4',
 				'property' => array( 'font-size' ),
 			),
 			'content_heading_five_size' => array(
@@ -202,6 +212,7 @@ function vantage_customizer_init() {
 				'default' => 16,
 				'unit' => 'px',
 				'selector' => '.entry-content h5',
+				'editor_selector' => '.editor-styles-wrapper h5',
 				'property' => array( 'font-size' ),
 			),
 			'content_heading_six_size' => array(
@@ -210,6 +221,7 @@ function vantage_customizer_init() {
 				'default' => 14,
 				'unit' => 'px',
 				'selector' => '.entry-content h6',
+				'editor_selector' => '.editor-styles-wrapper h6',
 				'property' => array( 'font-size' ),
 			),
 		),
@@ -234,6 +246,7 @@ function vantage_customizer_init() {
 				'default' => '#248cc8',
 				'selector' => '.entry-content a:not(.wp-element-button):not(.wp-block-button__link), .entry-content a:not(.wp-element-button):not(.wp-block-button__link):visited, article.post .author-box .box-content .author-posts a:not(.wp-element-button):not(.wp-block-button__link):hover, #secondary a:not(.wp-element-button):not(.wp-block-button__link), #secondary a:not(.wp-element-button):not(.wp-block-button__link):visited, #masthead .hgroup a:not(.wp-element-button):not(.wp-block-button__link), #masthead .hgroup a:not(.wp-element-button):not(.wp-block-button__link):visited, .comment-form .logged-in-as a:not(.wp-element-button):not(.wp-block-button__link), .comment-form .logged-in-as a:not(.wp-element-button):not(.wp-block-button__link):visited',
 				'property' => 'color',
+				'editor_selector' => '.editor-styles-wrapper a:not(.wp-element-button):not(.wp-block-button__link), .editor-styles-wrapper a:not(.wp-element-button):not(.wp-block-button__link):visited',
 				'no_live' => true,
 			),
 			'link_underline' => array(
@@ -248,6 +261,7 @@ function vantage_customizer_init() {
 				'default' => '#f47e3c',
 				'selector' => '.entry-content a:not(.wp-element-button):not(.wp-block-button__link):hover, .entry-content a:not(.wp-element-button):not(.wp-block-button__link):focus, .entry-content a:not(.wp-element-button):not(.wp-block-button__link):active, #secondary a:not(.wp-element-button):not(.wp-block-button__link):hover, #masthead .hgroup a:not(.wp-element-button):not(.wp-block-button__link):hover, #masthead .hgroup a:not(.wp-element-button):not(.wp-block-button__link):focus, #masthead .hgroup a:not(.wp-element-button):not(.wp-block-button__link):active, .comment-form .logged-in-as a:not(.wp-element-button):not(.wp-block-button__link):hover, .comment-form .logged-in-as a:not(.wp-element-button):not(.wp-block-button__link):focus, .comment-form .logged-in-as a:not(.wp-element-button):not(.wp-block-button__link):active',
 				'property' => 'color',
+				'editor_selector' => '.editor-styles-wrapper a:not(.wp-element-button):not(.wp-block-button__link):hover, .editor-styles-wrapper a:not(.wp-element-button):not(.wp-block-button__link):focus, .editor-styles-wrapper a:not(.wp-element-button):not(.wp-block-button__link):active',
 				'no_live' => true,
 			),
 			'link_hover_underline' => array(
@@ -750,6 +764,48 @@ function vantage_customizer_style() {
 	echo $builder->css();
 }
 add_action( 'wp_head', 'vantage_customizer_style', 20 );
+
+/**
+ * Give the block editor canvas the same styling as the front end.
+ *
+ * The canvas is an iframe that builds its own list of stylesheets, so anything
+ * added through enqueue_block_editor_assets never reaches it. Styles listed
+ * here are placed inside it by WordPress.
+ *
+ * Only the settings that describe post content are included. Settings for the
+ * header, menus, widgets, sidebar and footer have nothing to style in the
+ * canvas, so each setting that belongs there carries its own editor selector.
+ *
+ * @param array $settings The block editor settings.
+ *
+ * @return array
+ */
+function vantage_block_editor_customizer_styles( $settings ) {
+	global $siteorigin_vantage_customizer;
+
+	if ( empty( $siteorigin_vantage_customizer ) ) {
+		return $settings;
+	}
+
+	$css = $siteorigin_vantage_customizer->create_css_builder( 'editor_selector' )->get_css();
+
+	if ( empty( $css ) ) {
+		return $settings;
+	}
+
+	if ( ! isset( $settings['styles'] ) || ! is_array( $settings['styles'] ) ) {
+		$settings['styles'] = array();
+	}
+
+	$settings['styles'][] = array(
+		'css' => $css,
+		'__unstableType' => 'theme',
+		'isGlobalStyles' => false,
+	);
+
+	return $settings;
+}
+add_filter( 'block_editor_settings_all', 'vantage_block_editor_customizer_styles' );
 
 /**
  * Normalize a hex colour for comparison against a registered default.

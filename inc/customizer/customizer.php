@@ -87,8 +87,20 @@ if ( ! class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 		 * Echo all the CSS
 		 */
 		public function css() {
+			return '<style type="text/css" id="customizer-css">' . $this->get_css() . '</style>';
+		}
+
+		/**
+		 * All the CSS, without the style element around it.
+		 *
+		 * The block editor is given a stylesheet rather than markup, so it needs
+		 * the rules on their own.
+		 *
+		 * @return string
+		 */
+		public function get_css() {
 			// Start by importing Google web fonts
-			$return = '<style type="text/css" id="customizer-css">';
+			$return = '';
 
 			if ( apply_filters( 'vantage_import_google_fonts', true ) ) {
 				$import = array();
@@ -110,8 +122,6 @@ if ( ! class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 			if ( ! empty( $this->raw_css ) ) {
 				$return .= $this->raw_css;
 			}
-
-			$return .= '</style>';
 
 			return $return;
 		}
@@ -574,12 +584,12 @@ if ( ! class_exists( 'SiteOrigin_Customizer_Helper' ) ) {
 		 *
 		 * @return SiteOrigin_CSS_Builder
 		 */
-		public function create_css_builder() {
+		public function create_css_builder( $selector_key = 'selector' ) {
 			$builder = new SiteOrigin_Customizer_CSS_Builder( $this->defaults );
 
 			foreach ( $this->settings as $id => $setting ) {
-				if ( ! empty( $setting['selector'] ) ) {
-					foreach ( (array) $setting['selector'] as $selector ) {
+				if ( ! empty( $setting[ $selector_key ] ) ) {
+					foreach ( (array) $setting[ $selector_key ] as $selector ) {
 						switch( $setting['type'] ) {
 							case 'font':
 								$builder->add_web_font( $selector, $id );
@@ -614,7 +624,8 @@ if ( ! class_exists( 'SiteOrigin_Customizer_Helper' ) ) {
 					}
 				}
 
-				if ( isset( $setting['callback'] ) ) {
+				// Callbacks write their own selectors, which only suit the front end.
+				if ( 'selector' === $selector_key && isset( $setting['callback'] ) ) {
 					$val = get_theme_mod( $id );
 
 					if ( isset( $setting['default'] ) && $val != $setting['default'] ) {
@@ -623,7 +634,9 @@ if ( ! class_exists( 'SiteOrigin_Customizer_Helper' ) ) {
 				}
 			}
 
-			$builder = apply_filters( $this->theme . '_siteorigin_customizer_custom_css', $builder, $this->settings, $this->defaults );
+			if ( 'selector' === $selector_key ) {
+				$builder = apply_filters( $this->theme . '_siteorigin_customizer_custom_css', $builder, $this->settings, $this->defaults );
+			}
 
 			return $builder;
 		}

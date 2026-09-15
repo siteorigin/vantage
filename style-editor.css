@@ -1,12 +1,9 @@
-.block-editor-page .wp-block {
-  max-width: 720px;
-}
-.block-editor-page .wp-block[data-align="wide"] {
-  max-width: 1080px;
-}
-.block-editor-page .wp-block[data-align="full"] {
-  max-width: none;
-}
+/*
+ * Styling for the parts of the editor screen outside the canvas.
+ *
+ * Canvas styling belongs in style-editor-canvas.less, since the canvas is an
+ * iframe that an enqueued admin stylesheet does not reach.
+ */
 .block-editor-page #vantage-slider-page-slider p {
   margin-top: 1em !important;
 }
