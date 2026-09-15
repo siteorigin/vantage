@@ -63,7 +63,7 @@ function vantage_customizer_init() {
 				'title' => __( 'Heading Font', 'vantage' ),
 				'default' => 'Helvetica Neue',
 				'selector' => '#page-wrapper h1,#page-wrapper h2,#page-wrapper h3,#page-wrapper h4,#page-wrapper h5,#page-wrapper h6',
-				'editor_selector' => '.editor-styles-wrapper h1:not(.editor-post-title__input):not(.wp-block-post-title), .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6',
+				'editor_selector' => '.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6',
 			),
 			'menu_font' => array(
 				'type' => 'font',
