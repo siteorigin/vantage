@@ -24,6 +24,7 @@ body {
   color: #666;
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 13px;
+  line-height: 1.6;
 }
 h1,
 h2,
@@ -33,24 +34,25 @@ h5,
 h6 {
   color: #444;
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 500;
 }
 h1 {
-  font-size: 22px;
+  font-size: 1.7em;
 }
 h2 {
-  font-size: 21px;
+  font-size: 1.6em;
 }
 h3 {
-  font-size: 20px;
+  font-size: 1.5em;
 }
 h4 {
-  font-size: 18px;
+  font-size: 1.4em;
 }
 h5 {
-  font-size: 16px;
+  font-size: 1.2em;
 }
 h6 {
-  font-size: 14px;
+  font-size: 1.1em;
 }
 a:not(.wp-element-button):not(.wp-block-button__link) {
   color: #248cc8;

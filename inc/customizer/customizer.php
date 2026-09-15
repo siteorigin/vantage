@@ -111,7 +111,12 @@ if ( ! class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 				$import = array_unique( $import );
 
 				if ( ! empty( $import ) ) {
-					$return .= '@import url(' . esc_url( apply_filters( 'siteorigin_web_font_url', 'https://fonts.googleapis.com/css' ) . '?family=' . implode( '|', $import ) . '&display=block ' ) . ');';
+					/*
+					 * esc_url() encodes an ampersand for HTML, which is not what a
+					 * CSS import wants. Encoded, everything after the first
+					 * parameter is read as part of its name and lost.
+					 */
+					$return .= '@import url(' . esc_url_raw( apply_filters( 'siteorigin_web_font_url', 'https://fonts.googleapis.com/css' ) . '?family=' . implode( '|', $import ) . '&display=block' ) . ');';
 				}
 			}
 
