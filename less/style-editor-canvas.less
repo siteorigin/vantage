@@ -1,0 +1,67 @@
+/*
+ * Styling for the block editor canvas.
+ *
+ * The canvas is an iframe, so these rules are loaded with add_editor_style()
+ * rather than enqueued like an admin stylesheet. WordPress puts them inside the
+ * canvas and scopes them there, so they are written without a wrapper.
+ *
+ * These are the theme defaults, matching what the front end shows before any
+ * setting is changed. Keep the values here in step with the defaults declared
+ * in inc/customizer.php and the base rules in style.less. A setting the user
+ * has changed is written over the top of them by
+ * vantage_block_editor_customizer_styles(), which only emits what differs.
+ */
+
+// Main column width.
+.wp-block {
+	max-width: 720px;
+
+	// Width of "wide" blocks.
+	&[data-align="wide"] {
+		max-width: 1080px;
+	}
+
+	// Width of "full-wide" blocks.
+	&[data-align="full"] {
+		max-width: none;
+	}
+}
+
+body {
+	color: #666;
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+// The heading font reaches every heading, the post title included.
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+/*
+ * Colour, weight and size come from the content headings, which the front end
+ * does not apply to the title, so the title is left out of these.
+ */
+h1:not(.editor-post-title__input):not(.wp-block-post-title), h2, h3, h4, h5, h6 {
+	color: #444;
+	font-weight: 500;
+}
+
+// Sized in em, as the front end is, so they follow the content size.
+h1:not(.editor-post-title__input):not(.wp-block-post-title) { font-size: 1.7em; }
+h2 { font-size: 1.6em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1.1em; }
+
+a:not(.wp-element-button):not(.wp-block-button__link) {
+	color: #248cc8;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: #f47e3c;
+	}
+}

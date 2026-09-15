@@ -1,3 +1,16 @@
+/*
+ * Styling for the parts of the editor screen outside the canvas.
+ *
+ * Canvas styling belongs in style-editor-canvas.less, since the canvas is an
+ * iframe that an enqueued admin stylesheet does not reach.
+ */
+.block-editor-page {
+  /*
+	 * Kept for block editor versions that draw the canvas in the page rather
+	 * than in an iframe. Where the canvas is an iframe these have nothing to
+	 * match, and style-editor-canvas.less carries them instead.
+	 */
+}
 .block-editor-page .wp-block {
   max-width: 720px;
 }

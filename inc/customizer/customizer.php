@@ -87,8 +87,20 @@ if ( ! class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 		 * Echo all the CSS
 		 */
 		public function css() {
+			return '<style type="text/css" id="customizer-css">' . $this->get_css() . '</style>';
+		}
+
+		/**
+		 * All the CSS, without the style element around it.
+		 *
+		 * The block editor is given a stylesheet rather than markup, so it needs
+		 * the rules on their own.
+		 *
+		 * @return string
+		 */
+		public function get_css() {
 			// Start by importing Google web fonts
-			$return = '<style type="text/css" id="customizer-css">';
+			$return = '';
 
 			if ( apply_filters( 'vantage_import_google_fonts', true ) ) {
 				$import = array();
@@ -99,7 +111,12 @@ if ( ! class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 				$import = array_unique( $import );
 
 				if ( ! empty( $import ) ) {
-					$return .= '@import url(' . esc_url( apply_filters( 'siteorigin_web_font_url', 'https://fonts.googleapis.com/css' ) . '?family=' . implode( '|', $import ) . '&display=block ' ) . ');';
+					/*
+					 * esc_url() encodes an ampersand for HTML, which is not what a
+					 * CSS import wants. Encoded, everything after the first
+					 * parameter is read as part of its name and lost.
+					 */
+					$return .= '@import url(' . esc_url_raw( apply_filters( 'siteorigin_web_font_url', 'https://fonts.googleapis.com/css' ) . '?family=' . implode( '|', $import ) . '&display=block' ) . ');';
 				}
 			}
 
@@ -110,8 +127,6 @@ if ( ! class_exists( 'SiteOrigin_Customizer_CSS_Builder' ) ) {
 			if ( ! empty( $this->raw_css ) ) {
 				$return .= $this->raw_css;
 			}
-
-			$return .= '</style>';
 
 			return $return;
 		}
@@ -574,12 +589,12 @@ if ( ! class_exists( 'SiteOrigin_Customizer_Helper' ) ) {
 		 *
 		 * @return SiteOrigin_CSS_Builder
 		 */
-		public function create_css_builder() {
+		public function create_css_builder( $selector_key = 'selector' ) {
 			$builder = new SiteOrigin_Customizer_CSS_Builder( $this->defaults );
 
 			foreach ( $this->settings as $id => $setting ) {
-				if ( ! empty( $setting['selector'] ) ) {
-					foreach ( (array) $setting['selector'] as $selector ) {
+				if ( ! empty( $setting[ $selector_key ] ) ) {
+					foreach ( (array) $setting[ $selector_key ] as $selector ) {
 						switch( $setting['type'] ) {
 							case 'font':
 								$builder->add_web_font( $selector, $id );
@@ -614,16 +629,25 @@ if ( ! class_exists( 'SiteOrigin_Customizer_Helper' ) ) {
 					}
 				}
 
-				if ( isset( $setting['callback'] ) ) {
+				/*
+				 * Callbacks write their own selectors, which only suit the front
+				 * end, so a setting that belongs in the editor as well supplies a
+				 * second callback that writes editor ones.
+				 */
+				$callback = 'selector' === $selector_key ? 'callback' : 'editor_callback';
+
+				if ( isset( $setting[ $callback ] ) ) {
 					$val = get_theme_mod( $id );
 
 					if ( isset( $setting['default'] ) && $val != $setting['default'] ) {
-						call_user_func( $setting['callback'], $builder, $val, array_merge( $setting, array( 'id' => $id ) ) );
+						call_user_func( $setting[ $callback ], $builder, $val, array_merge( $setting, array( 'id' => $id ) ) );
 					}
 				}
 			}
 
-			$builder = apply_filters( $this->theme . '_siteorigin_customizer_custom_css', $builder, $this->settings, $this->defaults );
+			if ( 'selector' === $selector_key ) {
+				$builder = apply_filters( $this->theme . '_siteorigin_customizer_custom_css', $builder, $this->settings, $this->defaults );
+			}
 
 			return $builder;
 		}
