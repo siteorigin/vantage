@@ -4,6 +4,10 @@
  * The canvas is an iframe, so these rules are loaded with add_editor_style()
  * rather than enqueued like an admin stylesheet. WordPress puts them inside the
  * canvas and scopes them there, so they are written without a wrapper.
+ *
+ * These are the theme defaults. A setting the user has changed is written over
+ * the top of them by vantage_block_editor_customizer_styles(), which only
+ * emits what differs from the default.
  */
 .wp-block {
   max-width: 720px;
@@ -13,4 +17,44 @@
 }
 .wp-block[data-align="full"] {
   max-width: none;
+}
+body {
+  color: #666;
+  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  font-size: 13px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #444;
+  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+h1 {
+  font-size: 22px;
+}
+h2 {
+  font-size: 21px;
+}
+h3 {
+  font-size: 20px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 14px;
+}
+a:not(.wp-element-button):not(.wp-block-button__link) {
+  color: #248cc8;
+}
+a:not(.wp-element-button):not(.wp-block-button__link):hover,
+a:not(.wp-element-button):not(.wp-block-button__link):focus,
+a:not(.wp-element-button):not(.wp-block-button__link):active {
+  color: #f47e3c;
 }

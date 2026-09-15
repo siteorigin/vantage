@@ -624,12 +624,18 @@ if ( ! class_exists( 'SiteOrigin_Customizer_Helper' ) ) {
 					}
 				}
 
-				// Callbacks write their own selectors, which only suit the front end.
-				if ( 'selector' === $selector_key && isset( $setting['callback'] ) ) {
+				/*
+				 * Callbacks write their own selectors, which only suit the front
+				 * end, so a setting that belongs in the editor as well supplies a
+				 * second callback that writes editor ones.
+				 */
+				$callback = 'selector' === $selector_key ? 'callback' : 'editor_callback';
+
+				if ( isset( $setting[ $callback ] ) ) {
 					$val = get_theme_mod( $id );
 
 					if ( isset( $setting['default'] ) && $val != $setting['default'] ) {
-						call_user_func( $setting['callback'], $builder, $val, array_merge( $setting, array( 'id' => $id ) ) );
+						call_user_func( $setting[ $callback ], $builder, $val, array_merge( $setting, array( 'id' => $id ) ) );
 					}
 				}
 			}

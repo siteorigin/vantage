@@ -7,6 +7,23 @@
 
 .block-editor-page {
 
+	/*
+	 * Kept for block editor versions that draw the canvas in the page rather
+	 * than in an iframe. Where the canvas is an iframe these have nothing to
+	 * match, and style-editor-canvas.less carries them instead.
+	 */
+	.wp-block {
+		max-width: 720px;
+
+		&[data-align="wide"] {
+			max-width: 1080px;
+		}
+
+		&[data-align="full"] {
+			max-width: none;
+		}
+	}
+
 	#vantage-slider-page-slider {
 
 		p {

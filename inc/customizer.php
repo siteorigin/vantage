@@ -254,6 +254,7 @@ function vantage_customizer_init() {
 				'title' => __( 'Remove Link Underline', 'vantage' ),
 				'default' => false,
 				'callback' => 'vantage_customizer_callback_link_underline',
+				'editor_callback' => 'vantage_customizer_editor_link_underline',
 			),
 			'link_hover_color' => array(
 				'type' => 'color',
@@ -269,6 +270,7 @@ function vantage_customizer_init() {
 				'title' => __( 'Add Link Underline on Hover', 'vantage' ),
 				'default' => false,
 				'callback' => 'vantage_customizer_callback_link_hover_underline',
+				'editor_callback' => 'vantage_customizer_editor_link_hover_underline',
 			),
 		),
 		// The main menu
@@ -632,6 +634,7 @@ function vantage_customizer_init() {
 				'title' => __( 'Image Shadow and Rounding', 'vantage' ),
 				'default' => false,
 				'callback' => 'vantage_customizer_callback_image_shadow',
+				'editor_callback' => 'vantage_customizer_editor_image_shadow',
 			),
 		),
 		'vantage_footer' => array(
@@ -954,6 +957,58 @@ function vantage_customizer_callback_logo_center( $builder, $val, $setting ) {
  *
  * @return SiteOrigin_Customizer_CSS_Builder
  */
+/**
+ * The image shadow setting, written for the block editor canvas.
+ *
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_editor_image_shadow( $builder, $val, $setting ) {
+	if ( $val ) {
+		$builder->add_css( '.editor-styles-wrapper img', 'border-radius', '3px' );
+		$builder->add_css( '.editor-styles-wrapper img', 'box-shadow', '0 1px 2px rgba(0,0,0,0.175)' );
+	}
+
+	return $builder;
+}
+
+/**
+ * The link underline setting, written for the block editor canvas.
+ *
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_editor_link_underline( $builder, $val, $setting ) {
+	if ( $val ) {
+		$builder->add_css( '.editor-styles-wrapper a:not(.wp-element-button):not(.wp-block-button__link)', 'text-decoration', 'none' );
+	}
+
+	return $builder;
+}
+
+/**
+ * The link hover underline setting, written for the block editor canvas.
+ *
+ * @param SiteOrigin_Customizer_CSS_Builder $builder
+ * @param mixed $val
+ * @param array $setting
+ *
+ * @return SiteOrigin_Customizer_CSS_Builder
+ */
+function vantage_customizer_editor_link_hover_underline( $builder, $val, $setting ) {
+	if ( $val ) {
+		$builder->add_css( '.editor-styles-wrapper a:not(.wp-element-button):not(.wp-block-button__link):hover', 'text-decoration', 'underline' );
+	}
+
+	return $builder;
+}
+
 function vantage_customizer_callback_image_shadow( $builder, $val, $setting ) {
 	if ( $val ) {
 		$builder->add_css( '.entry-content img', '-webkit-border-radius', '3px' );
