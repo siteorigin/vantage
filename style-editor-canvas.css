@@ -5,9 +5,11 @@
  * rather than enqueued like an admin stylesheet. WordPress puts them inside the
  * canvas and scopes them there, so they are written without a wrapper.
  *
- * These are the theme defaults. A setting the user has changed is written over
- * the top of them by vantage_block_editor_customizer_styles(), which only
- * emits what differs from the default.
+ * These are the theme defaults, matching what the front end shows before any
+ * setting is changed. Keep the values here in step with the defaults declared
+ * in inc/customizer.php and the base rules in style.less. A setting the user
+ * has changed is written over the top of them by
+ * vantage_block_editor_customizer_styles(), which only emits what differs.
  */
 .wp-block {
   max-width: 720px;
@@ -20,7 +22,7 @@
 }
 body {
   color: #666;
-  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 13px;
 }
 h1,
@@ -30,7 +32,7 @@ h4,
 h5,
 h6 {
   color: #444;
-  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 h1 {
   font-size: 22px;
