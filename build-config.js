@@ -29,6 +29,7 @@ module.exports = {
             'rtl.less',
             'less/**/css/*.less',
             'less/style-editor.less',
+            'less/style-editor-canvas.less',
         ],
         include:[
             'less/*.less'
